@@ -22,11 +22,12 @@
   "main": "/lib/index.js",
   "scripts": {
     "build": "rimraf *.tsbuildinfo lib && tsc -b",
+    "dev": "tsc -b --watch",
     "lint": "eslint --ext .ts",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint --fix",
+    "*.ts": "eslint --fix",
     "package.json": "sort-package-json"
   },
   "devDependencies": {

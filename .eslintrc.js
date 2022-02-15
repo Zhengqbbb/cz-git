@@ -3,8 +3,11 @@ module.exports = {
   extends: ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   plugins: ["@typescript-eslint"],
   env: {
-    browser: true,
+    node: true,
     jasmine: true
+  },
+  rules: {
+    "@typescript-eslint/no-unused-vars": "error"
   },
   globals: {
     console: true,
