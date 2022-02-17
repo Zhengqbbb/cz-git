@@ -57,10 +57,10 @@ export function getMinLength(rule?: Rule): number {
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
-    info: "\x1b[32m",
-    warm: "\x1b[33m",
-    err: "\x1b[31m",
-    reset: "\x1b[0m"
+    info: "\u001B[32m",
+    warm: "\u001B[33m",
+    err: "\u001B[31m",
+    reset: "\u001B[0m"
   };
   console.log(`${colorMapping[type]}[${type}]»»»: ${msg}`);
 }

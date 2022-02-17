@@ -73,7 +73,7 @@ export interface commitizenGitOptions {
    * @description: Provides an overriding select of prompt to select module scopes under specific typs
    * @example: [test] => provide select e2eTest unitTest
    */
-  scopeOverrides?: { [type: string]: Option[] };
+  scopeOverrides?: { [type: string]: Array<{ name: string }> };
 
   /**
    * @description: Whether to not selectable skipping when appearing or customizing when selecting scopes

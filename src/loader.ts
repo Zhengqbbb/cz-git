@@ -8,7 +8,7 @@
 import { configLoader } from "commitizen";
 import { defaultConfig } from "./share";
 import { getMaxLength, getMinLength, log } from "./until";
-import type { Config, commitizenGitOptions } from "./share";
+import type { Answers, Config, commitizenGitOptions } from "./share";
 
 /**
  * @description: Compatibility support for cz-conventional-changelog
@@ -40,47 +40,49 @@ export const generateOptions = (clConfig: any): commitizenGitOptions => {
   }
 }
 
-// export const generateQuestions = (options: commitizenGitOptions) => {
-//   if (!Array.isArray(options.types)) {
-//     log("err", "Error [types] Option")
-//   }
-//   const defaultTypes = options!.types!.map((i) => {
-//     return { [i.value]: i }
-//   });
-//   console.log(defaultTypes);
-//   console.log(Object.entries(defaultTypes));
-//   return [
-//     {
-//       type: "autocomplete",
-//       name: "type",
-//       message: options.messages?.type,
-//       default: defaultTypes,
-//       // @ts-ignore
-//       source: (_: unknown, input: string) => Object.entries(defaultTypes)
-//         .filter(([key]) => input ? key.includes(input) : true )
-//         .map(([key, { name }]) => ({
-//           name,
-//           value: key
-//         }))
-//     }
-//   ];
-// };
-
-export const generateQuestions = (options: commitizenGitOptions) => {
+export const generateQuestions = (options: commitizenGitOptions, cz:any) => {
   if (!Array.isArray(options.types)) {
-    log("err", "Error [types] Option")
+    log("err", "Error [types] Option");
   }
   return [
     {
       type: "autocomplete",
       name: "type",
       message: options.messages?.type,
-      default: options.types,
-      source: (_: unknown, input: string) => options.types
-        ?.filter(item => input ? item.value.includes(input) : true) || true
-    }
+      source: (_: unknown, input: string) =>
+        options.types?.filter((item) => (input ? item.value.includes(input) : true)) || true
+    },
+    {
+      type: "autocomplete",
+      name: "scope",
+      message: options.messages?.scope,
+      source: (answer: Answers, input: string) => {
+        let scopes: Array<{ name: string }> = [];
+        if (options.scopeOverrides && answer.type && options.scopeOverrides[answer.type]) {
+          scopes = scopes.concat(options.scopeOverrides[answer.type]);
+        } else if (Array.isArray(options.scopes)) {
+          scopes = scopes.concat(options.scopes);
+        }
+        if (options.allowCustomScopes || scopes.length === 0) {
+          scopes = scopes.concat([
+            new cz.Separator(),
+            { name: 'empty', value: false },
+            { name: 'custom', value: 'custom' },
+          ]);
+        }
+        return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
+      }
+    },
+    {
+      type: 'input',
+      name: 'scope',
+      message: options.messages?.customScope,
+      when(answers: Answers) {
+        return answers.scope === 'custom';
+      },
+    },
   ];
 };
 
-type GenerateQuestionsType = typeof generateQuestions
-export type QuestionsType = ReturnType<GenerateQuestionsType>
+type GenerateQuestionsType = typeof generateQuestions;
+export type QuestionsType = ReturnType<GenerateQuestionsType>;

@@ -24,7 +24,7 @@ interface CommitizenType {
 export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
   commitlintLoad().then((clConfig) => {
     const options = generateOptions(clConfig);
-    const questions = generateQuestions(options);
+    const questions = generateQuestions(options, cz);
     console.log(options.maxSubjectLength);
     cz.registerPrompt("autocomplete", autocompletePrompt);
     cz.prompt(questions).then((answers) => {
