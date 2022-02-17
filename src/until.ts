@@ -2,6 +2,9 @@
  * @from: @commitlint/cz-commitlint/src/utils/rules.ts
  */
 import { RuleConfigCondition, RuleConfigSeverity } from "@commitlint/types";
+import fs from "fs";
+import path from "path";
+import { Answers, commitizenGitOptions } from "./share";
 
 export type Rule =
   | Readonly<[RuleConfigSeverity.Disabled]>
@@ -62,5 +65,46 @@ export function log(type: "info" | "warm" | "err", msg: string) {
     err: "\u001B[31m",
     reset: "\u001B[0m"
   };
-  console.log(`${colorMapping[type]}[${type}]»»»: ${msg}`);
+  console.log(`${colorMapping[type]}[${type}]>>>: ${msg}`);
 }
+
+export const getPreparedCommit = (context: string) => {
+  let message = null;
+  if (fs.existsSync(path.resolve(__dirname, "./.git/COMMIT_EDITMSG"))) {
+    const prepared = fs.readFileSync(path.resolve(__dirname, "./.git/COMMIT_EDITMSG"), "utf-8");
+
+    const preparedCommit = prepared
+      .replace(/^#.*/gm, "")
+      .replace(/^\s*[\r\n]/gm, "")
+      .replace(/[\r\n]$/, "")
+      .split(/\r\n|\r|\n/);
+
+    if (preparedCommit.length && preparedCommit[0]) {
+      if (context === "subject") [message] = preparedCommit;
+      else if (context === "body" && preparedCommit.length > 1) {
+        preparedCommit.shift();
+        message = preparedCommit.join("|");
+      }
+    }
+  }
+  return message;
+};
+
+export const getProcessSubject = (text: string) => {
+  return text.replace(/(^[\s]+|[\s\.]+$)/g, "") ?? "";
+};
+
+export const getMaxSubjectLength = (
+  type: Answers["type"],
+  scope: Answers["scope"],
+  options: commitizenGitOptions
+) => {
+  if (!options.maxHeaderWidth || !type?.length) return 100;
+  return (
+    options.maxHeaderWidth -
+    type.length -
+    2 -
+    (scope ? scope.length + 2 : 0) -
+    (options.useEmoji ? 2 : 0)
+  );
+};

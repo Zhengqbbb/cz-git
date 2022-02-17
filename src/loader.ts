@@ -7,7 +7,7 @@
 // @ts-ignore
 import { configLoader } from "commitizen";
 import { defaultConfig } from "./share";
-import { getMaxLength, getMinLength, log } from "./until";
+import { getMaxLength, getMinLength, getProcessSubject, getMaxSubjectLength, log } from "./until";
 import type { Answers, Config, commitizenGitOptions } from "./share";
 
 /**
@@ -29,6 +29,7 @@ export const generateOptions = (clConfig: any): commitizenGitOptions => {
     scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? defaultConfig.scopes,
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
     allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? defaultConfig.allowCustomScopes,
+    upperCaseSubject: pkgConfig.upperCaseSubject ?? clPromptConfig.upperCaseSubject ?? defaultConfig.upperCaseSubject,
     allowBreakingChanges: pkgConfig.allowBreakingChanges ?? clPromptConfig.allowBreakingChanges ?? defaultConfig.allowBreakingChanges,
     skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
     issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
@@ -40,9 +41,10 @@ export const generateOptions = (clConfig: any): commitizenGitOptions => {
   }
 }
 
-export const generateQuestions = (options: commitizenGitOptions, cz:any) => {
-  if (!Array.isArray(options.types)) {
+export const generateQuestions = (options: commitizenGitOptions, cz: any) => {
+  if (!Array.isArray(options.types) || options.types.length === 0) {
     log("err", "Error [types] Option");
+    return false;
   }
   return [
     {
@@ -64,23 +66,79 @@ export const generateQuestions = (options: commitizenGitOptions, cz:any) => {
           scopes = scopes.concat(options.scopes);
         }
         if (options.allowCustomScopes || scopes.length === 0) {
+          // TODO: add align option
           scopes = scopes.concat([
-            new cz.Separator(),
-            { name: 'empty', value: false },
-            { name: 'custom', value: 'custom' },
+            // TODO: option
+            new cz.Separator(""),
+            // TODO: option
+            { name: "empty", value: false },
+            { name: "custom", value: "custom" }
           ]);
         }
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
     },
     {
-      type: 'input',
-      name: 'scope',
+      type: "input",
+      name: "scope",
       message: options.messages?.customScope,
       when(answers: Answers) {
-        return answers.scope === 'custom';
-      },
+        return answers.scope === "custom";
+      }
     },
+    {
+      type: "input",
+      name: "subject",
+      message: options.messages?.subject,
+      validate(subject: string, answers: Answers) {
+        const processedSubject = getProcessSubject(subject);
+        if (processedSubject.length === 0)
+          return "\u001B[1;31m[ERROR] subject is required\u001B[0m";
+        if (!options.minSubjectLength && !options.maxSubjectLength) {
+          log("err", "Error [Subject Length] Option");
+          return false;
+        }
+        const maxSubjectLength = getMaxSubjectLength(answers.type, answers.scope, options);
+        if (options.minSubjectLength && processedSubject.length < options.minSubjectLength)
+          return `\u001B[1;31m[ERROR]subject length must be greater than or equal to ${options.minSubjectLength} characters\u001B[0m`;
+        if (processedSubject.length > maxSubjectLength)
+          return `\u001B[1;31m[ERROR]subject length must be less than or equal to ${maxSubjectLength} characters\u001B[0m`;
+        return true;
+      },
+      transformer: (subject: string, answers: Answers) => {
+        const { minSubjectLength } = options;
+        const subjectLength = subject.length;
+        const maxSubjectLength = getMaxSubjectLength(answers.type, answers.scope, options);
+        let tooltip;
+        if (minSubjectLength !== undefined && subjectLength < minSubjectLength)
+          tooltip = `${minSubjectLength - subjectLength} more chars needed`;
+        else if (subjectLength > maxSubjectLength)
+          tooltip = `${subjectLength - maxSubjectLength} chars over the limit`;
+        else tooltip = `${maxSubjectLength - subjectLength} more chars allowed`;
+        const tooltipColor =
+          minSubjectLength !== undefined &&
+          subjectLength >= minSubjectLength &&
+          subjectLength <= maxSubjectLength
+            ? "\u001B[90m"
+            : "\u001B[31m";
+        const subjectColor =
+          minSubjectLength !== undefined &&
+          subjectLength >= minSubjectLength &&
+          subjectLength <= maxSubjectLength
+            ? "\u001B[36m"
+            : "\u001B[31m";
+
+        return `${tooltipColor}[${tooltip}]\u001B[0m\n  ${subjectColor}${subject}\u001B[0m`;
+      },
+      filter(subject: string) {
+        const upperCaseSubject = options.upperCaseSubject || false;
+
+        return (
+          (upperCaseSubject ? subject.charAt(0).toUpperCase() : subject.charAt(0).toLowerCase()) +
+          subject.slice(1)
+        );
+      }
+    }
   ];
 };
 

@@ -82,6 +82,12 @@ export interface commitizenGitOptions {
   allowCustomScopes?: boolean;
 
   /**
+   * @description: Subject is need upper case first.
+   * @default false
+   */
+  upperCaseSubject?: boolean;
+
+  /**
    * @description: Allow breaking changes in the included types output box
    * @default: ['feat', 'fix']
    */
@@ -142,6 +148,7 @@ export const defaultConfig = Object.freeze({
   scopes: [{ name: 'READEME' }, { name: 'theme' }, { name: 'module' }, { name: 'plugin' }],
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
+  upperCaseSubject: false,
   skipQuestions: [],
   issuePrefixs: [
     { value: "link", name: "processing to ISSUES" },
