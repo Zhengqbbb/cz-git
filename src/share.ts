@@ -6,7 +6,7 @@
  */
 
 export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
-  scopes: typesOption[];
+  scopes: TypesOption[];
   disableScopeLowerCase?: boolean;
   disableSubjectLowerCase?: boolean;
   maxHeaderWidth?: number;
@@ -25,8 +25,9 @@ export type Answers = {
   subject?: string;
   body?: string;
   breaking?: string;
-  footer?: string;
   footerPrefixsSelect?: string;
+  customFooterPrefixs?: string;
+  footer?: string;
   confirmCommit?: string;
 };
 
@@ -41,7 +42,7 @@ interface Option {
   value: string;
 }
 
-export interface typesOption extends Option {
+export interface TypesOption extends Option {
   /**
    * @description: Submit emoji commit string
    * @see: https://gitmoji.dev/
@@ -50,13 +51,13 @@ export interface typesOption extends Option {
   emoji?: string;
 }
 
-export interface commitizenGitOptions {
+export interface CommitizenGitOptions {
   messages?: Answers;
 
   /**
    * @description: commitizen cli prompt
    */
-  types?: typesOption[];
+  types?: TypesOption[];
 
   /**
    * @description: use emoji ？| it will be use typesOption.emoji code
@@ -127,7 +128,8 @@ export const defaultConfig = Object.freeze({
     subject: "Write a SHORT, IMPERATIVE tense description of the change:\n",
     body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
     breaking: "List any BREAKING CHANGES (optional):\n",
-    footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):\n",
+    footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):",
+    customFooterPrefixs: "Input ISSUES Prefix:",
     footer: "List any ISSUES by this change. E.g.: #31, #34, #I972S:\n",
     confirmCommit: "Are you sure you want to proceed with the commit above ?"
   },
@@ -151,8 +153,8 @@ export const defaultConfig = Object.freeze({
   upperCaseSubject: false,
   skipQuestions: [],
   issuePrefixs: [
-    { value: "link", name: "processing to ISSUES" },
-    { value: "closed", name: "ISSUES has been processed" }
+    { value: "link", name: "link:     processing to ISSUES" },
+    { value: "closed", name: "closed:   ISSUES has been processed" }
   ],
   confirmNoColor: false
-} as commitizenGitOptions);
+} as CommitizenGitOptions);

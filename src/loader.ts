@@ -7,8 +7,15 @@
 // @ts-ignore
 import { configLoader } from "commitizen";
 import { defaultConfig } from "./share";
-import { getMaxLength, getMinLength, getProcessSubject, getMaxSubjectLength, log } from "./until";
-import type { Answers, Config, commitizenGitOptions } from "./share";
+import {
+  getMaxLength,
+  getMinLength,
+  getProcessSubject,
+  getMaxSubjectLength,
+  buildCommit,
+  log
+} from "./until";
+import type { Answers, Config, CommitizenGitOptions } from "./share";
 
 /**
  * @description: Compatibility support for cz-conventional-changelog
@@ -20,10 +27,10 @@ const pkgConfig: Config = configLoader.load() ?? {};
 
 /* eslint-disable prettier/prettier */
 /* prettier-ignore */
-export const generateOptions = (clConfig: any): commitizenGitOptions => {
+export const generateOptions = (clConfig: any): CommitizenGitOptions => {
   const clPromptConfig = clConfig.prompt ?? {};
   return {
-    messages: pkgConfig.messages ?? clPromptConfig.message ?? defaultConfig.messages,
+    messages: pkgConfig.messages ?? clPromptConfig.messages ?? defaultConfig.messages,
     types: pkgConfig.types ?? clPromptConfig.types ?? defaultConfig.types,
     useEmoji: pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
     scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? defaultConfig.scopes,
@@ -41,12 +48,12 @@ export const generateOptions = (clConfig: any): commitizenGitOptions => {
   }
 }
 
-export const generateQuestions = (options: commitizenGitOptions, cz: any) => {
+export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
     log("err", "Error [types] Option");
     return false;
   }
-  return [
+  return  [
     {
       type: "autocomplete",
       name: "type",
@@ -90,6 +97,7 @@ export const generateQuestions = (options: commitizenGitOptions, cz: any) => {
       type: "input",
       name: "subject",
       message: options.messages?.subject,
+      // TODO: add default
       validate(subject: string, answers: Answers) {
         const processedSubject = getProcessSubject(subject);
         if (processedSubject.length === 0)
@@ -138,8 +146,78 @@ export const generateQuestions = (options: commitizenGitOptions, cz: any) => {
           subject.slice(1)
         );
       }
+    },
+    {
+      type: "input",
+      name: "body",
+      // TODO: add default
+      message: options.messages?.body
+    },
+    {
+      type: "input",
+      name: "breaking",
+      message: options.messages?.breaking,
+      when(answers: Answers) {
+        if (
+          options.allowBreakingChanges &&
+          answers.type &&
+          options.allowBreakingChanges.includes(answers.type)
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    {
+      type: "autocomplete",
+      name: "footerPrefixsSelect",
+      message: options.messages?.footerPrefixsSelect,
+      source: (_: Answers, input: string) => {
+        let issues: Array<{ name: string; value: string }> = [
+          { name: "skip", value: false },
+          { name: "custom", value: "custom" },
+          new cz.Separator("")
+        ];
+        if (Array.isArray(options.issuePrefixs)) {
+          issues = issues.concat(options.issuePrefixs);
+        }
+        return issues?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
+      }
+    },
+    {
+      type: "input",
+      name: "footerPre",
+      message: options.messages?.customFooterPrefixs,
+      when(answers: Answers) {
+        return answers.footerPrefixsSelect === "custom";
+      }
+    },
+    {
+      type: 'input',
+      name: 'footer',
+      default: "",
+      when(answers: Answers) {
+        return answers.footerPrefixsSelect as string | boolean !== false;
+      },
+      message: options.messages?.footer,
+    },
+    {
+      type: "expand",
+      name: "confirmCommit",
+      choices: [
+        { key: "y", name: "Yes", value: "yes" },
+        { key: "n", name: "Abort commit", value: "no" },
+        { key: "e", name: "Edit message", value: "edit" }
+      ],
+      default: 0,
+      message(answers: Answers) {
+        const SEP = "###--------------------------------------------------------###";
+        console.info(`\n${SEP}\n${buildCommit(answers, options, true)}\n${SEP}\n`);
+        return options.messages?.confirmCommit;
+      }
     }
-  ];
+  ].filter((i) => !options.skipQuestions?.includes(i.name));
 };
 
 type GenerateQuestionsType = typeof generateQuestions;

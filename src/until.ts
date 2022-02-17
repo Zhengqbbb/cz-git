@@ -4,7 +4,8 @@
 import { RuleConfigCondition, RuleConfigSeverity } from "@commitlint/types";
 import fs from "fs";
 import path from "path";
-import { Answers, commitizenGitOptions } from "./share";
+// import wrap from "word-wrap";
+import { Answers, CommitizenGitOptions } from "./share";
 
 export type Rule =
   | Readonly<[RuleConfigSeverity.Disabled]>
@@ -97,7 +98,7 @@ export const getProcessSubject = (text: string) => {
 export const getMaxSubjectLength = (
   type: Answers["type"],
   scope: Answers["scope"],
-  options: commitizenGitOptions
+  options: CommitizenGitOptions
 ) => {
   if (!options.maxHeaderWidth || !type?.length) return 100;
   return (
@@ -107,4 +108,41 @@ export const getMaxSubjectLength = (
     (scope ? scope.length + 2 : 0) -
     (options.useEmoji ? 2 : 0)
   );
+};
+
+const addType = (type: string, options: CommitizenGitOptions, color?: boolean) => {
+  type = color ? `\u001B[33m${type}\u001B[0m` : type;
+  if (options.useEmoji) {
+    const item = options.types?.find((i) => i.value === type);
+    return item?.emoji ? `${item.emoji} ${type}` : type;
+  } else {
+    return type;
+  }
+};
+
+const addScope = (scope?: string, color?: boolean) => {
+  const separator = ": ";
+  if (!scope) return separator;
+  scope = color ? `\u001B[35m${scope}\u001B[0m` : scope;
+  return `(${scope.trim()})${separator}`;
+};
+
+const addSubject = (subject?: string, color?: boolean) => {
+  if (!subject) return "";
+  subject = color ? `\u001B[36m${subject}\u001B[0m` : subject;
+  return subject.trim();
+};
+
+export const buildCommit = (answers: Answers, options: CommitizenGitOptions, color: boolean) => {
+  // const wrapOption = {
+  //   trim: true,
+  //   newLine: "\n",
+  //   indent: "",
+  //   width: 100
+  // };
+  const head =
+    addType(answers.type ?? "", options, color) +
+    addScope(answers.scope, color) +
+    addSubject(answers.subject, color);
+  return head;
 };

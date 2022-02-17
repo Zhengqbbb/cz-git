@@ -4,3 +4,5 @@ lib/
 
 # Typescript build info
 *.tsbuildinfo
+
+*.log

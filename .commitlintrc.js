@@ -13,7 +13,8 @@ module.exports = {
       subject: "Write a SHORT, IMPERATIVE tense description of the change:\n",
       body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
       breaking: "List any BREAKING CHANGES (optional):\n",
-      footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):\n",
+      footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):",
+      customFooterPrefixs: "Input ISSUES Prefix:",
       footer: "List any ISSUES by this change. E.g.: #31, #34, #I972S:\n",
       confirmCommit: "Are you sure you want to proceed with the commit above ?"
     },
@@ -36,8 +37,8 @@ module.exports = {
     allowBreakingChanges: ['feat', 'fix'],
     skipQuestions: ['body'],
     issuePrefixs: [
-      { value: "link", name: "processing to ISSUES" },
-      { value: "closed", name: "ISSUES has been processed" }
+      { value: "link", name: "link:     processing to ISSUES" },
+      { value: "closed", name: "closed:   ISSUES has been processed" }
     ],
     confirmNoColor: false
   }
