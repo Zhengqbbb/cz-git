@@ -28,14 +28,24 @@
 <!-- TOC -->
 
 - [Feature](#feature)
+- [Usage](#usage)
+- [Configure](#configure)
+- [Options](#options)
 - [LICENSE](#license)
 
 <!-- /TOC -->
 
 ## Feature
 - Just to be a **lazy man** !!! Select if you can.
-- **Customize**, but it is recommended not to violate.
-- Better support for issue, especially gitee issue tracking for Chinese users.
+- **Customize**, But follow conventional commit format like [Angular convention](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines).
+- Reduce errors and better support for issue.
+
+## Usage
+
+## Configure
+
+## Options
 
 ## LICENSE
+
 Copyright (c) 2022-present Qiubin Zheng (@Zhengqbbb zhengqbbb@gmail.com)

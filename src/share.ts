@@ -1,3 +1,35 @@
+/**
+ * @description: cz-git types
+ * @author: @Zhengqbbb (zhengqbbb@gmail.com)
+ * @license: MIT
+ * @copyright: Copyright (c) 2022-present Qiubin Zheng
+ */
+
+export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
+  scopes: typesOption[];
+  disableScopeLowerCase?: boolean;
+  disableSubjectLowerCase?: boolean;
+  maxHeaderWidth?: number;
+  maxLineWidth?: number;
+  defaultType?: string;
+  defaultScope?: string;
+  defaultSubject?: string;
+  defaultBody?: string;
+  defaultIssues?: string;
+};
+
+export type Answers = {
+  type?: string;
+  scope?: string;
+  customScope?: string;
+  subject?: string;
+  body?: string;
+  breaking?: string;
+  footer?: string;
+  footerPrefixsSelect?: string;
+  confirmCommit?: string;
+};
+
 interface Option {
   /**
    * @description: show prompt name
@@ -6,7 +38,7 @@ interface Option {
   /**
    * @description: output real value
    */
-  value?: string;
+  value: string;
 }
 
 export interface typesOption extends Option {
@@ -19,17 +51,7 @@ export interface typesOption extends Option {
 }
 
 export interface commitizenGitOptions {
-  messages?: {
-    type?: string;
-    scope?: string;
-    customScope?: string;
-    subject?: string;
-    body?: string;
-    breaking?: string;
-    footer?: string;
-    footerPrefixsSelect?: string;
-    confirmCommit?: string;
-  };
+  messages?: Answers;
 
   /**
    * @description: commitizen cli prompt
@@ -45,7 +67,7 @@ export interface commitizenGitOptions {
   /**
    * @description: Provides a select of prompt to select module scopes
    */
-  scopes?: Option[];
+  scopes?: Array<{ name: string }>;
 
   /**
    * @description: Provides an overriding select of prompt to select module scopes under specific typs
@@ -82,6 +104,11 @@ export interface commitizenGitOptions {
    * @default: false
    */
   confirmNoColor?: boolean;
+
+  maxHeaderWidth?: number;
+  maxSubjectLength?: number;
+  minSubjectLength?: number;
+  maxLineWidth?: number;
 }
 
 /* eslint-disable prettier/prettier */
@@ -99,23 +126,23 @@ export const defaultConfig = Object.freeze({
     confirmCommit: "Are you sure you want to proceed with the commit above ?"
   },
   types: [
-    { value: "feat", name: "feat:    A new feature", emoji: ":sparkles:" },
-    { value: "fix", name: "fix:    A bug fix", emoji: ":bug:" },
+    { value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" },
+    { value: "fix", name: "fix:      A bug fix", emoji: ":bug:" },
     { value: "docs", name: "docs:     Documentation only changes", emoji: ":memo:" },
-    { value: "style", name: "style:     Changes that do not affect the meaning of the code", emoji: ":lipstick:" },
+    { value: "style", name: "style:    Changes that do not affect the meaning of the code", emoji: ":lipstick:" },
     { value: "refactor", name: "refactor: A code change that neither fixes a bug nor adds a feature", emoji: ":recycle:" },
     { value: "perf", name: "perf:     A code change that improves performance", emoji: ":zap:" },
     { value: "test", name: "test:     Adding missing tests or correcting existing tests", emoji: ":rotating_light:" },
-    { value: "build", name: "build:     Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
-    { value: "ci", name: "ci:    Changes to our CI configuration files and scripts", emoji: ":green_heart:" },
+    { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
+    { value: "ci", name: "ci:       Changes to our CI configuration files and scripts", emoji: ":green_heart:" },
     { value: "chore", name: "chore:    Other changes that don't modify src or test files", emoji: ":hammer:" },
-    { value: "revert", name: "revert:    Reverts a previous commit", emoji: ":rewind:" }
+    { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
   ],
   useEmoji: false,
   scopes: [{ name: 'READEME' }, { name: 'theme' }, { name: 'module' }, { name: 'plugin' }],
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
-  skipQuestions: ['body'],
+  skipQuestions: [],
   issuePrefixs: [
     { value: "link", name: "processing to ISSUES" },
     { value: "closed", name: "ISSUES has been processed" }
