@@ -6,21 +6,26 @@
     "commitizen-adapter",
     "cz-git",
     "cz-gitee",
+    "cz-adapter",
     "customizable",
-    "cz-cli"
+    "cz-cli",
+    "cz-customizable"
   ],
-  "homepage": "https://github.com/Zhengqbbb/git-cz#readme",
+  "homepage": "https://github.com/Zhengqbbb/cz-git#readme",
   "bugs": {
-    "url": "https://github.com/Zhengqbbb/git-cz/issues"
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zhengqbbb/git-cz.git"
+    "url": "git+https://github.com/Zhengqbbb/cz-git.git"
   },
   "license": "MIT",
-  "author": "Zhengqbbb (zhengqbbb@gmail.com)",
-  "main": "/lib/index.js",
-  "types": "/lib/index.d.ts",
+  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rimraf *.tsbuildinfo lib && tsc -b",
     "dev": "tsc -b --watch",

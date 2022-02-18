@@ -48,4 +48,4 @@
 
 ## LICENSE
 
-Copyright (c) 2022-present Qiubin Zheng (@Zhengqbbb zhengqbbb@gmail.com)
+Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
