@@ -32,7 +32,7 @@ module.exports = {
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: false,
-    scopes: [{ name: 'cz-git' }, { name: 'guide' }, { name: 'module' }, { name: 'plugin' }],
+    scopes: [{ name: 'cz-git' }, { name: 'guide' }, { name: 'config' }, { name: 'module' }],
     allowCustomScopes: true,
     allowBreakingChanges: ['feat', 'fix'],
     skipQuestions: ['body'],
