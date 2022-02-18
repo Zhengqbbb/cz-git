@@ -20,8 +20,15 @@ import type { Answers, Config, CommitizenGitOptions } from "./share";
 /**
  * @description: Compatibility support for cz-conventional-changelog
  */
-const { CZ_MAX_HEADER_WIDTH, CZ_MAN_SUBJECT_LENGTH, CZ_MIN_SUBJECT_LENGTH, CZ_MAX_LINE_WIDTH } =
-  process.env;
+/* prettier-ignore */
+const {
+  CZ_SCOPE,
+  CZ_SUBJECT,
+  CZ_BODY,
+  CZ_ISSUES,
+  CZ_MAN_SUBJECT_LENGTH,
+  CZ_MIN_SUBJECT_LENGTH,
+} = process.env;
 
 const pkgConfig: Config = configLoader.load() ?? {};
 
@@ -41,10 +48,12 @@ export const generateOptions = (clConfig: any): CommitizenGitOptions => {
     skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
     issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
     confirmNoColor: pkgConfig.confirmNoColor ?? clPromptConfig.confirmNoColor ?? defaultConfig.confirmNoColor,
-    maxHeaderWidth: CZ_MAX_HEADER_WIDTH ? parseInt(CZ_MAX_HEADER_WIDTH) : getMaxLength(clConfig?.rules?.["header-max-length"]),
     maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"]),
     minSubjectLength: CZ_MIN_SUBJECT_LENGTH ? parseInt(CZ_MIN_SUBJECT_LENGTH) : getMinLength(clConfig?.rules?.["subject-min-length"]),
-    maxLineWidth: CZ_MAX_LINE_WIDTH ? parseInt(CZ_MAX_LINE_WIDTH) : getMaxLength(clConfig?.rules?.["max-line-width"]),
+    defaultScope: CZ_SCOPE ?? clPromptConfig.defaultScope ?? "",
+    defaultSubject: CZ_SUBJECT ?? clPromptConfig.defaultSubject ?? "",
+    defaultBody: CZ_BODY ?? clPromptConfig.defaultBody ?? "",
+    defaultIssues: CZ_ISSUES ?? clPromptConfig.defaultIssues ?? ""
   }
 }
 
@@ -53,7 +62,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     log("err", "Error [types] Option");
     return false;
   }
-  return  [
+  return [
     {
       type: "autocomplete",
       name: "type",
@@ -89,6 +98,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "input",
       name: "scope",
       message: options.messages?.customScope,
+      default: options.defaultScope || undefined,
       when(answers: Answers) {
         return answers.scope === "custom";
       }
@@ -97,7 +107,6 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "input",
       name: "subject",
       message: options.messages?.subject,
-      // TODO: add default
       validate(subject: string, answers: Answers) {
         const processedSubject = getProcessSubject(subject);
         if (processedSubject.length === 0)
@@ -145,18 +154,20 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           (upperCaseSubject ? subject.charAt(0).toUpperCase() : subject.charAt(0).toLowerCase()) +
           subject.slice(1)
         );
-      }
+      },
+      default: options.defaultSubject || undefined
     },
     {
       type: "input",
       name: "body",
-      // TODO: add default
-      message: options.messages?.body
+      message: options.messages?.body,
+      default: options.defaultBody || undefined
     },
     {
       type: "input",
       name: "breaking",
       message: options.messages?.breaking,
+      default: options.defaultBody || undefined,
       when(answers: Answers) {
         if (
           options.allowBreakingChanges &&
@@ -189,18 +200,18 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "input",
       name: "footerPrefixsSelect",
       message: options.messages?.customFooterPrefixs,
+      default: options.defaultIssues || undefined,
       when(answers: Answers) {
         return answers.footerPrefixsSelect === "custom";
-      }
+      },
     },
     {
-      type: 'input',
-      name: 'footer',
-      default: "",
+      type: "input",
+      name: "footer",
       when(answers: Answers) {
-        return answers.footerPrefixsSelect as string | boolean !== false;
+        return (answers.footerPrefixsSelect as string | boolean) !== false;
       },
-      message: options.messages?.footer,
+      message: options.messages?.footer
     },
     {
       type: "expand",
@@ -213,7 +224,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       default: 0,
       message(answers: Answers) {
         // TODO: COLOR
-        const SEP = "\u001B[1;90m###--------------------------------------------------------###\u001B[0m";
+        const SEP =
+          "\u001B[1;90m###--------------------------------------------------------###\u001B[0m";
         console.info(`\n${SEP}\n${buildCommit(answers, options, true)}\n${SEP}\n`);
         return options.messages?.confirmCommit;
       }

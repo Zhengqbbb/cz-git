@@ -17,7 +17,6 @@ export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
   disableSubjectLowerCase?: boolean;
   maxHeaderWidth?: number;
   maxLineWidth?: number;
-  defaultType?: string;
   defaultScope?: string;
   defaultSubject?: string;
   defaultBody?: string;
@@ -151,15 +150,47 @@ export interface CommitizenGitOptions {
   issuePrefixs?: Option[];
 
   /**
-   * @description: prompt final determination whether to display the color
+   * @description: Prompt final determination whether to display the color
    * @default: false
    */
   confirmNoColor?: boolean;
 
-  maxHeaderWidth?: number;
+  /**
+   * @description: Force set max subject length.
+   * @note: It will overWrite commitlint rule set
+   * @use: when you not use commitlint
+   */
   maxSubjectLength?: number;
+
+  /**
+   * @description: Force set header width.
+   * @note: It will overWrite commitlint rule set
+   * @use: when you not use commitlint
+   */
   minSubjectLength?: number;
-  maxLineWidth?: number;
+
+  /**
+   * @description: default value show scope custom prompt
+   * @example: When you want to use default, just keybord <Enter> it
+   */
+  defaultScope?: string;
+
+  /**
+   * @description: default value show subject prompt
+   * @example: When you want to use default, just keybord <Enter> it
+   */
+  defaultSubject?: string;
+
+  /**
+   * @description: default value show body and BREAKINGCHANGES prompt
+   * @example: When you want to use default, just keybord <Enter> it
+   */
+  defaultBody?: string;
+  /**
+   * @description: default value show issuePrefixs custom prompt
+   * @example: When you want to use default, just keybord <Enter> it
+   */
+  defaultIssues?: string;
 }
 
 /* eslint-disable prettier/prettier */

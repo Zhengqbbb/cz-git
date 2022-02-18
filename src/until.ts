@@ -104,7 +104,7 @@ export const getMaxSubjectLength = (
   options: CommitizenGitOptions
 ) => {
   return (
-    (options?.maxHeaderWidth ? options?.maxHeaderWidth : 100) -
+    (options?.maxSubjectLength ? options?.maxSubjectLength : 100) -
     (type?.length ? type.length : 0) -
     // `: `
     2 -
