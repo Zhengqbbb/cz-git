@@ -1,7 +1,7 @@
 module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
-    "scope-enum": [2, "always", [ "cz-git", "config", "README" ]],
+    "scope-enum": [2, "always", [ "cz-git", "guide", "config" ]],
     "subject-max-length": [2, 'always', 100],
     "subject-empty": [2, "never"],
   },
@@ -32,7 +32,7 @@ module.exports = {
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: false,
-    scopes: [{ name: 'cz-git' }, { name: 'guide' }, { name: 'config' }, { name: 'module' }],
+    scopes: [{ name: 'cz-git' }, { name: 'guide' }, { name: 'config' }],
     allowCustomScopes: true,
     allowBreakingChanges: ['feat', 'fix'],
     skipQuestions: ['body'],
