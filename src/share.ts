@@ -4,7 +4,7 @@
  * @license: MIT
  * @copyright: Copyright (c) 2022-present Qiubin Zheng
  */
-
+import type { QuestionsType } from "./loader";
 export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
   scopes: TypesOption[];
   disableScopeLowerCase?: boolean;
@@ -30,6 +30,11 @@ export type Answers = {
   footer?: string;
   confirmCommit?: string;
 };
+
+export interface CommitizenType {
+  registerPrompt: (type: string, plugin: unknown) => void;
+  prompt: (qs: QuestionsType) => Promise<Answers>;
+}
 
 interface Option {
   /**

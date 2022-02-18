@@ -7,28 +7,32 @@
 
 // @ts-ignore
 import autocompletePrompt from "inquirer-autocomplete-prompt";
-import { generateOptions, generateQuestions } from "./loader";
 import commitlintLoad from "@commitlint/load";
-import type { QuestionsType } from "./loader";
-import type { Answers } from "./share";
+import { generateOptions, generateQuestions } from "./loader";
+import { buildCommit, editCommit, log } from "./until";
+import type { CommitizenType } from "./share";
 
 export * from "./share";
 
-interface CommitizenType {
-  registerPrompt: (type: string, plugin: unknown) => void;
-  prompt: (qs: QuestionsType) => Promise<Answers>;
-}
-
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
   commitlintLoad().then((clConfig) => {
     const options = generateOptions(clConfig);
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("autocomplete", autocompletePrompt);
     cz.prompt(questions).then((answers) => {
-      console.log(answers);
-      return false;
+      switch (answers.confirmCommit) {
+        case "edit":
+          editCommit(answers, options, commit);
+          break;
+
+        case "yes":
+          commit(buildCommit(answers, options));
+          break;
+
+        default:
+          log("info", "Commit has been canceled.");
+          break;
+      }
     });
   });
 };

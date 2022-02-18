@@ -187,7 +187,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "input",
-      name: "footerPre",
+      name: "footerPrefixsSelect",
       message: options.messages?.customFooterPrefixs,
       when(answers: Answers) {
         return answers.footerPrefixsSelect === "custom";
@@ -212,7 +212,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       ],
       default: 0,
       message(answers: Answers) {
-        const SEP = "###--------------------------------------------------------###";
+        // TODO: COLOR
+        const SEP = "\u001B[1;90m###--------------------------------------------------------###\u001B[0m";
         console.info(`\n${SEP}\n${buildCommit(answers, options, true)}\n${SEP}\n`);
         return options.messages?.confirmCommit;
       }

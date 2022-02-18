@@ -4,7 +4,10 @@
 import { RuleConfigCondition, RuleConfigSeverity } from "@commitlint/types";
 import fs from "fs";
 import path from "path";
-// import wrap from "word-wrap";
+import wrap from "word-wrap";
+// @ts-ignore
+import editor from "editor";
+import { open as tempOpen } from "temp";
 import { Answers, CommitizenGitOptions } from "./share";
 
 export type Rule =
@@ -66,7 +69,7 @@ export function log(type: "info" | "warm" | "err", msg: string) {
     err: "\u001B[31m",
     reset: "\u001B[0m"
   };
-  console.log(`${colorMapping[type]}[${type}]>>>: ${msg}`);
+  console.log(`${colorMapping[type]}[${type}]>>>: ${msg}${colorMapping.reset}`);
 }
 
 export const getPreparedCommit = (context: string) => {
@@ -100,11 +103,12 @@ export const getMaxSubjectLength = (
   scope: Answers["scope"],
   options: CommitizenGitOptions
 ) => {
-  if (!options.maxHeaderWidth || !type?.length) return 100;
   return (
-    options.maxHeaderWidth -
-    type.length -
+    (options?.maxHeaderWidth ? options?.maxHeaderWidth : 100) -
+    (type?.length ? type.length : 0) -
+    // `: `
     2 -
+    // `()`
     (scope ? scope.length + 2 : 0) -
     (options.useEmoji ? 2 : 0)
   );
@@ -133,16 +137,70 @@ const addSubject = (subject?: string, color?: boolean) => {
   return subject.trim();
 };
 
-export const buildCommit = (answers: Answers, options: CommitizenGitOptions, color: boolean) => {
-  // const wrapOption = {
-  //   trim: true,
-  //   newLine: "\n",
-  //   indent: "",
-  //   width: 100
-  // };
+const addBreaklinesIfNeeded = (value: string, breaklineChar = "|") =>
+  value.split(breaklineChar).join("\n").valueOf();
+
+const addFooter = (footer: string, footerPrefixsSelect = "", color?: boolean) => {
+  if (footerPrefixsSelect === "") {
+    return color ? `\n\n\u001B[32m${footer}\u001B[0m` : `\n\n${footer}`;
+  }
+  return color
+    ? `\n\n\u001B[32m${footerPrefixsSelect} ${footer}\u001B[0m`
+    : `\n\n${footerPrefixsSelect} ${footer}`;
+};
+
+export const buildCommit = (answers: Answers, options: CommitizenGitOptions, color = false) => {
+  const wrapOptions = {
+    trim: true,
+    newLine: "\n",
+    indent: "",
+    width: 100
+  };
   const head =
     addType(answers.type ?? "", options, color) +
     addScope(answers.scope, color) +
     addSubject(answers.subject, color);
-  return head;
+  const body = wrap(answers.body ?? "", wrapOptions);
+  const breaking = wrap(answers.breaking ?? "", wrapOptions);
+  const footer = wrap(answers.footer ?? "", wrapOptions);
+
+  let result = head;
+  if (body) {
+    // TODO: options.breaklineChar => prams
+    result += `\n\n${addBreaklinesIfNeeded(body)}`;
+  }
+  if (breaking) {
+    result += `\n\nBREAKING CHANGE :\n${addBreaklinesIfNeeded(breaking)}`;
+  }
+  if (footer) {
+    result += addFooter(footer, answers.footerPrefixsSelect, color);
+  }
+  return result;
+};
+
+export const editCommit = (
+  answers: Answers,
+  options: CommitizenGitOptions,
+  cb: (message: string) => void
+) => {
+  tempOpen(undefined, (err, info) => {
+    if (!err) {
+      fs.writeSync(info.fd, buildCommit(answers, options));
+      fs.close(info.fd, () => {
+        editor(info.path, (code: number) => {
+          if (code === 0) {
+            const commitStr = fs.readFileSync(info.path, {
+              encoding: "utf8"
+            });
+            cb(commitStr);
+          } else {
+            log(
+              "warm",
+              `Editor exit non zero. Commit message was:\n${buildCommit(answers, options)}`
+            );
+          }
+        });
+      });
+    }
+  });
 };
