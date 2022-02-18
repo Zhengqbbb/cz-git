@@ -19,4 +19,4 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **cz-git:** done commit prompt overall process ([bfb969c](https://github.com/Zhengqbbb/git-cz/commit/bfb969cd03711a2733fcfe59ff93170d353da6e4)), link [#1](https://github.com/Zhengqbbb/git-cz/issues/1)
+* **cz-git:** done commit prompt overall process ([bfb969c](https://github.com/Zhengqbbb/cz-git/commit/bfb969cd03711a2733fcfe59ff93170d353da6e4)), link [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
