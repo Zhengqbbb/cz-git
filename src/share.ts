@@ -5,6 +5,12 @@
  * @copyright: Copyright (c) 2022-present Qiubin Zheng
  */
 import type { QuestionsType } from "./loader";
+import type { UserConfig as CommitlintUserConfig } from "@commitlint/types";
+
+export interface UserConfig extends CommitlintUserConfig {
+  prompt: CommitizenGitOptions;
+}
+
 export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
   scopes: TypesOption[];
   disableScopeLowerCase?: boolean;
@@ -19,15 +25,45 @@ export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
 };
 
 export type Answers = {
+  /**
+   * @default: Select the type of change that you're committing:
+   */
   type?: string;
+  /**
+   * @default: Denote the SCOPE of this change (optional):
+   */
   scope?: string;
+  /**
+   * @default: Denote the SCOPE of this change:
+   */
   customScope?: string;
+  /**
+   * @default: Write a SHORT, IMPERATIVE tense description of the change:\n
+   */
   subject?: string;
+  /**
+   * @default:Provide a LONGER description of the change (optional). Use "|" to break new line:\n
+   */
   body?: string;
+  /**
+   * @default: List any BREAKING CHANGES (optional):\n
+   */
   breaking?: string;
+  /**
+   * @default: Select the ISSUES type of changeList by this change (optional):
+   */
   footerPrefixsSelect?: string;
+  /**
+   * @default: Input ISSUES Prefix:
+   */
   customFooterPrefixs?: string;
+  /**
+   * @default: List any ISSUES by this change. E.g.: #31, #34, #I972S:\n
+   */
   footer?: string;
+  /**
+   * @default: Are you sure you want to proceed with the commit above ?
+   */
   confirmCommit?: string;
 };
 
@@ -57,15 +93,18 @@ export interface TypesOption extends Option {
 }
 
 export interface CommitizenGitOptions {
+  /**
+   * @description: Customize prompt questions
+   */
   messages?: Answers;
 
   /**
-   * @description: commitizen cli prompt
+   * @description: Customize prompt type
    */
   types?: TypesOption[];
 
   /**
-   * @description: use emoji ？| it will be use typesOption.emoji code
+   * @description: Use emoji ？| it will be use typesOption.emoji code
    * @default: false
    */
   useEmoji?: boolean;

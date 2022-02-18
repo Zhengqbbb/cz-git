@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@commitlint/load": "^16.2.1",
+    "@commitlint/types": "^16.2.1",
     "commitizen": "^4.2.4",
     "editor": "^1.0.0",
     "inquirer-autocomplete-prompt": "^1.4.0",
@@ -54,7 +55,6 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
-    "@commitlint/types": "^16.2.1",
     "@types/node": "^17.0.18",
     "@types/temp": "^0.9.1",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
