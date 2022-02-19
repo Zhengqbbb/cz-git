@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/Zhengqbbb/cz-git/compare/v1.0.2...v1.0.3) (2022-02-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cz-git:** e.g: { value: "cz-git", name: "cz-git:   core control" }
+
+### Features
+
+* **cz-git:** scopes config support value to add descrition for selector ([980f163](https://github.com/Zhengqbbb/cz-git/commit/980f1631d00a68a9a328319c0f8d3523c5e3e0e2)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
 ### [1.0.2](https://github.com/Zhengqbbb/cz-git/compare/v1.0.1...v1.0.2) (2022-02-18)
 
 
