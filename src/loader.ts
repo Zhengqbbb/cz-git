@@ -6,12 +6,13 @@
 
 // @ts-ignore
 import { configLoader } from "commitizen";
-import { defaultConfig } from "./share";
+import { defaultConfig, Option } from "./share";
 import {
   getMaxLength,
   getMinLength,
   getProcessSubject,
   getMaxSubjectLength,
+  handleScopes,
   buildCommit,
   log
 } from "./until";
@@ -75,11 +76,11 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "scope",
       message: options.messages?.scope,
       source: (answer: Answers, input: string) => {
-        let scopes: Array<{ name: string }> = [];
+        let scopes: Option[] = [];
         if (options.scopeOverrides && answer.type && options.scopeOverrides[answer.type]) {
-          scopes = scopes.concat(options.scopeOverrides[answer.type]);
+          scopes = scopes.concat(handleScopes(options.scopeOverrides[answer.type]));
         } else if (Array.isArray(options.scopes)) {
-          scopes = scopes.concat(options.scopes);
+          scopes = scopes.concat(handleScopes(options.scopes));
         }
         if (options.allowCustomScopes || scopes.length === 0) {
           // TODO: add align option
@@ -87,8 +88,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
             // TODO: option
             new cz.Separator(""),
             // TODO: option
-            { name: "empty", value: false },
-            { name: "custom", value: "custom" }
+            { value: false, name: "empty" },
+            { value: "custom", name: "custom" }
           ]);
         }
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
@@ -203,7 +204,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       default: options.defaultIssues || undefined,
       when(answers: Answers) {
         return answers.footerPrefixsSelect === "custom";
-      },
+      }
     },
     {
       type: "input",

@@ -12,7 +12,7 @@ export interface UserConfig extends CommitlintUserConfig {
 }
 
 export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
-  scopes: TypesOption[];
+  scopes: ScopesType;
   disableScopeLowerCase?: boolean;
   disableSubjectLowerCase?: boolean;
   maxHeaderWidth?: number;
@@ -66,12 +66,14 @@ export type Answers = {
   confirmCommit?: string;
 };
 
+export type ScopesType = string[] | Array<{ name: string; value?: string }>;
+
 export interface CommitizenType {
   registerPrompt: (type: string, plugin: unknown) => void;
   prompt: (qs: QuestionsType) => Promise<Answers>;
 }
 
-interface Option {
+export interface Option {
   /**
    * @description: show prompt name
    */
@@ -111,13 +113,13 @@ export interface CommitizenGitOptions {
   /**
    * @description: Provides a select of prompt to select module scopes
    */
-  scopes?: Array<{ name: string }>;
+  scopes?: ScopesType;
 
   /**
    * @description: Provides an overriding select of prompt to select module scopes under specific typs
    * @example: [test] => provide select e2eTest unitTest
    */
-  scopeOverrides?: { [type: string]: Array<{ name: string }> };
+  scopeOverrides?: { [type: string]: ScopesType };
 
   /**
    * @description: Whether to not selectable skipping when appearing or customizing when selecting scopes
@@ -222,7 +224,7 @@ export const defaultConfig = Object.freeze({
     { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
   ],
   useEmoji: false,
-  scopes: [{ name: 'READEME' }, { name: 'theme' }, { name: 'module' }, { name: 'plugin' }],
+  scopes: [],
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
   upperCaseSubject: false,

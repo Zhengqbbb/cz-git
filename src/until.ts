@@ -8,7 +8,7 @@ import wrap from "word-wrap";
 // @ts-ignore
 import editor from "editor";
 import { open as tempOpen } from "temp";
-import { Answers, CommitizenGitOptions } from "./share";
+import { Answers, CommitizenGitOptions, Option, ScopesType } from "./share";
 
 export type Rule =
   | Readonly<[RuleConfigSeverity.Disabled]>
@@ -112,6 +112,21 @@ export const getMaxSubjectLength = (
     (scope ? scope.length + 2 : 0) -
     (options.useEmoji ? 2 : 0)
   );
+};
+
+/**
+ * @description: handle scope configuration option into standard options
+ * @param {ScopesType}
+ * @returns {Option[]}
+ */
+export const handleScopes = (scopes: ScopesType): Option[] => {
+  return scopes.map((scope) => {
+    return typeof scope === "string"
+      ? { name: scope, value: scope }
+      : !scope.value
+      ? { value: scope.name, ...scope }
+      : { value: scope.value, name: scope.name };
+  });
 };
 
 const addType = (type: string, options: CommitizenGitOptions, color?: boolean) => {
