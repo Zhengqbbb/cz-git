@@ -33,7 +33,7 @@
     "lint": "eslint --ext .ts",
     "prepare": "husky install",
     "prerelease": "yarn lint",
-    "release": "standard-version -- --release-as minor",
+    "release": "standard-version --release-as patch",
     "release-as": "standard-version --release-as"
   },
   "lint-staged": {
