@@ -4,11 +4,12 @@
   "description": "A better customizable and git support commitizen adapter",
   "keywords": [
     "commitizen-adapter",
+    "cli",
+    "cz-cli",
     "cz-git",
     "cz-gitee",
     "cz-adapter",
     "customizable",
-    "cz-cli",
     "cz-customizable"
   ],
   "homepage": "https://github.com/Zhengqbbb/cz-git#readme",
