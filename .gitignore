@@ -2,7 +2,14 @@ node_modules
 # Bundle
 lib/
 
-# Typescript build info
+# Typescript build file
 *.tsbuildinfo
+
+# Typescript test file
+jest.config.d.ts
+jest.config.js
+*.test.js
+*.test.d.ts
+coverage
 
 *.log

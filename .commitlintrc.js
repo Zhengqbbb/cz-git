@@ -1,3 +1,4 @@
+/** @type {import('./lib').UserConfig} */
 module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
