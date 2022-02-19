@@ -11,7 +11,7 @@
     <br/>
     <a href="https://github.com/Zhengqbbb/cz-git/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-brightgreen.svg"><img>
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social"></img></a>
-    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git/actions?query=check">
+    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git/actions/workflows/check.yml">
     <img alt="test-pass" src="https://github.com/Zhengqbbb/cz-git/workflows/check/badge.svg"><img></a>
     <br/>
     <a href="https://www.npmjs.com/package/cz-git">
