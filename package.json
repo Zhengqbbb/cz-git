@@ -32,7 +32,8 @@
     "dev": "tsc -b --watch",
     "lint": "eslint --ext .ts",
     "prepare": "husky install",
-    "release": "standard-version",
+    "prerelease": "yarn lint",
+    "release": "standard-version -- --release-as minor",
     "release-as": "standard-version --release-as"
   },
   "lint-staged": {
