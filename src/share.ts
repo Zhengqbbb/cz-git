@@ -229,7 +229,7 @@ export const defaultConfig = Object.freeze({
   allowBreakingChanges: ['feat', 'fix'],
   upperCaseSubject: false,
   skipQuestions: [],
-  issuePrefixs: [],
+  issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
   confirmNoColor: false,
   maxSubjectLength: Infinity,
   minSubjectLength: 0,

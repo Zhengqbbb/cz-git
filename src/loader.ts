@@ -51,10 +51,10 @@ export const generateOptions = (clConfig: any): CommitizenGitOptions => {
     confirmNoColor: pkgConfig.confirmNoColor ?? clPromptConfig.confirmNoColor ?? defaultConfig.confirmNoColor,
     maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"]),
     minSubjectLength: CZ_MIN_SUBJECT_LENGTH ? parseInt(CZ_MIN_SUBJECT_LENGTH) : getMinLength(clConfig?.rules?.["subject-min-length"]),
-    defaultScope: CZ_SCOPE ?? clPromptConfig.defaultScope ?? "",
-    defaultSubject: CZ_SUBJECT ?? clPromptConfig.defaultSubject ?? "",
-    defaultBody: CZ_BODY ?? clPromptConfig.defaultBody ?? "",
-    defaultIssues: CZ_ISSUES ?? clPromptConfig.defaultIssues ?? ""
+    defaultScope: CZ_SCOPE ?? clPromptConfig.defaultScope ?? defaultConfig.defaultScope,
+    defaultSubject: CZ_SUBJECT ?? clPromptConfig.defaultSubject ?? defaultConfig.defaultSubject,
+    defaultBody: CZ_BODY ?? clPromptConfig.defaultBody ?? defaultConfig.defaultBody,
+    defaultIssues: CZ_ISSUES ?? clPromptConfig.defaultIssues ?? defaultConfig.defaultIssues
   }
 }
 
