@@ -229,9 +229,13 @@ export const defaultConfig = Object.freeze({
   allowBreakingChanges: ['feat', 'fix'],
   upperCaseSubject: false,
   skipQuestions: [],
-  issuePrefixs: [
-    { value: "link", name: "link:     processing to ISSUES" },
-    { value: "closed", name: "closed:   ISSUES has been processed" }
-  ],
-  confirmNoColor: false
+  issuePrefixs: [],
+  confirmNoColor: false,
+  maxSubjectLength: Infinity,
+  minSubjectLength: 0,
+  scopeOverrides: undefined,
+  defaultBody: "",
+  defaultIssues: "",
+  defaultScope: "",
+  defaultSubject: ""
 } as CommitizenGitOptions);

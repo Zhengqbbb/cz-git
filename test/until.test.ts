@@ -23,3 +23,7 @@ describe("getMaxLength()", () => {
     expect(getMaxLength(clConfig.rules["subject-max-length"] as unknown as Rule)).toEqual(Infinity);
   });
 });
+
+// TODO: getMinLength
+
+// TODO: getEmojiStrLength
