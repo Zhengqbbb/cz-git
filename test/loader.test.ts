@@ -1,4 +1,4 @@
-import { buildCommit } from "../src/until";
+import { buildCommit } from "../lib/until";
 
 /**
  * @description: buildCommit Test
@@ -11,6 +11,22 @@ describe("buildCommit()", () => {
   };
   test("subject with default subject standard separator", () => {
     const options = {};
+    expect(buildCommit(answers, options)).toEqual("feat(app): add a new feature");
+  });
+
+  test("subject with emoji options standard separator", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" }],
+      useEmoji: true
+    };
+    expect(buildCommit(answers, options)).toEqual("feat(app): :sparkles: add a new feature");
+  });
+
+  test("subject with emoji options and lost type standard separator", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature" }],
+      useEmoji: true
+    };
     expect(buildCommit(answers, options)).toEqual("feat(app): add a new feature");
   });
 });

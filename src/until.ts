@@ -98,6 +98,12 @@ export const getProcessSubject = (text: string) => {
   return text.replace(/(^[\s]+|[\s\.]+$)/g, "") ?? "";
 };
 
+const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number => {
+  const item = options.types?.find((i) => i.value === type);
+  // space
+  return item?.emoji ? item.emoji.length + 1 : 0;
+};
+
 export const getMaxSubjectLength = (
   type: Answers["type"],
   scope: Answers["scope"],
@@ -110,7 +116,7 @@ export const getMaxSubjectLength = (
     2 -
     // `()`
     (scope ? scope.length + 2 : 0) -
-    (options.useEmoji ? 2 : 0)
+    (options.useEmoji ? getEmojiStrLength(options, type) : 0)
   );
 };
 
@@ -129,21 +135,22 @@ export const handleScopes = (scopes: ScopesType): Option[] => {
   });
 };
 
-const addType = (type: string, options: CommitizenGitOptions, color?: boolean) => {
-  type = color ? `\u001B[33m${type}\u001B[0m` : type;
-  if (options.useEmoji) {
-    const item = options.types?.find((i) => i.value === type);
-    return item?.emoji ? `${item.emoji} ${type}` : type;
-  } else {
-    return type;
-  }
-};
+const addType = (type: string, color?: boolean) => (color ? `\u001B[33m${type}\u001B[0m` : type);
 
 const addScope = (scope?: string, color?: boolean) => {
-  const separator = ": ";
+  const separator = ":";
   if (!scope) return separator;
   scope = color ? `\u001B[35m${scope}\u001B[0m` : scope;
   return `(${scope.trim()})${separator}`;
+};
+
+const addEmoji = (type: string, options: CommitizenGitOptions): string => {
+  if (options.useEmoji && type !== "") {
+    const item = options.types?.find((i) => i.value === type);
+    return item?.emoji ? ` ${item.emoji} ` : " ";
+  } else {
+    return " ";
+  }
 };
 
 const addSubject = (subject?: string, color?: boolean) => {
@@ -172,8 +179,9 @@ export const buildCommit = (answers: Answers, options: CommitizenGitOptions, col
     width: 100
   };
   const head =
-    addType(answers.type ?? "", options, color) +
+    addType(answers.type ?? "", color) +
     addScope(answers.scope, color) +
+    addEmoji(answers.type ?? "", options) +
     addSubject(answers.subject, color);
   const body = wrap(answers.body ?? "", wrapOptions);
   const breaking = wrap(answers.breaking ?? "", wrapOptions);

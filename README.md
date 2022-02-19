@@ -45,9 +45,9 @@ A better customizable and git support commitizen adapter.
 
 ## Feature
 
-- Just to be a **lazy man** !!! Select if you can.
+- Just to be a **lazy man** !!! Search and Select if you can.
 - **Customize**, But follow conventional commit format like [Angular convention](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines).
-- Reduce errors and better support for issue.
+- Reduce errors | Better support for issue | ✅ Support emoji.
 
 ## Usage
 
