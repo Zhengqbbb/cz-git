@@ -11,7 +11,7 @@
     <br/>
     <a href="https://github.com/Zhengqbbb/cz-git/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-brightgreen.svg"><img>
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social"></img></a>
-    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git/actions/workflows/Node.js%20CI.yml">
+    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git/actions/workflows/nodejs.yml">
     <img alt="test-ci" src="https://github.com/Zhengqbbb/cz-git/workflows/Node.js%20CI/badge.svg"><img></a>
     <br/>
     <a href="https://www.npmjs.com/package/cz-git">
