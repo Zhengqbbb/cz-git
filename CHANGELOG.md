@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/Zhengqbbb/cz-git/compare/v1.0.4...v1.0.5) (2022-02-21)
+
+
+### Features
+
+* **cz-git:** support both head and subject max rules ([2444724](https://github.com/Zhengqbbb/cz-git/commit/24447247fec13d3f9c4ba323d74da5904f63133f)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
 ### [1.0.4](https://github.com/Zhengqbbb/cz-git/compare/v1.0.3...v1.0.4) (2022-02-19)
 
 
