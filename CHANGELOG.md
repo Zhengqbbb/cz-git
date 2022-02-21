@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/Zhengqbbb/cz-git/compare/v1.0.5...v1.0.6) (2022-02-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cz-git:** add option `breaklineChar`
+
+### Features
+
+* **cz-git:** add breaklineChar option to make new line for body and BreakingChanges ([6691c26](https://github.com/Zhengqbbb/cz-git/commit/6691c2624925551b4ad4175e0e9d953ebfe47baf)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
 ### [1.0.5](https://github.com/Zhengqbbb/cz-git/compare/v1.0.4...v1.0.5) (2022-02-21)
 
 
