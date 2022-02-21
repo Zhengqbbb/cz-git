@@ -211,13 +211,13 @@ const addSubject = (subject?: string, color?: boolean) => {
 const addBreaklinesIfNeeded = (value: string, breaklineChar = "|") =>
   value.split(breaklineChar).join("\n").valueOf();
 
-const addFooter = (footer: string, footerPrefixsSelect = "", color?: boolean) => {
-  if (footerPrefixsSelect === "") {
+const addFooter = (footer: string, footerPrefix = "", color?: boolean) => {
+  if (footerPrefix === "") {
     return color ? `\n\n\u001B[32m${footer}\u001B[0m` : `\n\n${footer}`;
   }
   return color
-    ? `\n\n\u001B[32m${footerPrefixsSelect} ${footer}\u001B[0m`
-    : `\n\n${footerPrefixsSelect} ${footer}`;
+    ? `\n\n\u001B[32m${footerPrefix} ${footer}\u001B[0m`
+    : `\n\n${footerPrefix} ${footer}`;
 };
 
 export const buildCommit = (answers: Answers, options: CommitizenGitOptions, color = false) => {
@@ -238,14 +238,13 @@ export const buildCommit = (answers: Answers, options: CommitizenGitOptions, col
 
   let result = head;
   if (body) {
-    // TODO: options.breaklineChar => prams
-    result += `\n\n${addBreaklinesIfNeeded(body)}`;
+    result += `\n\n${addBreaklinesIfNeeded(body, options.breaklineChar)}`;
   }
   if (breaking) {
-    result += `\n\nBREAKING CHANGE :\n${addBreaklinesIfNeeded(breaking)}`;
+    result += `\n\nBREAKING CHANGE :\n${addBreaklinesIfNeeded(breaking, options.breaklineChar)}`;
   }
   if (footer) {
-    result += addFooter(footer, answers.footerPrefixsSelect, color);
+    result += addFooter(footer, answers.footerPrefix, color);
   }
   return result;
 };

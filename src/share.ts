@@ -53,6 +53,7 @@ export type Answers = {
    * @default: Select the ISSUES type of changeList by this change (optional):
    */
   footerPrefixsSelect?: string;
+  footerPrefix?: string;
   /**
    * @default: Input ISSUES Prefix:
    */
@@ -139,6 +140,12 @@ export interface CommitizenGitOptions {
    * @default: ['feat', 'fix']
    */
   allowBreakingChanges?: string[];
+
+  /**
+   * @description: body and BREAKINGCHANGES new line char
+   * @default: "|"
+   */
+  breaklineChar?: string;
 
   /**
    * @description: List of questions you want to skip
@@ -236,6 +243,7 @@ export const defaultConfig = Object.freeze({
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
   upperCaseSubject: false,
+  breaklineChar: "|",
   skipQuestions: [],
   issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
   confirmNoColor: false,

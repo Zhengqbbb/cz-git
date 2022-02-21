@@ -37,6 +37,7 @@ module.exports = {
     scopes: [{ value: "cz-git", name: "cz-git:   core control" }, { name: "guide" } , 'config'],
     allowCustomScopes: true,
     allowBreakingChanges: ['feat', 'fix'],
+    breaklineChar: "|",
     skipQuestions: ['body'],
     issuePrefixs: [
       { value: "link", name: "link:     processing to ISSUES" },

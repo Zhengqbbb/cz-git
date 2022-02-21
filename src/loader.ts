@@ -2,9 +2,7 @@
  * @description: generate commitizen config option(generateOptions) | generate commitizen questions(generateQuestions)
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
- * TODO: fix getMaxSubjectLength add header max length
  * TODO: add custom skip option to higher custom
- * TODO: add breaklineChar option
  * TODO: add end prompt color option
  */
 
@@ -51,6 +49,7 @@ export const generateOptions = (clConfig: any): CommitizenGitOptions => {
     allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? defaultConfig.allowCustomScopes,
     upperCaseSubject: pkgConfig.upperCaseSubject ?? clPromptConfig.upperCaseSubject ?? defaultConfig.upperCaseSubject,
     allowBreakingChanges: pkgConfig.allowBreakingChanges ?? clPromptConfig.allowBreakingChanges ?? defaultConfig.allowBreakingChanges,
+    breaklineChar: pkgConfig.breaklineChar ?? clPromptConfig.breaklineChar ?? defaultConfig.breaklineChar,
     skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
     issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
     confirmNoColor: pkgConfig.confirmNoColor ?? clPromptConfig.confirmNoColor ?? defaultConfig.confirmNoColor,
@@ -186,7 +185,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "autocomplete",
-      name: "footerPrefixsSelect",
+      name: "footerPrefix",
       message: options.messages?.footerPrefixsSelect,
       source: (_: Answers, input: string) => {
         let issues: Array<{ name: string; value: string }> = [
@@ -202,18 +201,18 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "input",
-      name: "footerPrefixsSelect",
+      name: "footerPrefixs",
       message: options.messages?.customFooterPrefixs,
       default: options.defaultIssues || undefined,
       when(answers: Answers) {
-        return answers.footerPrefixsSelect === "custom";
+        return answers.footerPrefix === "custom";
       }
     },
     {
       type: "input",
       name: "footer",
       when(answers: Answers) {
-        return (answers.footerPrefixsSelect as string | boolean) !== false;
+        return (answers.footerPrefix as string | boolean) !== false;
       },
       message: options.messages?.footer
     },
