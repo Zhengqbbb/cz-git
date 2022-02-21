@@ -4,6 +4,7 @@ module.exports = {
   rules: {
     "scope-enum": [2, "always", [ "cz-git", "guide", "config" ]],
     "header-max-length": [2, 'always', 100],
+    "subject-min-length": [2, 'always', 2],
     "subject-empty": [2, "never"],
   },
   prompt: {
