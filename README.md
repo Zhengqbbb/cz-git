@@ -9,7 +9,7 @@
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git"><img alt="Binance-tool" src="https://img.shields.io/badge/Commitizen-Adapter-red.svg?logo=git&style=flat"><img></a>
     <br/>
-    <a target="_blank" href="http://commitizen.github.io/cz-cli/"><img alt="commitizen-friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"><img></a>
+    <a target="_blank" href="http://commitizen.github.io/cz-cli/"><img alt="commitizen-friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?logo=github"><img></a>
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social"></img></a>
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git/actions/workflows/nodejs.yml"><img alt="test-ci" src="https://github.com/Zhengqbbb/cz-git/workflows/Node.js%20CI/badge.svg"><img></a>
     <br/>
@@ -40,6 +40,8 @@
 
 A better customizable and git support commitizen adapter.
 
+![demo-gif](https://user-images.githubusercontent.com/40693636/154906217-e0b1c5d0-9294-4072-8082-c0cdd9392023.gif)
+
 ## Feature
 
 - Just to be a **lazy man** !!! Search and Select if you can.
@@ -54,4 +56,7 @@ A better customizable and git support commitizen adapter.
 
 ## LICENSE
 
+MIT
 Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
+
+> I just my best to do a small thing well, Could you give me a [star](https://github.com/Zhengqbbb/cz-git)
