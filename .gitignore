@@ -1,4 +1,8 @@
 node_modules
+*.log
+
+# Mac OS
+.DS_Store
 # Bundle
 lib/
 
@@ -11,5 +15,3 @@ jest.config.js
 *.test.js
 *.test.d.ts
 coverage
-
-*.log
