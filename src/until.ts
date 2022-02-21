@@ -16,9 +16,21 @@ export type Rule =
   | Readonly<[RuleConfigSeverity, RuleConfigCondition, unknown]>;
 
 /**
- * Check if a rule definition is active
- * @param rule to check
- * @return if the rule definition is active
+ * @description: rule is Disabled
+ * @example: ruleIsDisabled([0]) => true
+ * @example: ruleIsDisabled([2]) => false
+ */
+export function ruleIsDisabled(rule: Rule): rule is Readonly<[RuleConfigSeverity.Disabled]> {
+  if (rule && Array.isArray(rule) && rule[0] === RuleConfigSeverity.Disabled) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * @description: rule is use
+ * @example: ruleIsActive([0]) => false
+ * @example: ruleIsActive([2]) => true
  */
 export function ruleIsActive<T extends Rule>(
   rule: T
@@ -30,9 +42,21 @@ export function ruleIsActive<T extends Rule>(
 }
 
 /**
- * Check if a rule definition is applicable
- * @param rule to check
- * @return if the rule definition is applicable
+ * @description: rule is can ignore
+ */
+export function ruleIsNotApplicable(
+  rule: Rule
+): rule is
+  | Readonly<[RuleConfigSeverity, "never"]>
+  | Readonly<[RuleConfigSeverity, "never", unknown]> {
+  if (rule && Array.isArray(rule)) {
+    return rule[1] === "never";
+  }
+  return false;
+}
+
+/**
+ * @description: rule is effect
  */
 export function ruleIsApplicable(
   rule: Rule
@@ -45,8 +69,20 @@ export function ruleIsApplicable(
   return false;
 }
 
+export function enumRuleIsActive(
+  rule: Rule
+): rule is Readonly<[RuleConfigSeverity.Warning | RuleConfigSeverity.Error, "always", string[]]> {
+  return (
+    ruleIsActive(rule) && ruleIsApplicable(rule) && Array.isArray(rule[2]) && rule[2].length > 0
+  );
+}
+
+export function getEnumList(rule: Rule): string[] {
+  return Array.isArray(rule[2]) ? rule[2] : [];
+}
+
 /**
- * @example: getMaxLength(rules['max-line-length'])
+ * @example: getMaxLength(rules['max-header-length'] => 100)
  */
 export function getMaxLength(rule?: Rule): number {
   if (rule && ruleIsActive(rule) && ruleIsApplicable(rule) && typeof rule[2] === "number") {
@@ -55,6 +91,9 @@ export function getMaxLength(rule?: Rule): number {
   return Infinity;
 }
 
+/**
+ * @example:  getMinLength(rules['min-header-length'] => 2)
+ */
 export function getMinLength(rule?: Rule): number {
   if (rule && ruleIsActive(rule) && ruleIsApplicable(rule) && typeof rule[2] === "number") {
     return rule[2];
@@ -109,13 +148,23 @@ export const getMaxSubjectLength = (
   scope: Answers["scope"],
   options: CommitizenGitOptions
 ) => {
+  let optionMaxLength = Infinity;
+  const maxHeaderLength = options?.maxHeaderLength ? options?.maxHeaderLength : Infinity;
+  const maxSubjectLength = options?.maxSubjectLength ? options?.maxSubjectLength : Infinity;
+  if (options?.maxHeaderLength === 0 || options?.maxSubjectLength === 0) {
+    return 0;
+  } else if (maxHeaderLength === Infinity) {
+    optionMaxLength = maxSubjectLength !== Infinity ? maxSubjectLength : Infinity;
+  } else {
+    optionMaxLength = maxHeaderLength < maxSubjectLength ? maxHeaderLength : maxSubjectLength;
+  }
   return (
-    (options?.maxSubjectLength ? options?.maxSubjectLength : 100) -
+    optionMaxLength -
     (type?.length ? type.length : 0) -
-    // `: `
-    2 -
     // `()`
     (scope ? scope.length + 2 : 0) -
+    // `: `
+    2 -
     (options.useEmoji ? getEmojiStrLength(options, type) : 0)
   );
 };

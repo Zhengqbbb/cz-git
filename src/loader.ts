@@ -2,6 +2,10 @@
  * @description: generate commitizen config option(generateOptions) | generate commitizen questions(generateQuestions)
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
+ * TODO: fix getMaxSubjectLength add header max length
+ * TODO: add custom skip option to higher custom
+ * TODO: add breaklineChar option
+ * TODO: add end prompt color option
  */
 
 // @ts-ignore
@@ -27,6 +31,7 @@ const {
   CZ_SUBJECT,
   CZ_BODY,
   CZ_ISSUES,
+  CZ_MAN_HEADER_LENGTH,
   CZ_MAN_SUBJECT_LENGTH,
   CZ_MIN_SUBJECT_LENGTH,
 } = process.env;
@@ -49,6 +54,7 @@ export const generateOptions = (clConfig: any): CommitizenGitOptions => {
     skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
     issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
     confirmNoColor: pkgConfig.confirmNoColor ?? clPromptConfig.confirmNoColor ?? defaultConfig.confirmNoColor,
+    maxHeaderLength: CZ_MAN_HEADER_LENGTH ? parseInt(CZ_MAN_HEADER_LENGTH) : getMaxLength(clConfig?.rules?.["header-max-length"]),
     maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"]),
     minSubjectLength: CZ_MIN_SUBJECT_LENGTH ? parseInt(CZ_MIN_SUBJECT_LENGTH) : getMinLength(clConfig?.rules?.["subject-min-length"]),
     defaultScope: CZ_SCOPE ?? clPromptConfig.defaultScope ?? defaultConfig.defaultScope,
@@ -83,11 +89,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           scopes = scopes.concat(handleScopes(options.scopes));
         }
         if (options.allowCustomScopes || scopes.length === 0) {
-          // TODO: add align option
           scopes = scopes.concat([
-            // TODO: option
             new cz.Separator(""),
-            // TODO: option
             { value: false, name: "empty" },
             { value: "custom", name: "custom" }
           ]);
@@ -224,7 +227,6 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       ],
       default: 0,
       message(answers: Answers) {
-        // TODO: COLOR
         const SEP =
           "\u001B[1;90m###--------------------------------------------------------###\u001B[0m";
         console.info(`\n${SEP}\n${buildCommit(answers, options, true)}\n${SEP}\n`);

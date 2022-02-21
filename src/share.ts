@@ -15,8 +15,9 @@ export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
   scopes: ScopesType;
   disableScopeLowerCase?: boolean;
   disableSubjectLowerCase?: boolean;
-  maxHeaderWidth?: number;
-  maxLineWidth?: number;
+  maxHeaderLength?: number;
+  maxSubjectLength?: number;
+  minSubjectLength?: number;
   defaultScope?: string;
   defaultSubject?: string;
   defaultBody?: string;
@@ -158,6 +159,13 @@ export interface CommitizenGitOptions {
   confirmNoColor?: boolean;
 
   /**
+   * @description: Force set max header length | Equivalent setting maxSubjectLength.
+   * @note: It will overWrite commitlint rule set And effect maxSubjectLength
+   * @use: when you not use commitlint
+   */
+  maxHeaderLength?: number;
+
+  /**
    * @description: Force set max subject length.
    * @note: It will overWrite commitlint rule set
    * @use: when you not use commitlint
@@ -231,6 +239,7 @@ export const defaultConfig = Object.freeze({
   skipQuestions: [],
   issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
   confirmNoColor: false,
+  maxHeaderLength: Infinity,
   maxSubjectLength: Infinity,
   minSubjectLength: 0,
   scopeOverrides: undefined,

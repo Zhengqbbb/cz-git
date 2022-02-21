@@ -3,7 +3,7 @@ module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     "scope-enum": [2, "always", [ "cz-git", "guide", "config" ]],
-    "subject-max-length": [2, 'always', 100],
+    "header-max-length": [2, 'always', 100],
     "subject-empty": [2, "never"],
   },
   prompt: {
@@ -32,7 +32,7 @@ module.exports = {
       { value: "chore", name: "chore:    Other changes that don't modify src or test files", emoji: ":hammer:" },
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
     ],
-    useEmoji: true,
+    useEmoji: false,
     scopes: [{ value: "cz-git", name: "cz-git:   core control" }, { name: "guide" } , 'config'],
     allowCustomScopes: true,
     allowBreakingChanges: ['feat', 'fix'],
