@@ -1,7 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-printf "\n\033[1;32m%s \033[1;33m%s \033[1;32m%s\033[0m\n" \
+printf "\n\033[1;32m%s\033[0m \033[1m%s \033[1;32m%s\033[0m\n" \
     "»»»" \
     "eslint checking commit file..." \
     "«««"
