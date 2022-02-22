@@ -43,6 +43,6 @@ module.exports = {
       { value: "link", name: "link:     processing to ISSUES" },
       { value: "closed", name: "closed:   ISSUES has been processed" }
     ],
-    confirmNoColor: false
+    confirmColorize: true
   }
 };

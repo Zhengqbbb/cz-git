@@ -3,7 +3,6 @@
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
  * TODO: add custom skip option to higher custom
- * TODO: add end prompt color option
  */
 
 // @ts-ignore
@@ -23,7 +22,6 @@ import type { Answers, Config, CommitizenGitOptions } from "./share";
 /**
  * @description: Compatibility support for cz-conventional-changelog
  */
-/* prettier-ignore */
 const {
   CZ_SCOPE,
   CZ_SUBJECT,
@@ -31,7 +29,7 @@ const {
   CZ_ISSUES,
   CZ_MAN_HEADER_LENGTH,
   CZ_MAN_SUBJECT_LENGTH,
-  CZ_MIN_SUBJECT_LENGTH,
+  CZ_MIN_SUBJECT_LENGTH
 } = process.env;
 
 const pkgConfig: Config = configLoader.load() ?? {};
@@ -52,7 +50,7 @@ export const generateOptions = (clConfig: any): CommitizenGitOptions => {
     breaklineChar: pkgConfig.breaklineChar ?? clPromptConfig.breaklineChar ?? defaultConfig.breaklineChar,
     skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
     issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
-    confirmNoColor: pkgConfig.confirmNoColor ?? clPromptConfig.confirmNoColor ?? defaultConfig.confirmNoColor,
+    confirmColorize: pkgConfig.confirmColorize ?? clPromptConfig.confirmColorize ?? defaultConfig.confirmColorize,
     maxHeaderLength: CZ_MAN_HEADER_LENGTH ? parseInt(CZ_MAN_HEADER_LENGTH) : getMaxLength(clConfig?.rules?.["header-max-length"]),
     maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"]),
     minSubjectLength: CZ_MIN_SUBJECT_LENGTH ? parseInt(CZ_MIN_SUBJECT_LENGTH) : getMinLength(clConfig?.rules?.["subject-min-length"]),
@@ -226,9 +224,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       ],
       default: 0,
       message(answers: Answers) {
-        const SEP =
-          "\u001B[1;90m###--------------------------------------------------------###\u001B[0m";
-        console.info(`\n${SEP}\n${buildCommit(answers, options, true)}\n${SEP}\n`);
+        const SEP = options.confirmColorize
+          ? "\u001B[1;90m###--------------------------------------------------------###\u001B[0m"
+          : "###--------------------------------------------------------###";
+        console.info(`\n${SEP}\n${buildCommit(answers, options, options.confirmColorize)}\n${SEP}\n`);
         return options.messages?.confirmCommit;
       }
     }

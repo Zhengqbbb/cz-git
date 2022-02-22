@@ -184,12 +184,13 @@ export const handleScopes = (scopes: ScopesType): Option[] => {
   });
 };
 
-const addType = (type: string, color?: boolean) => (color ? `\u001B[33m${type}\u001B[0m` : type);
+const addType = (type: string, colorize?: boolean) =>
+  colorize ? `\u001B[33m${type}\u001B[0m` : type;
 
-const addScope = (scope?: string, color?: boolean) => {
+const addScope = (scope?: string, colorize?: boolean) => {
   const separator = ":";
   if (!scope) return separator;
-  scope = color ? `\u001B[35m${scope}\u001B[0m` : scope;
+  scope = colorize ? `\u001B[35m${scope}\u001B[0m` : scope;
   return `(${scope.trim()})${separator}`;
 };
 
@@ -202,25 +203,25 @@ const addEmoji = (type: string, options: CommitizenGitOptions): string => {
   }
 };
 
-const addSubject = (subject?: string, color?: boolean) => {
+const addSubject = (subject?: string, colorize?: boolean) => {
   if (!subject) return "";
-  subject = color ? `\u001B[36m${subject}\u001B[0m` : subject;
+  subject = colorize ? `\u001B[36m${subject}\u001B[0m` : subject;
   return subject.trim();
 };
 
 const addBreaklinesIfNeeded = (value: string, breaklineChar = "|") =>
   value.split(breaklineChar).join("\n").valueOf();
 
-const addFooter = (footer: string, footerPrefix = "", color?: boolean) => {
+const addFooter = (footer: string, footerPrefix = "", colorize?: boolean) => {
   if (footerPrefix === "") {
-    return color ? `\n\n\u001B[32m${footer}\u001B[0m` : `\n\n${footer}`;
+    return colorize ? `\n\n\u001B[32m${footer}\u001B[0m` : `\n\n${footer}`;
   }
-  return color
+  return colorize
     ? `\n\n\u001B[32m${footerPrefix} ${footer}\u001B[0m`
     : `\n\n${footerPrefix} ${footer}`;
 };
 
-export const buildCommit = (answers: Answers, options: CommitizenGitOptions, color = false) => {
+export const buildCommit = (answers: Answers, options: CommitizenGitOptions, colorize = false) => {
   const wrapOptions = {
     trim: true,
     newLine: "\n",
@@ -228,10 +229,10 @@ export const buildCommit = (answers: Answers, options: CommitizenGitOptions, col
     width: 100
   };
   const head =
-    addType(answers.type ?? "", color) +
-    addScope(answers.scope, color) +
+    addType(answers.type ?? "", colorize) +
+    addScope(answers.scope, colorize) +
     addEmoji(answers.type ?? "", options) +
-    addSubject(answers.subject, color);
+    addSubject(answers.subject, colorize);
   const body = wrap(answers.body ?? "", wrapOptions);
   const breaking = wrap(answers.breaking ?? "", wrapOptions);
   const footer = wrap(answers.footer ?? "", wrapOptions);
@@ -244,7 +245,7 @@ export const buildCommit = (answers: Answers, options: CommitizenGitOptions, col
     result += `\n\nBREAKING CHANGE :\n${addBreaklinesIfNeeded(breaking, options.breaklineChar)}`;
   }
   if (footer) {
-    result += addFooter(footer, answers.footerPrefix, color);
+    result += addFooter(footer, answers.footerPrefix, colorize);
   }
   return result;
 };

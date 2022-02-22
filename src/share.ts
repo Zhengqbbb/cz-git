@@ -161,9 +161,9 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Prompt final determination whether to display the color
-   * @default: false
+   * @default: true
    */
-  confirmNoColor?: boolean;
+  confirmColorize?: boolean;
 
   /**
    * @description: Force set max header length | Equivalent setting maxSubjectLength.
@@ -246,7 +246,7 @@ export const defaultConfig = Object.freeze({
   breaklineChar: "|",
   skipQuestions: [],
   issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
-  confirmNoColor: false,
+  confirmColorize: true,
   maxHeaderLength: Infinity,
   maxSubjectLength: Infinity,
   minSubjectLength: 0,

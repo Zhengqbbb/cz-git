@@ -20,7 +20,7 @@
     <br/>
 </p>
 <p align="center">
-    <a href="https://github.com/Zhengqbbb/cz-git/blob/main/README.md">English doc</a>
+    <a href="https://github.com/Zhengqbbb/cz-git#readme">English doc</a>
     &nbsp; | &nbsp;
     <a href="https://www.qbenben.com/docs/play/commitizen-adapter-cz-git">简体中文文档</a>
 </p>
