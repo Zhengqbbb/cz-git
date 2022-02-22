@@ -14,6 +14,7 @@ import {
   getProcessSubject,
   getMaxSubjectLength,
   handleScopes,
+  handleCustomTemplate,
   buildCommit,
   log
 } from "./until";
@@ -45,11 +46,17 @@ export const generateOptions = (clConfig: any): CommitizenGitOptions => {
     scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? defaultConfig.scopes,
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
     allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? defaultConfig.allowCustomScopes,
+    customScopesAlign: pkgConfig.customScopesAlign ?? clPromptConfig.customScopesAlign ?? defaultConfig.customScopesAlign,
+    customScopesAlias: pkgConfig.customScopesAlias ?? clPromptConfig.customScopesAlias ?? defaultConfig.customScopesAlias,
+    emptyScopesAlias: pkgConfig.emptyScopesAlias ?? clPromptConfig.emptyScopesAlias ?? defaultConfig.emptyScopesAlias,
     upperCaseSubject: pkgConfig.upperCaseSubject ?? clPromptConfig.upperCaseSubject ?? defaultConfig.upperCaseSubject,
     allowBreakingChanges: pkgConfig.allowBreakingChanges ?? clPromptConfig.allowBreakingChanges ?? defaultConfig.allowBreakingChanges,
     breaklineChar: pkgConfig.breaklineChar ?? clPromptConfig.breaklineChar ?? defaultConfig.breaklineChar,
     skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
     issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
+    customIssuePrefixsAlign: pkgConfig.customIssuePrefixsAlign ?? clPromptConfig.customIssuePrefixsAlign ?? defaultConfig.customIssuePrefixsAlign,
+    emptyIssuePrefixsAlias: pkgConfig.emptyIssuePrefixsAlias ?? clPromptConfig.emptyIssuePrefixsAlias ?? defaultConfig.emptyIssuePrefixsAlias,
+    customIssuePrefixsAlias: pkgConfig.customIssuePrefixsAlias ?? clPromptConfig.customIssuePrefixsAlias ?? defaultConfig.customIssuePrefixsAlias,
     confirmColorize: pkgConfig.confirmColorize ?? clPromptConfig.confirmColorize ?? defaultConfig.confirmColorize,
     maxHeaderLength: CZ_MAN_HEADER_LENGTH ? parseInt(CZ_MAN_HEADER_LENGTH) : getMaxLength(clConfig?.rules?.["header-max-length"]),
     maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"]),
@@ -81,17 +88,17 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       source: (answer: Answers, input: string) => {
         let scopes: Option[] = [];
         if (options.scopeOverrides && answer.type && options.scopeOverrides[answer.type]) {
-          scopes = scopes.concat(handleScopes(options.scopeOverrides[answer.type]));
+          scopes = handleScopes(options.scopeOverrides[answer.type]);
         } else if (Array.isArray(options.scopes)) {
-          scopes = scopes.concat(handleScopes(options.scopes));
+          scopes = handleScopes(options.scopes);
         }
-        if (options.allowCustomScopes || scopes.length === 0) {
-          scopes = scopes.concat([
-            new cz.Separator(""),
-            { value: false, name: "empty" },
-            { value: "custom", name: "custom" }
-          ]);
-        }
+        scopes = handleCustomTemplate(
+          scopes,
+          cz,
+          options.customScopesAlign,
+          options.emptyScopesAlias,
+          options.customScopesAlias
+        );
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
     },
@@ -101,7 +108,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.customScope,
       default: options.defaultScope || undefined,
       when(answers: Answers) {
-        return answers.scope === "custom";
+        return answers.scope === "___CUSTOM___";
       }
     },
     {
@@ -186,14 +193,13 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "footerPrefix",
       message: options.messages?.footerPrefixsSelect,
       source: (_: Answers, input: string) => {
-        let issues: Array<{ name: string; value: string }> = [
-          { name: "skip", value: false },
-          { name: "custom", value: "custom" },
-          new cz.Separator("")
-        ];
-        if (Array.isArray(options.issuePrefixs)) {
-          issues = issues.concat(options.issuePrefixs);
-        }
+        const issues = handleCustomTemplate(
+          options.issuePrefixs as Option[],
+          cz,
+          options.customIssuePrefixsAlign,
+          options.emptyIssuePrefixsAlias,
+          options.customIssuePrefixsAlias
+        )
         return issues?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
     },
@@ -203,7 +209,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.customFooterPrefixs,
       default: options.defaultIssues || undefined,
       when(answers: Answers) {
-        return answers.footerPrefix === "custom";
+        return answers.footerPrefix === "___CUSTOM___";
       }
     },
     {
@@ -227,7 +233,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         const SEP = options.confirmColorize
           ? "\u001B[1;90m###--------------------------------------------------------###\u001B[0m"
           : "###--------------------------------------------------------###";
-        console.info(`\n${SEP}\n${buildCommit(answers, options, options.confirmColorize)}\n${SEP}\n`);
+        console.info(
+          `\n${SEP}\n${buildCommit(answers, options, options.confirmColorize)}\n${SEP}\n`
+        );
         return options.messages?.confirmCommit;
       }
     }

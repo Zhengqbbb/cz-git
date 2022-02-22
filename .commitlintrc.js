@@ -35,6 +35,9 @@ module.exports = {
     ],
     useEmoji: false,
     scopes: [{ value: "cz-git", name: "cz-git:   core control" }, { name: "guide" } , 'config'],
+    customScopesAlign: "bottom",
+    emptyScopesAlias: "empty",
+    customScopesAlias: "custom",
     allowCustomScopes: true,
     allowBreakingChanges: ['feat', 'fix'],
     breaklineChar: "|",
@@ -43,6 +46,9 @@ module.exports = {
       { value: "link", name: "link:     processing to ISSUES" },
       { value: "closed", name: "closed:   ISSUES has been processed" }
     ],
+    customIssuePrefixsAlign: "top",
+    emptyIssuePrefixsAlias: "skip",
+    customIssuePrefixsAlias: "custom",
     confirmColorize: true
   }
 };

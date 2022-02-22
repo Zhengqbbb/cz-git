@@ -130,6 +130,21 @@ export interface CommitizenGitOptions {
   allowCustomScopes?: boolean;
 
   /**
+   * @default: "bottom"
+   */
+  customScopesAlign?: "top" | "bottom" | "top-bottom" | "bottom-top";
+
+  /**
+   * @default: "custom"
+   */
+  customScopesAlias?: string;
+
+  /**
+   * @default: "empty"
+   */
+  emptyScopesAlias?: string;
+
+  /**
    * @description: Subject is need upper case first.
    * @default false
    */
@@ -148,22 +163,37 @@ export interface CommitizenGitOptions {
   breaklineChar?: string;
 
   /**
-   * @description: List of questions you want to skip
-   * @example: ['body']
-   */
-  skipQuestions?: string[];
-
-  /**
    * @description: Provides a select issue prefix box in footer
    * @default: issuePrefixs: [{ value: "closed", name: "ISSUES has been processed" }]
    */
   issuePrefixs?: Option[];
 
   /**
+   * @default: "top"
+   */
+  customIssuePrefixsAlign?: "top" | "bottom" | "top-bottom" | "bottom-top";
+
+  /**
+   * @default: "skip"
+   */
+  emptyIssuePrefixsAlias?: string;
+
+  /**
+   * @default: "custom"
+   */
+  customIssuePrefixsAlias?: string;
+
+  /**
    * @description: Prompt final determination whether to display the color
    * @default: true
    */
   confirmColorize?: boolean;
+
+  /**
+   * @description: List of questions you want to skip
+   * @example: ['body']
+   */
+  skipQuestions?: string[];
 
   /**
    * @description: Force set max header length | Equivalent setting maxSubjectLength.
@@ -241,11 +271,17 @@ export const defaultConfig = Object.freeze({
   useEmoji: false,
   scopes: [],
   allowCustomScopes: true,
+  customScopesAlign: "bottom",
+  customScopesAlias: "custom",
+  emptyScopesAlias: "empty",
   allowBreakingChanges: ['feat', 'fix'],
   upperCaseSubject: false,
   breaklineChar: "|",
   skipQuestions: [],
   issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
+  customIssuePrefixsAlign: "top",
+  emptyIssuePrefixsAlias: "skip",
+  customIssuePrefixsAlias: "custom",
   confirmColorize: true,
   maxHeaderLength: Infinity,
   maxSubjectLength: Infinity,

@@ -170,6 +170,48 @@ export const getMaxSubjectLength = (
 };
 
 /**
+ * @description: add separator custom empty
+ */
+export const handleCustomTemplate = (
+  target: Array<{ name: string; value: string }>,
+  cz: any,
+  align = "top",
+  emptyAlias = "empty",
+  customAlias = "custom"
+) => {
+  let result: Array<{ name: string; value: any }> = [
+    { name: emptyAlias, value: false },
+    { name: customAlias, value: "___CUSTOM___" },
+    new cz.Separator()
+  ];
+  if (!Array.isArray(target) || target.length === 0) {
+    return result;
+  }
+  switch (align) {
+    case "top":
+      result = result.concat(target);
+      break;
+    case "bottom":
+      result = target.concat(result.reverse());
+      break;
+    case "top-bottom":
+      result = [{ name: emptyAlias, value: false }, new cz.Separator()]
+        .concat(target)
+        .concat([new cz.Separator(), { name: customAlias, value: "___CUSTOM___" }]);
+      break;
+    case "bottom-top":
+      result = result = [{ name: customAlias, value: "___CUSTOM___" }, new cz.Separator()]
+        .concat(target)
+        .concat([new cz.Separator(), { name: emptyAlias, value: false }]);
+      break;
+    default:
+      result = result.concat(target);
+      break;
+  }
+  return result;
+};
+
+/**
  * @description: handle scope configuration option into standard options
  * @param {ScopesType}
  * @returns {Option[]}
