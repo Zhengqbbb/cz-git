@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/Zhengqbbb/cz-git/compare/v1.0.6...v1.0.7) (2022-02-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cz-git:** `confirmColorize` option: Prompt final determination whether to display the color
+
+### Features
+
+* **cz-git:** add confirmColorize option to handle confirm colorize ([68b2629](https://github.com/Zhengqbbb/cz-git/commit/68b26296cb00ca0d33fcebbec6ba8ed36ca53e96)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
 ### [1.0.6](https://github.com/Zhengqbbb/cz-git/compare/v1.0.5...v1.0.6) (2022-02-21)
 
 
