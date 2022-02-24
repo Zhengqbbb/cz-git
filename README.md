@@ -6,23 +6,33 @@
 
 <h1 align="center">cz-git</h1>
 
+---
+
 <p align="center">
-    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git"><img alt="Binance-tool" src="https://img.shields.io/badge/Commitizen-Adapter-red.svg?logo=git&style=flat"><img></a>
+    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
+      <img style="display:inline-block;margin:0.2em;" alt="Commitizen-Adapter" src="https://img.shields.io/badge/Commitizen-Adapter-red.svg?logo=git&style=flat">
+    </a>
     <br/>
-    <a target="_blank" href="http://commitizen.github.io/cz-cli/"><img alt="commitizen-friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?logo=github"><img></a>
-    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social"></img></a>
-    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git/actions/workflows/nodejs.yml"><img alt="test-ci" src="https://github.com/Zhengqbbb/cz-git/workflows/Node.js%20CI/badge.svg"><img></a>
-    <br/>
+    <a target="_blank" href="http://commitizen.github.io/cz-cli/">
+      <img style="display:inline-block;margin:0.2em;" alt="commitizen-friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?logo=github">
+    </a>
+    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
+      <img style="display:inline-block;margin:0.2em;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social">
+    </a>
+    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git/actions/workflows/nodejs.yml">
+      <img style="display:inline-block;margin:0.2em;" alt="test-ci" src="https://github.com/Zhengqbbb/cz-git/workflows/Node.js%20CI/badge.svg">
+    </a>
+    <br>
     <a href="https://www.npmjs.com/package/cz-git">
-        <img alt="npm" src="https://img.shields.io/npm/v/cz-git?style=flat-square&logo=npm">
-        <img alt="npm-download" src="https://img.shields.io/npm/dm/cz-git.svg?style=flat-square&logo=npm"><img>
+        <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/cz-git?style=flat-square&logo=npm">
+        <img style="display:inline-block;margin:0.2em;" alt="npm-download" src="https://img.shields.io/npm/dm/cz-git.svg?style=flat-square&logo=npm">
     </a>
     <br/>
 </p>
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git#readme">English doc</a>
     &nbsp; | &nbsp;
-    <a href="https://www.qbenben.com/docs/play/commitizen-adapter-cz-git">简体中文文档</a>
+    <a href="https://www.qbenben.com/docs/play/cz-git">简体中文文档</a>
 </p>
 
 <!-- TOC -->
