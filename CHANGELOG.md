@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/Zhengqbbb/cz-git/compare/v1.0.7...v1.0.8) (2022-02-24)
+
+
+### ⚠ BREAKING CHANGES
+- feat: allowCustomScopes and allowCustomScopes control disable
+- feat: scopes can auto load value
+from `commitlint`
+* **cz-git:** - `customScopesAlign` and `customIssuePrefixsAlign`:
+can change align in selet
+- `emptyScopesAlias`, `customScopesAlias`, `emptyIssuePrefixsAlias`, `customIssuePrefixsAlias`:
+can change name of the prompt show
+
+### Features
+
+* **cz-git:** add align and alias option for selector ([5be93a5](https://github.com/Zhengqbbb/cz-git/commit/5be93a5ee07f969c32d74536d4c9dc8fed7737e7)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+* **cz-git:** add allowEmptyScopes, allowCustomScopes to control disable ([e0becb6](https://github.com/Zhengqbbb/cz-git/commit/e0becb6fce5d6adae266f51aae58aac1a625c718)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
 ### [1.0.7](https://github.com/Zhengqbbb/cz-git/compare/v1.0.6...v1.0.7) (2022-02-22)
 
 
