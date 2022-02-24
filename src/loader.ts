@@ -2,7 +2,7 @@
  * @description: generate commitizen config option(generateOptions) | generate commitizen questions(generateQuestions)
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
- * TODO: add custom skip option to higher custom
+ * TODO: add more test to protect code
  */
 
 // @ts-ignore
@@ -13,10 +13,12 @@ import {
   getMinLength,
   getProcessSubject,
   getMaxSubjectLength,
-  handleScopes,
+  handleStandardScopes,
   handleCustomTemplate,
   buildCommit,
-  log
+  log,
+  enumRuleIsActive,
+  getEnumList
 } from "./until";
 import type { Answers, Config, CommitizenGitOptions } from "./share";
 
@@ -39,13 +41,15 @@ const pkgConfig: Config = configLoader.load() ?? {};
 /* prettier-ignore */
 export const generateOptions = (clConfig: any): CommitizenGitOptions => {
   const clPromptConfig = clConfig.prompt ?? {};
+  
   return {
     messages: pkgConfig.messages ?? clPromptConfig.messages ?? defaultConfig.messages,
     types: pkgConfig.types ?? clPromptConfig.types ?? defaultConfig.types,
     useEmoji: pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
-    scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? defaultConfig.scopes,
+    scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"]),
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
-    allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? defaultConfig.allowCustomScopes,
+    allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? !enumRuleIsActive(clConfig?.rules?.["scope-enum"]),
+    allowEmptyScopes: pkgConfig.allowEmptyScopes ?? clPromptConfig.allowEmptyScopes ?? defaultConfig.allowEmptyScopes,
     customScopesAlign: pkgConfig.customScopesAlign ?? clPromptConfig.customScopesAlign ?? defaultConfig.customScopesAlign,
     customScopesAlias: pkgConfig.customScopesAlias ?? clPromptConfig.customScopesAlias ?? defaultConfig.customScopesAlias,
     emptyScopesAlias: pkgConfig.emptyScopesAlias ?? clPromptConfig.emptyScopesAlias ?? defaultConfig.emptyScopesAlias,
@@ -88,16 +92,18 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       source: (answer: Answers, input: string) => {
         let scopes: Option[] = [];
         if (options.scopeOverrides && answer.type && options.scopeOverrides[answer.type]) {
-          scopes = handleScopes(options.scopeOverrides[answer.type]);
+          scopes = handleStandardScopes(options.scopeOverrides[answer.type]);
         } else if (Array.isArray(options.scopes)) {
-          scopes = handleScopes(options.scopes);
+          scopes = handleStandardScopes(options.scopes);
         }
         scopes = handleCustomTemplate(
           scopes,
           cz,
           options.customScopesAlign,
           options.emptyScopesAlias,
-          options.customScopesAlias
+          options.customScopesAlias,
+          options.allowCustomScopes,
+          options.allowEmptyScopes
         );
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
@@ -239,7 +245,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         return options.messages?.confirmCommit;
       }
     }
-  ].filter((i) => !options.skipQuestions?.includes(i.name));
+  ].filter((i) => !options.skipQuestions?.includes(i.name as "scope" | "body" | "breaking" | "footer" | "footerPrefix"));
 };
 
 type GenerateQuestionsType = typeof generateQuestions;

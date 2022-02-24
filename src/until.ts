@@ -78,7 +78,7 @@ export function enumRuleIsActive(
 }
 
 export function getEnumList(rule: Rule): string[] {
-  return Array.isArray(rule[2]) ? rule[2] : [];
+  return rule && Array.isArray(rule) && Array.isArray(rule[2]) ? rule[2] : [];
 }
 
 /**
@@ -169,6 +169,21 @@ export const getMaxSubjectLength = (
   );
 };
 
+const filterCustomEmptyByOption = (
+  target: {
+    name: string;
+    value: any;
+  }[],
+  allowCustom = true,
+  allowEmpty = true
+) => {
+  if (!Array.isArray(target) || target.length === 3 || target.length === 4) {
+    return allowCustom ? target : target.filter((i) => i.value !== "___CUSTOM___");
+  }
+  target = allowCustom ? target : target.filter((i) => i.value !== "___CUSTOM___");
+  return allowEmpty ? target : target.filter((i) => i.value !== false);
+};
+
 /**
  * @description: add separator custom empty
  */
@@ -177,14 +192,16 @@ export const handleCustomTemplate = (
   cz: any,
   align = "top",
   emptyAlias = "empty",
-  customAlias = "custom"
+  customAlias = "custom",
+  allowCustom = true,
+  allowEmpty = true
 ) => {
   let result: Array<{ name: string; value: any }> = [
     { name: emptyAlias, value: false },
     { name: customAlias, value: "___CUSTOM___" },
     new cz.Separator()
   ];
-  if (!Array.isArray(target) || target.length === 0) {
+  if (!Array.isArray(target)) {
     return result;
   }
   switch (align) {
@@ -208,7 +225,7 @@ export const handleCustomTemplate = (
       result = result.concat(target);
       break;
   }
-  return result;
+  return filterCustomEmptyByOption(result, allowCustom, allowEmpty);
 };
 
 /**
@@ -216,7 +233,7 @@ export const handleCustomTemplate = (
  * @param {ScopesType}
  * @returns {Option[]}
  */
-export const handleScopes = (scopes: ScopesType): Option[] => {
+export const handleStandardScopes = (scopes: ScopesType): Option[] => {
   return scopes.map((scope) => {
     return typeof scope === "string"
       ? { name: scope, value: scope }

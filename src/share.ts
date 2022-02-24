@@ -114,20 +114,31 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Provides a select of prompt to select module scopes
+   * @note: it auto import value from rule "scope-enum" with `@commitlint`
+   * @use: want to add scopes description or when you not use commitlint
    */
   scopes?: ScopesType;
 
   /**
    * @description: Provides an overriding select of prompt to select module scopes under specific typs
+   * @note: use this option should set `scopes` option to realize distinguish
    * @example: [test] => provide select e2eTest unitTest
    */
   scopeOverrides?: { [type: string]: ScopesType };
 
   /**
-   * @description: Whether to not selectable skipping when appearing or customizing when selecting scopes
+   * @description: Whether to show customizing when selecting scopes
+   * @note: it auto check rule "scope-enum" set the option with `@commitlint`
+   * @use: when you not use commitlint
    * @default true
    */
   allowCustomScopes?: boolean;
+
+  /**
+   * @description: Whether to show empty when selecting scopes
+   * @default true
+   */
+  allowEmptyScopes?: boolean;
 
   /**
    * @default: "bottom"
@@ -191,27 +202,28 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: List of questions you want to skip
+   * @default: []
    * @example: ['body']
    */
-  skipQuestions?: string[];
+  skipQuestions?: Array<"scope" | "body" | "breaking" | "footerPrefix" | "footer">;
 
   /**
    * @description: Force set max header length | Equivalent setting maxSubjectLength.
-   * @note: It will overWrite commitlint rule set And effect maxSubjectLength
+   * @note: it auto check rule "header-max-length" set the option with `@commitlint`.
    * @use: when you not use commitlint
    */
   maxHeaderLength?: number;
 
   /**
    * @description: Force set max subject length.
-   * @note: It will overWrite commitlint rule set
+   * @note: it auto check rule "subject-max-length" set the option with `@commitlint`.
    * @use: when you not use commitlint
    */
   maxSubjectLength?: number;
 
   /**
    * @description: Force set header width.
-   * @note: It will overWrite commitlint rule set
+   * @note: it auto check rule "subject-min-length" set the option with `@commitlint`.
    * @use: when you not use commitlint
    */
   minSubjectLength?: number;
@@ -249,7 +261,7 @@ export const defaultConfig = Object.freeze({
     customScope: "Denote the SCOPE of this change:",
     subject: "Write a SHORT, IMPERATIVE tense description of the change:\n",
     body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
-    breaking: "List any BREAKING CHANGES (optional):\n",
+    breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
     footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):",
     customFooterPrefixs: "Input ISSUES Prefix:",
     footer: "List any ISSUES by this change. E.g.: #31, #34, #I972S:\n",
@@ -271,6 +283,7 @@ export const defaultConfig = Object.freeze({
   useEmoji: false,
   scopes: [],
   allowCustomScopes: true,
+  allowEmptyScopes: true,
   customScopesAlign: "bottom",
   customScopesAlias: "custom",
   emptyScopesAlias: "empty",
