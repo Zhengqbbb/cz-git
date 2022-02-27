@@ -17,7 +17,7 @@ describe("getMaxSubjectLength", () => {
 
   test("use commitlint rule get subject max length", () => {
     const options = { maxSubjectLength: 100 };
-    expect(getMaxSubjectLength(answer.type, answer.scope, options)).toEqual(86);
+    expect(getMaxSubjectLength(answer.type, answer.scope, options)).toEqual(100);
   });
 
   test("when use both maxsubject rule and maxheader rule", () => {
@@ -35,6 +35,12 @@ describe("getMaxSubjectLength", () => {
     ).toEqual(86);
     expect(
       getMaxSubjectLength(answer.type, answer.scope, {
+        maxHeaderLength: 100,
+        maxSubjectLength: 110
+      })
+    ).toEqual(86);
+    expect(
+      getMaxSubjectLength(answer.type, answer.scope, {
         maxHeaderLength: Infinity,
         maxSubjectLength: Infinity
       })
@@ -44,7 +50,7 @@ describe("getMaxSubjectLength", () => {
         maxHeaderLength: Infinity,
         maxSubjectLength: 100
       })
-    ).toEqual(86);
+    ).toEqual(100);
     expect(
       getMaxSubjectLength(answer.type, answer.scope, {
         maxHeaderLength: 100,

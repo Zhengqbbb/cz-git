@@ -143,30 +143,31 @@ const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number
   return item?.emoji ? item.emoji.length + 1 : 0;
 };
 
+const countLength = (target: number, typeLength: number, scope: number, emojiLength: number) =>
+  target - typeLength - 2 - scope - emojiLength;
+
 export const getMaxSubjectLength = (
   type: Answers["type"],
   scope: Answers["scope"],
   options: CommitizenGitOptions
 ) => {
   let optionMaxLength = Infinity;
+  const typeLength = type?.length ? type.length : 0;
+  const scopeLength = scope ? scope.length + 2 : 0;
+  const emojiLength = options.useEmoji ? getEmojiStrLength(options, type) : 0;
   const maxHeaderLength = options?.maxHeaderLength ? options?.maxHeaderLength : Infinity;
   const maxSubjectLength = options?.maxSubjectLength ? options?.maxSubjectLength : Infinity;
   if (options?.maxHeaderLength === 0 || options?.maxSubjectLength === 0) {
     return 0;
   } else if (maxHeaderLength === Infinity) {
-    optionMaxLength = maxSubjectLength !== Infinity ? maxSubjectLength : Infinity;
+    return maxSubjectLength !== Infinity ? maxSubjectLength : Infinity;
   } else {
-    optionMaxLength = maxHeaderLength < maxSubjectLength ? maxHeaderLength : maxSubjectLength;
+    optionMaxLength =
+      countLength(maxHeaderLength, typeLength, scopeLength, emojiLength) < maxSubjectLength
+        ? maxHeaderLength
+        : maxSubjectLength;
   }
-  return (
-    optionMaxLength -
-    (type?.length ? type.length : 0) -
-    // `()`
-    (scope ? scope.length + 2 : 0) -
-    // `: `
-    2 -
-    (options.useEmoji ? getEmojiStrLength(options, type) : 0)
-  );
+  return countLength(optionMaxLength, typeLength, scopeLength, emojiLength);
 };
 
 const filterCustomEmptyByOption = (
