@@ -28,7 +28,7 @@
     <br/>
 </p>
 <p align="center">
-    <a href="https://github.com/Zhengqbbb/cz-git#readme">English doc</a>
+    <a href="https://github.com/Zhengqbbb/cz-git#readme">Github</a>
     &nbsp; | &nbsp;
     <a href="https://www.qbenben.com/docs/play/cz-git">简体中文文档</a>
 </p>

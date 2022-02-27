@@ -244,12 +244,12 @@ export const handleStandardScopes = (scopes: ScopesType): Option[] => {
 };
 
 const addType = (type: string, colorize?: boolean) =>
-  colorize ? `\u001B[33m${type}\u001B[0m` : type;
+  colorize ? `\u001B[32m${type}\u001B[0m` : type;
 
 const addScope = (scope?: string, colorize?: boolean) => {
   const separator = ":";
   if (!scope) return separator;
-  scope = colorize ? `\u001B[35m${scope}\u001B[0m` : scope;
+  scope = colorize ? `\u001B[33m${scope}\u001B[0m` : scope;
   return `(${scope.trim()})${separator}`;
 };
 
