@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/Zhengqbbb/cz-git/compare/v1.0.7...v1.0.9) (2022-02-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cz-git:** - `customScopesAlign` and `customIssuePrefixsAlign`:
+can change align in selet
+- `emptyScopesAlias`, `customScopesAlias`, `emptyIssuePrefixsAlias`, `customIssuePrefixsAlias`:
+can change name of the prompt show
+
+### Features
+
+* **cz-git:** add align and alias option for selector ([5be93a5](https://github.com/Zhengqbbb/cz-git/commit/5be93a5ee07f969c32d74536d4c9dc8fed7737e7)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+* **cz-git:** add allowEmptyScopes, allowCustomScopes to control disable ([e0becb6](https://github.com/Zhengqbbb/cz-git/commit/e0becb6fce5d6adae266f51aae58aac1a625c718)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
+
+### Bug Fixes
+
+* **cz-git:** fixed use both maxHeaderLength and maxSubjectLengt ([659b8eb](https://github.com/Zhengqbbb/cz-git/commit/659b8eb9f9787698b766185fb62043fb98d8a511)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
 ### [1.0.8](https://github.com/Zhengqbbb/cz-git/compare/v1.0.7...v1.0.8) (2022-02-24)
 
 
