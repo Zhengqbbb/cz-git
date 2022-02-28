@@ -70,8 +70,8 @@ A more engineered, highly customizable, standard output format [commitizen](http
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
 - **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
-- [Better for monorepo engineering project](#scopes) with **commitlint** to give relevant verification information to the command line.
-- Better linking with issuePrefixs(#issuePrefixs) **for issue** | ✅ Support **emoji** in commit.
+- [Better for monorepo engineering](#scopes) and **commitlint** project to give relevant verification information to the command line.
+- Better linking with [issuePrefixs](#issuePrefixs) **for issue** | ✅ Support **emoji** in commit.
 
 ## Usage
 > tip： It is recommended to [global installation](##as-global-use) `commitizen cz-git`, that you can quickly use the `cz` or `git cz` command to start.
@@ -608,7 +608,7 @@ module.exports = {
 ### Windows users use
 - Windows users are advised not to use powershell, cmd for command line use
 - because they are not based on the POSIX SHELL specification, i.e. not a standard terminal environment
-- It is recommended not to use gitbash, because the terminal is not an interactive terminal, and the selection up and down will be greatly experienced
+- It is recommended not to use gitbash, because the terminal is not an interactive terminal, and the selection up and down will be effected
 - **It is recommended to use Windows Terminal combined with WSL, you should also do the same in daily development and use**
 
 ### Cannot find command after global install
