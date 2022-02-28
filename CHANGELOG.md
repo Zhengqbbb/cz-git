@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/Zhengqbbb/cz-git/compare/v1.1.0...v1.1.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* **cz-git:** fix footerPrefix custom ([fc8dc78](https://github.com/Zhengqbbb/cz-git/commit/fc8dc7869a8db022771cd1ff9bcbdb99917aeb58))
+
 ## [1.1.0](https://github.com/Zhengqbbb/cz-git/compare/v1.0.9...v1.1.0) (2022-02-28)
 
 
