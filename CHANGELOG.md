@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Zhengqbbb/cz-git/compare/v1.0.9...v1.1.0) (2022-02-28)
+
+
+### Features
+
+* **cz-git:** done document README.Marks the official version release ([31e8b4d](https://github.com/Zhengqbbb/cz-git/commit/31e8b4d3ec4fa51d376b70202e7d9d7ce510e0d6)), closes [#1](https://github.com/Zhengqbbb/cz-git/issues/1)
+
 ### [1.0.9](https://github.com/Zhengqbbb/cz-git/compare/v1.0.7...v1.0.9) (2022-02-27)
 
 
