@@ -210,7 +210,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "input",
-      name: "footerPrefixs",
+      name: "footerPrefix",
       message: options.messages?.customFooterPrefixs,
       default: options.defaultIssues || undefined,
       when(answers: Answers) {
