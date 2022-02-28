@@ -536,7 +536,7 @@ module.exports = {
 - **description** : After customizing a specific **type**, **override module scope** command line display information
 - **type** : `{ [type: string]: string[] | Array<{ name: string, value?: string }> } | undefined`
 - **default** : `undefined`
-- **Example** : `scopeOverrides: { "test": ['e2eTest, 'unitTest'] }`
+- **example** : `scopeOverrides: { "test": ['e2eTest, 'unitTest'] }`
 - **use** : Displays custom module scope selection when selecting module scope after selecting ==specific== commit **type** : `type`
 
 > tip : If you define `scopeOverrides` then define generic `scopes`
