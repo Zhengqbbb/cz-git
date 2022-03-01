@@ -2,7 +2,8 @@
   "extends": "./tsconfig.base.json",
   "references": [
     { "path": "./packages/cz-git/tsconfig.json" },
-    { "path": "./packages/@cz-git/load/tsconfig.json" },
+    { "path": "./packages/@cz-git/loader/tsconfig.json" },
+    { "path": "./packages/@cz-git/types/tsconfig.json" },
   ],
   "files": []
 }

@@ -1,25 +1,23 @@
 {
-  "name": "@cz-git/load",
+  "name": "@cz-git/loader",
   "version": "1.1.1",
-  "description": "commitizen and commitlint config loader for cz-git",
+  "description": "editor loader for cz-git",
   "keywords": [
     "cz-git",
-    "commitizen",
-    "commitlint",
-    "commitizen-config-loader",
-    "commitlint-config-loader"
+    "editor"
   ],
-  "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/load#readme",
+  "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/editor#readme",
   "bugs": {
     "url": "https://github.com/Zhengqbbb/cz-git/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zhengqbbb/cz-git.git"
+    "url": "git+https://github.com/Zhengqbbb/cz-git.git",
+    "directory": "packages/@cz-git/loader"
   },
   "license": "MIT",
   "author": "Zhengqbbb <1074059947@qq.com>",
-  "main": "lib/load.js",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

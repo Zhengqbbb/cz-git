@@ -27,11 +27,13 @@
     "lib"
   ],
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/@cz-git/*"
   ],
   "scripts": {
     "build": "lerna run build",
-    "dev": "tsc -b tsconfig.build.json --watch",
+    "clean": "lerna clean && rimraf *.tsbuildinfo && lerna run clean",
+    "dev": "rimraf *.tsbuildinfo && tsc -b tsconfig.build.json --watch",
     "lint": "eslint --ext .ts",
     "prepare": "husky install",
     "release": "lerna version patch --yes --no-push",

@@ -1,14 +1,20 @@
 /**
  * @from: @commitlint/cz-commitlint/src/utils/rules.ts
  */
-import { RuleConfigCondition, RuleConfigSeverity } from "@commitlint/types";
 import fs from "fs";
 import path from "path";
 import wrap from "word-wrap";
 // @ts-ignore
 import editor from "editor";
 import { open as tempOpen } from "temp";
-import { Answers, CommitizenGitOptions, Option, ScopesType } from "./share";
+import {
+  Answers,
+  CommitizenGitOptions,
+  Option,
+  ScopesType,
+  RuleConfigCondition,
+  RuleConfigSeverity
+} from "./share";
 
 export type Rule =
   | Readonly<[RuleConfigSeverity.Disabled]>
