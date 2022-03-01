@@ -28,13 +28,9 @@
     "lib"
   ],
   "scripts": {
-    "build": "rimraf *.tsbuildinfo lib && tsc -b",
-    "dev": "tsc -b --watch",
-    "lint": "eslint --ext .ts",
-    "release": "standard-version --release-as patch",
-    "release-as": "standard-version --release-as",
-    "test": "jest",
-    "test-coverage": "jest --coverage"
+    "build": "yarn clean && tsc -b",
+    "clean": "rimraf *.tsbuildinfo lib",
+    "dev": "tsc -b --watch"
   },
   "lint-staged": {
     "*.ts": "eslint --fix",
