@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
     "composite": true,
+    "esModuleInterop": true,
     "declaration": true,
     "downlevelIteration": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "jest"],
-    "rootDir": ".",
     "lib": ["esnext"],
     "module": "CommonJS",
     "moduleResolution": "node",
@@ -17,7 +16,7 @@
     "removeComments": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "strict": true,
     "target": "es5"
   }

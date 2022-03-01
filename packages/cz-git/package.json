@@ -1,0 +1,63 @@
+{
+  "name": "cz-git",
+  "version": "1.1.1",
+  "description": "A better customizable and git support commitizen adapter",
+  "keywords": [
+    "commitizen-adapter",
+    "cli",
+    "cz-cli",
+    "cz-git",
+    "cz-gitee",
+    "cz-adapter",
+    "customizable",
+    "cz-customizable"
+  ],
+  "homepage": "https://github.com/Zhengqbbb/cz-git#readme",
+  "bugs": {
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zhengqbbb/cz-git"
+  },
+  "license": "MIT",
+  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rimraf *.tsbuildinfo lib && tsc -b",
+    "dev": "tsc -b --watch",
+    "lint": "eslint --ext .ts",
+    "test": "jest",
+    "test-coverage": "jest --coverage"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix",
+    "package.json": "sort-package-json"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./lib/index.js"
+    }
+  },
+  "dependencies": {
+    "@commitlint/load": "^16.2.1",
+    "@commitlint/types": "^16.2.1",
+    "commitizen": "^4.2.4",
+    "editor": "^1.0.0",
+    "inquirer": "^8.0.0",
+    "inquirer-autocomplete-prompt": "^1.4.0",
+    "temp": "^0.9.4",
+    "word-wrap": "^1.2.3"
+  },
+  "peerDependencies": {
+    "commitizen": ">=2"
+  }
+}

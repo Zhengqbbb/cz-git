@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-      "rootDir": "src",
-      "outDir": "lib"
-  },
-  "include": ["src/**/*"],
+  "references": [],
+  "files": [],
+  "include": [
+    "docs/.vuepress/**/*",
+    "packages/**/*"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,6 @@
 {
   "name": "cz-git",
-  "version": "1.1.1",
+  "private": true,
   "description": "A better customizable and git support commitizen adapter",
   "keywords": [
     "commitizen-adapter",
@@ -27,14 +27,16 @@
   "files": [
     "lib"
   ],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "rimraf *.tsbuildinfo lib && tsc -b",
-    "dev": "tsc -b --watch",
+    "build": "lerna run build",
+    "dev": "tsc -b tsconfig.build.json --watch",
     "lint": "eslint --ext .ts",
     "prepare": "husky install",
-    "prerelease": "yarn lint",
-    "release": "standard-version --release-as patch",
-    "release-as": "standard-version --release-as",
+    "release": "lerna version",
+    "release-as": "standard-version  --lerna-package --release-as",
     "test": "jest",
     "test-coverage": "jest --coverage"
   },
@@ -44,18 +46,8 @@
   },
   "config": {
     "commitizen": {
-      "path": "./lib/index.js"
+      "path": "./packages/cz-git/lib/index.js"
     }
-  },
-  "dependencies": {
-    "@commitlint/load": "^16.2.1",
-    "@commitlint/types": "^16.2.1",
-    "commitizen": "^4.2.4",
-    "editor": "^1.0.0",
-    "inquirer": "^8.0.0",
-    "inquirer-autocomplete-prompt": "^1.4.0",
-    "temp": "^0.9.4",
-    "word-wrap": "^1.2.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
@@ -70,6 +62,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
+    "lerna": "^4.0.0",
     "lint-staged": "^12.3.4",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",

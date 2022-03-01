@@ -7,3 +7,4 @@ printf "\n\033[1;32m%s\033[0m \033[1m%s \033[1;32m%s\033[0m\n" \
     "«««"
 
 yarn lint-staged
+npx lerna run lint-staged
