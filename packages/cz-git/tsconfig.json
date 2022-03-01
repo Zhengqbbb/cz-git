@@ -6,6 +6,6 @@
     "outDir": "lib"
   },
   "references": [
-    { "path": "../@cz-git/types/tsconfig.json" }
+    { "path": "../@cz-git/editor/tsconfig.json" }
   ]
 }

@@ -40,7 +40,6 @@
   "dependencies": {
     "@commitlint/load": "^16.2.1",
     "commitizen": "^4.2.4",
-    "editor": "1.0.0",
     "inquirer": "^8.0.0",
     "inquirer-autocomplete-prompt": "^1.4.0",
     "temp": "^0.9.4",
