@@ -1,5 +1,5 @@
 /**
- * @description: fork by "@commitlint/cz-commitlint"
+ * @description: fork by "@commitlint/cz-commitlint/src/utils/" v16.2.1
  */
 
 import { RuleConfigCondition, RuleConfigSeverity } from "../share";

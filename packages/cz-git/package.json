@@ -39,11 +39,10 @@
   },
   "dependencies": {
     "@commitlint/load": "^16.2.1",
-    "commitizen": "^4.2.4",
-    "inquirer": "^8.0.0",
-    "inquirer-autocomplete-prompt": "^1.4.0",
-    "temp": "^0.9.4",
-    "word-wrap": "^1.2.3"
+    "commitizen": "4.2.4",
+    "inquirer": "8.2.0",
+    "inquirer-autocomplete-prompt": "1.4.0",
+    "rimraf": "3.0.2"
   },
   "peerDependencies": {
     "commitizen": ">=2"

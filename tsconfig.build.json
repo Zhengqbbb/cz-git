@@ -3,7 +3,6 @@
   "references": [
     { "path": "./packages/cz-git/tsconfig.json" },
     { "path": "./packages/@cz-git/loader/tsconfig.json" },
-    { "path": "./packages/@cz-git/editor/tsconfig.json" },
   ],
   "files": []
 }

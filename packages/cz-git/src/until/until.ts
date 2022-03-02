@@ -4,7 +4,7 @@
  * @license: MIT
  */
 
-import wrap from "word-wrap";
+import { wrap } from "./wrap";
 // @ts-ignore
 
 import { Answers, CommitizenGitOptions, Option, ScopesType } from "../share";
