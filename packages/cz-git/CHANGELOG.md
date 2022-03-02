@@ -5,7 +5,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### [1.1.1](https://github.com/Zhengqbbb/cz-git/compare/v1.1.0...v1.1.1) (2022-02-28)
 
-
 ### Bug Fixes
 
 * **cz-git:** fix footerPrefix custom ([fc8dc78](https://github.com/Zhengqbbb/cz-git/commit/fc8dc7869a8db022771cd1ff9bcbdb99917aeb58))

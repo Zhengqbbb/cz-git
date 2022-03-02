@@ -14,4 +14,5 @@ jest.config.d.ts
 jest.config.js
 *.test.js
 *.test.d.ts
+*.test.js.map
 coverage

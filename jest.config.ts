@@ -11,7 +11,7 @@ const config: Config.InitialOptions = {
       tsconfig: "tsconfig.base.json"
     }
   },
-  testMatch: ["<rootDir>/test/*.test.ts"]
+  testMatch: ["<rootDir>/**/__tests__/*.test.ts"]
 };
 
 export default config;

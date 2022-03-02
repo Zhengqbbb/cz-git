@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-      "rootDir": "src",
-      "outDir": "lib"
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "files": [],
+  "include": ["docs/.vuepress/**/*", "packages/**/*"],
+  "exclude": ["node_modules"],
+  "references": [
+    { "path": "./packages/cz-git/tsconfig.json" },
+    { "path": "./packages/@cz-git/loader/tsconfig.json" }
+  ]
 }

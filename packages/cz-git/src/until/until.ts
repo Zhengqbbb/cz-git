@@ -1,105 +1,13 @@
 /**
- * @from: @commitlint/cz-commitlint/src/utils/rules.ts
+ * @description: provide until function
+ * @author: @Zhengqbbb (zhengqbbb@gmail.com)
+ * @license: MIT
  */
-import { RuleConfigCondition, RuleConfigSeverity } from "@commitlint/types";
-import fs from "fs";
-import path from "path";
-import wrap from "word-wrap";
+
+import { wrap } from "./wrap";
 // @ts-ignore
-import editor from "editor";
-import { open as tempOpen } from "temp";
-import { Answers, CommitizenGitOptions, Option, ScopesType } from "./share";
 
-export type Rule =
-  | Readonly<[RuleConfigSeverity.Disabled]>
-  | Readonly<[RuleConfigSeverity, RuleConfigCondition]>
-  | Readonly<[RuleConfigSeverity, RuleConfigCondition, unknown]>;
-
-/**
- * @description: rule is Disabled
- * @example: ruleIsDisabled([0]) => true
- * @example: ruleIsDisabled([2]) => false
- */
-export function ruleIsDisabled(rule: Rule): rule is Readonly<[RuleConfigSeverity.Disabled]> {
-  if (rule && Array.isArray(rule) && rule[0] === RuleConfigSeverity.Disabled) {
-    return true;
-  }
-  return false;
-}
-
-/**
- * @description: rule is use
- * @example: ruleIsActive([0]) => false
- * @example: ruleIsActive([2]) => true
- */
-export function ruleIsActive<T extends Rule>(
-  rule: T
-): rule is Exclude<T, Readonly<[RuleConfigSeverity.Disabled]>> {
-  if (rule && Array.isArray(rule)) {
-    return rule[0] > RuleConfigSeverity.Disabled;
-  }
-  return false;
-}
-
-/**
- * @description: rule is can ignore
- */
-export function ruleIsNotApplicable(
-  rule: Rule
-): rule is
-  | Readonly<[RuleConfigSeverity, "never"]>
-  | Readonly<[RuleConfigSeverity, "never", unknown]> {
-  if (rule && Array.isArray(rule)) {
-    return rule[1] === "never";
-  }
-  return false;
-}
-
-/**
- * @description: rule is effect
- */
-export function ruleIsApplicable(
-  rule: Rule
-): rule is
-  | Readonly<[RuleConfigSeverity, "always"]>
-  | Readonly<[RuleConfigSeverity, "always", unknown]> {
-  if (rule && Array.isArray(rule)) {
-    return rule[1] === "always";
-  }
-  return false;
-}
-
-export function enumRuleIsActive(
-  rule: Rule
-): rule is Readonly<[RuleConfigSeverity.Warning | RuleConfigSeverity.Error, "always", string[]]> {
-  return (
-    ruleIsActive(rule) && ruleIsApplicable(rule) && Array.isArray(rule[2]) && rule[2].length > 0
-  );
-}
-
-export function getEnumList(rule: Rule): string[] {
-  return rule && Array.isArray(rule) && Array.isArray(rule[2]) ? rule[2] : [];
-}
-
-/**
- * @example: getMaxLength(rules['max-header-length'] => 100)
- */
-export function getMaxLength(rule?: Rule): number {
-  if (rule && ruleIsActive(rule) && ruleIsApplicable(rule) && typeof rule[2] === "number") {
-    return rule[2];
-  }
-  return Infinity;
-}
-
-/**
- * @example:  getMinLength(rules['min-header-length'] => 2)
- */
-export function getMinLength(rule?: Rule): number {
-  if (rule && ruleIsActive(rule) && ruleIsApplicable(rule) && typeof rule[2] === "number") {
-    return rule[2];
-  }
-  return 0;
-}
+import { Answers, CommitizenGitOptions, Option, ScopesType } from "../share";
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
@@ -108,30 +16,8 @@ export function log(type: "info" | "warm" | "err", msg: string) {
     err: "\u001B[31m",
     reset: "\u001B[0m"
   };
-  console.log(`${colorMapping[type]}[${type}]>>>: ${msg}${colorMapping.reset}`);
+  console.info(`${colorMapping[type]}[${type}]>>>: ${msg}${colorMapping.reset}`);
 }
-
-export const getPreparedCommit = (context: string) => {
-  let message = null;
-  if (fs.existsSync(path.resolve(__dirname, "./.git/COMMIT_EDITMSG"))) {
-    const prepared = fs.readFileSync(path.resolve(__dirname, "./.git/COMMIT_EDITMSG"), "utf-8");
-
-    const preparedCommit = prepared
-      .replace(/^#.*/gm, "")
-      .replace(/^\s*[\r\n]/gm, "")
-      .replace(/[\r\n]$/, "")
-      .split(/\r\n|\r|\n/);
-
-    if (preparedCommit.length && preparedCommit[0]) {
-      if (context === "subject") [message] = preparedCommit;
-      else if (context === "body" && preparedCommit.length > 1) {
-        preparedCommit.shift();
-        message = preparedCommit.join("|");
-      }
-    }
-  }
-  return message;
-};
 
 export const getProcessSubject = (text: string) => {
   return text.replace(/(^[\s]+|[\s\.]+$)/g, "") ?? "";
@@ -308,31 +194,4 @@ export const buildCommit = (answers: Answers, options: CommitizenGitOptions, col
     result += addFooter(footer, answers.footerPrefix, colorize);
   }
   return result;
-};
-
-export const editCommit = (
-  answers: Answers,
-  options: CommitizenGitOptions,
-  cb: (message: string) => void
-) => {
-  tempOpen(undefined, (err, info) => {
-    if (!err) {
-      fs.writeSync(info.fd, buildCommit(answers, options));
-      fs.close(info.fd, () => {
-        editor(info.path, (code: number) => {
-          if (code === 0) {
-            const commitStr = fs.readFileSync(info.path, {
-              encoding: "utf8"
-            });
-            cb(commitStr);
-          } else {
-            log(
-              "warm",
-              `Editor exit non zero. Commit message was:\n${buildCommit(answers, options)}`
-            );
-          }
-        });
-      });
-    }
-  });
 };
