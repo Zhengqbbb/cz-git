@@ -8,7 +8,7 @@
 
 // @ts-ignore
 import autocompletePrompt from "inquirer-autocomplete-prompt";
-import commitlintLoad from "@commitlint/load";
+import { commitilintConfigLoader } from "@cz-git/loader";
 import { generateOptions, generateQuestions } from "./loader";
 import { buildCommit, editCommit, log } from "./until";
 import type { CommitizenType } from "./share";
@@ -16,7 +16,7 @@ import type { CommitizenType } from "./share";
 export * from "./share";
 
 export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
-  commitlintLoad().then((clConfig) => {
+  commitilintConfigLoader().then((clConfig) => {
     const options = generateOptions(clConfig);
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("autocomplete", autocompletePrompt);

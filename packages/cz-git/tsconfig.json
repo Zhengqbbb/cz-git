@@ -5,5 +5,7 @@
     "rootDir": "src",
     "outDir": "lib"
   },
-  "references": []
+  "references": [
+    { "path": "../@cz-git/loader/tsconfig.json" },
+  ]
 }

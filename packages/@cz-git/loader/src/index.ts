@@ -1,1 +1,2 @@
-console.log("hello");
+export * from "./commitilint";
+export * from "./commitizen";

@@ -74,12 +74,12 @@ A more engineered, highly customizable, standard output format [commitizen](http
 - Better linking with [issuePrefixs](#issuePrefixs) **for issue** | ✅ Support **emoji** in commit.
 
 ## Usage
-> tip： It is recommended to [global installation](##as-global-use) `commitizen cz-git`, that you can quickly use the `cz` or `git cz` command to start.
+### As a dev dependency use in the project
+> [global installation](##as-global-use) `commitizen`, that you can quickly use the `cz` or `git cz` command to start.
 ```bash
-npm install -g commitizen cz-git
+npm install -g commitizen
 ```
 
-### As a dev dependency use in the project
 Just three simple steps:
 - **step 1:** Download dependencies
 ```bash

@@ -1,10 +1,11 @@
 {
   "name": "@cz-git/loader",
   "version": "1.1.1",
-  "description": "editor loader for cz-git",
+  "description": "commitizen and commitlint configure loader for cz-git",
   "keywords": [
     "cz-git",
-    "editor"
+    "commitizen-loader",
+    "commitlint-loader"
   ],
   "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/editor#readme",
   "bugs": {
@@ -33,6 +34,10 @@
   "lint-staged": {
     "*.ts": "eslint --fix",
     "package.json": "sort-package-json"
+  },
+  "dependencies": {
+    "@commitlint/load": "16.2.1",
+    "strip-json-comments": "3.1.1"
   },
   "publishConfig": {
     "access": "public"

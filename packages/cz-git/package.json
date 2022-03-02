@@ -38,8 +38,7 @@
     "package.json": "sort-package-json"
   },
   "dependencies": {
-    "@commitlint/load": "^16.2.1",
-    "commitizen": "4.2.4",
+    "@cz-git/loader": "^1.1.1",
     "inquirer": "8.2.0",
     "inquirer-autocomplete-prompt": "1.4.0",
     "rimraf": "3.0.2"

@@ -5,7 +5,7 @@
  */
 
 // @ts-ignore
-import { configLoader } from "commitizen";
+import { commitizenConfigLoader } from "@cz-git/loader";
 import { defaultConfig, Option } from "./share";
 import {
   getMaxLength,
@@ -34,7 +34,7 @@ const {
   CZ_MIN_SUBJECT_LENGTH
 } = process.env;
 
-const pkgConfig: Config = configLoader.load() ?? {};
+const pkgConfig: Config = commitizenConfigLoader() ?? {};
 
 /* eslint-disable prettier/prettier */
 /* prettier-ignore */
