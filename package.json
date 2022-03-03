@@ -36,7 +36,7 @@
     "dev": "rimraf *.tsbuildinfo && tsc -b tsconfig.build.json --watch",
     "lint": "eslint --ext .ts",
     "prepare": "husky install",
-    "release": "lerna version patch --yes --no-push",
+    "release": "yarn lint && yarn build && lerna publish patch --yes --no-push",
     "test": "jest",
     "test-coverage": "jest --coverage"
   },

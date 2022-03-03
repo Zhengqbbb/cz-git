@@ -19,7 +19,7 @@
       "ignoreChanges": [
         "**/*.md"
       ],
-      "message": "chore(release): publish %s"
+      "message": "build: publish %s"
     }
   }
 }
