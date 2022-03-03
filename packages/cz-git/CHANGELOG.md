@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/Zhengqbbb/cz-git/compare/v1.1.6...v1.1.7) (2022-03-03)
+
+
+### Features
+
+* **cz-git:** keep inquirer dep version same lerna inquirer version ([a2de902](https://github.com/Zhengqbbb/cz-git/commit/a2de902eb592b70b83213cbfc97a27e88211300e))
+
+
+
+
+
 ## [1.1.6](https://github.com/Zhengqbbb/cz-git/compare/v1.1.5...v1.1.6) (2022-03-03)
 
 **Note:** Version bump only for package cz-git
