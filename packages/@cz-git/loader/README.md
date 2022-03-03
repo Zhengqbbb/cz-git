@@ -1,11 +1,3 @@
 # `@cz-git/load`
 
-> TODO: description
-
-## Usage
-
-```
-const load = require('@cz-git/load');
-
-// TODO: DEMONSTRATE API
-```
+> provide `cz-git` loader commitizen and commitlint config
