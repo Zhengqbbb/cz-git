@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/Zhengqbbb/cz-git/compare/v1.1.1...v1.1.2) (2022-03-03)
+
+
+### Features
+
+* **loader:** reduce commitizen dev number and lock commitilint load ([2b207be](https://github.com/Zhengqbbb/cz-git/commit/2b207be37ef4594aaede5b51496377a8ed4ca172)), closes [#2](https://github.com/Zhengqbbb/cz-git/issues/2)
+* **loader:** reduce commitlint type dev ([8427b2b](https://github.com/Zhengqbbb/cz-git/commit/8427b2b21c6a07069aca1c12331542bb27d89217))
+
+
+
+
+
 ### [1.1.1](https://github.com/Zhengqbbb/cz-git/compare/v1.1.0...v1.1.1) (2022-02-28)
 
 

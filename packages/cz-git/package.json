@@ -1,6 +1,6 @@
 {
   "name": "cz-git",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A better customizable and git support commitizen adapter",
   "keywords": [
     "commitizen-adapter",
@@ -38,7 +38,7 @@
     "package.json": "sort-package-json"
   },
   "dependencies": {
-    "@cz-git/loader": "^1.1.1",
+    "@cz-git/loader": "1.1.2",
     "inquirer": "8.2.0",
     "inquirer-autocomplete-prompt": "1.4.0",
     "rimraf": "3.0.2"
