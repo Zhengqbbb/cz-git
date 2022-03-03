@@ -20,6 +20,9 @@
         "**/*.md"
       ],
       "message": "build: publish %s"
+    },
+    "publish": {
+      "registry": "https://registry.npmjs.org/"
     }
   }
 }
