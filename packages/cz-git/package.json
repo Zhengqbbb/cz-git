@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "@cz-git/loader": "1.1.2",
-    "inquirer": "8.2.0",
     "inquirer-autocomplete-prompt": "1.4.0",
     "rimraf": "3.0.2"
   },
