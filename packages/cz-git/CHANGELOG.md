@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/Zhengqbbb/cz-git/compare/v1.1.7...v1.1.8) (2022-03-04)
+
+
+### Features
+
+* **cz-git:** add auto get issue id ([05ae340](https://github.com/Zhengqbbb/cz-git/commit/05ae34045cec23a023bd3f107eecb772d3b844b7)), closes [#541](https://github.com/Zhengqbbb/cz-git/issues/541)
+
+
+### BREAKING CHANGES
+
+* **cz-git:** can see the config: https://github.com/Zhengqbbb/cz-git/blob/main/.commitlintrc.js
+
+
+
+
+
 ## [1.1.7](https://github.com/Zhengqbbb/cz-git/compare/v1.1.6...v1.1.7) (2022-03-03)
 
 
