@@ -8,7 +8,7 @@ import type { QuestionsType } from "../loader";
 import type { CommitlintUserConfig } from "./commitlint";
 
 export interface UserConfig extends CommitlintUserConfig {
-  prompt: CommitizenGitOptions;
+  prompt?: CommitizenGitOptions;
 }
 
 export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
@@ -21,6 +21,7 @@ export type Config = Omit<Partial<typeof defaultConfig>, "scopes"> & {
   defaultScope?: string;
   defaultSubject?: string;
   defaultBody?: string;
+  defaultFooterPrefix?: string;
   defaultIssues?: string;
 };
 
@@ -85,6 +86,8 @@ export interface Option {
    */
   value: string;
 }
+
+export type StringCallback = () => string;
 
 export interface TypesOption extends Option {
   /**
@@ -232,24 +235,29 @@ export interface CommitizenGitOptions {
    * @description: default value show scope custom prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultScope?: string;
+  defaultScope?: string | StringCallback;
 
   /**
    * @description: default value show subject prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultSubject?: string;
+  defaultSubject?: string | StringCallback;
 
   /**
    * @description: default value show body and BREAKINGCHANGES prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultBody?: string;
+  defaultBody?: string | StringCallback;
   /**
    * @description: default value show issuePrefixs custom prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultIssues?: string;
+  defaultFooterPrefix?: string | StringCallback;
+  /**
+   * @description: default value show issue foot prompt
+   * @example: When you want to use default, just keybord <Enter> it
+   */
+  defaultIssues?: string | StringCallback;
 }
 
 /* eslint-disable prettier/prettier */
@@ -301,7 +309,8 @@ export const defaultConfig = Object.freeze({
    minSubjectLength: 0,
    scopeOverrides: undefined,
    defaultBody: "",
-   defaultIssues: "",
    defaultScope: "",
-   defaultSubject: ""
+   defaultSubject: "",
+   defaultFooterPrefix: "",
+   defaultIssues: ""
  } as CommitizenGitOptions);

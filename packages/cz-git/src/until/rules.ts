@@ -27,7 +27,7 @@ export function ruleIsDisabled(rule: Rule): rule is Readonly<[RuleConfigSeverity
  * @example: ruleIsActive([2]) => true
  */
 export function ruleIsActive<T extends Rule>(
-  rule: T
+  rule: T | undefined
 ): rule is Exclude<T, Readonly<[RuleConfigSeverity.Disabled]>> {
   if (rule && Array.isArray(rule)) {
     return rule[0] > RuleConfigSeverity.Disabled;
@@ -64,14 +64,14 @@ export function ruleIsApplicable(
 }
 
 export function enumRuleIsActive(
-  rule: Rule
+  rule: Rule | undefined
 ): rule is Readonly<[RuleConfigSeverity.Warning | RuleConfigSeverity.Error, "always", string[]]> {
   return (
     ruleIsActive(rule) && ruleIsApplicable(rule) && Array.isArray(rule[2]) && rule[2].length > 0
   );
 }
 
-export function getEnumList(rule: Rule): string[] {
+export function getEnumList(rule: Rule | undefined): string[] {
   return rule && Array.isArray(rule) && Array.isArray(rule[2]) ? rule[2] : [];
 }
 

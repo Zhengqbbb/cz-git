@@ -6,7 +6,7 @@
 
 // @ts-ignore
 import { commitizenConfigLoader } from "@cz-git/loader";
-import { defaultConfig, Option } from "./share";
+import { defaultConfig, Option, UserConfig } from "./share";
 import {
   getMaxLength,
   getMinLength,
@@ -17,7 +17,8 @@ import {
   buildCommit,
   log,
   enumRuleIsActive,
-  getEnumList
+  getEnumList,
+  getValueByCallBack
 } from "./until";
 import type { Answers, Config, CommitizenGitOptions } from "./share";
 
@@ -38,16 +39,20 @@ const pkgConfig: Config = commitizenConfigLoader() ?? {};
 
 /* eslint-disable prettier/prettier */
 /* prettier-ignore */
-export const generateOptions = (clConfig: any): CommitizenGitOptions => {
-  const clPromptConfig = clConfig.prompt ?? {};
+export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
+  let clPromptConfig = clConfig.prompt ?? {};
+  clPromptConfig = getValueByCallBack(
+    clPromptConfig,
+    ["defaultScope", "defaultSubject", "defaultBody", "defaultFooterPrefix", "defaultIssues"]
+  )
   
   return {
     messages: pkgConfig.messages ?? clPromptConfig.messages ?? defaultConfig.messages,
     types: pkgConfig.types ?? clPromptConfig.types ?? defaultConfig.types,
     useEmoji: pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
-    scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"]),
+    scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"] as any),
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
-    allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? !enumRuleIsActive(clConfig?.rules?.["scope-enum"]),
+    allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? !enumRuleIsActive(clConfig?.rules?.["scope-enum"] as any),
     allowEmptyScopes: pkgConfig.allowEmptyScopes ?? clPromptConfig.allowEmptyScopes ?? defaultConfig.allowEmptyScopes,
     customScopesAlign: pkgConfig.customScopesAlign ?? clPromptConfig.customScopesAlign ?? defaultConfig.customScopesAlign,
     customScopesAlias: pkgConfig.customScopesAlias ?? clPromptConfig.customScopesAlias ?? defaultConfig.customScopesAlias,
@@ -61,12 +66,13 @@ export const generateOptions = (clConfig: any): CommitizenGitOptions => {
     emptyIssuePrefixsAlias: pkgConfig.emptyIssuePrefixsAlias ?? clPromptConfig.emptyIssuePrefixsAlias ?? defaultConfig.emptyIssuePrefixsAlias,
     customIssuePrefixsAlias: pkgConfig.customIssuePrefixsAlias ?? clPromptConfig.customIssuePrefixsAlias ?? defaultConfig.customIssuePrefixsAlias,
     confirmColorize: pkgConfig.confirmColorize ?? clPromptConfig.confirmColorize ?? defaultConfig.confirmColorize,
-    maxHeaderLength: CZ_MAN_HEADER_LENGTH ? parseInt(CZ_MAN_HEADER_LENGTH) : getMaxLength(clConfig?.rules?.["header-max-length"]),
-    maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"]),
-    minSubjectLength: CZ_MIN_SUBJECT_LENGTH ? parseInt(CZ_MIN_SUBJECT_LENGTH) : getMinLength(clConfig?.rules?.["subject-min-length"]),
+    maxHeaderLength: CZ_MAN_HEADER_LENGTH ? parseInt(CZ_MAN_HEADER_LENGTH) : getMaxLength(clConfig?.rules?.["header-max-length"] as any),
+    maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"] as any),
+    minSubjectLength: CZ_MIN_SUBJECT_LENGTH ? parseInt(CZ_MIN_SUBJECT_LENGTH) : getMinLength(clConfig?.rules?.["subject-min-length"] as any),
     defaultScope: CZ_SCOPE ?? clPromptConfig.defaultScope ?? defaultConfig.defaultScope,
     defaultSubject: CZ_SUBJECT ?? clPromptConfig.defaultSubject ?? defaultConfig.defaultSubject,
     defaultBody: CZ_BODY ?? clPromptConfig.defaultBody ?? defaultConfig.defaultBody,
+    defaultFooterPrefix: clPromptConfig.defaultFooterPrefix ?? defaultConfig.defaultFooterPrefix,
     defaultIssues: CZ_ISSUES ?? clPromptConfig.defaultIssues ?? defaultConfig.defaultIssues
   }
 }
@@ -76,6 +82,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     log("err", "Error [types] Option");
     return false;
   }
+
   return [
     {
       type: "autocomplete",
@@ -220,6 +227,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     {
       type: "input",
       name: "footer",
+      default: options.defaultIssues || undefined,
       when(answers: Answers) {
         return (answers.footerPrefix as string | boolean) !== false;
       },

@@ -11,13 +11,13 @@ import autocompletePrompt from "inquirer-autocomplete-prompt";
 import { commitilintConfigLoader } from "@cz-git/loader";
 import { generateOptions, generateQuestions } from "./loader";
 import { buildCommit, editCommit, log } from "./until";
-import type { CommitizenType } from "./share";
+import type { CommitizenType, QualifiedConfig, UserConfig } from "./share";
 
 export * from "./share";
 
 export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
-  commitilintConfigLoader().then((clConfig) => {
-    const options = generateOptions(clConfig);
+  commitilintConfigLoader().then((clConfig: QualifiedConfig) => {
+    const options = generateOptions(clConfig as unknown as UserConfig);
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("autocomplete", autocompletePrompt);
     cz.prompt(questions).then((answers) => {

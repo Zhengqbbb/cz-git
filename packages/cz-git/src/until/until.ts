@@ -7,7 +7,7 @@
 import { wrap } from "./wrap";
 // @ts-ignore
 
-import { Answers, CommitizenGitOptions, Option, ScopesType } from "../share";
+import { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "../share";
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
@@ -194,4 +194,20 @@ export const buildCommit = (answers: Answers, options: CommitizenGitOptions, col
     result += addFooter(footer, answers.footerPrefix, colorize);
   }
   return result;
+};
+
+export const getValueByCallBack = (
+  target: CommitizenGitOptions,
+  targetKey: Array<
+    "defaultScope" | "defaultSubject" | "defaultBody" | "defaultFooterPrefix" | "defaultIssues"
+  >
+): CommitizenGitOptions => {
+  if (targetKey.length === 0) return target;
+  targetKey.forEach((key) => {
+    if (!target[key]) return;
+    if (typeof target[key] === "function" && typeof target[key] !== "string") {
+      return (target[key] = (target?.[key] as StringCallback)?.call(undefined));
+    }
+  });
+  return target;
 };
