@@ -38,7 +38,7 @@
     "package.json": "sort-package-json"
   },
   "dependencies": {
-    "@cz-git/loader": "1.1.6",
+    "@cz-git/loader": "^1.1.6",
     "inquirer": "^7.3.3",
     "inquirer-autocomplete-prompt": "1.4.0",
     "rimraf": "3.0.2"

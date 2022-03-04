@@ -16,9 +16,7 @@
       ],
       "conventionalCommits": true,
       "exact": true,
-      "ignoreChanges": [
-        "**/*.md"
-      ],
+      "ignoreChanges": [],
       "message": "build: publish %s"
     },
     "publish": {
