@@ -2,11 +2,12 @@ const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process');
 
-// @tip: git branch name = fix_541   =>    auto get defaultIssues = #541
+// @tip: git branch name = feature/33   =>    auto get defaultIssues = #33
  const issue = execSync('git rev-parse --abbrev-ref HEAD')
   .toString()
   .trim()
-  .split("_")[1]
+  .split("/")[1]
+// @tip: monorepo dynamic get name
 const packages = fs.readdirSync(path.resolve(__dirname, 'packages/@cz-git'));
 
 /** @type {import('cz-git').UserConfig} */

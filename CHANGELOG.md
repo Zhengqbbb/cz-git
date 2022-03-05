@@ -8,59 +8,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **cz-git:** add auto get issue id ([05ae340](https://github.com/Zhengqbbb/cz-git/commit/05ae34045cec23a023bd3f107eecb772d3b844b7)), closes [#541](https://github.com/Zhengqbbb/cz-git/issues/541)
+* **cz-git:** add auto get issue id ([05ae340](https://github.com/Zhengqbbb/cz-git/commit/05ae34045cec23a023bd3f107eecb772d3b844b7))
 
 
 ### BREAKING CHANGES
 
 * **cz-git:** can see the config: https://github.com/Zhengqbbb/cz-git/blob/main/.commitlintrc.js
 
-
-
-
-
 ## [1.1.7](https://github.com/Zhengqbbb/cz-git/compare/v1.1.6...v1.1.7) (2022-03-03)
-
 
 ### Features
 
 * **cz-git:** keep inquirer dep version same lerna inquirer version ([a2de902](https://github.com/Zhengqbbb/cz-git/commit/a2de902eb592b70b83213cbfc97a27e88211300e))
-
-
-
-
-
-## [1.1.6](https://github.com/Zhengqbbb/cz-git/compare/v1.1.5...v1.1.6) (2022-03-03)
-
-**Note:** Version bump only for package cz-git
-
-
-
-
-
-## [1.1.5](https://github.com/Zhengqbbb/cz-git/compare/v1.1.4...v1.1.5) (2022-03-03)
-
-**Note:** Version bump only for package cz-git
-
-
-
-
-
-## [1.1.4](https://github.com/Zhengqbbb/cz-git/compare/v1.1.3...v1.1.4) (2022-03-03)
-
-**Note:** Version bump only for package cz-git
-
-
-
-
-
-## [1.1.4](https://github.com/Zhengqbbb/cz-git/compare/v1.1.3...v1.1.4) (2022-03-03)
-
-**Note:** Version bump only for package cz-git
-
-
-
-
 
 ## [1.1.3](https://github.com/Zhengqbbb/cz-git/compare/v1.1.1...v1.1.3) (2022-03-03)
 
