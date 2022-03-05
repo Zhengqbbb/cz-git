@@ -1,0 +1,33 @@
+# shellcheck shell=bash disable=SC1091,SC2034,SC2154 #xsh
+
+# Section: Arg
+WORK_DIR="$(x wsroot)"
+
+# Section: Fuction
+dev() {
+    param:dsl       '
+type:
+    Type = cz docs
+options:
+    --p    "select target dev command"        <>:Type
+'
+    param:run
+    dev_"${p}"
+}
+
+dev_cz() {
+    [ ! -d "$WORK_DIR/node_modules" ] && yarn && yarn dev && return 0
+                                                 yarn dev && return 0
+}
+
+dev_docs() {
+    [ ! -d "$WORK_DIR/node_modules" ] && yarn && yarn docs:dev && return 0
+                                                 yarn docs:dev && return 0
+}
+
+# Section: Main
+case "${1}" in
+    cz)     dev_cz      ;;
+    docs)   dev_docs    ;;
+    *)      dev         ;;
+esac
