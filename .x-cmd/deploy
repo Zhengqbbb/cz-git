@@ -30,7 +30,7 @@ deploy_cz() {
 }
 
 deploy_docs() {
-    docs:build
+    yarn docs:build
     [ ! -d "$DIST_PATH" ]   && return 1
     cd "$DIST_PATH"         || exit
 
