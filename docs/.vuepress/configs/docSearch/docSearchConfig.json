@@ -1,0 +1,27 @@
+{
+  "index_name": "x-cmd",
+  "start_urls": [
+    "https://www.x-cmd.com"
+  ],
+  "stop_urls": [],
+  "selectors": {
+    "lvl0": {
+      "selector": ".sidebar-heading.active",
+      "global": true,
+      "default_value": "Documentation"
+    },
+    "lvl1": ".theme-default-content h1",
+    "lvl2": ".theme-default-content mark",
+    "lvl3": ".theme-default-content dl",
+    "lvl4": ".theme-default-content dd",
+    "text": ".theme-default-content p, .theme-default-content li",
+    "lang": {
+      "selector": "/html/@lang",
+      "type": "xpath",
+      "global": true
+    }
+  },
+  "custom_settings": {
+    "attributesForFaceting": ["lang"]
+  }
+}
