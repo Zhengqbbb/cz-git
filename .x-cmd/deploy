@@ -2,8 +2,8 @@
 
 # Section: Arg
 WORK_DIR="$(x wsroot)"
-DIST_PATH="$WORK_DIR"/docs/dist
-GITHUB_URL=github.com:Zhengqbbb/zhengqbbb.github.io.git
+DIST_PATH="$WORK_DIR"/dist
+GITHUB_URL=github.com:Zhengqbbb/cz-git.git
 BRANCH_NAME=gh-page
 
 # Section: Fuction
@@ -32,16 +32,16 @@ deploy_cz() {
 deploy_docs() {
     docs:build
     [ ! -d "$DIST_PATH" ]   && return 1
-    cd "$WORK_DIR"/dist     || exit
+    cd "$DIST_PATH"         || exit
 
     echo 'cz-git.qbenben.com' > CNAME
     [ -d "$DIST_PATH/.git" ] && rm -rf "$DIST_PATH/.git"
     git init \
-    && git remote add origin git@"$GITHUB_URL" \
-    && git checkout -b $BRANCH_NAME \
-    && git add -A \
-    && git commit -m 'deploy' \
-    && git push -f git@"$GITHUB_URL" $BRANCH_NAME
+        && git remote add origin git@"$GITHUB_URL" \
+        && git checkout -b $BRANCH_NAME \
+        && git add -A \
+        && git commit -m 'build: deploy docs' \
+        && git push -f git@"$GITHUB_URL" $BRANCH_NAME
 }
 
 # Section: Main
