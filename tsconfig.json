@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "files": [],
-  "include": ["docs/.vuepress/**/*", "packages/**/*"],
+  "include": ["docs/.vuepress/**/*", "packages/**/*", "lerna.json"],
   "exclude": ["node_modules"],
   "references": [
     { "path": "./packages/cz-git/tsconfig.json" },

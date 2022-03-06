@@ -1,0 +1,97 @@
+# shellcheck shell=bash disable=SC1091,SC2034,SC2154,SC2002 #xsh
+
+# Section: Arg
+WORK_DIR="$(x wsroot)"
+WEB_SITE="cz-git.qbenben.com"
+DOC_SEARCH_CONFIG_FILE=$WORK_DIR/docs/.vuepress/configs/docSearch/docSearchConfig.json
+
+# Section: Fuction
+search() {
+    param:dsl       '
+type:
+    Type = all google baidu bing docsearch
+options:
+    --p    "select target search command"        <>:Type
+'
+    param:run
+    search_"${p}"
+}
+
+log() {
+    printf "\n\033[1;32m%s \033[1;33m%s \033[1;32m%s\033[0m\n" \
+    "»»»" \
+    "$1" \
+    "«««"
+}
+
+search_all() {
+    search_google
+    search_baidu
+    search_bing
+    search_docsearch
+}
+
+search_google() {
+    log "google search console collecting"
+	curl -X GET "https://www.google.com/ping?sitemap=https://$WEB_SITE/sitemap.xml"
+}
+
+search_baidu() {
+    log "baidu search console collecting"
+	local BAIDU_TOKEN
+	BAIDU_TOKEN="$(cat "$WORK_DIR/.env" | grep 'BAIDU_TOKEN')"
+	local TOKEN="${BAIDU_TOKEN#*=}"
+	[ -z "$TOKEN" ] && return 0
+	curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=$WEB_SITE&token=$TOKEN"
+}
+
+gen_txt_to_json() {
+    local length
+    printf "%s%s%s" "{" \
+        "\"siteUrl\": \"https://$WEB_SITE$TOKEN\"," \
+        "\"urlList\": ["
+    length="$(printf "%s" "$(cat "$WORK_DIR/urls.txt")" | awk 'END{print NR}')"
+    printf "%s" "$(cat "$WORK_DIR/urls.txt")" | awk -v col_length="$length" '{
+        if (col_length == NR) {
+            printf("\""$0"\"")
+        } else {
+            printf("\""$0"\""",")
+        }
+    }'
+    printf "%s" "]}"
+}
+
+search_bing() {
+    log "bing search console collecting"
+	curl -X GET "http://www.bing.com/webmaster/ping.aspx?siteMap=https://$WEB_SITE/sitemap.xml"
+    local BING_TOKEN
+    local URL_JSON
+    URL_JSON="$(gen_txt_to_json)"
+	BING_TOKEN="$(cat "$WORK_DIR/.env" | grep 'BING_TOKEN')"
+	local TOKEN="${BING_TOKEN#*=}"
+	[ -z "$TOKEN" ] && [ ! -f "$WORK_DIR/urls.txt" ] && return 0
+    curl "https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=$TOKEN" \
+        -X POST \
+        -H 'Content-Type: application/json;charset=UTF-8' \
+        -d "$URL_JSON"
+}
+
+search_docsearch() {
+    log "docs search index collecting"
+    local env_file_path="$WORK_DIR/.env"
+  	[ ! -f "$env_file_path" ] && \
+        echo 'APPLICATION_ID=your_algolia_application_id' >> "$env_file_path" && \
+        echo 'APPLICATION_ID=your_algolia_api_key' >> "$env_file_path" && \
+        return 1
+	docker run -it --env-file=.env -e "CONFIG=$(cat "${DOC_SEARCH_CONFIG_FILE}" | x jq -r tostring)" algolia/docsearch-scraper
+}
+
+# Section: Main
+case "${1}" in
+    docsearch)      search_docsearch   ;;
+    google)         search_google      ;;
+    baidu)          search_baidu       ;;
+    bing)           search_bing        ;;
+    all)            search_all         ;;
+    *)              search             ;;
+esac

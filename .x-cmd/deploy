@@ -1,0 +1,53 @@
+# shellcheck shell=bash disable=SC1091,SC2034,SC2154 #xsh
+
+# Section: Arg
+WORK_DIR="$(x wsroot)"
+DIST_PATH="$WORK_DIR"/dist
+GITHUB_URL=github.com:Zhengqbbb/cz-git.git
+BRANCH_NAME=gh-page
+
+# Section: Fuction
+deploy() {
+    param:dsl       '
+type:
+    Type    = all cz docs
+    Realse  = patch minor major prepatch
+options:
+    --p    "select target dev command"        <>:Type
+    --v    "select realse version"            <>:Realse
+'
+    param:run
+    deploy_"${p}" "$v"
+}
+deploy_all() {
+    deploy_cz "$@"
+    deploy_docs
+}
+
+deploy_cz() {
+    local version=${1:-patch}
+    yarn lint && yarn build && npx lerna publish "$version" --force-publish=* --yes
+}
+
+deploy_docs() {
+    yarn docs:build
+    [ ! -d "$DIST_PATH" ]   && return 1
+    cd "$DIST_PATH"         || exit
+
+    echo 'cz-git.qbenben.com' > CNAME
+    [ -d "$DIST_PATH/.git" ] && rm -rf "$DIST_PATH/.git"
+    git init \
+        && git remote add origin git@"$GITHUB_URL" \
+        && git checkout -b $BRANCH_NAME \
+        && git add -A \
+        && git commit -m 'build: deploy docs' \
+        && git push -f git@"$GITHUB_URL" $BRANCH_NAME
+}
+
+# Section: Main
+case "${1}" in
+    cz)     shift;  deploy_cz "$@"     ;;
+    docs)           deploy_docs        ;;
+    all)    shift;  deploy_all "$@"    ;;
+    *)              deploy             ;;
+esac

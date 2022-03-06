@@ -1,3 +1,12 @@
+---
+title: 介绍
+sidebarDepth: 0
+lastUpdated: true
+sitemap:
+    priority: 0.8
+    exclude: true
+---
+
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
         <img src="https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
@@ -38,43 +47,26 @@
     <a href="https://cz-git.qbenben.com/zh/">简体中文文档</a>
 </p>
 
-## Introduction
+## 介绍
 
-A more engineered, highly customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
+一款工程性更强，高度自定义，标准输出格式的 [commitizen](https://github.com/commitizen/cz-cli) 适配器
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/154906217-e0b1c5d0-9294-4072-8082-c0cdd9392023.gif)
+![demo-gif](https://tva3.sinaimg.cn/large/6ccee0e1gy1gztghb579ig21nm0k8dnw.gif)
 
-> **What is commitizen**: A Node.js-based `git commit` command-line tool that assists in generating standardized and standardized commit messages. <br><br>
-> **What is an adapter**: Replace the **interactive** plugin for the commitizen command line tool.
+> 什么是commitizen：基于Node.js的 `git commit` 命令行工具，辅助生成标准化规范化的 commit message。<br><br>
+> 什么是适配器：更换 commitizen 命令行工具的 **交互方式** 插件。
 
-## Feature
+## 特点
 
-- Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
-- **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
-- [Better for monorepo engineering](#scopes) and **commitlint** project to give relevant verification information to the command line.
-- Better linking with [issuePrefixs](#issuePrefixs) **for issue** | ✅ Support **emoji** in commit.
+- 友好型命令行工具，**“懒字优先”** ！支持在命令行搜索和选择，减少拼写错误。
+- **高度自定义**, 但输出格式遵循标准的 [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 规范。
+- [更好维护 monorepo 工程化项目](/zh/guide/recipes.html#scopes) 与 **commitlint** 配合给予命令行的相关校验信息。
+- 更好的与issue链接，尤其 [gitee](/zh/guide/recipes.html#issueprefixs) | ✅ 支持在 commit 中添加 **emoji**。
 
-## Usage
-[⇒ Get Started](https://cz-git.qbenben.com/guide/getting-started.html)
-
-## Configure Template
-[⇒ Configure Template](https://cz-git.qbenben.com/guide/configuration.html)
-
-## Options
-[⇒ Show Related](https://cz-git.qbenben.com/guide/options-show.html)
-
-
-[⇒ Engineering Related](https://cz-git.qbenben.com/guide/option-engineer.html)
-
-## Recipes
-[⇒ Recipes](https://cz-git.qbenben.com/guide/recipes.html)
-
-## FAQ
-[⇒ FAQ](https://cz-git.qbenben.com/guide/faq.html)
-
-## LICENSE
-
+## 为什么做了这款插件
+[cz-git 友好型 commitizen 的适配器，我的开发的心路历程](https://www.qbenben.com/post/2022/02/27/cz-git/)
+## 版权
 MIT
-Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
+Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> [https://github.com/Zhengqbbb](https://github.com/Zhengqbbb)
 
 > I just do my best to make thing well, Could you give a [star ⭐](https://github.com/Zhengqbbb/cz-git) to encourage me ?

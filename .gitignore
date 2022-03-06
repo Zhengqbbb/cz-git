@@ -1,8 +1,16 @@
 node_modules
+.env
 *.log
+
+# Docs
+urls.txt
+.temp
+.cache
+dist
 
 # Mac OS
 .DS_Store
+
 # Bundle
 lib/
 

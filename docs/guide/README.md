@@ -1,3 +1,12 @@
+---
+title: Introduction
+sidebarDepth: 0
+lastUpdated: true
+sitemap:
+    priority: 0.8
+    exclude: true
+---
+
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
         <img src="https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
@@ -51,30 +60,12 @@ A more engineered, highly customizable, standard output format [commitizen](http
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
 - **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
-- [Better for monorepo engineering](#scopes) and **commitlint** project to give relevant verification information to the command line.
-- Better linking with [issuePrefixs](#issuePrefixs) **for issue** | ✅ Support **emoji** in commit.
-
-## Usage
-[⇒ Get Started](https://cz-git.qbenben.com/guide/getting-started.html)
-
-## Configure Template
-[⇒ Configure Template](https://cz-git.qbenben.com/guide/configuration.html)
-
-## Options
-[⇒ Show Related](https://cz-git.qbenben.com/guide/options-show.html)
-
-
-[⇒ Engineering Related](https://cz-git.qbenben.com/guide/option-engineer.html)
-
-## Recipes
-[⇒ Recipes](https://cz-git.qbenben.com/guide/recipes.html)
-
-## FAQ
-[⇒ FAQ](https://cz-git.qbenben.com/guide/faq.html)
+- [Better for monorepo engineering]((/guide/recipes.html#scopes)) and **commitlint** project to give relevant verification information to the command line.
+- Better linking with [issue](/guide/recipes.html#default) **for issue** | ✅ Support **emoji** in commit.
 
 ## LICENSE
 
 MIT
-Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
+Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> [https://github.com/Zhengqbbb](https://github.com/Zhengqbbb)
 
 > I just do my best to make thing well, Could you give a [star ⭐](https://github.com/Zhengqbbb/cz-git) to encourage me ?

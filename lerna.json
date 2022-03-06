@@ -10,13 +10,13 @@
     "version": {
       "allowBranch": [
         "main",
-        "next_*",
-        "dev_*",
-        "fix_*"
+        "next/*",
+        "feature/*",
+        "fix/*"
       ],
       "conventionalCommits": true,
       "exact": true,
-      "ignoreChanges": [],
+      "ignoreChanges": ["**/*.md"],
       "message": "build: publish %s"
     },
     "publish": {
