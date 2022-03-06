@@ -3,6 +3,7 @@
 # Section: Arg
 WORK_DIR="$(x wsroot)"
 WEB_SITE="cz-git.qbenben.com"
+DOC_SEARCH_CONFIG_FILE=$WORK_DIR/docs/.vuepress/configs/docSearch/docSearchConfig.json
 
 # Section: Fuction
 search() {
@@ -76,10 +77,12 @@ search_bing() {
 }
 
 search_docsearch() {
+    log "docs search index collecting"
     local env_file_path="$WORK_DIR/.env"
   	[ ! -f "$env_file_path" ] && \
         echo 'APPLICATION_ID=your_algolia_application_id' >> "$env_file_path" && \
-        echo 'APPLICATION_ID=your_algolia_api_key' >> "$env_file_path" && return 1
+        echo 'APPLICATION_ID=your_algolia_api_key' >> "$env_file_path" && \
+        return 1
 	docker run -it --env-file=.env -e "CONFIG=$(cat "${DOC_SEARCH_CONFIG_FILE}" | x jq -r tostring)" algolia/docsearch-scraper
 }
 
