@@ -1,5 +1,5 @@
 {
-  "version": "1.1.8",
+  "version": "1.2.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
@@ -16,7 +16,9 @@
       ],
       "conventionalCommits": true,
       "exact": true,
-      "ignoreChanges": ["**/*.md"],
+      "ignoreChanges": [
+        "**/*.md"
+      ],
       "message": "build: publish %s"
     },
     "publish": {
