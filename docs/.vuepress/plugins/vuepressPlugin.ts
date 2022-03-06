@@ -10,9 +10,9 @@ import type { Page, PluginConfig } from "vuepress";
 export const docSearchPlugin: PluginConfig = [
   "@vuepress/plugin-docsearch",
   {
-    apiKey: "6a0b75ff16eb6d2f06a04fe2aed71d13",
+    apiKey: "bf9a47e8561e6b8ffdda0bf8595a2f5d",
     indexName: "cz-git",
-    appId: "FR46CTJZQV",
+    appId: "QC8EFXZNC3",
     locales: {
       '/zh/': {
         placeholder: '搜索文档',
