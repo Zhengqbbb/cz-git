@@ -25,15 +25,14 @@ export const locales = {
 /* eslint-disable prettier/prettier */
 /* prettier-ignore */
 export const headConfig: HeadConfig[] = [
-  ["meta", { name: "google-site-verification", content: "_18qqOuIfzijSG7HV3nMHul_TLcD5hnpJBB0m3omcN0" }],
-  ["meta", { name: "baidu-site-verification", content: "code-94Da26LdEW" }],
-  ["meta", { name: "360-site-verification", content: "71117d0a062655745c2e8657e7b2f9bf" }],
+  ["meta", { name: "google-site-verification", content: "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec" }],
+  ["meta", { name: "baidu-site-verification", content: "code-rzEqiivgqt" }],
   ["meta", { name: "application-name", content: "cz-git" }],
   ["meta", { name: "apple-mobile-web-app-title", content: "cz-git" }],
   ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
-  ["meta", { name: "msapplication-TileColor", content: "#3eaf7c" }],
+  ["meta", { name: "msapplication-TileColor", content: "#dd6954" }],
   ["meta", { name: "msapplication-TileImage", content: `/images/icons/favicon-192.png` }],
-  ["meta", { name: "theme-color", content: "#3eaf7c" }],
+  ["meta", { name: "theme-color", content: "#dd6954" }],
   ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" }],
 
   ["link", { rel: "shortcut icon", href: `/images/favicon.ico` }],
@@ -48,7 +47,7 @@ export const headConfig: HeadConfig[] = [
   ["link", { rel: "apple-touch-icon", sizes: "57x57", href: `/images/icons/favicon-57-precomposed.png` }],
   ["link", { rel: "icon", sizes: "32x32", href: `/images/icons/favicon-32.png` }],
   ["link", { rel: "icon", sizes: "192x192", href: `/images/icons/favicon-192.png` }],
-  ["link", { rel: "mask-icon", href: "/images/icons/safari-pinned-tab.svg", color: "#3eaf7c" }],
+  ["link", { rel: "mask-icon", href: "/images/icons/safari-pinned-tab.svg", color: "#dd6954" }],
 
   ["link", { rel: "manifest", href: "/manifest.webmanifest" }]
 ];
@@ -103,7 +102,6 @@ export const themeConfig: AppOptions["themeConfig"] = {
   },
   themePlugins: {
     git: isProd,
-    prismjs: !isProd,
   }
 };
 

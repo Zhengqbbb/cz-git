@@ -15,9 +15,9 @@ actions:
     type: secondary
 features:
   - title: 友好型
-    details: 友好型命令行工具，支持搜索和选择在命令行中，减少拼写错误，懒字优先
+    details: 友好型命令行工具，支持搜索和选择在命令行中，减少拼写错误，极致“懒”
   - title: 高度自定义
-    details: 探索享受自定义的过程，让工具更契合你或团队习惯
+    details: 享受探索自定义的过程，让工具更契合你或团队习惯
   - title: 工程化支持
     details: 减少重复性输入，适合管理工程化项目(比如monorepo)或业务系统
   - title: 与 Commitlint 配合

@@ -2,9 +2,7 @@ import type { DocsearchOptions } from "@vuepress/plugin-docsearch";
 import type { GoogleAnalyticsPluginOptions } from "@vuepress/plugin-google-analytics";
 import type { PwaPluginOptions } from "@vuepress/plugin-pwa";
 import type { PwaPopupPluginOptions } from "@vuepress/plugin-pwa-popup";
-import type { ShikiPluginOptions } from "@vuepress/plugin-shiki";
 import type { Page, PluginConfig } from "vuepress";
-const isProd = process.env.NODE_ENV === "production";
 
 /**
  * @description: Vuepress Document Search Plugin
@@ -112,20 +110,8 @@ export const pwaPopupPlugin: PluginConfig = [
 export const googleAnalyticsPlugin: PluginConfig = [
   "@vuepress/plugin-google-analytics",
   {
-    id: "G-2FRCSZQS1X"
+    id: "G-K6F2G4G0ZN"
   } as GoogleAnalyticsPluginOptions
-];
-
-/**
- * @description: shiki Plugin
- */
-export const codeHightLightPlugin: PluginConfig = [
-  "@vuepress/plugin-shiki",
-  isProd
-    ? {
-        theme: "dark-plus"
-      } as ShikiPluginOptions
-    : false
 ];
 
 /**
