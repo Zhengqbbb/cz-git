@@ -28,6 +28,20 @@ module.exports = {
 }
 ```
 
+If you define a `scope-enum` using the [commitlint](https://github.com/conventional-changelog/commitlint) rule, it will be imported automatically.
+
+```js
+// .commitlintrc.js 
+const fs = require('fs')
+const path = require('path')
+const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
+module.exports = {
+  rules: {
+    "scope-enum": [2, "always", [ ...packages ]]
+  }
+};
+```
+
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156002738-af17087e-2d2b-4a80-a681-d63751282ec8.gif)
 
 ### scopes for business system

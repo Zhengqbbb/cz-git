@@ -27,6 +27,21 @@ module.exports = {
   }
 }
 ```
+
+当然如果你使用 [commitlint](https://github.com/conventional-changelog/commitlint) 规则定义了 `scope-enum`，会自动引入
+
+```js
+// .commitlintrc.js 
+const fs = require('fs')
+const path = require('path')
+const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
+module.exports = {
+  rules: {
+    "scope-enum": [2, "always", [ ...packages ]]
+  }
+};
+```
+
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156002738-af17087e-2d2b-4a80-a681-d63751282ec8.gif)
 
 #### 针对 项目业务 的 scopes

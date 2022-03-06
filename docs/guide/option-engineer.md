@@ -13,10 +13,10 @@ sitemap:
 - **description** : custom selection **module scope** command line display information
 - **type** : `string[] | Array<{ name: string, value?: string }>`
 - **default** : `[]`
-- **use**: [can see the recipes](/guide/recipes.html#scopes)
 
 ::: tip
-If you define a `scope-enum` using the [commitlint](https://github.com/conventional-changelog/commitlint) rule, it will be imported automatically.
+If you define a `scope-enum` using the [commitlint](https://github.com/conventional-changelog/commitlint) rule, it will be imported automatically.<br>
+[⇒ can see the recipes](/guide/recipes.html#scopes)
 :::
 
 ## scopeOverrides

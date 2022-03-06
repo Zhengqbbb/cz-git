@@ -14,11 +14,10 @@ sitemap:
 - **描述** : 自定义选择 **模块范围** 命令行显示信息
 - **类型** : `string[] | Array<{ name: string, value?: string }>`
 - **默认** : `[]`
-- **使用**: [可查看小窍门](/zh/guide/recipes.html#scopes)
-
 
 ::: tip
 如果你使用 [commitlint](https://github.com/conventional-changelog/commitlint) 规则定义了 `scope-enum`，会自动引入。<br>
+[⇒ 更多小窍门](/zh/guide/recipes.html#scopes)
 :::
 
 ## scopeOverrides
