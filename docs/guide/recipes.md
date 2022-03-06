@@ -1,6 +1,6 @@
 ---
 title: Recipes
-sidebarDepth: 1
+sidebarDepth: 2
 lastUpdated: true
 sitemap:
     priority: 0.8

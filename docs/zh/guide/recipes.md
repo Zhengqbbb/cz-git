@@ -1,6 +1,6 @@
 ---
 title: 小窍门
-sidebarDepth: 1
+sidebarDepth: 2
 lastUpdated: true
 sitemap:
     priority: 0.8
@@ -12,7 +12,7 @@ sitemap:
 
 > scopes，通常来定义本次 commit 涉及范围，一般有两种：根据**项目代码层面区分**比如 monorepo ，另外一种就是**项目业务区分**
 
-#### 针对 项目代码 的 scopes
+### 针对 项目代码 的 scopes
 
 如果你需要管理多软件包在commit时获得更好的体验，比如使用: [pnpm](https://pnpm.io/) | [lerna.js](https://lerna.js.org/) 管理 monorepo 可以利用 `path` 和 `fs` 模块动态定义 commit message 中的scopes(范围)显示
 
@@ -44,7 +44,7 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156002738-af17087e-2d2b-4a80-a681-d63751282ec8.gif)
 
-#### 针对 项目业务 的 scopes
+### 针对 项目业务 的 scopes
 
 ```js
 // .commitlintrc.js 
