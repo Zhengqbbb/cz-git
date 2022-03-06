@@ -26,7 +26,7 @@ deploy_all() {
 
 deploy_cz() {
     local version=${1:-patch}
-    yarn lint && yarn build && npx lerna publish "$version" --force-publish=* --yes
+    yarn lint && yarn build && npx lerna publish "$version" --force-publish --yes
 }
 
 deploy_docs() {
