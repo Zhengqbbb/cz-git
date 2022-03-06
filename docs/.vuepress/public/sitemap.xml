@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://cz-git.qbenben.com/</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/guide/</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/guide/getting-started.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/guide/</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/guide/configuration.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/guide/options-show.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/guide/option-engineer.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/guide/recipes.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/guide/faq.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/guide/getting-started.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/guide/configuration.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/guide/options-show.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/guide/option-engineer.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/guide/recipes.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://cz-git.qbenben.com/zh/guide/faq.html</loc>
+  <lastmod>2022-03-06T14:00:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
