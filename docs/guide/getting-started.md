@@ -41,12 +41,12 @@ yarn add -D cz-git
 :::
 ::::
 
-#### step 2: Modify `package.json` to add `config` Specify the adapter used, and add a startup command
+#### step 2: Modify `package.json` to add `config` Specify the adapter used
 
-```json{3,5,6,7}
+```json{5-8}
 {
   "scripts": {
-    "commit": "git cz"
+
   },
   "config": {
     "commitizen": {

@@ -41,12 +41,12 @@ yarn add -D cz-git
 :::
 ::::
 
-#### step 2: 修改 `package.json` 添加 `config` 指定使用的适配器，并添加启动命令
+#### step 2: 修改 `package.json` 添加 `config` 指定使用的适配器
 
-```json{3,5,6,7}
+```json{5-8}
 {
   "scripts": {
-    "commit": "git cz"
+
   },
   "config": {
     "commitizen": {

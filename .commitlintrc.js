@@ -3,7 +3,7 @@ const path = require('path')
 const { execSync } = require('child_process');
 
 // @tip: git branch name = feature/33   =>    auto get defaultIssues = #33
- const issue = execSync('git rev-parse --abbrev-ref HEAD')
+const issue = execSync('git rev-parse --abbrev-ref HEAD')
   .toString()
   .trim()
   .split("/")[1]
