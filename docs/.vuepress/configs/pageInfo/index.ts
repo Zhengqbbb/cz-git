@@ -25,15 +25,20 @@ export const locales = {
 /* eslint-disable prettier/prettier */
 /* prettier-ignore */
 export const headConfig: HeadConfig[] = [
+  ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" }],
   ["meta", { name: "google-site-verification", content: "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec" }],
   ["meta", { name: "baidu-site-verification", content: "code-rzEqiivgqt" }],
+  ["meta", { name: "twitter:card", content: "summary" }],
+  ["meta", { name: "twitter:creator", content: "@zhengqbbb" }],
+  ["meta", { name: "twitter:image", content: "https://cz-git.qbenben.com/images/logo.png" }],
+  ["meta", { name: "twitter:title", content: "cz-git - A highly customizable, standard output commitizen adapter" }],
+  ["meta", { name: "og:title", content: "cz-git - A highly customizable, standard output commitizen adapter" }],
   ["meta", { name: "application-name", content: "cz-git" }],
   ["meta", { name: "apple-mobile-web-app-title", content: "cz-git" }],
   ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
   ["meta", { name: "msapplication-TileColor", content: "#dd6954" }],
   ["meta", { name: "msapplication-TileImage", content: `/images/icons/favicon-192.png` }],
   ["meta", { name: "theme-color", content: "#dd6954" }],
-  ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" }],
 
   ["link", { rel: "shortcut icon", href: `/images/favicon.ico` }],
   ["link", { rel: "icon", type: "image/x-icon", size: "16x16 32x32", href: `/images/favicon.ico` }],
