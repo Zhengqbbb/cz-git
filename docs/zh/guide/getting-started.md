@@ -43,7 +43,7 @@ yarn add -D cz-git
 
 #### step 2: 修改 `package.json` 添加 `config` 指定使用的适配器
 
-```json{5-8}
+```json{5-9}
 {
   "scripts": {
 

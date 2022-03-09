@@ -43,7 +43,7 @@ yarn add -D cz-git
 
 #### step 2: Modify `package.json` to add `config` Specify the adapter used
 
-```json{5-8}
+```json{5-9}
 {
   "scripts": {
 
