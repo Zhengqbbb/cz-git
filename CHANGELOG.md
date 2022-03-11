@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/Zhengqbbb/cz-git/compare/v1.2.0...v1.2.1) (2022-03-11)
+
+
+### Bug Fixes
+
+* **cz-git:** fix limit length defind commitlint config ([f602c9e](https://github.com/Zhengqbbb/cz-git/commit/f602c9e6e20d3ad284807629565fb4764ece0374))
+
+
+
+
+
 # [1.2.0](https://github.com/Zhengqbbb/cz-git/compare/v1.1.8...v1.2.0) (2022-03-06)
 
 
