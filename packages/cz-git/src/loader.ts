@@ -66,9 +66,15 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
     emptyIssuePrefixsAlias: pkgConfig.emptyIssuePrefixsAlias ?? clPromptConfig.emptyIssuePrefixsAlias ?? defaultConfig.emptyIssuePrefixsAlias,
     customIssuePrefixsAlias: pkgConfig.customIssuePrefixsAlias ?? clPromptConfig.customIssuePrefixsAlias ?? defaultConfig.customIssuePrefixsAlias,
     confirmColorize: pkgConfig.confirmColorize ?? clPromptConfig.confirmColorize ?? defaultConfig.confirmColorize,
-    maxHeaderLength: CZ_MAN_HEADER_LENGTH ? parseInt(CZ_MAN_HEADER_LENGTH) : getMaxLength(clConfig?.rules?.["header-max-length"] as any),
-    maxSubjectLength: CZ_MAN_SUBJECT_LENGTH ? parseInt(CZ_MAN_SUBJECT_LENGTH) : getMaxLength(clConfig?.rules?.["subject-max-length"] as any),
-    minSubjectLength: CZ_MIN_SUBJECT_LENGTH ? parseInt(CZ_MIN_SUBJECT_LENGTH) : getMinLength(clConfig?.rules?.["subject-min-length"] as any),
+    maxHeaderLength: CZ_MAN_HEADER_LENGTH
+      ? parseInt(CZ_MAN_HEADER_LENGTH)
+      : clPromptConfig.maxHeaderLength ?? getMaxLength(clConfig?.rules?.["header-max-length"] as any),
+    maxSubjectLength: CZ_MAN_SUBJECT_LENGTH
+      ? parseInt(CZ_MAN_SUBJECT_LENGTH)
+      : clPromptConfig.maxSubjectLength ?? getMaxLength(clConfig?.rules?.["subject-max-length"] as any),
+    minSubjectLength: CZ_MIN_SUBJECT_LENGTH
+      ? parseInt(CZ_MIN_SUBJECT_LENGTH)
+      : clPromptConfig.minSubjectLength ?? getMinLength(clConfig?.rules?.["subject-min-length"] as any),
     defaultScope: CZ_SCOPE ?? clPromptConfig.defaultScope ?? defaultConfig.defaultScope,
     defaultSubject: CZ_SUBJECT ?? clPromptConfig.defaultSubject ?? defaultConfig.defaultSubject,
     defaultBody: CZ_BODY ?? clPromptConfig.defaultBody ?? defaultConfig.defaultBody,
