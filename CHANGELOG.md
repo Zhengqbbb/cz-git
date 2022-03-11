@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **guide:** add docs search and update config ([941bbe7](https://github.com/Zhengqbbb/cz-git/commit/941bbe7154c6141d4852dd97110f66ec64c32873)), closes [#4](https://github.com/Zhengqbbb/cz-git/issues/4)
+* **guide:** done cz-git website page and guide document ([941bbe7](https://github.com/Zhengqbbb/cz-git/commit/941bbe7154c6141d4852dd97110f66ec64c32873)), closes [#4](https://github.com/Zhengqbbb/cz-git/issues/4)
 
 
 
