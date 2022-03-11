@@ -79,6 +79,15 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156924173-56508d8a-ba7a-4001-99fe-16234ee0f911.gif)
 
+:::tip
+The following code can get the `HOME` directory at runtime,<br>you can use it with `fs` and `path` **for default global custom configuration**.
+```js
+const USER_HOME = process.env.HOME || process.env.USERPROFILE;
+// console.log(USER_HOME) === echo "$HOME"
+```
+
+:::
+
 ## default
 
 ### defaultIssues

@@ -79,6 +79,16 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156924173-56508d8a-ba7a-4001-99fe-16234ee0f911.gif)
 
+:::tip
+下面代码可以运行时获取到 `HOME` 目录，<br>你可以使用它配合 `fs`和`path` 进行**默认的全局自定义配置**
+
+```js
+const USER_HOME = process.env.HOME || process.env.USERPROFILE;
+// console.log(USER_HOME) === echo "$HOME"
+```
+
+:::
+
 ## issuePrefixs
 
 国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好 ==利用 commit message改变issue状态== <br>
