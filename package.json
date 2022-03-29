@@ -32,8 +32,8 @@
   ],
   "scripts": {
     "build": "lerna run build",
-    "clean": "lerna clean && rimraf *.tsbuildinfo && lerna run clean",
-    "dev": "rimraf *.tsbuildinfo && tsc -b tsconfig.build.json --watch",
+    "clean": "rimraf *.tsbuildinfo && lerna run clean",
+    "dev": "yarn clean && tsc -b tsconfig.build.json --watch",
     "docs:build": "vuepress build docs --clean-cache  --dest dist",
     "docs:dev": "vuepress dev docs --clean-cache",
     "docs:serve": "anywhere -h localhost -d dist",
