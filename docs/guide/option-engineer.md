@@ -60,11 +60,24 @@ It will automatically detect whether the definition of the [commitlint](https://
 - **type** : `boolean`
 - **default** : `false`
 
+## breaklineNumber
+
+- **description** : body and BREAKING CHANGES the line wraps automatically according to the character exceeding this value
+- **type** : `number`
+- **default** : `100`
+- **use** : When commitlint is not used and normalization is to be used
+
+:::tip
+Line breaks mainly based on **word completeness** <br>
+If commitlint is used, it will automatically read `body-max-line-length` and set it.
+:::
+
 ## breaklineChar
 
 - **description** : newline characters in detailed descriptions (body) and breaking changes (BREAKING CHANGES)
 - **type** : `string`
 - **default** : `"|"`
+
 
 ## skipQuestions
 

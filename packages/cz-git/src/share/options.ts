@@ -171,6 +171,14 @@ export interface CommitizenGitOptions {
   allowBreakingChanges?: string[];
 
   /**
+   * @description: set body and BREAKING CHANGE max length to breakline
+   * @default: 100
+   * @note: it auto check rule "body-max-line-length" set the option with `@commitlint`.
+   * @use: when you not use commitlint
+   */
+  breaklineNumber?: number;
+
+  /**
    * @description: body and BREAKINGCHANGES new line char
    * @default: "|"
    */
@@ -295,8 +303,9 @@ export const defaultConfig = Object.freeze({
    customScopesAlign: "bottom",
    customScopesAlias: "custom",
    emptyScopesAlias: "empty",
-   allowBreakingChanges: ['feat', 'fix'],
    upperCaseSubject: false,
+   allowBreakingChanges: ['feat', 'fix'],
+   breaklineNumber: 100,
    breaklineChar: "|",
    skipQuestions: [],
    issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],

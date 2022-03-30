@@ -21,7 +21,7 @@ export const wrap = (str: string, options: Options) => {
     return str;
   }
 
-  const width = options.width || 50;
+  const width = options.width || 100;
   const indent = typeof options.indent === "string" ? options.indent : "";
 
   const newline = options.newline || "\n" + indent;
