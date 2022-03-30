@@ -62,6 +62,18 @@ sitemap:
 - **类型** : `boolean`
 - **默认** : `false`
 
+## breaklineNumber
+
+- **描述** : 详细描述(body)和重大变更(BREAKING CHANGES)中根据字符超过该数值自动换行
+- **类型** : `number`
+- **默认** : `100`
+- **使用** : 当没有使用 commitlint 并要使用规范化时
+
+:::tip
+主要根据**单词完整性**进行换行 <br>
+如果使用 commitlint 会自动读取 `body-max-line-length` 进行设置
+:::
+
 ## breaklineChar
 
 - **描述** : 详细描述(body)和重大变更(BREAKING CHANGES)中换行字符
