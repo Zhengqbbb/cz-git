@@ -172,7 +172,7 @@ export const buildCommit = (answers: Answers, options: CommitizenGitOptions, col
     trim: true,
     newLine: "\n",
     indent: "",
-    width: 100
+    width: options.breaklineNumber
   };
   const head =
     addType(answers.type ?? "", colorize) +

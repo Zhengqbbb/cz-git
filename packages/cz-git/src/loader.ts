@@ -45,7 +45,7 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
     clPromptConfig,
     ["defaultScope", "defaultSubject", "defaultBody", "defaultFooterPrefix", "defaultIssues"]
   )
-  
+
   return {
     messages: pkgConfig.messages ?? clPromptConfig.messages ?? defaultConfig.messages,
     types: pkgConfig.types ?? clPromptConfig.types ?? defaultConfig.types,
@@ -59,6 +59,9 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
     emptyScopesAlias: pkgConfig.emptyScopesAlias ?? clPromptConfig.emptyScopesAlias ?? defaultConfig.emptyScopesAlias,
     upperCaseSubject: pkgConfig.upperCaseSubject ?? clPromptConfig.upperCaseSubject ?? defaultConfig.upperCaseSubject,
     allowBreakingChanges: pkgConfig.allowBreakingChanges ?? clPromptConfig.allowBreakingChanges ?? defaultConfig.allowBreakingChanges,
+    breaklineNumber: getMaxLength(clConfig?.rules?.["body-max-line-length"] as any) === Infinity
+      ? pkgConfig.breaklineNumber ?? clPromptConfig.breaklineNumber ?? defaultConfig.breaklineNumber
+      : getMaxLength(clConfig?.rules?.["body-max-line-length"] as any),
     breaklineChar: pkgConfig.breaklineChar ?? clPromptConfig.breaklineChar ?? defaultConfig.breaklineChar,
     skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
     issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
@@ -160,14 +163,14 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         else tooltip = `${maxSubjectLength - subjectLength} more chars allowed`;
         const tooltipColor =
           minSubjectLength !== undefined &&
-          subjectLength >= minSubjectLength &&
-          subjectLength <= maxSubjectLength
+            subjectLength >= minSubjectLength &&
+            subjectLength <= maxSubjectLength
             ? "\u001B[90m"
             : "\u001B[31m";
         const subjectColor =
           minSubjectLength !== undefined &&
-          subjectLength >= minSubjectLength &&
-          subjectLength <= maxSubjectLength
+            subjectLength >= minSubjectLength &&
+            subjectLength <= maxSubjectLength
             ? "\u001B[36m"
             : "\u001B[31m";
 
