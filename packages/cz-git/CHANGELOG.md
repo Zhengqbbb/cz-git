@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/Zhengqbbb/cz-git/compare/v1.2.1...v1.2.2) (2022-03-30)
+
+
+### Features
+
+* **cz-git:** add max string number to break line for Body and BreakingChange ([e9fe6ae](https://github.com/Zhengqbbb/cz-git/commit/e9fe6aea5a00c0dc646bca405171cd5fe710b1fc)), closes [#6](https://github.com/Zhengqbbb/cz-git/issues/6)
+
+
+
+
+
 ## [1.2.1](https://github.com/Zhengqbbb/cz-git/compare/v1.2.0...v1.2.1) (2022-03-11)
 
 
