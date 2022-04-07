@@ -25,6 +25,14 @@ sitemap:
 ==并且需添加 Emoji Code==，可以在: [https://gitmoji.dev/](https://gitmoji.dev/) 查找相应的字符进行补充到 `emoji`。
 :::
 
+## typesAppend
+
+- **描述** : 在默认 types 的基础上，添加额外的 types
+- **类型** : `Array<{ name: string; value: string; emoji?: string }>`
+- **使用** : **只想额外添加少量types**，不想添加臃肿的默认配置，或改变默认配置的显示顺序时使用。
+- **默认** : `[]`
+- **例子** : <br>`typesAppend: [ { value: "workflow", name: "workflow:  Workflow changes"} ],`
+
 ## useEmoji
 
 - **描述** : 是否开启 commit message 带有 Emoji 字符。

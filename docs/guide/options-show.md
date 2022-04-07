@@ -25,11 +25,19 @@ If you want to use Emoji, you need ==enable== `userEmoji` configuration item. <b
 And need to add Emoji Code, you can find the corresponding characters in: [https://gitmoji.dev/](https://gitmoji.dev/) to supplement `emoji`.
 :::
 
+## typesAppend
+
+- **description** : Add extra types to default types
+- **type** : `Array<{ name: string; value: string; emoji?: string }>`
+- **use** : Use when you don't want to add bloated defaults and don't want to adjust the default order in configuration. **Only want to add a small number of types**.
+- **default** : `[]`
+- **example** : <br>`typesAppend: [ { value: "workflow", name: "workflow:  Workflow changes"} ],`
+
 ## useEmoji
 
-- **描述** : Whether to enable commit messages with emoji characters.
-- **类型** : `boolean`
-- **默认** : `false`
+- **description** : Whether to enable commit messages with emoji characters.
+- **type** : `boolean`
+- **default** : `false`
 
 ## customScopesAlign
 
