@@ -142,7 +142,8 @@ const addScope = (scope?: string, colorize?: boolean) => {
 
 const addEmoji = (type: string, options: CommitizenGitOptions): string => {
   if (options.useEmoji && type !== "") {
-    const item = options.types?.find((i) => i.value === type);
+    const itemSource = options.types?.concat(options.typesAppend || []) || [];
+    const item = itemSource.find((i) => i.value === type);
     return item?.emoji ? ` ${item.emoji} ` : " ";
   } else {
     return " ";

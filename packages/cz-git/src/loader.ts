@@ -49,6 +49,7 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
   return {
     messages: pkgConfig.messages ?? clPromptConfig.messages ?? defaultConfig.messages,
     types: pkgConfig.types ?? clPromptConfig.types ?? defaultConfig.types,
+    typesAppend: pkgConfig.typesAppend ?? clPromptConfig.typesAppend ?? defaultConfig.typesAppend,
     useEmoji: pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
     scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"] as any),
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
@@ -97,8 +98,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "autocomplete",
       name: "type",
       message: options.messages?.type,
-      source: (_: unknown, input: string) =>
-        options.types?.filter((item) => (input ? item.value.includes(input) : true)) || true
+      source: (_: unknown, input: string) => {
+        const typesSource = options.types?.concat(options.typesAppend || []) || [];
+        return typesSource.filter((item) => (input ? item.value.includes(input) : true)) || true;
+      }
     },
     {
       type: "autocomplete",
