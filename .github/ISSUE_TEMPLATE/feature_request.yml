@@ -8,7 +8,7 @@ body:
   - type: textarea
     id: feature
     attributes:
-      label: ⬛ Describe the feature
+      label: 💭 Describe the feature
       description: What's it for and why you want
       placeholder: A clear and concise description of what the feature is, and what it will enhance or solve.
     validations:
