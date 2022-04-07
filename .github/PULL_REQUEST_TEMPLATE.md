@@ -1,41 +1,31 @@
-name: Pull Request
-description: Create a pull request
-title: "type: summary"
-body:
-  - type: input
-    id: issue
-    attributes:
-      label: Related ISSUE
-      description: Which package are you reporting
-      value: link /#
-      placeholder: input follow ISSUE number
+## Related ISSUE
 
-  - type: checkboxes
-    id: types
-    attributes:
-      label: Type of change
-      description: Please choose options that are type relevant.
-      options:
-        - label: Bug fix (non-breaking change which fixes an issue)
-        - label: New feature (non-breaking change which adds functionality)
-        - label: Document (This change requires a documentation update)
-        - label: Theme style (Theme style beautification)
-        - label: Workflow (Workflow changes)
-      validations:
-        required: true
+> Input follow ISSUE URL address
 
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Please include a summary of the changes. Please also include relevant motivation and context. List any dependencies that are required for this change.
-      placeholder: input description
-    validations:
-      required: true
+<!-- link #33 -->
 
-  - type: textarea
-    id: testcase
-    attributes:
-      label: Test Case
-      description: Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test case.
-      placeholder: Please describe the tests
+## Type Of Change
+
+- [ ] 🐞 Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ New feature (non-breaking change which adds functionality)
+- [ ] 📝 Document (This change requires a documentation update)
+- [ ] 🎨 Theme style (Theme style beautification)
+- [ ] 🔨 Workflow (Workflow changes)
+
+## Clear Describe
+
+> A clear and concise description of what update for target.
+
+<!-- 
+input summary. e.g:
+- feat: add output emoji
+- docs: add `emoji` option document
+-->
+
+## Description
+
+> Please enter detailed relevant motivation, background and implementation ... descriptive information.
+
+## Test Case
+
+> Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test case.
