@@ -1,0 +1,22 @@
+name: Feature request
+description: 💡 Suggest an idea for this project
+title: "[Feature Request]"
+labels:
+  - enhancement
+assignees: Zhengqbbb
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: Describe the feature
+      description: What's it for and why you want
+      placeholder: A clear and concise description of what the feature is, and what it wiill enhance or solve.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      placeholder: "Describe a clear and concise description of what you want to happen.\nIf possible, please provide relevant screenshots or videos."
+    

@@ -1,5 +1,5 @@
 name: Bug report
-description: Create a report to help us improve
+description: 🐞 Create a report to help us improve
 title: "[Bug report]"
 labels:
   - bug
@@ -14,13 +14,13 @@ body:
         - label: I am using the **latest version**
           required: true
 
-        - label: I have searched [FAQ](https://cz-git.qbenben.com/guide/faq.html#windows-users-use)
+        - label: I have searched [FAQ](https://cz-git.qbenben.com/guide/faq.html)
           required: true
 
   - type: checkboxes
     id: operating-systems
     attributes:
-      label: Which operating system are you using?
+      label: Which operating system are you using ?
       description: You may select more than one.
       options:
         - label: macOS
@@ -40,7 +40,7 @@ body:
     attributes:
       label: Description
       description: A clear and concise description of what the bug is.And input a clear and concise description of what you expected to happen.
-      value: "### Concise Description\n\n### Expected behavior\n\n### Steps to reproduce\n\n### Screenshots(if you can)"
+      value: "### Concise Description\n\n### Expected behavior\n\n### Steps to reproduce\n\n### Screenshots or Screen Recording(if possible)"
     validations:
       required: true
   
@@ -48,5 +48,5 @@ body:
     id: link
     attributes:
       label: "Reproduction link / repo:"
-      description: If you can, give us the project address, or minimize test cases to help us locate
+      description: If applicable, give us the project address, or minimize test cases repo to help us explain your problem.
       placeholder: "link / repo URL"
