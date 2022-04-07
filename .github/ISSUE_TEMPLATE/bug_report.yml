@@ -40,7 +40,7 @@ body:
     attributes:
       label: Description
       description: A clear and concise description of what the bug is.And input a clear and concise description of what you expected to happen.
-      value: "### Concise Description\n\n### Expected behavior\n\n### Steps to reproduce\n\n### Screenshots or Screen Recording(if possible)"
+      value: "#### Concise Description\n\n#### Expected behavior\n\n#### Steps to reproduce\n\n#### Screenshots or Screen Recording(if possible)"
     validations:
       required: true
   

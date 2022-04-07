@@ -18,5 +18,6 @@ body:
     id: proposed-solution
     attributes:
       label: Proposed Solution
-      placeholder: "Describe a clear and concise description of what you want to happen.\nIf possible, please provide relevant screenshots or videos."
+      description: "Describe a clear and concise description of what you want to happen.\nIf possible, please provide relevant screenshots or videos."
+      placeholder: "Describe a clear and concise description of what you want to happen."
     
