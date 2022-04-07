@@ -1,0 +1,52 @@
+name: Bug report
+description: Create a report to help us improve
+title: "[Bug report]"
+labels:
+  - bug
+assignees: Zhengqbbb
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Make sure that you follow these statements.
+      options:
+        - label: I am using the **latest version**
+          required: true
+
+        - label: I have searched [FAQ](https://cz-git.qbenben.com/guide/faq.html#windows-users-use)
+          required: true
+
+  - type: checkboxes
+    id: operating-systems
+    attributes:
+      label: Which operating system are you using?
+      description: You may select more than one.
+      options:
+        - label: macOS
+        - label: Windows
+        - label: Linux
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment info
+      value: "- `cz-git` verison:\n- `Node.js` verison:"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.And input a clear and concise description of what you expected to happen.
+      value: "### Concise Description\n\n### Expected behavior\n\n### Steps to reproduce\n\n### Screenshots(if you can)"
+    validations:
+      required: true
+  
+  - type: input
+    id: link
+    attributes:
+      label: "Reproduction link / repo:"
+      description: If you can, give us the project address, or minimize test cases to help us locate
+      placeholder: "link / repo URL"
