@@ -99,25 +99,27 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE;
   - Then we use `defaultIssues`
   - When using, we only need to press the ==\<Enter\>== key to output the `Issue Number`, so that we can easily intercept the `Issue Number` to reduce repetitive work.
 
-```js{5-8,14}
+- <Badge type="tip" text="Tip" vertical="middle" /> Of course, we can also combine the `customIssuePrefixsAlign` configuration item to dynamically change the position of the issue prefix option.
+
+```js{5-8,13-14}
 // .commitlintrc.js 
 const { execSync } = require('child_process');
 
-// @tip: git branch name = feature/33   =>    auto get defaultIssues = #33
+// @tip: git branch name = feature/issue_33   =>    auto get defaultIssues = #33
  const issue = execSync('git rev-parse --abbrev-ref HEAD')
   .toString()
   .trim()
-  .split("/")[1]
-// @tip: monorepo dynamic get name
+  .split("_")[1]
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
   prompt: {
-    defaultIssues: () => !issue ? "" : `#${issue}`
+    customIssuePrefixsAlign: !issue ? "top" : "bottom",
+    defaultIssues: !issue ? "" : `#${issue}`
   }
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/156924691-10411379-b351-4632-a688-2df5e54a034c.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/162552804-132aab02-4b02-4006-9e41-aeae4f825948.gif)
 
 > Expand your imagination, and the highly customizable `cz-git` makes committing more convenient and more customary. Welcome to share.
