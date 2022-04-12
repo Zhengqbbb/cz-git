@@ -26,6 +26,7 @@ export const locales = {
 /* prettier-ignore */
 export const headConfig: HeadConfig[] = [
   ["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" }],
+  ["meta", { name: "keywords", content: "cz-git,commitizen,commitizen adapter,git-cz,commitizen-adapter" }],
   ["meta", { name: "google-site-verification", content: "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec" }],
   ["meta", { name: "baidu-site-verification", content: "code-rzEqiivgqt" }],
   ["meta", { name: "twitter:title", content: "cz-git - commitizen adapter" }],
