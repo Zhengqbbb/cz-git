@@ -93,7 +93,7 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE;
 ### defaultIssues
 
 - Obtaining the `Issue Number` automatically, it is a very troublesome thing to repeat the query to fill in the `issue number`.
-  - But if the team's branch command rules are standardized (e.g: fix/33)
+  - But if the team's branch command rules are standardized (e.g: feature/issue_33)
   - Then we use `Node`'s `execSync` to get the branch name through the command
   - Then process the obtained string
   - Then we use `defaultIssues`

@@ -114,7 +114,7 @@ module.exports = {
 ### defaultIssues
 
 - 自动获取 `Issue Number`，重复查询填写`issue number` 是一件很麻烦的事情，尤其在 gitee 反人类设计
-  - 但是如果规范了团队的分支命令规则(e.g: fix/33)
+  - 但是如果规范了团队的分支命令规则(e.g: fix/issue_33)
   - 然后我们利用 `Node` 的 `execSync` 通过命令获取到分支名
   - 再对获取的字符串进行处理
   - 接着我们利用 `defaultIssues`
