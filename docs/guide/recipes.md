@@ -4,7 +4,6 @@ sidebarDepth: 2
 lastUpdated: true
 sitemap:
     priority: 0.8
-    exclude: true
 ---
 # Recipes
 

@@ -113,15 +113,3 @@ export const googleAnalyticsPlugin: PluginConfig = [
     id: "G-K6F2G4G0ZN"
   } as GoogleAnalyticsPluginOptions
 ];
-
-/**
- * @description: sitemap Plugin
- */
-// export const sitemapPlugin: PluginConfig = [
-//   "@vuepress/plugin-sitemap",
-//   {
-//     hostname: "https://cz-git.qbenben.com",
-//     priority: 0.8,
-//     excludeUrls: ["/404.html"]
-//   } as SitemapOptions
-// ];

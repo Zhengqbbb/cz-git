@@ -18,6 +18,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     pagePlugins.pwaPopupPlugin,
     pagePlugins.googleAnalyticsPlugin,
     pagePlugins.chinaSEOPlugin,
+    pagePlugins.sitemapPlugin
   ],
   themeConfig: pageInfo.themeConfig,
   markdown: pageInfo.markdownConfig,

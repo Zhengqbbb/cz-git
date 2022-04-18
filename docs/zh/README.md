@@ -5,7 +5,6 @@ heroImage: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0
 description: 一款工程性更强，高度自定义，标准输出格式的 commitizen 适配器
 sitemap:
     priority: 1
-    exclude: false
 actions:
   - text: 快速上手 →
     link: /zh/guide/getting-started.html

@@ -50,6 +50,10 @@ export const headConfig: HeadConfig[] = [
   ["meta", { name: "msapplication-TileImage", content: `/images/icons/favicon-192.png` }],
   ["meta", { name: "theme-color", content: "#dd6954" }],
 
+  ["link", { rel: "canonical", href:"https://cz-git.qbenben.com/" }],
+  ["link", { rel: "alternate", href:"https://cz-git.qbenben.com/", hreflang:"x-default" }],
+  ["link", { rel: "alternate", href:"https://cz-git.qbenben.com/", hreflang:"en-us" }],
+  ["link", { rel: "alternate", href:"https://cz-git.qbenben.com/zh/", hreflang:"zh-hans" }],
   ["link", { rel: "shortcut icon", href: `/images/favicon.ico` }],
   ["link", { rel: "icon", type: "image/x-icon", size: "16x16 32x32", href: `/images/favicon.ico` }],
   ["link", { rel: "apple-touch-icon", href: `/images/icons/apple-touch-icon.png` }],
