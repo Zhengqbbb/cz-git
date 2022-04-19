@@ -97,7 +97,7 @@ export const pwaPopupPlugin: PluginConfig = [
         buttonText: "Refresh"
       },
       "/zh": {
-        message: "发现新内容可用",
+        message: "文档更新已准备就绪",
         buttonText: "刷新"
       }
     }
