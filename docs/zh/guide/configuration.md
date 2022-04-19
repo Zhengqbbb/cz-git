@@ -87,8 +87,8 @@ module.exports = {
   prompt: {
     messages: {
       type: "选择你的提交类型   | Select the type of change that you\'re committing:",
-      scope: "选择一个模块范围(可选) | Denote the SCOPE of this change (optional)",
-      customScope: "自定义修改模块名 | Denote the SCOPE of this change:",
+      scope: "选择一个本次提交的范围(可选) | Denote the SCOPE of this change (optional)",
+      customScope: "请输入自定义的提交范围 | Denote the SCOPE of this change:",
       subject: "简短说明 | Write a SHORT, IMPERATIVE tense description of the change:\n",
       body: '详细说明(可选) 使用"|"可换行 \n  Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
       breaking: '非兼容性说明(可选) 使用"|"可换行 | List any BREAKING CHANGES (optional):\n',
@@ -164,8 +164,8 @@ module.exports = {
   prompt: {
     messages: {
       type: "选择你的提交类型:",
-      scope: "选择一个模块范围(可选):",
-      customScope: "自定义修改模块范围",
+      scope: "选择一个本次提交的范围(可选):",
+      customScope: "请输入自定义的提交范围",
       subject: '简短说明 \n',
       body: '详细说明(可选) 使用"|"可换行 \n',
       breaking: "非兼容性说明(可选) 使用"|"可换行\n",
