@@ -9,7 +9,7 @@ DOC_SEARCH_CONFIG_FILE=$WORK_DIR/docs/.vuepress/configs/docSearch/docSearchConfi
 search() {
     param:dsl       '
 type:
-    Type = all google baidu bing docsearch
+    Type = only_console all google baidu bing docsearch
 options:
     --p    "select target search command"        <>:Type
 '
@@ -29,6 +29,12 @@ search_all() {
     search_baidu
     search_bing
     search_docsearch
+}
+
+search_only_console() {
+    search_google
+    search_baidu
+    search_bing
 }
 
 search_google() {
@@ -88,10 +94,11 @@ search_docsearch() {
 
 # Section: Main
 case "${1}" in
-    docsearch)      search_docsearch   ;;
-    google)         search_google      ;;
-    baidu)          search_baidu       ;;
-    bing)           search_bing        ;;
-    all)            search_all         ;;
-    *)              search             ;;
+    docsearch)      search_docsearch        ;;
+    google)         search_google           ;;
+    baidu)          search_baidu            ;;
+    bing)           search_bing             ;;
+    only_console)   search_only_console     ;;
+    all)            search_all              ;;
+    *)              search                  ;;
 esac
