@@ -124,8 +124,8 @@ module.exports = {
     skipQuestions: [],
     issuePrefixs: [
       // 如果使用 gitee 作为开发管理
-      { value: "link", name: "link:     将任务状态更改为进行中"},
-      { value: "closed", name: "closed:   ISSUES 已经解决" }
+      { value: "link", name: "link:     链接 ISSUES 进行中"},
+      { value: "closed", name: "closed:   标记 ISSUES 已完成" }
       ],
     customIssuePrefixsAlign: "top",
     emptyIssuePrefixsAlias: "skip",
@@ -175,25 +175,25 @@ module.exports = {
       confirmCommit: "是否提交或修改commit ?"
     },
     types: [
-      {value: '特性', name: '特性:     新增一个功能'},
+      {value: '特性', name: '特性:     新增功能'},
       {value: '修复', name: '修复:     修复缺陷'},
-      {value: '文档', name: '文档:     文档更新'},
-      {value: '格式',    name: '格式:     代码格式改动，且不影响整体代码的改动'},
-      {value: '重构',    name: '重构:     代码重构'},
-      {value: '性能',     name: '性能:     性能提升'},
+      {value: '文档', name: '文档:     文档变更'},
+      {value: '格式',    name: '格式:     代码格式（不影响功能，例如空格、分号等格式修正）'},
+      {value: '重构',    name: '重构:     代码重构（不包括 bug 修复、功能新增）'},
+      {value: '性能',     name: '性能:     性能优化'},
       {value: '测试',     name: '测试:     添加疏漏测试或已有测试改动'},
-      {value: '构建',    name: '构建:     构建过程，构建工具变动'},
-      {value: '集成',       name: '集成:     持续集成，开发工具，脚本变动'},
-      {value: '回退',   name: '回退:     回退代码'},
-      {value: '其他',    name: '其他:     配置或辅助工具的变动'},
+      {value: '构建',    name: '构建:     构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）'},
+      {value: '集成',       name: '集成:     修改 CI 配置、脚本'},
+      {value: '回退',   name: '回退:     回滚 commit'},
+      {value: '其他',    name: '其他:     对构建过程或辅助工具和库的更改（不影响源文件、测试用例）'},
     ],
     useEmoji: false,
     scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
     customScopesAlign: "bottom",
-    customScopesAlias: "自定义",
-    emptyScopesAlias: "为空",
+    customScopesAlias: "以上都不是？我要自定义",
+    emptyScopesAlias: "跳过",
     upperCaseSubject: false,
     allowBreakingChanges: ['feat', 'fix'],
     breaklineNumber: 100,
@@ -201,12 +201,12 @@ module.exports = {
     skipQuestions: [],
     issuePrefixs: [
       // 如果使用 gitee 作为开发管理
-      { value: "关联", name: "关联:     将任务状态更改为进行中"},
-      { value: "关闭", name: "关闭:     ISSUES 已经解决" }
+      { value: "link", name: "link:     链接 ISSUES 进行中"},
+      { value: "closed", name: "closed:   标记 ISSUES 已完成" }
       ],
     customIssuePrefixsAlign: "top",
     emptyIssuePrefixsAlias: "跳过",
-    customIssuePrefixsAlias: "自定义",
+    customIssuePrefixsAlias: "自定义前缀",
     confirmColorize: true,
     maxHeaderLength: Infinity,
     maxSubjectLength: Infinity,
