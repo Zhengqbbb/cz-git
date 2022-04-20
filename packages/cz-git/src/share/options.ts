@@ -47,24 +47,24 @@ export type Answers = {
    */
   body?: string;
   /**
-   * @default: List any BREAKING CHANGES (optional):\n
+   * @default: List any BREAKING CHANGES (optional). Use "|" to break new line:\n
    */
   breaking?: string;
   /**
-   * @default: Select the ISSUES type of changeList by this change (optional):
+   * @default: Select the ISSUES type of change (optional):
    */
   footerPrefixsSelect?: string;
   footerPrefix?: string;
   /**
-   * @default: Input ISSUES Prefix:
+   * @default: Input ISSUES prefix:
    */
   customFooterPrefixs?: string;
   /**
-   * @default: List any ISSUES by this change. E.g.: #31, #34, #I972S:\n
+   * @default: List any ISSUES AFFECTED by this change. E.g.: #31, #34:
    */
   footer?: string;
   /**
-   * @default: Are you sure you want to proceed with the commit above ?
+   * @default: Are you sure you want to proceed with the commit above?
    */
   confirmCommit?: string;
 };
@@ -288,7 +288,7 @@ export const defaultConfig = Object.freeze({
      breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
      footerPrefixsSelect: "Select the ISSUES type of change (optional):",
      customFooterPrefixs: "Input ISSUES prefix:",
-     footer: "List any ISSUES CLOSED by this change. E.g.: #31, #34:\n",
+     footer: "List any ISSUES AFFECTED by this change. E.g.: #31, #34:\n",
      confirmCommit: "Are you sure you want to proceed with the commit above?"
    },
    types: [
