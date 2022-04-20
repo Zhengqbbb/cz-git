@@ -25,9 +25,9 @@ module.exports = {
       body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
       breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
       footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):",
-      customFooterPrefixs: "Input ISSUES Prefix:",
-      footer: "List any ISSUES by this change. E.g.: #31, #34, #I972S:\n",
-      confirmCommit: "Are you sure you want to proceed with the commit above ?"
+      customFooterPrefixs: "Input ISSUES prefix:",
+      footer: "List any ISSUES by this change. E.g.: #31, #34:\n",
+      confirmCommit: "Are you sure you want to proceed with the commit above?"
     },
     types: [
       { value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" },
@@ -92,9 +92,9 @@ module.exports = {
       body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
       breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
       footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):",
-      customFooterPrefixs: "Input ISSUES Prefix:",
-      footer: "List any ISSUES by this change. E.g.: #31, #34, #I972S:\n",
-      confirmCommit: "Are you sure you want to proceed with the commit above ?"
+      customFooterPrefixs: "Input ISSUES prefix:",
+      footer: "List any ISSUES by this change. E.g.: #31, #34:\n",
+      confirmCommit: "Are you sure you want to proceed with the commit above?"
     },
     types: [
       { value: "feat", name: "feat:     ✨  A new feature", emoji: ":sparkles:" },
@@ -159,9 +159,9 @@ It is recommended to use JavaScript for configuration files in the project. You 
     "body": "Provide a LONGER description of the change (optional). Use \"|\" to break new line:\n",
     "breaking": "List any BREAKING CHANGES (optional). Use \"|\" to break new line:\n",
     "footerPrefixsSelect": "Select the ISSUES type of changeList by this change (optional):",
-    "customFooterPrefixs": "Input ISSUES Prefix:",
-    "footer": "List any ISSUES by this change. E.g.: #31, #34, #I972S:\n",
-    "confirmCommit": "Are you sure you want to proceed with the commit above ?"
+    "customFooterPrefixs": "Input ISSUES prefix:",
+    "footer": "List any ISSUES by this change. E.g.: #31, #34:\n",
+    "confirmCommit": "Are you sure you want to proceed with the commit above?"
   },
   "types": [
     { "value": "feat", "name": "feat:     A new feature", "emoji": ":sparkles:" },
@@ -226,9 +226,9 @@ const config: UserConfig = {
       body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
       breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
       footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):",
-      customFooterPrefixs: "Input ISSUES Prefix:",
-      footer: "List any ISSUES by this change. E.g.: #31, #34, #I972S:\n",
-      confirmCommit: "Are you sure you want to proceed with the commit above ?"
+      customFooterPrefixs: "Input ISSUES prefix:",
+      footer: "List any ISSUES by this change. E.g.: #31, #34:\n",
+      confirmCommit: "Are you sure you want to proceed with the commit above?"
     },
     types: [
       { value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" },
