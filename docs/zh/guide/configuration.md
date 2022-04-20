@@ -86,16 +86,16 @@ module.exports = {
   },
   prompt: {
     messages: {
-      type: "选择你的提交类型   | Select the type of change that you\'re committing:",
-      scope: "选择一个本次提交的范围(可选) | Denote the SCOPE of this change (optional)",
-      customScope: "请输入自定义的提交范围 | Denote the SCOPE of this change:",
-      subject: "简短说明 | Write a SHORT, IMPERATIVE tense description of the change:\n",
-      body: '详细说明(可选) 使用"|"可换行 \n  Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
-      breaking: '非兼容性说明(可选) 使用"|"可换行 | List any BREAKING CHANGES (optional):\n',
-      footerPrefixsSelect: "选择关联issue前缀 | Select the ISSUES type of changeList by this change (optional):",
-      customFooterPrefixs: "输入自定义issue前缀 | Input ISSUES prefix:",
-      footer: "列举关联issue (可选) 例如: #31, #I3244  List any ISSUES CLOSED by this change (optional) :\n",
-      confirmCommit: "是否提交或修改commit | Are you sure you want to proceed with the commit above?"
+      type: "选择你要提交的类型 :",
+      scope: "选择一个提交范围（可选）:",
+      customScope: "请输入自定义的提交范围 :",
+      subject: "填写简短精炼的变更描述 :\n",
+      body: '填写更加详细的变更描述（可选）。使用 "|" 换行 :\n',
+      breaking: '列举非兼容性重大的变更（可选）。使用 "|" 换行 :\n',
+      footerPrefixsSelect: "选择关联issue前缀（可选）:",
+      customFooterPrefixs: "输入自定义issue前缀 :",
+      footer: "列举关联issue (可选) 例如: #31, #I3244 :\n",
+      confirmCommit: "是否提交或修改commit ?"
     },
     types: [
       {value: 'feat',     name: 'feat:     新增功能 | A new feature'},
@@ -163,15 +163,15 @@ module.exports = {
   },
   prompt: {
     messages: {
-      type: "选择你的提交类型:",
-      scope: "选择一个本次提交的范围(可选):",
-      customScope: "请输入自定义的提交范围",
-      subject: '简短说明 \n',
-      body: '详细说明(可选) 使用"|"可换行 \n',
-      breaking: "非兼容性说明(可选) 使用"|"可换行\n",
-      footerPrefixsSelect: "选择关联issue前缀(可选):",
-      customFooterPrefixs: "输入自定义issue前缀",
-      footer: "列举关联issue (可选) 例如: #31, #I3244:\n",
+      type: "选择你要提交的类型 :",
+      scope: "选择一个提交范围（可选）:",
+      customScope: "请输入自定义的提交范围 :",
+      subject: "填写简短精炼的变更描述 :\n",
+      body: '填写更加详细的变更描述（可选）。使用 "|" 换行 :\n',
+      breaking: '列举非兼容性重大的变更（可选）。使用 "|" 换行 :\n',
+      footerPrefixsSelect: "选择关联issue前缀（可选）:",
+      customFooterPrefixs: "输入自定义issue前缀 :",
+      footer: "列举关联issue (可选) 例如: #31, #I3244 :\n",
       confirmCommit: "是否提交或修改commit ?"
     },
     types: [
