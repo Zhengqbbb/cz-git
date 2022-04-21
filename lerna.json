@@ -19,7 +19,7 @@
       "ignoreChanges": [
         "**/*.md"
       ],
-      "message": "build: publish %s"
+      "message": "build: :bookmark: publish %s"
     },
     "publish": {
       "registry": "https://registry.npmjs.org/"
