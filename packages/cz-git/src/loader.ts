@@ -124,7 +124,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.emptyScopesAlias,
           options.customScopesAlias,
           options.allowCustomScopes,
-          options.allowEmptyScopes
+          options.allowEmptyScopes,
+          options.defaultScope as string
         );
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
@@ -134,6 +135,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "scope",
       message: options.messages?.customScope,
       default: options.defaultScope || undefined,
+      validate(input: string) {
+        if (options.allowEmptyScopes) return true;
+        return input.length ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
+      },
       when(answers: Answers) {
         return answers.scope === "___CUSTOM___";
       }
@@ -169,14 +174,14 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         else tooltip = `${maxSubjectLength - subjectLength} more chars allowed`;
         const tooltipColor =
           minSubjectLength !== undefined &&
-            subjectLength >= minSubjectLength &&
-            subjectLength <= maxSubjectLength
+          subjectLength >= minSubjectLength &&
+          subjectLength <= maxSubjectLength
             ? "\u001B[90m"
             : "\u001B[31m";
         const subjectColor =
           minSubjectLength !== undefined &&
-            subjectLength >= minSubjectLength &&
-            subjectLength <= maxSubjectLength
+          subjectLength >= minSubjectLength &&
+          subjectLength <= maxSubjectLength
             ? "\u001B[36m"
             : "\u001B[31m";
 
@@ -228,7 +233,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.customIssuePrefixsAlias,
           options.allowCustomIssuePrefixs,
           options.allowEmptyIssuePrefixs
-        )
+        );
         return issues?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
     },

@@ -81,7 +81,8 @@ export const handleCustomTemplate = (
   emptyAlias = "empty",
   customAlias = "custom",
   allowCustom = true,
-  allowEmpty = true
+  allowEmpty = true,
+  defaultValue = ""
 ) => {
   let result: Array<{ name: string; value: any }> = [
     { name: emptyAlias, value: false },
@@ -90,6 +91,15 @@ export const handleCustomTemplate = (
   ];
   if (!Array.isArray(target)) {
     return result;
+  } else if (defaultValue !== "") {
+    // put the defaultValue to the top
+    const targetIndex = target.findIndex((i) => i.value === defaultValue);
+    if (targetIndex !== -1)
+      target = [
+        target[targetIndex],
+        ...target.slice(0, targetIndex),
+        ...target.slice(targetIndex + 1)
+      ];
   }
   switch (align) {
     case "top":
