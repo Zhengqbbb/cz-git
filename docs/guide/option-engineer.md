@@ -45,6 +45,10 @@ It will automatically detect whether the definition of the [commitlint](https://
 - **type** : `boolean`
 - **default** : `true`
 
+:::tip
+It will automatically detect whether the definition of the [commitlint](https://github.com/conventional-changelog/commitlint) rule `scope-empty` is strict, and it will not be displayed automatically.
+:::
+
 ## allowBreakingChanges
 
 - **description** : a specific **type** that allows BREAKING CHANGES

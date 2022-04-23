@@ -46,6 +46,9 @@ lastUpdated: true
 - **类型** : `boolean`
 - **默认** : `true`
 
+:::tip
+会自动检测 [commitlint](https://github.com/conventional-changelog/commitlint) 规则 `scope-empty`的定义是否严格，自动不显示。
+:::
 
 ## allowBreakingChanges
 
