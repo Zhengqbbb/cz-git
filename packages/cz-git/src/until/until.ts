@@ -64,9 +64,6 @@ const filterCustomEmptyByOption = (
   allowCustom = true,
   allowEmpty = true
 ) => {
-  if (!Array.isArray(target) || target.length === 3 || target.length === 4) {
-    return allowCustom ? target : target.filter((i) => i.value !== "___CUSTOM___");
-  }
   target = allowCustom ? target : target.filter((i) => i.value !== "___CUSTOM___");
   return allowEmpty ? target : target.filter((i) => i.value !== false);
 };
