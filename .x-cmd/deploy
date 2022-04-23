@@ -3,7 +3,7 @@
 # Section: Arg
 WORK_DIR="$(x wsroot)"
 DIST_PATH="$WORK_DIR"/dist
-GITHUB_URL="${github_access_token}https://@github.com/Zhengqbbb/cz-git.git"
+GITHUB_URL="https://${github_access_token}@github.com/Zhengqbbb/cz-git.git"
 BRANCH_NAME=gh-page
 
 # Section: Fuction
