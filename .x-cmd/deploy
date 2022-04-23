@@ -3,7 +3,7 @@
 # Section: Arg
 WORK_DIR="$(x wsroot)"
 DIST_PATH="$WORK_DIR"/dist
-GITHUB_URL=github.com:Zhengqbbb/cz-git.git
+GITHUB_URL="${github_access_token}https://@github.com/Zhengqbbb/cz-git.git"
 BRANCH_NAME=gh-page
 
 # Section: Fuction
@@ -20,6 +20,7 @@ options:
     deploy_"${p}" "$v"
 }
 deploy_all() {
+    [ -z "$github_access_token" ] && printf "%s\n" "please provide token" && return 1
     deploy_cz "$@"
     deploy_docs
 }
@@ -37,11 +38,11 @@ deploy_docs() {
     echo 'cz-git.qbenben.com' > CNAME
     [ -d "$DIST_PATH/.git" ] && rm -rf "$DIST_PATH/.git"
     git init \
-        && git remote add origin git@"$GITHUB_URL" \
+        && git remote set-url origin "$GITHUB_URL" \
         && git checkout -b $BRANCH_NAME \
         && git add -A \
-        && git commit -m 'build: deploy docs' \
-        && git push -f git@"$GITHUB_URL" $BRANCH_NAME
+        && git commit -m 'build: :books: deploy docs' \
+        && git push -f "$GITHUB_URL" $BRANCH_NAME
 }
 
 # Section: Main
