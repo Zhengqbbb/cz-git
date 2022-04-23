@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/Zhengqbbb/cz-git/compare/v1.2.3...v1.2.4) (2022-04-23)
+
+
+### Bug Fixes
+
+* **cz-git:** fix custom scope skip allowEmptyScopes check ([f0d8c53](https://github.com/Zhengqbbb/cz-git/commit/f0d8c53319915bce17378e81b14065fef25c1d95)), closes [#16](https://github.com/Zhengqbbb/cz-git/issues/16)
+* **cz-git:** fix minor issues in default messages ([99d8cc4](https://github.com/Zhengqbbb/cz-git/commit/99d8cc4752e117157cceaee00a364e27854216f2))
+
+
+### Features
+
+* **cz-git:** add strict issuePrefixs configure ([f2d11a9](https://github.com/Zhengqbbb/cz-git/commit/f2d11a93db6cb8bc17f80d9895eac25f2ef6469d)), closes [#12](https://github.com/Zhengqbbb/cz-git/issues/12)
+* **cz-git:** allowEmptyScopes can base on ["scope-empty"] rule ([4d3eff9](https://github.com/Zhengqbbb/cz-git/commit/4d3eff9d1d3f5c113264a0b7d84dbc0277f38705)), closes [#15](https://github.com/Zhengqbbb/cz-git/issues/15)
+* **cz-git:** use defaultScope can star item of scope list ([b899d2c](https://github.com/Zhengqbbb/cz-git/commit/b899d2c47967752cc364d7a0b747175d0697ea29)), closes [#16](https://github.com/Zhengqbbb/cz-git/issues/16)
+
+
+
+
+
 ## [1.2.3](https://github.com/Zhengqbbb/cz-git/compare/v1.2.2...v1.2.3) (2022-04-07)
 
 
