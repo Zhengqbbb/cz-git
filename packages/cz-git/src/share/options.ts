@@ -138,7 +138,7 @@ export interface CommitizenGitOptions {
   scopeOverrides?: { [type: string]: ScopesType };
 
   /**
-   * @description: Whether to show customizing when selecting scopes
+   * @description: Whether to show "custom" when selecting scopes
    * @note it auto check rule "scope-enum" set the option with `@commitlint`
    * @use when you not use commitlint
    * @default true
@@ -146,7 +146,7 @@ export interface CommitizenGitOptions {
   allowCustomScopes?: boolean;
 
   /**
-   * @description: Whether to show empty when selecting scopes
+   * @description: Whether to show "empty" when selecting scopes
    * @default true
    */
   allowEmptyScopes?: boolean;
@@ -212,6 +212,18 @@ export interface CommitizenGitOptions {
    * @default: "custom"
    */
   customIssuePrefixsAlias?: string;
+
+  /**
+   * @description: Whether to show "custom" selecting issue prefixs
+   * @default true
+   */
+  allowCustomIssuePrefixs?: boolean;
+
+  /**
+   * @description: Whether to show "skip(empty)" when selecting issue prefixs
+   * @default true
+   */
+  allowEmptyIssuePrefixs?: boolean;
 
   /**
    * @description: Prompt final determination whether to display the color
@@ -321,6 +333,8 @@ export const defaultConfig = Object.freeze({
    customIssuePrefixsAlign: "top",
    emptyIssuePrefixsAlias: "skip",
    customIssuePrefixsAlias: "custom",
+   allowCustomIssuePrefixs: true,
+   allowEmptyIssuePrefixs: true,
    confirmColorize: true,
    maxHeaderLength: Infinity,
    maxSubjectLength: Infinity,
