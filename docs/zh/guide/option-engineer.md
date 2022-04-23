@@ -93,6 +93,18 @@ lastUpdated: true
 国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br> ==利用 commit message改变issue状态== [查看小窍门](/zh/guide/recipes.html#issueprefixs)
 :::
 
+## allowCustomIssuePrefixs
+
+- **描述** : 是否在选择 **ISSUE 前缀** 显示自定义选项(custom)
+- **类型** : `boolean`
+- **默认** : `true`
+
+## allowEmptyIssuePrefixs
+
+- **描述** : 是否在选择 **ISSUE 前缀** 显示为跳过选项(skip)
+- **类型** : `boolean`
+- **默认** : `true`
+
 ## maxHeaderLength
 
 - **描述** : 定义commit message中的 header 长度, 给予在命令行中的校验信息

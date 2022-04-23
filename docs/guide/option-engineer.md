@@ -30,7 +30,7 @@ If you define `scopeOverrides` then define generic `scopes`
 
 ## allowCustomScopes
 
-- **description** : whether to display custom options when **module scope** is selected (custom)
+- **description** : whether to display custom options when selecting **module scope** (custom)
 - **type** : `boolean`
 - **default** : `true`
 - **use** : not using `commitlint` and want to turn off custom options in select.
@@ -41,7 +41,7 @@ It will automatically detect whether the definition of the [commitlint](https://
 
 ## allowEmptyScopes
 
-- **description** : whether to select **module scope** to display an empty option (empty)
+- **description** : whether to display an empty option when selecting **module scope** (empty)
 - **type** : `boolean`
 - **default** : `true`
 
@@ -87,6 +87,18 @@ If commitlint is used, it will automatically read `body-max-line-length` and set
 - **description** : custom select issue prefix
 - **type** : `Array<{ value: string, name: string }>`
 - **default** : `[{ value: "closed", name: "closed: ISSUES has been processed" }]`
+
+## allowCustomIssuePrefixs
+
+- **description** : whether to display custom options when selecting ISSUES prefixs (custom)
+- **type** : `boolean`
+- **default** : `true`
+
+## allowEmptyIssuePrefixs
+
+- **description** : whether to display an empty option when selecting ISSUES prefixs (skip)
+- **type** : `boolean`
+- **default** : `true`
 
 ## maxHeaderLength
 

@@ -69,6 +69,8 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
     customIssuePrefixsAlign: pkgConfig.customIssuePrefixsAlign ?? clPromptConfig.customIssuePrefixsAlign ?? defaultConfig.customIssuePrefixsAlign,
     emptyIssuePrefixsAlias: pkgConfig.emptyIssuePrefixsAlias ?? clPromptConfig.emptyIssuePrefixsAlias ?? defaultConfig.emptyIssuePrefixsAlias,
     customIssuePrefixsAlias: pkgConfig.customIssuePrefixsAlias ?? clPromptConfig.customIssuePrefixsAlias ?? defaultConfig.customIssuePrefixsAlias,
+    allowCustomIssuePrefixs: pkgConfig.allowCustomIssuePrefixs ?? clPromptConfig.allowCustomIssuePrefixs ?? defaultConfig.allowCustomIssuePrefixs,
+    allowEmptyIssuePrefixs: pkgConfig.allowEmptyIssuePrefixs ?? clPromptConfig.allowEmptyIssuePrefixs ?? defaultConfig.allowEmptyIssuePrefixs,
     confirmColorize: pkgConfig.confirmColorize ?? clPromptConfig.confirmColorize ?? defaultConfig.confirmColorize,
     maxHeaderLength: CZ_MAN_HEADER_LENGTH
       ? parseInt(CZ_MAN_HEADER_LENGTH)
@@ -222,7 +224,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           cz,
           options.customIssuePrefixsAlign,
           options.emptyIssuePrefixsAlias,
-          options.customIssuePrefixsAlias
+          options.customIssuePrefixsAlias,
+          options.allowCustomIssuePrefixs,
+          options.allowEmptyIssuePrefixs
         )
         return issues?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
