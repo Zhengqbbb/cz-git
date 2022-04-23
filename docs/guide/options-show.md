@@ -91,6 +91,11 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **default** : `""`
 - **use** : when you want the default value to appear on the command line just press the "Enter" key
 
+:::tip
+If `defaultScope` matches the scope list item `value`.
+It will be pinned to the top of scope list.
+:::
+
 ## defaultSubject
 
 - **description** : Whether to use the display default value in the **short description**
