@@ -38,7 +38,7 @@ deploy_docs() {
     echo 'cz-git.qbenben.com' > CNAME
     [ -d "$DIST_PATH/.git" ] && rm -rf "$DIST_PATH/.git"
     git init \
-        && git remote set-url origin "$GITHUB_URL" \
+        && git remote add origin "$GITHUB_URL" \
         && git checkout -b $BRANCH_NAME \
         && git add -A \
         && git commit -m 'build: :books: deploy docs' \
