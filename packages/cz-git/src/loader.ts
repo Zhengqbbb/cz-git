@@ -124,7 +124,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.emptyScopesAlias,
           options.customScopesAlias,
           options.allowCustomScopes,
-          options.allowEmptyScopes
+          options.allowEmptyScopes,
+          options.defaultScope as string
         );
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       }
