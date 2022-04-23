@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/Zhengqbbb/cz-git/compare/v1.2.4...v1.2.5) (2022-04-23)
+
+
+### Bug Fixes
+
+* **cz-git:** both check the scope empty rule use ruleIsNotApplicable ([3545cce](https://github.com/Zhengqbbb/cz-git/commit/3545ccecc9fc0651d17ad9a5e4a2e16ded183a7c)), closes [#15](https://github.com/Zhengqbbb/cz-git/issues/15)
+* **cz-git:** use strict empty scope strategy ([ba44c8d](https://github.com/Zhengqbbb/cz-git/commit/ba44c8dc7d28e49717cd22b68e1f5f403bb67e4c)), closes [#12](https://github.com/Zhengqbbb/cz-git/issues/12) [#15](https://github.com/Zhengqbbb/cz-git/issues/15)
+
+
+
+
+
 ## [1.2.4](https://github.com/Zhengqbbb/cz-git/compare/v1.2.3...v1.2.4) (2022-04-23)
 
 
