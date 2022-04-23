@@ -17,7 +17,7 @@ import {
   buildCommit,
   log,
   enumRuleIsActive,
-  ruleIsActive,
+  emptyRuleIsActive,
   getEnumList,
   getValueByCallBack
 } from "./until";
@@ -55,7 +55,7 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
     scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"] as any),
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
     allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? !enumRuleIsActive(clConfig?.rules?.["scope-enum"] as any),
-    allowEmptyScopes: pkgConfig.allowEmptyScopes ?? clPromptConfig.allowEmptyScopes ?? !ruleIsActive(clConfig?.rules?.["scope-empty"] as any),
+    allowEmptyScopes: pkgConfig.allowEmptyScopes ?? clPromptConfig.allowEmptyScopes ?? !emptyRuleIsActive(clConfig?.rules?.["scope-empty"] as any),
     customScopesAlign: pkgConfig.customScopesAlign ?? clPromptConfig.customScopesAlign ?? defaultConfig.customScopesAlign,
     customScopesAlias: pkgConfig.customScopesAlias ?? clPromptConfig.customScopesAlias ?? defaultConfig.customScopesAlias,
     emptyScopesAlias: pkgConfig.emptyScopesAlias ?? clPromptConfig.emptyScopesAlias ?? defaultConfig.emptyScopesAlias,

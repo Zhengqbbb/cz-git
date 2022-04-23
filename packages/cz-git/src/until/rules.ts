@@ -36,7 +36,7 @@ export function ruleIsActive<T extends Rule>(
 }
 
 /**
- * @description: rule is can ignore
+ * @description: rule is effect.
  */
 export function ruleIsNotApplicable(
   rule: Rule
@@ -50,7 +50,7 @@ export function ruleIsNotApplicable(
 }
 
 /**
- * @description: rule is effect
+ * @description: rule is can ignore
  */
 export function ruleIsApplicable(
   rule: Rule
@@ -73,6 +73,10 @@ export function enumRuleIsActive(
 
 export function getEnumList(rule: Rule | undefined): string[] {
   return rule && Array.isArray(rule) && Array.isArray(rule[2]) ? rule[2] : [];
+}
+
+export function emptyRuleIsActive(rule: Rule | undefined): boolean {
+  return rule && Array.isArray(rule) ? ruleIsActive(rule) && ruleIsNotApplicable(rule) : false;
 }
 
 /**
