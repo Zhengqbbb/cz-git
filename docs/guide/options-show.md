@@ -86,28 +86,28 @@ Using ==default value== can produce many ways to make the tool more suitable for
 
 ## defaultScope
 
-- **description** : Whether to use display default value in custom scope
+- **description** : Whether to use display default value in **custom scope**
 - **type** : `string`
 - **default** : `""`
 - **use** : when you want the default value to appear on the command line just press the "Enter" key
 
 ## defaultSubject
 
-- **description** : Whether to use the display default value in the short **description**
+- **description** : Whether to use the display default value in the **short description**
 - **type** : `string`
 - **default** : `""`
 - **use** : when you want the default value to appear on the command line just press the "Enter" key
 
 ## defaultBody
 
-- **description** : Whether to use the display default value in the detailed **description**
+- **description** : Whether to use the display default value in the **detailed description**
 - **type** : `string`
 - **default** : `""`
 - **use** : when you want the default value to appear on the command line just press the "Enter" key
 
 ## defaultIssues
 
-- **description** : Whether to use the display default value in the custom issue prefix
+- **description** : Whether to use the display default value in the **input ISSUE and custom ISSUE prefix**
 - **type** : `string`
 - **default** : `""`
 - **use** : when you want the default value to appear on the command line just press the "Enter" key
