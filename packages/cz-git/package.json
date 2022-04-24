@@ -33,10 +33,6 @@
     "clean": "rimraf *.tsbuildinfo lib",
     "dev": "tsc -b --watch"
   },
-  "lint-staged": {
-    "*.ts": "eslint --fix",
-    "package.json": "sort-package-json"
-  },
   "dependencies": {
     "@cz-git/loader": "1.2.5",
     "inquirer": "^7.3.3",

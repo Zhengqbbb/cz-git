@@ -7,14 +7,14 @@
     "commitizen-loader",
     "commitlint-loader"
   ],
-  "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/editor#readme",
+  "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/%40cz-git/plugin-loader",
   "bugs": {
     "url": "https://github.com/Zhengqbbb/cz-git/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Zhengqbbb/cz-git.git",
-    "directory": "packages/@cz-git/loader"
+    "directory": "packages/@cz-git/plugin-loader"
   },
   "license": "MIT",
   "author": "Zhengqbbb <1074059947@qq.com>",
@@ -30,10 +30,6 @@
     "build": "yarn clean && tsc -b",
     "clean": "rimraf *.tsbuildinfo lib",
     "dev": "tsc -b --watch"
-  },
-  "lint-staged": {
-    "*.ts": "eslint --fix",
-    "package.json": "sort-package-json"
   },
   "dependencies": {
     "@commitlint/load": "16.2.1",
