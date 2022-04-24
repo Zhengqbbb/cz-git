@@ -34,6 +34,7 @@
     "dev": "tsc -b --watch"
   },
   "dependencies": {
+    "@cz-git/inquirer": "1.2.5",
     "@cz-git/loader": "1.2.5",
     "inquirer": "^7.3.3",
     "inquirer-autocomplete-prompt": "1.4.0",

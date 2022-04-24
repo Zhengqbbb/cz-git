@@ -1,0 +1,38 @@
+{
+  "name": "@cz-git/inquirer",
+  "version": "1.2.5",
+  "description": "provide cz-git inquirer plugins, include search-list, search-checkbox",
+  "keywords": [
+    "cz-git",
+    "inquirer",
+    "inquirer-search-list",
+    "inquirer-search-checkbox"
+  ],
+  "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/%40cz-git/plugin-inquirer",
+  "bugs": {
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhengqbbb/cz-git.git",
+    "directory": "packages/@cz-git/plugin-inquirer"
+  },
+  "license": "MIT",
+  "author": "Zhengqbbb <1074059947@qq.com>",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "yarn clean && tsc -b",
+    "clean": "rimraf *.tsbuildinfo lib",
+    "dev": "tsc -b --watch"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
