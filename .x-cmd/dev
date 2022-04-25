@@ -16,13 +16,13 @@ options:
 }
 
 dev_cz() {
-    [ ! -d "$WORK_DIR/node_modules" ] && yarn && yarn dev && return 0
-                                                 yarn dev && return 0
+    [ ! -d "$WORK_DIR/node_modules" ] && pnpm && pnpm dev && return 0
+                                                 pnpm dev && return 0
 }
 
 dev_docs() {
-    [ ! -d "$WORK_DIR/node_modules" ] && yarn && yarn docs:dev && return 0
-                                                 yarn docs:dev && return 0
+    [ ! -d "$WORK_DIR/node_modules" ] && pnpm && pnpm docs:dev && return 0
+                                                 pnpm docs:dev && return 0
 }
 
 # Section: Main

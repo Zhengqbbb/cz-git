@@ -30,7 +30,8 @@
   "scripts": {
     "build": "pnpm clean && tsc -b",
     "clean": "rimraf *.tsbuildinfo lib",
-    "dev": "tsc -b --watch"
+    "dev": "tsc -b --watch",
+    "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "publishConfig": {
     "access": "public"

@@ -21,11 +21,11 @@ build_all() {
 }
 
 build_cz() {
-    yarn build
+    pnpm run build
 }
 
 build_docs() {
-    yarn docs:build
+    pnpm run docs:build
 }
 
 # Section: Main
