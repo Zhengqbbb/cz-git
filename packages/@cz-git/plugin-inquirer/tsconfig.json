@@ -5,5 +5,4 @@
     "outDir": "./lib"
   },
   "include": ["./src"],
-  "exclude": ["./lib/**/*"]
 }

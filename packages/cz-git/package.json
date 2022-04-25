@@ -29,8 +29,9 @@
     "lib"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc -b",
-    "clean": "rimraf *.tsbuildinfo lib",
+    "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
+    "build:dev": "pnpm clean && tsc -b",
+    "clean": "rimraf *.tsbuildinfo lib dist",
     "dev": "tsc -b --watch",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
@@ -43,6 +44,5 @@
   },
   "peerDependencies": {
     "commitizen": ">=2"
-  },
-  "gitHead": "e072c4311b69de3fa94d8eef0b3bb1017984f2ff"
+  }
 }
