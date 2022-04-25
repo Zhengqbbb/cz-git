@@ -28,7 +28,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "yarn clean && tsc -b",
+    "build": "pnpm clean && tsc -b",
     "clean": "rimraf *.tsbuildinfo lib",
     "dev": "tsc -b --watch"
   },

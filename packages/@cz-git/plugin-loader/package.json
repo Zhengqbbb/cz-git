@@ -27,12 +27,13 @@
     "lib"
   ],
   "scripts": {
-    "build": "yarn clean && tsc -b",
+    "build": "pnpm clean && tsc -b",
     "clean": "rimraf *.tsbuildinfo lib",
     "dev": "tsc -b --watch"
   },
   "dependencies": {
     "@commitlint/load": "16.2.1",
+    "glob": "7.2.0",
     "strip-json-comments": "3.1.1"
   },
   "publishConfig": {
