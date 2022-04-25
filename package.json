@@ -33,7 +33,7 @@
     "lint": "eslint --ext .ts",
     "prepare": "husky install",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && pnpm run -r --stream release:changelog",
-    "test": "jest",
+    "test": "pnpm build:dev && jest",
     "test-coverage": "jest --coverage"
   },
   "lint-staged": {
