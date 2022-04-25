@@ -12,17 +12,18 @@ options:
     --p    "select target dev command"        <>:Type
 '
     param:run
+
     dev_"${p}"
 }
 
 dev_cz() {
-    [ ! -d "$WORK_DIR/node_modules" ] && pnpm && pnpm dev && return 0
-                                                 pnpm dev && return 0
+    [ ! -d "$WORK_DIR/node_modules" ] && pnpm i &&  pnpm dev && return 0
+                                                    pnpm dev && return 0
 }
 
 dev_docs() {
-    [ ! -d "$WORK_DIR/node_modules" ] && pnpm && pnpm docs:dev && return 0
-                                                 pnpm docs:dev && return 0
+    [ ! -d "$WORK_DIR/node_modules" ] && pnpm i &&  pnpm docs:dev && return 0
+                                                    pnpm docs:dev && return 0
 }
 
 # Section: Main
