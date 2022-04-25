@@ -38,6 +38,13 @@ yarn add -D cz-git
 ```
 
 :::
+::: code-group-item PNPM
+
+```bash
+pnpm install -DW cz-git
+```
+
+:::
 ::::
 
 #### step 2: 修改 `package.json` 添加 `config` 指定使用的适配器

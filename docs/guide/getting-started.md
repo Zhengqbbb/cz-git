@@ -38,6 +38,13 @@ yarn add -D cz-git
 ```
 
 :::
+::: code-group-item PNPM
+
+```bash
+pnpm install -DW cz-git
+```
+
+:::
 ::::
 
 #### step 2: Modify `package.json` to add `config` Specify the adapter used
