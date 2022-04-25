@@ -6,7 +6,7 @@
 
 // @ts-ignore
 import { commitizenConfigLoader } from "@cz-git/loader";
-import { defaultConfig, Option, UserConfig } from "./share";
+import { defaultConfig, Option, UserConfig } from "./shared/types";
 import {
   getMaxLength,
   getMinLength,
@@ -20,8 +20,8 @@ import {
   emptyRuleIsActive,
   getEnumList,
   getValueByCallBack
-} from "./until";
-import type { Answers, Config, CommitizenGitOptions } from "./share";
+} from "./shared";
+import type { Answers, Config, CommitizenGitOptions } from "./shared/types";
 
 /**
  * @description: Compatibility support for cz-conventional-changelog

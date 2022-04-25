@@ -5,6 +5,7 @@
   "keywords": [
     "cz-git",
     "inquirer",
+    "inquirer-plugin",
     "inquirer-search-list",
     "inquirer-search-checkbox"
   ],

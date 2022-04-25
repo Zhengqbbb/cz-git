@@ -10,10 +10,10 @@
 import autocompletePrompt from "inquirer-autocomplete-prompt";
 import { commitilintConfigLoader } from "@cz-git/loader";
 import { generateOptions, generateQuestions } from "./loader";
-import { buildCommit, editCommit, log } from "./until";
-import type { CommitizenType, QualifiedConfig, UserConfig } from "./share";
+import { buildCommit, editCommit, log } from "./shared";
+import type { CommitizenType, QualifiedConfig, UserConfig } from "./shared/types";
 
-export * from "./share";
+export * from "./shared/types";
 
 export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
   commitilintConfigLoader().then((clConfig: QualifiedConfig) => {

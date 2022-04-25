@@ -4,7 +4,7 @@ import os from "os";
 import cnst from "constants";
 import rimraf from "rimraf";
 import { spawn } from "child_process";
-import { Answers, CommitizenGitOptions } from "../share";
+import { Answers, CommitizenGitOptions } from "../types";
 import { buildCommit, log } from "./until";
 
 /**

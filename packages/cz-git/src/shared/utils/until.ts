@@ -7,7 +7,7 @@
 import { wrap } from "./wrap";
 // @ts-ignore
 
-import { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "../share";
+import { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "../../shared";
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
@@ -24,7 +24,7 @@ export const getProcessSubject = (text: string) => {
 };
 
 const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number => {
-  const item = options.types?.find((i) => i.value === type);
+  const item = options.types?.find((i: { value?: string }) => i.value === type);
   // space
   return item?.emoji ? item.emoji.length + 1 : 0;
 };

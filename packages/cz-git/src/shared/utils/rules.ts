@@ -2,9 +2,9 @@
  * @description: fork by "@commitlint/cz-commitlint/src/utils/" v16.2.1
  */
 
-import { RuleConfigCondition, RuleConfigSeverity } from "../share";
+import { RuleConfigCondition, RuleConfigSeverity } from "../types";
 
-export type Rule =
+type Rule =
   | Readonly<[RuleConfigSeverity.Disabled]>
   | Readonly<[RuleConfigSeverity, RuleConfigCondition]>
   | Readonly<[RuleConfigSeverity, RuleConfigCondition, unknown]>;
