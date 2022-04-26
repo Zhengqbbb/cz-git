@@ -1,1 +1,2 @@
-export { version } from "../../../../lerna.json";
+export const { version } = require('cz-git/package.json');
+

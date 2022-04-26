@@ -1,4 +1,3 @@
-import type { MarkdownOptions } from "@vuepress/markdown";
 import type { AppOptions, HeadConfig } from "vuepress";
 import * as navbar from "./navbar";
 import * as sidebar from "./sidebar";
@@ -124,7 +123,7 @@ export const themeConfig: AppOptions["themeConfig"] = {
   }
 };
 
-export const markdownConfig: MarkdownOptions = {
+export const markdownConfig = {
   code: {
     lineNumbers: false
   }

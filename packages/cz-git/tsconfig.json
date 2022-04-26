@@ -6,6 +6,7 @@
     "outDir": "lib"
   },
   "references": [
-    { "path": "../@cz-git/loader/tsconfig.json" },
+    { "path": "../@cz-git/plugin-loader/tsconfig.json" },
+    { "path": "../@cz-git/plugin-inquirer/tsconfig.json" },
   ]
 }

@@ -1,4 +1,4 @@
-import { buildCommit } from "../lib/until";
+import { buildCommit } from "../lib/shared";
 
 /**
  * @description: buildCommit Test

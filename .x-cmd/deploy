@@ -27,11 +27,17 @@ deploy_all() {
 
 deploy_cz() {
     local version=${1:-patch}
-    yarn lint && yarn build && npx lerna publish "$version" --force-publish --yes
+    pnpm lint && \
+    pnpm build && \
+    pnpx bumpp "$version" \
+        packages/*/package.json packages/@cz-git/*/package.json \
+        --execute="pnpm run release:changelog" --commit "build: :bookmark: publish v%s" \
+        --all --tag --push && \
+    pnpm -r publish --force
 }
 
 deploy_docs() {
-    yarn docs:build
+    pnpm docs:build
     [ ! -d "$DIST_PATH" ]   && return 1
     cd "$DIST_PATH"         || exit
 
