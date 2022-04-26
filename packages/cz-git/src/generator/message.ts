@@ -22,7 +22,7 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
   const scopeList = handleStandardScopes(
     getCurrentScopes(options.scopes, options.scopeOverrides, answers.type)
   );
-  if (isSingleItem(options.allowCustomScopes, options.allowCustomIssuePrefixs, scopeList)) {
+  if (isSingleItem(options.allowCustomScopes, options.allowEmptyScopes, scopeList)) {
     mapping.singleScope = scopeList[singleIndex].value;
   }
   // eslint-disable-next-line prettier/prettier
