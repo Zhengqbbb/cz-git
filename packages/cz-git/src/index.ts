@@ -9,7 +9,7 @@
 // @ts-ignore
 import autocompletePrompt from "inquirer-autocomplete-prompt";
 import { commitilintConfigLoader } from "@cz-git/loader";
-import { generateOptions, generateQuestions } from "./loader";
+import { generateOptions, generateQuestions } from "./generator";
 import { buildCommit, editCommit, log } from "./shared";
 import type { CommitizenType, QualifiedConfig, UserConfig } from "./shared/types";
 
