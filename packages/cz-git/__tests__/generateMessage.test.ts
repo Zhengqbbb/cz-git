@@ -1,9 +1,9 @@
-import { buildCommit } from "../lib/shared";
+import { generateMessage } from "../lib/generator";
 
 /**
- * @description: buildCommit Test
+ * @description: generateMessage Test
  */
-describe("buildCommit()", () => {
+describe("generateMessage()", () => {
   const answers = {
     type: "feat",
     scope: "app",
@@ -12,7 +12,7 @@ describe("buildCommit()", () => {
 
   test("subject with default subject should be standard separator", () => {
     const options = {};
-    expect(buildCommit(answers, options)).toEqual("feat(app): add a new feature");
+    expect(generateMessage(answers, options)).toEqual("feat(app): add a new feature");
   });
 
   test("subject with emoji options should be standard separator", () => {
@@ -20,7 +20,7 @@ describe("buildCommit()", () => {
       types: [{ value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" }],
       useEmoji: true
     };
-    expect(buildCommit(answers, options)).toEqual("feat(app): :sparkles: add a new feature");
+    expect(generateMessage(answers, options)).toEqual("feat(app): :sparkles: add a new feature");
   });
 
   test("subject with emoji options and lost type should be standard separator", () => {
@@ -28,7 +28,7 @@ describe("buildCommit()", () => {
       types: [{ value: "feat", name: "feat:     A new feature" }],
       useEmoji: true
     };
-    expect(buildCommit(answers, options)).toEqual("feat(app): add a new feature");
+    expect(generateMessage(answers, options)).toEqual("feat(app): add a new feature");
   });
 
   test("body breaking line should be with breaklineNumber", () => {
@@ -42,7 +42,7 @@ describe("buildCommit()", () => {
       subject: "add a new feature",
       body: "test breaklineNumber test breaklineNumber"
     };
-    expect(buildCommit(answers, options)).toEqual(
+    expect(generateMessage(answers, options)).toEqual(
       `feat(app): add a new feature
 
 test breaklineNumber

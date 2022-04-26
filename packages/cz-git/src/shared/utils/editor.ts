@@ -5,7 +5,8 @@ import cnst from "constants";
 import rimraf from "rimraf";
 import { spawn } from "child_process";
 import { Answers, CommitizenGitOptions } from "../types";
-import { buildCommit, log } from "./util";
+import { log } from "./util";
+import { generateMessage } from "../../generator";
 
 /**
  * @description: fork by "temp/open" v0.9.4
@@ -201,7 +202,7 @@ export const editCommit = (
 ) => {
   tempOpen(undefined, (err, info) => {
     if (!err) {
-      fs.writeSync(info.fd, buildCommit(answers, options));
+      fs.writeSync(info.fd, generateMessage(answers, options));
       fs.close(info.fd, () => {
         editor(info.path, (code: number) => {
           if (code === 0) {
@@ -212,7 +213,7 @@ export const editCommit = (
           } else {
             log(
               "warm",
-              `Editor exit non zero. Commit message was:\n${buildCommit(answers, options)}`
+              `Editor exit non zero. Commit message was:\n${generateMessage(answers, options)}`
             );
           }
         });

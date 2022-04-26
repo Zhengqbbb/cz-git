@@ -10,11 +10,11 @@ import {
   getMaxSubjectLength,
   handleStandardScopes,
   handleCustomTemplate,
-  buildCommit,
   log,
   isSingleItem,
   getCurrentScopes
 } from "../shared";
+import { generateMessage } from "./build";
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
@@ -53,7 +53,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         );
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       },
-      when(answer: Answers) {
+      when: (answer: Answers) => {
         return !isSingleItem(
           options.allowCustomScopes,
           options.allowEmptyScopes,
@@ -68,11 +68,11 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "scope",
       message: options.messages?.customScope,
       default: options.defaultScope || undefined,
-      validate(input: string) {
+      validate: (input: string) => {
         if (options.allowEmptyScopes) return true;
         return input.length ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
       },
-      when(answers: Answers) {
+      when: (answers: Answers) => {
         return answers.scope === "___CUSTOM___";
       }
     },
@@ -80,7 +80,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "input",
       name: "subject",
       message: options.messages?.subject,
-      validate(subject: string, answers: Answers) {
+      validate: (subject: string, answers: Answers) => {
         const processedSubject = getProcessSubject(subject);
         if (processedSubject.length === 0)
           return "\u001B[1;31m[ERROR] subject is required\u001B[0m";
@@ -120,7 +120,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
 
         return `${tooltipColor}[${tooltip}]\u001B[0m\n  ${subjectColor}${subject}\u001B[0m`;
       },
-      filter(subject: string) {
+      filter: (subject: string) => {
         const upperCaseSubject = options.upperCaseSubject || false;
 
         return (
@@ -141,7 +141,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "breaking",
       message: options.messages?.breaking,
       default: options.defaultBody || undefined,
-      when(answers: Answers) {
+      when: (answers: Answers) => {
         if (
           options.allowBreakingChanges &&
           answers.type &&
@@ -168,14 +168,20 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.allowEmptyIssuePrefixs
         );
         return issues?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
-      }
+      },
+      when: () =>
+        !isSingleItem(
+          options.allowCustomIssuePrefixs,
+          options.allowEmptyIssuePrefixs,
+          options.issuePrefixs
+        )
     },
     {
       type: "input",
       name: "footerPrefix",
       message: options.messages?.customFooterPrefixs,
       default: options.defaultIssues || undefined,
-      when(answers: Answers) {
+      when: (answers: Answers) => {
         return answers.footerPrefix === "___CUSTOM___";
       }
     },
@@ -202,7 +208,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           ? "\u001B[1;90m###--------------------------------------------------------###\u001B[0m"
           : "###--------------------------------------------------------###";
         console.info(
-          `\n${SEP}\n${buildCommit(answers, options, options.confirmColorize)}\n${SEP}\n`
+          `\n${SEP}\n${generateMessage(answers, options, options.confirmColorize)}\n${SEP}\n`
         );
         return options.messages?.confirmCommit;
       }

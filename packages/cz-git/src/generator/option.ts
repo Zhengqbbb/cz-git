@@ -4,12 +4,6 @@
  * @license: MIT
  */
 
-/**
- * @description: generate commitizen config option(generateOptions) | generate commitizen questions(generateQuestions)
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
- * @license: MIT
- */
-
 import { commitizenConfigLoader } from "@cz-git/loader";
 import type { Config, CommitizenGitOptions, UserConfig } from "../shared";
 import {
