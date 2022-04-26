@@ -49,4 +49,73 @@ test breaklineNumber
 test breaklineNumber`
     );
   });
+
+  test("hit single scope should be output scope", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature" }],
+      scopes: ["app"],
+      allowCustomScopes: false,
+      allowEmptyScopes: false
+    };
+    const answers = {
+      type: "feat",
+      subject: "add a new feature"
+    };
+    expect(generateMessage(answers, options)).toEqual("feat(app): add a new feature");
+  });
+
+  test("both hit single footerPrefix should be output right", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature" }],
+      issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
+      allowCustomIssuePrefixs: false,
+      allowEmptyIssuePrefixs: false
+    };
+    const answers = {
+      type: "feat",
+      subject: "add a new feature",
+      footer: "#12"
+    };
+    expect(generateMessage(answers, options)).toEqual(
+      `feat: add a new feature
+
+closed #12`
+    );
+  });
+
+  test("both hit single footerPrefix but not footer should be not output", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature" }],
+      issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
+      allowCustomIssuePrefixs: false,
+      allowEmptyIssuePrefixs: false
+    };
+    const answers = {
+      type: "feat",
+      subject: "add a new feature"
+    };
+    expect(generateMessage(answers, options)).toEqual("feat: add a new feature");
+  });
+
+  test("both hit single scope and footerPrefix should be output right", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature" }],
+      scopes: ["app"],
+      allowCustomScopes: false,
+      allowEmptyScopes: false,
+      issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
+      allowCustomIssuePrefixs: false,
+      allowEmptyIssuePrefixs: false
+    };
+    const answers = {
+      type: "feat",
+      subject: "add a new feature",
+      footer: "#12"
+    };
+    expect(generateMessage(answers, options)).toEqual(
+      `feat(app): add a new feature
+
+closed #12`
+    );
+  });
 });
