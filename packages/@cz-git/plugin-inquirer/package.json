@@ -32,6 +32,9 @@
     "dev": "tsc -b --watch",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
+  "dependencies": {
+    "inquirer": "8.2.0"
+  },
   "publishConfig": {
     "access": "public"
   }

@@ -5,4 +5,5 @@
     "outDir": "./lib"
   },
   "include": ["./src"],
+  "files": ["./src/shared/types/checkbox.d.ts"]
 }

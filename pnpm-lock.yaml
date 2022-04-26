@@ -83,7 +83,10 @@ importers:
       vuepress-vite: 2.0.0-beta.39
 
   packages/@cz-git/plugin-inquirer:
-    specifiers: {}
+    specifiers:
+      inquirer: 8.2.0
+    dependencies:
+      inquirer: 8.2.0
 
   packages/@cz-git/plugin-loader:
     specifiers:

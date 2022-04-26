@@ -5,4 +5,5 @@
     "rootDir": "src",
     "outDir": "dist"
   },
+  "files": ["./src/shared/types/checkbox.d.ts"]
 }
