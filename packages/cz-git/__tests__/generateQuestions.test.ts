@@ -2,7 +2,7 @@
  * @description: generateQuestions Test
  */
 
-import { generateQuestions } from "../lib/loader";
+import { generateQuestions } from "../lib/generator";
 
 describe("generateQuestions()", () => {
   let options: any;
@@ -26,11 +26,11 @@ describe("generateQuestions()", () => {
     }
   };
 
-  test("error config be return false and print log", () => {
+  test("error config should be return false and print log", () => {
     expect(generateQuestions({}, undefined)).toBe(false);
   });
 
-  test("test questions be returned", () => {
+  test("test questions should be returned", () => {
     options = {
       types: [{ value: "feat", name: "feat: this is a feature" }],
       scopes: ["cz-git"]

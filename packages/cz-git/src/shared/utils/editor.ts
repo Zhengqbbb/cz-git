@@ -5,7 +5,7 @@ import cnst from "constants";
 import rimraf from "rimraf";
 import { spawn } from "child_process";
 import { Answers, CommitizenGitOptions } from "../types";
-import { buildCommit, log } from "./until";
+import { buildCommit, log } from "./util";
 
 /**
  * @description: fork by "temp/open" v0.9.4

@@ -54,7 +54,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
       },
       when(answer: Answers) {
-        return isSingleItem(
+        return !isSingleItem(
           options.allowCustomScopes,
           options.allowEmptyScopes,
           handleStandardScopes(

@@ -7,7 +7,7 @@
 import { wrap } from "./wrap";
 // @ts-ignore
 
-import { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "../../shared";
+import { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "..";
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
@@ -123,6 +123,12 @@ export const handleCustomTemplate = (
 };
 
 /**
+ * @description: check scope list and issuePrefix is only single item
+ */
+export const isSingleItem = (allowCustom = true, allowEmpty = true, option: Array<any> = []) =>
+  !allowCustom && !allowEmpty && Array.isArray(option) && option.length === 1;
+
+/**
  * @description: handle scope configuration option into standard options
  * @param {ScopesType}
  * @returns {Option[]}
@@ -135,6 +141,20 @@ export const handleStandardScopes = (scopes: ScopesType): Option[] => {
       ? { value: scope.name, ...scope }
       : { value: scope.value, name: scope.name };
   });
+};
+
+export const getCurrentScopes = (
+  scopes?: any[],
+  scopeOverrides?: { [x: string]: any[] },
+  answerType?: string
+) => {
+  let result = [];
+  if (scopeOverrides && answerType && scopeOverrides[answerType]) {
+    result = scopeOverrides[answerType];
+  } else if (Array.isArray(scopes)) {
+    result = scopes;
+  }
+  return result;
 };
 
 const addType = (type: string, colorize?: boolean) =>
