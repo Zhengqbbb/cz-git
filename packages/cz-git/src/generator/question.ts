@@ -14,7 +14,7 @@ import {
   isSingleItem,
   getCurrentScopes
 } from "../shared";
-import { generateMessage } from "./build";
+import { generateMessage } from "./message";
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
