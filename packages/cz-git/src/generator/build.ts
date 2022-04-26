@@ -58,9 +58,6 @@ const addSubject = (subject?: string, colorize?: boolean) => {
   return subject.trim();
 };
 
-const addBreaklinesIfNeeded = (value: string, breaklineChar = "|") =>
-  value.split(breaklineChar).join("\n").valueOf();
-
 const addFooter = (footer: string, footerPrefix = "", colorize?: boolean) => {
   if (footerPrefix === "") {
     return colorize ? `\n\n\u001B[32m${footer}\u001B[0m` : `\n\n${footer}`;
@@ -76,6 +73,7 @@ export const generateMessage = (
   colorize = false
 ) => {
   const wrapOptions = {
+    breaklineChar: options.breaklineChar || "|",
     trim: true,
     newLine: "\n",
     indent: "",
@@ -93,10 +91,10 @@ export const generateMessage = (
 
   let result = head;
   if (body) {
-    result += `\n\n${addBreaklinesIfNeeded(body, options.breaklineChar)}`;
+    result += `\n\n${body}`;
   }
   if (breaking) {
-    result += `\n\nBREAKING CHANGE :\n${addBreaklinesIfNeeded(breaking, options.breaklineChar)}`;
+    result += `\n\nBREAKING CHANGE :\n${breaking}`;
   }
   if (footer) {
     result += addFooter(footer, answers.footerPrefix || singeIssuePrefix, colorize);
