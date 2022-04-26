@@ -1,4 +1,4 @@
-import { getMaxSubjectLength } from "../lib/until";
+import { getMaxSubjectLength } from "../lib/shared";
 
 /**
  * @description: getMaxSubjectLength Test

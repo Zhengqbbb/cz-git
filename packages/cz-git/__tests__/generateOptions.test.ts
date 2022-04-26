@@ -1,5 +1,5 @@
 import { generateOptions } from "../lib/loader";
-import { defaultConfig } from "../lib/share";
+import { defaultConfig } from "../lib/shared";
 
 /**
  * @description: generateOptions Test
