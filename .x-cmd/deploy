@@ -13,16 +13,16 @@ type:
     Type    = all cz docs
     Realse  = patch minor major prepatch
 options:
-    --p    "select target dev command"        <>:Type
-    --v    "select realse version"            <>:Realse
+    --command    "select target dev command"        <>:Type
+    --version    "select realse version"            <>:Realse
 '
     param:run
-    deploy_"${p}" "$v"
+    deploy_"${command}" "$version"
 }
 deploy_all() {
     [ -z "$github_access_token" ] && printf "%s\n" "please provide token" && return 1
     deploy_cz "$@"
-    deploy_docs
+    deploy_docs "$@"
 }
 
 deploy_cz() {

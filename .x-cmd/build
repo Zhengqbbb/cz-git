@@ -9,10 +9,10 @@ build() {
 type:
     Type = cz all docs
 options:
-    --p    "select target build command"        <>:Type
+    --command    "select target build command"        <>:Type
 '
     param:run
-    build_"${p}"
+    build_"${command}"
 }
 
 build_all() {

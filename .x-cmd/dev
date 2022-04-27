@@ -9,11 +9,11 @@ dev() {
 type:
     Type = cz docs
 options:
-    --p    "select target dev command"        <>:Type
+    --command    "select target dev command"        <>:Type
 '
     param:run
 
-    dev_"${p}"
+    dev_"${command}"
 }
 
 dev_cz() {

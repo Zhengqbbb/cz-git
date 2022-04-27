@@ -11,10 +11,10 @@ search() {
 type:
     Type = only_console all google baidu bing docsearch
 options:
-    --p    "select target search command"        <>:Type
+    --command    "select target search command"        <>:Type
 '
     param:run
-    search_"${p}"
+    search_"${command}"
 }
 
 log() {
