@@ -30,7 +30,7 @@ deploy_cz() {
     pnpm lint && \
     pnpm build && \
     pnpx bumpp "$version" \
-        packages/*/package.json packages/@cz-git/*/package.json \
+        package.json packages/*/package.json packages/@cz-git/*/package.json \
         --execute="pnpm run release:changelog" --commit "build: :bookmark: publish v%s" \
         --all --tag --push && \
     pnpm -r publish --force
