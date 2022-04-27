@@ -1,3 +1,23 @@
+## [1.2.6](https://github.com/Zhengqbbb/cz-git/compare/v1.2.5...v1.2.6) (2022-04-27)
+
+
+### Bug Fixes
+
+* **cz-git:** fix breaking char priority than maxNumber ([4f463fa](https://github.com/Zhengqbbb/cz-git/commit/4f463fa60b73fcd18b23b49786d7d34d58d1275a))
+
+
+### Features
+
+* **cz-git:** support single item intelligent filter ouput of scope and issueprefix ([73f688c](https://github.com/Zhengqbbb/cz-git/commit/73f688cb3d8ec565db2d272e215951e8fa86184c)), closes [#12](https://github.com/Zhengqbbb/cz-git/issues/12)
+* **cz-git:** upgrade inquirer dep version 8.2.2 ([fbbf429](https://github.com/Zhengqbbb/cz-git/commit/fbbf4298491413f6360400366d35af310fb76233))
+
+
+### Reverts
+
+* **cz-git:** fix getSingleParams use error param ([3c32415](https://github.com/Zhengqbbb/cz-git/commit/3c32415359bf0b4d490d51f4eb411f1e59d606bc))
+
+
+
 ## [1.2.5](https://github.com/Zhengqbbb/cz-git/compare/v1.2.4...v1.2.5) (2022-04-23)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@cz-git/loader",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "commitizen and commitlint configure loader for cz-git",
   "keywords": [
     "cz-git",
