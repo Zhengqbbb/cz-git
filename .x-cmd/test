@@ -1,0 +1,8 @@
+# shellcheck shell=bash disable=SC1091,SC2034 #xsh
+
+# Section: Arg
+WORK_DIR="$(x wsroot)"
+
+# Section: Main
+[ ! -d "$WORK_DIR"/packages/cz-git/lib/shared ] && pnpm run build:dev
+pnpm run test

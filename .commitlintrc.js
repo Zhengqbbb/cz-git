@@ -19,6 +19,7 @@ module.exports = {
     "subject-empty": [2, "never"],
   },
   prompt: {
+    useEmoji: true,
     // @see: https://github.com/Zhengqbbb/cz-git#options
     issuePrefixs: [
       { value: "link",   name: "link:     Work in processing to ISSUES" },

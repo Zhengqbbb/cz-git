@@ -6,4 +6,6 @@ printf "\n\033[1;32m%s\033[0m \033[1m%s \033[1;32m%s\033[0m\n" \
     "run test..." \
     "«««"
 
-pnpm build:dev && pnpm test
+WORK_DIR="$(git rev-parse --show-toplevel)"
+[ ! -d "$WORK_DIR"/packages/cz-git/lib/shared ] && pnpm run build:dev
+pnpm run test
