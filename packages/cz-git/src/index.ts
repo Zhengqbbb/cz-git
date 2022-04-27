@@ -9,8 +9,8 @@
 // @ts-ignore
 import autocompletePrompt from "inquirer-autocomplete-prompt";
 import { commitilintConfigLoader } from "@cz-git/loader";
-import { generateOptions, generateQuestions } from "./loader";
-import { buildCommit, editCommit, log } from "./shared";
+import { generateOptions, generateQuestions, generateMessage } from "./generator";
+import { editCommit, log } from "./shared";
 import type { CommitizenType, QualifiedConfig, UserConfig } from "./shared/types";
 
 export * from "./shared/types";
@@ -27,7 +27,7 @@ export const prompter = (cz: CommitizenType, commit: (message: string) => void) 
           break;
 
         case "yes":
-          commit(buildCommit(answers, options));
+          commit(generateMessage(answers, options));
           break;
 
         default:

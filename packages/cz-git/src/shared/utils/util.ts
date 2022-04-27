@@ -4,10 +4,7 @@
  * @license: MIT
  */
 
-import { wrap } from "./wrap";
-// @ts-ignore
-
-import { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "../../shared";
+import type { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "..";
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
@@ -123,6 +120,12 @@ export const handleCustomTemplate = (
 };
 
 /**
+ * @description: check scope list and issuePrefix is only single item
+ */
+export const isSingleItem = (allowCustom = true, allowEmpty = true, list: Array<any> = []) =>
+  !allowCustom && !allowEmpty && Array.isArray(list) && list.length === 1;
+
+/**
  * @description: handle scope configuration option into standard options
  * @param {ScopesType}
  * @returns {Option[]}
@@ -137,69 +140,16 @@ export const handleStandardScopes = (scopes: ScopesType): Option[] => {
   });
 };
 
-const addType = (type: string, colorize?: boolean) =>
-  colorize ? `\u001B[32m${type}\u001B[0m` : type;
-
-const addScope = (scope?: string, colorize?: boolean) => {
-  const separator = ":";
-  if (!scope) return separator;
-  scope = colorize ? `\u001B[33m${scope}\u001B[0m` : scope;
-  return `(${scope.trim()})${separator}`;
-};
-
-const addEmoji = (type: string, options: CommitizenGitOptions): string => {
-  if (options.useEmoji && type !== "") {
-    const itemSource = options.types?.concat(options.typesAppend || []) || [];
-    const item = itemSource.find((i) => i.value === type);
-    return item?.emoji ? ` ${item.emoji} ` : " ";
-  } else {
-    return " ";
-  }
-};
-
-const addSubject = (subject?: string, colorize?: boolean) => {
-  if (!subject) return "";
-  subject = colorize ? `\u001B[36m${subject}\u001B[0m` : subject;
-  return subject.trim();
-};
-
-const addBreaklinesIfNeeded = (value: string, breaklineChar = "|") =>
-  value.split(breaklineChar).join("\n").valueOf();
-
-const addFooter = (footer: string, footerPrefix = "", colorize?: boolean) => {
-  if (footerPrefix === "") {
-    return colorize ? `\n\n\u001B[32m${footer}\u001B[0m` : `\n\n${footer}`;
-  }
-  return colorize
-    ? `\n\n\u001B[32m${footerPrefix} ${footer}\u001B[0m`
-    : `\n\n${footerPrefix} ${footer}`;
-};
-
-export const buildCommit = (answers: Answers, options: CommitizenGitOptions, colorize = false) => {
-  const wrapOptions = {
-    trim: true,
-    newLine: "\n",
-    indent: "",
-    width: options.breaklineNumber
-  };
-  const head =
-    addType(answers.type ?? "", colorize) +
-    addScope(answers.scope, colorize) +
-    addEmoji(answers.type ?? "", options) +
-    addSubject(answers.subject, colorize);
-  const body = wrap(answers.body ?? "", wrapOptions);
-  const breaking = wrap(answers.breaking ?? "", wrapOptions);
-  const footer = wrap(answers.footer ?? "", wrapOptions);
-
-  let result = head;
-  if (body) {
-    result += `\n\n${addBreaklinesIfNeeded(body, options.breaklineChar)}`;
-  }
-  if (breaking) {
-    result += `\n\nBREAKING CHANGE :\n${addBreaklinesIfNeeded(breaking, options.breaklineChar)}`;
-  }
-  if (footer) {
-    result += addFooter(footer, answers.footerPrefix, colorize);
+export const getCurrentScopes = (
+  scopes?: any[],
+  scopeOverrides?: { [x: string]: any[] },
+  answerType?: string
+) => {
+  let result = [];
+  if (scopeOverrides && answerType && scopeOverrides[answerType]) {
+    result = scopeOverrides[answerType];
+  } else if (Array.isArray(scopes)) {
+    result = scopes;
   }
   return result;
 };

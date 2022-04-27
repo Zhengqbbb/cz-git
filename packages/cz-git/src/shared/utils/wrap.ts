@@ -7,6 +7,7 @@ function identity(str: string) {
 }
 
 interface Options {
+  breaklineChar: string;
   width?: number;
   indent?: string;
   newline?: string;
@@ -15,11 +16,12 @@ interface Options {
   cut?: boolean;
 }
 
-export const wrap = (str: string, options: Options) => {
-  options = options || {};
+export const wrap = (str: string, options?: Options) => {
+  options = options || { breaklineChar: "|" };
   if (str == null) {
     return str;
   }
+  str = str.split(options.breaklineChar).join("\n").valueOf();
 
   const width = options.width || 100;
   const indent = typeof options.indent === "string" ? options.indent : "";

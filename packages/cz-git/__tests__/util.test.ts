@@ -1,8 +1,9 @@
-import { getMaxSubjectLength } from "../lib/shared";
+import { getCurrentScopes, getMaxSubjectLength, isSingleItem } from "../lib/shared";
 
 /**
- * @description: getMaxSubjectLength Test
+ * @description: utils Test
  */
+
 describe("getMaxSubjectLength", () => {
   const answer = {
     type: "feat",
@@ -75,5 +76,30 @@ describe("getMaxSubjectLength", () => {
         maxSubjectLength: 100
       })
     ).toEqual(86);
+  });
+});
+
+describe("isSingleItem()", () => {
+  test("output should be right", () => {
+    expect(isSingleItem(true, true, [])).toEqual(false);
+    expect(isSingleItem(true, false, [])).toEqual(false);
+    expect(isSingleItem(true, true, ["hello"])).toEqual(false);
+    expect(isSingleItem(false, true, ["hello"])).toEqual(false);
+    expect(isSingleItem(false, false, ["hello"])).toEqual(true);
+  });
+});
+
+describe("getCurrentScopes()", () => {
+  test("no scopes should empty", () => {
+    expect(getCurrentScopes([], {}, "feat")).toEqual([]);
+    expect(getCurrentScopes([], { test: [{ name: "unitest" }] }, "feat")).toEqual([]);
+  });
+  test("hit scopeOverrides should return", () => {
+    const scopeOverrides = { test: [{ name: "unitest" }] };
+    expect(getCurrentScopes(["feat"], scopeOverrides, "test")).toEqual([{ name: "unitest" }]);
+  });
+  test("no hit scopeOverrides should return scopes", () => {
+    const scopeOverrides = { test: [{ name: "unitest" }] };
+    expect(getCurrentScopes(["feat", "fix"], scopeOverrides, "feat")).toEqual(["feat", "fix"]);
   });
 });

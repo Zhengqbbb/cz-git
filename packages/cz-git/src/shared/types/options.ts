@@ -4,7 +4,7 @@
  * @license: MIT
  * @copyright: Copyright (c) 2022-present Qiubin Zheng
  */
-import type { QuestionsType } from "../../loader";
+import type { QuestionsType } from "../../generator";
 import type { CommitlintUserConfig } from "./commitlint";
 
 export interface UserConfig extends CommitlintUserConfig {
