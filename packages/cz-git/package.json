@@ -1,6 +1,6 @@
 {
   "name": "cz-git",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A better customizable and git support commitizen adapter",
   "keywords": [
     "commitizen-adapter",

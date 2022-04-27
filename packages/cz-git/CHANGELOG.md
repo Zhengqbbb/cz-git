@@ -1,3 +1,12 @@
+## [1.2.7](https://github.com/Zhengqbbb/cz-git/compare/v1.2.6...v1.2.7) (2022-04-27)
+
+
+### Bug Fixes
+
+* fix deploy script ([a2b6242](https://github.com/Zhengqbbb/cz-git/commit/a2b624298081a790a3cbae8861f58ac35472f015))
+
+
+
 ## [1.2.6](https://github.com/Zhengqbbb/cz-git/compare/v1.2.5...v1.2.6) (2022-04-27)
 
 
