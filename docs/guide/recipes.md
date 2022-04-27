@@ -79,6 +79,10 @@ module.exports = {
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156924173-56508d8a-ba7a-4001-99fe-16234ee0f911.gif)
 
 :::tip
+If `cz-git` detects that `allowEmptyScopes` and `allowCustomScopes` have very strict rules (both set to false) and the **scopes selection list has only one item**, it will automatically skip question and output
+:::
+
+:::tip
 The following code can get the `HOME` directory at runtime,<br>you can use it with `fs` and `path` **for default global custom configuration**.
 ```js
 const USER_HOME = process.env.HOME || process.env.USERPROFILE;
@@ -120,5 +124,9 @@ module.exports = {
 ```
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/162552804-132aab02-4b02-4006-9e41-aeae4f825948.gif)
+
+::: tip
+If `cz-git` detects that `allowCustomIssuePrefixs` and `allowEmptyIssuePrefixs` have very strict rules (both set to false) and the **issuePrefixs selection list has only one item**, it will automatically skip question and output
+:::
 
 > Expand your imagination, and the highly customizable `cz-git` makes committing more convenient and more customary. Welcome to share.

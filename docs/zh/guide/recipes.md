@@ -78,6 +78,10 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156924173-56508d8a-ba7a-4001-99fe-16234ee0f911.gif)
 
+::: tip
+如果 `cz-git` 检测到如果 `allowEmptyScopes` 和 `allowCustomScopes` 具有非常严格规则(都设置为false)并且 **scopes 选择列表仅有一项时**，会自动跳过问题并输出
+:::
+
 :::tip
 下面代码可以运行时获取到 `HOME` 目录，<br>你可以使用它配合 `fs`和`path` 进行**默认的全局自定义配置**
 
@@ -107,6 +111,10 @@ module.exports = {
 ```
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156924322-7edaa527-cd16-4b69-9caf-7471d9984af8.gif)
+
+::: tip
+如果 `cz-git` 检测到如果 `allowCustomIssuePrefixs` 和 `allowEmptyIssuePrefixs` 具有非常严格规则(都设置为false)并且 **issuePrefixs 选择列表仅有一项时**，会自动跳过问题并输出
+:::
 
 ## default
 
