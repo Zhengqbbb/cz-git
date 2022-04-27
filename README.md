@@ -42,7 +42,7 @@
 
 A more engineered, highly customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/154906217-e0b1c5d0-9294-4072-8082-c0cdd9392023.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/165441306-75199ee1-6ac5-4c6a-a723-ab8dd7f22f6f.gif)
 
 > **What is commitizen**: A Node.js-based `git commit` command-line tool that assists in generating standardized and standardized commit messages. <br><br>
 > **What is an adapter**: Replace the **interactive** plugin for the commitizen command line tool.
