@@ -29,4 +29,4 @@ footerHtml: true
 footer: I just try my best to make thing well, Could you give a <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a><br>MIT Licensed | Copyright © 2022-present <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>
 ---
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/165441306-75199ee1-6ac5-4c6a-a723-ab8dd7f22f6f.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif)
