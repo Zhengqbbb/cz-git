@@ -1,3 +1,4 @@
+import { test, expect, describe, beforeEach } from "vitest";
 import { generateQuestions } from "../src/generator";
 
 /**
