@@ -311,7 +311,7 @@ export const defaultConfig = Object.freeze({
      { value: "refactor", name: "refactor: A code change that neither fixes a bug nor adds a feature", emoji: ":recycle:" },
      { value: "perf", name: "perf:     A code change that improves performance", emoji: ":zap:" },
      { value: "test", name: "test:     Adding missing tests or correcting existing tests", emoji: ":white_check_mark:" },
-     { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
+     { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":package:" },
      { value: "ci", name: "ci:       Changes to our CI configuration files and scripts", emoji: ":green_heart:" },
      { value: "chore", name: "chore:    Other changes that don't modify src or test files", emoji: ":hammer:" },
      { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
