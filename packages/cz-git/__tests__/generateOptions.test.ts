@@ -1,5 +1,6 @@
-import { generateOptions } from "../lib/generator";
-import { defaultConfig } from "../lib/shared";
+import { test, expect, describe } from "vitest";
+import { generateOptions } from "../src/generator";
+import { defaultConfig } from "../src/shared";
 
 /**
  * @description: generateOptions Test

@@ -1,8 +1,8 @@
+import { generateQuestions } from "../src/generator";
+
 /**
  * @description: generateQuestions Test
  */
-
-import { generateQuestions } from "../lib/generator";
 
 describe("generateQuestions()", () => {
   let options: any;

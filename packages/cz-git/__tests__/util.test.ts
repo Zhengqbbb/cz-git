@@ -1,5 +1,5 @@
-import { getCurrentScopes, getMaxSubjectLength, isSingleItem } from "../lib/shared";
-
+import { test, expect, describe } from "vitest";
+import { getCurrentScopes, getMaxSubjectLength, isSingleItem } from "../src/shared";
 /**
  * @description: utils Test
  */

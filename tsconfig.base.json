@@ -5,7 +5,7 @@
     "declaration": true,
     "downlevelIteration": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node", "jest"],
+    "types": ["node", "vitest/globals"],
     "lib": ["esnext"],
     "module": "CommonJS",
     "moduleResolution": "node",

@@ -1,4 +1,5 @@
-import { generateMessage } from "../lib/generator";
+import { test, expect, describe } from "vitest";
+import { generateMessage } from "../src/generator";
 
 /**
  * @description: generateMessage Test
