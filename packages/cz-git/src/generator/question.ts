@@ -15,10 +15,11 @@ import {
   getCurrentScopes
 } from "../shared";
 import { generateMessage } from "./message";
+// import { fuzzyFilter } from "@cz-git/inquirer";
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
-    log("err", "Error [types] Option");
+    if (!process.env.VITEST) log("err", "Error [types] Option");
     return false;
   }
 
