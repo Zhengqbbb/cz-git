@@ -41,7 +41,7 @@ yarn add -D cz-git
 ::: code-group-item PNPM
 
 ```bash
-pnpm install -DW cz-git
+pnpm install -D cz-git
 ```
 
 :::
