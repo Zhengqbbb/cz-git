@@ -4,6 +4,8 @@
  * @license: MIT
  */
 
+import type { FilterArrayItemType } from "../types";
+
 /**
  * @description: inputString match targetString return match score
  * @param {string} input input string
@@ -43,4 +45,44 @@ export const fuzzyMatch = (
   }
 
   return null;
+};
+
+/**
+ * @description: Array fuzzy filter
+ * @param {string} input input string
+ * @param {Array<FilterArrayItemType | unknown>} arr target Array
+ * @return {Array<FilterArrayItemType>} filtered array
+ */
+export const fuzzyFilter = (
+  input: string,
+  arr: Array<FilterArrayItemType | unknown>,
+  targetKey: "name" | "value" = "name"
+): Array<FilterArrayItemType> => {
+  if (!arr || !Array.isArray(arr) || arr.length === 0) {
+    return [];
+  } else if (typeof input !== "string" || input === "") {
+    return arr;
+  }
+
+  return arr
+    .reduce((preVal: Array<FilterArrayItemType>, curItem: FilterArrayItemType, index) => {
+      if (!curItem || !curItem[targetKey]) return preVal;
+      const score = fuzzyMatch(input, curItem[targetKey]);
+      if (score !== null) {
+        preVal.push({
+          score,
+          index,
+          ...curItem
+        });
+      }
+      return preVal;
+    }, [])
+    .sort((a: any, b: any) => {
+      const compare = b.score - a.score;
+      if (compare) {
+        return compare;
+      } else {
+        return a.index - b.index;
+      }
+    });
 };
