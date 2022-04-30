@@ -1,3 +1,20 @@
+## [1.2.8](https://github.com/Zhengqbbb/cz-git/compare/v1.2.7...v1.2.8) (2022-04-30)
+
+
+### Features
+
+* **cz-git:** use fuzzy search for type, scope and issues list ([b82fbf9](https://github.com/Zhengqbbb/cz-git/commit/b82fbf9192190b9c64209c75d13a07f4b4691bbd)), closes [#22](https://github.com/Zhengqbbb/cz-git/issues/22)
+* **plugin-inquirer:** add fuzzy match str util funtion ([efde652](https://github.com/Zhengqbbb/cz-git/commit/efde65279403435c467957f4e20f4c301cda5201)), closes [#22](https://github.com/Zhengqbbb/cz-git/issues/22)
+* **plugin-inquirer:** add fuzzyFilter util Fuc provide cz-git ([83f773e](https://github.com/Zhengqbbb/cz-git/commit/83f773ed7561494d8f98fcb2cc316146ae90a29a)), closes [#22](https://github.com/Zhengqbbb/cz-git/issues/22)
+
+
+### Performance Improvements
+
+* :zap: update vitest config ([5269797](https://github.com/Zhengqbbb/cz-git/commit/52697972d3685ca384148de74356a58f188ddc8d))
+* :zap: use vitest replace jest to improves dev feel ([2c9d0d6](https://github.com/Zhengqbbb/cz-git/commit/2c9d0d6f8547373b600043148af3b1cdf0240236))
+
+
+
 ## [1.2.7](https://github.com/Zhengqbbb/cz-git/compare/v1.2.6...v1.2.7) (2022-04-27)
 
 
