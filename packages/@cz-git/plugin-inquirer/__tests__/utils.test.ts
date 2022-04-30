@@ -1,5 +1,5 @@
 import { test, expect, describe } from "vitest";
-import { fuzzyMatch } from "../src";
+import { fuzzyFilter, fuzzyMatch } from "../src";
 
 /**
  * @description: fuzzyMatch Test
@@ -44,5 +44,69 @@ describe("fuzzyMatch", () => {
   test("all match should be return Infinity", () => {
     expect(fuzzyMatch("apple", "Apple")).toEqual(Infinity);
     expect(fuzzyMatch("Apple", "Apple")).toEqual(Infinity);
+  });
+});
+
+/**
+ * @description: fuzzyFilter Test
+ */
+describe("fuzzyFilter", () => {
+  const testArr = [
+    { name: "cz-git", value: "cz-git" },
+    { name: "plugin-inquirer", value: "plugin-inquirer" },
+    { name: "plugin-loader", value: "plugin-loader" },
+    { type: "separator", line: "\x1B[2m──────────────\x1B[22m" },
+    { name: "custom", value: "___CUSTOM__" },
+    { name: "empty", value: false }
+  ];
+
+  test("function should be check param fit", () => {
+    expect(fuzzyFilter("", [])).toEqual([]);
+    expect(fuzzyFilter("", undefined)).toEqual([]);
+    expect(fuzzyFilter(undefined, undefined)).toEqual([]);
+    expect(fuzzyFilter("", null)).toEqual([]);
+  });
+
+  test("empty input should be return origin array", () => {
+    expect(fuzzyFilter("", testArr)).toBe(testArr);
+  });
+
+  test("normal match should be return right array", () => {
+    expect(fuzzyFilter("cz-git", testArr)).toEqual([
+      { name: "cz-git", value: "cz-git", index: 0, score: Infinity }
+    ]);
+    expect(fuzzyFilter("ty", testArr)).toEqual([
+      { name: "empty", value: false, index: 5, score: 4 }
+    ]);
+    expect(fuzzyFilter("inq", testArr)).toEqual([
+      { name: "plugin-inquirer", value: "plugin-inquirer", index: 1, score: 5 }
+    ]);
+    expect(fuzzyFilter("ii", testArr)).toEqual([
+      { name: "plugin-inquirer", value: "plugin-inquirer", index: 1, score: 2 }
+    ]);
+  });
+
+  test("same score shoule be return sort by index", () => {
+    expect(fuzzyFilter("plu", testArr)).toEqual([
+      { name: "plugin-inquirer", value: "plugin-inquirer", index: 1, score: 11 },
+      { name: "plugin-loader", value: "plugin-loader", index: 2, score: 11 }
+    ]);
+  });
+
+  test("diff score shoule be return sort by score", () => {
+    const testArr = [
+      { name: "anapple", value: "apple" },
+      { name: "aapple", value: "apple" },
+      { name: "apple", value: "apple" }
+    ];
+    expect(fuzzyFilter("ap", testArr)).toEqual([
+      { name: "apple", value: "apple", index: 2, score: 4 },
+      { name: "anapple", value: "apple", index: 0, score: 2 },
+      { name: "aapple", value: "apple", index: 1, score: 2 }
+    ]);
+    expect(fuzzyFilter("aap", testArr)).toEqual([
+      { name: "aapple", value: "apple", index: 1, score: 11 },
+      { name: "anapple", value: "apple", index: 0, score: 5 }
+    ]);
   });
 });
