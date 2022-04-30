@@ -1,2 +1,2 @@
-export * from "./fuzzy";
+export * from "./util";
 export * from "./checkbox";

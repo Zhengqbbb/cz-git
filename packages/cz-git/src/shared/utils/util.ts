@@ -95,12 +95,15 @@ export const handleCustomTemplate = (
         ...target.slice(targetIndex + 1)
       ];
   }
+  // prettier-ignore
   switch (align) {
     case "top":
-      result = result.concat(target);
+      result = result
+        .concat(target);
       break;
     case "bottom":
-      result = target.concat(result.reverse());
+      result = target
+        .concat(result.reverse());
       break;
     case "top-bottom":
       result = [{ name: emptyAlias, value: false }, new cz.Separator()]
@@ -113,7 +116,8 @@ export const handleCustomTemplate = (
         .concat([new cz.Separator(), { name: emptyAlias, value: false }]);
       break;
     default:
-      result = result.concat(target);
+      result = result
+        .concat(target);
       break;
   }
   return filterCustomEmptyByOption(result, allowCustom, allowEmpty);

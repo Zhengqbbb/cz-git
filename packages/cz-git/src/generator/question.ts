@@ -15,7 +15,7 @@ import {
   getCurrentScopes
 } from "../shared";
 import { generateMessage } from "./message";
-// import { fuzzyFilter } from "@cz-git/inquirer";
+import { fuzzyFilter } from "@cz-git/inquirer";
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
@@ -29,8 +29,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "type",
       message: options.messages?.type,
       source: (_: unknown, input: string) => {
-        const typesSource = options.types?.concat(options.typesAppend || []) || [];
-        return typesSource.filter((item) => (input ? item.value.includes(input) : true)) || true;
+        const typeSource = options.types?.concat(options.typesAppend || []) || [];
+        return fuzzyFilter(input, typeSource, "value");
       }
     },
     {
@@ -38,12 +38,12 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "scope",
       message: options.messages?.scope,
       source: (answer: Answers, input: string) => {
-        let scopes: Option[] = [];
-        scopes = handleStandardScopes(
+        let scopeSource: Option[] = [];
+        scopeSource = handleStandardScopes(
           getCurrentScopes(options.scopes, options.scopeOverrides, answer.type)
         );
-        scopes = handleCustomTemplate(
-          scopes,
+        scopeSource = handleCustomTemplate(
+          scopeSource,
           cz,
           options.customScopesAlign,
           options.emptyScopesAlias,
@@ -52,7 +52,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.allowEmptyScopes,
           options.defaultScope as string
         );
-        return scopes?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
+        return fuzzyFilter(input, scopeSource);
       },
       when: (answer: Answers) => {
         return !isSingleItem(
@@ -159,7 +159,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "footerPrefix",
       message: options.messages?.footerPrefixsSelect,
       source: (_: Answers, input: string) => {
-        const issues = handleCustomTemplate(
+        const issuePrefixSource = handleCustomTemplate(
           options.issuePrefixs as Option[],
           cz,
           options.customIssuePrefixsAlign,
@@ -168,7 +168,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.allowCustomIssuePrefixs,
           options.allowEmptyIssuePrefixs
         );
-        return issues?.filter((item) => (input ? item.name?.includes(input) : true)) || true;
+        return fuzzyFilter(input, issuePrefixSource);
       },
       when: () =>
         !isSingleItem(

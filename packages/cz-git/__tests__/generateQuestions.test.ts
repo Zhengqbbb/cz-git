@@ -43,7 +43,9 @@ describe("generateQuestions()", () => {
     expect(mockTypesSourceFn({}, "f")).toEqual([
       {
         value: "feat",
-        name: "feat: this is a feature"
+        name: "feat: this is a feature",
+        index: 0,
+        score: 1
       }
     ]);
 
@@ -57,9 +59,15 @@ describe("generateQuestions()", () => {
       {},
       { name: "cz-git", value: "cz-git" }
     ]);
-    expect(mockTypesSourceFn({}, "cz")).toEqual([{ name: "cz-git", value: "cz-git" }]);
-    expect(mockTypesSourceFn({}, "em")).toEqual([{ name: "empty", value: false }]);
-    expect(mockTypesSourceFn({}, "cu")).toEqual([{ name: "custom", value: "___CUSTOM___" }]);
+    expect(mockTypesSourceFn({}, "cz")).toEqual([
+      { name: "cz-git", value: "cz-git", index: 3, score: 4 }
+    ]);
+    expect(mockTypesSourceFn({}, "em")).toEqual([
+      { name: "empty", value: false, index: 0, score: 4 }
+    ]);
+    expect(mockTypesSourceFn({}, "cu")).toEqual([
+      { name: "custom", value: "___CUSTOM___", index: 1, score: 4 }
+    ]);
     expect(mockTypesSourceFn({}, "aaa")).toEqual([]);
   });
 });
