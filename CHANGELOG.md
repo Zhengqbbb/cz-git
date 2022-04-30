@@ -8,13 +8,6 @@
 * **plugin-inquirer:** add fuzzyFilter util Fuc provide cz-git ([83f773e](https://github.com/Zhengqbbb/cz-git/commit/83f773ed7561494d8f98fcb2cc316146ae90a29a)), closes [#22](https://github.com/Zhengqbbb/cz-git/issues/22)
 
 
-### Performance Improvements
-
-* :zap: update vitest config ([5269797](https://github.com/Zhengqbbb/cz-git/commit/52697972d3685ca384148de74356a58f188ddc8d))
-* :zap: use vitest replace jest to improves dev feel ([2c9d0d6](https://github.com/Zhengqbbb/cz-git/commit/2c9d0d6f8547373b600043148af3b1cdf0240236))
-
-
-
 ## [1.2.7](https://github.com/Zhengqbbb/cz-git/compare/v1.2.6...v1.2.7) (2022-04-27)
 
 
