@@ -2,7 +2,7 @@ import { test, expect, describe } from "vitest";
 import { fuzzyFilter, fuzzyMatch } from "../src";
 
 /**
- * @description: fuzzyMatch Test
+ * @description: utils - fuzzyMatch Test
  */
 describe("fuzzyMatch", () => {
   test("function should be check param fit", () => {
@@ -51,7 +51,7 @@ describe("fuzzyMatch", () => {
 });
 
 /**
- * @description: fuzzyFilter Test
+ * @description: utils - fuzzyFilter Test
  */
 describe("fuzzyFilter", () => {
   const testArr = [
