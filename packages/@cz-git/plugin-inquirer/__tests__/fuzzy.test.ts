@@ -6,8 +6,11 @@ import { fuzzyFilter, fuzzyMatch } from "../src";
  */
 describe("fuzzyMatch", () => {
   test("function should be check param fit", () => {
+    // @ts-ignore
     expect(fuzzyMatch(null, null)).toBe(null);
+    // @ts-ignore
     expect(fuzzyMatch(undefined, null)).toBe(null);
+    // @ts-ignore
     expect(fuzzyMatch(undefined, undefined)).toBe(null);
     // @ts-ignore
     expect(fuzzyMatch([], [])).toBe(null);
@@ -62,8 +65,11 @@ describe("fuzzyFilter", () => {
 
   test("function should be check param fit", () => {
     expect(fuzzyFilter("", [])).toEqual([]);
+    // @ts-ignore
     expect(fuzzyFilter("", undefined)).toEqual([]);
+    // @ts-ignore
     expect(fuzzyFilter(undefined, undefined)).toEqual([]);
+    // @ts-ignore
     expect(fuzzyFilter("", null)).toEqual([]);
   });
 
