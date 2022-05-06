@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "include": ["./src"],
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
   },
-  "files": ["./src/shared/types/checkbox.d.ts"]
+  "include": ["./src"]
 }
