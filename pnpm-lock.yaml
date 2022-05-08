@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@commitlint/cli': ^16.2.1
       '@commitlint/config-conventional': ^16.2.1
+      '@cz-git/inquirer': workspace:*
       '@types/inquirer': 8.2.0
       '@types/node': ^17.0.23
       '@types/rimraf': ^3.0.2
@@ -43,6 +44,7 @@ importers:
     devDependencies:
       '@commitlint/cli': 16.2.3
       '@commitlint/config-conventional': 16.2.1
+      '@cz-git/inquirer': link:packages/@cz-git/plugin-inquirer
       '@types/inquirer': 8.2.0
       '@types/node': 17.0.29
       '@types/rimraf': 3.0.2
