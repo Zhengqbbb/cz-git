@@ -1,21 +1,21 @@
 import process from "node:process";
-import { test, expect, describe, beforeEach, afterAll } from "vitest";
+import { test, expect, describe, beforeEach, afterAll, vitest } from "vitest";
 import { isColorizenSupport, createStyle } from "../src";
 
 /**
  * @description: utils - isColorizenSupport Test
  */
 describe("isColorizenSupport()", () => {
-  const term = process.env.TERM;
+  const env = process.env;
   beforeEach(() => {
+    vitest.resetModules();
+    process.env = { ...env };
     delete process.env.NO_COLOR;
     delete process.env.CI;
     process.env.TERM = "xterm-256color";
   });
   afterAll(() => {
-    delete process.env.NO_COLOR;
-    delete process.env.CI;
-    process.env.TERM = term;
+    process.env = env;
   });
   test("default user should be true", () => {
     expect(isColorizenSupport()).toBe(true);
