@@ -1,12 +1,13 @@
 "use strict";
 var inquirer = require("inquirer");
-var inquirerPlugin = require("@cz-git/inquirer");
+var { SearchCheckbox, fuzzyFilter } = require("@cz-git/inquirer");
 var testArr1 = [
   { name: "test1", value: "test1" },
+  new inquirer.Separator(),
   { name: "test2", value: "test2" }
 ];
 
-inquirer.registerPrompt("search-checkbox", inquirerPlugin.SearchCheckbox);
+inquirer.registerPrompt("search-checkbox", SearchCheckbox);
 inquirer
   .prompt([
     {
@@ -14,7 +15,7 @@ inquirer
       name: "testOne",
       message: "Select checkbox test",
       source: function (answers, input) {
-        return inquirerPlugin.fuzzyFilter(input, testArr1);
+        return fuzzyFilter(input, testArr1);
       }
     }
   ])
