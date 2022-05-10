@@ -1,3 +1,3 @@
-export * from "./inquirer";
+export * from "./figure";
 export * from "./style";
 export * from "./fuzzy";
