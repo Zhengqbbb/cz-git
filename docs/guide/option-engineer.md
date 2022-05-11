@@ -28,6 +28,22 @@ If you define a `scope-enum` using the [commitlint](https://github.com/conventio
 If you define `scopeOverrides` then define generic `scopes`
 :::
 
+## enableMultipleScopes
+
+- **description** : Whether to enable the use of **multiple scopes mode**
+- **type** : `boolean`
+- **default** : `false`
+
+:::tip
+Demo And Usage [⇒ see the recipes](/guide/recipes.html#support-for-multiple-scopes)
+:::
+
+## scopeEnumSeparator
+
+- **description** : Separator between **scopes** in multiple scopes mode
+- **type** : `string`
+- **default** : `,`
+
 ## allowCustomScopes
 
 - **description** : whether to display custom options when selecting **module scope** (custom)

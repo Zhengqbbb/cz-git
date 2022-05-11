@@ -29,6 +29,22 @@ lastUpdated: true
 如果定义`scopeOverrides` 就要定义通用的 `scopes`
 :::
 
+## enableMultipleScopes
+
+- **描述** : 是否开启在选择 **模块范围** 时使用多选模式
+- **类型** : `boolean`
+- **默认** : `false`
+
+:::tip
+示例与使用方式 [⇒ 查看小窍门](/zh/guide/recipes.html#支持多选-scopes)
+:::
+
+## scopeEnumSeparator
+
+- **描述** : 在多选模式下 **模块范围** 之间的分隔符
+- **类型** : `string`
+- **默认** : `,`
+
 ## allowCustomScopes
 
 - **描述** : 是否在选择 **模块范围** 显示自定义选项(custom)
