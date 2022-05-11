@@ -27,14 +27,15 @@ export class SearchCheckbox extends Base {
   private initialValue: any = -1;
   private lastSearchInput?: string;
   private paginator: Paginator = new Paginator(this.screen, { isInfinite: true });
+  private separator = " ,";
   private answer?: boolean;
   private done: any;
 
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
     super(questions, readline, answers);
-
-    const { source, isInitDefault } = this.opt as unknown as CZPromptQuestionOptions;
+    const { source, separator, isInitDefault } = this.opt as unknown as CZPromptQuestionOptions;
     if (!source) this.throwParamError("source");
+    if (typeof separator === "string") this.separator = separator;
     if (isInitDefault) this.initialValue = this.opt.default;
     this.renderChoices = new Choices([], {});
   }
@@ -71,7 +72,7 @@ export class SearchCheckbox extends Base {
 
     // Render choices or answer depending on the state
     if (this.status === "answered") {
-      content += style.cyan(this.selection.join(", "));
+      content += style.cyan(this.selection.join(this.separator));
     } else if (this.searching) {
       content += this.rl.line;
       bottomContent += "  " + style.dim("Searching...");
@@ -221,7 +222,7 @@ export class SearchCheckbox extends Base {
     this.answer = true;
     this.render();
     this.screen.done();
-    this.done(isCustom ? choices[0] : this.selection);
+    this.done(isCustom ? choices[0].value : this.selection);
   }
 
   /**

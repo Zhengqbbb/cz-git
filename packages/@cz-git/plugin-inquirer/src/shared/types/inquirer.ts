@@ -32,6 +32,8 @@ export interface CZPromptOptionType extends BaseOptionType {
   isInitDefault: boolean;
 }
 export interface CZPromptQuestionOptions<T extends Answers = Answers> extends Question<T> {
+  separator: string;
+
   /**
    * Function to determine what options to display to user.
    * Called with previous answers object and the current user input each time the user types, it must return a promise.
