@@ -5,15 +5,20 @@ export interface ChoiceType<T> {
   name: string;
   type: string | T;
   short: string;
-  value: string;
+  value: string | boolean;
   line: string;
   disabled: boolean;
   checked: boolean;
-  index: number;
 }
 
 export interface ChoicesType {
+  /**
+   * @description: origin choices
+   */
   choices: ChoiceType<Separator["type"]>[];
+  /**
+   * @description: filter Separator choices
+   */
   realChoices: ChoiceType<string>[];
 }
 
@@ -42,14 +47,4 @@ export interface CZPromptQuestionOptions<T extends Answers = Answers> extends Qu
    * default false. Setting it to true turns the input into a normal text input.
    */
   isInitDefault?: boolean | undefined;
-
-  /**
-   * Is the text shown when searching. Defaults: Searching...
-   */
-  // searchText?: boolean | undefined;
-
-  /**
-   *  Is the text shown if the search returns no results. Defaults: No results...
-   */
-  // emptyText?: boolean | undefined;
 }

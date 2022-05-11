@@ -22,13 +22,15 @@ export const isUnicodeSupport = () => {
 const mainSymbols = {
   pointer: "❯",
   radioOn: "◉",
-  radioOff: "◯"
+  radioOff: "◯",
+  squareSmallFilled: "◼"
 };
 
 const fallbackSymbols = {
   pointer: ">",
   radioOn: "(*)",
-  radioOff: "( )"
+  radioOff: "( )",
+  squareSmallFilled: "■"
 };
 
 export const figures = isUnicodeSupport() ? mainSymbols : fallbackSymbols;

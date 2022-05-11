@@ -4,33 +4,30 @@
  * @license MIT
  */
 
-import cliCursor from "cli-cursor";
-import { map, takeUntil } from "rxjs/operators";
 import Base from "inquirer/lib/prompts/base";
 import Choices from "inquirer/lib/objects/choices";
 import observe from "inquirer/lib/utils/events";
 import Paginator from "inquirer/lib/utils/paginator";
 import utils from "inquirer/lib/utils/readline";
+import { takeWhile } from "rxjs/operators";
 import type { Interface as ReadlineInterface } from "readline";
 import type { Answers, Question } from "inquirer";
-import type { CZPromptQuestionOptions, ChoicesType } from "../shared";
+import type Separator from "inquirer/lib/objects/separator";
+import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 import { style, figures } from "../shared";
-import { isSelectable } from "../shared/utils/inquirer";
-import { takeWhile } from "rxjs/operators";
-
 export class SearchCheckbox extends Base {
-  // private choices: Choice[] = [];
-  private currentChoices: ChoicesType;
-  private searching = false;
-  private firstRender = true;
-  private haveSearched = false;
+  private renderChoices: ChoicesType;
+  private originChoices: ChoiceType<string>[] = [];
   private pointer = 0;
-  private nbChoices = 0;
-  private lastSearchInput = "";
-  private selection: string[] = [];
-  private paginator: Paginator = new Paginator(this.screen, { isInfinite: true });
-  private answer: any = undefined;
+  private choicesLen = 0;
+  private selection: (string | boolean)[] = [];
+  private firstRender = true;
+  private searching = false;
+  private haveSearched = false;
   private initialValue: any = -1;
+  private lastSearchInput?: string;
+  private paginator: Paginator = new Paginator(this.screen, { isInfinite: true });
+  private answer?: boolean;
   private done: any;
 
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
@@ -39,13 +36,12 @@ export class SearchCheckbox extends Base {
     const { source, isInitDefault } = this.opt as unknown as CZPromptQuestionOptions;
     if (!source) this.throwParamError("source");
     if (isInitDefault) this.initialValue = this.opt.default;
-    this.currentChoices = new Choices([], {});
+    this.renderChoices = new Choices([], {});
   }
 
   /**
-   * Start the Inquiry session
+   * @description: Start the Inquiry session
    * @param  {Function} cb      Callback when prompt is done
-   * @return {this}
    */
   _run(cb: any): this {
     this.done = cb;
@@ -54,22 +50,20 @@ export class SearchCheckbox extends Base {
     const events = observe(this.rl);
     const dontHaveAnswer = () => this.answer === undefined;
 
-    const validation = this.handleSubmitEvents(events.line.pipe(map(this.onSubmit.bind(this))));
-    validation.success.forEach(this.onEnd.bind(this));
-    validation.error.forEach(this.onError.bind(this));
-    events.spaceKey.pipe(takeUntil(validation.success)).forEach(this.onSpaceKey.bind(this));
-    // events.keypress.pipe(takeUntil(validation.success)).forEach(this.onKeyPress.bind(this));
-    events.keypress
-      .pipe(takeWhile(dontHaveAnswer)) // $FlowFixMe[method-unbinding]
-      .forEach(this.onKeyPress.bind(this));
+    // const validation = this.handleSubmitEvents(events.line.pipe(map(this.onSubmit.bind(this))));
+    events.keypress.pipe(takeWhile(dontHaveAnswer)).forEach(this.onKeyPress.bind(this));
+    events.spaceKey.pipe(takeWhile(dontHaveAnswer)).forEach(this.onChoice.bind(this));
+    events.line.pipe(takeWhile(dontHaveAnswer)).forEach(this.onSubmit.bind(this));
 
     // Init the prompt
-    cliCursor.hide();
     this.search(undefined);
 
     return this;
   }
 
+  /**
+   * @description: render screen
+   */
   render(error?: string) {
     // Render question
     let content = this.getQuestion();
@@ -81,12 +75,12 @@ export class SearchCheckbox extends Base {
     } else if (this.searching) {
       content += this.rl.line;
       bottomContent += "  " + style.dim("Searching...");
-    } else if (this.nbChoices) {
-      const choicesStr = choicesRender(this.currentChoices.choices, this.pointer);
+    } else if (this.choicesLen) {
+      const choicesStr = choicesRender(this.renderChoices.choices, this.pointer);
       content += this.rl.line;
       const indexPosition = this.pointer;
       let realIndexPosition = 0;
-      this.currentChoices.choices.every((choice, index) => {
+      this.renderChoices.choices.every((choice, index) => {
         if (index > indexPosition) {
           return false;
         }
@@ -98,11 +92,11 @@ export class SearchCheckbox extends Base {
       bottomContent += this.paginator.paginate(choicesStr, realIndexPosition, pageSize);
     } else {
       content += this.rl.line;
+      bottomContent += "  " + style.yellow("No results...");
     }
 
     if (this.firstRender) {
-      content += style.dim("Press <space> to select, <enter> to submit");
-      bottomContent += "\n" + style.dim("(Use arrow keys or type to search)");
+      content += style.dim("Press <space>|<right> to select, <enter> to submit");
     }
     if (error) {
       bottomContent = style.red(">> ") + error;
@@ -112,22 +106,26 @@ export class SearchCheckbox extends Base {
     this.screen.render(content, bottomContent);
   }
 
+  /**
+   * @description: resolve source to get renderChoices
+   */
   search(input?: string): Promise<any> {
     this.pointer = 0;
 
     // First render set searching state after first time
     if (this.haveSearched) {
       this.searching = true;
-      this.currentChoices = new Choices([], this.answer);
+      this.renderChoices = new Choices([], this.answers);
       this.render();
     } else {
       this.haveSearched = true;
     }
+    this.lastSearchInput = input;
 
     let thisPromise: Promise<any[]>;
     try {
       const { source } = this.opt as unknown as CZPromptQuestionOptions;
-      const res = source(this.answers, input);
+      const res = source(this.answers, input?.trim());
       thisPromise = Promise.resolve(res);
     } catch (err) {
       console.log(err);
@@ -140,9 +138,19 @@ export class SearchCheckbox extends Base {
       if (thisPromise !== lastPromise) return;
 
       // Core
-      this.currentChoices = new Choices(choices, this.answer);
+      const filterChoiced: (string | boolean)[] = this.originChoices
+        .filter((org) => org.checked)
+        .map((org) => org.value);
+      choices = choices.map((cur) => {
+        if (filterChoiced.includes(cur.value)) cur.checked = true;
+        return cur;
+      });
+      this.renderChoices = new Choices(choices, this.answers);
       const realChoices = choices.filter((choice) => isSelectable(choice));
-      this.nbChoices = realChoices.length;
+      this.choicesLen = realChoices.length;
+      if (this.firstRender) {
+        this.originChoices = JSON.parse(JSON.stringify(this.renderChoices.realChoices));
+      }
 
       const selectedIndex = realChoices.findIndex(
         (choice) => choice === this.initialValue || choice.value === this.initialValue
@@ -156,25 +164,64 @@ export class SearchCheckbox extends Base {
     });
   }
 
-  toggleChoice(index: number) {
-    console.log("toggleChoice", index);
-  }
-
-  onSpaceKey() {
-    // this.rl.line = this.rl.line.trim(); // remove space from input
-    this.toggleChoice(this.pointer);
+  /**
+   * @description: resolve choice
+   */
+  onChoice() {
+    // @ FIXME: wait to fix tty and stdin <space> trim
+    const item = this.renderChoices.realChoices[this.pointer];
+    if (item && item.value) {
+      const checked = !item.checked;
+      this.renderChoices.realChoices[this.pointer].checked = checked;
+      this.originChoices.forEach((i) => {
+        if (i.value && i.value === item.value) i.checked = checked;
+      });
+    }
     this.render();
   }
 
   /**
-   * @description: handleSubmitEvents <Enter>
+   * @description: resovle line Events <Enter>
    */
   onSubmit() {
-    console.log("onSubmit");
-    // const choices = this.currentChoices.filter((item) => item.type === "separator" && item.checked);
+    let checkedChoices: ChoiceType<string>[];
+    // provide cz-git submit on <custom> item
+    if (this.renderChoices.realChoices[this.pointer]?.value === "___CUSTOM___") {
+      checkedChoices = this.originChoices.filter((item) => item.value === "___CUSTOM___");
+    } else {
+      checkedChoices = this.originChoices.filter((item) => item.checked && !item.disabled);
+    }
 
-    // this.selection = choices.map((item) => item.short);
-    // return choices.map((item) => item.value);
+    if (typeof this.opt.validate === "function") {
+      const checkValidationResult = (validationResult: string | boolean) => {
+        if (validationResult !== true) {
+          this.render(validationResult || "choice something!");
+        } else {
+          this.onSubmitAfterValidation(checkedChoices);
+        }
+      };
+
+      const validationResult = this.opt.validate(checkedChoices, this.answers);
+      if (typeof validationResult === "object" && typeof validationResult.then === "function") {
+        validationResult.then(checkValidationResult);
+      } else {
+        checkValidationResult(validationResult as string | boolean);
+      }
+    } else {
+      this.onSubmitAfterValidation(checkedChoices);
+    }
+  }
+
+  onSubmitAfterValidation(choices: ChoiceType<string>[]) {
+    const isCustom = choices.length === 1 && choices[0].value === "___CUSTOM___";
+    this.selection = isCustom
+      ? choices.map((item) => item.name)
+      : choices.map((item) => item.value);
+    this.status = "answered";
+    this.answer = true;
+    this.render();
+    this.screen.done();
+    this.done(isCustom ? choices[0] : this.selection);
   }
 
   /**
@@ -183,41 +230,32 @@ export class SearchCheckbox extends Base {
   onKeyPress(e: { key: { name?: string; ctrl?: boolean }; value: string }) {
     let len;
     const keyName = e.key?.name || "";
-    if (keyName === "down" || (keyName === "n" && e.key.ctrl)) {
-      len = this.nbChoices;
+    if (keyName === "space") {
+      return true;
+    } else if (keyName === "right") {
+      this.onChoice();
+    } else if (keyName === "down" || (keyName === "n" && e.key.ctrl)) {
+      len = this.choicesLen;
       this.pointer = this.pointer < len - 1 ? this.pointer + 1 : 0;
       this.ensureSelectedInRange();
       this.render();
       utils.up(this.rl, 2);
+    } else if (keyName === "up" || (keyName === "p" && e.key.ctrl)) {
+      len = this.choicesLen;
+      this.pointer = this.pointer > 0 ? this.pointer - 1 : len - 1;
+      this.ensureSelectedInRange();
+      this.render();
     } else {
       this.render();
       if (this.lastSearchInput !== this.rl.line) {
         this.search(this.rl.line); // Trigger new search
       }
     }
-    // console.log(keyName);
-    // this.pointer = 0;
-    // this.filterChoices();
   }
 
   ensureSelectedInRange() {
-    const selectedIndex = Math.min(this.pointer, this.nbChoices); // Not above currentChoices length - 1
+    const selectedIndex = Math.min(this.pointer, this.choicesLen); // Not above renderChoices length - 1
     this.pointer = Math.max(selectedIndex, 0); // Not below 0
-  }
-
-  onEnd(state: any) {
-    this.status = "answered";
-
-    // Rerender prompt (and clean subline error)
-    this.render();
-
-    this.screen.done();
-    cliCursor.show();
-    this.done(state.value);
-  }
-
-  onError(state: any) {
-    this.render(state.isValid);
   }
 }
 
@@ -226,7 +264,7 @@ export class SearchCheckbox extends Base {
  * @param  {Number} pointer Position of the pointer
  * @return {String}         Rendered content
  */
-function choicesRender(choices: ChoicesType["choices"], pointer: number): string {
+const choicesRender = (choices: ChoicesType["choices"], pointer: number): string => {
   let output = "";
   let separatorOffset = 0;
 
@@ -242,7 +280,10 @@ function choicesRender(choices: ChoicesType["choices"], pointer: number): string
       output += " - " + choice.name;
       output += ` (${typeof choice.disabled === "string" ? choice.disabled : "Disabled"})`;
     } else {
-      const line = getCheckbox(choice.checked || false) + " " + choice.name;
+      const line =
+        choice.value === false || choice.value === "___CUSTOM___"
+          ? figures.squareSmallFilled + " " + choice.name
+          : getCheckbox(choice.checked || false) + " " + choice.name;
       if (i - separatorOffset === pointer) {
         output += style.cyan(" " + figures.pointer + style.cyan(line));
       } else {
@@ -254,13 +295,19 @@ function choicesRender(choices: ChoicesType["choices"], pointer: number): string
   });
 
   return output.replace(/\n$/, "");
-}
+};
 
 /**
  * Get the checkbox
  * @param  {Boolean} checked - add a X or not to the checkbox
  * @return {String} Composited checkbox string
  */
-function getCheckbox(checked: boolean): string {
+const getCheckbox = (checked: boolean): string => {
   return checked ? style.green(figures.radioOn) : figures.radioOff;
-}
+};
+
+/**
+ * @description: check choice is selectable
+ */
+const isSelectable = (choice: ChoiceType<Separator["type"]>) =>
+  choice.type !== "separator" && !choice.disabled;
