@@ -6,9 +6,10 @@
  * TODO: add more test to protect code
  */
 
+import { SearchCheckbox } from "@cz-git/inquirer";
+import { commitilintConfigLoader } from "@cz-git/loader";
 // @ts-ignore
 import autocompletePrompt from "inquirer-autocomplete-prompt";
-import { commitilintConfigLoader } from "@cz-git/loader";
 import { generateOptions, generateQuestions, generateMessage } from "./generator";
 import { editCommit, log } from "./shared";
 import type { CommitizenType, QualifiedConfig, UserConfig } from "./shared/types";
@@ -20,6 +21,7 @@ export const prompter = (cz: CommitizenType, commit: (message: string) => void) 
     const options = generateOptions(clConfig as unknown as UserConfig);
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("autocomplete", autocompletePrompt);
+    cz.registerPrompt("search-checkbox", SearchCheckbox);
     cz.prompt(questions).then((answers) => {
       switch (answers.confirmCommit) {
         case "edit":

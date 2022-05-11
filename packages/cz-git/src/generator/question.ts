@@ -34,9 +34,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       }
     },
     {
-      type: "autocomplete",
+      type: options.enableMultipleScopes ? "search-checkbox" : "autocomplete",
       name: "scope",
       message: options.messages?.scope,
+      separator: options.scopeEnumSeparator,
       source: (answer: Answers, input: string) => {
         let scopeSource: Option[] = [];
         scopeSource = handleStandardScopes(

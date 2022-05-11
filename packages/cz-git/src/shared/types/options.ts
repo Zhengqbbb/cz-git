@@ -33,7 +33,7 @@ export type Answers = {
   /**
    * @default: Denote the SCOPE of this change (optional):
    */
-  scope?: string;
+  scope?: string | string[];
   /**
    * @default: Denote the SCOPE of this change:
    */
@@ -136,6 +136,18 @@ export interface CommitizenGitOptions {
    * @example: [test] => provide select e2eTest unitTest
    */
   scopeOverrides?: { [type: string]: ScopesType };
+
+  /**
+   * @description: Whether to enable scope multiple mode
+   * @default: false
+   */
+  enableMultipleScopes?: boolean;
+
+  /**
+   * @description: Multiple choice scope separator
+   * @default: ","
+   */
+  scopeEnumSeparator?: string;
 
   /**
    * @description: Whether to show "custom" when selecting scopes
@@ -319,6 +331,8 @@ export const defaultConfig = Object.freeze({
    typesAppend: [],
    useEmoji: false,
    scopes: [],
+   enableMultipleScopes: false,
+   scopeEnumSeparator: ",",
    allowCustomScopes: true,
    allowEmptyScopes: true,
    customScopesAlign: "bottom",

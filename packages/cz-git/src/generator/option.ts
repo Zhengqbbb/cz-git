@@ -47,6 +47,8 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
     useEmoji: pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
     scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"] as any),
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
+    enableMultipleScopes: pkgConfig.enableMultipleScopes ?? clPromptConfig.enableMultipleScopes ?? defaultConfig.enableMultipleScopes,
+    scopeEnumSeparator: pkgConfig.scopeEnumSeparator ?? clPromptConfig.scopeEnumSeparator ?? defaultConfig.scopeEnumSeparator,
     allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? !enumRuleIsActive(clConfig?.rules?.["scope-enum"] as any),
     allowEmptyScopes: pkgConfig.allowEmptyScopes ?? clPromptConfig.allowEmptyScopes ?? !emptyRuleIsActive(clConfig?.rules?.["scope-empty"] as any),
     customScopesAlign: pkgConfig.customScopesAlign ?? clPromptConfig.customScopesAlign ?? defaultConfig.customScopesAlign,

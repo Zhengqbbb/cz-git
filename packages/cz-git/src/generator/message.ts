@@ -26,7 +26,13 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
     mapping.singleScope = scopeList[singleIndex].value;
   }
   // eslint-disable-next-line prettier/prettier
-  if (isSingleItem(options.allowCustomIssuePrefixs, options.allowEmptyIssuePrefixs, options.issuePrefixs)) {
+  if (
+    isSingleItem(
+      options.allowCustomIssuePrefixs,
+      options.allowEmptyIssuePrefixs,
+      options.issuePrefixs
+    )
+  ) {
     mapping.singeIssuePrefix = options.issuePrefixs?.[singleIndex].value || "";
   }
   return mapping;
@@ -80,9 +86,12 @@ export const generateMessage = (
     width: options.breaklineNumber
   };
   const { singleScope, singeIssuePrefix } = getSingleParams(answers, options);
+  const scope = Array.isArray(answers.scope)
+    ? answers.scope.join(options.scopeEnumSeparator)
+    : answers.scope;
   const head =
     addType(answers.type ?? "", colorize) +
-    addScope(singleScope || answers.scope, colorize) +
+    addScope(singleScope || scope, colorize) +
     addEmoji(answers.type ?? "", options) +
     addSubject(answers.subject, colorize);
   const body = wrap(answers.body ?? "", wrapOptions);
