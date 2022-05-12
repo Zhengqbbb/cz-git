@@ -26,11 +26,8 @@ describe("isColorizenSupport()", () => {
     process.env.NO_COLOR = "true";
     expect(isColorizenSupport()).toBe(false);
   });
-  test("CI should be true", () => {
-    process.env.CI = "true";
-    expect(isColorizenSupport()).toBe(true);
-  });
   test("TERM is dumb should be false", () => {
+    delete process.env.CI;
     process.env.TERM = "dumb";
     expect(isColorizenSupport()).toBe(false);
   });
