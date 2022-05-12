@@ -1,3 +1,22 @@
+## [1.2.9](https://github.com/Zhengqbbb/cz-git/compare/v1.2.8...v1.2.9) (2022-05-12)
+
+
+### Bug Fixes
+
+* **cz-git:** fix empty scope err validate for not allow empty ([654f75f](https://github.com/Zhengqbbb/cz-git/commit/654f75f10f2ce33494ac0c893de855ba1555105e))
+
+
+### Features
+
+* **cz-git:** add multiple scopes mode ([89470d9](https://github.com/Zhengqbbb/cz-git/commit/89470d94dd2c208fdfc3f872466846060369ade4)), closes [#14](https://github.com/Zhengqbbb/cz-git/issues/14)
+* **plugin-inquirer:** add figures symbols ([3eea116](https://github.com/Zhengqbbb/cz-git/commit/3eea1162c7c180b91fa24288ed4f6eb3eb84e334))
+* **plugin-inquirer:** add separator option for checkbox multiple ([3eaab45](https://github.com/Zhengqbbb/cz-git/commit/3eaab45782a8ba007e0b5596453cee9ed8d858ea))
+* **plugin-inquirer:** add style util Fuc to output colorizen of prompt ([9c48ace](https://github.com/Zhengqbbb/cz-git/commit/9c48ace8dfe9561e1c6a27718d4429af21139d40))
+* **plugin-inquirer:** done checkbox inquirer plugin for multiple ([26b54c5](https://github.com/Zhengqbbb/cz-git/commit/26b54c5fbea3d682dea01a77ea70e006b75861c8)), closes [#14](https://github.com/Zhengqbbb/cz-git/issues/14)
+* **plugin-inquirer:** done the checkbox core render ([2849162](https://github.com/Zhengqbbb/cz-git/commit/28491628efd47e758fa80215fb40546ddaac78a3)), closes [#14](https://github.com/Zhengqbbb/cz-git/issues/14)
+
+
+
 ## [1.2.8](https://github.com/Zhengqbbb/cz-git/compare/v1.2.7...v1.2.8) (2022-04-30)
 
 
