@@ -55,6 +55,14 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         );
         return fuzzyFilter(input, scopeSource);
       },
+      validate: (input: string | Array<string>) => {
+        if (options.allowEmptyScopes) return true;
+        if (typeof input === "string") {
+          return input.length ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
+        } else {
+          return input.length !== 0 ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
+        }
+      },
       when: (answer: Answers) => {
         return !isSingleItem(
           options.allowCustomScopes,
@@ -70,9 +78,13 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "scope",
       message: options.messages?.customScope,
       default: options.defaultScope || undefined,
-      validate: (input: string) => {
+      validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes) return true;
-        return input.length ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
+        if (typeof input === "string") {
+          return input.length ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
+        } else {
+          return input.length !== 0 ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
+        }
       },
       when: (answers: Answers) => {
         return answers.scope === "___CUSTOM___";
