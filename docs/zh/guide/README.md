@@ -15,7 +15,7 @@ sitemap:
 <h1 align="center">cz-git</h1>
 
 <p align="center">
-    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
+    <a target="_blank" href="https://github.com/commitizen/cz-cli#adapters">
       <img style="display:inline-block;margin:0.2em;" alt="Commitizen-Adapter" src="https://img.shields.io/badge/Commitizen-Adapter-red.svg?logo=git&style=flat">
     </a>
     <br/>

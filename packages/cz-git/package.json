@@ -32,7 +32,6 @@
     "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
     "build:dev": "pnpm clean && tsc -b",
     "clean": "rimraf *.tsbuildinfo lib dist",
-    "dev": "tsc -b --watch",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
@@ -41,8 +40,5 @@
     "inquirer": "8.2.0",
     "inquirer-autocomplete-prompt": "1.4.0",
     "rimraf": "3.0.2"
-  },
-  "peerDependencies": {
-    "commitizen": ">=2"
   }
 }

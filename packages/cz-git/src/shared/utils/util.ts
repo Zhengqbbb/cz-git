@@ -35,6 +35,7 @@ export const getMaxSubjectLength = (
   options: CommitizenGitOptions
 ) => {
   let optionMaxLength = Infinity;
+  if (Array.isArray(scope)) scope = scope.join(options.scopeEnumSeparator);
   const typeLength = type?.length ? type.length : 0;
   const scopeLength = scope ? scope.length + 2 : 0;
   const emojiLength = options.useEmoji ? getEmojiStrLength(options, type) : 0;

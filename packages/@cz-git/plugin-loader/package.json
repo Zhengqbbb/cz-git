@@ -26,8 +26,7 @@
   "scripts": {
     "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
     "build:dev": "pnpm clean && tsc -b",
-    "clean": "rimraf *.tsbuildinfo lib dist",
-    "dev": "tsc -b --watch"
+    "clean": "rimraf *.tsbuildinfo lib dist"
   },
   "dependencies": {
     "@commitlint/load": "16.2.1",

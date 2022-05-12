@@ -1,7 +1,7 @@
 /**
  * @description: provide list and checkBox fuzzy search
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
- * @license: MIT
+ * @license MIT
  */
 
 import type { FilterArrayItemType } from "../types";

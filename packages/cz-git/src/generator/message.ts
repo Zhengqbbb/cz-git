@@ -4,6 +4,7 @@
  * @license: MIT
  */
 
+import { style } from "@cz-git/inquirer";
 import {
   Answers,
   CommitizenGitOptions,
@@ -26,19 +27,24 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
     mapping.singleScope = scopeList[singleIndex].value;
   }
   // eslint-disable-next-line prettier/prettier
-  if (isSingleItem(options.allowCustomIssuePrefixs, options.allowEmptyIssuePrefixs, options.issuePrefixs)) {
+  if (
+    isSingleItem(
+      options.allowCustomIssuePrefixs,
+      options.allowEmptyIssuePrefixs,
+      options.issuePrefixs
+    )
+  ) {
     mapping.singeIssuePrefix = options.issuePrefixs?.[singleIndex].value || "";
   }
   return mapping;
 };
 
-const addType = (type: string, colorize?: boolean) =>
-  colorize ? `\u001B[32m${type}\u001B[0m` : type;
+const addType = (type: string, colorize?: boolean) => (colorize ? style.green(type) : type);
 
 const addScope = (scope?: string, colorize?: boolean) => {
   const separator = ":";
   if (!scope) return separator;
-  scope = colorize ? `\u001B[33m${scope}\u001B[0m` : scope;
+  scope = colorize ? style.yellow(scope) : scope;
   return `(${scope.trim()})${separator}`;
 };
 
@@ -54,16 +60,16 @@ const addEmoji = (type: string, options: CommitizenGitOptions): string => {
 
 const addSubject = (subject?: string, colorize?: boolean) => {
   if (!subject) return "";
-  subject = colorize ? `\u001B[36m${subject}\u001B[0m` : subject;
+  subject = colorize ? style.cyan(subject) : subject;
   return subject.trim();
 };
 
 const addFooter = (footer: string, footerPrefix = "", colorize?: boolean) => {
   if (footerPrefix === "") {
-    return colorize ? `\n\n\u001B[32m${footer}\u001B[0m` : `\n\n${footer}`;
+    return colorize ? `\n\n${style.green(footer)}` : `\n\n${footer}`;
   }
   return colorize
-    ? `\n\n\u001B[32m${footerPrefix} ${footer}\u001B[0m`
+    ? `\n\n${style.green(footerPrefix + " " + footer)}`
     : `\n\n${footerPrefix} ${footer}`;
 };
 
@@ -80,9 +86,12 @@ export const generateMessage = (
     width: options.breaklineNumber
   };
   const { singleScope, singeIssuePrefix } = getSingleParams(answers, options);
+  const scope = Array.isArray(answers.scope)
+    ? answers.scope.join(options.scopeEnumSeparator)
+    : answers.scope;
   const head =
     addType(answers.type ?? "", colorize) +
-    addScope(singleScope || answers.scope, colorize) +
+    addScope(singleScope || scope, colorize) +
     addEmoji(answers.type ?? "", options) +
     addSubject(answers.subject, colorize);
   const body = wrap(answers.body ?? "", wrapOptions);

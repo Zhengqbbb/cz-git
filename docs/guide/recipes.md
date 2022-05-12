@@ -43,6 +43,27 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/156002738-af17087e-2d2b-4a80-a681-d63751282ec8.gif)
 
+#### Support for multiple scopes
+
+- use ==\<Right Arrow\>== or ==\<Space\>== to choice
+- use ==\<Enter\>== to submit
+
+```js{8,9}
+// .commitlintrc.js 
+const fs = require('fs')
+const path = require('path')
+const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
+module.exports = {
+  prompt: { 
+    scopes: [...packages],
+    enableMultipleScopes: true,
+    scopeEnumSeparator: "," 
+  }
+}
+```
+
+![demo-gif](https://user-images.githubusercontent.com/40693636/167858696-398a19fd-932f-4453-832a-795edcb75ad7.gif)
+
 ### scopes for business system
 
 ```js

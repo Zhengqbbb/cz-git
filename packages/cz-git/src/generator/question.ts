@@ -15,7 +15,7 @@ import {
   getCurrentScopes
 } from "../shared";
 import { generateMessage } from "./message";
-import { fuzzyFilter } from "@cz-git/inquirer";
+import { fuzzyFilter, style } from "@cz-git/inquirer";
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
@@ -34,9 +34,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       }
     },
     {
-      type: "autocomplete",
+      type: options.enableMultipleScopes ? "search-checkbox" : "autocomplete",
       name: "scope",
       message: options.messages?.scope,
+      separator: options.scopeEnumSeparator,
       source: (answer: Answers, input: string) => {
         let scopeSource: Option[] = [];
         scopeSource = handleStandardScopes(
@@ -54,6 +55,14 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         );
         return fuzzyFilter(input, scopeSource);
       },
+      validate: (input: string | Array<string>) => {
+        if (options.allowEmptyScopes) return true;
+        if (typeof input === "string") {
+          return input.length ? true : style.red("[ERROR] scope is required");
+        } else {
+          return input.length !== 0 ? true : style.red("[ERROR] scope is required");
+        }
+      },
       when: (answer: Answers) => {
         return !isSingleItem(
           options.allowCustomScopes,
@@ -69,9 +78,13 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "scope",
       message: options.messages?.customScope,
       default: options.defaultScope || undefined,
-      validate: (input: string) => {
+      validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes) return true;
-        return input.length ? true : "\u001B[1;31m[ERROR] scope is required\u001B[0m";
+        if (typeof input === "string") {
+          return input.length ? true : style.red("[ERROR] scope is required");
+        } else {
+          return input.length !== 0 ? true : style.red("[ERROR] scope is required");
+        }
       },
       when: (answers: Answers) => {
         return answers.scope === "___CUSTOM___";
@@ -83,17 +96,20 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.subject,
       validate: (subject: string, answers: Answers) => {
         const processedSubject = getProcessSubject(subject);
-        if (processedSubject.length === 0)
-          return "\u001B[1;31m[ERROR] subject is required\u001B[0m";
+        if (processedSubject.length === 0) return style.red("[ERROR] subject is required");
         if (!options.minSubjectLength && !options.maxSubjectLength) {
           log("err", "Error [Subject Length] Option");
           return false;
         }
         const maxSubjectLength = getMaxSubjectLength(answers.type, answers.scope, options);
         if (options.minSubjectLength && processedSubject.length < options.minSubjectLength)
-          return `\u001B[1;31m[ERROR]subject length must be greater than or equal to ${options.minSubjectLength} characters\u001B[0m`;
+          return style.red(
+            `[ERROR]subject length must be greater than or equal to ${options.minSubjectLength} characters`
+          );
         if (processedSubject.length > maxSubjectLength)
-          return `\u001B[1;31m[ERROR]subject length must be less than or equal to ${maxSubjectLength} characters\u001B[0m`;
+          return style.red(
+            `[ERROR]subject length must be less than or equal to ${maxSubjectLength} characters`
+          );
         return true;
       },
       transformer: (subject: string, answers: Answers) => {
@@ -206,7 +222,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       default: 0,
       message(answers: Answers) {
         const SEP = options.confirmColorize
-          ? "\u001B[1;90m###--------------------------------------------------------###\u001B[0m"
+          ? style.gray("###--------------------------------------------------------###")
           : "###--------------------------------------------------------###";
         console.info(
           `\n${SEP}\n${generateMessage(answers, options, options.confirmColorize)}\n${SEP}\n`
