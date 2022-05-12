@@ -23,7 +23,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 6
+          version: 7
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v2
@@ -37,12 +37,12 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: pnpm install --frozen-lockfile
   
       - name: Lint
         run: pnpm lint
 
-      - name: build
+      - name: Build
         run: pnpm build:dev 
 
       - name: Test
