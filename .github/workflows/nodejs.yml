@@ -43,7 +43,7 @@ jobs:
         run: pnpm lint
 
       - name: Build
-        run: pnpm build:dev 
+        run: pnpm build
 
       - name: Test
         run: pnpm test
