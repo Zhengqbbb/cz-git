@@ -45,7 +45,7 @@ module.exports = {
 
 #### Support for multiple scopes
 
-- use ==\<Right\>== or ==\<Space\>== to choice
+- use ==\<Right Arrow\>== or ==\<Space\>== to choice
 - use ==\<Enter\>== to submit
 
 ```js{8,9}
