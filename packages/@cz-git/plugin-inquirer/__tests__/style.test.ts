@@ -16,9 +16,6 @@ describe("isColorizenSupport()", () => {
   afterAll(() => {
     process.env = env;
   });
-  test("default user should be true", () => {
-    expect(isColorizenSupport()).toBe(true);
-  });
   test("param force false should be false", () => {
     expect(isColorizenSupport(false)).toBe(false);
   });
@@ -57,7 +54,7 @@ describe("style()", () => {
     );
   });
   test("if param error should be not output", () => {
-    const style = createStyle();
+    const style = createStyle(true);
     // @ts-ignore
     expect(style.bold("hello", [])).toBe("\u001b[1mhello\u001b[0m");
   });
