@@ -11,7 +11,6 @@ describe("isColorizenSupport()", () => {
     vitest.resetModules();
     process.env = { ...env };
     delete process.env.NO_COLOR;
-    delete process.env.CI;
     process.env.TERM = "xterm-256color";
   });
   afterAll(() => {
