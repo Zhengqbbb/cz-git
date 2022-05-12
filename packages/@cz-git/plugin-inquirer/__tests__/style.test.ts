@@ -26,10 +26,14 @@ describe("isColorizenSupport()", () => {
     process.env.NO_COLOR = "true";
     expect(isColorizenSupport()).toBe(false);
   });
-  test("TERM is dumb should be false", () => {
+  test("TERM is dumb should be false | platform is win32 should be true", () => {
     delete process.env.CI;
     process.env.TERM = "dumb";
-    expect(isColorizenSupport()).toBe(false);
+    if (process.platform === "win32") {
+      expect(isColorizenSupport()).toBe(true);
+    } else {
+      expect(isColorizenSupport()).toBe(false);
+    }
   });
 });
 
