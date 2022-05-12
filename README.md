@@ -55,21 +55,26 @@ A more engineered, highly customizable, standard output format [commitizen](http
 - Better linking with [issuePrefixs](https://cz-git.qbenben.com/guide/recipes.html#defaultissues) **for issue** | ✅ Support **emoji** in commit.
 
 ## Usage
+
 [⇒ Get Started](https://cz-git.qbenben.com/guide/getting-started.html)
 
+
 ## Configure Template
+
 [⇒ Configure Template](https://cz-git.qbenben.com/guide/configuration.html)
 
 ## Options
-[⇒ Show Related](https://cz-git.qbenben.com/guide/options-show.html)
 
+[⇒ Show Related](https://cz-git.qbenben.com/guide/options-show.html)
 
 [⇒ Engineering Related](https://cz-git.qbenben.com/guide/option-engineer.html)
 
 ## Recipes
+
 [⇒ Recipes](https://cz-git.qbenben.com/guide/recipes.html)
 
 ## FAQ
+
 [⇒ FAQ](https://cz-git.qbenben.com/guide/faq.html)
 
 ## LICENSE
