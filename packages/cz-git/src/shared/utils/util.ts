@@ -174,18 +174,3 @@ export const getValueByCallBack = (
   });
   return target;
 };
-
-/**
- * @description: get command options
- */
-export const getCommandHaveArgs = (target: string) => {
-  let res = false;
-  if (!process.argv || process.argv.length === 0) return false;
-  for (let index = 0; index < process.argv.length; index++) {
-    if (process.argv[index] === target) {
-      res = true;
-      break;
-    }
-  }
-  return res;
-};

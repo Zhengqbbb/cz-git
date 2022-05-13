@@ -10,8 +10,8 @@ import { SearchCheckbox } from "@cz-git/inquirer";
 import { commitilintConfigLoader } from "@cz-git/loader";
 // @ts-ignore
 import autocompletePrompt from "inquirer-autocomplete-prompt";
-import type { CommitizenType, QualifiedConfig, UserConfig } from "./shared";
 import { editCommit, log } from "./shared";
+import type { CommitizenType, QualifiedConfig, UserConfig } from "./shared";
 import { generateOptions, generateQuestions, generateMessage } from "./generator";
 
 export * from "./shared/types";

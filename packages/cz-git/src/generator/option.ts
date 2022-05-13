@@ -5,17 +5,18 @@
  */
 
 import { commitizenConfigLoader } from "@cz-git/loader";
-import type { Config, CommitizenGitOptions, UserConfig } from "../shared";
 import {
   defaultConfig,
   enumRuleIsActive,
   emptyRuleIsActive,
-  getCommandHaveArgs,
   getEnumList,
   getValueByCallBack,
   getMaxLength,
   getMinLength
 } from "../shared";
+import type { Config, CommitizenGitOptions, UserConfig } from "../shared";
+
+const { emoji, checkbox } = process.env;
 
 const pkgConfig: Config = commitizenConfigLoader() ?? {};
 
@@ -27,17 +28,14 @@ export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
     clPromptConfig,
     ["defaultScope", "defaultSubject", "defaultBody", "defaultFooterPrefix", "defaultIssues"]
   )
-  const CZ_EMOJI = getCommandHaveArgs("emoji");
-  const CZ_CHECKBOX = getCommandHaveArgs("checkbox");
-
   return {
     messages: pkgConfig.messages ?? clPromptConfig.messages ?? defaultConfig.messages,
     types: pkgConfig.types ?? clPromptConfig.types ?? defaultConfig.types,
     typesAppend: pkgConfig.typesAppend ?? clPromptConfig.typesAppend ?? defaultConfig.typesAppend,
-    useEmoji: CZ_EMOJI ?? pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
+    useEmoji: Boolean(emoji) ?? pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
     scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"] as any),
     scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
-    enableMultipleScopes: CZ_CHECKBOX ?? pkgConfig.enableMultipleScopes ?? clPromptConfig.enableMultipleScopes ?? defaultConfig.enableMultipleScopes,
+    enableMultipleScopes: Boolean(checkbox) ?? pkgConfig.enableMultipleScopes ?? clPromptConfig.enableMultipleScopes ?? defaultConfig.enableMultipleScopes,
     scopeEnumSeparator: pkgConfig.scopeEnumSeparator ?? clPromptConfig.scopeEnumSeparator ?? defaultConfig.scopeEnumSeparator,
     allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? !enumRuleIsActive(clConfig?.rules?.["scope-enum"] as any),
     allowEmptyScopes: pkgConfig.allowEmptyScopes ?? clPromptConfig.allowEmptyScopes ?? !emptyRuleIsActive(clConfig?.rules?.["scope-empty"] as any),
