@@ -4,7 +4,6 @@
  * @license: MIT
  */
 
-import { commitizenConfigLoader } from "@cz-git/loader";
 import {
   defaultConfig,
   enumRuleIsActive,
@@ -14,55 +13,54 @@ import {
   getMaxLength,
   getMinLength
 } from "../shared";
-import type { Config, CommitizenGitOptions, UserConfig } from "../shared";
+import type { CommitizenGitOptions, UserConfig } from "../shared";
 
 const { emoji, checkbox } = process.env;
 
-const pkgConfig: Config = commitizenConfigLoader() ?? {};
-
 /* eslint-disable prettier/prettier */
 /* prettier-ignore */
-export const generateOptions = (clConfig: UserConfig): CommitizenGitOptions => {
-  let clPromptConfig = clConfig.prompt ?? {};
-  clPromptConfig = getValueByCallBack(
-    clPromptConfig,
+export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
+  let promptConfig = config.prompt ?? {};
+  promptConfig = getValueByCallBack(
+    promptConfig,
     ["defaultScope", "defaultSubject", "defaultBody", "defaultFooterPrefix", "defaultIssues"]
   )
+
   return {
-    messages: pkgConfig.messages ?? clPromptConfig.messages ?? defaultConfig.messages,
-    types: pkgConfig.types ?? clPromptConfig.types ?? defaultConfig.types,
-    typesAppend: pkgConfig.typesAppend ?? clPromptConfig.typesAppend ?? defaultConfig.typesAppend,
-    useEmoji: Boolean(emoji) ?? pkgConfig.useEmoji ?? clPromptConfig.useEmoji ?? defaultConfig.useEmoji,
-    scopes: pkgConfig.scopes ?? clPromptConfig.scopes ?? getEnumList(clConfig?.rules?.["scope-enum"] as any),
-    scopeOverrides: pkgConfig.scopeOverrides ?? clPromptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
-    enableMultipleScopes: Boolean(checkbox) ?? pkgConfig.enableMultipleScopes ?? clPromptConfig.enableMultipleScopes ?? defaultConfig.enableMultipleScopes,
-    scopeEnumSeparator: pkgConfig.scopeEnumSeparator ?? clPromptConfig.scopeEnumSeparator ?? defaultConfig.scopeEnumSeparator,
-    allowCustomScopes: pkgConfig.allowCustomScopes ?? clPromptConfig.allowCustomScopes ?? !enumRuleIsActive(clConfig?.rules?.["scope-enum"] as any),
-    allowEmptyScopes: pkgConfig.allowEmptyScopes ?? clPromptConfig.allowEmptyScopes ?? !emptyRuleIsActive(clConfig?.rules?.["scope-empty"] as any),
-    customScopesAlign: pkgConfig.customScopesAlign ?? clPromptConfig.customScopesAlign ?? defaultConfig.customScopesAlign,
-    customScopesAlias: pkgConfig.customScopesAlias ?? clPromptConfig.customScopesAlias ?? defaultConfig.customScopesAlias,
-    emptyScopesAlias: pkgConfig.emptyScopesAlias ?? clPromptConfig.emptyScopesAlias ?? defaultConfig.emptyScopesAlias,
-    upperCaseSubject: pkgConfig.upperCaseSubject ?? clPromptConfig.upperCaseSubject ?? defaultConfig.upperCaseSubject,
-    allowBreakingChanges: pkgConfig.allowBreakingChanges ?? clPromptConfig.allowBreakingChanges ?? defaultConfig.allowBreakingChanges,
-    breaklineNumber: getMaxLength(clConfig?.rules?.["body-max-line-length"] as any) === Infinity
-      ? pkgConfig.breaklineNumber ?? clPromptConfig.breaklineNumber ?? defaultConfig.breaklineNumber
-      : getMaxLength(clConfig?.rules?.["body-max-line-length"] as any),
-    breaklineChar: pkgConfig.breaklineChar ?? clPromptConfig.breaklineChar ?? defaultConfig.breaklineChar,
-    skipQuestions: pkgConfig.skipQuestions ?? clPromptConfig.skipQuestions ?? defaultConfig.skipQuestions,
-    issuePrefixs: pkgConfig.issuePrefixs ?? clPromptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
-    customIssuePrefixsAlign: pkgConfig.customIssuePrefixsAlign ?? clPromptConfig.customIssuePrefixsAlign ?? defaultConfig.customIssuePrefixsAlign,
-    emptyIssuePrefixsAlias: pkgConfig.emptyIssuePrefixsAlias ?? clPromptConfig.emptyIssuePrefixsAlias ?? defaultConfig.emptyIssuePrefixsAlias,
-    customIssuePrefixsAlias: pkgConfig.customIssuePrefixsAlias ?? clPromptConfig.customIssuePrefixsAlias ?? defaultConfig.customIssuePrefixsAlias,
-    allowCustomIssuePrefixs: pkgConfig.allowCustomIssuePrefixs ?? clPromptConfig.allowCustomIssuePrefixs ?? defaultConfig.allowCustomIssuePrefixs,
-    allowEmptyIssuePrefixs: pkgConfig.allowEmptyIssuePrefixs ?? clPromptConfig.allowEmptyIssuePrefixs ?? defaultConfig.allowEmptyIssuePrefixs,
-    confirmColorize: pkgConfig.confirmColorize ?? clPromptConfig.confirmColorize ?? defaultConfig.confirmColorize,
-    maxHeaderLength: clPromptConfig.maxHeaderLength ?? getMaxLength(clConfig?.rules?.["header-max-length"] as any),
-    maxSubjectLength: clPromptConfig.maxSubjectLength ?? getMaxLength(clConfig?.rules?.["subject-max-length"] as any),
-    minSubjectLength: clPromptConfig.minSubjectLength ?? getMinLength(clConfig?.rules?.["subject-min-length"] as any),
-    defaultScope: clPromptConfig.defaultScope ?? defaultConfig.defaultScope,
-    defaultSubject: clPromptConfig.defaultSubject ?? defaultConfig.defaultSubject,
-    defaultBody: clPromptConfig.defaultBody ?? defaultConfig.defaultBody,
-    defaultFooterPrefix: clPromptConfig.defaultFooterPrefix ?? defaultConfig.defaultFooterPrefix,
-    defaultIssues: clPromptConfig.defaultIssues ?? defaultConfig.defaultIssues
+    messages: promptConfig.messages ?? defaultConfig.messages,
+    types: promptConfig.types ?? defaultConfig.types,
+    typesAppend: promptConfig.typesAppend ?? defaultConfig.typesAppend,
+    useEmoji: Boolean(emoji) || promptConfig.useEmoji || defaultConfig.useEmoji,
+    scopes: promptConfig.scopes ?? getEnumList(config?.rules?.["scope-enum"] as any),
+    scopeOverrides: promptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
+    enableMultipleScopes: Boolean(checkbox) || promptConfig.enableMultipleScopes || defaultConfig.enableMultipleScopes,
+    scopeEnumSeparator: promptConfig.scopeEnumSeparator ?? defaultConfig.scopeEnumSeparator,
+    allowCustomScopes: promptConfig.allowCustomScopes ?? !enumRuleIsActive(config?.rules?.["scope-enum"] as any),
+    allowEmptyScopes: promptConfig.allowEmptyScopes ?? !emptyRuleIsActive(config?.rules?.["scope-empty"] as any),
+    customScopesAlign: promptConfig.customScopesAlign ?? defaultConfig.customScopesAlign,
+    customScopesAlias: promptConfig.customScopesAlias ?? defaultConfig.customScopesAlias,
+    emptyScopesAlias: promptConfig.emptyScopesAlias ?? defaultConfig.emptyScopesAlias,
+    upperCaseSubject: promptConfig.upperCaseSubject ?? defaultConfig.upperCaseSubject,
+    allowBreakingChanges: promptConfig.allowBreakingChanges ?? defaultConfig.allowBreakingChanges,
+    breaklineNumber: getMaxLength(config?.rules?.["body-max-line-length"] as any) === Infinity
+      ? promptConfig.breaklineNumber ?? defaultConfig.breaklineNumber
+      : getMaxLength(config?.rules?.["body-max-line-length"] as any),
+    breaklineChar: promptConfig.breaklineChar ?? defaultConfig.breaklineChar,
+    skipQuestions: promptConfig.skipQuestions ?? defaultConfig.skipQuestions,
+    issuePrefixs: promptConfig.issuePrefixs ?? defaultConfig.issuePrefixs,
+    customIssuePrefixsAlign: promptConfig.customIssuePrefixsAlign ?? defaultConfig.customIssuePrefixsAlign,
+    emptyIssuePrefixsAlias: promptConfig.emptyIssuePrefixsAlias ?? defaultConfig.emptyIssuePrefixsAlias,
+    customIssuePrefixsAlias: promptConfig.customIssuePrefixsAlias ?? defaultConfig.customIssuePrefixsAlias,
+    allowCustomIssuePrefixs: promptConfig.allowCustomIssuePrefixs ?? defaultConfig.allowCustomIssuePrefixs,
+    allowEmptyIssuePrefixs: promptConfig.allowEmptyIssuePrefixs ?? defaultConfig.allowEmptyIssuePrefixs,
+    confirmColorize: promptConfig.confirmColorize ?? defaultConfig.confirmColorize,
+    maxHeaderLength: promptConfig.maxHeaderLength ?? getMaxLength(config?.rules?.["header-max-length"] as any),
+    maxSubjectLength: promptConfig.maxSubjectLength ?? getMaxLength(config?.rules?.["subject-max-length"] as any),
+    minSubjectLength: promptConfig.minSubjectLength ?? getMinLength(config?.rules?.["subject-min-length"] as any),
+    defaultScope: promptConfig.defaultScope ?? defaultConfig.defaultScope,
+    defaultSubject: promptConfig.defaultSubject ?? defaultConfig.defaultSubject,
+    defaultBody: promptConfig.defaultBody ?? defaultConfig.defaultBody,
+    defaultFooterPrefix: promptConfig.defaultFooterPrefix ?? defaultConfig.defaultFooterPrefix,
+    defaultIssues: promptConfig.defaultIssues ?? defaultConfig.defaultIssues
   }
 }
