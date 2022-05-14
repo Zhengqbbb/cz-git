@@ -364,7 +364,7 @@ module.exports = {
 ## TypeScript模板
 
 :::danger
-从 v1.2.0 开始，将不再支持 TypeScript 配置文件。例如（commitlint.config.ts）
+从 v1.3.0 开始，将不再支持 TypeScript 配置文件。例如（commitlint.config.ts）
 
 - 使用 TypeScript 配置文件会**影响命令行工具的启动速度**
 - 增加软件包的依赖项体积
