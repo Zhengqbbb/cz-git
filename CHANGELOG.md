@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/Zhengqbbb/cz-git/compare/v1.3.0...v1.3.1) (2022-05-14)
+
+
+### Bug Fixes
+
+* **plugin-inquirer:** bump inquirer version ([1111fda](https://github.com/Zhengqbbb/cz-git/commit/1111fdafcf95a2e66b3fcff98adee751d9f2fd61))
+
+
+
 # [1.3.0](https://github.com/Zhengqbbb/cz-git/compare/v1.2.9...v1.3.0) (2022-05-14)
 
 
