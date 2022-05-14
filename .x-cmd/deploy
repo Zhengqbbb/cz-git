@@ -29,7 +29,7 @@ deploy_cz() {
     local version=${1:-patch}
     pnpm lint && \
     pnpm build && \
-    pnpx bumpp "$version" \
+    pnpm bumpp "$version" \
         package.json packages/*/package.json packages/@cz-git/*/package.json \
         --execute="pnpm run release:changelog" --commit "build: :bookmark: publish v%s" \
         --all --tag --push && \
