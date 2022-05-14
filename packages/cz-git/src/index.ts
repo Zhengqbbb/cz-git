@@ -7,18 +7,18 @@
  */
 
 import { SearchCheckbox } from "@cz-git/inquirer";
-import { commitilintConfigLoader } from "@cz-git/loader";
+import { configLoader } from "@cz-git/loader";
 // @ts-ignore
 import autocompletePrompt from "inquirer-autocomplete-prompt";
 import { editCommit, log } from "./shared";
-import type { CommitizenType, QualifiedConfig, UserConfig } from "./shared";
 import { generateOptions, generateQuestions, generateMessage } from "./generator";
+import type { CommitizenType } from "./shared";
 
 export * from "./shared/types";
 
 export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
-  commitilintConfigLoader().then((clConfig: QualifiedConfig) => {
-    const options = generateOptions(clConfig as unknown as UserConfig);
+  configLoader().then((config) => {
+    const options = generateOptions(config);
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("autocomplete", autocompletePrompt);
     cz.registerPrompt("search-checkbox", SearchCheckbox);

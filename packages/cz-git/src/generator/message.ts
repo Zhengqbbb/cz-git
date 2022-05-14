@@ -5,14 +5,8 @@
  */
 
 import { style } from "@cz-git/inquirer";
-import {
-  Answers,
-  CommitizenGitOptions,
-  getCurrentScopes,
-  handleStandardScopes,
-  isSingleItem
-} from "../shared";
-import { wrap } from "../shared";
+import { getCurrentScopes, handleStandardScopes, isSingleItem, wrap } from "../shared";
+import type { Answers, CommitizenGitOptions } from "../shared";
 
 const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
   const singleIndex = 0;
