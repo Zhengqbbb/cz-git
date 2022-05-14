@@ -10,7 +10,7 @@ BRANCH_NAME=gh-page
 deploy() {
     param:dsl       '
 type:
-    Type    = all cz docs
+    Type    = all cz docs next
     Realse  = patch minor major prepatch
 options:
     --command    "select target dev command"        <>:Type
@@ -36,6 +36,14 @@ deploy_cz() {
     pnpm -r publish --force
 }
 
+deploy_next() {
+    pnpm lint && \
+    pnpm build && \
+    pnpm bumpp prerelease \
+        package.json packages/*/package.json packages/@cz-git/*/package.json && \
+    pnpm -r publish --tag next --no-git-checks --force
+}
+
 deploy_docs() {
     pnpm docs:build
     [ ! -d "$DIST_PATH" ]   && return 1
@@ -55,6 +63,7 @@ deploy_docs() {
 case "${1}" in
     cz)     shift;  deploy_cz "$@"     ;;
     docs)           deploy_docs        ;;
+    next)           deploy_next        ;;
     all)    shift;  deploy_all "$@"    ;;
     *)              deploy             ;;
 esac
