@@ -40,7 +40,7 @@
 
 ## Introduction
 
-A more engineered, highly customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
+A more engineered, lightweight, customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif)
 
@@ -50,26 +50,39 @@ A more engineered, highly customizable, standard output format [commitizen](http
 ## Feature
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
-- **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
+- **LightWeight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
 - [Better for monorepo engineering](https://cz-git.qbenben.com/guide/recipes.html#scopes) and **commitlint** project to give relevant verification information to the command line.
 - Better linking with [issuePrefixs](https://cz-git.qbenben.com/guide/recipes.html#defaultissues) **for issue** | ✅ Support **emoji** in commit.
 
+```bash
+$ npm i -D cz-git
++ cz-git (5.6 MB)
+added 1 package in 0.67s
+```
+
+[Why Using This]()
+
 ## Usage
+
 [⇒ Get Started](https://cz-git.qbenben.com/guide/getting-started.html)
 
+
 ## Configure Template
+
 [⇒ Configure Template](https://cz-git.qbenben.com/guide/configuration.html)
 
 ## Options
-[⇒ Show Related](https://cz-git.qbenben.com/guide/options-show.html)
 
+[⇒ Show Related](https://cz-git.qbenben.com/guide/options-show.html)
 
 [⇒ Engineering Related](https://cz-git.qbenben.com/guide/option-engineer.html)
 
 ## Recipes
+
 [⇒ Recipes](https://cz-git.qbenben.com/guide/recipes.html)
 
 ## FAQ
+
 [⇒ FAQ](https://cz-git.qbenben.com/guide/faq.html)
 
 ## LICENSE
