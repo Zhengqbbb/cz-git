@@ -1,5 +1,14 @@
 ## [1.3.1](https://github.com/Zhengqbbb/cz-git/compare/v1.3.0...v1.3.1) (2022-05-14)
 
+```bash
+$ npm i -D cz-git
+
++ cz-git@1.3.1
+added 1 package from 1 contributor and audited 1 package in 0.611s
+
+$ du -sh ./node_modules
+5.6M ./node_modules/cz-git/
+```
 
 ### Bug Fixes
 
