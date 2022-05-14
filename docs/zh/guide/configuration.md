@@ -362,75 +362,14 @@ module.exports = {
 :::
 
 ## TypeScript模板
-:::warning
-不推荐使用 TypeScript 定义配置，因为**这会影响命令行工具启动速度** <br>
-并且使用 js 配置文件添加`@type` 注释可以很好提供在配置时的代码提示
+
+:::danger
+从 v1.2.0 开始，将不再支持 TypeScript 配置文件。例如（commitlint.config.ts）
+
+- 使用 TypeScript 配置文件会**影响命令行工具的启动速度**
+- 增加软件包的依赖项体积
 :::
 
-::: details 点击展开 .commitlintrc.ts 完整 默认 配置模板
-```ts
-// .commitlintrc.ts
-import type { UserConfig } from "cz-git"
-const config: UserConfig = {
-  rules: {
-    // @see: https://commitlint.js.org/#/reference-rules
-  },
-  prompt: {
-    messages: {
-      type: "Select the type of change that you're committing:",
-      scope: "Denote the SCOPE of this change (optional):",
-      customScope: "Denote the SCOPE of this change:",
-      subject: "Write a SHORT, IMPERATIVE tense description of the change:\n",
-      body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
-      breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
-      footerPrefixsSelect: "Select the ISSUES type of changeList by this change (optional):",
-      customFooterPrefixs: "Input ISSUES prefix:",
-      footer: "List any ISSUES by this change. E.g.: #31, #34:\n",
-      confirmCommit: "Are you sure you want to proceed with the commit above?"
-    },
-    types: [
-      { value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" },
-      { value: "fix", name: "fix:      A bug fix", emoji: ":bug:" },
-      { value: "docs", name: "docs:     Documentation only changes", emoji: ":memo:" },
-      { value: "style", name: "style:    Changes that do not affect the meaning of the code", emoji: ":lipstick:" },
-      { value: "refactor", name: "refactor: A code change that neither fixes a bug nor adds a feature", emoji: ":recycle:" },
-      { value: "perf", name: "perf:     A code change that improves performance", emoji: ":zap:" },
-      { value: "test", name: "test:     Adding missing tests or correcting existing tests", emoji: ":white_check_mark:" },
-      { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
-      { value: "ci", name: "ci:       Changes to our CI configuration files and scripts", emoji: ":ferris_wheel:" },
-      { value: "chore", name: "chore:    Other changes that don't modify src or test files", emoji: ":hammer:" },
-      { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
-    ],
-    useEmoji: false,
-    scopes: [],
-    allowCustomScopes: true,
-    allowEmptyScopes: true,
-    customScopesAlign: "bottom",
-    customScopesAlias: "custom",
-    emptyScopesAlias: "empty",
-    allowBreakingChanges: ['feat', 'fix'],
-    upperCaseSubject: false,
-    breaklineNumber: 100,
-    breaklineChar: "|",
-    skipQuestions: [],
-    issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
-    customIssuePrefixsAlign: "top",
-    emptyIssuePrefixsAlias: "skip",
-    customIssuePrefixsAlias: "custom",
-    allowCustomIssuePrefixs: true,
-    allowEmptyIssuePrefixs: true,
-    confirmColorize: true,
-    maxHeaderLength: Infinity,
-    maxSubjectLength: Infinity,
-    minSubjectLength: 0,
-    scopeOverrides: undefined,
-    defaultBody: "",
-    defaultIssues: "",
-    defaultScope: "",
-    defaultSubject: ""
-  }
-};
-
-export default config
-```
+:::tip
+使用 js 配置文件添加`@type` 注释可以很好提供在配置时的代码提示.
 :::
