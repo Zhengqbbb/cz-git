@@ -1,3 +1,24 @@
+# [1.3.0](https://github.com/Zhengqbbb/cz-git/compare/v1.2.9...v1.3.0) (2022-05-14)
+
+
+### Bug Fixes
+
+* **cz-git:** fix emoji and checkbox subcmd usage ([9efe275](https://github.com/Zhengqbbb/cz-git/commit/9efe2752bbb41cad80fc33cc84dfcecdc0a462e0))
+
+
+### Features
+
+* **cz-git:** add get command arg to set useEmoji and enableMultipleScopes ([2cebeea](https://github.com/Zhengqbbb/cz-git/commit/2cebeea39f9f8c48ed2c223663599361845de090))
+* **cz-git:** configure loader extract, perf load speed ([d4ec683](https://github.com/Zhengqbbb/cz-git/commit/d4ec683617393aafd28f72afae7abe4b9caba42c)), closes [#24](https://github.com/Zhengqbbb/cz-git/issues/24) [#25](https://github.com/Zhengqbbb/cz-git/issues/25)
+* **cz-git:** update ci defalut emoji code: ferris_wheel ([4df8de8](https://github.com/Zhengqbbb/cz-git/commit/4df8de8e6f7430730e7e91435925e4ee5f07180a))
+
+
+### BREAKING CHANGES
+
+* **cz-git:** No supprt typescript config define file. `commitlint.config.ts`
+
+
+
 ## [1.2.9](https://github.com/Zhengqbbb/cz-git/compare/v1.2.8...v1.2.9) (2022-05-12)
 
 
