@@ -50,7 +50,7 @@
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@cz-git/inquirer": "workspace:*",
-    "@types/inquirer": "8.2.1",
+    "@types/inquirer": "8.2.0",
     "@types/node": "^17.0.31",
     "@types/rimraf": "^3.0.2",
     "@types/temp": "^0.9.1",

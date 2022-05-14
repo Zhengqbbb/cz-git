@@ -7,7 +7,7 @@ importers:
       '@commitlint/cli': ^16.2.4
       '@commitlint/config-conventional': ^16.2.4
       '@cz-git/inquirer': workspace:*
-      '@types/inquirer': 8.2.1
+      '@types/inquirer': 8.2.0
       '@types/node': ^17.0.31
       '@types/rimraf': ^3.0.2
       '@types/temp': ^0.9.1
@@ -31,7 +31,7 @@ importers:
       '@commitlint/cli': 16.2.4
       '@commitlint/config-conventional': 16.2.4
       '@cz-git/inquirer': link:packages/@cz-git/plugin-inquirer
-      '@types/inquirer': 8.2.1
+      '@types/inquirer': 8.2.0
       '@types/node': 17.0.33
       '@types/rimraf': 3.0.2
       '@types/temp': 0.9.1
@@ -86,9 +86,9 @@ importers:
 
   packages/@cz-git/plugin-inquirer:
     specifiers:
-      inquirer: 8.2.2
+      inquirer: 8.2.0
     devDependencies:
-      inquirer: 8.2.2
+      inquirer: 8.2.0
 
   packages/@cz-git/plugin-loader:
     specifiers:
@@ -104,14 +104,14 @@ importers:
     specifiers:
       '@cz-git/inquirer': workspace:*
       '@cz-git/loader': workspace:*
-      inquirer: 8.2.2
+      inquirer: 8.2.0
       inquirer-autocomplete-prompt: 1.4.0
       rimraf: 3.0.2
     devDependencies:
       '@cz-git/inquirer': link:../@cz-git/plugin-inquirer
       '@cz-git/loader': link:../@cz-git/plugin-loader
-      inquirer: 8.2.2
-      inquirer-autocomplete-prompt: 1.4.0_inquirer@8.2.2
+      inquirer: 8.2.0
+      inquirer-autocomplete-prompt: 1.4.0_inquirer@8.2.0
       rimraf: 3.0.2
 
 packages:
@@ -1879,8 +1879,8 @@ packages:
       '@types/node': 17.0.33
     dev: true
 
-  /@types/inquirer/8.2.1:
-    resolution: {integrity: sha512-wKW3SKIUMmltbykg4I5JzCVzUhkuD9trD6efAmYgN2MrSntY0SMRQzEnD3mkyJ/rv9NLbTC7g3hKKE86YwEDLw==}
+  /@types/inquirer/8.2.0:
+    resolution: {integrity: sha512-BNoMetRf3gmkpAlV5we+kxyZTle7YibdOntIZbU5pyIfMdcwy784KfeZDAcuyMznkh5OLa17RVXZOGA5LTlkgQ==}
     dependencies:
       '@types/through': 0.0.30
       rxjs: 7.5.5
@@ -5586,7 +5586,7 @@ packages:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
     dev: true
 
-  /inquirer-autocomplete-prompt/1.4.0_inquirer@8.2.2:
+  /inquirer-autocomplete-prompt/1.4.0_inquirer@8.2.0:
     resolution: {integrity: sha512-qHgHyJmbULt4hI+kCmwX92MnSxDs/Yhdt4wPA30qnoa01OF6uTXV8yvH4hKXgdaTNmkZ9D01MHjqKYEuJN+ONw==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -5595,14 +5595,14 @@ packages:
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       figures: 3.2.0
-      inquirer: 8.2.2
+      inquirer: 8.2.0
       run-async: 2.4.1
       rxjs: 6.6.7
     dev: true
 
-  /inquirer/8.2.2:
-    resolution: {integrity: sha512-pG7I/si6K/0X7p1qU+rfWnpTE1UIkTONN1wxtzh0d+dHXtT/JG6qBgLxoyHVsQa8cFABxAPh0pD6uUUHiAoaow==}
-    engines: {node: '>=12.0.0'}
+  /inquirer/8.2.0:
+    resolution: {integrity: sha512-0crLweprevJ02tTuA6ThpoAERAGyVILC4sS74uib58Xf/zSr1/ZWtmm7D5CI+bSQEaA04f0K7idaHpQbSWgiVQ==}
+    engines: {node: '>=8.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
       chalk: 4.1.2

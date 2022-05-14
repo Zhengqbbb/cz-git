@@ -31,7 +31,7 @@
     "clean": "rimraf *.tsbuildinfo lib dist"
   },
   "devDependencies": {
-    "inquirer": "8.2.2"
+    "inquirer": "8.2.0"
   },
   "publishConfig": {
     "access": "public"
