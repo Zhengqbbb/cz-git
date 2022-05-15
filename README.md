@@ -60,8 +60,6 @@ $ npm i -D cz-git
 added 1 package in 0.67s
 ```
 
-[Why Using This]()
-
 ## Usage
 
 [⇒ Get Started](https://cz-git.qbenben.com/guide/getting-started.html)
