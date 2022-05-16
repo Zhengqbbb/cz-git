@@ -48,7 +48,7 @@ sitemap:
 
 ## Introduction
 
-A more engineered, highly customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
+A more engineered, lightweight, customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/154906217-e0b1c5d0-9294-4072-8082-c0cdd9392023.gif)
 
@@ -58,9 +58,17 @@ A more engineered, highly customizable, standard output format [commitizen](http
 ## Feature
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
-- **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
+- **LightWeight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
 - [Better for monorepo engineering]((/guide/recipes.html#scopes)) and **commitlint** project to give relevant verification information to the command line.
 - Better linking with [issue](/guide/recipes.html#default) **for issue** | ✅ Support **emoji** in commit.
+
+```bash
+$ npm i -D cz-git
++ cz-git          (5.6 MB)
+added 1 package in 0.67s
+```
+
+[⇒ Why Is cz-git](/guide/why.html)
 
 ## LICENSE
 

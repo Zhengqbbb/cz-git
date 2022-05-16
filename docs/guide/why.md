@@ -1,0 +1,38 @@
+---
+title: Why Is cz-git
+sidebarDepth: 1
+lastUpdated: true
+---
+
+# Why Is cz-git
+
+- **cz-customizable** :     
+  1. Adding additional configuration files are needed.
+  2. Only supports the upper and lower choices.
+  3. There are fewer supportable habitual configuration items.
+
+---
+
+- **cz-conventional-changelog** :     
+  1. Supported custom configuration items are less.
+  2. Interactive method is no friendly
+  3. Too many repetitive input.
+
+```sh{4}
+$ npm i -D cz-conventional-changelog
+added 147 packages in 21s
+$ npm i -D cz-git
+added 1 package in 0.67s
+```
+
+---
+
+- **git-cz** :      
+  1. Supported custom configuration items are less.
+  2. Adding additional configuration files are needed.
+
+```sh{3}
+$ du -sh node_modules/*
+148M	node_modules/git-cz
+5.6M	node_modules/cz-git
+```

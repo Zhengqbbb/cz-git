@@ -48,7 +48,7 @@ sitemap:
 
 ## 介绍
 
-一款工程性更强，高度自定义，标准输出格式的 [commitizen](https://github.com/commitizen/cz-cli) 适配器
+一款工程性更强，轻量级，高度自定义，标准输出格式的 [commitizen](https://github.com/commitizen/cz-cli) 适配器
 
 ![demo-gif](https://tva3.sinaimg.cn/large/6ccee0e1gy1gztghb579ig21nm0k8dnw.gif)
 
@@ -58,12 +58,20 @@ sitemap:
 ## 特点
 
 - 友好型命令行工具，**“懒字优先”** ！支持在命令行搜索和选择，减少拼写错误。
-- **高度自定义**, 但输出格式遵循标准的 [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 规范。
+- **轻量级**，**高度自定义**, 但输出格式遵循标准的 [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 规范。
 - [更好维护 monorepo 工程化项目](/zh/guide/recipes.html#scopes) 与 **commitlint** 配合给予命令行的相关校验信息。
 - 更好的与issue链接，尤其 [gitee](/zh/guide/recipes.html#issueprefixs) | ✅ 支持在 commit 中添加 **emoji**。
 
-## 为什么做了这款插件
-[cz-git 友好型 commitizen 的适配器，我的开发的心路历程](https://www.qbenben.com/post/2022/02/27/cz-git/)
+```bash
+$ npm i -D cz-git
++ cz-git          (5.6 MB)
+added 1 package in 0.67s
+```
+
+[⇒ 为什么是 cz-git](/zh/guide/why.html)
+
+[⇒ 为什么做了这款插件：cz-git 友好型 commitizen 的适配器，我的开发的心路历程](https://www.qbenben.com/post/2022/02/27/cz-git/)
+
 ## 版权
 MIT
 Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> [https://github.com/Zhengqbbb](https://github.com/Zhengqbbb)

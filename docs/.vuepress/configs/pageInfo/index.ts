@@ -11,13 +11,13 @@ export const locales = {
     lang: "en-US",
     title: "cz-git",
     description:
-      "A more engineered, highly customizable, standard output format commitizen adapter."
+      "A more engineered, lightweight, customizable, standard output format commitizen adapter."
   },
   "/zh/": {
     lang: "zh-CN",
     title: "cz-git",
     description:
-      "一款工程性更强，高度自定义，标准输出格式的 commitizen 适配器"
+      "一款工程性更强，轻量级，高度自定义，标准输出格式的 commitizen 适配器"
   }
 };
 
@@ -29,14 +29,14 @@ export const headConfig: HeadConfig[] = [
   ["meta", { name: "google-site-verification", content: "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec" }],
   ["meta", { name: "baidu-site-verification", content: "code-rzEqiivgqt" }],
   ["meta", { name: "twitter:title", content: "cz-git - commitizen adapter" }],
-  ["meta", { name: "twitter:description", content: "A more engineered, highly customizable, standard output format commitizen adapter." }],
+  ["meta", { name: "twitter:description", content: "A more engineered, lightweight, customizable, standard output format commitizen adapter." }],
   ["meta", { name: "twitter:creator", content: "@zhengqbbb" }],
   ["meta", { name: "twitter:site", content: "@zhengqbbb" }],
   ["meta", { name: "twitter:card", content: "summary_large_image" }],
   ["meta", { name: "twitter:image", content: "https://cz-git.qbenben.com/images/logo.png" }],
   ["meta", { name: "twitter:image:alt", content: "cz-git-logo" }],
   ["meta", { name: "og:title", content: "cz-git - commitizen adapter" }],
-  ["meta", { name: "og:description", content: "A more engineered, highly customizable, standard output format commitizen adapter." }],
+  ["meta", { name: "og:description", content: "A more engineered, lightweight, customizable, standard output format commitizen adapter." }],
   ["meta", { name: "og:url", content: "https://cz-git.qbenben.com/" }],
   ["meta", { name: "og:type", content: "article" }],
   ["meta", { name: "og:locale", content: "en_US" }],
