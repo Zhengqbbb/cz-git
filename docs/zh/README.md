@@ -32,8 +32,8 @@ footer: I just try my best to make thing well, Could you give a <a target="_blan
   <div class="feature">
     <h2>轻量级</h2>
     <p>
-      <div class="language-bash code-copy-added-top">
-        <pre class="language-bash" style="padding: 0.6rem;"><code style="color: var(--c-text-lighter);">$ npm i -D cz-git
+      <div class="language code-copy-added-top">
+        <pre class="language" style="padding: 0;"><code style="color: var(--c-text-lighter);">$ npm i -D cz-git
 <span class="token keyword">+ cz-git</span>          <span class="token punctuation">(</span><span class="token number">5.6</span> MB<span class="token punctuation">)</span>
 added <span class="token number">1</span> package in <span class="token number">0.67s</span>
 </code></pre>
