@@ -36,6 +36,10 @@ And need to add Emoji Code, you can find the corresponding characters in: [https
 - **type** : `boolean`
 - **default** : `false`
 
+:::tip
+Try running `emoji=1 cz` to **enable output emoji mode in the current session**
+:::
+
 ## customScopesAlign
 
 - **description** : Set the **location** of empty option (empty) and custom option (custom) in **selection range**

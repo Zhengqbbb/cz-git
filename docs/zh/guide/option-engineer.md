@@ -36,6 +36,7 @@ lastUpdated: true
 - **默认** : `false`
 
 :::tip
+尝试运行 `checkbox=1 cz` **可在当前会话直接开启多选模式**     
 示例与使用方式 [⇒ 查看小窍门](/zh/guide/recipes.html#支持多选-scopes)
 :::
 

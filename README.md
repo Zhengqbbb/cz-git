@@ -54,13 +54,13 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 - [Better for monorepo engineering](https://cz-git.qbenben.com/guide/recipes.html#scopes) and **commitlint** project to give relevant verification information to the command line.
 - Better linking with [issuePrefixs](https://cz-git.qbenben.com/guide/recipes.html#defaultissues) **for issue** | ✅ Support **emoji** in commit.
 
+[⇒ Why cz-git](https://cz-git.qbenben.com/guide/why.html)
+
 ```bash
 $ npm i -D cz-git
 + cz-git          (5.6 MB)
 added 1 package in 0.67s
 ```
-
-[⇒ Why Is cz-git](https://cz-git.qbenben.com/guide/why.html)
 
 ## Usage
 

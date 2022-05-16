@@ -4,7 +4,7 @@ export const en: SidebarConfig = {
   "/guide/": [
     {
       text: "Guide",
-      children: ["/guide/README.md", "/guide/getting-started.md", "/guide/configuration.md"]
+      children: ["/guide/README.md", "/guide/why.md", "/guide/getting-started.md", "/guide/configuration.md"]
     },
     {
       text: "Options",
@@ -12,10 +12,6 @@ export const en: SidebarConfig = {
       children: ["/guide/options-show.md", "/guide/option-engineer.md"]
     },
     "/guide/recipes.md",
-    {
-      text: "FAQ",
-      // collapsible: true,
-      children: ["/guide/faq.md", "/guide/why.md"]
-    }
+    "/guide/faq.md",
   ]
 };

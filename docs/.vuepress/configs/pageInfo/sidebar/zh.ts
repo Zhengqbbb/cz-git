@@ -6,6 +6,7 @@ export const zh: SidebarConfig = {
       text: "文档",
       children: [
         "/zh/guide/README.md",
+        "/zh/guide/why.md",
         "/zh/guide/getting-started.md",
         "/zh/guide/configuration.md"
       ]
@@ -15,9 +16,6 @@ export const zh: SidebarConfig = {
       children: ["/zh/guide/options-show.md", "/zh/guide/option-engineer.md"]
     },
     "/zh/guide/recipes.md",
-    {
-      text: "FAQ",
-      children: ["/zh/guide/faq.md", "/zh/guide/why.md"]
-    }
+    "/zh/guide/faq.md",
   ]
 };

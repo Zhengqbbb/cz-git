@@ -35,6 +35,7 @@ If you define `scopeOverrides` then define generic `scopes`
 - **default** : `false`
 
 :::tip
+Try running `checkbox=1 cz` to **enable multiple scopes mode in the current session**    
 Demo And Usage [⇒ see the recipes](/guide/recipes.html#support-for-multiple-scopes)
 :::
 

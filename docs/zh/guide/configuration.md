@@ -7,6 +7,11 @@ lastUpdated: true
 # 配置模板
 ## 默认模板
 
+- `.commitlintrc.js`
+- `.commitlintrc.cjs`
+- `commitlint.config.js`
+- `commitlint.config.cjs`
+
 ::: details 点击展开 .commitlintrc.js 完整 默认 配置模板
 
 ```js
@@ -37,7 +42,7 @@ module.exports = {
       { value: "refactor", name: "refactor: A code change that neither fixes a bug nor adds a feature", emoji: ":recycle:" },
       { value: "perf", name: "perf:     A code change that improves performance", emoji: ":zap:" },
       { value: "test", name: "test:     Adding missing tests or correcting existing tests", emoji: ":white_check_mark:" },
-      { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
+      { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":package:" },
       { value: "ci", name: "ci:       Changes to our CI configuration files and scripts", emoji: ":ferris_wheel:" },
       { value: "chore", name: "chore:    Other changes that don't modify src or test files", emoji: ":hammer:" },
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
@@ -260,7 +265,7 @@ module.exports = {
       { value: "refactor", name: "refactor: ♻️   A code change that neither fixes a bug nor adds a feature", emoji: ":recycle:" },
       { value: "perf", name: "perf:     ⚡️  A code change that improves performance", emoji: ":zap:" },
       { value: "test", name: "test:     ✅  Adding missing tests or correcting existing tests", emoji: ":white_check_mark:" },
-      { value: "build", name: "build:    🏗️   Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
+      { value: "build", name: "build:    📦️   Changes that affect the build system or external dependencies", emoji: ":package:" },
       { value: "ci", name: "ci:       🎡  Changes to our CI configuration files and scripts", emoji: ":ferris_wheel:" },
       { value: "chore", name: "chore:    🔨  Other changes that don't modify src or test files", emoji: ":hammer:" },
       { value: "revert", name: "revert:   ⏪️  Reverts a previous commit", emoji: ":rewind:" }
@@ -299,6 +304,13 @@ module.exports = {
 :::
 
 ## JSON模板
+
+- `.czrc`
+- `.commitlintrc`
+- `.commitlintrc.json`
+- 在 `package.json`中添加 `config.commitizen` 字段
+- 在 `package.json`中添加 `commitlint` 字段
+
 ::: tip
 推荐在项目中使用JavaScript进行配置文件，你可以结合`fs`和`path` 为生成动态模块选择[范围](/zh/guide/recipes.html#scopes)
 :::
@@ -328,8 +340,8 @@ module.exports = {
     { "value": "refactor", "name": "refactor: A code change that neither fixes a bug nor adds a feature", "emoji": ":recycle:" },
     { "value": "perf", "name": "perf:     A code change that improves performance", "emoji": ":zap:" },
     { "value": "test", "name": "test:     Adding missing tests or correcting existing tests", "emoji": ":white_check_mark:" },
-    { "value": "build", "name": "build:    Changes that affect the build system or external dependencies", "emoji": ":building_construction:" },
-    { "value": "ci", "name": "ci:       Changes to our CI configuration files and scripts", "emoji": ":green_heart:" },
+    { "value": "build", "name": "build:    Changes that affect the build system or external dependencies", "emoji": ":package:" },
+    { "value": "ci", "name": "ci:       Changes to our CI configuration files and scripts", "emoji": ":ferris_wheel:" },
     { "value": "chore", "name": "chore:    Other changes that don't modify src or test files", "emoji": ":hammer:" },
     { "value": "revert", "name": "revert:   Reverts a previous commit", "emoji": ":rewind:" }
   ],

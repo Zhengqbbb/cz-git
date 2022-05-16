@@ -1,5 +1,5 @@
 ---
-title: 介绍
+title: 简介
 sidebarDepth: 0
 lastUpdated: true
 sitemap:
@@ -63,7 +63,7 @@ sitemap:
 - 更好的与issue链接，尤其 [gitee](/zh/guide/recipes.html#issueprefixs) | ✅ 支持在 commit 中添加 **emoji**。
 
 ```bash
-$ npm i -D cz-git
+$ npm install -D cz-git
 + cz-git          (5.6 MB)
 added 1 package in 0.67s
 ```

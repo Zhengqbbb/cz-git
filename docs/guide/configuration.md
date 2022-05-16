@@ -8,6 +8,11 @@ lastUpdated: true
 
 ## Default template
 
+- `.commitlintrc.js`
+- `.commitlintrc.cjs`
+- `commitlint.config.js`
+- `commitlint.config.cjs`
+
 ::: details Click to expand .commitlintrc.js complete default configuration template
 ```js
 // commitlint.config.js | .commitlintrc.js
@@ -37,7 +42,7 @@ module.exports = {
       { value: "refactor", name: "refactor: A code change that neither fixes a bug nor adds a feature", emoji: ":recycle:" },
       { value: "perf", name: "perf:     A code change that improves performance", emoji: ":zap:" },
       { value: "test", name: "test:     Adding missing tests or correcting existing tests", emoji: ":white_check_mark:" },
-      { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
+      { value: "build", name: "build:    Changes that affect the build system or external dependencies", emoji: ":package:" },
       { value: "ci", name: "ci:       Changes to our CI configuration files and scripts", emoji: ":ferris_wheel:" },
       { value: "chore", name: "chore:    Other changes that don't modify src or test files", emoji: ":hammer:" },
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
@@ -106,7 +111,7 @@ module.exports = {
       { value: "refactor", name: "refactor: ♻️   A code change that neither fixes a bug nor adds a feature", emoji: ":recycle:" },
       { value: "perf", name: "perf:     ⚡️  A code change that improves performance", emoji: ":zap:" },
       { value: "test", name: "test:     ✅  Adding missing tests or correcting existing tests", emoji: ":white_check_mark:" },
-      { value: "build", name: "build:    🏗️   Changes that affect the build system or external dependencies", emoji: ":building_construction:" },
+      { value: "build", name: "build:    📦️   Changes that affect the build system or external dependencies", emoji: ":package:" },
       { value: "ci", name: "ci:       🎡  Changes to our CI configuration files and scripts", emoji: ":ferris_wheel:" },
       { value: "chore", name: "chore:    🔨  Other changes that don't modify src or test files", emoji: ":hammer:" },
       { value: "revert", name: "revert:   ⏪️  Reverts a previous commit", emoji: ":rewind:" }
@@ -146,6 +151,12 @@ module.exports = {
 
 ## JSON template
 
+- `.czrc`
+- `.commitlintrc`
+- `.commitlintrc.json`
+- `commitlint` field in `package.json`
+- `config.commitizen` field in `package.json`
+
 ::: tip
 It is recommended to use JavaScript for configuration files in the project. You can combine `fs` and `path` to select [scopes](/guide/recipes.html#scopes) for generating dynamic modules.
 :::
@@ -175,8 +186,8 @@ It is recommended to use JavaScript for configuration files in the project. You 
     { "value": "refactor", "name": "refactor: A code change that neither fixes a bug nor adds a feature", "emoji": ":recycle:" },
     { "value": "perf", "name": "perf:     A code change that improves performance", "emoji": ":zap:" },
     { "value": "test", "name": "test:     Adding missing tests or correcting existing tests", "emoji": ":white_check_mark:" },
-    { "value": "build", "name": "build:    Changes that affect the build system or external dependencies", "emoji": ":building_construction:" },
-    { "value": "ci", "name": "ci:       Changes to our CI configuration files and scripts", "emoji": ":green_heart:" },
+    { "value": "build", "name": "build:    Changes that affect the build system or external dependencies", "emoji": ":package:" },
+    { "value": "ci", "name": "ci:       Changes to our CI configuration files and scripts", "emoji": ":ferris_wheel:" },
     { "value": "chore", "name": "chore:    Other changes that don't modify src or test files", "emoji": ":hammer:" },
     { "value": "revert", "name": "revert:   Reverts a previous commit", "emoji": ":rewind:" }
   ],
