@@ -85,7 +85,7 @@ lastUpdated: true
 ---
 
 :::tip
-使用==默认值==可以产生很多种玩法让工具更契合你或团队的习惯，[可以查看小窍门查看更多](/zh/guide/recipes.html#default)
+使用==默认值==可以产生很多种玩法让工具更契合你或团队的习惯，[⇒ 查看小窍门](/zh/guide/recipes.html#default)
 :::
 
 ## defaultScope

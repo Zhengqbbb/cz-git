@@ -110,7 +110,7 @@ lastUpdated: true
 - **默认** : `[{ value: "closed", name: "closed:   ISSUES has been processed" }]`
 
 :::tip
-国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br> ==利用 commit message改变issue状态== [查看小窍门](/zh/guide/recipes.html#issueprefixs)
+国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br> ==利用 commit message改变issue状态== [⇒ 查看小窍门](/zh/guide/recipes.html#issueprefixs)
 :::
 
 ## allowCustomIssuePrefixs
