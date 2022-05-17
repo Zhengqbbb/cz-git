@@ -2,7 +2,21 @@ import type { DocsearchOptions } from "@vuepress/plugin-docsearch";
 import type { GoogleAnalyticsPluginOptions } from "@vuepress/plugin-google-analytics";
 import type { PwaPluginOptions } from "@vuepress/plugin-pwa";
 import type { PwaPopupPluginOptions } from "@vuepress/plugin-pwa-popup";
+import { path } from "@vuepress/utils";
 import type { Page, PluginConfig } from "vuepress";
+
+/**
+ * @description: Register Components
+ */
+ export const registerComponentPlugin: PluginConfig = [
+  "@vuepress/register-components",
+  {
+    components: {
+      FeatureEN: path.resolve(__dirname, "../components/FeatureEN.vue"),
+      FeatureCN: path.resolve(__dirname, "../components/FeatureCN.vue")
+    }
+  }
+];
 
 /**
  * @description: Vuepress Document Search Plugin

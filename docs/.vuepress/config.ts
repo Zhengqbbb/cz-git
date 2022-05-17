@@ -16,6 +16,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     pagePlugins.docSearchPlugin,
     pagePlugins.pwaPlugin,
     pagePlugins.pwaPopupPlugin,
+    pagePlugins.registerComponentPlugin,
     pagePlugins.googleAnalyticsPlugin,
     pagePlugins.chinaSEOPlugin,
     pagePlugins.sitemapPlugin

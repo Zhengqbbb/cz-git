@@ -61,6 +61,7 @@ importers:
       '@vuepress/plugin-google-analytics': 2.0.0-beta.38
       '@vuepress/plugin-pwa': 2.0.0-beta.38
       '@vuepress/plugin-pwa-popup': 2.0.0-beta.38
+      '@vuepress/plugin-register-components': 2.0.0-beta.38
       anywhere: ^1.6.0
       markdown-it-mark: ^3.0.1
       vuepress: 2.0.0-beta.39
@@ -76,6 +77,7 @@ importers:
       '@vuepress/plugin-google-analytics': 2.0.0-beta.38
       '@vuepress/plugin-pwa': 2.0.0-beta.38
       '@vuepress/plugin-pwa-popup': 2.0.0-beta.38
+      '@vuepress/plugin-register-components': 2.0.0-beta.38
       anywhere: 1.6.0
       markdown-it-mark: 3.0.1
       vuepress: 2.0.0-beta.39
@@ -2527,6 +2529,16 @@ packages:
       workbox-build: 6.5.3
     transitivePeerDependencies:
       - '@types/babel__core'
+      - supports-color
+    dev: true
+
+  /@vuepress/plugin-register-components/2.0.0-beta.38:
+    resolution: {integrity: sha512-B7aQ5srdxW/VPYkIee2Monbbzf8JS7XuBZqBoiYERb7J2o56toV3mJ11Y6gWX6pRp6fJMx2GT8EvU//TiWl43w==}
+    dependencies:
+      '@vuepress/core': 2.0.0-beta.38
+      '@vuepress/utils': 2.0.0-beta.38
+      chokidar: 3.5.3
+    transitivePeerDependencies:
       - supports-color
     dev: true
 
