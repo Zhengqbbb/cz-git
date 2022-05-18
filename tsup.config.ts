@@ -6,7 +6,7 @@ export default defineConfig((options) => {
     entry: !options.watch ? ["./dist/index.js"] : ["./src/index.js"],
     outDir: "./lib",
     tsconfig: "./tsconfig.build.json",
-    sourcemap: true,
+    sourcemap: false,
     dts: true,
     splitting: false
   };
