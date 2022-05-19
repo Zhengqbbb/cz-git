@@ -16,6 +16,6 @@ export const zh: SidebarConfig = {
       children: ["/zh/guide/options-show.md", "/zh/guide/option-engineer.md"]
     },
     "/zh/guide/recipes.md",
-    "/zh/guide/faq.md",
+    "/zh/guide/faq.md"
   ]
 };

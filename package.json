@@ -32,7 +32,7 @@
     "docs:build": "pnpm --filter=docs docs:build",
     "docs:dev": "pnpm --filter=docs docs:dev",
     "docs:serve": "pnpm --filter=docs docs:serve",
-    "lint": "eslint --ext .ts",
+    "lint": "eslint --ext .ts packages docs/.vuepress",
     "prepare": "husky install",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && pnpm run -r --stream release:changelog",
     "test": "vitest",

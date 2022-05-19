@@ -1,2 +1,1 @@
-export const { version } = require('cz-git/package.json');
-
+export const { version } = require("cz-git/package.json");
