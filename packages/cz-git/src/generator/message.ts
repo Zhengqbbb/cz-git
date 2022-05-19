@@ -20,7 +20,6 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
   if (isSingleItem(options.allowCustomScopes, options.allowEmptyScopes, scopeList)) {
     mapping.singleScope = scopeList[singleIndex].value;
   }
-  // eslint-disable-next-line prettier/prettier
   if (
     isSingleItem(
       options.allowCustomIssuePrefixs,
