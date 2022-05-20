@@ -25,7 +25,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
 
   return [
     {
-      type: "autocomplete",
+      type: "search-list",
       name: "type",
       message: options.messages?.type,
       source: (_: unknown, input: string) => {
@@ -34,7 +34,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       }
     },
     {
-      type: options.enableMultipleScopes ? "search-checkbox" : "autocomplete",
+      type: options.enableMultipleScopes ? "search-checkbox" : "search-list",
       name: "scope",
       message: options.messages?.scope,
       separator: options.scopeEnumSeparator,
@@ -171,7 +171,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       }
     },
     {
-      type: "autocomplete",
+      type: "search-list",
       name: "footerPrefix",
       message: options.messages?.footerPrefixsSelect,
       source: (_: Answers, input: string) => {
