@@ -16,6 +16,7 @@ describe("isColorizenSupport()", () => {
   afterAll(() => {
     process.env = env;
   });
+
   test("param force false should be false", () => {
     expect(isColorizenSupport(false)).toBe(false);
   });
