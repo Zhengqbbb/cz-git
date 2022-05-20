@@ -12,6 +12,7 @@ export interface ChoiceType<T> {
 }
 
 export interface ChoicesType {
+  getChoice(pointer: number): ChoiceType<any>;
   /**
    * @description: origin choices
    */
@@ -35,8 +36,9 @@ export interface CZPromptQuestionOptions<T extends Answers = Answers> extends Qu
   separator: string;
 
   /**
-   * @description: support rgb color code. e.g: `38;5;036`
+   * @description: support rgb color code. e.g: `38;5;042`
    * @default: cyan
+   * @tip the rgb color see to check your number: https://github.com/sindresorhus/xterm-colors
    */
   themeColorCode?: string;
 

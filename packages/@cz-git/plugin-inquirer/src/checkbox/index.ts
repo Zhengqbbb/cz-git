@@ -15,6 +15,8 @@ import type { Answers, Question } from "inquirer";
 import type Separator from "inquirer/lib/objects/separator";
 import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 import { style, figures } from "../shared";
+
+export type { CZPromptQuestionOptions } from "../shared";
 export class SearchCheckbox extends Base {
   private renderChoices: ChoicesType;
   private originChoices: ChoiceType<string>[] = [];
@@ -54,8 +56,7 @@ export class SearchCheckbox extends Base {
     const events = observe(this.rl);
     const dontHaveAnswer = () => this.answer === undefined;
 
-    // const validation = this.handleSubmitEvents(events.line.pipe(map(this.onSubmit.bind(this))));
-    events.keypress.pipe(takeWhile(dontHaveAnswer)).forEach(this.onKeyPress.bind(this));
+    events.keypress.pipe(takeWhile(dontHaveAnswer)).forEach(this.onKeypress.bind(this));
     events.spaceKey.pipe(takeWhile(dontHaveAnswer)).forEach(this.onChoice.bind(this));
     events.line.pipe(takeWhile(dontHaveAnswer)).forEach(this.onSubmit.bind(this));
 
@@ -111,7 +112,7 @@ export class SearchCheckbox extends Base {
     this.firstRender = false;
 
     if (error) {
-      bottomContent = style.red(">> ") + error;
+      bottomContent += "\n" + style.red(">> ") + error;
     }
 
     this.screen.render(content, bottomContent);
@@ -238,7 +239,7 @@ export class SearchCheckbox extends Base {
   /**
    * @description: Search <any key>
    */
-  onKeyPress(e: { key: { name?: string; ctrl?: boolean }; value: string }) {
+  onKeypress(e: { key: { name?: string; ctrl?: boolean }; value: string }) {
     let len;
     const keyName = e.key?.name || "";
     if (keyName === "space") {

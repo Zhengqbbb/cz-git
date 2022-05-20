@@ -83,5 +83,6 @@ export const createStyle = styleFn;
  * @description: commandline style output colorizen
  *
  * Automatically determine whether output coloring is required
+ * @tip the rgb color see to check your number: https://github.com/sindresorhus/xterm-colors
  */
 export const style = styleFn();
