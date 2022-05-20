@@ -22,7 +22,7 @@ lastUpdated: true
 $ npm i -D cz-conventional-changelog
 added 147 packages in 21s
 $ npm install -D cz-git
-added 1 package in 0.67s
+added 1 package in 0.47s
 ```
 
 ---
@@ -33,6 +33,6 @@ added 1 package in 0.67s
 
 ```sh{3}
 $ du -sh node_modules/*
-148M	node_modules/git-cz
-5.6M	node_modules/cz-git
+148 MB	node_modules/git-cz
+1.8 MB	node_modules/cz-git
 ```
