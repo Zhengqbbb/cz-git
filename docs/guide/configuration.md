@@ -48,6 +48,7 @@ module.exports = {
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: false,
+    themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
@@ -117,6 +118,7 @@ module.exports = {
       { value: "revert", name: "revert:   ⏪️  Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: true,
+    themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
@@ -192,6 +194,7 @@ It is recommended to use JavaScript for configuration files in the project. You 
     { "value": "revert", "name": "revert:   Reverts a previous commit", "emoji": ":rewind:" }
   ],
   "useEmoji": false,
+  "themeColorCode": "",
   "scopes": [],
   "allowCustomScopes": true,
   "allowEmptyScopes": true,
