@@ -59,6 +59,7 @@ inquirer
     {
       type: "search-checkbox",
       name: "cz",
+      themeColorCode: "38;5;036",
       message: "Select scope:",
       source: function (answers, input) {
         return fuzzyFilter(input, testArr3);

@@ -1,5 +1,5 @@
 /**
- * @description: inquirer plugin - ComplateCheckbox
+ * @description: inquirer plugin - Search Checkbox
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license MIT
  */
@@ -24,6 +24,7 @@ export class SearchCheckbox extends Base {
   private firstRender = true;
   private searching = false;
   private haveSearched = false;
+  private themeColorCode?: string;
   private initialValue: any = -1;
   private lastSearchInput?: string;
   private paginator: Paginator = new Paginator(this.screen, { isInfinite: true });
@@ -33,10 +34,12 @@ export class SearchCheckbox extends Base {
 
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
     super(questions, readline, answers);
-    const { source, separator, isInitDefault } = this.opt as unknown as CZPromptQuestionOptions;
+    const { source, separator, isInitDefault, themeColorCode } = this
+      .opt as unknown as CZPromptQuestionOptions;
     if (!source) this.throwParamError("source");
     if (typeof separator === "string") this.separator = separator;
     if (isInitDefault) this.initialValue = this.opt.default;
+    if (themeColorCode) this.themeColorCode = themeColorCode;
     this.renderChoices = new Choices([], {});
   }
 
@@ -72,12 +75,18 @@ export class SearchCheckbox extends Base {
 
     // Render choices or answer depending on the state
     if (this.status === "answered") {
-      content += style.cyan(this.selection.join(this.separator));
+      this.themeColorCode
+        ? (content += style.rgb(this.themeColorCode)(this.selection.join(this.separator)))
+        : (content += style.cyan(this.selection.join(this.separator)));
     } else if (this.searching) {
       content += this.rl.line;
       bottomContent += "  " + style.dim("Searching...");
     } else if (this.choicesLen) {
-      const choicesStr = choicesRender(this.renderChoices.choices, this.pointer);
+      const choicesStr = choicesRender(
+        this.renderChoices.choices,
+        this.pointer,
+        this.themeColorCode
+      );
       content += this.rl.line;
       const indexPosition = this.pointer;
       let realIndexPosition = 0;
@@ -99,11 +108,12 @@ export class SearchCheckbox extends Base {
     if (this.firstRender) {
       content += style.dim("Press <space>|<right> to select, <enter> to submit");
     }
+    this.firstRender = false;
+
     if (error) {
       bottomContent = style.red(">> ") + error;
     }
 
-    this.firstRender = false;
     this.screen.render(content, bottomContent);
   }
 
@@ -265,7 +275,11 @@ export class SearchCheckbox extends Base {
  * @param  {Number} pointer Position of the pointer
  * @return {String}         Rendered content
  */
-const choicesRender = (choices: ChoicesType["choices"], pointer: number): string => {
+const choicesRender = (
+  choices: ChoicesType["choices"],
+  pointer: number,
+  themeColorCode?: string
+): string => {
   let output = "";
   let separatorOffset = 0;
 
@@ -286,7 +300,11 @@ const choicesRender = (choices: ChoicesType["choices"], pointer: number): string
           ? figures.squareSmallFilled + " " + choice.name
           : getCheckbox(choice.checked || false) + " " + choice.name;
       if (i - separatorOffset === pointer) {
-        output += style.cyan(" " + figures.pointer + style.cyan(line));
+        themeColorCode
+          ? (output += style.rgb(themeColorCode)(
+              " " + figures.pointer + style.rgb(themeColorCode)(line)
+            ))
+          : (output += style.cyan(" " + figures.pointer + line));
       } else {
         output += "  " + line;
       }

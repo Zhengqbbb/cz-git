@@ -49,6 +49,7 @@ describe("style()", () => {
     expect(style.bold("hello")).toBe("\u001b[1mhello\u001b[0m");
     expect(style.cyan("hello")).toBe("\u001b[36mhello\u001b[0m");
     expect(style.gray("hello")).toBe("\u001b[90mhello\u001b[0m");
+    expect(style.rgb("38;5;036")("hello")).toBe("\u001b[38;5;036mhello\u001b[0m");
     expect(style.bold(" Add plugin " + style.yellow("hello"))).toBe(
       "\u001b[1m Add plugin \u001b[33mhello\u001b[0m\u001b[0m"
     );
