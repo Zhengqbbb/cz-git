@@ -28,6 +28,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "search-list",
       name: "type",
       message: options.messages?.type,
+      themeColorCode: options?.themeColorCode,
       source: (_: unknown, input: string) => {
         const typeSource = options.types?.concat(options.typesAppend || []) || [];
         return fuzzyFilter(input, typeSource, "value");
@@ -37,6 +38,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: options.enableMultipleScopes ? "search-checkbox" : "search-list",
       name: "scope",
       message: options.messages?.scope,
+      themeColorCode: options?.themeColorCode,
       separator: options.scopeEnumSeparator,
       source: (answer: Answers, input: string) => {
         let scopeSource: Option[] = [];
@@ -88,7 +90,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       },
       when: (answers: Answers) => {
         return answers.scope === "___CUSTOM___";
-      }
+      },
+      transformer: (input: string) =>
+        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
     },
     {
       type: "input",
@@ -122,20 +126,22 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         else if (subjectLength > maxSubjectLength)
           tooltip = `${subjectLength - maxSubjectLength} chars over the limit`;
         else tooltip = `${maxSubjectLength - subjectLength} more chars allowed`;
-        const tooltipColor =
+        tooltip =
           minSubjectLength !== undefined &&
           subjectLength >= minSubjectLength &&
           subjectLength <= maxSubjectLength
-            ? "\u001B[90m"
-            : "\u001B[31m";
-        const subjectColor =
+            ? style.gray("[" + tooltip + "]")
+            : style.red("[" + tooltip + "]");
+        subject =
           minSubjectLength !== undefined &&
           subjectLength >= minSubjectLength &&
           subjectLength <= maxSubjectLength
-            ? "\u001B[36m"
-            : "\u001B[31m";
+            ? options.themeColorCode
+              ? style.rgb(options.themeColorCode)(subject)
+              : style.cyan(subject)
+            : style.red(subject);
 
-        return `${tooltipColor}[${tooltip}]\u001B[0m\n  ${subjectColor}${subject}\u001B[0m`;
+        return tooltip + "\n" + " " + subject;
       },
       filter: (subject: string) => {
         const upperCaseSubject = options.upperCaseSubject || false;
@@ -151,7 +157,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "input",
       name: "body",
       message: options.messages?.body,
-      default: options.defaultBody || undefined
+      default: options.defaultBody || undefined,
+      transformer: (input: string) =>
+        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
     },
     {
       type: "input",
@@ -168,12 +176,15 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         } else {
           return false;
         }
-      }
+      },
+      transformer: (input: string) =>
+        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
     },
     {
       type: "search-list",
       name: "footerPrefix",
       message: options.messages?.footerPrefixsSelect,
+      themeColorCode: options?.themeColorCode,
       source: (_: Answers, input: string) => {
         const issuePrefixSource = handleCustomTemplate(
           options.issuePrefixs as Option[],
@@ -200,7 +211,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       default: options.defaultIssues || undefined,
       when: (answers: Answers) => {
         return answers.footerPrefix === "___CUSTOM___";
-      }
+      },
+      transformer: (input: string) =>
+        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
     },
     {
       type: "input",
@@ -209,7 +222,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       when(answers: Answers) {
         return (answers.footerPrefix as string | boolean) !== false;
       },
-      message: options.messages?.footer
+      message: options.messages?.footer,
+      transformer: (input: string) =>
+        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
     },
     {
       type: "expand",
