@@ -14,15 +14,14 @@ import { takeWhile } from "rxjs/operators";
 import type { Interface as ReadlineInterface } from "readline";
 import type { Answers, Question } from "inquirer";
 import type Separator from "inquirer/lib/objects/separator";
-import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 import { style, figures } from "../shared";
+import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 
 export type { CZPromptQuestionOptions } from "../shared";
 export class SearchList extends Base {
   private renderChoices: ChoicesType;
   private pointer = 0;
   private choicesLen = 0;
-  private selection: (string | boolean)[] = [];
   private firstRender = true;
   private searching = false;
   private haveSearched = false;
@@ -74,8 +73,8 @@ export class SearchList extends Base {
     // Render choices or answer depending on the state
     if (this.status === "answered") {
       this.themeColorCode
-        ? (content += style.rgb(this.themeColorCode)(this.selection.join(this.answer as string)))
-        : (content += style.cyan(this.selection.join(this.answer as string)));
+        ? (content += style.rgb(this.themeColorCode)(this.answer as string))
+        : (content += style.cyan(this.answer as string));
     } else if (this.searching) {
       content += this.rl.line;
       bottomContent += "  " + style.dim("Searching...");
@@ -194,7 +193,7 @@ export class SearchList extends Base {
 
     const choice = this.renderChoices.getChoice(this.pointer);
     this.status = "answered";
-    this.answer = choice.value;
+    this.answer = choice.name || choice.value;
     this.render();
     this.screen.done();
     this.done(choice.value);

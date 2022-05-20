@@ -13,8 +13,8 @@ import { takeWhile } from "rxjs/operators";
 import type { Interface as ReadlineInterface } from "readline";
 import type { Answers, Question } from "inquirer";
 import type Separator from "inquirer/lib/objects/separator";
-import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 import { style, figures } from "../shared";
+import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 
 export type { CZPromptQuestionOptions } from "../shared";
 export class SearchCheckbox extends Base {
