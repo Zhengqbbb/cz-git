@@ -38,7 +38,7 @@ describe("generateQuestions()", () => {
     };
     // test question 1 - type
     expect(getQuestion(1)?.name).toEqual("type");
-    expect(getQuestion(1)?.type).toEqual("autocomplete");
+    expect(getQuestion(1)?.type).toEqual("search-list");
     let mockTypesSourceFn = getQuestion(1)?.source || fn;
     expect(mockTypesSourceFn({}, "f")).toEqual([
       {
@@ -51,7 +51,7 @@ describe("generateQuestions()", () => {
 
     // test question 2 - scope
     expect(getQuestion(2)?.name).toEqual("scope");
-    expect(getQuestion(2)?.type).toEqual("autocomplete");
+    expect(getQuestion(2)?.type).toEqual("search-list");
     mockTypesSourceFn = getQuestion(2)?.source || fn;
     expect(mockTypesSourceFn({}, "")).toEqual([
       { name: "empty", value: false },
