@@ -1,3 +1,20 @@
+## [1.3.2](https://github.com/Zhengqbbb/cz-git/compare/v1.3.1...v1.3.2) (2022-05-21)
+
+
+### Features
+
+* **cz-git:** add theme color for prompt inquirer ([d776149](https://github.com/Zhengqbbb/cz-git/commit/d776149d18fc35125bc602b0d5ad14dd47ab0cc1)), closes [#28](https://github.com/Zhengqbbb/cz-git/issues/28)
+* **cz-git:** use search-list replace autocomplete ([5dbe4e2](https://github.com/Zhengqbbb/cz-git/commit/5dbe4e22faea9264a8aefe01fce712e1ad687620)), closes [#28](https://github.com/Zhengqbbb/cz-git/issues/28)
+* **plugin-inquirer:** checkbox support theme color configure ([8c2effe](https://github.com/Zhengqbbb/cz-git/commit/8c2effe0b770f00a51cde16e9deb0e21bc913b12))
+* **plugin-inquirer:** done search-list inquirer plugin ([ad12f75](https://github.com/Zhengqbbb/cz-git/commit/ad12f7518e49a0526780464ccca0f64aeae953f2)), closes [#28](https://github.com/Zhengqbbb/cz-git/issues/28)
+
+
+### Performance Improvements
+
+* :zap: update tsup bundle build cz-git ([0e15e1c](https://github.com/Zhengqbbb/cz-git/commit/0e15e1c3f29dc2d1fc7fc47598df6ecc9d8f7eff))
+
+
+
 ## [1.3.1](https://github.com/Zhengqbbb/cz-git/compare/v1.3.0...v1.3.1) (2022-05-14)
 
 
