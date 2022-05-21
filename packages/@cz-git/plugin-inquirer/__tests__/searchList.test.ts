@@ -178,7 +178,7 @@ describe("inquirer-SearchList", () => {
     });
   }
 
-  function type(word) {
+  function type(word: string) {
     word.split("").forEach((char) => {
       rl.line += char;
       rl.input.emit("keypress", char);
