@@ -13,6 +13,16 @@
 
 * :zap: update tsup bundle build cz-git ([0e15e1c](https://github.com/Zhengqbbb/cz-git/commit/0e15e1c3f29dc2d1fc7fc47598df6ecc9d8f7eff))
 
+```bash
+$ npm i -D cz-git
+
++ cz-git@1.3.2
+added 1 package from 1 contributor and audited 1 package in 0.47s
+
+$ du -sh ./node_modules
+1.8M ./node_modules/cz-git/
+```
+
 
 
 ## [1.3.1](https://github.com/Zhengqbbb/cz-git/compare/v1.3.0...v1.3.1) (2022-05-14)
