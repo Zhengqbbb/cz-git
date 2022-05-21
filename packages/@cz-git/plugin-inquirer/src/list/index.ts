@@ -172,8 +172,8 @@ export class SearchList extends Base {
           this.onSubmitAfterValidation(lineOrRl);
         }
       };
-
-      const validationResult = this.opt.validate(lineOrRl, this.answers);
+      const choice = this.renderChoices.getChoice(this.pointer);
+      const validationResult = this.opt.validate(choice, this.answers);
       if (typeof validationResult === "object" && typeof validationResult.then === "function") {
         validationResult.then(checkValidationResult);
       } else {
