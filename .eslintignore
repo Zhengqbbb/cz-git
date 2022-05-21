@@ -1,5 +1,7 @@
+!.vuepress
+
 node_modules/
 lib/
 dist/
-.commitlintrc.js
 examples/
+.commitlintrc.js

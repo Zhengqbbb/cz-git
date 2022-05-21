@@ -1,6 +1,6 @@
-import type { SearchConsolePluginOptions } from 'vuepress-plugin-china-search-console'
-import type { ClipboardOptions } from 'vuepress-plugin-clipboard'
-import type { SitemapOptions } from 'vuepress-plugin-sitemap2'
+import type { SearchConsolePluginOptions } from "vuepress-plugin-china-search-console";
+import type { ClipboardOptions } from "vuepress-plugin-clipboard";
+import type { SitemapOptions } from "vuepress-plugin-sitemap2";
 import type { PluginConfig } from "vuepress";
 
 /**

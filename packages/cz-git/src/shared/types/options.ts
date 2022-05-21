@@ -105,6 +105,15 @@ export interface CommitizenGitOptions {
   messages?: Answers;
 
   /**
+   * @description: the prompt inquirer primary color
+   * @rule `38;5;${color_code}`
+   * @tip the color_code can get by https://github.com/sindresorhus/xterm-colors
+   * @example "38;5;043"
+   * @default: "" = cyan color
+   */
+  themeColorCode?: string;
+
+  /**
    * @description: Customize prompt type
    */
   types?: TypesOption[];
@@ -329,6 +338,7 @@ export const defaultConfig = Object.freeze({
      { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
    ],
    typesAppend: [],
+   themeColorCode: "",
    useEmoji: false,
    scopes: [],
    enableMultipleScopes: false,

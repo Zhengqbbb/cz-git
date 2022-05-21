@@ -9,4 +9,5 @@
 pnpm install
 pnpm run dev
 node ./packages/@cz-git/plugin-inquirer/examples/checkbox.js
+node ./packages/@cz-git/plugin-inquirer/examples/list.js
 ```

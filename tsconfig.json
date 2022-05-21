@@ -1,10 +1,8 @@
 {
   "extends": "./tsconfig.base.json",
-  "files": [],
   "include": [
-    "docs/.vuepress/**/*", 
-    "packages/**/*", 
-    "tsup.config.ts",
+    "**/.vuepress/**/*",
+    "packages/**/*"
   ],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", ".temp", "lib", "dist"],
 }

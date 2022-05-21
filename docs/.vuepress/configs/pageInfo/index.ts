@@ -16,8 +16,7 @@ export const locales = {
   "/zh/": {
     lang: "zh-CN",
     title: "cz-git",
-    description:
-      "一款工程性更强，轻量级，高度自定义，标准输出格式的 commitizen 适配器"
+    description: "一款工程性更强，轻量级，高度自定义，标准输出格式的 commitizen 适配器"
   }
 };
 

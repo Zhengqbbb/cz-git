@@ -15,11 +15,10 @@ import {
 } from "../shared";
 import type { CommitizenGitOptions, UserConfig } from "../shared";
 
-const { emoji, checkbox } = process.env;
-
 /* eslint-disable prettier/prettier */
 /* prettier-ignore */
 export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
+  const { emoji, checkbox, ___X_CMD_THEME_COLOR_CODE } = process.env;
   let promptConfig = config.prompt ?? {};
   promptConfig = getValueByCallBack(
     promptConfig,
@@ -28,6 +27,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
 
   return {
     messages: promptConfig.messages ?? defaultConfig.messages,
+    themeColorCode: ___X_CMD_THEME_COLOR_CODE || promptConfig.themeColorCode || defaultConfig.themeColorCode,
     types: promptConfig.types ?? defaultConfig.types,
     typesAppend: promptConfig.typesAppend ?? defaultConfig.typesAppend,
     useEmoji: Boolean(emoji) || promptConfig.useEmoji || defaultConfig.useEmoji,

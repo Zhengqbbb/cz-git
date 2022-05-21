@@ -59,6 +59,8 @@ const styleFn = (enabled = isColorizenSupport()) => ({
   cyan: enabled ? formatter("\u001b[36m", "\u001b[0m") : String,
   white: enabled ? formatter("\u001b[37m", "\u001b[0m") : String,
   gray: enabled ? formatter("\u001b[90m", "\u001b[0m") : String,
+  rgb: (rgbColor = "38;5;036") =>
+    enabled ? formatter(`\u001b[${rgbColor}m`, "\u001b[0m") : String,
   bgBlack: enabled ? formatter("\u001b[40m", "\u001b[0m") : String,
   bgRed: enabled ? formatter("\u001b[41m", "\u001b[0m") : String,
   bgGreen: enabled ? formatter("\u001b[42m", "\u001b[0m") : String,
@@ -81,5 +83,6 @@ export const createStyle = styleFn;
  * @description: commandline style output colorizen
  *
  * Automatically determine whether output coloring is required
+ * @tip the rgb color see to check your number: https://github.com/sindresorhus/xterm-colors
  */
 export const style = styleFn();

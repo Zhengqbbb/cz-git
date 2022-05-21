@@ -43,6 +43,7 @@ inquirer
     {
       type: "search-checkbox",
       name: "testOne",
+      themeColorCode: "",
       message: "Select checkbox test:",
       source: function (answers, input) {
         return fuzzyFilter(input, testArr1);
@@ -51,6 +52,7 @@ inquirer
     {
       type: "search-checkbox",
       name: "testTwo",
+      themeColorCode: "38;5;043",
       message: "Select checkbox test:",
       source: function (answers, input) {
         return fuzzyFilter(input, testArr2);
@@ -59,6 +61,7 @@ inquirer
     {
       type: "search-checkbox",
       name: "cz",
+      themeColorCode: "38;5;042",
       message: "Select scope:",
       source: function (answers, input) {
         return fuzzyFilter(input, testArr3);

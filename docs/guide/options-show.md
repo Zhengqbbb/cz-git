@@ -11,6 +11,24 @@ lastUpdated: true
 - **description** : custom command line question information
 - **example** : <br>`messages: { type: "Select the type of change that you're committing:" }`
 
+## themeColorCode
+
+- **description** : set prompt inquirer theme color
+- **type** : `string`
+- **default** : `""`  (⇒ cyan color)
+- **rule**: `"38;5;${color_code}"`    
+  ⇒ the `color_code` can get it by [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
+- **example**: `"38;5;043"`
+
+:::tip
+If you don't want to use the theme color of the configuration record, you can add a line to the profile file such as `~/.bashrc` or `~/.zshrc`, which will have a higher priority:
+
+```bash
+export ___X_CMD_THEME_COLOR_CODE="38;5;043"
+```
+
+:::
+
 ## types
 
 - **description** : custom selection **type** prompt
