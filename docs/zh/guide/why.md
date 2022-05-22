@@ -2,6 +2,8 @@
 title: 动机
 sidebarDepth: 1
 lastUpdated: true
+sitemap:
+    priority: 0.6
 ---
 
 # 为什么是 cz-git

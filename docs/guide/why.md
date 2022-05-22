@@ -2,6 +2,8 @@
 title: Why cz-git
 sidebarDepth: 1
 lastUpdated: true
+sitemap:
+    priority: 0.6
 ---
 
 # Why cz-git

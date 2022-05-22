@@ -5,7 +5,6 @@ heroImage: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0
 description: A more engineered, lightweight, highly customizable, standard output format commitizen adapter.
 sitemap:
     priority: 1
-    exclude: false
 actions:
     - text: Get Started →
       link: /guide/getting-started.html
