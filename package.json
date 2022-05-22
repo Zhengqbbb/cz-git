@@ -76,12 +76,13 @@
     "vitest": "^0.12.8"
   },
   "engines": {
-    "pnpm": ">=6"
+    "pnpm": ">=7"
   },
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
         "@algolia/client-search",
+        "@types/react",
         "eslint-plugin-import",
         "eslint-plugin-n",
         "eslint-plugin-promise",

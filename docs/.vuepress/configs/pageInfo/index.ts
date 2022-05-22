@@ -1,4 +1,4 @@
-import type { AppOptions, HeadConfig } from "vuepress";
+import type { DefaultThemeOptions, HeadConfig } from "vuepress";
 import * as navbar from "./navbar";
 import * as sidebar from "./sidebar";
 
@@ -69,7 +69,7 @@ export const headConfig: HeadConfig[] = [
   ["link", { rel: "manifest", href: "/manifest.webmanifest" }]
 ];
 
-export const themeConfig: AppOptions["themeConfig"] = {
+export const themeConfig: DefaultThemeOptions = {
   logo: "/images/logo.png",
   sidebarDepth: 1,
   repo: "Zhengqbbb/cz-git",

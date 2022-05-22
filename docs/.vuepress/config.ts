@@ -1,27 +1,26 @@
-import { defineUserConfig } from "vuepress";
-import type { DefaultThemeOptions } from "vuepress";
+import { defineUserConfig, defaultTheme } from "vuepress";
 import { bunderInfo, pageInfo } from "./configs";
 import * as pagePlugins from "./plugins";
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
   base: pageInfo.base,
   locales: pageInfo.locales,
   head: pageInfo.headConfig,
 
   bundler: bunderInfo.bundler,
-  bundlerConfig: bunderInfo.bundlerConfig,
 
   plugins: [
-    pagePlugins.codeCopyPlugin,
-    pagePlugins.docSearchPlugin,
-    pagePlugins.pwaPlugin,
-    pagePlugins.pwaPopupPlugin,
-    pagePlugins.registerComponentPlugin,
-    pagePlugins.googleAnalyticsPlugin,
+    pagePlugins.googleSEOPlugin,
     pagePlugins.chinaSEOPlugin,
-    pagePlugins.sitemapPlugin
+    pagePlugins.codeCopyPlugin,
+    pagePlugins.algoliaSearchPlugin,
+    pagePlugins.genPwaPlugin,
+    pagePlugins.genPwaPopupPlugin,
+    pagePlugins.genComponentPlugin,
+    pagePlugins.genSitemapPlugin
   ],
-  themeConfig: pageInfo.themeConfig,
+
+  theme: defaultTheme(pageInfo.themeConfig),
   markdown: pageInfo.markdownConfig,
   extendsMarkdown: (md) => {
     md.use(require("markdown-it-mark"));
