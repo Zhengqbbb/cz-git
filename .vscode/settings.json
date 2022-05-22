@@ -1,5 +1,8 @@
 {
-  "github-actions.workflows.pinned.workflows": [".github/workflows/nodejs.yml"],
+  "github-actions.workflows.pinned.workflows": [
+    ".github/workflows/nodejs.yml",
+    ".github/workflows/docs.yml"
+  ],
   "github-actions.workflows.pinned.refresh.enabled": true,
   "github-actions.workflows.pinned.refresh.interval": 65,
   // https://github.com/antfu/vscode-file-nesting-config
