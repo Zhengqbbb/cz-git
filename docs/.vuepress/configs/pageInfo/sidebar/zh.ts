@@ -1,4 +1,4 @@
-import type { SidebarConfig } from "@vuepress/theme-default";
+import type { SidebarConfig } from "vuepress";
 
 export const zh: SidebarConfig = {
   "/zh/guide/": [

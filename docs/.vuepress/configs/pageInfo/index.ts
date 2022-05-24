@@ -1,4 +1,5 @@
-import type { DefaultThemeOptions, HeadConfig } from "vuepress";
+import type { DefaultThemeOptions, HeadConfig, SiteLocaleConfig } from "vuepress";
+import type { MarkdownOptions } from "@vuepress/markdown";
 import * as navbar from "./navbar";
 import * as sidebar from "./sidebar";
 
@@ -6,7 +7,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 export const base = "/";
 
-export const locales = {
+export const locales: SiteLocaleConfig = {
   "/": {
     lang: "en-US",
     title: "cz-git",
@@ -118,11 +119,11 @@ export const themeConfig: DefaultThemeOptions = {
     }
   },
   themePlugins: {
-    git: isProd,
+    git: isProd
   }
 };
 
-export const markdownConfig = {
+export const markdownConfig: MarkdownOptions = {
   code: {
     lineNumbers: false
   }

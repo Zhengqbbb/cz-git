@@ -1,4 +1,4 @@
-import type { NavbarConfig } from "@vuepress/theme-default";
+import type { NavbarConfig } from "vuepress";
 import { version } from "../meta";
 
 export const en: NavbarConfig = [
