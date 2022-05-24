@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue";
-const emoji = ref("🎉");
+const emoji = ref("✨");
 const emojiArr = [
   "🎉",
   "🐛",
