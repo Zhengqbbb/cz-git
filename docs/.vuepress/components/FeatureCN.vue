@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import Emoji from "./Emoji.vue";
+</script>
+
 <template>
   <div class="features">
     <div class="feature">
@@ -32,7 +36,7 @@
     </div>
     <div class="feature">
       <h2>Emoji 支持</h2>
-      <p>✅ 支持在 commit 信息中携带 Emoji。</p>
+      <p><Emoji /> 支持在 commit 信息中携带 Emoji。</p>
     </div>
   </div>
 </template>

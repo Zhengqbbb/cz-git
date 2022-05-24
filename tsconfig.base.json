@@ -19,5 +19,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
+    "jsx": "preserve"
   }
 }

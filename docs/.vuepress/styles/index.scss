@@ -6,6 +6,15 @@ body {
   overflow: overlay;
 }
 
+mark {
+  padding: 0.1rem 0.15rem;
+  border-radius: 2px;
+}
+
+.code-group div[class*=language-]::before {
+  top: -2.4em;
+}
+
 .site-name {
   display: none;
 }
@@ -14,14 +23,10 @@ body {
   font-size: 1.4rem;
 }
 
-.code-group div[class*=language-]::before {
-  top: -2.4em;
+.emoji-code {
+  font-size: 1.3rem;
 }
 
-mark {
-  padding: 0.1rem 0.15rem;
-  border-radius: 2px;
-}
 
 // css
 
