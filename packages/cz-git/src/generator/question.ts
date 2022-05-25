@@ -17,6 +17,9 @@ import {
 import { generateMessage } from "./message";
 import { fuzzyFilter, style } from "@cz-git/inquirer";
 
+const useThemeCode = (input: string, themeColorCode?: string) =>
+  themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input);
+
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
     if (!process.env.VITEST) log("err", "Error [types] Option");
@@ -91,8 +94,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       when: (answers: Answers) => {
         return answers.scope === "___CUSTOM___";
       },
-      transformer: (input: string) =>
-        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
+      transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
       type: "input",
@@ -136,9 +138,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           minSubjectLength !== undefined &&
           subjectLength >= minSubjectLength &&
           subjectLength <= maxSubjectLength
-            ? options.themeColorCode
-              ? style.rgb(options.themeColorCode)(subject)
-              : style.cyan(subject)
+            ? useThemeCode(subject, options.themeColorCode)
             : style.red(subject);
 
         return tooltip + "\n" + " " + subject;
@@ -158,8 +158,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       name: "body",
       message: options.messages?.body,
       default: options.defaultBody || undefined,
-      transformer: (input: string) =>
-        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
+      transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
       type: "input",
@@ -177,8 +176,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           return false;
         }
       },
-      transformer: (input: string) =>
-        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
+      transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
       type: "search-list",
@@ -212,8 +210,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       when: (answers: Answers) => {
         return answers.footerPrefix === "___CUSTOM___";
       },
-      transformer: (input: string) =>
-        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
+      transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
       type: "input",
@@ -223,8 +220,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         return (answers.footerPrefix as string | boolean) !== false;
       },
       message: options.messages?.footer,
-      transformer: (input: string) =>
-        options.themeColorCode ? style.rgb(options.themeColorCode)(input) : style.cyan(input)
+      transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
       type: "expand",
