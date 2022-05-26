@@ -72,7 +72,15 @@ added 1 package in 0.47s
 
 [⇒ 为什么做了这款插件：cz-git 友好型 commitizen 的适配器，我的开发的心路历程](https://www.qbenben.com/post/2022/02/27/cz-git/)
 
+## 使用 cz-git 的项目
+
+- [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next)
+- [vue3-antd-admin](https://github.com/buqiyuan/vue3-antd-admin)
+- [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)
+- [vuepress-theme-gungnir](https://github.com/Renovamen/vuepress-theme-gungnir)
+
 ## 版权
+
 MIT
 Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> [https://github.com/Zhengqbbb](https://github.com/Zhengqbbb)
 

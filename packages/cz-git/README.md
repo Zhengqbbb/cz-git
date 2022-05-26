@@ -85,6 +85,13 @@ added 1 package in 0.47s
 
 [⇒ FAQ](https://cz-git.qbenben.com/guide/faq.html)
 
+## Projects using cz-git
+
+- [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next)
+- [vue3-antd-admin](https://github.com/buqiyuan/vue3-antd-admin)
+- [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)
+- [vuepress-theme-gungnir](https://github.com/Renovamen/vuepress-theme-gungnir)
+
 ## LICENSE
 
 MIT
