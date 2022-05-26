@@ -28,12 +28,6 @@
     "build:dev": "pnpm clean && tsc -b",
     "clean": "rimraf *.tsbuildinfo lib dist"
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git",
-      "useEmoji": true
-    }
-  },
   "devDependencies": {
     "@commitlint/resolve-extends": "^16.2.1",
     "@commitlint/types": "^16.2.1",

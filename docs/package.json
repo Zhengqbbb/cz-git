@@ -2,7 +2,7 @@
   "name": "docs",
   "private": true,
   "scripts": {
-    "docs:build": "vuepress build --clean-cache  --dest dist",
+    "docs:build": "vuepress build --clean-cache --dest dist",
     "docs:dev": "vuepress dev --clean-cache",
     "docs:info": "vuepress info",
     "docs:serve": "anywhere -h localhost -d dist"
