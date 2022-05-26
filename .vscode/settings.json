@@ -1,4 +1,5 @@
 {
+  "volar.autoCompleteRefs": true,
   "github-actions.workflows.pinned.workflows": [
     ".github/workflows/nodejs.yml",
     ".github/workflows/docs.yml"
