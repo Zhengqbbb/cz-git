@@ -94,10 +94,18 @@ export const clLoader = async () => {
 };
 
 export const czLoader = async () => {
-  const moduleName = "commitizen";
+  const moduleName = "cz";
   const options = {
     moduleName,
-    searchPlaces: ["package.json", ".czrc", ".cz.json"],
+    searchPlaces: [
+      `.${moduleName}rc`,
+      `.${moduleName}.json`,
+      `.${moduleName}.js`,
+      `${moduleName}.js`,
+      `${moduleName}.config.js`,
+      `${moduleName}.cjs`,
+      "package.json"
+    ],
     packageProp: ["config", "commitizen"]
   };
   const data = await loader(options);
