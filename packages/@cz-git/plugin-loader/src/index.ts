@@ -1,7 +1,12 @@
+import type { QualifiedRules, Rule } from "@commitlint/types";
 import "@commitlint/types";
 import resolveExtends from "@commitlint/resolve-extends";
 import { cosmiconfig } from "cosmiconfig";
 import path from "path";
+
+type ExectableConfig<T> = (() => T) | (() => Promise<T>);
+type Config<T> = T | Promise<T> | ExectableConfig<T>;
+type ExecutedRule<T> = readonly [string, T];
 
 export interface LoaderOptions {
   moduleName: string;
@@ -30,6 +35,22 @@ export const loader = async (options: LoaderOptions) => {
   return result ?? null;
 };
 
+export async function execute<T = unknown>(rule?: Rule<T>): Promise<ExecutedRule<T> | null> {
+  if (!Array.isArray(rule)) {
+    return null;
+  }
+
+  const [name, config] = rule;
+
+  const fn = executable(config) ? config : async () => config;
+
+  return [name, await fn()];
+}
+
+function executable<T>(config: Config<T>): config is ExectableConfig<T> {
+  return typeof config === "function";
+}
+
 export const clLoader = async () => {
   const moduleName = "commitlint";
   const options = {
@@ -54,7 +75,22 @@ export const clLoader = async () => {
     prefix: "commitlint-config",
     cwd: data.filepath
   });
-  return extended;
+
+  const rules = (
+    await Promise.all(Object.entries(extended.rules || {}).map((entry) => execute(entry as any)))
+  ).reduce<QualifiedRules>((registry, item) => {
+    // type of `item` can be null, but Object.entries always returns key pair
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const [key, value] = item!;
+    // @ts-ignore
+    registry[key] = value;
+    return registry;
+  }, {});
+
+  return {
+    prompt: extended.prompt,
+    rules: rules
+  };
 };
 
 export const czLoader = async () => {
