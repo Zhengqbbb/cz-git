@@ -87,8 +87,6 @@ export interface Option {
   value: string;
 }
 
-export type StringCallback = () => string;
-
 export interface TypesOption extends Option {
   /**
    * @description: Submit emoji commit string
@@ -284,29 +282,29 @@ export interface CommitizenGitOptions {
    * @description: default value show scope custom prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultScope?: string | StringCallback;
+  defaultScope?: string;
 
   /**
    * @description: default value show subject prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultSubject?: string | StringCallback;
+  defaultSubject?: string;
 
   /**
    * @description: default value show body and BREAKINGCHANGES prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultBody?: string | StringCallback;
+  defaultBody?: string;
   /**
    * @description: default value show issuePrefixs custom prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultFooterPrefix?: string | StringCallback;
+  defaultFooterPrefix?: string;
   /**
    * @description: default value show issue foot prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultIssues?: string | StringCallback;
+  defaultIssues?: string;
 }
 
 /* eslint-disable prettier/prettier */

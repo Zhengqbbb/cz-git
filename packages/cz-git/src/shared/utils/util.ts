@@ -4,7 +4,7 @@
  * @license: MIT
  */
 
-import type { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "..";
+import type { Answers, CommitizenGitOptions, Option, ScopesType } from "..";
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
@@ -157,20 +157,4 @@ export const getCurrentScopes = (
     result = scopes;
   }
   return result;
-};
-
-export const getValueByCallBack = (
-  target: CommitizenGitOptions,
-  targetKey: Array<
-    "defaultScope" | "defaultSubject" | "defaultBody" | "defaultFooterPrefix" | "defaultIssues"
-  >
-): CommitizenGitOptions => {
-  if (targetKey.length === 0) return target;
-  targetKey.forEach((key) => {
-    if (!target[key]) return;
-    if (typeof target[key] === "function" && typeof target[key] !== "string") {
-      return (target[key] = (target?.[key] as StringCallback)?.call(undefined));
-    }
-  });
-  return target;
 };

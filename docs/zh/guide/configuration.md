@@ -156,6 +156,22 @@ module.exports = {
 
 :::
 
+<Badge type="tip" text="Tip" vertical="middle" /> 你也可以在 package.json 中自定义配置文件路径
+
+```json{8}
+{
+  "scripts": {
+    "commit": "git cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "czConfig": "./config/cz.config.js"
+    }
+  }
+}
+```
+
 ## 中英文对照模板
 
 ::: details 点击展开 .commitlintrc.js 完整 中英文 配置模板

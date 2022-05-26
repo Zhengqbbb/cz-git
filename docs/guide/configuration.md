@@ -89,9 +89,7 @@ module.exports = {
 > If your project does not use commitlint, you can use the following configuration items
 
 - `.cz.js`
-- `cz.js`
 - `cz.config.js`
-- `cz.cjs`
 
 :::details Click to expand cz.config.js complete default configuration template
 
@@ -156,6 +154,22 @@ module.exports = {
 ```
 
 :::
+
+<Badge type="tip" text="Tip" vertical="middle" /> You can also optionally custom configuration file path in package.json
+
+```json{8}
+{
+  "scripts": {
+    "commit": "git cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "czConfig": "./config/cz.config.js"
+    }
+  }
+}
+```
 
 ## Emoji template
 

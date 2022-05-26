@@ -9,7 +9,6 @@ import {
   enumRuleIsActive,
   emptyRuleIsActive,
   getEnumList,
-  getValueByCallBack,
   getMaxLength,
   getMinLength
 } from "../shared";
@@ -19,11 +18,7 @@ import type { CommitizenGitOptions, UserConfig } from "../shared";
 /* prettier-ignore */
 export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
   const { emoji, checkbox, ___X_CMD_THEME_COLOR_CODE } = process.env;
-  let promptConfig = config.prompt ?? {};
-  promptConfig = getValueByCallBack(
-    promptConfig,
-    ["defaultScope", "defaultSubject", "defaultBody", "defaultFooterPrefix", "defaultIssues"]
-  )
+  const promptConfig = config.prompt ?? {};
 
   return {
     messages: promptConfig.messages ?? defaultConfig.messages,
