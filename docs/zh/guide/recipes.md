@@ -64,6 +64,9 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/167858696-398a19fd-932f-4453-832a-795edcb75ad7.gif)
 
+<br>
+<br>
+
 ### 针对 项目业务 的 scopes
 
 ```js
@@ -113,6 +116,9 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE;
 
 :::
 
+<br>
+<br>
+
 ## issuePrefixs
 
 国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好 ==利用 commit message改变issue状态== <br>
@@ -137,7 +143,47 @@ module.exports = {
 如果 `cz-git` 检测到如果 `allowCustomIssuePrefixs` 和 `allowEmptyIssuePrefixs` 具有非常严格规则(都设置为false)并且 **issuePrefixs 选择列表仅有一项时**，会自动跳过问题并输出
 :::
 
+<br>
+<br>
+<br>
+
 ## default
+
+### defaultScope
+
+- 自动获取 “代码修改范围”。 适用于存在很多范围选项（例如组件库、monorepo）的情况。
+  - 例如 [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next)，这是一个 vue3 组件库，在 `src` 中存储了超过 60 个组件
+  - 但与此同时其项目路径结构十分清晰
+  - 我们可以通过`git status`获取已修改文件缓存区的路径
+  - 进行字符串匹配截取，获得匹配成功的 `scope`
+  - 再传递给 defaultScope，在选择列表中进行置顶
+
+```js{5-11,16,17}
+// .commitlint.config.js
+const { execSync } = require('child_process');
+
+// precomputed scope
+const scopeComplete = execSync('git status --porcelain || true')
+  .toString()
+  .trim()
+  .split('\n')
+  .find((r) => ~r.indexOf('M  src'))
+  ?.replace(/(\/)/g, '%%')
+  ?.match(/src%%((\w|-)*)/)?.[1];
+
+/** @type {import('cz-git').UserConfig} */
+module.exports = {
+  prompt: {
+    defaultScope: scopeComplete,
+    customScopesAlign: !scopeComplete ? 'top-bottom' : 'bottom',
+  },
+};
+```
+
+![demo-gif](https://user-images.githubusercontent.com/40693636/170404847-bc1a76d5-f7bb-4ec6-9c1f-5476ba7fceee.gif)
+
+<br>
+<br>
 
 ### defaultIssues
 
@@ -171,5 +217,8 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/162552804-132aab02-4b02-4006-9e41-aeae4f825948.gif)
 
+<br>
+<br>
+<br>
 
-> 格局打开，利用可高度可定制的 `cz-git` 让 commit 更方便，更契合习惯，欢迎分享。
+> 这就是脚本的力量，利用可高度可定制的 `cz-git` 让 commit 更方便，更契合习惯，欢迎分享。

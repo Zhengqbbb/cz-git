@@ -64,6 +64,9 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/167858696-398a19fd-932f-4453-832a-795edcb75ad7.gif)
 
+<br>
+<br>
+
 ### scopes for business system
 
 ```js
@@ -112,7 +115,47 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE;
 
 :::
 
+<br>
+<br>
+<br>
+
 ## default
+
+### defaultScope
+
+- Obtaining the `project scope` automatically. Good for when there are a lot of scope options (eg components lib, monorepo).
+  - e.g [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next), which is a vue3 component library with more than 60+ components stored in `src`
+  - Fortunately, the path structure is clear
+  - We can get the path of the modified file cache through `git status`
+  - Perform string matching interception to obtain scope
+  - passed to defaultScope. pin the top of scope list
+
+```js{5-11,16,17}
+// .commitlint.config.js
+const { execSync } = require('child_process');
+
+// precomputed scope
+const scopeComplete = execSync('git status --porcelain || true')
+  .toString()
+  .trim()
+  .split('\n')
+  .find((r) => ~r.indexOf('M  src'))
+  ?.replace(/(\/)/g, '%%')
+  ?.match(/src%%((\w|-)*)/)?.[1];
+
+/** @type {import('cz-git').UserConfig} */
+module.exports = {
+  prompt: {
+    defaultScope: scopeComplete,
+    customScopesAlign: !scopeComplete ? 'top-bottom' : 'bottom',
+  },
+};
+```
+
+![demo-gif](https://user-images.githubusercontent.com/40693636/169853818-a13ab13a-3b2d-4386-a833-2f3558b2c138.gif)
+
+<br>
+<br>
 
 ### defaultIssues
 
@@ -150,4 +193,8 @@ module.exports = {
 If `cz-git` detects that `allowCustomIssuePrefixs` and `allowEmptyIssuePrefixs` have very strict rules (both set to false) and the **issuePrefixs selection list has only one item**, it will automatically skip question and output
 :::
 
-> Expand your imagination, and the highly customizable `cz-git` makes committing more convenient and more customary. Welcome to share.
+<br>
+<br>
+<br>
+
+> That's the power of scripting, and the highly customizable `cz-git` makes committing more convenient and more customary. Welcome to share.
