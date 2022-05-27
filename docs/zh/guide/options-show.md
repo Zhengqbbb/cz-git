@@ -104,9 +104,19 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 
 ---
 
+<br/>
+<br/>
+<br/>
+
 :::tip
 使用==默认值==可以产生很多种玩法让工具更契合你或团队的习惯，[⇒ 查看小窍门](/zh/guide/recipes.html#default)
 :::
+
+## defaultType
+
+- **描述** : 如果 defaultType 与在选择范围列表项中的 value 相匹配就会进行星标置顶操作。
+- **类型** : `string`
+- **默认** : `""`
 
 ## defaultScope
 
@@ -115,9 +125,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **默认** : `""`
 - **使用** : 当你想要命令行中出现的默认值只需要按下 "Enter" 键即可
 
-:::tip
-如果 `defaultScope` 与在选择范围列表项中的 `value` 相匹配就会进行星标置顶操作。
-:::
+<Badge type="tip" text="提示" vertical="middle" /> 如果 defaultScope 与在选择范围列表项中的 value 相匹配就会进行星标置顶操作。
 
 ## defaultSubject
 

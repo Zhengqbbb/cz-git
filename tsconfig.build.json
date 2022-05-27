@@ -1,9 +1,9 @@
 {
   "extends": "./tsconfig.base.json",
   "references": [
-    { "path": "./packages/cz-git/tsconfig.json" },
     { "path": "./packages/@cz-git/plugin-loader/tsconfig.json" },
     { "path": "./packages/@cz-git/plugin-inquirer/tsconfig.json" },
+    { "path": "./packages/cz-git/tsconfig.json" },
   ],
   "files": []
 }

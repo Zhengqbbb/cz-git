@@ -53,6 +53,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     maxHeaderLength: promptConfig.maxHeaderLength ?? getMaxLength(config?.rules?.["header-max-length"] as any),
     maxSubjectLength: promptConfig.maxSubjectLength ?? getMaxLength(config?.rules?.["subject-max-length"] as any),
     minSubjectLength: promptConfig.minSubjectLength ?? getMinLength(config?.rules?.["subject-min-length"] as any),
+    defaultType: promptConfig.defaultType ?? defaultConfig.defaultType,
     defaultScope: promptConfig.defaultScope ?? defaultConfig.defaultScope,
     defaultSubject: promptConfig.defaultSubject ?? defaultConfig.defaultSubject,
     defaultBody: promptConfig.defaultBody ?? defaultConfig.defaultBody,

@@ -285,7 +285,13 @@ export interface CommitizenGitOptions {
   minSubjectLength?: number;
 
   /**
-   * @description: default value show scope custom prompt
+   * @description: pin type item the top of the types list (match item value)
+   */
+  defaultType?: string;
+
+  /**
+   * @description: Whether to use display default value in custom scope
+   * @tip pin scope item the top of the scope list (match item value)
    * @example: When you want to use default, just keybord <Enter> it
    */
   defaultScope?: string;
@@ -369,8 +375,9 @@ export const defaultConfig = Object.freeze({
    minSubjectLength: 0,
    scopeOverrides: undefined,
    scopeFilters: [".DS_Store"],
-   defaultBody: "",
+   defaultType: "",
    defaultScope: "",
+   defaultBody: "",
    defaultSubject: "",
    defaultFooterPrefix: "",
    defaultIssues: ""
