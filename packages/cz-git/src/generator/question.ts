@@ -56,7 +56,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.customScopesAlias,
           options.allowCustomScopes,
           options.allowEmptyScopes,
-          options.defaultScope as string
+          options.defaultScope as string,
+          options.scopeFilters
         );
         return fuzzyFilter(input, scopeSource);
       },

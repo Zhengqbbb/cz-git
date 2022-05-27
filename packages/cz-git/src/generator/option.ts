@@ -28,6 +28,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     useEmoji: Boolean(emoji) || promptConfig.useEmoji || defaultConfig.useEmoji,
     scopes: promptConfig.scopes ?? getEnumList(config?.rules?.["scope-enum"] as any),
     scopeOverrides: promptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
+    scopeFilters: promptConfig.scopeFilters ?? defaultConfig.scopeFilters,
     enableMultipleScopes: Boolean(checkbox) || promptConfig.enableMultipleScopes || defaultConfig.enableMultipleScopes,
     scopeEnumSeparator: promptConfig.scopeEnumSeparator ?? defaultConfig.scopeEnumSeparator,
     allowCustomScopes: promptConfig.allowCustomScopes ?? !enumRuleIsActive(config?.rules?.["scope-enum"] as any),

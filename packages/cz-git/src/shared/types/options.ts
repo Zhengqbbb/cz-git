@@ -145,6 +145,12 @@ export interface CommitizenGitOptions {
   scopeOverrides?: { [type: string]: ScopesType };
 
   /**
+   * @description: Filter select of prompt to select module scopes by the scope.value
+   * @default: ['.DS_Store']
+   */
+  scopeFilters?: string[];
+
+  /**
    * @description: Whether to enable scope multiple mode
    * @default: false
    */
@@ -362,6 +368,7 @@ export const defaultConfig = Object.freeze({
    maxSubjectLength: Infinity,
    minSubjectLength: 0,
    scopeOverrides: undefined,
+   scopeFilters: [".DS_Store"],
    defaultBody: "",
    defaultScope: "",
    defaultSubject: "",

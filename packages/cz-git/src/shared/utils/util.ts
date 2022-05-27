@@ -77,7 +77,8 @@ export const handleCustomTemplate = (
   customAlias = "custom",
   allowCustom = true,
   allowEmpty = true,
-  defaultValue = ""
+  defaultValue = "",
+  scopeFilters = [".DS_Store"]
 ) => {
   let result: Array<{ name: string; value: any }> = [
     { name: emptyAlias, value: false },
@@ -121,7 +122,9 @@ export const handleCustomTemplate = (
         .concat(target);
       break;
   }
-  return filterCustomEmptyByOption(result, allowCustom, allowEmpty);
+  return filterCustomEmptyByOption(result, allowCustom, allowEmpty).filter(
+    (i) => !scopeFilters.includes(i.value)
+  );
 };
 
 /**

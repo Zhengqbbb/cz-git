@@ -24,12 +24,19 @@ sitemap:
 - **描述** : 自定义选择了特定**类型**后 **覆盖模块范围** 命令行显示信息
 - **类型** : <br>`{ [type: string]: string[] | Array<{ name: string, value?: string }> } | undefined`
 - **默认** : `undefined`
-- **例子** : `scopeOverrides: { "test": ['e2eTest, 'unitTest'] }`
+- **例子** : `scopeOverrides: { "test": ["e2eTest", "unitTest"] }`
 - **使用** : 针对选择 ==特定== 的 commit **类型** `type` 后选择模块范围时显示 自定义的模块范围选择
 
 :::tip
 如果定义`scopeOverrides` 就要定义通用的 `scopes`
 :::
+
+## scopeFilters
+
+- **描述** : Filter select of prompt to select module scopes by the scope.value
+- **描述** : 根据 scope.value 过滤模块范围中的选项
+- **类型** : string[]
+- **默认** : `[".DS_Store"]`
 
 ## enableMultipleScopes
 
