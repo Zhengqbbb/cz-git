@@ -31,9 +31,9 @@ import Emoji from "./Emoji.vue";
         $ npm install -D cz-git<br />
         + cz-git
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        (<span class="token number"> 1.8 MB </span>) <br />added &nbsp;<span class="token number"
+        (<span class="token number"> 1.7 MB </span>) <br />added &nbsp;<span class="token number"
           >1</span
-        >&nbsp; package in &nbsp;<span class="token number">0.47s</span>
+        >&nbsp; package in &nbsp;<span class="token number">0.461s</span>
       </p>
     </div>
     <div class="feature">
