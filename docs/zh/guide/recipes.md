@@ -194,7 +194,9 @@ module.exports = {
   - 接着我们利用 `defaultIssues`
   - 使用时我们只需要按下 ==\<Enter\>== 键就可以输出`Issue Number`,如此一来我们可以很方便截取到 `Issue Number` 减少重复性工作。
 
-- <Badge type="tip" text="提示" vertical="middle" /> 当然我们也可以结合 `customIssuePrefixsAlign` 配置项来动态改变 issue 前缀的选择项位置
+- <Badge type="tip" text="提示" vertical="middle" /> 
+
+我们也可以结合 `customIssuePrefixsAlign` 配置项来动态改变 issue 前缀的选择项位置
 
 ```js{5-8,13-14}
 // .commitlintrc.js 
