@@ -69,8 +69,8 @@ importers:
       sass-loader: ^13.0.0
       vue: ^3.2.35
       vuepress: 2.0.0-beta.46
-      vuepress-plugin-china-search-console: ^2.1.0
-      vuepress-plugin-clipboard: ^2.1.0
+      vuepress-plugin-china-search-console: ^2.1.1
+      vuepress-plugin-clipboard: ^2.1.1
       vuepress-plugin-sitemap2: 2.0.0-beta.70
     devDependencies:
       '@vuepress/bundler-vite': 2.0.0-beta.46
@@ -88,8 +88,8 @@ importers:
       sass-loader: 13.0.0
       vue: 3.2.35
       vuepress: 2.0.0-beta.46_caxvlxt5ncxpgdbd5atmbxasre
-      vuepress-plugin-china-search-console: 2.1.0
-      vuepress-plugin-clipboard: 2.1.0
+      vuepress-plugin-china-search-console: 2.1.1
+      vuepress-plugin-clipboard: 2.1.1
       vuepress-plugin-sitemap2: 2.0.0-beta.70
 
   packages/@cz-git/plugin-inquirer:
@@ -8864,24 +8864,24 @@ packages:
       '@vue/shared': 3.2.35
     dev: true
 
-  /vuepress-plugin-china-search-console/2.1.0:
-    resolution: {integrity: sha512-Jo2WJPQqMkO1dE4bJ6fu4z4BVcctrNVP7DbLxKuEOHrdBAyeQ/jkWwcnCBQjI/ha235nQzUcunpZiVIabU4pRg==}
+  /vuepress-plugin-china-search-console/2.1.1:
+    resolution: {integrity: sha512-8tf/t6SqnZ7GpcvFqK+Y0Y4BBBBrnsV4f4xskx3QEH543bY2czFmx7FDR2NJ3x2aoOaMhLbfIAsT2CWVCgdR+Q==}
     dependencies:
       '@vuepress/client': 2.0.0-beta.45
-      '@vuepress/core': 2.0.0-beta.45
-      '@vuepress/utils': 2.0.0-beta.45
+      '@vuepress/core': 2.0.0-beta.46
+      '@vuepress/utils': 2.0.0-beta.46
       vue: 3.2.35
       vue-router: 4.0.15_vue@3.2.35
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vuepress-plugin-clipboard/2.1.0:
-    resolution: {integrity: sha512-AGGEK5xqXie2nacFL5aC6pX6ucAGSOr12Mem9EpgJDXNhepxFDAy1n+Ve04VkOQtFqEAyT6hIQTesGxh9P4+xg==}
+  /vuepress-plugin-clipboard/2.1.1:
+    resolution: {integrity: sha512-DfrxqIXQMh+WGz+rHhFJNJJ3p61EhvddaTFFqB5dT6BOjApF4c147I1M3qMkZ/XkIuSXu65YoXYaJmB+Bf6Cig==}
     dependencies:
       '@vuepress/client': 2.0.0-beta.45
-      '@vuepress/core': 2.0.0-beta.45
-      '@vuepress/utils': 2.0.0-beta.45
+      '@vuepress/core': 2.0.0-beta.46
+      '@vuepress/utils': 2.0.0-beta.46
       vue: 3.2.35
       vue-router: 4.0.15_vue@3.2.35
     transitivePeerDependencies:
