@@ -1,12 +1,16 @@
-import type { QualifiedRules, Rule } from "@commitlint/types";
 import "@commitlint/types";
 import resolveExtends from "@commitlint/resolve-extends";
 import { cosmiconfig } from "cosmiconfig";
 import path from "path";
+import type { RulesConfig } from "@commitlint/types";
 
 type ExectableConfig<T> = (() => T) | (() => Promise<T>);
 type Config<T> = T | Promise<T> | ExectableConfig<T>;
-type ExecutedRule<T> = readonly [string, T];
+type ExecutedConfig<T> = readonly [string, T];
+type CommitlintOptions = {
+  rules?: Partial<RulesConfig>;
+  prompt?: any;
+};
 
 export interface LoaderOptions {
   moduleName: string;
@@ -35,23 +39,33 @@ export const loader = async (options: LoaderOptions) => {
   return result ?? null;
 };
 
-export async function execute<T = unknown>(rule?: Rule<T>): Promise<ExecutedRule<T> | null> {
-  if (!Array.isArray(rule)) {
-    return null;
-  }
-
-  const [name, config] = rule;
-
-  const fn = executable(config) ? config : async () => config;
-
-  return [name, await fn()];
-}
-
 function executable<T>(config: Config<T>): config is ExectableConfig<T> {
   return typeof config === "function";
 }
 
-export const clLoader = async () => {
+async function configExecute<T>(
+  isRule: boolean,
+  configItem?: [string, Config<T>]
+): Promise<ExecutedConfig<T> | null> {
+  if (isRule && !Array.isArray(configItem)) {
+    return null;
+  }
+  const [name, config] = configItem as [string, Config<T>];
+  const fn = executable(config) ? config : async () => config;
+  return [name, await fn()];
+}
+
+async function execute<T>(config: Config<T>, isRule = true): Promise<T> {
+  return (
+    await Promise.all(Object.entries(config || {}).map((entry) => configExecute(isRule, entry)))
+  ).reduce((registry: any, item) => {
+    const [key, value] = item!;
+    registry[key] = value;
+    return registry;
+  }, {});
+}
+
+export const clLoader = async (cwd?: string): Promise<CommitlintOptions> => {
   const moduleName = "commitlint";
   const options = {
     moduleName,
@@ -65,50 +79,61 @@ export const clLoader = async () => {
       `.${moduleName}rc.cjs`,
       `${moduleName}.config.js`,
       `${moduleName}.config.cjs`
-    ]
+    ],
+    cwd
   };
   const data = await loader(options);
   if (data === null) return {};
 
   // resolve extends
+  const base = data && data.filepath ? path.dirname(data.filepath) : process.cwd();
   const extended = resolveExtends(data.config, {
     prefix: "commitlint-config",
-    cwd: data.filepath
+    cwd: base
   });
 
-  const rules = (
-    await Promise.all(Object.entries(extended.rules || {}).map((entry) => execute(entry as any)))
-  ).reduce<QualifiedRules>((registry, item) => {
-    // type of `item` can be null, but Object.entries always returns key pair
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const [key, value] = item!;
-    // @ts-ignore
-    registry[key] = value;
-    return registry;
-  }, {});
-
-  return {
-    prompt: extended.prompt,
-    rules: rules
-  };
+  return Promise.all([
+    execute(extended.rules || {}, true),
+    execute(extended.prompt || {}, false)
+  ]).then(([rules, prompt]) => {
+    return {
+      rules: rules || {},
+      prompt: prompt || {}
+    };
+  });
 };
 
-export const czLoader = async () => {
-  const moduleName = "commitizen";
+export const czLoader = async (cwd?: string) => {
+  const moduleName = "cz";
   const options = {
     moduleName,
-    searchPlaces: ["package.json", ".czrc", ".cz.json"],
-    packageProp: ["config", "commitizen"]
+    searchPlaces: [
+      `.${moduleName}rc`,
+      `.${moduleName}.json`,
+      `.${moduleName}.js`,
+      `${moduleName}.config.js`,
+      "package.json"
+    ],
+    packageProp: ["config", "commitizen"],
+    cwd
   };
-  const data = await loader(options);
-  return data === null ? {} : data.config || data;
+  let data = await loader(options);
+  if (!data) return {};
+  if (typeof data.config.czConfig === "string") {
+    const base = data && data.filepath ? path.dirname(data.filepath) : process.cwd();
+    data = await cosmiconfig("commitizen", {
+      ignoreEmptySearchPlaces: true,
+      cache: true
+    }).load(path.resolve(base, data.config.czConfig));
+  }
+  return await execute(data?.config || data || {}, true);
 };
 
 /**
  * @description: Main Func: both loader commitizen config and commitlint config
  */
-export const configLoader = async () => {
-  return Promise.all([clLoader(), czLoader()]).then(([clData, czData]) => {
+export const configLoader = async (cwd?: string) => {
+  return Promise.all([clLoader(cwd), czLoader(cwd)]).then(([clData, czData]) => {
     const clPrompt = clData.prompt || {};
     return {
       ...clData,

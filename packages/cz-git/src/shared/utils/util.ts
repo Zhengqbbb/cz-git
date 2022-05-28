@@ -4,7 +4,7 @@
  * @license: MIT
  */
 
-import type { Answers, CommitizenGitOptions, Option, ScopesType, StringCallback } from "..";
+import type { Answers, CommitizenGitOptions, Option, ScopesType } from "..";
 
 export function log(type: "info" | "warm" | "err", msg: string) {
   const colorMapping = {
@@ -54,6 +54,19 @@ export const getMaxSubjectLength = (
   return countLength(optionMaxLength, typeLength, scopeLength, emojiLength);
 };
 
+export const handlePinListTop = (
+  arr: {
+    name: string;
+    value: any;
+  }[],
+  defaultValue?: string
+) => {
+  if (!defaultValue || defaultValue === "") return arr;
+  const index = arr.findIndex((i) => i.value === defaultValue);
+  if (!~index) return arr;
+  return [arr[index], ...arr.slice(0, index), ...arr.slice(index + 1)];
+};
+
 const filterCustomEmptyByOption = (
   target: {
     name: string;
@@ -77,7 +90,8 @@ export const handleCustomTemplate = (
   customAlias = "custom",
   allowCustom = true,
   allowEmpty = true,
-  defaultValue = ""
+  defaultValue = "",
+  scopeFilters = [".DS_Store"]
 ) => {
   let result: Array<{ name: string; value: any }> = [
     { name: emptyAlias, value: false },
@@ -87,14 +101,8 @@ export const handleCustomTemplate = (
   if (!Array.isArray(target)) {
     return result;
   } else if (defaultValue !== "") {
-    // put the defaultValue to the top
-    const targetIndex = target.findIndex((i) => i.value === defaultValue);
-    if (targetIndex !== -1)
-      target = [
-        target[targetIndex],
-        ...target.slice(0, targetIndex),
-        ...target.slice(targetIndex + 1)
-      ];
+    // pin the defaultValue to the top
+    target = handlePinListTop(target, defaultValue);
   }
   // prettier-ignore
   switch (align) {
@@ -121,7 +129,9 @@ export const handleCustomTemplate = (
         .concat(target);
       break;
   }
-  return filterCustomEmptyByOption(result, allowCustom, allowEmpty);
+  return filterCustomEmptyByOption(result, allowCustom, allowEmpty).filter(
+    (i) => !scopeFilters.includes(i.value)
+  );
 };
 
 /**
@@ -157,20 +167,4 @@ export const getCurrentScopes = (
     result = scopes;
   }
   return result;
-};
-
-export const getValueByCallBack = (
-  target: CommitizenGitOptions,
-  targetKey: Array<
-    "defaultScope" | "defaultSubject" | "defaultBody" | "defaultFooterPrefix" | "defaultIssues"
-  >
-): CommitizenGitOptions => {
-  if (targetKey.length === 0) return target;
-  targetKey.forEach((key) => {
-    if (!target[key]) return;
-    if (typeof target[key] === "function" && typeof target[key] !== "string") {
-      return (target[key] = (target?.[key] as StringCallback)?.call(undefined));
-    }
-  });
-  return target;
 };

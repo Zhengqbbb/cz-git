@@ -23,12 +23,18 @@ If you define a `scope-enum` using the [commitlint](https://github.com/conventio
 - **description** : After customizing a specific **type**, **override module scope** command line display information
 - **type** : <br>`{ [type: string]: string[] | Array<{ name: string, value?: string }> } | undefined`
 - **default** : `undefined`
-- **example** : `scopeOverrides: { "test": ['e2eTest, 'unitTest'] }`
+- **example** : `scopeOverrides: { "test": ["e2eTest", "unitTest"] }`
 - **use** : Displays custom module scope selection when selecting module scope after selecting ==specific== commit **type** : `type`
 
 :::tip
 If you define `scopeOverrides` then define generic `scopes`
 :::
+
+## scopeFilters
+
+- **description** : Filter select of prompt to select module scopes by the scope.value
+- **type** : string[]
+- **default** : `[".DS_Store"]`
 
 ## enableMultipleScopes
 
@@ -72,7 +78,7 @@ It will automatically detect whether the definition of the [commitlint](https://
 
 - **description** : a specific **type** that allows BREAKING CHANGES
 - **type** : `string[]`
-- **default** : `['feat', 'fix']`
+- **default** : `["feat", "fix"]`
 
 ## upperCaseSubject
 

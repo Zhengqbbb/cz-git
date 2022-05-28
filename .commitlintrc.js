@@ -1,22 +1,22 @@
-const fs = require('fs')
-const path = require('path')
-const { execSync } = require('child_process');
+const fs = require("fs");
+const path = require("path");
+const { execSync } = require("child_process");
 
 // @description: git branch name = feature/issue_33 => auto get defaultIssues = #33
-const issue = execSync('git rev-parse --abbrev-ref HEAD')
+const issue = execSync("git rev-parse --abbrev-ref HEAD")
   .toString()
   .trim()
-  .split("_")[1]
+  .split("_")[1];
 // @description: monorepo dynamic get name
-const packages = fs.readdirSync(path.resolve(__dirname, 'packages/@cz-git'));
+const packages = fs.readdirSync(path.resolve(__dirname, "packages/@cz-git"));
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
-    "scope-enum": [2, "always", [ "cz-git", "guide", ...packages ]],
-    "subject-min-length": [2, 'always', 2],
-    "subject-empty": [2, "never"],
+    "scope-enum": [2, "always", ["cz-git", "guide", ...packages]],
+    "subject-min-length": [2, "always", 2],
+    "subject-empty": [2, "never"]
   },
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options

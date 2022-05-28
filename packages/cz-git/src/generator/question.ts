@@ -6,13 +6,14 @@
 
 import type { Answers, CommitizenGitOptions, Option } from "../shared";
 import {
+  isSingleItem,
+  getCurrentScopes,
   getProcessSubject,
   getMaxSubjectLength,
+  handlePinListTop,
   handleStandardScopes,
   handleCustomTemplate,
-  log,
-  isSingleItem,
-  getCurrentScopes
+  log
 } from "../shared";
 import { generateMessage } from "./message";
 import { fuzzyFilter, style } from "@cz-git/inquirer";
@@ -33,7 +34,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.type,
       themeColorCode: options?.themeColorCode,
       source: (_: unknown, input: string) => {
-        const typeSource = options.types?.concat(options.typesAppend || []) || [];
+        const typeSource = handlePinListTop(
+          options.types?.concat(options.typesAppend || []) || [],
+          options.defaultType
+        );
         return fuzzyFilter(input, typeSource, "value");
       }
     },
@@ -56,7 +60,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.customScopesAlias,
           options.allowCustomScopes,
           options.allowEmptyScopes,
-          options.defaultScope as string
+          options.defaultScope as string,
+          options.scopeFilters
         );
         return fuzzyFilter(input, scopeSource);
       },

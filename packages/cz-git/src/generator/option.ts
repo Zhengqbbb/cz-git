@@ -9,7 +9,6 @@ import {
   enumRuleIsActive,
   emptyRuleIsActive,
   getEnumList,
-  getValueByCallBack,
   getMaxLength,
   getMinLength
 } from "../shared";
@@ -19,11 +18,7 @@ import type { CommitizenGitOptions, UserConfig } from "../shared";
 /* prettier-ignore */
 export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
   const { emoji, checkbox, ___X_CMD_THEME_COLOR_CODE } = process.env;
-  let promptConfig = config.prompt ?? {};
-  promptConfig = getValueByCallBack(
-    promptConfig,
-    ["defaultScope", "defaultSubject", "defaultBody", "defaultFooterPrefix", "defaultIssues"]
-  )
+  const promptConfig = config.prompt ?? {};
 
   return {
     messages: promptConfig.messages ?? defaultConfig.messages,
@@ -33,6 +28,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     useEmoji: Boolean(emoji) || promptConfig.useEmoji || defaultConfig.useEmoji,
     scopes: promptConfig.scopes ?? getEnumList(config?.rules?.["scope-enum"] as any),
     scopeOverrides: promptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
+    scopeFilters: promptConfig.scopeFilters ?? defaultConfig.scopeFilters,
     enableMultipleScopes: Boolean(checkbox) || promptConfig.enableMultipleScopes || defaultConfig.enableMultipleScopes,
     scopeEnumSeparator: promptConfig.scopeEnumSeparator ?? defaultConfig.scopeEnumSeparator,
     allowCustomScopes: promptConfig.allowCustomScopes ?? !enumRuleIsActive(config?.rules?.["scope-enum"] as any),
@@ -57,6 +53,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     maxHeaderLength: promptConfig.maxHeaderLength ?? getMaxLength(config?.rules?.["header-max-length"] as any),
     maxSubjectLength: promptConfig.maxSubjectLength ?? getMaxLength(config?.rules?.["subject-max-length"] as any),
     minSubjectLength: promptConfig.minSubjectLength ?? getMinLength(config?.rules?.["subject-min-length"] as any),
+    defaultType: promptConfig.defaultType ?? defaultConfig.defaultType,
     defaultScope: promptConfig.defaultScope ?? defaultConfig.defaultScope,
     defaultSubject: promptConfig.defaultSubject ?? defaultConfig.defaultSubject,
     defaultBody: promptConfig.defaultBody ?? defaultConfig.defaultBody,

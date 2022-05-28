@@ -87,8 +87,6 @@ export interface Option {
   value: string;
 }
 
-export type StringCallback = () => string;
-
 export interface TypesOption extends Option {
   /**
    * @description: Submit emoji commit string
@@ -145,6 +143,12 @@ export interface CommitizenGitOptions {
    * @example: [test] => provide select e2eTest unitTest
    */
   scopeOverrides?: { [type: string]: ScopesType };
+
+  /**
+   * @description: Filter select of prompt to select module scopes by the scope.value
+   * @default: ['.DS_Store']
+   */
+  scopeFilters?: string[];
 
   /**
    * @description: Whether to enable scope multiple mode
@@ -281,32 +285,38 @@ export interface CommitizenGitOptions {
   minSubjectLength?: number;
 
   /**
-   * @description: default value show scope custom prompt
+   * @description: pin type item the top of the types list (match item value)
+   */
+  defaultType?: string;
+
+  /**
+   * @description: Whether to use display default value in custom scope
+   * @tip pin scope item the top of the scope list (match item value)
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultScope?: string | StringCallback;
+  defaultScope?: string;
 
   /**
    * @description: default value show subject prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultSubject?: string | StringCallback;
+  defaultSubject?: string;
 
   /**
    * @description: default value show body and BREAKINGCHANGES prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultBody?: string | StringCallback;
+  defaultBody?: string;
   /**
    * @description: default value show issuePrefixs custom prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultFooterPrefix?: string | StringCallback;
+  defaultFooterPrefix?: string;
   /**
    * @description: default value show issue foot prompt
    * @example: When you want to use default, just keybord <Enter> it
    */
-  defaultIssues?: string | StringCallback;
+  defaultIssues?: string;
 }
 
 /* eslint-disable prettier/prettier */
@@ -364,8 +374,10 @@ export const defaultConfig = Object.freeze({
    maxSubjectLength: Infinity,
    minSubjectLength: 0,
    scopeOverrides: undefined,
-   defaultBody: "",
+   scopeFilters: [".DS_Store"],
+   defaultType: "",
    defaultScope: "",
+   defaultBody: "",
    defaultSubject: "",
    defaultFooterPrefix: "",
    defaultIssues: ""

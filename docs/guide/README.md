@@ -64,8 +64,8 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 ```bash
 $ npm i -D cz-git
-+ cz-git          (1.8 MB)
-added 1 package in 0.47s
++ cz-git          (1.7 MB)
+added 1 package in 0.461s
 ```
 
 [⇒ Why cz-git](/guide/why.html)
@@ -74,6 +74,7 @@ added 1 package in 0.47s
 
 - [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next)
 - [vue3-antd-admin](https://github.com/buqiyuan/vue3-antd-admin)
+- [Geeker-Admin](https://github.com/HalseySpicy/Geeker-Admin)
 - [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)
 - [vuepress-theme-gungnir](https://github.com/Renovamen/vuepress-theme-gungnir)
 

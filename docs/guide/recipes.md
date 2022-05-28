@@ -152,7 +152,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/169853818-a13ab13a-3b2d-4386-a833-2f3558b2c138.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/170404847-bc1a76d5-f7bb-4ec6-9c1f-5476ba7fceee.gif)
 
 <br>
 <br>
@@ -166,7 +166,9 @@ module.exports = {
   - Then we use `defaultIssues`
   - When using, we only need to press the ==\<Enter\>== key to output the `Issue Number`, so that we can easily intercept the `Issue Number` to reduce repetitive work.
 
-- <Badge type="tip" text="Tip" vertical="middle" /> Of course, we can also combine the `customIssuePrefixsAlign` configuration item to dynamically change the position of the issue prefix option.
+<Badge type="tip" text="Tip" vertical="middle" /> 
+
+We can also combine the `customIssuePrefixsAlign` configuration item to dynamically change the position of the issue prefix option.
 
 ```js{5-8,13-14}
 // .commitlintrc.js 
