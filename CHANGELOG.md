@@ -1,3 +1,20 @@
+## [1.3.3](https://github.com/Zhengqbbb/cz-git/compare/v1.3.2...v1.3.3) (2022-05-28)
+
+
+### Features
+
+* **cz-git:** add defaultType options ([51f79c8](https://github.com/Zhengqbbb/cz-git/commit/51f79c876d638c612cc4743fbd940b0a097ce196)), closes [#30](https://github.com/Zhengqbbb/cz-git/issues/30)
+* **cz-git:** add scopeFilters options to filter scopes item ([86e95a7](https://github.com/Zhengqbbb/cz-git/commit/86e95a79129c629c80a4d7fd342e67c4dde99a3c)), closes [#30](https://github.com/Zhengqbbb/cz-git/issues/30)
+* **plugin-loader:** add more configure file to enhance js define ([54bd3ab](https://github.com/Zhengqbbb/cz-git/commit/54bd3ab24339888bb1ff29285e7aea4181ff2d65)), closes [#30](https://github.com/Zhengqbbb/cz-git/issues/30)
+* **plugin-loader:** support function option and can custom define config path ([4db5914](https://github.com/Zhengqbbb/cz-git/commit/4db5914c11317ed0e5493501666e09816b56d12b)), closes [#30](https://github.com/Zhengqbbb/cz-git/issues/30)
+
+
+### Reverts
+
+* revert code ([d081ad7](https://github.com/Zhengqbbb/cz-git/commit/d081ad752b91afa048492eae94724b5e2c198d1a))
+
+
+
 ## [1.3.2](https://github.com/Zhengqbbb/cz-git/compare/v1.3.1...v1.3.2) (2022-05-21)
 
 
