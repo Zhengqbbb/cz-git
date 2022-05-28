@@ -8,7 +8,7 @@ sitemap:
 
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
-        <img src="https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
+        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-16-15.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
     </a>
 </p>
 
@@ -50,7 +50,7 @@ sitemap:
 
 一款工程性更强，轻量级，高度自定义，标准输出格式的 [commitizen](https://github.com/commitizen/cz-cli) 适配器
 
-![demo-gif](https://tva3.sinaimg.cn/large/6ccee0e1gy1gztghb579ig21nm0k8dnw.gif)
+![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-24-24.gif)
 
 > 什么是commitizen：基于Node.js的 `git commit` 命令行工具，辅助生成标准化规范化的 commit message。<br><br>
 > 什么是适配器：更换 commitizen 命令行工具的 **交互方式** 插件。
@@ -74,10 +74,45 @@ added 1 package in 0.461s
 
 ## 使用 cz-git 的项目
 
-- [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next)
-- [vue3-antd-admin](https://github.com/buqiyuan/vue3-antd-admin)
-- [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)
-- [vuepress-theme-gungnir](https://github.com/Renovamen/vuepress-theme-gungnir)
+<table>
+  <tr>
+    <td align="center" style="width: 200px;">
+      <a target="_blank" href="https://github.com/Tencent/tdesign-vue-next">
+        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-41-17.png" style="width: 40px;"><br>
+        <sub>TDesign-Vue-Next</sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="width: 200px;">
+      <a target="_blank" href="https://github.com/buqiyuan/vue3-antd-admin">
+        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-47-26.png" style="width: 40px;"><br>
+        <sub>Vue3-Antd-Admin</sub>
+      </a>
+    </td>
+    <td align="center" style="width: 200px;">
+      <a target="_blank" href="https://github.com/HalseySpicy/Geeker-Admin">
+        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-49-25.png" style="width: 40px;"><br>
+        <sub>Geeker-Admin</sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="width: 200px;">
+      <a target="_blank" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope">
+        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-52-07.png" style="width: 40px;"><br>
+        <sub>vuepress-theme-hope</sub>
+      </a>
+    </td>
+    <td align="center" style="width: 200px;">
+      <a target="_blank" href="https://github.com/Renovamen/vuepress-theme-gungnir">
+        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-18-31-20.png" style="width: 40px;"><br>
+        <sub>vuepress-theme-gungnir</sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 
 ## 版权
 

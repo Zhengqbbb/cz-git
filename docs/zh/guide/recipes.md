@@ -41,7 +41,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/156002738-af17087e-2d2b-4a80-a681-d63751282ec8.gif)
+![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-27-48.gif)
 
 #### 支持多选 scopes
 
@@ -62,7 +62,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/167858696-398a19fd-932f-4453-832a-795edcb75ad7.gif)
+![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-29-01.gif)
 
 <br>
 <br>
@@ -100,7 +100,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/156924173-56508d8a-ba7a-4001-99fe-16234ee0f911.gif)
+![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-30-01.gif)
 
 ::: tip
 如果 `cz-git` 检测到如果 `allowEmptyScopes` 和 `allowCustomScopes` 具有非常严格规则(都设置为false)并且 **scopes 选择列表仅有一项时**，会自动跳过问题并输出
@@ -137,7 +137,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/156924322-7edaa527-cd16-4b69-9caf-7471d9984af8.gif)
+![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-31-59.gif)
 
 ::: tip
 如果 `cz-git` 检测到如果 `allowCustomIssuePrefixs` 和 `allowEmptyIssuePrefixs` 具有非常严格规则(都设置为false)并且 **issuePrefixs 选择列表仅有一项时**，会自动跳过问题并输出
@@ -180,7 +180,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/170404847-bc1a76d5-f7bb-4ec6-9c1f-5476ba7fceee.gif)
+![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-33-54.gif)
 
 <br>
 <br>
@@ -217,7 +217,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/162552804-132aab02-4b02-4006-9e41-aeae4f825948.gif)
+![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-34-50.gif)
 
 <br>
 <br>

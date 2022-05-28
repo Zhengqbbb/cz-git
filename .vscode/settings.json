@@ -20,4 +20,5 @@
   "files.associations": {
     "**/.x-cmd/**": "shellscript",
   },
+  "picgo.picBed.github.path": "cz/",
 }
