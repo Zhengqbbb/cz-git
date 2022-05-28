@@ -41,7 +41,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-27-48.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/156002738-af17087e-2d2b-4a80-a681-d63751282ec8.gif)
 
 #### Support for multiple scopes
 
@@ -62,7 +62,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-29-01.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/167858696-398a19fd-932f-4453-832a-795edcb75ad7.gif)
 
 <br>
 <br>
@@ -100,7 +100,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-30-01.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/156924173-56508d8a-ba7a-4001-99fe-16234ee0f911.gif)
 
 :::tip
 If `cz-git` detects that `allowEmptyScopes` and `allowCustomScopes` have very strict rules (both set to false) and the **scopes selection list has only one item**, it will automatically skip question and output
@@ -152,7 +152,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-33-54.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/170404847-bc1a76d5-f7bb-4ec6-9c1f-5476ba7fceee.gif)
 
 <br>
 <br>
@@ -189,7 +189,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/recipes-2022-05-28-17-34-50.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/156002738-af17087e-2d2b-4a80-a681-d63751282ec8.gif)
 
 
 ::: tip

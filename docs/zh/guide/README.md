@@ -8,7 +8,7 @@ sitemap:
 
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-16-15.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
+        <img src="https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
     </a>
 </p>
 
@@ -50,7 +50,7 @@ sitemap:
 
 一款工程性更强，轻量级，高度自定义，标准输出格式的 [commitizen](https://github.com/commitizen/cz-cli) 适配器
 
-![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-24-24.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/154906217-e0b1c5d0-9294-4072-8082-c0cdd9392023.gif)
 
 > 什么是commitizen：基于Node.js的 `git commit` 命令行工具，辅助生成标准化规范化的 commit message。<br><br>
 > 什么是适配器：更换 commitizen 命令行工具的 **交互方式** 插件。
@@ -78,7 +78,7 @@ added 1 package in 0.461s
   <tr border-collapse="inherit" style="border: inherit;">
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/Tencent/tdesign-vue-next">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-41-17.png" style="width: 40px;"><br>
+        <img src="https://user-images.githubusercontent.com/40693636/170830562-38e4c998-9af4-4303-9270-4f14e0942b08.png" style="width: 40px;"><br>
         <sub>TDesign-Vue-Next</sub>
       </a>
     </td>
@@ -86,13 +86,13 @@ added 1 package in 0.461s
   <tr border-collapse="inherit" style="border: inherit;">
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/buqiyuan/vue3-antd-admin">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-47-26.png" style="width: 40px;"><br>
+        <img src="https://user-images.githubusercontent.com/40693636/170830597-31d6f0d7-2c93-491b-a984-7bf21db8f75b.png" style="width: 40px;"><br>
         <sub>Vue3-Antd-Admin</sub>
       </a>
     </td>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/HalseySpicy/Geeker-Admin">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-49-25.png" style="width: 40px;"><br>
+        <img src="https://user-images.githubusercontent.com/40693636/170830842-319d83ce-df67-488d-b08f-818947a5a540.png" style="width: 40px;"><br>
         <sub>Geeker-Admin</sub>
       </a>
     </td>
@@ -100,13 +100,13 @@ added 1 package in 0.461s
   <tr border-collapse="inherit" style="border: inherit;">
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-52-07.png" style="width: 40px;"><br>
+        <img src="https://user-images.githubusercontent.com/40693636/170830621-45577c1d-6e6e-4916-bb43-15af954d994b.png" style="width: 40px;"><br>
         <sub>vuepress-theme-hope</sub>
       </a>
     </td>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/Renovamen/vuepress-theme-gungnir">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-18-31-20.png" style="width: 40px;"><br>
+        <img src="https://user-images.githubusercontent.com/40693636/170830637-0d465b52-6204-4bbd-872f-fb6f27f1ed50.png" style="width: 40px;"><br>
         <sub>vuepress-theme-gungnir</sub>
       </a>
     </td>

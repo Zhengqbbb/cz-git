@@ -84,9 +84,7 @@ module.exports = {
 
 :::
 
-<Badge type="tip" text="Tip" vertical="middle" />
-
-> If your project does not use commitlint, you can use the following configuration items
+<Badge type="tip" text="Tip" /> If your project does not use commitlint,and want to use other profiles. You can use the following configuration items
 
 - `.cz.js`
 - `cz.config.js`
@@ -155,7 +153,7 @@ module.exports = {
 
 :::
 
-<Badge type="tip" text="Tip" vertical="middle" /> You can also optionally custom configuration file path in package.json
+<Badge type="tip" text="Tip" /> You can also optionally custom configuration file path in package.json
 
 ```json{8}
 {

@@ -83,9 +83,7 @@ module.exports = {
 
 :::
 
-<Badge type="tip" text="提示" vertical="middle" />
-
-> 如果你的项目未使用 commitlint，可以使用下列配置项
+<Badge type="tip" text="提示" /> 如果你的项目未使用 commitlint，并想使用其他配置文件，可以选择下列配置项
 
 - `.cz.js`
 - `cz.js`
@@ -156,7 +154,7 @@ module.exports = {
 
 :::
 
-<Badge type="tip" text="Tip" vertical="middle" /> 你也可以在 package.json 中自定义配置文件路径
+<Badge type="tip" text="提示" /> 你也可以在 package.json 中自定义配置文件路径
 
 ```json{8}
 {
