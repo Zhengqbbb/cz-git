@@ -75,36 +75,36 @@ added 1 package in 0.461s
 ## 使用 cz-git 的项目
 
 <table>
-  <tr>
-    <td align="center" style="width: 200px;">
+  <tr border-collapse="inherit" style="border: inherit;">
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/Tencent/tdesign-vue-next">
         <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-41-17.png" style="width: 40px;"><br>
         <sub>TDesign-Vue-Next</sub>
       </a>
     </td>
   </tr>
-  <tr>
-    <td align="center" style="width: 200px;">
+  <tr border-collapse="inherit" style="border: inherit;">
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/buqiyuan/vue3-antd-admin">
         <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-47-26.png" style="width: 40px;"><br>
         <sub>Vue3-Antd-Admin</sub>
       </a>
     </td>
-    <td align="center" style="width: 200px;">
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/HalseySpicy/Geeker-Admin">
         <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-49-25.png" style="width: 40px;"><br>
         <sub>Geeker-Admin</sub>
       </a>
     </td>
   </tr>
-  <tr>
-    <td align="center" style="width: 200px;">
+  <tr border-collapse="inherit" style="border: inherit;">
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope">
         <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-17-52-07.png" style="width: 40px;"><br>
         <sub>vuepress-theme-hope</sub>
       </a>
     </td>
-    <td align="center" style="width: 200px;">
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/Renovamen/vuepress-theme-gungnir">
         <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img/cz/README-2022-05-28-18-31-20.png" style="width: 40px;"><br>
         <sub>vuepress-theme-gungnir</sub>
