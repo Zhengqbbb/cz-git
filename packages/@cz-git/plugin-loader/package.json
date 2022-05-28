@@ -31,7 +31,10 @@
   "devDependencies": {
     "@commitlint/resolve-extends": "^16.2.1",
     "@commitlint/types": "^16.2.1",
-    "cosmiconfig": "^7.0.1"
+    "@types/tmp": "^0.2.3",
+    "cosmiconfig": "^7.0.1",
+    "pkg-dir": "5.0.0",
+    "tmp": "^0.2.1"
   },
   "publishConfig": {
     "access": "public"

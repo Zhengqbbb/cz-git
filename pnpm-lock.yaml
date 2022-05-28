@@ -10,7 +10,6 @@ importers:
       '@types/inquirer': 8.2.0
       '@types/node': ^17.0.35
       '@types/rimraf': ^3.0.2
-      '@types/temp': ^0.9.1
       '@typescript-eslint/eslint-plugin': ^5.26.0
       '@typescript-eslint/parser': ^5.26.0
       bumpp: ^7.1.1
@@ -35,7 +34,6 @@ importers:
       '@types/inquirer': 8.2.0
       '@types/node': 17.0.35
       '@types/rimraf': 3.0.2
-      '@types/temp': 0.9.1
       '@typescript-eslint/eslint-plugin': 5.26.0_hzuh7e2up357pvq3mkokjvu2lq
       '@typescript-eslint/parser': 5.26.0_xztl6dhthcahlo6akmb2bmjmle
       bumpp: 7.1.1
@@ -1983,12 +1981,6 @@ packages:
 
   /@types/sockjs/0.3.33:
     resolution: {integrity: sha512-f0KEEe05NvUnat+boPTZ0dgaLZ4SfSouXUgv5noUiefG2ajgKjmETo9ZJyuqsl7dfl2aHlLJUiki6B4ZYldiiw==}
-    dependencies:
-      '@types/node': 17.0.35
-    dev: true
-
-  /@types/temp/0.9.1:
-    resolution: {integrity: sha512-yDQ8Y+oQi9V7VkexwE6NBSVyNuyNFeGI275yWXASc2DjmxNicMi9O50KxDpNlST1kBbV9jKYBHGXhgNYFMPqtA==}
     dependencies:
       '@types/node': 17.0.35
     dev: true
