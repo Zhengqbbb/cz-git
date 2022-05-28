@@ -65,7 +65,7 @@ async function execute<T>(config: Config<T>, isRule = true): Promise<T> {
   }, {});
 }
 
-export const clLoader = async (): Promise<CommitlintOptions> => {
+export const clLoader = async (cwd?: string): Promise<CommitlintOptions> => {
   const moduleName = "commitlint";
   const options = {
     moduleName,
@@ -79,15 +79,17 @@ export const clLoader = async (): Promise<CommitlintOptions> => {
       `.${moduleName}rc.cjs`,
       `${moduleName}.config.js`,
       `${moduleName}.config.cjs`
-    ]
+    ],
+    cwd
   };
   const data = await loader(options);
   if (data === null) return {};
 
   // resolve extends
+  const base = data && data.filepath ? path.dirname(data.filepath) : process.cwd();
   const extended = resolveExtends(data.config, {
     prefix: "commitlint-config",
-    cwd: data.filepath
+    cwd: base
   });
 
   return Promise.all([
@@ -101,7 +103,7 @@ export const clLoader = async (): Promise<CommitlintOptions> => {
   });
 };
 
-export const czLoader = async () => {
+export const czLoader = async (cwd?: string) => {
   const moduleName = "cz";
   const options = {
     moduleName,
@@ -112,15 +114,17 @@ export const czLoader = async () => {
       `${moduleName}.config.js`,
       "package.json"
     ],
-    packageProp: ["config", "commitizen"]
+    packageProp: ["config", "commitizen"],
+    cwd
   };
   let data = await loader(options);
   if (!data) return {};
   if (typeof data.config.czConfig === "string") {
+    const base = data && data.filepath ? path.dirname(data.filepath) : process.cwd();
     data = await cosmiconfig("commitizen", {
       ignoreEmptySearchPlaces: true,
       cache: true
-    }).load(path.resolve(process.cwd(), data.config.czConfig));
+    }).load(path.resolve(base, data.config.czConfig));
   }
   return await execute(data?.config || data || {}, true);
 };
@@ -128,8 +132,8 @@ export const czLoader = async () => {
 /**
  * @description: Main Func: both loader commitizen config and commitlint config
  */
-export const configLoader = async () => {
-  return Promise.all([clLoader(), czLoader()]).then(([clData, czData]) => {
+export const configLoader = async (cwd?: string) => {
+  return Promise.all([clLoader(cwd), czLoader(cwd)]).then(([clData, czData]) => {
     const clPrompt = clData.prompt || {};
     return {
       ...clData,

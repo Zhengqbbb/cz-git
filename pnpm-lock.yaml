@@ -104,11 +104,17 @@ importers:
     specifiers:
       '@commitlint/resolve-extends': ^16.2.1
       '@commitlint/types': ^16.2.1
+      '@types/tmp': ^0.2.3
       cosmiconfig: ^7.0.1
+      pkg-dir: 5.0.0
+      tmp: ^0.2.1
     devDependencies:
       '@commitlint/resolve-extends': 16.2.1
       '@commitlint/types': 16.2.1
+      '@types/tmp': 0.2.3
       cosmiconfig: 7.0.1
+      pkg-dir: 5.0.0
+      tmp: 0.2.1
 
   packages/cz-git:
     specifiers:
@@ -1991,6 +1997,10 @@ packages:
     resolution: {integrity: sha512-FvnCJljyxhPM3gkRgWmxmDZyAQSiBQQWLI0A0VFL0K7W1oRUrPJSqNO0NvTnLkBcotdlp3lKvaT0JrnyRDkzOg==}
     dependencies:
       '@types/node': 17.0.35
+    dev: true
+
+  /@types/tmp/0.2.3:
+    resolution: {integrity: sha512-dDZH/tXzwjutnuk4UacGgFRwV+JSLaXL1ikvidfJprkb7L9Nx1njcRHHmi3Dsvt7pgqqTEeucQuOrWHPFgzVHA==}
     dev: true
 
   /@types/trusted-types/2.0.2:
@@ -7043,6 +7053,13 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  /pkg-dir/5.0.0:
+    resolution: {integrity: sha512-NPE8TDbzl/3YQYY7CSS228s3g2ollTFnc+Qi3tqmqJp9Vg2ovUpixcJEo2HJScN2Ez+kEaal6y70c0ehqJBJeA==}
+    engines: {node: '>=10'}
+    dependencies:
+      find-up: 5.0.0
+    dev: true
+
   /portfinder/1.0.28:
     resolution: {integrity: sha512-Se+2isanIcEqf2XMHjyUKskczxbPH7dQnlMjXX6+dybayyHvAf/TCgyMRlzf/B6QDhAEFOGes0pzRo3by4AbMA==}
     engines: {node: '>= 0.12.0'}
@@ -8367,6 +8384,13 @@ packages:
     engines: {node: '>=0.6.0'}
     dependencies:
       os-tmpdir: 1.0.2
+    dev: true
+
+  /tmp/0.2.1:
+    resolution: {integrity: sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ==}
+    engines: {node: '>=8.17.0'}
+    dependencies:
+      rimraf: 3.0.2
     dev: true
 
   /to-fast-properties/2.0.0:
