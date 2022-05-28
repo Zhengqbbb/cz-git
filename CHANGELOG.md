@@ -9,11 +9,16 @@
 * **plugin-loader:** support function option and can custom define config path ([4db5914](https://github.com/Zhengqbbb/cz-git/commit/4db5914c11317ed0e5493501666e09816b56d12b)), closes [#30](https://github.com/Zhengqbbb/cz-git/issues/30)
 
 
-### Reverts
 
-* revert code ([d081ad7](https://github.com/Zhengqbbb/cz-git/commit/d081ad752b91afa048492eae94724b5e2c198d1a))
+```bash
+$ npm i -D cz-git
 
++ cz-git@1.3.2
+added 1 package from 1 contributor and audited 1 package in 0.461s
 
+$ du -sh ./node_modules
+1.7M ./node_modules/cz-git/
+```
 
 ## [1.3.2](https://github.com/Zhengqbbb/cz-git/compare/v1.3.1...v1.3.2) (2022-05-21)
 
