@@ -62,6 +62,23 @@ describe("config loader", () => {
   }, 1000);
 
   test("config function should be call", async () => {
+    mockDir = await useBootstrap("./fixtures/3-config-function");
+    const config = await configLoader(mockDir.name);
+    expect(config).toEqual({
+      rules: {
+        "scope-enum": [2, "always", ["cz-git"]],
+        "subject-empty": [2, "never"],
+        "subject-min-length": [2, "always", 2]
+      },
+      prompt: {
+        useEmoji: true,
+        customIssuePrefixsAlign: "top",
+        themeColorCode: "38;5;043"
+      }
+    });
+  }, 1000);
+
+  test("custom config should be loaded", async () => {
     mockDir = await useBootstrap("./fixtures/4-custom-config");
     const config = await configLoader(mockDir.name);
     expect(config).toEqual({
