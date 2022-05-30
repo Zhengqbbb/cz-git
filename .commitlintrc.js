@@ -14,7 +14,7 @@ const packages = fs.readdirSync(path.resolve(__dirname, "packages/@cz-git"));
 module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
-    "scope-enum": [2, "always", ["cz-git", "guide", ...packages]],
+    "scope-enum": [2, "always", ["cz-git", "site", ...packages]],
     "subject-min-length": [2, "always", 2],
     "subject-empty": [2, "never"]
   },
