@@ -94,6 +94,12 @@ added 1 package in 0.461s
         <sub>TDesign-Vue-Next</sub>
       </a>
     </td>
+    <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/IDuxFE/idux">
+        <img src="https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png" style="width: 40px;"><br>
+        <sub>iDux</sub>
+      </a>
+    </td>
   </tr>
   <tr border-collapse="inherit" style="border: inherit;">
     <td align="center" width="200px">
