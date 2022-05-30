@@ -52,7 +52,7 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/154906217-e0b1c5d0-9294-4072-8082-c0cdd9392023.gif)
 
-> **What is commitizen**: A Node.js-based `git commit` command-line tool that assists in generating standardized and standardized commit messages. <br><br>
+> **What is commitizen**: A Node.js-based `git commit` command-line tool that assists in generating standardized commit messages. <br><br>
 > **What is an adapter**: Replace the **interactive** plugin for the commitizen command line tool.
 
 ## Feature
