@@ -27,7 +27,7 @@ sitemap:
   3. 重复性输入的东西太多。
 
 ```sh{4}
-$ npm i -D cz-conventional-changelog
+$ npm install -D cz-conventional-changelog
 added 147 packages in 21s
 
 $ npm install -D cz-git
