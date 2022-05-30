@@ -45,8 +45,8 @@ module.exports = {
 
 #### Support for multiple scopes
 
-- use ==\<Right Arrow\>== or ==\<Space\>== to choice
-- use ==\<Enter\>== to submit
+- use <kbd>→</kbd> or <kbd>Space</kbd> to choice
+- use <kbd>Enter</kbd> to submit
 
 ```js{8,9}
 // .commitlintrc.js 
@@ -164,7 +164,7 @@ module.exports = {
   - Then we use `Node`'s `execSync` to get the branch name through the command
   - Then process the obtained string
   - Then we use `defaultIssues`
-  - When using, we only need to press the ==\<Enter\>== key to output the `Issue Number`, so that we can easily intercept the `Issue Number` to reduce repetitive work.
+  - When using, we only need to press the <kbd>Enter</kbd> key to output the `Issue Number`, so that we can easily intercept the `Issue Number` to reduce repetitive work.
 
 <Badge type="tip" text="Tip" vertical="middle" /> 
 

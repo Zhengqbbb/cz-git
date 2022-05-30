@@ -123,7 +123,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **description** : Whether to use display default value in **custom scope**
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the "Enter" key
+- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
 <Badge type="tip" text="Tip" vertical="middle" /> pin scope item the top of the scope list (match item value)
 
 ## defaultSubject
@@ -131,18 +131,18 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **description** : Whether to use the display default value in the **short description**
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the "Enter" key
+- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
 
 ## defaultBody
 
 - **description** : Whether to use the display default value in the **detailed description**
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the "Enter" key
+- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
 
 ## defaultIssues
 
 - **description** : Whether to use the display default value in the **input ISSUE and custom ISSUE prefix**
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the "Enter" key
+- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key

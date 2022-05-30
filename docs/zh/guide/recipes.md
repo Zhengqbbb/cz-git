@@ -45,8 +45,8 @@ module.exports = {
 
 #### 支持多选 scopes
 
-- 使用 ==\<右箭头\>== 或 ==\<空格\>== 选中
-- 使用 ==\<回车\>== 确定
+- 使用 <kbd>→</kbd> 或 <kbd>空格</kbd> 选中
+- 使用 <kbd>回车</kbd> 确定
 
 ```js{8,9}
 // .commitlintrc.js 
@@ -192,7 +192,7 @@ module.exports = {
   - 然后我们利用 `Node` 的 `execSync` 通过命令获取到分支名
   - 再对获取的字符串进行处理
   - 接着我们利用 `defaultIssues`
-  - 使用时我们只需要按下 ==\<Enter\>== 键就可以输出`Issue Number`,如此一来我们可以很方便截取到 `Issue Number` 减少重复性工作。
+  - 使用时我们只需要按下 <kbd>回车</kbd> 键就可以输出`Issue Number`,如此一来我们可以很方便截取到 `Issue Number` 减少重复性工作。
 
 - <Badge type="tip" text="提示" vertical="middle" /> 
 
