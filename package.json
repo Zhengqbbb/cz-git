@@ -33,6 +33,7 @@
     "docs:dev": "pnpm --filter=docs docs:dev",
     "docs:serve": "pnpm --filter=docs docs:serve",
     "example:checkbox": "node ./packages/@cz-git/plugin-inquirer/examples/checkbox.js",
+    "example:input": "node ./packages/@cz-git/plugin-inquirer/examples/input.js",
     "example:list": "node ./packages/@cz-git/plugin-inquirer/examples/list.js",
     "lint": "eslint --ext .ts packages docs/.vuepress",
     "prepare": "husky install",
