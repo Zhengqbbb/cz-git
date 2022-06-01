@@ -71,7 +71,9 @@ export class CompleteInput extends Base {
     }
     if (!this.state && !isFinal && completeValue) {
       message += style.gray(completeValue);
-      bottomContent = style.gray("Press <tab>|<right> complete;Press <Enter> submit value");
+      bottomContent = style.gray(
+        "\n" + ">> Press <tab>|<right> complete;Press <Enter> submit value"
+      );
     }
 
     if (error) {
@@ -112,6 +114,7 @@ export class CompleteInput extends Base {
    */
   onKeypress(e: { key: { name?: string; ctrl?: boolean }; value: string }) {
     if (!this.state && (e.key.name === "tab" || e.key.name === "right")) {
+      // NOTE: the ansi cursor not work
       this.rl.write(ansiEscapes.cursorLeft);
       this.rl.write(ansiEscapes.cursorForward(this.completeValue?.length));
       // @ts-ignore
