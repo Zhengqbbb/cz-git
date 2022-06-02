@@ -83,7 +83,7 @@ export class CompleteInput extends Base {
     this.screen.render(message, bottomContent);
   }
 
-  filterInput(input?: string) {
+  filterInput(input: string = this.rl.line) {
     if (!input) {
       return this.completeValue || "";
     }
@@ -109,9 +109,6 @@ export class CompleteInput extends Base {
     this.render(isValid);
   }
 
-  /**
-   * @description: Search <any key>
-   */
   onKeypress(e: { key: { name?: string; ctrl?: boolean }; value: string }) {
     if (!this.state && (e.key.name === "tab" || e.key.name === "right")) {
       // NOTE: the ansi cursor not work
@@ -123,6 +120,7 @@ export class CompleteInput extends Base {
       this.rl.cursor = this.completeValue?.length;
     }
     this.state = "touched";
+    this.completeValue = "";
 
     this.render();
   }
