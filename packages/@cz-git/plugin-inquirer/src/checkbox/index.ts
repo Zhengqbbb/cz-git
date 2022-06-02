@@ -14,9 +14,9 @@ import type { Interface as ReadlineInterface } from "readline";
 import type { Answers, Question } from "inquirer";
 import type Separator from "inquirer/lib/objects/separator";
 import { style, figures } from "../shared";
-import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
+import type { SearchPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 
-export type { CZPromptQuestionOptions } from "../shared";
+export type { SearchPromptQuestionOptions } from "../shared";
 export class SearchCheckbox extends Base {
   private renderChoices: ChoicesType;
   private originChoices: ChoiceType<string>[] = [];
@@ -37,7 +37,7 @@ export class SearchCheckbox extends Base {
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
     super(questions, readline, answers);
     const { source, separator, isInitDefault, themeColorCode } = this
-      .opt as unknown as CZPromptQuestionOptions;
+      .opt as unknown as SearchPromptQuestionOptions;
     if (!source) this.throwParamError("source");
     if (typeof separator === "string") this.separator = separator;
     if (isInitDefault) this.initialValue = this.opt.default;
@@ -99,7 +99,7 @@ export class SearchCheckbox extends Base {
         realIndexPosition += name ? name.split("\n").length : 0;
         return true;
       });
-      const { pageSize } = this.opt as unknown as CZPromptQuestionOptions;
+      const { pageSize } = this.opt as unknown as SearchPromptQuestionOptions;
       bottomContent += this.paginator.paginate(choicesStr, realIndexPosition, pageSize);
     } else {
       content += this.rl.line;
@@ -136,7 +136,7 @@ export class SearchCheckbox extends Base {
 
     let thisPromise: Promise<any[]>;
     try {
-      const { source } = this.opt as unknown as CZPromptQuestionOptions;
+      const { source } = this.opt as unknown as SearchPromptQuestionOptions;
       const res = source(this.answers, input?.trim());
       thisPromise = Promise.resolve(res);
     } catch (err) {
@@ -180,7 +180,6 @@ export class SearchCheckbox extends Base {
    * @description: resolve choice
    */
   onChoice() {
-    // @ FIXME: wait to fix tty and stdin <space> trim
     const item = this.renderChoices.realChoices[this.pointer];
     if (item && item.value) {
       const checked = !item.checked;
@@ -242,11 +241,29 @@ export class SearchCheckbox extends Base {
   onKeypress(e: { key: { name?: string; ctrl?: boolean }; value: string }) {
     let len;
     const keyName = e.key?.name || "";
+
+    /**
+     * NOTE: use ansiEscapes and write move cursor can't work in this.rl
+     * so force change this.rl
+     */
     if (keyName === "space") {
-      return true;
+      const input = this.rl.line?.trim();
+      // @ts-ignore
+      this.rl.line = input;
+      // @ts-ignore
+      this.rl.cursor = input.length;
+      this.render();
     } else if (keyName === "right") {
       this.onChoice();
-    } else if (keyName === "down" || (keyName === "n" && e.key.ctrl)) {
+    } else if (keyName === "tab" || keyName === "down" || (keyName === "n" && e.key.ctrl)) {
+      if (keyName === "tab") {
+        const input = this.rl.line?.trim();
+        // @ts-ignore
+        this.rl.line = input;
+        // @ts-ignore
+        this.rl.cursor = input.length;
+        this.render();
+      }
       len = this.choicesLen;
       this.pointer = this.pointer < len - 1 ? this.pointer + 1 : 0;
       this.ensureSelectedInRange();

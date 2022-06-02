@@ -15,9 +15,9 @@ import type { Interface as ReadlineInterface } from "readline";
 import type { Answers, Question } from "inquirer";
 import type Separator from "inquirer/lib/objects/separator";
 import { style, figures } from "../shared";
-import type { CZPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
+import type { SearchPromptQuestionOptions, ChoicesType, ChoiceType } from "../shared";
 
-export type { CZPromptQuestionOptions } from "../shared";
+export type { SearchPromptQuestionOptions } from "../shared";
 export class SearchList extends Base {
   private renderChoices: ChoicesType;
   private pointer = 0;
@@ -35,7 +35,7 @@ export class SearchList extends Base {
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
     super(questions, readline, answers);
     const { source, isInitDefault, themeColorCode } = this
-      .opt as unknown as CZPromptQuestionOptions;
+      .opt as unknown as SearchPromptQuestionOptions;
     if (!source) this.throwParamError("source");
     if (isInitDefault) this.initialValue = this.opt.default;
     if (themeColorCode) this.themeColorCode = themeColorCode;
@@ -91,7 +91,7 @@ export class SearchList extends Base {
         realIndexPosition += name ? name.split("\n").length : 0;
         return true;
       });
-      const { pageSize } = this.opt as unknown as CZPromptQuestionOptions;
+      const { pageSize } = this.opt as unknown as SearchPromptQuestionOptions;
       bottomContent += this.paginator.paginate(choicesStr, realIndexPosition, pageSize);
     } else {
       content += this.rl.line;
@@ -128,7 +128,7 @@ export class SearchList extends Base {
 
     let thisPromise: Promise<any[]>;
     try {
-      const { source } = this.opt as unknown as CZPromptQuestionOptions;
+      const { source } = this.opt as unknown as SearchPromptQuestionOptions;
       const res = source(this.answers, input?.trim());
       thisPromise = Promise.resolve(res);
     } catch (err) {
@@ -205,7 +205,20 @@ export class SearchList extends Base {
   onKeypress(e: { key: { name?: string; ctrl?: boolean }; value: string }) {
     let len;
     const keyName = e.key?.name || "";
-    if (keyName === "down" || (keyName === "n" && e.key.ctrl)) {
+
+    /**
+     * NOTE: use ansiEscapes and write move cursor can't work in this.rl
+     * so force change this.rl
+     */
+    if (keyName === "tab" || keyName === "down" || (keyName === "n" && e.key.ctrl)) {
+      if (keyName === "tab") {
+        const input = this.rl.line?.trim();
+        // @ts-ignore
+        this.rl.line = input;
+        // @ts-ignore
+        this.rl.cursor = input.length;
+        this.render();
+      }
       len = this.choicesLen;
       this.pointer = this.pointer < len - 1 ? this.pointer + 1 : 0;
       this.ensureSelectedInRange();
