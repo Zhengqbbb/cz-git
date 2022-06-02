@@ -58,7 +58,7 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 ```bash
 $ npm i -D cz-git
-+ cz-git          (1.8 MB)
++ cz-git          (1.7 MB)
 added 1 package in 0.461s
 ```
 
