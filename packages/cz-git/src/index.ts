@@ -6,7 +6,7 @@
  * TODO: add more test to protect code
  */
 
-import { SearchList, SearchCheckbox } from "@cz-git/inquirer";
+import { SearchList, SearchCheckbox, CompleteInput } from "@cz-git/inquirer";
 import { configLoader } from "@cz-git/loader";
 import { editCommit, log } from "./shared";
 import { generateOptions, generateQuestions, generateMessage } from "./generator";
@@ -20,6 +20,7 @@ export const prompter = (cz: CommitizenType, commit: (message: string) => void) 
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("search-list", SearchList);
     cz.registerPrompt("search-checkbox", SearchCheckbox);
+    cz.registerPrompt("complete-input", CompleteInput);
     cz.prompt(questions).then((answers) => {
       switch (answers.confirmCommit) {
         case "edit":
