@@ -4,15 +4,13 @@ import inquirer from "inquirer";
 import ReadlineStub from "./helpers/readline";
 
 /**
- * @description: utils - inquirer plugin: SearchCheckbox
+ * @description: Test - inquirer plugin: SearchCheckbox
  */
 
 describe("inquirer-SearchCheckbox", () => {
   let rl: any;
   let source: any;
-  /**
-   * @description: call the source
-   */
+  /** call the source */
   let resolve: any;
   let prompt: SearchCheckbox;
   let promise: any;
@@ -139,8 +137,8 @@ describe("inquirer-SearchCheckbox", () => {
       }, 1000);
 
       test("use loop choices down should be normal", async () => {
-        moveDown();
-        moveDown();
+        tab();
+        tab();
         moveDown();
         moveRight();
         enter();
@@ -151,6 +149,16 @@ describe("inquirer-SearchCheckbox", () => {
       test("use loop choices up should be normal", async () => {
         moveUp();
         moveRight();
+        enter();
+        const answer = await promiseForAnswer.then();
+        expect(answer).toEqual(["bum"]);
+      }, 1000);
+
+      test("use tab and space. the cursor position should be right", async () => {
+        tab();
+        tab();
+        space();
+        expect(getCursor()).toEqual(0);
         enter();
         const answer = await promiseForAnswer.then();
         expect(answer).toEqual(["bum"]);
@@ -184,9 +192,7 @@ describe("inquirer-SearchCheckbox", () => {
     });
   });
 
-  /**
-   * @description: start prompt run
-   */
+  /** start prompt run */
   function getPromiseForAnswer() {
     return prompt.run();
   }
@@ -246,9 +252,13 @@ describe("inquirer-SearchCheckbox", () => {
   //   });
   // }
 
-  // function tab() {
-  //   rl.input.emit("keypress", "", {
-  //     name: "tab"
-  //   });
-  // }
+  function getCursor() {
+    return rl.cursor;
+  }
+
+  function tab() {
+    rl.input.emit("keypress", "", {
+      name: "tab"
+    });
+  }
 });

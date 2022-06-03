@@ -84,10 +84,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       }
     },
     {
-      type: "input",
+      type: "complete-input",
       name: "scope",
       message: options.messages?.customScope,
-      default: options.defaultScope || undefined,
+      completeValue: options.defaultScope || undefined,
       validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes) return true;
         if (typeof input === "string") {
@@ -102,7 +102,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
-      type: "input",
+      type: "complete-input",
       name: "subject",
       message: options.messages?.subject,
       validate: (subject: string, answers: Answers) => {
@@ -156,20 +156,20 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           subject.slice(1)
         );
       },
-      default: options.defaultSubject || undefined
+      completeValue: options.defaultSubject || undefined
     },
     {
-      type: "input",
+      type: "complete-input",
       name: "body",
       message: options.messages?.body,
-      default: options.defaultBody || undefined,
+      completeValue: options.defaultBody || undefined,
       transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
-      type: "input",
+      type: "complete-input",
       name: "breaking",
       message: options.messages?.breaking,
-      default: options.defaultBody || undefined,
+      completeValue: options.defaultBody || undefined,
       when: (answers: Answers) => {
         if (
           options.allowBreakingChanges &&
@@ -208,19 +208,19 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         )
     },
     {
-      type: "input",
+      type: "complete-input",
       name: "footerPrefix",
       message: options.messages?.customFooterPrefixs,
-      default: options.defaultIssues || undefined,
+      completeValue: options.defaultIssues || undefined,
       when: (answers: Answers) => {
         return answers.footerPrefix === "___CUSTOM___";
       },
       transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
-      type: "input",
+      type: "complete-input",
       name: "footer",
-      default: options.defaultIssues || undefined,
+      completeValue: options.defaultIssues || undefined,
       when(answers: Answers) {
         return (answers.footerPrefix as string | boolean) !== false;
       },

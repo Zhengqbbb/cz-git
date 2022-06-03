@@ -28,11 +28,11 @@ export interface BaseOptionType {
   default?: any;
 }
 
-export interface CZPromptOptionType extends BaseOptionType {
-  source: ChoiceType<Separator["type"]>[];
-  isInitDefault: boolean;
-}
-export interface CZPromptQuestionOptions<T extends Answers = Answers> extends Question<T> {
+type isFinal = {
+  isFinal: boolean;
+};
+
+export interface SearchPromptQuestionOptions<T extends Answers = Answers> extends Question<T> {
   separator: string;
 
   /**
@@ -59,4 +59,10 @@ export interface CZPromptQuestionOptions<T extends Answers = Answers> extends Qu
    * default false. Setting it to true turns the input into a normal text input.
    */
   isInitDefault?: boolean | undefined;
+}
+
+export interface CompletePromptQuestionOptions<T extends Answers = Answers> extends Question<T> {
+  completeValue?: string;
+
+  transformer?: (input: string, answers: Answers, { isFinal }: isFinal) => string;
 }
