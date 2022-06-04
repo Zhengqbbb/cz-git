@@ -1,3 +1,15 @@
+## [1.3.4](https://github.com/Zhengqbbb/cz-git/compare/v1.3.3...v1.3.4) (2022-06-04)
+
+
+### Features
+
+* **cz-git:** use complete-input inquirer plugin replace input ([ca133bf](https://github.com/Zhengqbbb/cz-git/commit/ca133bf5eb2caa831f4e93891ab76383b67014c7)), closes [#32](https://github.com/Zhengqbbb/cz-git/issues/32)
+* **plugin-inquirer:** add ansiEscapes to control corsor move ([e8dac95](https://github.com/Zhengqbbb/cz-git/commit/e8dac95800e3d95ddfa25834d4317d8218303478)), closes [#32](https://github.com/Zhengqbbb/cz-git/issues/32)
+* **plugin-inquirer:** add complete-input inquirer plugin ([b20bbc1](https://github.com/Zhengqbbb/cz-git/commit/b20bbc1cbe429b5c9f9730da58ae40f410cf6b9a)), closes [#32](https://github.com/Zhengqbbb/cz-git/issues/32)
+* **plugin-inquirer:** checkbox and list support use tab key move down list ([e38ed9f](https://github.com/Zhengqbbb/cz-git/commit/e38ed9f972a757f1acfef2a2405ce56f3d3e2f91)), closes [#32](https://github.com/Zhengqbbb/cz-git/issues/32)
+
+
+
 ## [1.3.3](https://github.com/Zhengqbbb/cz-git/compare/v1.3.2...v1.3.3) (2022-05-28)
 
 
