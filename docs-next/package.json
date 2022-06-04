@@ -1,0 +1,27 @@
+{
+  "name": "docs",
+  "private": true,
+  "scripts": {
+    "docs:build": "vitepress build --clean-cache --dest dist",
+    "docs:dev": "vitepress dev --clean-cache --port 8080",
+    "docs:info": "vitepress info",
+    "docs:serve": "anywhere -h localhost -d dist"
+  },
+  "dependencies": {
+    "@vueuse/core": "^8.5.0",
+    "vue": "^3.2.36"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.5",
+    "@unocss/reset": "^0.36.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "anywhere": "^1.6.0",
+    "markdown-it-mark": "^3.0.1",
+    "unocss": "^0.36.0",
+    "unplugin-vue-components": "^0.19.6",
+    "vite": "^2.9.9",
+    "vite-plugin-pwa": "^0.12.0",
+    "vite-plugin-windicss": "^1.8.4",
+    "vitepress": "^1.0.0-alpha.1"
+  }
+}

@@ -1,0 +1,9 @@
+/* Overrides */
+
+.VPNavBarTitle .title{
+  font-size: 0;
+}
+
+.VPNavBarTitle .logo{
+  height: 44px;
+}
