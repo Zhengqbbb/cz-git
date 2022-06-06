@@ -1,21 +1,66 @@
-import type { SidebarConfig } from "vuepress";
+import type { DefaultTheme } from "vitepress";
 
-export const zh: SidebarConfig = {
-  "/zh/guide/": [
+export const zh: DefaultTheme.Sidebar = {
+  "/zh/": [
     {
-      text: "文档",
-      children: [
-        "/zh/guide/README.md",
-        "/zh/guide/why.md",
-        "/zh/guide/getting-started.md",
-        "/zh/guide/configuration.md"
+      text: "指南",
+      items: [
+        {
+          text: "简介",
+          link: "/zh/guide/introduction"
+        },
+        {
+          text: "动机",
+          link: "/zh/guide/why"
+        },
+        {
+          text: "快速开始",
+          link: "/zh/guide/"
+        }
       ]
     },
     {
-      text: "配置说明",
-      children: ["/zh/guide/options-show.md", "/zh/guide/option-engineer.md"]
+      text: "Config",
+      items: [
+        {
+          text: "配置模板",
+          link: "/zh/config/"
+        },
+        {
+          text: "显示相关",
+          link: "/zh/config/show"
+        },
+        {
+          text: "工程化相关",
+          link: "/zh/config/engineer"
+        }
+      ]
     },
-    "/zh/guide/recipes.md",
-    "/zh/guide/faq.md"
+    {
+      text: "小窍门",
+      items: [
+        {
+          text: "scopes",
+          link: "/zh/recipes/"
+        },
+        {
+          text: "defaultScope",
+          link: "/zh/recipes/defaultScope"
+        },
+        {
+          text: "defaultIssues",
+          link: "/zh/recipes/defaultIssues"
+        }
+      ]
+    },
+    {
+      text: "常见问题",
+      items: [
+        {
+          text: "FAQ",
+          link: "/zh/faq/"
+        }
+      ]
+    }
   ]
 };

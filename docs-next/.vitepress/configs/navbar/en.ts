@@ -1,5 +1,5 @@
 import type { DefaultTheme } from "vitepress";
-import { version } from "../../meta";
+import { version, github, npm } from "../../meta";
 
 export const en: DefaultTheme.NavItem[] = [
   {
@@ -7,11 +7,23 @@ export const en: DefaultTheme.NavItem[] = [
     link: "/guide/"
   },
   {
+    text: "Config",
+    link: "/config/"
+  },
+  {
+    text: "Recipes",
+    link: "/recipes/"
+  },
+  {
     text: `v${version}`,
     items: [
       {
         text: "Changelog",
-        link: "https://github.com/Zhengqbbb/cz-git/blob/main/CHANGELOG.md"
+        link: github + "/blob/main/CHANGELOG.md"
+      },
+      {
+        text: "NPM",
+        link: npm
       }
     ]
   }

@@ -16,7 +16,8 @@
     "types": [
       "vite/client",
       "vite-plugin-pwa/client",
-      "vitepress"
+      "vitepress",
+      "./.vitepress/components"
     ],
     "paths": {
       "~/*": ["src/*"]
@@ -25,7 +26,7 @@
   "include": [
     "./*.ts",
     "./.vitepress/**/*.ts",
-    "./.vitepress/**/*.vue"
+    "./.vitepress/**/*.vue",
   ],
   "exclude": ["dist", "node_modules"]
 }

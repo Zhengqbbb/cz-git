@@ -2,16 +2,15 @@
 layout: home
 sidebar: false
 
-title: Vitest
-titleTemplate: A blazing fast unit test framework powered by Vite
+title: cz-git
+titleTemplate: A more engineered, lightweight, customizable, standard output format commitizen adapter
 
 hero:
-  name: Vitest
-  text: Blazing Fast Unit Test Framework
-  tagline: A Vite-native unit test framework. It's fast!
+  name: cz-git
+  tagline: A more engineered, lightweight, customizable, standard output format commitizen adapter.
   image:
     src: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png
-    alt: cz-git-logo
+    alt: cz-git
 
 features:
   - title: Vite Powered

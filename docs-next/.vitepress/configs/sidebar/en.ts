@@ -1,22 +1,66 @@
-import type { SidebarConfig } from "vuepress";
+import type { DefaultTheme } from "vitepress";
 
-export const en: SidebarConfig = {
-  "/guide/": [
+export const en: DefaultTheme.Sidebar = {
+  "/": [
     {
       text: "Guide",
-      children: [
-        "/guide/README.md",
-        "/guide/why.md",
-        "/guide/getting-started.md",
-        "/guide/configuration.md"
+      items: [
+        {
+          text: "Introduction",
+          link: "/guide/introduction"
+        },
+        {
+          text: "Why cz-git",
+          link: "/guide/why"
+        },
+        {
+          text: "Getting Started",
+          link: "/guide/"
+        }
       ]
     },
     {
-      text: "Options",
-      // collapsible: true,
-      children: ["/guide/options-show.md", "/guide/option-engineer.md"]
+      text: "Config",
+      items: [
+        {
+          text: "Configure Template",
+          link: "/config/"
+        },
+        {
+          text: "Show Related",
+          link: "/config/show"
+        },
+        {
+          text: "Engineering Related",
+          link: "/config/engineer"
+        }
+      ]
     },
-    "/guide/recipes.md",
-    "/guide/faq.md"
+    {
+      text: "Recipes",
+      items: [
+        {
+          text: "scopes",
+          link: "/recipes/"
+        },
+        {
+          text: "defaultScope",
+          link: "/recipes/defaultScope"
+        },
+        {
+          text: "defaultIssues",
+          link: "/recipes/defaultIssues"
+        }
+      ]
+    },
+    {
+      text: "FAQ",
+      items: [
+        {
+          text: "FAQ",
+          link: "/faq/"
+        }
+      ]
+    }
   ]
 };

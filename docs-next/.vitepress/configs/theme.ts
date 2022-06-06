@@ -1,4 +1,6 @@
 import type { DefaultTheme } from "vitepress";
+import * as nav from "./navbar";
+import * as sidebar from "./sidebar";
 import { github } from "../meta";
 
 /**
@@ -17,5 +19,7 @@ export const themeConfig: DefaultTheme.Config = {
   localeLinks: {
     text: "English",
     items: [{ text: "简体中文", link: "/zh/" }]
-  }
+  },
+  nav: nav.en,
+  sidebar: sidebar.en
 };

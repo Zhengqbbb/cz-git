@@ -1,7 +1,7 @@
 {
   "name": "cz-git",
   "short_name": "cz-git",
-  "description": "A more engineered, highly customizable, standard output format commitizen adapter.",
+  "description": "A more engineered, lightweight, customizable, standard output format commitizen adapter.",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#fff",
@@ -32,7 +32,7 @@
       "density": 2
     },
     {
-      "src": "/images/icons/favicon-144-precomposed.png",
+      "src": "/images/icons/favicon-144.png",
       "sizes": "144x144",
       "type": "image/png",
       "density": 3

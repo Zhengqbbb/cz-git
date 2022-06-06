@@ -125,7 +125,8 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **默认** : `""`
 - **使用** : 当你想要命令行中出现的默认值只需要按下 <kbd>回车</kbd> 键即可输出
 
-<Badge type="tip" text="提示" /> 如果 defaultScope 与在选择范围列表项中的 value 相匹配就会进行星标置顶操作。
+<!-- Tip -->
+如果 defaultScope 与在选择范围列表项中的 value 相匹配就会进行星标置顶操作。
 
 ## defaultSubject
 
