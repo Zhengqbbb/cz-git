@@ -17,6 +17,7 @@
     "@vitejs/plugin-vue": "^2.3.3",
     "anywhere": "^1.6.0",
     "markdown-it-mark": "^3.0.1",
+    "pathe": "^0.3.0",
     "unocss": "^0.36.0",
     "unplugin-vue-components": "^0.19.6",
     "vite": "^2.9.9",
