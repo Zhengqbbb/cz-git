@@ -73,7 +73,13 @@ added 1 package in 0.461s
 ## Projects using cz-git
 
 <table>
-  <tr border-collapse="inherit" style="border: inherit;">
+  <tr>
+    <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/element-plus/element-plus">
+        <img src="https://user-images.githubusercontent.com/40693636/172459748-939e3f1b-a694-4c09-b643-e1dce602105c.png" width="40">
+        <sub>Element Plus</sub>
+      </a>
+    </td>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/Tencent/tdesign-vue-next">
         <img src="https://user-images.githubusercontent.com/40693636/170830562-38e4c998-9af4-4303-9270-4f14e0942b08.png" width="40">
@@ -86,22 +92,20 @@ added 1 package in 0.461s
         <sub>iDux</sub>
       </a>
     </td>
-  </tr>
-  <tr border-collapse="inherit" style="border: inherit;">
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/buqiyuan/vue3-antd-admin">
         <img src="https://user-images.githubusercontent.com/40693636/170830597-31d6f0d7-2c93-491b-a984-7bf21db8f75b.png" width="40">
         <sub>Vue3-Antd-Admin</sub>
       </a>
     </td>
+  </tr>
+  <tr border-collapse="inherit" style="border: inherit;">
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/HalseySpicy/Geeker-Admin">
         <img src="https://user-images.githubusercontent.com/40693636/170830842-319d83ce-df67-488d-b08f-818947a5a540.png" width="40">
         <sub>Geeker-Admin</sub>
       </a>
     </td>
-  </tr>
-  <tr border-collapse="inherit" style="border: inherit;">
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope">
         <img src="https://user-images.githubusercontent.com/40693636/170830621-45577c1d-6e6e-4916-bb43-15af954d994b.png" width="40">
