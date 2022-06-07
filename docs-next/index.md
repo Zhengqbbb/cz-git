@@ -11,14 +11,28 @@ hero:
   image:
     src: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png
     alt: cz-git
+  actions:
+    - theme: brand
+      text: Get Started →
+      link: /guide/
+    - theme: alt
+      text:  Introduction
+      link: https://github.com/vuejs/vitepress
+    - theme: alt
+      text: Why cz-git?
+      link: https://github.com/vuejs/vitepress
 
-features:
-  - title: Vite Powered
-    details: Reuse Vite's config, transformers, resolvers, and plugins - consistant across your app and tests.
-  - title: Jest Compatible
-    details: Expect, snapshot, coverage, and more - migrate from Jest is straightforward.
-  - title: Smart & instant watch mode
-    details: Only rerun the related changes, just like HMR for tests!
-  - title: ESM, TypeScript, JSX
-    details: Out-of-box ESM, TypeScript and JSX support powered by esbuild
+czFeatures:
+  - title: Friendly First
+    details: Friendly command line tool, Supports search and selection on the command line, reducing spelling errors.To be a lazyman.
+  - title: Highly Customizable
+    details: Enjoy the customization process to make the tool more in line with your or team habits.
+  - title: Engineering Support
+    details: Reduce repetitive typing. Better for engineering repo(e.g:monorepo) or business system. Easy link with issue.
+  - title: With Commitlint
+    details: Dynamically get commitlint configuration and give command line prompts.
+pkgFeatureTitle: Lightweight
+emojiFeature:
+  title: Emoji Support
+  details: Support emoji in commit message.
 ---

@@ -7,9 +7,8 @@
   - Then we use `defaultIssues`
   - When using, we only need to press the <kbd>Enter</kbd> key to output the `Issue Number`, so that we can easily intercept the `Issue Number` to reduce repetitive work.
 
-<!-- Tip -->
 
-We can also combine the `customIssuePrefixsAlign` configuration item to dynamically change the position of the issue prefix option.
+==Tip:== We can also combine the `customIssuePrefixsAlign` configuration item to dynamically change the position of the issue prefix option.
 
 ```js{5-8,13-14}
 // .commitlintrc.js 

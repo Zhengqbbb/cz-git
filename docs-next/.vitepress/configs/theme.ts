@@ -20,6 +20,11 @@ export const themeConfig: DefaultTheme.Config = {
     text: "English",
     items: [{ text: "简体中文", link: "/zh/" }]
   },
+  algolia: {
+    appId: "QC8EFXZNC3",
+    apiKey: "bf9a47e8561e6b8ffdda0bf8595a2f5d",
+    indexName: "cz-git"
+  },
   nav: nav.en,
   sidebar: sidebar.en
 };

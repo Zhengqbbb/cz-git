@@ -83,8 +83,8 @@ module.exports = {
 
 :::
 
-<!-- Tip -->
-如果你的项目未使用 commitlint，并想使用其他配置文件，可以选择下列配置项
+
+==提示:== 如果你的项目未使用 commitlint，并想使用其他配置文件，可以选择下列配置项
 
 - `.cz.js`
 - `cz.js`
@@ -155,8 +155,7 @@ module.exports = {
 
 :::
 
-<!-- Tip -->
-你也可以在 package.json 中自定义配置文件路径
+==提示:== 你也可以在 package.json 中自定义配置文件路径
 
 ```json{8}
 {
@@ -472,7 +471,7 @@ module.exports = {
 ## TypeScript 模板
 
 :::danger
-从 v1.3.0 开始，将不再支持 TypeScript 配置文件。例如（commitlint.config.ts）
+从 <u>v1.3.0</u> 开始，将不再支持 TypeScript 配置文件。例如（commitlint.config.ts）
 
 - 使用 TypeScript 配置文件会**影响命令行工具的启动速度**
 - 增加软件包的依赖项体积

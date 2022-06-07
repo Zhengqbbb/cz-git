@@ -124,8 +124,8 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **type** : `string`
 - **default** : `""`
 - **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
-<!-- Tip -->
-pin scope item the top of the scope list (match item value)
+
+==Tip:== pin scope item the top of the scope list (match item value)
 
 ## defaultSubject
 

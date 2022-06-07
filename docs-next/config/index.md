@@ -84,8 +84,7 @@ module.exports = {
 
 :::
 
-<!-- Tip -->
-If your project does not use commitlint,and want to use other profiles. You can use the following configuration items
+==Tip:== If your project does not use commitlint,and want to use other profiles. You can use the following configuration items
 
 - `.cz.js`
 - `cz.config.js`
@@ -154,8 +153,7 @@ module.exports = {
 
 :::
 
-<!-- Tip -->
-You can also optionally custom configuration file path in package.json
+==Tip:== You can also optionally custom configuration file path in package.json
 
 ```json{8}
 {
@@ -316,7 +314,7 @@ It is recommended to use JavaScript for configuration files in the project. You 
 ## TypeScript template
 
 :::danger
-**Since v1.3.0. The typescript configuration file will no longer be loaded**. e.g(commitlint.config.ts)
+**Since <u>v1.3.0</u>. The typescript configuration file will no longer be loaded**. e.g(commitlint.config.ts)
 
 - Using the TypeScript configuration file will **affects command line tool startup speed**.
 - Increase the package size.
