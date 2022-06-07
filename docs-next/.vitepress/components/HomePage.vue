@@ -6,29 +6,46 @@ const features = useData().frontmatter.value.czFeatures;
 const pkgFeatureTitle = useData().frontmatter.value.pkgFeatureTitle;
 const emojiFeature = useData().frontmatter.value.emojiFeature;
 const emoji = useEmojiItem();
+const footer = useData().frontmatter.value.footerHtml;
 </script>
 
 <template>
-  <div flex="~ wrap grow basis-30%" px-24px max-w-960px maauto>
-    <div v-for="(feat, i) in features" :key="i">
-      <h2>{{ feat.title }}</h2>
-      <p>{{ feat.details }}</p>
+  <div
+    flex="~ wrap grow basis-30% md:row col"
+    max-w-960px
+    maauto
+    class="mt-14 py-4 justify-between items-stretch items-start"
+  >
+    <div class="feat" v-for="(feat, i) in features" :key="i" :class="{ relative: i !== 2 }">
+      <h2 class="featTitle">{{ feat.title }}</h2>
+      <p class="dark:c-gray-4 c-gray-5 text-4.2">{{ feat.details }}</p>
     </div>
-    <div>
-      <h2>{{ pkgFeatureTitle }}</h2>
-      <p>
+    <div class="feat relative">
+      <h2 class="featTitle">{{ pkgFeatureTitle }}</h2>
+      <p class="dark:c-gray-4 c-gray-5 text-4.2">
         $ npm install -D cz-git<br />
         + cz-git
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        (<span color-yellow-6> 1.7 MB </span>) <br />added &nbsp;<span color-yellow-6>1</span>&nbsp;
-        package in &nbsp;<span color-yellow-6>0.461s</span>
+        (<span c-orange-5> 1.7 MB </span>) <br />added &nbsp;<span c-orange-5>1</span>&nbsp; package
+        in &nbsp;<span c-orange-5>0.461s</span>
       </p>
     </div>
-    <div>
-      <h2>{{ emojiFeature.title }}</h2>
-      <p>
+    <div class="feat">
+      <h2 class="featTitle">{{ emojiFeature.title }}</h2>
+      <p class="dark:c-gray-4 c-gray-5 text-4.2">
         <span text-6>{{ emoji }}</span> {{ emojiFeature.details }}
       </p>
     </div>
   </div>
+  <p class="mt-10 maauto max-w-960px px-2">
+    <img
+      class="max-w-100%"
+      src="https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif"
+      alt="gif-demo"
+    />
+  </p>
+  <footer
+    class="mt-18 pt-10 maauto w-100% text-center c-gray border-t-1 border-gray-1:10%"
+    v-html="footer"
+  ></footer>
 </template>

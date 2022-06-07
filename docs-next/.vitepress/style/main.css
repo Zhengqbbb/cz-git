@@ -31,12 +31,17 @@ kbd {
   background-color: var(--vp-custom-block-tip-bg);
 }
 
-.vp-doc summary {
-  cursor: pointer;
+.vp-doc a:hover {
+  color: var(--vp-c-brand-lighter);
 }
 
-.vp-doc a:hover {
-  color: var(--vp-c-brand-darker);
+.vp-doc .custom-block.details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.VPLink.edit-link-button:hover {
+  color: var(--vp-c-brand-light);
 }
 
 /**
@@ -58,7 +63,7 @@ kbd {
 
 @media (min-width: 640px) {
   .VPHomeHero .image-src {
-    max-width: 460px;
+    max-width: 430px;
   }
 }
 
@@ -74,13 +79,23 @@ kbd {
   }
 }
 
+.feat::after {
+  content: "";
+  position: absolute;
+  top: 27%;
+  right: -8%;
+  width: 1px;
+  height: 90px;
+  background-color: var(--vp-c-divider-light);
+}
+
 /**
  * Container
  * -------------------------------------------------------------------------- */
 
 .vp-doc .custom-block a {
   text-decoration: none;
-  transition: opacity .1s;
+  transition: opacity 0.1s;
 }
 
 .vp-doc .custom-block div[class*="language-"] code {
@@ -88,7 +103,7 @@ kbd {
 }
 
 /**
- * Container
+ * Plugin
  * -------------------------------------------------------------------------- */
 .dark .DocSearch-Button-Key {
   box-shadow: none;
