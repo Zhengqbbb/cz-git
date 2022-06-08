@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.5.0",
+    "medium-zoom": "^1.0.6",
     "vue": "^3.2.36"
   },
   "devDependencies": {

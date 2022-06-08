@@ -7671,7 +7671,7 @@ packages:
     dev: true
 
   /select-hose/2.0.0:
-    resolution: {integrity: sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=}
+    resolution: {integrity: sha512-mEugaLK+YfkijB4fx0e6kImuJdCIt2LxCRcbEYPqRGCs4F2ogyfZU5IAZRdjCP8JPq2AtdNoC/Dux63d9Kiryg==}
     dev: true
 
   /selfsigned/2.0.1:

@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { useEmojiItem } from "./composables";
+import { useEmojiItem, useMediumZoom } from "./composables";
 
 const features = useData().frontmatter.value.czFeatures;
 const pkgFeatureTitle = useData().frontmatter.value.pkgFeatureTitle;
 const emojiFeature = useData().frontmatter.value.emojiFeature;
 const emoji = useEmojiItem();
 const footer = useData().frontmatter.value.footerHtml;
+useMediumZoom();
 </script>
 
 <template>

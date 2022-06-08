@@ -108,3 +108,17 @@ kbd {
 .dark .DocSearch-Button-Key {
   box-shadow: none;
 }
+
+.medium-zoom-overlay {
+  /* override element style set by medium-zoom script */
+  background-color: var(--vp-c-bg) !important;
+  z-index: 100;
+}
+
+.medium-zoom-overlay ~ img {
+  z-index: 101;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  opacity: 0.9 !important;
+}
