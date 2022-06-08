@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@vueuse/core": "^8.5.0",
-    "medium-zoom": "^1.0.6",
     "vue": "^3.2.36"
   },
   "devDependencies": {
@@ -18,11 +17,13 @@
     "@vitejs/plugin-vue": "^2.3.3",
     "anywhere": "^1.6.0",
     "markdown-it-mark": "^3.0.1",
+    "medium-zoom": "^1.0.6",
     "pathe": "^0.3.0",
     "unocss": "^0.36.0",
     "unplugin-vue-components": "^0.19.6",
     "vite": "^2.9.9",
     "vite-plugin-pwa": "^0.12.0",
+    "vite-plugin-radar": "^0.4.2",
     "vitepress": "^1.0.0-alpha.1"
   }
 }
