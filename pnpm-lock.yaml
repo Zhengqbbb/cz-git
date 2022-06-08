@@ -19,6 +19,7 @@ importers:
       eslint: ^8.16.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.0.0
+      fast-glob: ^3.2.11
       husky: ^8.0.1
       lint-staged: ^12.4.2
       prettier: ^2.6.2
@@ -43,6 +44,7 @@ importers:
       eslint: 8.16.0
       eslint-config-prettier: 8.5.0_eslint@8.16.0
       eslint-plugin-prettier: 4.0.0_j7rsahgqtkecno6yauhsgsglf4
+      fast-glob: 3.2.11
       husky: 8.0.1
       lint-staged: 12.4.2
       prettier: 2.6.2
