@@ -79,7 +79,7 @@ kbd {
   }
 }
 
-.feat::after {
+.VPHome .feat[class$=relative]::after {
   content: "";
   position: absolute;
   top: 27%;

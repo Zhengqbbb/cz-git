@@ -33,7 +33,7 @@ const footer = useData().frontmatter.value.footerHtml;
     <div class="feat">
       <h2 class="featTitle">{{ emojiFeature.title }}</h2>
       <p class="dark:c-gray-4 c-gray-5 text-4.2">
-        <span text-6>{{ emoji }}</span> {{ emojiFeature.details }}
+        <span text-6>{{ emoji }}</span>&nbsp; {{ emojiFeature.details }}
       </p>
     </div>
   </div>
@@ -45,7 +45,7 @@ const footer = useData().frontmatter.value.footerHtml;
     />
   </p>
   <footer
-    class="mt-18 pt-10 maauto w-100% text-center c-gray border-t-1 border-gray-1:10%"
+    class="maauto w-100% mt-18 text-center text-3.5 c-gray:90% px-2 pt-10 border-t-1 dark:border-gray-1:10% border-gray-1"
     v-html="footer"
   ></footer>
 </template>
