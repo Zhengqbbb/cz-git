@@ -249,7 +249,7 @@ module.exports = {
 - `config.commitizen` field in `package.json`
 
 ::: tip
-It is recommended to use JavaScript for configuration files in the project. You can combine `fs` and `path` to select [scopes](/guide/recipes.html#scopes) for generating dynamic modules.
+It is recommended to use JavaScript for configuration files in the project. You can combine `fs` and `path` to select [scopes](/recipes/#scopes) for generating dynamic modules.
 :::
 
 ::: details Click to expand JSON default configuration template

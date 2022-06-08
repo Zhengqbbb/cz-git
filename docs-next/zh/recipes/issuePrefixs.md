@@ -1,6 +1,7 @@
 # issuePrefixs
 
-国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好 ==利用 commit message改变issue状态== <br>
+国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好 <br>
+==利用 commit message改变issue状态== <br>
 详情： [Commit 关联Issue](https://gitee.com/help/articles/4141#article-header2) <br>
 通过设置任务状态指令，即起issue状态变更的别名，通过选择别名和输入issue号，可以很好的关联管理issue
 

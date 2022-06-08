@@ -39,7 +39,7 @@ sitemap:
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/guide/getting-started.html">Installation</a>
+    <a href="https://cz-git.qbenben.com/guide/">Installation</a>
     &nbsp; | &nbsp;
     <a href="https://cz-git.qbenben.com">Website</a>
     &nbsp; | &nbsp;
@@ -59,8 +59,8 @@ sitemap:
 
 - 友好型命令行工具，**“懒字优先”** ！支持在命令行搜索和选择，减少拼写错误。
 - **轻量级**，**高度自定义**, 但输出格式遵循标准的 [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 规范。
-- [更好维护 monorepo 工程化项目](/zh/guide/recipes.html#scopes) 与 **commitlint** 配合给予命令行的相关校验信息。
-- 更好的与issue链接，尤其 [gitee](/zh/guide/recipes.html#issueprefixs) | ✅ 支持在 commit 中添加 **emoji**。
+- [更好维护 monorepo 工程化项目](/zh/recipes/#scopes) 与 **commitlint** 配合给予命令行的相关校验信息。
+- 更好的与issue链接，尤其 [gitee](/zh/recipes/issuePrefixs.html) | ✅ 支持在 commit 中添加 **emoji**。
 
 ```bash
 $ npm install -D cz-git

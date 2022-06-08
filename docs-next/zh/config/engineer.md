@@ -16,7 +16,7 @@ sitemap:
 
 ::: tip
 如果你使用 [commitlint](https://github.com/conventional-changelog/commitlint) 规则定义了 `scope-enum`，会自动引入。<br>
-[⇒ 更多小窍门](/zh/guide/recipes.html#scopes)
+[⇒ 更多小窍门](/zh/recipes/#scopes)
 :::
 
 ## scopeOverrides
@@ -46,7 +46,7 @@ sitemap:
 
 :::tip
 尝试运行 `checkbox=1 cz` **可在当前会话直接开启多选模式**     
-示例与使用方式 [⇒ 查看小窍门](/zh/guide/recipes.html#支持多选-scopes)
+示例与使用方式 [⇒ 查看小窍门](/zh/recipes/#支持多选-scopes)
 :::
 
 ## scopeEnumSeparator
@@ -119,7 +119,7 @@ sitemap:
 - **默认** : `[{ value: "closed", name: "closed:   ISSUES has been processed" }]`
 
 :::tip
-国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br> ==利用 commit message改变issue状态== [⇒ 查看小窍门](/zh/guide/recipes.html#issueprefixs)
+国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br/> ==利用 commit message改变issue状态== [⇒ 查看小窍门](/zh/recipes/issuePrefixs.html)
 :::
 
 ## allowCustomIssuePrefixs

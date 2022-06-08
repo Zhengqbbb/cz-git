@@ -109,7 +109,7 @@ Try running `emoji=1 cz` to **enable output emoji mode in the current session**
 <br/>
 
 :::tip
-Using ==default value== can produce many ways to make the tool more suitable for you or your team's habits, [⇒ see the recipes](/guide/recipes.html#default)
+Using ==default value== can produce many ways to make the tool more suitable for you or your team's habits, [⇒ see the recipes](/recipes/defaultScope.html#defaultscope)
 :::
 
 ## defaultType

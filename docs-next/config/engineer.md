@@ -15,7 +15,7 @@ sitemap:
 
 ::: tip
 If you define a `scope-enum` using the [commitlint](https://github.com/conventional-changelog/commitlint) rule, it will be imported automatically.<br>
-[⇒ can see the recipes](/guide/recipes.html#scopes)
+[⇒ can see the recipes](/recipes/#scopes)
 :::
 
 ## scopeOverrides
@@ -44,7 +44,7 @@ If you define `scopeOverrides` then define generic `scopes`
 
 :::tip
 Try running `checkbox=1 cz` to **enable multiple scopes mode in the current session**    
-Demo And Usage [⇒ see the recipes](/guide/recipes.html#support-for-multiple-scopes)
+Demo And Usage [⇒ see the recipes](/recipes/#scopes-for-project-code)
 :::
 
 ## scopeEnumSeparator

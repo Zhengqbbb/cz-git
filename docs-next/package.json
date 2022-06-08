@@ -5,7 +5,7 @@
     "docs:build": "vitepress build --clean-cache --dest dist",
     "docs:dev": "vitepress dev --clean-cache --port 8080",
     "docs:info": "vitepress info",
-    "docs:serve": "anywhere -h localhost -d dist"
+    "docs:serve": "anywhere -h localhost -d .vitepress/dist"
   },
   "dependencies": {
     "@vueuse/core": "^8.5.0",

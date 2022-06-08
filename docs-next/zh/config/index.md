@@ -406,7 +406,7 @@ module.exports = {
 - 在 `package.json`中添加 `commitlint` 字段
 
 ::: tip
-推荐在项目中使用JavaScript进行配置文件，你可以结合`fs`和`path` 为生成动态模块选择[范围](/zh/guide/recipes.html#scopes)
+推荐在项目中使用JavaScript进行配置文件，你可以结合`fs`和`path` 为生成动态模块选择[范围](/zh/recipes/#scopes)
 :::
 
 ::: details 点击展开 json 配置模板

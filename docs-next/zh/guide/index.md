@@ -66,7 +66,7 @@ pnpm install -D cz-git
 
 > 有==两种==配置方式
 
-**方式一: (推荐) cz-git 与 [commitlint](https://github.com/conventional-changelog/commitlint) 进行联动给予校验信息**，所以可以编写于 [commitlint](https://github.com/conventional-changelog/commitlint#config) 配置文件之中。<br>例如: ([⇒ 配置模板](/zh/guide/configuration.html))
+**方式一: (推荐) cz-git 与 [commitlint](https://github.com/conventional-changelog/commitlint) 进行联动给予校验信息**，所以可以编写于 [commitlint](https://github.com/conventional-changelog/commitlint#config) 配置文件之中。<br>例如: ([⇒ 配置模板](/zh/config/))
 
 ```js{2,7,8,9,10}
 // .commitlintrc.js
@@ -129,4 +129,4 @@ echo '{ "path": "cz-git" }' > ~/.czrc
 }
 ```
 
-**方式二: 与 [commitlint](https://github.com/conventional-changelog/commitlint) 配合**，在 `$HOME` 路径下创建配置文件 <br>([↓ 配置模板](/zh/guide/configuration.html))
+**方式二: 与 [commitlint](https://github.com/conventional-changelog/commitlint) 配合**，在 `$HOME` 路径下创建配置文件 <br>([↓ 配置模板](/zh/config/))

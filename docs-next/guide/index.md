@@ -66,7 +66,7 @@ pnpm install -D cz-git
 
 > There are ==two== configuration methods
 
-**Method 1: (recommended) cz-git is linked with [commitlint](https://github.com/conventional-changelog/commitlint) to provide verification information**, so it can be written in [commitlint](https://github.com/conventional-changelog/commitlint#config) configuration file. <br> E.g: ([⇒ Configuration Template](/guide/configuration.html))
+**Method 1: (recommended) cz-git is linked with [commitlint](https://github.com/conventional-changelog/commitlint) to provide verification information**, so it can be written in [commitlint](https://github.com/conventional-changelog/commitlint#config) configuration file. <br> E.g: ([⇒ Configuration Template](/config/#configure-template))
 
 ```js{2,7,8,9,10}
 // .commitlintrc.js
@@ -127,4 +127,4 @@ echo '{ "path": "cz-git" }' > ~/.czrc
 }
 ```
 
-**Method 2: Cooperate with [commitlint](https://github.com/conventional-changelog/commitlint)** to create a configuration file under the path of `$HOME` <br>([↓ Configuration Template](/guide/configuration.html))
+**Method 2: Cooperate with [commitlint](https://github.com/conventional-changelog/commitlint)** to create a configuration file under the path of `$HOME` <br>([↓ Configuration Template](/config/#configure-template))

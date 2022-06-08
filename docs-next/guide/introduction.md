@@ -39,7 +39,7 @@ sitemap:
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/guide/getting-started.html">Installation</a>
+    <a href="https://cz-git.qbenben.com/guide/">Installation</a>
     &nbsp; | &nbsp;
     <a href="https://cz-git.qbenben.com">Website</a>
     &nbsp; | &nbsp;
@@ -59,8 +59,8 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
 - **Lightweight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
-- [Better for monorepo engineering]((/guide/recipes.html#scopes)) and **commitlint** project to give relevant verification information to the command line.
-- Better linking with [issue](/guide/recipes.html#default) **for issue** | ✅ Support **emoji** in commit.
+- [Better for monorepo engineering](/recipes/) and **commitlint** project to give relevant verification information to the command line.
+- Better linking with [issue](/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
 
 ```bash
 $ npm i -D cz-git
