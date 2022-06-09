@@ -6,7 +6,10 @@ import "uno.css";
 // @ts-ignore
 import { useMediumZoomProvider, usePageAnalytics } from "../components/composables";
 import HomePage from "../components/HomePage.vue";
+import { inBrowser } from "vitepress";
 import type { EnhanceAppContext } from "vitepress";
+
+if (inBrowser) import("./pwa");
 
 export default {
   ...Theme,

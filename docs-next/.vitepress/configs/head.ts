@@ -3,6 +3,7 @@ import { name, site, descriptionEN, keywords, ogTitle, logo } from "../meta";
 
 export const head: HeadConfig[] = [
   ["meta", { name: "keywords", content: keywords }],
+  ["meta", { name: "author", content: "Zhengqbbb" }],
   ["meta", { name: "twitter:title", content: ogTitle }],
   ["meta", { name: "twitter:description", content: descriptionEN }],
   ["meta", { name: "twitter:creator", content: "@zhengqbbb" }],
@@ -10,7 +11,6 @@ export const head: HeadConfig[] = [
   ["meta", { name: "twitter:card", content: "summary_large_image" }],
   ["meta", { name: "twitter:image", content: logo }],
   ["meta", { name: "twitter:image:alt", content: "logo" }],
-  ["meta", { name: "og:title", content: ogTitle }],
   ["meta", { name: "og:description", content: descriptionEN }],
   ["meta", { name: "og:url", content: site }],
   ["meta", { name: "og:type", content: "article" }],
@@ -28,6 +28,7 @@ export const head: HeadConfig[] = [
   ["link", { rel: "alternate", href: site, hreflang: "x-default" }],
   ["link", { rel: "alternate", href: site, hreflang: "en-us" }],
   ["link", { rel: "alternate", href: site + "/zh/", hreflang: "zh-hans" }],
+
   ["link", { rel: "shortcut icon", href: "/images/favicon.ico" }],
   ["link", { rel: "icon", type: "image/x-icon", size: "16x16 32x32", href: "/images/favicon.ico" }],
   ["link", { rel: "apple-touch-icon", href: "/images/icons/apple-touch-icon.png" }],
@@ -42,5 +43,8 @@ export const head: HeadConfig[] = [
   ["link", { rel: "icon", sizes: "192x192", href: "/images/icons/favicon-192.png" }],
   ["link", { rel: "mask-icon", href: "/images/icons/safari-pinned-tab.svg", color: "#dd6954" }],
 
+  /** "../build/plugins/pwa.ts" */
+  ["link", { rel: "prefetch", href: "/images/logo.svg" }],
+  ["link", { rel: "prefetch", href: "/manifest.webmanifest" }],
   ["link", { rel: "manifest", href: "/manifest.webmanifest" }]
 ];

@@ -3,5 +3,5 @@
  */
 
 export * from "./plugins/component";
-export * from "./plugins/radar";
+export * from "./plugins/pwa";
 export * from "./plugins/unocss";
