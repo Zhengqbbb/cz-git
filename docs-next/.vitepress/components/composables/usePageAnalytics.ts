@@ -14,6 +14,7 @@ const baiduAnalytics = (id: string) => {
   window._hmt = window._hmt || [];
 };
 
+/** Powered by @vitepress-next */
 declare const gtag: (...args: any[]) => void;
 const googleAnalytics = (id: string) => {
   if (window.dataLayer && window.gtag) {

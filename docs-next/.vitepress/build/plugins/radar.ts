@@ -1,7 +1,7 @@
 import ViteRadar from "vite-plugin-radar";
 
 /**
- * FIXME: vitepress can't handle vite transformIndexHtml
+ * FIXME: vitepress not resolve vite transformIndexHtml hook
  * All in one analytics loader for vite
  * @see https://github.com/stafyniaksacha/vite-plugin-radar
  */

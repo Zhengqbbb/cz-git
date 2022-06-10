@@ -7,7 +7,7 @@ import type { Plugin } from "vite";
 import { name, descriptionEN } from "../../meta";
 
 /**
- * FIXME: vitepress will render page finally, that use it can't work.
+ * FIXME: vitepress will render page in finally, that use it can't work.
  */
 const optimizePages = async (pwa: boolean) => {
   const pages = await fg("./.vitepress/dist/**/*.html", { onlyFiles: true });
