@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useData } from "vitepress";
 import { useEmojiItem, useMediumZoom } from "./composables";
 
-const features = useData().frontmatter.value.czFeatures;
-const pkgFeatureTitle = useData().frontmatter.value.pkgFeatureTitle;
-const emojiFeature = useData().frontmatter.value.emojiFeature;
 const emoji = useEmojiItem();
-const footer = useData().frontmatter.value.footerHtml;
+const features = computed(() => useData().frontmatter.value.czFeatures);
+const pkgFeatureTitle = computed(() => useData().frontmatter.value.pkgFeatureTitle);
+const emojiFeature = computed(() => useData().frontmatter.value.emojiFeature);
+const footer = computed(() =>useData().frontmatter.value.footerHtml);
 useMediumZoom();
 </script>
 
