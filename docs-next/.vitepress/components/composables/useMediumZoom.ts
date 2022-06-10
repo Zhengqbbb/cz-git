@@ -3,7 +3,7 @@ import { onMounted, inject, watch, nextTick } from "vue";
 import type { Zoom } from "medium-zoom";
 import type { App, InjectionKey } from "vue";
 import type { Router } from "vitepress";
-// declare const __VITEPRESS_SSR__: boolean;
+
 declare module "medium-zoom" {
   interface Zoom {
     refresh: (selector?: string) => void;

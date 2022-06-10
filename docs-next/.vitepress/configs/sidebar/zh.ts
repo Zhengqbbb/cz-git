@@ -44,16 +44,16 @@ export const zh: DefaultTheme.Sidebar = {
           link: "/zh/recipes/"
         },
         {
-          text: "issuePrefixs",
-          link: "/zh/recipes/issuePrefixs"
-        },
-        {
           text: "defaultScope",
           link: "/zh/recipes/defaultScope"
         },
         {
           text: "defaultIssues",
           link: "/zh/recipes/defaultIssues"
+        },
+        {
+          text: "issuePrefixs",
+          link: "/zh/recipes/issuePrefixs"
         }
       ]
     },

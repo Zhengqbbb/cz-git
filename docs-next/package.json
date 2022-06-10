@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "docs:build": "vitepress build --clean-cache --dest dist",
-    "docs:dev": "vitepress dev --clean-cache --port 8080",
+    "docs:dev": "vitepress dev --clean-cache --host --port 8080",
     "docs:info": "vitepress info",
     "docs:serve": "anywhere -h localhost -d .vitepress/dist"
   },

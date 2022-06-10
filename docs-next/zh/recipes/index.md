@@ -34,7 +34,7 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/172984678-b187607e-e67d-43b4-93e5-3d359f5044a9.gif)
 
-### 支持多选 scopes
+## 支持多选 scopes
 
 - 使用 <kbd>→</kbd> 或 <kbd>空格</kbd> 选中
 - 使用 <kbd>回车</kbd> 确定
