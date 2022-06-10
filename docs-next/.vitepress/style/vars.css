@@ -8,8 +8,8 @@
   --vp-c-brand: #eb5c5c;
   --vp-c-brand-light: #f63838;
   --vp-c-brand-lighter: #d2361c;
-  --vp-c-brand-dark: #ac3838;
-  --vp-c-brand-darker: #b33434;
+  --vp-c-brand-dark: rgba(172, 71, 71, 0.9);
+  --vp-c-brand-darker: #b74b4b;
   --vp-c-green-light: #16a891;
   --vp-custom-block-tip-border: rgba(18, 181, 157, 0.5);
   --vp-custom-block-tip-bg: rgba(18, 181, 157, 0.1);

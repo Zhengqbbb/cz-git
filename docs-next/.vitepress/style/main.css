@@ -35,6 +35,10 @@ kbd {
   color: var(--vp-c-brand-lighter);
 }
 
+.vp-doc .custom-block a {
+  color: var(--vp-c-brand);
+}
+
 .vp-doc .custom-block.details summary {
   cursor: pointer;
   font-weight: 600;
