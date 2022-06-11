@@ -4,10 +4,11 @@ import { useData } from "vitepress";
 import { useEmojiItem, useMediumZoom } from "./composables";
 
 const emoji = useEmojiItem();
-const features = computed(() => useData().frontmatter.value.czFeatures);
-const pkgFeatureTitle = computed(() => useData().frontmatter.value.pkgFeatureTitle);
-const emojiFeature = computed(() => useData().frontmatter.value.emojiFeature);
-const footer = computed(() =>useData().frontmatter.value.footerHtml);
+const frontmatter = computed(() => useData().frontmatter.value);
+const features = computed(() => frontmatter.value.czFeatures);
+const pkgFeatureTitle = computed(() => frontmatter.value.pkgFeatureTitle);
+const emojiFeature = computed(() => frontmatter.value.emojiFeature);
+const footer = computed(() => frontmatter.value.footerHtml);
 useMediumZoom();
 </script>
 
@@ -16,7 +17,7 @@ useMediumZoom();
     flex="~ wrap grow basis-30% md:row col"
     max-w-960px
     maauto
-    class="mt-14 py-4 justify-between items-stretch items-start"
+    class="mt-14 lg:px-0 px-2 py-4 justify-between items-stretch"
   >
     <div class="feat" v-for="(feat, i) in features" :key="i" :class="{ relative: i !== 2 }">
       <h2 class="featTitle">{{ feat.title }}</h2>
@@ -35,7 +36,8 @@ useMediumZoom();
     <div class="feat">
       <h2 class="featTitle">{{ emojiFeature.title }}</h2>
       <p class="dark:c-gray-4 c-gray-5 text-4.2">
-        <span text-6>{{ emoji }}</span>&nbsp; {{ emojiFeature.details }}
+        <span text-6>{{ emoji }}</span
+        >&nbsp; {{ emojiFeature.details }}
       </p>
     </div>
   </div>

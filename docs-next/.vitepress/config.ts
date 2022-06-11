@@ -5,8 +5,8 @@ export default defineConfig({
   base: pageConfig.base,
   head: pageConfig.head,
   locales: pageConfig.locales,
-  lastUpdated: true,
 
   markdown: pageConfig.markdownConfig,
-  themeConfig: pageConfig.themeConfig
+  themeConfig: pageConfig.themeConfig,
+  lastUpdated: true
 });
