@@ -4,6 +4,8 @@ export const en: DefaultTheme.Sidebar = {
   "/": [
     {
       text: "Guide",
+      collapsible: true,
+      collapsed: false,
       items: [
         {
           text: "Introduction",
@@ -21,6 +23,8 @@ export const en: DefaultTheme.Sidebar = {
     },
     {
       text: "Config",
+      collapsible: true,
+      collapsed: false,
       items: [
         {
           text: "Configure Template",
@@ -38,6 +42,8 @@ export const en: DefaultTheme.Sidebar = {
     },
     {
       text: "Recipes",
+      collapsible: true,
+      collapsed: false,
       items: [
         {
           text: "scopes",
@@ -46,6 +52,10 @@ export const en: DefaultTheme.Sidebar = {
         {
           text: "defaultScope",
           link: "/recipes/defaultScope"
+        },
+        {
+          text: "defaultSubject",
+          link: "/recipes/defaultSubject"
         },
         {
           text: "defaultIssues",

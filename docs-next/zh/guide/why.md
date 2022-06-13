@@ -6,7 +6,7 @@ sitemap:
     priority: 0.6
 ---
 
-# 为什么是 cz-git
+# 为什么选择 cz-git
 
 #### 为什么做了这款插件
 

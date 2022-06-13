@@ -25,8 +25,9 @@ kbd {
 
 .vp-doc mark {
   color: inherit;
-  padding: 0.2rem;
-  border-radius: 2px;
+  padding: 0.1rem 0.3rem;
+  border-radius: 8px;
+  font-weight: 700;
   border: 1px solid var(--vp-custom-block-tip-border);
   background-color: var(--vp-custom-block-tip-bg);
 }

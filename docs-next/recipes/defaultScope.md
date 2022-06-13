@@ -8,7 +8,7 @@
   - passed to defaultScope. pin the top of scope list
 
 ```js{5-11,16,17}
-// .commitlint.config.js
+// commitlint.config.js
 const { execSync } = require('child_process');
 
 // precomputed scope

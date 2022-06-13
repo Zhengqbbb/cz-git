@@ -4,6 +4,8 @@ export const zh: DefaultTheme.Sidebar = {
   "/zh/": [
     {
       text: "指南",
+      collapsible: true,
+      collapsed: false,
       items: [
         {
           text: "简介",
@@ -20,7 +22,9 @@ export const zh: DefaultTheme.Sidebar = {
       ]
     },
     {
-      text: "Config",
+      text: "配置",
+      collapsible: true,
+      collapsed: false,
       items: [
         {
           text: "配置模板",
@@ -38,22 +42,28 @@ export const zh: DefaultTheme.Sidebar = {
     },
     {
       text: "小窍门",
+      collapsible: true,
+      collapsed: false,
       items: [
         {
           text: "scopes",
           link: "/zh/recipes/"
         },
         {
+          text: "issuePrefixs",
+          link: "/zh/recipes/issuePrefixs"
+        },
+        {
           text: "defaultScope",
           link: "/zh/recipes/defaultScope"
         },
         {
-          text: "defaultIssues",
-          link: "/zh/recipes/defaultIssues"
+          text: "defaultSubject",
+          link: "/zh/recipes/defaultSubject"
         },
         {
-          text: "issuePrefixs",
-          link: "/zh/recipes/issuePrefixs"
+          text: "defaultIssues",
+          link: "/zh/recipes/defaultIssues"
         }
       ]
     },

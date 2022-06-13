@@ -131,7 +131,7 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE;
   - passed to defaultScope. pin the top of scope list
 
 ```js{5-11,16,17}
-// .commitlint.config.js
+// commitlint.config.js
 const { execSync } = require('child_process');
 
 // precomputed scope
@@ -153,6 +153,49 @@ module.exports = {
 ```
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/172989830-c3e436ad-adab-42f5-973f-b97f33748939.gif)
+
+<br>
+<br>
+
+### defaultSubject
+> Suitable for `defaultBody, customFooterPrefixs, defaultIssues`
+
+- **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly. <br> (**detailed categories, provides prefix template, and directly output template**...)
+  - E.g [Element-Plus](https://github.com/element-plus/element-plus)，which is a vue3 component library，The Commit of the component modified is strict
+  ```bash
+  # rule：https://github.com/element-plus/element-plus/blob/dev/commit-example.md
+  [type](scope): [messages]
+  # e.g:
+  feat(components): [button] I did something with button
+  ```
+  - We can get the component name through `git status` information
+  - Then pass it to defaultSubject, so that you can quickly use template. <br>Reducing duplicate input and spelling errors
+
+<br>
+
+```js{9-12,17}
+// commitlint.config.js
+const { execSync } = require('child_process')
+
+const gitStatus = execSync('git status --porcelain || true')
+  .toString()
+  .trim()
+  .split('\n')
+
+const subjectComplete = gitStatus
+  .find((r) => ~r.indexOf('M  packages/components'))
+  ?.replace(/\//g, '%%')
+  ?.match(/packages%%components%%((\w|-)*)/)?.[1]
+
+/** @type {import('cz-git').UserConfig} */
+module.exports = {
+  prompt: {
+    defaultSubject: subjectComplete && `[${subjectComplete}] `,
+  },
+};
+```
+
+![demo-gif](https://user-images.githubusercontent.com/40693636/173278720-d93f17ec-ef98-4706-8dec-101d5b68bf08.gif)
 
 <br>
 <br>
