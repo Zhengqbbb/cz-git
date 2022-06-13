@@ -1,7 +1,7 @@
 import type { HeadConfig } from "vitepress";
 import { name, site, descriptionEN, keywords, ogTitle, logo } from "../meta";
 
-export const head: HeadConfig[] = [
+const baseHead: HeadConfig[] = [
   ["meta", { name: "keywords", content: keywords }],
   ["meta", { name: "author", content: "Zhengqbbb" }],
   ["meta", { name: "twitter:title", content: ogTitle }],
@@ -41,10 +41,16 @@ export const head: HeadConfig[] = [
   ["link", { rel: "apple-touch-icon", sizes: "180x180", href: "/images/icons/favicon-180.png" }],
   ["link", { rel: "icon", sizes: "32x32", href: "/images/icons/favicon-32.png" }],
   ["link", { rel: "icon", sizes: "192x192", href: "/images/icons/favicon-192.png" }],
-  ["link", { rel: "mask-icon", href: "/images/icons/safari-pinned-tab.svg", color: "#dd6954" }],
-
-  /** "../build/plugins/pwa.ts" */
-  ["link", { rel: "prefetch", href: "/images/logo.svg" }],
-  ["link", { rel: "prefetch", href: "/manifest.webmanifest" }],
-  ["link", { rel: "manifest", href: "/manifest.webmanifest" }]
+  ["link", { rel: "mask-icon", href: "/images/icons/safari-pinned-tab.svg", color: "#dd6954" }]
 ];
+
+export const head: HeadConfig[] =
+  process.env?.npm_lifecycle_event === "docs:dev"
+    ? baseHead
+    : [
+        ...baseHead,
+        /** "../build/plugins/pwa.ts" */
+        ["link", { rel: "prefetch", href: "/images/logo.svg" }],
+        ["link", { rel: "prefetch", href: "/manifest.webmanifest" }],
+        ["link", { rel: "manifest", href: "/manifest.webmanifest" }]
+      ];
