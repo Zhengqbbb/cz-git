@@ -11,7 +11,7 @@ export const zh: DefaultTheme.NavItem[] = [
     link: "/zh/config/"
   },
   {
-    text: "小窍门",
+    text: "窍门",
     link: "/zh/recipes/"
   },
   {

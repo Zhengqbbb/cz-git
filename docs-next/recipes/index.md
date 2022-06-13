@@ -34,7 +34,7 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/172984678-b187607e-e67d-43b4-93e5-3d359f5044a9.gif)
 
-## Support for multiple scopes
+## support for multiple scopes
 
 - use <kbd>→</kbd> or <kbd>Space</kbd> to choice
 - use <kbd>Enter</kbd> to submit

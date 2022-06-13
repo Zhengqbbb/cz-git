@@ -41,7 +41,7 @@ export const zh: DefaultTheme.Sidebar = {
       ]
     },
     {
-      text: "小窍门",
+      text: "窍门",
       collapsible: true,
       collapsed: false,
       items: [

@@ -4,7 +4,7 @@
 - **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly. <br> (**detailed categories, provides prefix template, and directly output template**...)
   - E.g [Element-Plus](https://github.com/element-plus/element-plus)，which is a vue3 component library，The Commit of the component modified is strict
   ```bash
-  # rule：https://github.com/element-plus/element-plus/blob/dev/commit-example.md
+  # https://github.com/element-plus/element-plus/blob/dev/commit-example.md
   [type](scope): [messages]
   # e.g:
   feat(components): [button] I did something with button

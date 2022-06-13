@@ -4,7 +4,7 @@
 - **初始化补全模板**，可使用 <kbd>Tab</kbd> 或者 <kbd>→</kbd> 进行快速补全；亦可直接使用 <kbd>Enter</kbd> 输出模板。<br>适用于**细分类别，提供前置模板信息，直接输出模板**...
   - 例如 [Element-Plus](https://github.com/element-plus/element-plus)，这是一个 vue3 组件库，其关于组件方面修改的 commit 非常严格
   ```bash
-  # rule：https://github.com/element-plus/element-plus/blob/dev/commit-example.md
+  # https://github.com/element-plus/element-plus/blob/dev/commit-example.md
   [type](scope): [messages]
   # e.g:
   feat(components): [button] I did something with button
