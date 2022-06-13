@@ -297,23 +297,27 @@ export interface CommitizenGitOptions {
   defaultScope?: string;
 
   /**
-   * @description: default value show subject prompt
-   * @example: When you want to use default, just keybord <Enter> it
+   * @description: default value show subject template prompt
+   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
+   * @example: If you want to use default, just keybord <Enter> it
    */
   defaultSubject?: string;
 
   /**
-   * @description: default value show body and BREAKINGCHANGES prompt
+   * @description: default value show body and BREAKINGCHANGES template prompt
+   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
    * @example: When you want to use default, just keybord <Enter> it
    */
   defaultBody?: string;
   /**
-   * @description: default value show issuePrefixs custom prompt
+   * @description: default value show issuePrefixs custom template prompt
+   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
    * @example: When you want to use default, just keybord <Enter> it
    */
   defaultFooterPrefix?: string;
   /**
-   * @description: default value show issue foot prompt
+   * @description: default value show issue foot template prompt
+   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
    * @example: When you want to use default, just keybord <Enter> it
    */
   defaultIssues?: string;
