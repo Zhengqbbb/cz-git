@@ -2,10 +2,11 @@
   "name": "docs",
   "private": true,
   "scripts": {
-    "docs:build": "vitepress build --clean-cache --dest dist",
+    "docs:build": "pnpm pre:build && vitepress build --clean-cache && pnpm post:build",
     "docs:dev": "vitepress dev --clean-cache --host --port 8080",
-    "docs:info": "vitepress info",
-    "docs:serve": "anywhere -h localhost -d .vitepress/dist"
+    "docs:serve": "vitepress serve --clean-cache --host --port 8000",
+    "post:build": "esno .vitepress/build/scripts/postbuild.ts",
+    "pre:build": "esno .vitepress/build/scripts/prebuild.ts"
   },
   "dependencies": {
     "@vueuse/core": "^8.6.0",
@@ -13,13 +14,13 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.5",
-    "@unocss/reset": "^0.38.2",
+    "@unocss/reset": "^0.39.0",
     "@vitejs/plugin-vue": "^2.3.3",
-    "anywhere": "^1.6.0",
     "markdown-it-mark": "^3.0.1",
     "medium-zoom": "^1.0.6",
     "pathe": "^0.3.0",
-    "unocss": "^0.38.2",
+    "sitemap": "^7.1.1",
+    "unocss": "^0.39.0",
     "unplugin-vue-components": "^0.19.6",
     "vite": "^2.9.12",
     "vite-plugin-pwa": "^0.12.0",

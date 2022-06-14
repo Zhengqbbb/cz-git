@@ -1,45 +1,10 @@
 import fg from "fast-glob";
-import { promises as fs } from "fs";
 import { resolve } from "pathe";
 import { VitePWA } from "vite-plugin-pwa";
-import type { VitePluginPWAAPI } from "vite-plugin-pwa";
+// import type { VitePluginPWAAPI } from "vite-plugin-pwa";
+// import { optimizePages } from "../scripts/assert";
 import type { Plugin } from "vite";
 import { name, descriptionEN } from "../../meta";
-
-/**
- * FIXME: vitepress will render page in finally, that use it can't work.
- */
-const optimizePages = async (pwa: boolean) => {
-  const pages = await fg("./.vitepress/dist/**/*.html", { onlyFiles: true });
-
-  await Promise.all(
-    pages.map(async (page) => {
-      let html = await fs.readFile(page, "utf8");
-
-      const prefetchImg = `
-\n\t<link rel="prefetch" href="/images/logo.svg">
-      `;
-
-      if (pwa) {
-        html = html.replace(
-          "</head>",
-          `
-\t<link rel="prefetch" href="/manifest.webmanifest">${prefetchImg}
-\t<link rel="manifest" href="/manifest.webmanifest">\n</head>`
-        );
-      } else {
-        html = html.replace(
-          "</head>",
-          `
-${prefetchImg}
-</head>`
-        );
-      }
-
-      await fs.writeFile(page, html, "utf8");
-    })
-  );
-};
 
 /**
  * Vite Plugin PWA uses Workbox  library to build the service worker
@@ -89,9 +54,10 @@ export const pwaPostPlugin: Plugin = {
   name: "pwa:post",
   enforce: "post",
   async buildEnd() {
-    const pwaAPI: VitePluginPWAAPI = pwaPlugin.find((i) => i.name === "vite-plugin-pwa")?.api;
-    const pwa = pwaAPI && !pwaAPI.disabled;
-    await optimizePages(pwa);
-    if (pwa) await pwaAPI.generateSW();
+    // FIXME: vitepress will render page in finally, that use it can't work.
+    // const pwaAPI: VitePluginPWAAPI = pwaPlugin.find((i) => i.name === "vite-plugin-pwa")?.api;
+    // const pwa = pwaAPI && !pwaAPI.disabled;
+    // await optimizePages(pwa);
+    // if (pwa) await pwaAPI.generateSW();
   }
 };

@@ -3,6 +3,7 @@ node_modules
 *.log
 
 # Docs
+sitemap.xml
 urls.txt
 .temp
 .cache
