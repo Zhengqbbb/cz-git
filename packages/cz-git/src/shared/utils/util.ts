@@ -98,7 +98,7 @@ export const handleCustomTemplate = (
     { name: customAlias, value: "___CUSTOM___" },
     new cz.Separator()
   ];
-  if (!Array.isArray(target)) {
+  if (!Array.isArray(target) || target.length === 0) {
     return result;
   } else if (defaultValue !== "") {
     // pin the defaultValue to the top
