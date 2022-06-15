@@ -21,7 +21,10 @@ export const themeConfig: DefaultTheme.Config = {
   algolia: {
     appId: "QC8EFXZNC3",
     apiKey: "bf9a47e8561e6b8ffdda0bf8595a2f5d",
-    indexName: "cz-git"
+    indexName: "cz-git",
+    searchParameters: {
+      facetFilters: ["lang:en-US"]
+    }
   },
   nav: nav.en,
   sidebar: sidebar.en
