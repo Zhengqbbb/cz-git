@@ -11,9 +11,7 @@ export const themeConfig: DefaultTheme.Config = {
   logo: "/images/logo.png",
   socialLinks: [{ icon: "github", link: github }],
   editLink: {
-    repo: "Zhengqbbb/cz-git",
-    branch: "main",
-    dir: "docs",
+    pattern: `${github}/edit/main/docs/:path`,
     text: "Suggest changes to this page"
   },
   localeLinks: {

@@ -15,7 +15,7 @@ useMediumZoom();
 <template>
   <div
     flex="~ wrap grow basis-30% md:row col"
-    max-w-960px
+    max-w-1152px
     maauto
     class="mt-14 lg:px-0 px-2 py-4 justify-between items-stretch"
   >
@@ -41,7 +41,7 @@ useMediumZoom();
       </p>
     </div>
   </div>
-  <p class="mt-10 maauto max-w-960px px-2">
+  <p class="mt-10 maauto max-w-1152px lg:px-0 px-2">
     <img
       class="max-w-100%"
       src="https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif"
