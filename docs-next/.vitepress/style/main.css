@@ -31,17 +31,14 @@ kbd {
   background-color: var(--vp-custom-block-tip-bg);
 }
 
-.vp-doc a:hover {
-  color: var(--vp-c-brand-lighter);
-}
-
-.vp-doc .custom-block a {
-  color: var(--vp-c-brand);
-}
-
 .vp-doc .custom-block.details summary {
   cursor: pointer;
   font-weight: 600;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand);
+  text-decoration: underline;
 }
 
 .VPLink.edit-link-button:hover {
@@ -98,8 +95,14 @@ kbd {
  * -------------------------------------------------------------------------- */
 
 .vp-doc .custom-block a {
+  color: var(--vp-c-brand);
   text-decoration: none;
   transition: opacity 0.1s;
+}
+
+.vp-doc .custom-block a:hover {
+  color: var(--vp-c-brand);
+  text-decoration: underline;
 }
 
 .vp-doc .custom-block div[class*="language-"] code {
