@@ -4,15 +4,18 @@ import { version, github, npm } from "../../meta";
 export const en: DefaultTheme.NavItem[] = [
   {
     text: "Guide",
-    link: "/guide/"
+    link: "/guide/",
+    activeMatch: "/guide/"
   },
   {
     text: "Config",
-    link: "/config/"
+    link: "/config/",
+    activeMatch: "/config/"
   },
   {
     text: "Recipes",
-    link: "/recipes/"
+    link: "/recipes/",
+    activeMatch: "/recipes/"
   },
   {
     text: `v${version}`,
