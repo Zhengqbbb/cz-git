@@ -1,4 +1,5 @@
 import type { MarkdownOptions } from "vitepress";
+import { useCodeGroup, useCodeGroupItem } from "../components/markdown";
 
 /**
  * vitepress markdown config
@@ -13,5 +14,9 @@ export const markdownConfig: MarkdownOptions = {
   // theme: "one-dark-pro",
   config: (md) => {
     md.use(require("markdown-it-mark"));
+    md.use(useCodeGroup.container, useCodeGroup.type, { render: useCodeGroup.render });
+    md.use(useCodeGroupItem.container, useCodeGroupItem.type, {
+      render: useCodeGroupItem.render
+    });
   }
 };

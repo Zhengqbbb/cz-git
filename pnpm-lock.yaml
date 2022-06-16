@@ -66,6 +66,7 @@ importers:
       '@unocss/reset': ^0.39.0
       '@vitejs/plugin-vue': ^2.3.3
       '@vueuse/core': ^8.6.0
+      markdown-it-container: ^3.0.0
       markdown-it-mark: ^3.0.1
       medium-zoom: ^1.0.6
       sitemap: ^7.1.1
@@ -83,6 +84,7 @@ importers:
       '@iconify-json/carbon': 1.1.5
       '@unocss/reset': 0.39.0
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
+      markdown-it-container: 3.0.0
       markdown-it-mark: 3.0.1
       medium-zoom: 1.0.6
       sitemap: 7.1.1
@@ -99,6 +101,7 @@ importers:
       '@unocss/reset': ^0.39.0
       '@vitejs/plugin-vue': ^2.3.3
       '@vueuse/core': ^8.6.0
+      markdown-it-container: ^3.0.0
       markdown-it-mark: ^3.0.1
       medium-zoom: ^1.0.6
       sitemap: ^7.1.1
@@ -116,6 +119,7 @@ importers:
       '@iconify-json/carbon': 1.1.5
       '@unocss/reset': 0.39.0
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.12+vue@3.2.37
+      markdown-it-container: 3.0.0
       markdown-it-mark: 3.0.1
       medium-zoom: 1.0.6
       sitemap: 7.1.1
@@ -4970,6 +4974,10 @@ packages:
   /map-obj/4.3.0:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
+    dev: true
+
+  /markdown-it-container/3.0.0:
+    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==}
     dev: true
 
   /markdown-it-mark/3.0.1:

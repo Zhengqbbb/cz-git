@@ -38,7 +38,7 @@
     "example:checkbox": "node ./packages/@cz-git/plugin-inquirer/examples/checkbox.js",
     "example:input": "node ./packages/@cz-git/plugin-inquirer/examples/input.js",
     "example:list": "node ./packages/@cz-git/plugin-inquirer/examples/list.js",
-    "lint": "eslint --ext .ts packages docs/.vuepress",
+    "lint": "eslint --ext .ts packages docs/.vitepress",
     "prepare": "husky install",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && pnpm run -r --stream release:changelog",
     "test": "vitest",

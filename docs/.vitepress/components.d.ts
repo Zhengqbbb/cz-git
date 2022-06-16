@@ -5,6 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    CodeGroupItem: typeof import('./components/CodeGroupItem.vue')['default']
     HomePage: typeof import('./components/HomePage.vue')['default']
   }
 }

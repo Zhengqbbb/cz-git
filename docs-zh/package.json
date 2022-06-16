@@ -13,6 +13,7 @@
     "@iconify-json/carbon": "^1.1.5",
     "@unocss/reset": "^0.39.0",
     "@vitejs/plugin-vue": "^2.3.3",
+    "markdown-it-container": "^3.0.0",
     "markdown-it-mark": "^3.0.1",
     "medium-zoom": "^1.0.6",
     "sitemap": "^7.1.1",
