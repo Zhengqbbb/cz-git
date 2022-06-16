@@ -3,10 +3,15 @@
 
 ### Features
 
-* **cz-git:** feat(cz-git): optimize scope list for empty [#35](https://github.com/Zhengqbbb/cz-git/pull/35) ([#34](https://github.com/Zhengqbbb/cz-git/issues/34)) ([4a38b92](https://github.com/Zhengqbbb/cz-git/commit/4a38b9282267d4eabbe49ec60cffcab9e85e1464))
+* **cz-git:** optimize scope list for empty [#35](https://github.com/Zhengqbbb/cz-git/pull/35) ([#34](https://github.com/Zhengqbbb/cz-git/issues/34)) ([4a38b92](https://github.com/Zhengqbbb/cz-git/commit/4a38b9282267d4eabbe49ec60cffcab9e85e1464))
 
 * **cz-git:** add defaultFooterPrefix provide custom footer  prefix ([90f473b](https://github.com/Zhengqbbb/cz-git/commit/90f473b2ad49645adf6d11480a5b90c99228f642))
 
+### Refactor
+
+* **site**: new website deploy | use vitepress ([d2a310e](https://github.com/Zhengqbbb/cz-git/commit/d2a310ec8b4769d61017654e6b06879d44218a34))
+
+see: https://cz-git.qbenben.com/ 
 
 
 
