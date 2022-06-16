@@ -160,6 +160,7 @@ kbd {
 }
 
 .code-group .code-group__nav-tab {
+  position: relative;
   margin-right: 0.65rem;
   padding: 5px;
   cursor: pointer;
@@ -173,8 +174,20 @@ kbd {
 }
 
 .code-group .code-group__nav-tab-active {
-  border-bottom: var(--vp-c-brand) 1px solid;
   box-shadow: var(--vp-c-kbd-box-inside-shadow);
+}
+
+.code-group .code-group__nav-tab-active::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--vp-c-text-3);
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .code-group .code-group-item {
