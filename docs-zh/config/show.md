@@ -131,7 +131,7 @@ typesAppend: [
 - **默认** : `""`
 - **额外** : 在 **自定义范围** 中是否使用显示默认值 
 
-==提示== [⇒ 查看小窍门](/zh/recipes/defaultScope.html) 
+==提示== [⇒ 查看小窍门](/recipes/defaultScope.html) 
 
 ## defaultSubject
 
@@ -140,7 +140,7 @@ typesAppend: [
 - **默认** : `""`
 - **使用** : **初始化补全模板**，可使用 <kbd>Tab</kbd> 或者 <kbd>→</kbd> 进行快速补全；亦可直接使用 <kbd>Enter</kbd> 输出模板。
 
-==提示== [⇒ 查看小窍门](/zh/recipes/defaultScope.html) 
+==提示== [⇒ 查看小窍门](/recipes/defaultScope.html) 
 
 ## defaultBody
 
@@ -163,4 +163,4 @@ typesAppend: [
 - **默认** : `""`
 - **使用** : **初始化补全模板**，可使用 <kbd>Tab</kbd> 或者 <kbd>→</kbd> 进行快速补全；亦可直接使用 <kbd>Enter</kbd> 输出模板。
 
-==提示== [⇒ 查看小窍门](/zh/recipes/defaultIssues.html) 
+==提示== [⇒ 查看小窍门](/recipes/defaultIssues.html) 
