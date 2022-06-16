@@ -1,3 +1,12 @@
+## [1.3.5](https://github.com/Zhengqbbb/cz-git/compare/v1.3.4...v1.3.5) (2022-06-16)
+
+
+### Features
+
+* **cz-git:** add defaultFooterPrefix provide custom footer  prefix ([90f473b](https://github.com/Zhengqbbb/cz-git/commit/90f473b2ad49645adf6d11480a5b90c99228f642))
+
+
+
 ## [1.3.4](https://github.com/Zhengqbbb/cz-git/compare/v1.3.3...v1.3.4) (2022-06-04)
 
 
