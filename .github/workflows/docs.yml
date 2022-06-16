@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'docs/**'
+      - 'docs-zh/**'
       - '**.md'
     tags:
       - 'v*'
@@ -44,5 +45,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-page
           commit_message: "build: :books: deploy docs"
-          publish_dir: docs/dist
+          publish_dir: docs/.vitepress/dist
           cname: cz-git.qbenben.com
