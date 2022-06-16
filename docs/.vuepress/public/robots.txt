@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://cz-git.qbenben.com/sitemap.xml
