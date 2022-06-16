@@ -31,7 +31,7 @@
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/guide/getting-started.html">Installation</a>
+    <a href="https://cz-git.qbenben.com/guide/">Installation</a>
     &nbsp; | &nbsp;
     <a href="https://cz-git.qbenben.com">Website</a>
     &nbsp; | &nbsp;
@@ -51,8 +51,8 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
 - **Lightweight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
-- [Better for monorepo engineering](https://cz-git.qbenben.com/guide/recipes.html#scopes) and **commitlint** project to give relevant verification information to the command line.
-- Better linking with [issuePrefixs](https://cz-git.qbenben.com/guide/recipes.html#defaultissues) **for issue** | ✅ Support **emoji** in commit.
+- [Better for monorepo engineering](https://cz-git.qbenben.com/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
+- Better linking with [issuePrefixs](https://cz-git.qbenben.com/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
 
 [⇒ Why cz-git](https://cz-git.qbenben.com/guide/why.html)
 
@@ -64,25 +64,25 @@ added 1 package in 0.461s
 
 ## Usage
 
-[⇒ Get Started](https://cz-git.qbenben.com/guide/getting-started.html)
+[⇒ Get Started](https://cz-git.qbenben.com/guide/)
 
 ## Configure Template
 
-[⇒ Configure Template](https://cz-git.qbenben.com/guide/configuration.html)
+[⇒ Configure Template](https://cz-git.qbenben.com/config/)
 
 ## Options
 
-[⇒ Show Related](https://cz-git.qbenben.com/guide/options-show.html)
+[⇒ Show Related](https://cz-git.qbenben.com/config/show.html)
 
-[⇒ Engineering Related](https://cz-git.qbenben.com/guide/option-engineer.html)
+[⇒ Engineering Related](https://cz-git.qbenben.com/config/engineer.html)
 
 ## Recipes
 
-[⇒ Recipes](https://cz-git.qbenben.com/guide/recipes.html)
+[⇒ Recipes](https://cz-git.qbenben.com/recipes/)
 
 ## FAQ
 
-[⇒ FAQ](https://cz-git.qbenben.com/guide/faq.html)
+[⇒ FAQ](https://cz-git.qbenben.com/faq/)
 
 ## Projects using cz-git
 
