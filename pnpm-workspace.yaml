@@ -1,4 +1,5 @@
 packages:
   - docs
+  - docs-zh
   - packages/cz-git
   - packages/@cz-git/*

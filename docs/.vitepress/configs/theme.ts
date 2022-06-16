@@ -1,7 +1,7 @@
 import type { DefaultTheme } from "vitepress";
 import * as nav from "./navbar";
 import * as sidebar from "./sidebar";
-import { github } from "../meta";
+import { github, site } from "../meta";
 
 /**
  * Theme configs let you customize your theme.
@@ -16,7 +16,7 @@ export const themeConfig: DefaultTheme.Config = {
   },
   localeLinks: {
     text: "English",
-    items: [{ text: "简体中文", link: "/zh/" }]
+    items: [{ text: "简体中文", link: `${site}/zh/` }]
   },
   algolia: {
     appId: "QC8EFXZNC3",
