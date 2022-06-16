@@ -211,7 +211,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       type: "complete-input",
       name: "footerPrefix",
       message: options.messages?.customFooterPrefixs,
-      completeValue: options.defaultIssues || undefined,
+      completeValue: options.defaultFooterPrefix || undefined,
       when: (answers: Answers) => {
         return answers.footerPrefix === "___CUSTOM___";
       },

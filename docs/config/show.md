@@ -115,7 +115,7 @@ Try running `emoji=1 cz` to **enable output emoji mode in the current session**
 <br/>
 
 :::tip
-Using ==default value== can produce many ways to make the tool more suitable for you or your team's habits, [⇒ see the recipes](/recipes/defaultScope.html#defaultscope)
+Using ==default value== can produce many ways to make the tool more suitable for you or your team's habits, see the recipes.
 :::
 
 ## defaultType
@@ -126,30 +126,42 @@ Using ==default value== can produce many ways to make the tool more suitable for
 
 ## defaultScope
 
-- **description** : Whether to use display default value in **custom scope**
+- **description** : pin scope item the top of the scope list (match item value) 
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
+- **other** : Initialize the complation template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
-==Tip:== pin scope item the top of the scope list (match item value)
+==Tip== [⇒ see the recipes](/recipes/defaultScope.html)
+
 
 ## defaultSubject
 
 - **description** : Whether to use the display default value in the **short description**
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
+- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+
+==Tip== [⇒ see the recipes](/recipes/defaultSubject.html)
 
 ## defaultBody
 
 - **description** : Whether to use the display default value in the **detailed description**
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
+- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+
+## defaultFooterPrefix
+
+- **description** : Whether to use the display default value in the **custom ISSUE prefix**
+- **type** : `string`
+- **default** : `""`
+- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
 ## defaultIssues
 
-- **description** : Whether to use the display default value in the **input ISSUE and custom ISSUE prefix**
+- **description** : Whether to use the display default value in the **input ISSUE**
 - **type** : `string`
 - **default** : `""`
-- **use** : when you want the default value to appear on the command line just press the <kbd>Enter</kbd> key
+- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+
+==Tip== [⇒ see the recipes](/recipes/defaultIssues.html)
