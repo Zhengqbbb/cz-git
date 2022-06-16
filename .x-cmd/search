@@ -3,7 +3,7 @@
 # Section: Arg
 WORK_DIR="$(x wsroot)"
 WEB_SITE="cz-git.qbenben.com"
-DOC_SEARCH_CONFIG_FILE=$WORK_DIR/docs/.vuepress/configs/docSearch/docSearchConfig.json
+DOC_SEARCH_CONFIG_FILE=$WORK_DIR/docs/.vitepress/build/docSearchConfig.json
 
 # Section: Fuction
 search() {

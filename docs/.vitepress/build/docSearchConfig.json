@@ -1,21 +1,22 @@
 {
   "index_name": "cz-git",
   "start_urls": [
-    "https://cz-git.qbenben.com"
+    "https://cz-git.qbenben.com",
+    "https://cz-git.qbenben.com/zh/"
   ],
   "stop_urls": [],
   "selectors": {
     "lvl0": {
-      "selector": ".sidebar-heading.active",
+      "selector": ".VPLink.active",
       "global": true,
       "default_value": "Documentation"
     },
-    "lvl1": ".theme-default-content h1",
-    "lvl2": ".theme-default-content h2",
-    "lvl3": ".theme-default-content h3",
-    "lvl4": ".theme-default-content h4",
-    "lvl5": ".theme-default-content h5",
-    "text": ".theme-default-content p, .theme-default-content li",
+    "lvl1": ".VPDoc h1",
+    "lvl2": ".VPDoc h2",
+    "lvl3": ".VPDoc h3",
+    "lvl4": ".VPDoc h4",
+    "lvl5": ".VPDoc h5",
+    "text": ".VPDoc p, .VPDoc li",
     "lang": {
       "selector": "/html/@lang",
       "type": "xpath",
