@@ -80,7 +80,7 @@
     "sort-package-json": "^1.57.0",
     "tsup": "6.1.2",
     "typescript": "^4.7.3",
-    "vitest": "^0.14.2"
+    "vitest": "^0.15.1"
   },
   "engines": {
     "pnpm": ">=7"
