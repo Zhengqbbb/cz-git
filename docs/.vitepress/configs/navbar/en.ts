@@ -27,6 +27,10 @@ export const en: DefaultTheme.NavItem[] = [
       {
         text: "NPM",
         link: npm
+      },
+      {
+        text: "FAQ",
+        link: "/faq/"
       }
     ]
   }

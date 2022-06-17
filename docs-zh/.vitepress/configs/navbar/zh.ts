@@ -27,6 +27,10 @@ export const zh: DefaultTheme.NavItem[] = [
       {
         text: "NPM",
         link: npm
+      },
+      {
+        text: "常见问题",
+        link: "/faq/"
       }
     ]
   }
