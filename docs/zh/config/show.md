@@ -84,19 +84,19 @@ typesAppend: [
 - **类型** : `string`
 - **默认** : `empty`
 
-## customIssuePrefixsAlign
+## customIssuePrefixesAlign
 
 - **描述** : 设置 **选择 issue 前缀** 中 跳过选项(skip) 和 自定义选项(custom) 的 **位置**
 - **类型** : `"top" | "bottom" | "top-bottom" | "bottom-top"`
 - **默认** : `"top"`
 
-## customIssuePrefixsAlias
+## customIssuePrefixesAlias
 
 - **描述** : 自定义 **选择 issue 前缀** 中 自定义选项(custom) 在命令行中显示的 **名称**
 - **类型** : `string`
 - **默认** : `custom`
 
-## emptyIssuePrefixsAlias
+## emptyIssuePrefixesAlias
 
 - **描述** : 自定义 **选择 issue 前缀** 中 跳过选项(skip) 在命令行中显示的 **名称**
 - **类型** : `string`

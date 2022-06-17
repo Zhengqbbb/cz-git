@@ -50,8 +50,8 @@ export const zh: DefaultTheme.Sidebar = {
           link: "/recipes/"
         },
         {
-          text: "issuePrefixs",
-          link: "/recipes/issuePrefixs"
+          text: "issuePrefixes",
+          link: "/recipes/issuePrefixes"
         },
         {
           text: "defaultScope",

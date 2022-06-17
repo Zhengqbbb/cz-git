@@ -186,31 +186,31 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     {
       type: "search-list",
       name: "footerPrefix",
-      message: options.messages?.footerPrefixsSelect,
+      message: options.messages?.footerPrefixesSelect,
       themeColorCode: options?.themeColorCode,
       source: (_: Answers, input: string) => {
-        const issuePrefixSource = handleCustomTemplate(
-          options.issuePrefixs as Option[],
+        const issuePrefixesource = handleCustomTemplate(
+          options.issuePrefixes as Option[],
           cz,
-          options.customIssuePrefixsAlign,
-          options.emptyIssuePrefixsAlias,
-          options.customIssuePrefixsAlias,
-          options.allowCustomIssuePrefixs,
-          options.allowEmptyIssuePrefixs
+          options.customIssuePrefixesAlign,
+          options.emptyIssuePrefixesAlias,
+          options.customIssuePrefixesAlias,
+          options.allowCustomIssuePrefixes,
+          options.allowEmptyIssuePrefixes
         );
-        return fuzzyFilter(input, issuePrefixSource);
+        return fuzzyFilter(input, issuePrefixesource);
       },
       when: () =>
         !isSingleItem(
-          options.allowCustomIssuePrefixs,
-          options.allowEmptyIssuePrefixs,
-          options.issuePrefixs
+          options.allowCustomIssuePrefixes,
+          options.allowEmptyIssuePrefixes,
+          options.issuePrefixes
         )
     },
     {
       type: "complete-input",
       name: "footerPrefix",
-      message: options.messages?.customFooterPrefixs,
+      message: options.messages?.customFooterPrefixes,
       completeValue: options.defaultFooterPrefix || undefined,
       when: (answers: Answers) => {
         return answers.footerPrefix === "___CUSTOM___";

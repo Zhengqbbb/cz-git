@@ -56,7 +56,7 @@ describe("config loader", () => {
       },
       prompt: {
         useEmoji: true,
-        customIssuePrefixsAlign: "top"
+        customIssuePrefixesAlign: "top"
       }
     });
   }, 1000);
@@ -72,7 +72,7 @@ describe("config loader", () => {
       },
       prompt: {
         useEmoji: true,
-        customIssuePrefixsAlign: "top",
+        customIssuePrefixesAlign: "top",
         themeColorCode: "38;5;043"
       }
     });

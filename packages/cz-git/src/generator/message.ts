@@ -22,12 +22,12 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
   }
   if (
     isSingleItem(
-      options.allowCustomIssuePrefixs,
-      options.allowEmptyIssuePrefixs,
-      options.issuePrefixs
+      options.allowCustomIssuePrefixes,
+      options.allowEmptyIssuePrefixes,
+      options.issuePrefixes
     )
   ) {
-    mapping.singeIssuePrefix = options.issuePrefixs?.[singleIndex].value || "";
+    mapping.singeIssuePrefix = options.issuePrefixes?.[singleIndex].value || "";
   }
   return mapping;
 };

@@ -20,11 +20,11 @@ module.exports = {
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options
     themeColorCode: "38;5;043",
-    issuePrefixs: [
+    issuePrefixes: [
       { value: "link",   name: "link:     Work in processing to ISSUES" },
       { value: "closed", name: "closed:   ISSUES has been processed" }
     ],
-    customIssuePrefixsAlign: !issue ? "top" : "bottom",
+    customIssuePrefixesAlign: !issue ? "top" : "bottom",
     defaultIssues: !issue ? "" : `#${issue}`
   }
 };

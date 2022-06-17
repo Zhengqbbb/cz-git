@@ -112,23 +112,23 @@ sitemap:
 - **类型** : `Array<"scope" | "body" | "breaking" | "footerPrefix" | "footer">`
 - **默认** : `[]`
 
-## issuePrefixs
+## issuePrefixes
 
 - **描述** : 自定义选择issue前缀
 - **类型** : `Array<{ value: string, name: string }>`
 - **默认** : `[{ value: "closed", name: "closed:   ISSUES has been processed" }]`
 
 :::tip
-国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br/> ==利用 commit message改变issue状态== [⇒ 查看小窍门](/recipes/issuePrefixs.html)
+国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br/> ==利用 commit message改变issue状态== [⇒ 查看小窍门](/recipes/issuePrefixes.html)
 :::
 
-## allowCustomIssuePrefixs
+## allowCustomIssuePrefixes
 
 - **描述** : 是否在选择 **ISSUE 前缀** 显示自定义选项(custom)
 - **类型** : `boolean`
 - **默认** : `true`
 
-## allowEmptyIssuePrefixs
+## allowEmptyIssuePrefixes
 
 - **描述** : 是否在选择 **ISSUE 前缀** 显示为跳过选项(skip)
 - **类型** : `boolean`

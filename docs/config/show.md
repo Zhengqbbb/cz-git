@@ -84,19 +84,19 @@ Try running `emoji=1 cz` to **enable output emoji mode in the current session**
 - **type** : `string`
 - **default** : `empty`
 
-## customIssuePrefixsAlign
+## customIssuePrefixesAlign
 
 - **description** : Set the **location** of skip option (skip) and custom option (custom) in **select issue prefix**
 - **type** : `"top" | "bottom" | "top-bottom" | "bottom-top"`
 - **default** : `"top"`
 
-## customIssuePrefixsAlias
+## customIssuePrefixesAlias
 
 - **description** : custom **select the issue prefix** in the custom option (custom) to display the **name** on the command line
 - **type** : `string`
 - **default** : `custom`
 
-## emptyIssuePrefixsAlias
+## emptyIssuePrefixesAlias
 
 - **description** : Customize the **name** displayed on the command line in the skip option (skip) in the **select issue prefix**
 - **type** : `string`

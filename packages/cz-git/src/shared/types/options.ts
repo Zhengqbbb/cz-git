@@ -53,12 +53,12 @@ export type Answers = {
   /**
    * @default: Select the ISSUES type of change (optional):
    */
-  footerPrefixsSelect?: string;
+  footerPrefixesSelect?: string;
   footerPrefix?: string;
   /**
    * @default: Input ISSUES prefix:
    */
-  customFooterPrefixs?: string;
+  customFooterPrefixes?: string;
   /**
    * @default: List any ISSUES AFFECTED by this change. E.g.: #31, #34:
    */
@@ -219,36 +219,36 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Provides a select issue prefix box in footer
-   * @default: issuePrefixs: [{ value: "closed", name: "ISSUES has been processed" }]
+   * @default: issuePrefixes: [{ value: "closed", name: "ISSUES has been processed" }]
    */
-  issuePrefixs?: Option[];
+  issuePrefixes?: Option[];
 
   /**
    * @default: "top"
    */
-  customIssuePrefixsAlign?: "top" | "bottom" | "top-bottom" | "bottom-top";
+  customIssuePrefixesAlign?: "top" | "bottom" | "top-bottom" | "bottom-top";
 
   /**
    * @default: "skip"
    */
-  emptyIssuePrefixsAlias?: string;
+  emptyIssuePrefixesAlias?: string;
 
   /**
    * @default: "custom"
    */
-  customIssuePrefixsAlias?: string;
+  customIssuePrefixesAlias?: string;
 
   /**
-   * @description: Whether to show "custom" selecting issue prefixs
+   * @description: Whether to show "custom" selecting issue Prefixes
    * @default true
    */
-  allowCustomIssuePrefixs?: boolean;
+  allowCustomIssuePrefixes?: boolean;
 
   /**
-   * @description: Whether to show "skip(empty)" when selecting issue prefixs
+   * @description: Whether to show "skip(empty)" when selecting issue Prefixes
    * @default true
    */
-  allowEmptyIssuePrefixs?: boolean;
+  allowEmptyIssuePrefixes?: boolean;
 
   /**
    * @description: Prompt final determination whether to display the color
@@ -310,7 +310,7 @@ export interface CommitizenGitOptions {
    */
   defaultBody?: string;
   /**
-   * @description: default value show issuePrefixs custom template prompt
+   * @description: default value show issuePrefixes custom template prompt
    * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
    * @example: When you want to use default, just keybord <Enter> it
    */
@@ -333,8 +333,8 @@ export const defaultConfig = Object.freeze({
      subject: "Write a SHORT, IMPERATIVE tense description of the change:\n",
      body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
      breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
-     footerPrefixsSelect: "Select the ISSUES type of change (optional):",
-     customFooterPrefixs: "Input ISSUES prefix:",
+     footerPrefixesSelect: "Select the ISSUES type of change (optional):",
+     customFooterPrefixes: "Input ISSUES prefix:",
      footer: "List any ISSUES AFFECTED by this change. E.g.: #31, #34:\n",
      confirmCommit: "Are you sure you want to proceed with the commit above?"
    },
@@ -367,12 +367,12 @@ export const defaultConfig = Object.freeze({
    breaklineNumber: 100,
    breaklineChar: "|",
    skipQuestions: [],
-   issuePrefixs: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
-   customIssuePrefixsAlign: "top",
-   emptyIssuePrefixsAlias: "skip",
-   customIssuePrefixsAlias: "custom",
-   allowCustomIssuePrefixs: true,
-   allowEmptyIssuePrefixs: true,
+   issuePrefixes: [{ value: "closed", name: "closed:   ISSUES has been processed" }],
+   customIssuePrefixesAlign: "top",
+   emptyIssuePrefixesAlias: "skip",
+   customIssuePrefixesAlias: "custom",
+   allowCustomIssuePrefixes: true,
+   allowEmptyIssuePrefixes: true,
    confirmColorize: true,
    maxHeaderLength: Infinity,
    maxSubjectLength: Infinity,

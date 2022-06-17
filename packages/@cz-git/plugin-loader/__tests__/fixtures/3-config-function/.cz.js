@@ -1,5 +1,5 @@
 const mockUseEmoji = () => process.env.TEST && true;
-const mockCustomIssuePrefixsAlign = () => {
+const mockCustomIssuePrefixesAlign = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("top");
@@ -9,5 +9,5 @@ const mockCustomIssuePrefixsAlign = () => {
 
 module.exports = {
   useEmoji: mockUseEmoji,
-  customIssuePrefixsAlign: mockCustomIssuePrefixsAlign
+  customIssuePrefixesAlign: mockCustomIssuePrefixesAlign
 };

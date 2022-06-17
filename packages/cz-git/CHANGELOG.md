@@ -164,7 +164,7 @@
 
 ### Features
 
-* **cz-git:** add strict issuePrefixs configure ([f2d11a9](https://github.com/Zhengqbbb/cz-git/commit/f2d11a93db6cb8bc17f80d9895eac25f2ef6469d)), closes [#12](https://github.com/Zhengqbbb/cz-git/issues/12)
+* **cz-git:** add strict issuePrefixes configure ([f2d11a9](https://github.com/Zhengqbbb/cz-git/commit/f2d11a93db6cb8bc17f80d9895eac25f2ef6469d)), closes [#12](https://github.com/Zhengqbbb/cz-git/issues/12)
 * **cz-git:** allowEmptyScopes can base on ["scope-empty"] rule ([4d3eff9](https://github.com/Zhengqbbb/cz-git/commit/4d3eff9d1d3f5c113264a0b7d84dbc0277f38705)), closes [#15](https://github.com/Zhengqbbb/cz-git/issues/15)
 * **cz-git:** use defaultScope can star item of scope list ([b899d2c](https://github.com/Zhengqbbb/cz-git/commit/b899d2c47967752cc364d7a0b747175d0697ea29)), closes [#16](https://github.com/Zhengqbbb/cz-git/issues/16)
 
@@ -300,9 +300,9 @@
 
 ### ⚠ BREAKING CHANGES
 
-* **cz-git:** - `customScopesAlign` and `customIssuePrefixsAlign`:
+* **cz-git:** - `customScopesAlign` and `customIssuePrefixesAlign`:
 can change align in selet
-- `emptyScopesAlias`, `customScopesAlias`, `emptyIssuePrefixsAlias`, `customIssuePrefixsAlias`:
+- `emptyScopesAlias`, `customScopesAlias`, `emptyIssuePrefixesAlias`, `customIssuePrefixesAlias`:
 can change name of the prompt show
 
 ### Features
@@ -322,9 +322,9 @@ can change name of the prompt show
 - feat: allowCustomScopes and allowCustomScopes control disable
 - feat: scopes can auto load value
 from `commitlint`
-* **cz-git:** - `customScopesAlign` and `customIssuePrefixsAlign`:
+* **cz-git:** - `customScopesAlign` and `customIssuePrefixesAlign`:
 can change align in selet
-- `emptyScopesAlias`, `customScopesAlias`, `emptyIssuePrefixsAlias`, `customIssuePrefixsAlias`:
+- `emptyScopesAlias`, `customScopesAlias`, `emptyIssuePrefixesAlias`, `customIssuePrefixesAlias`:
 can change name of the prompt show
 
 ### Features
