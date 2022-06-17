@@ -1,4 +1,4 @@
-import { defineConfig } from "tsup";
+import { Options } from "tsup";
 
 /**
  * NOTE: build types for `src/index.ts` only
@@ -6,14 +6,15 @@ import { defineConfig } from "tsup";
  * probbably a bug in rollup-plugin-dts
  */
 
-export default defineConfig((options) => {
-  return {
-    minify: false,
-    entry: !options.watch ? ["./dist/index.js"] : ["./src/index.js"],
-    outDir: "./lib",
-    tsconfig: "./tsconfig.build.json",
-    sourcemap: false,
-    dts: true,
-    splitting: false
-  };
-});
+const baseConfig: Options = {
+  minify: false,
+  entry: ["./dist/index.js"],
+  outDir: "./lib",
+  tsconfig: "./tsconfig.build.json",
+  sourcemap: false,
+  dts: true,
+  splitting: false
+};
+
+export default baseConfig;
+export { baseConfig };

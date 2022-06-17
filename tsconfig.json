@@ -2,7 +2,8 @@
   "extends": "./tsconfig.base.json",
   "include": [
     "**/.vitepress/**/*",
-    "packages/**/*"
+    "packages/**/*",
+    "tsup.config.ts"
   ],
   "exclude": ["node_modules", ".temp", "lib", "dist"],
 }
