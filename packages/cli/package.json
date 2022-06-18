@@ -1,0 +1,40 @@
+{
+  "name": "czg",
+  "version": "0.0.1",
+  "description": "Interactive Commitizen CLI that generate standardized commit messages",
+  "keywords": [
+    "commit",
+    "commit message",
+    "commitizen-cli",
+    "commitizen",
+    "cli",
+    "cz-git",
+    "cz-customizable"
+  ],
+  "homepage": "https://cz-git.qbenben.com/cli",
+  "bugs": {
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zhengqbbb/cz-git",
+    "directory": "packages/cli"
+  },
+  "license": "MIT",
+  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
+  "bin": {
+    "czg": "lib/index.js"
+  },
+  "scripts": {
+    "build": "pnpm clean && tsup",
+    "clean": "rimraf *.tsbuildinfo lib dist",
+    "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
+  "devDependencies": {
+    "@cz-git/inquirer": "workspace:*",
+    "@cz-git/loader": "workspace:*",
+    "cz-git": "workspace:*",
+    "inquirer": "8.2.0",
+    "rimraf": "3.0.2"
+  }
+}
