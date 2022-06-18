@@ -31,8 +31,6 @@
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {
-    "@cz-git/inquirer": "workspace:*",
-    "@cz-git/loader": "workspace:*",
     "cz-git": "workspace:*",
     "inquirer": "8.2.0",
     "rimraf": "3.0.2"

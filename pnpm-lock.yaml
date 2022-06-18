@@ -156,14 +156,10 @@ importers:
 
   packages/cli:
     specifiers:
-      '@cz-git/inquirer': workspace:*
-      '@cz-git/loader': workspace:*
       cz-git: workspace:*
       inquirer: 8.2.0
       rimraf: 3.0.2
     devDependencies:
-      '@cz-git/inquirer': link:../@cz-git/plugin-inquirer
-      '@cz-git/loader': link:../@cz-git/plugin-loader
       cz-git: link:../cz-git
       inquirer: 8.2.0
       rimraf: 3.0.2

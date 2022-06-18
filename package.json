@@ -24,9 +24,10 @@
   "license": "MIT",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "scripts": {
-    "build": "pnpm run -r --stream build",
+    "build": "pnpm run --filter=\"*cz-git*\" --stream build && pnpm run --filter=\"czg\" build",
     "build:dev": "pnpm run -r --stream build:dev",
     "clean": "pnpm run -r --stream clean",
+    "cz": "pnpm czg",
     "dev": "concurrently \"tsc -b tsconfig.build.json --watch\" \"pnpm run test --watch\"",
     "dev:cz": "pnpm clean && tsc -b tsconfig.build.json --watch",
     "docs-zh:build": "pnpm --filter='docs-zh' docs:build",

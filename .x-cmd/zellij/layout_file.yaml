@@ -26,12 +26,12 @@ tabs:
         parts:
           - direction: Horizontal
             run:
-              command: { cmd: zsh, args: ["-c", "pnpm dev && zsh"] }
+              command: { cmd: pnpm, args: ["test"] }
           - direction: Horizontal
             parts:
               - direction: Horizontal
                 run:
-                  command: { cmd: zsh, args: ["-c", "pnpm docs:dev && zsh"] }
+                  command: { cmd: pnpm, args: ["docs:dev"] }
               - direction: Horizontal
 
         

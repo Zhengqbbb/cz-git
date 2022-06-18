@@ -5,6 +5,7 @@
     "outDir": "./lib",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "removeComments": true,
   },
   "exclude": ["node_modules", "./dist", "./lib"],
   "include": ["./src"]

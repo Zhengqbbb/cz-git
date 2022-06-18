@@ -13,6 +13,8 @@ import { generateOptions, generateQuestions, generateMessage } from "./generator
 import type { CommitizenType } from "./shared";
 
 export * from "./shared/types";
+export * from "@cz-git/inquirer";
+export * from "@cz-git/loader";
 
 export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
   configLoader().then((config) => {

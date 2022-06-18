@@ -1,75 +1,46 @@
 #!/usr/bin/env node
-import { SearchCheckbox, style, fuzzyFilter } from "@cz-git/inquirer";
-import inquirer from "inquirer";
-console.log(style.gray("Hello, world!"));
+import { generateHelp } from "./generator";
 
-const testArr1 = [
-  { name: "test1", value: "test1" },
-  { name: "test2", value: "test2" },
-  { name: "test3", value: "test3" },
-  { name: "test4", value: "test4" },
-  { name: "test5", value: "test5" },
-  { name: "test6", value: "test6" },
-  { name: "test7", value: "test7" },
-  { name: "test8", value: "test8" },
-  { name: "test9", value: "test9" }
-];
+process.on("uncaughtException", function (err) {
+  console.error(err.message || err);
+  process.exit(1);
+});
 
-const testArr2 = [
-  { name: "test1", value: "test1" },
-  new inquirer.Separator(),
-  { name: "test2", value: "test2" },
-  { name: "test3", value: "test3" },
-  { name: "test4", value: "test4" },
-  { name: "test5", value: "test5" },
-  { name: "test6", value: "test6" },
-  { name: "test7", value: "test7" },
-  { name: "test8", value: "test8" },
-  { name: "test9", value: "test9" }
-];
+// catch SIGINT signal like control+c
+process.stdin.on("data", function (key: any) {
+  if (key == "\u0003") {
+    process.exit(130); // 128 + SIGINT
+  }
+});
 
-const testArr3 = [
-  { value: false, name: "empty" },
-  { value: "___CUSTOM___", name: "custom" },
-  new inquirer.Separator(),
-  { value: "cz-git", name: "cz-git" },
-  { value: "docs", name: "docs:              cz-git document" },
-  { value: "plugin-inquirer", name: "plugin-inquirer:   provide cz-git inquirer" },
-  { value: "plugin-loader", name: "plugin-loader:     options loader" }
-];
+/**
+ * Main CLI Enter Point
+ * @param environment use debug mode
+ * @param {string[]} argv  Node.js process
+ */
+export const bootsrap = (environment: any = {}, argv = process.argv) => {
+  const commandArgs = argv.slice(2, argv.length);
+  const subCommand = commandArgs[0] || "";
+  const czgitVersion = require("../package.json").version;
 
-inquirer.registerPrompt("search-checkbox", SearchCheckbox);
-inquirer
-  .prompt([
-    {
-      type: "search-checkbox",
-      name: "testOne",
-      themeColorCode: "",
-      message: "Select checkbox test:",
-      source: function (_: unknown, input: string) {
-        return fuzzyFilter(input, testArr1);
-      }
-    },
-    {
-      type: "search-checkbox",
-      name: "testTwo",
-      themeColorCode: "38;5;043",
-      message: "Select checkbox test:",
-      source: function (_: unknown, input: string) {
-        return fuzzyFilter(input, testArr2);
-      }
-    },
-    {
-      type: "search-checkbox",
-      name: "cz",
-      themeColorCode: "38;5;042",
-      message: "Select scope:",
-      source: function (_: unknown, input: string) {
-        return fuzzyFilter(input, testArr3);
-      }
-    }
-  ])
-  .then(function (answers) {
-    console.log(JSON.stringify(answers, null, "  "));
-  })
-  .catch((e) => console.log(e));
+  if (!subCommand) console.log("commit", environment);
+
+  /* eslint-disable prettier/prettier */
+  /* prettier-ignore */
+  switch (true) {
+    // options
+    case /^(--config)$/.test(subCommand):                 console.log("config file");   process.exit(0);    
+    case /^(--reback|-b)$/.test(subCommand):              console.log("reback");   process.exit(0);    
+    case /^(--retry|-r$)$/.test(subCommand):              console.log("retry");   process.exit(0);    
+    // subCommand
+    case /^(init)$/.test(subCommand):                     console.log("init");          process.exit(0);
+    case /^(emoji)$/.test(subCommand):                    console.log("emoji");         process.exit(0);
+    case /^(checkbox)$/.test(subCommand):                 console.log("checkbox");      process.exit(0);
+    case /^(version|-v|--version)$/.test(subCommand):     console.log(czgitVersion);    process.exit(0);
+    case /^(help|-h|--help)$/.test(subCommand):           generateHelp(czgitVersion);            return;
+    
+    default:                                              console.log("commit");        process.exit(0);
+  }
+};
+
+bootsrap()
