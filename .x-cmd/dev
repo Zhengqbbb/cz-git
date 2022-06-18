@@ -1,34 +1,8 @@
-# shellcheck shell=bash disable=SC1091,SC2034,SC2154 #xsh
+# shellcheck shell=bash disable=SC1091,SC2034 #xsh
 
 # Section: Arg
 WORK_DIR="$(x wsroot)"
 
-# Section: Fuction
-dev() {
-    param:dsl       '
-type:
-    Type = cz docs
-options:
-    --command    "select target dev command"        <>:Type
-'
-    param:run
-
-    dev_"${command}"
-}
-
-dev_cz() {
-    [ ! -d "$WORK_DIR/node_modules" ] && pnpm i &&  pnpm dev && return 0
-                                                    pnpm dev && return 0
-}
-
-dev_docs() {
-    [ ! -d "$WORK_DIR/node_modules" ] && pnpm i &&  pnpm docs:dev && return 0
-                                                    pnpm docs:dev && return 0
-}
-
 # Section: Main
-case "${1}" in
-    cz)     dev_cz      ;;
-    docs)   dev_docs    ;;
-    *)      dev         ;;
-esac
+ZELLIJ_CONFIG_FILE="$WORK_DIR/.x-cmd/zellij" 
+x zellij --layout "${ZELLIJ_CONFIG_FILE}/layout_file.yaml" --config-dir "$ZELLIJ_CONFIG_FILE" options --theme "one-half-dark"

@@ -1,0 +1,37 @@
+# template:
+#   direction: Horizontal
+#   parts:
+#     - direction: Horizontal
+#       borderless: true
+#       split_size:
+#         Fixed: 1
+#       run:
+#         plugin:
+#           location: "zellij:tab-bar"
+#     - direction: Horizontal
+#       body: true
+#     - direction: Vertical
+#       borderless: true
+#       split_size:
+#         Fixed: 2
+#       run:
+#         plugin:
+#           location: "zellij:status-bar"
+tabs:
+  - name: "tab 1"
+    direction: Horizontal
+    parts:
+      - direction: Horizontal
+      - direction: Vertical
+        parts:
+          - direction: Horizontal
+            run:
+              command: { cmd: zsh, args: ["-c", "pnpm dev && zsh"] }
+          - direction: Horizontal
+            parts:
+              - direction: Horizontal
+                run:
+                  command: { cmd: zsh, args: ["-c", "pnpm docs:dev && zsh"] }
+              - direction: Horizontal
+
+        
