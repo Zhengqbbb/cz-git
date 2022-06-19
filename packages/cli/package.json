@@ -1,12 +1,12 @@
 {
   "name": "czg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Interactive Commitizen CLI that generate standardized commit messages",
   "keywords": [
     "commit",
     "commit message",
-    "commitizen-cli",
     "commitizen",
+    "commitizen-cli",
     "cli",
     "cz-git",
     "cz-customizable"
@@ -23,7 +23,7 @@
   "license": "MIT",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "bin": {
-    "czg": "lib/index.js"
+    "czg": "bin/index.js"
   },
   "scripts": {
     "build": "pnpm clean && tsup",

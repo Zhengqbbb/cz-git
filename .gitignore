@@ -14,6 +14,7 @@ dist
 
 # Bundle
 lib/
+bin/
 
 # Typescript build file
 *.tsbuildinfo
