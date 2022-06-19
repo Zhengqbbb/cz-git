@@ -1,6 +1,6 @@
 {
   "name": "czg",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Interactive Commitizen CLI that generate standardized commit messages",
   "keywords": [
     "commit",
@@ -25,6 +25,9 @@
   "bin": {
     "czg": "bin/index.js"
   },
+  "files": [
+    "bin"
+  ],
   "scripts": {
     "build": "pnpm clean && tsup",
     "clean": "rimraf *.tsbuildinfo lib dist",
