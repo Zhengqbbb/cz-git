@@ -6,6 +6,7 @@ const issue = execSync("git rev-parse --abbrev-ref HEAD")
   .toString()
   .trim()
   .split("_")[1];
+
 // @description: monorepo dynamic get name
 const packages = fg.sync('*', { cwd: "packages/@cz-git", onlyDirectories: true });
 

@@ -7,8 +7,8 @@ import "../style/vars.css";
 import "uno.css";
 import { useMediumZoomProvider, usePageAnalytics } from "../components/composables";
 import HomePage from "../components/HomePage.vue";
-import { CodeGroup } from "../components/CodeGroup";
 import CodeGroupItem from "../components/CodeGroupItem.vue";
+import { CodeGroup } from "../components/CodeGroup";
 
 if (inBrowser) import("./pwa");
 

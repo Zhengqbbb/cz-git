@@ -1,7 +1,7 @@
 # defaultScope
 
 - 自动获取 “代码修改范围”。 适用于存在很多范围选项（例如组件库、monorepo）的情况。
-  - 例如 [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next)，这是一个 vue3 组件库，在 `src` 中存储了超过 60 个组件
+  - 例如 [TDesign-Vue-Next](https://github.com/Tencent/tdesign-vue-next)，这是一个 Vue3 组件库，在 `src` 中存储了超过 60 个组件
   - 但与此同时其项目路径结构十分清晰
   - 我们可以通过`git status`获取已修改文件缓存区的路径
   - 进行字符串匹配截取，获得匹配成功的 `scope`

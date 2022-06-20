@@ -1,7 +1,7 @@
 # defaultScope
 
 - Obtaining the `project scope` automatically. Good for when there are a lot of scope options (eg components lib, monorepo).
-  - e.g [tdesign-vue-next](https://github.com/Tencent/tdesign-vue-next), which is a vue3 component library with more than 60+ components stored in `src`
+  - e.g [TDesign-Vue-Next](https://github.com/Tencent/tdesign-vue-next), which is a Vue3 component library with more than 60+ components stored in `src`
   - Fortunately, the path structure is clear
   - We can get the path of the modified file cache through `git status`
   - Perform string matching interception to obtain scope
