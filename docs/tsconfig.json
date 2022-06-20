@@ -17,16 +17,12 @@
       "vite/client",
       "vite-plugin-pwa/client",
       "vitepress",
-      "./.vitepress/components"
     ],
-    "paths": {
-      "~/*": ["src/*"]
-    }
   },
   "include": [
-    "./*.ts",
     "./.vitepress/**/*.ts",
     "./.vitepress/**/*.vue",
+    "./.vitepress/components.d.ts",
   ],
   "exclude": ["dist", "node_modules"]
 }
