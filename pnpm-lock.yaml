@@ -7,12 +7,13 @@ importers:
       '@commitlint/cli': ^17.0.2
       '@commitlint/config-conventional': ^17.0.2
       '@cz-git/inquirer': workspace:*
+      '@types/fs-extra': ^9.0.13
       '@types/inquirer': 8.2.0
       '@types/node': ^18.0.0
       '@types/rimraf': ^3.0.2
       '@typescript-eslint/eslint-plugin': ^5.28.0
       '@typescript-eslint/parser': ^5.28.0
-      bumpp: ^7.2.0
+      bumpp: 7.2.0
       concurrently: ^7.2.2
       conventional-changelog-cli: ^2.2.2
       cz-git: workspace:*
@@ -36,6 +37,7 @@ importers:
       '@commitlint/cli': 17.0.2
       '@commitlint/config-conventional': 17.0.2
       '@cz-git/inquirer': link:packages/@cz-git/plugin-inquirer
+      '@types/fs-extra': 9.0.13
       '@types/inquirer': 8.2.0
       '@types/node': 18.0.0
       '@types/rimraf': 3.0.2
@@ -156,12 +158,20 @@ importers:
 
   packages/cli:
     specifiers:
+      cachedir: ^2.3.0
       cz-git: workspace:*
+      dedent: ^0.7.0
+      fs-extra: ^10.1.0
       inquirer: 8.2.0
+      minimist: ^1.2.6
       rimraf: 3.0.2
     devDependencies:
+      cachedir: 2.3.0
       cz-git: link:../cz-git
+      dedent: 0.7.0
+      fs-extra: 10.1.0
       inquirer: 8.2.0
+      minimist: 1.2.6
       rimraf: 3.0.2
 
   packages/cz-git:
@@ -1904,6 +1914,12 @@ packages:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
 
+  /@types/fs-extra/9.0.13:
+    resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
+    dependencies:
+      '@types/node': 18.0.0
+    dev: true
+
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
@@ -2691,6 +2707,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /cachedir/2.3.0:
+    resolution: {integrity: sha512-A+Fezp4zxnit6FanDmv9EqXNAi3vt9DWp51/71UEhXukb7QUuvtv9344h91dyAxuTLoSYJFU299qzR3tzwPAhw==}
+    engines: {node: '>=6'}
+    dev: true
+
   /call-bind/1.0.2:
     resolution: {integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==}
     dependencies:
@@ -3203,6 +3224,10 @@ packages:
   /decamelize/1.2.0:
     resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /dedent/0.7.0:
+    resolution: {integrity: sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==}
     dev: true
 
   /deep-eql/3.0.1:

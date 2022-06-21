@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./lib",
+    "outDir": "./bin",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "removeComments": true,

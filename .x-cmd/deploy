@@ -28,7 +28,6 @@ deploy_all() {
 deploy_cz() {
     local version=${1:-patch}
     pnpm lint && \
-    pnpm build:cz && \
     pnpm bumpp "$version" \
         package.json packages/*/package.json packages/@cz-git/*/package.json \
         --execute="pnpm run release" \

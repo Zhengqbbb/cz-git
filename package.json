@@ -24,8 +24,8 @@
   "license": "MIT",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "scripts": {
-    "build": "pnpm build:cz && pnpm build:cli",
-    "build:cli": "pnpm run --filter=\"czg\" build",
+    "build": "pnpm build:cli && pnpm build:cz",
+    "build:cli": "pnpm build:dev && pnpm run --filter=\"czg\" build",
     "build:cz": "pnpm run --filter=\"*cz-git*\" --stream build",
     "build:dev": "pnpm run -r --stream build:dev",
     "clean": "pnpm run -r --stream clean",
@@ -43,7 +43,7 @@
     "example:list": "node ./packages/@cz-git/plugin-inquirer/examples/list.js",
     "lint": "eslint --ext .ts packages docs/.vitepress",
     "prepare": "husky install",
-    "release": "pnpm release:changelog && pnpm build:cli",
+    "release": "pnpm release:changelog && pnpm build",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && pnpm run -r --stream release:changelog",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -61,6 +61,7 @@
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
     "@cz-git/inquirer": "workspace:*",
+    "@types/fs-extra": "^9.0.13",
     "@types/inquirer": "8.2.0",
     "@types/node": "^18.0.0",
     "@types/rimraf": "^3.0.2",

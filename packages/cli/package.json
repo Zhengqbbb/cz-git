@@ -30,12 +30,16 @@
   ],
   "scripts": {
     "build": "pnpm clean && tsup",
-    "clean": "rimraf *.tsbuildinfo lib dist",
+    "clean": "rimraf *.tsbuildinfo lib dist bin",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {
+    "cachedir": "^2.3.0",
     "cz-git": "workspace:*",
+    "dedent": "^0.7.0",
+    "fs-extra": "^10.1.0",
     "inquirer": "8.2.0",
+    "minimist": "^1.2.6",
     "rimraf": "3.0.2"
   }
 }
