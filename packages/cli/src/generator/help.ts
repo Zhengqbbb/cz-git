@@ -12,7 +12,7 @@ ${style.yellow("WEBSITE:")}
 
 ${style.yellow("VERSION:")} ${version}
 
-${style.yellow("USAGE:")}
+${style.yellow("SYNOPSIS:")}
     czg [subcommand] [options]
 
 ${style.yellow("SUBCOMMAND:")}

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { generateHelp } from "./generator";
+import { czg, generateHelp } from "./generator";
 
 process.on("uncaughtException", function (err) {
   console.error(err.message || err);
@@ -23,23 +23,36 @@ export const bootsrap = (environment: any = {}, argv = process.argv) => {
   const subCommand = commandArgs[0] || "";
   const czgitVersion = require("../package.json").version;
 
-  if (!subCommand) console.log("commit", environment);
+  if (!subCommand) {
+    czg(czgitVersion, commandArgs, environment);
+    return;
+  }
 
   /* eslint-disable prettier/prettier */
   /* prettier-ignore */
   switch (true) {
     // options
-    case /^(--config)$/.test(subCommand):                 console.log("config file");   process.exit(0);    
-    case /^(--reback|-b)$/.test(subCommand):              console.log("reback");   process.exit(0);    
-    case /^(--retry|-r$)$/.test(subCommand):              console.log("retry");   process.exit(0);    
+    case /^(--config)$/.test(subCommand):                 
+      console.log("config file");   process.exit(0);    
+    case /^(--reback|-b)$/.test(subCommand):              
+      console.log("reback");   process.exit(0);    
+    case /^(--retry|-r$)$/.test(subCommand):              
+      console.log("retry");   process.exit(0);    
+
     // subCommand
-    case /^(init)$/.test(subCommand):                     console.log("init");          process.exit(0);
-    case /^(emoji)$/.test(subCommand):                    console.log("emoji");         process.exit(0);
-    case /^(checkbox)$/.test(subCommand):                 console.log("checkbox");      process.exit(0);
-    case /^(version|-v|--version)$/.test(subCommand):     console.log(czgitVersion);    process.exit(0);
-    case /^(help|-h|--help)$/.test(subCommand):           generateHelp(czgitVersion);            return;
+    case /^(init)$/.test(subCommand):                     
+      console.log("init");          process.exit(0);
+    case /^(emoji)$/.test(subCommand):                    
+      console.log("emoji");         process.exit(0);
+    case /^(checkbox)$/.test(subCommand):                 
+      console.log("checkbox");      process.exit(0);
+    case /^(version|-v|--version)$/.test(subCommand):     
+      console.log(czgitVersion);    process.exit(0);
+    case /^(help|-h|--help)$/.test(subCommand):           
+      generateHelp(czgitVersion);            return;
     
-    default:                                              console.log("commit");        process.exit(0);
+    default:                                              
+      czg(czgitVersion, commandArgs, environment);   return;
   }
 };
 
