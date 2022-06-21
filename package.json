@@ -29,7 +29,7 @@
     "build:cz": "pnpm run --filter=\"*cz-git*\" --stream build",
     "build:dev": "pnpm run -r --stream build:dev",
     "clean": "pnpm run -r --stream clean",
-    "cz": "pnpm czg",
+    "cz": "czg",
     "dev": "concurrently \"tsc -b tsconfig.build.json --watch\" \"pnpm run test --watch\"",
     "dev:cz": "pnpm clean && tsc -b tsconfig.build.json --watch",
     "docs-zh:build": "pnpm --filter='docs-zh' docs:build",

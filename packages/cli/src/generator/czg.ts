@@ -20,8 +20,11 @@ export const czg = (version: string, commandArgs: string[], environment: any = {
       }
 
       if (isClean) {
+        const newLocal = "`git add`";
         throw new Error(
-          `No files added to staging! Did you forget to run ${style.cyan("git add")} ?`
+          `${style.yellow(">>> No files added to staging! Did you forget to run")} ${style.cyan(
+            newLocal
+          )} ?\n`
         );
       }
 
