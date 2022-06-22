@@ -35,10 +35,14 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
 const addType = (type: string, colorize?: boolean) => (colorize ? style.green(type) : type);
 
 const addScope = (scope?: string, colorize?: boolean) => {
-  const separator = ":";
-  if (!scope) return separator;
+  if (!scope) return "";
   scope = colorize ? style.yellow(scope) : scope;
-  return `(${scope.trim()})${separator}`;
+  return `(${scope.trim()})`;
+};
+
+const addBreakchangeMark = (markBreaking?: string, colorize?: boolean) => {
+  const mark = colorize ? style.red("!") : "!";
+  return Boolean(markBreaking) || Boolean(process.env.break === "1") ? mark : "";
 };
 
 const addEmoji = (type: string, options: CommitizenGitOptions): string => {
@@ -85,6 +89,8 @@ export const generateMessage = (
   const head =
     addType(answers.type ?? "", colorize) +
     addScope(singleScope || scope, colorize) +
+    addBreakchangeMark(answers.markBreaking, colorize) +
+    ":" +
     addEmoji(answers.type ?? "", options) +
     addSubject(answers.subject, colorize);
   const body = wrap(answers.body ?? "", wrapOptions);

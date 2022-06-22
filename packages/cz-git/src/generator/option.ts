@@ -25,11 +25,11 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     themeColorCode: ___X_CMD_THEME_COLOR_CODE || promptConfig.themeColorCode || defaultConfig.themeColorCode,
     types: promptConfig.types ?? defaultConfig.types,
     typesAppend: promptConfig.typesAppend ?? defaultConfig.typesAppend,
-    useEmoji: Boolean(emoji) || promptConfig.useEmoji || defaultConfig.useEmoji,
+    useEmoji: Boolean(emoji === "1") || promptConfig.useEmoji || defaultConfig.useEmoji,
     scopes: promptConfig.scopes ?? getEnumList(config?.rules?.["scope-enum"] as any),
     scopeOverrides: promptConfig.scopeOverrides ?? defaultConfig.scopeOverrides,
     scopeFilters: promptConfig.scopeFilters ?? defaultConfig.scopeFilters,
-    enableMultipleScopes: Boolean(checkbox) || promptConfig.enableMultipleScopes || defaultConfig.enableMultipleScopes,
+    enableMultipleScopes: Boolean(checkbox === "1") || promptConfig.enableMultipleScopes || defaultConfig.enableMultipleScopes,
     scopeEnumSeparator: promptConfig.scopeEnumSeparator ?? defaultConfig.scopeEnumSeparator,
     allowCustomScopes: promptConfig.allowCustomScopes ?? !enumRuleIsActive(config?.rules?.["scope-enum"] as any),
     allowEmptyScopes: promptConfig.allowEmptyScopes ?? !emptyRuleIsActive(config?.rules?.["scope-empty"] as any),
@@ -37,6 +37,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     customScopesAlias: promptConfig.customScopesAlias ?? defaultConfig.customScopesAlias,
     emptyScopesAlias: promptConfig.emptyScopesAlias ?? defaultConfig.emptyScopesAlias,
     upperCaseSubject: promptConfig.upperCaseSubject ?? defaultConfig.upperCaseSubject,
+    markBreakingChangeMode: promptConfig.markBreakingChangeMode ?? defaultConfig.markBreakingChangeMode,
     allowBreakingChanges: promptConfig.allowBreakingChanges ?? defaultConfig.allowBreakingChanges,
     breaklineNumber: getMaxLength(config?.rules?.["body-max-line-length"] as any) === Infinity
       ? promptConfig.breaklineNumber ?? defaultConfig.breaklineNumber
