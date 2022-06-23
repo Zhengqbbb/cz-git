@@ -6,22 +6,22 @@
     "docs:dev": "vitepress dev --clean-cache --host --port 8080"
   },
   "dependencies": {
-    "@vueuse/core": "^8.6.0",
+    "@vueuse/core": "^8.7.5",
     "vue": "^3.2.37"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.5",
-    "@unocss/reset": "^0.39.0",
+    "@unocss/reset": "^0.39.3",
     "@vitejs/plugin-vue": "^2.3.3",
     "markdown-it-container": "^3.0.0",
     "markdown-it-mark": "^3.0.1",
     "medium-zoom": "^1.0.6",
     "sitemap": "^7.1.1",
-    "unocss": "^0.39.0",
+    "unocss": "^0.39.3",
     "unplugin-vue-components": "^0.19.6",
     "vite": "^2.9.12",
     "vite-plugin-pwa": "^0.12.0",
     "vite-plugin-radar": "^0.4.2",
-    "vitepress": "1.0.0-alpha.2"
+    "vitepress": "1.0.0-alpha.4"
   }
 }
