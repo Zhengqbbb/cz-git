@@ -25,7 +25,8 @@ export const commit = (
       if (options.retryLastCommit) {
         console.log("Retrying last commit attempt.");
         // TODO: get cache data
-        // TODO: retry last commit
+        // TODO: retry reback last commit
+      } else if (options.rebackLastCommit) {
       } else {
         prompter(inquirer, (commitMsg: string | Error) => {
           if (commitMsg instanceof Error) {

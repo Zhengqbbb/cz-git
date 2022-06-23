@@ -22,7 +22,7 @@ ${style.yellow("SUBCOMMAND:")}
     ${style.cyan("init")}           ${style.red("Generate initialize commitizen configFile and guide")}
                    ${style.gray("Default porvide interactive prompt. skip 'czg init -y'")}
     
-    ${style.yellow("OPTIONS:")}
+${style.yellow("OPTIONS:")}
     ${style.cyan("--config")}       ${style.red("Specify the configuration file to use")}
     ${style.cyan("--reback|-b")}    ${style.red("Provide interactive prompt by the last message")}
     ${style.cyan("--retry|-r")}     ${style.red("Direct retry submit by the last message")}
@@ -34,7 +34,7 @@ ${style.yellow("EXAMPLES:")}
     ${style.cyan("czg emoji")}
     ${style.cyan("czg --config=\"./config/cz.json\"")}
 
-Run 'czg SUBCOMMAND --help' for more information on a command
+Run 'czg SUBCOMMAND --help' for more information on a command.
 Extends 'git commit' command and options. 
 See 'git commit --help' for more information. `
   );

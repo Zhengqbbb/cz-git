@@ -10,5 +10,6 @@ export type CommitOptions = {
   emitData: boolean;
   quiet: boolean;
   retryLastCommit: boolean;
+  rebackLastCommit: boolean;
   hookMode: boolean;
 };

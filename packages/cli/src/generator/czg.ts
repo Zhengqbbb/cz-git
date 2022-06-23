@@ -9,7 +9,7 @@ import type { CzgitParseArgs } from "../shared";
  */
 export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {}) => {
   const shouldStageAllFiles = argvs.gitArgs.includes("-a") || argvs.gitArgs.includes("--all");
-  // TODO: parse commandArgs retry reback
+
   isGitClean(
     process.cwd(),
     (error, isClean) => {
@@ -41,6 +41,7 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
           emitData: true,
           quiet: false,
           retryLastCommit: argvs.czgitArgs.flag?.retry || false,
+          rebackLastCommit: argvs.czgitArgs.flag?.reback || false,
           hookMode: argvs.czgitArgs.flag?.hook || false
         },
         (error) => {

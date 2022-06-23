@@ -13,7 +13,7 @@ export type CzgitFlag = {
   reback?: boolean;
   /** option: --retry|-r */
   retry?: boolean;
-  /** option: --hook */
+  /** option: --hook, provide husky */
   hook?: boolean;
 };
 
