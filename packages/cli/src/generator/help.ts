@@ -16,22 +16,23 @@ ${style.yellow("SYNOPSIS:")}
     czg [subcommand] [options]
 
 ${style.yellow("SUBCOMMAND:")}
-    ${style.cyan("init")}           ${style.red("Generate initialize commitizen configFile and guide")}
-                   ${style.gray("Default porvide interactive prompt. skip 'czg init -y'")}
+    ${style.cyan("break")}          ${style.red("Turn on BREAKING CHANGE mode, Add ! mark on header")}
     ${style.cyan("emoji")}          ${style.red("Turn on emoji mode")}
     ${style.cyan("checkbox")}       ${style.red("Turn on scope checkbox mode")}
-    ${style.cyan("version")}        ${style.red("Show version")}
-    ${style.cyan("help")}           ${style.red("Show help")}
-
-${style.yellow("OPTIONS:")}
+    ${style.cyan("init")}           ${style.red("Generate initialize commitizen configFile and guide")}
+                   ${style.gray("Default porvide interactive prompt. skip 'czg init -y'")}
+    
+    ${style.yellow("OPTIONS:")}
     ${style.cyan("--config")}       ${style.red("Specify the configuration file to use")}
     ${style.cyan("--reback|-b")}    ${style.red("Provide interactive prompt by the last message")}
     ${style.cyan("--retry|-r")}     ${style.red("Direct retry submit by the last message")}
+    ${style.cyan("--help|-h")}      ${style.red("Show help")}
+    ${style.cyan("--version")}      ${style.red("Show version")}
 
 ${style.yellow("EXAMPLES:")}
     ${style.cyan("czg")}
     ${style.cyan("czg emoji")}
-    ${style.cyan("czg --config \"./config/cz.json\"")}
+    ${style.cyan("czg --config=\"./config/cz.json\"")}
 
 Run 'czg SUBCOMMAND --help' for more information on a command
 Extends 'git commit' command and options. 

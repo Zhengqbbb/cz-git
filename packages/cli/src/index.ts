@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { czg, generateHelp } from "./generator";
+import { resovleArgs } from "./shared";
 
 process.on("uncaughtException", function (err) {
   console.error(err.message || err);
@@ -20,40 +21,24 @@ process.stdin.on("data", function (key: any) {
  */
 export const bootsrap = (environment: any = {}, argv = process.argv) => {
   const commandArgs = argv.slice(2, argv.length);
-  const subCommand = commandArgs[0] || "";
   const czgitVersion = require("../package.json").version;
 
-  if (!subCommand) {
+  if (!commandArgs[0]) {
     czg(czgitVersion, commandArgs, environment);
     return;
   }
 
-  /* eslint-disable prettier/prettier */
-  /* prettier-ignore */
-  switch (true) {
-    // options
-    case /^(--config)$/.test(subCommand):                 
-      console.log("config file");   process.exit(0);    
-    case /^(--reback|-b)$/.test(subCommand):              
-      console.log("reback");   process.exit(0);    
-    case /^(--retry|-r$)$/.test(subCommand):              
-      console.log("retry");   process.exit(0);    
-
-    // subCommand
-    case /^(init)$/.test(subCommand):                     
-      console.log("init");          process.exit(0);
-    case /^(emoji)$/.test(subCommand):                    
-      console.log("emoji");         process.exit(0);
-    case /^(checkbox)$/.test(subCommand):                 
-      console.log("checkbox");      process.exit(0);
-    case /^(version|-v|--version)$/.test(subCommand):     
-      console.log(czgitVersion);    process.exit(0);
-    case /^(help|-h|--help)$/.test(subCommand):           
-      generateHelp(czgitVersion);            return;
-    
-    default:                                              
-      czg(czgitVersion, commandArgs, environment);   return;
+  const parsedArgs = resovleArgs(commandArgs);
+  if (!parsedArgs.czgitArgs.subCommand) {
+    if (parsedArgs.czgitArgs.flag?.help) {
+      generateHelp(czgitVersion);
+    } else if (parsedArgs.czgitArgs.flag?.version) {
+      console.log(czgitVersion);
+      process.exit(0);
+    }
   }
+
+  czg(czgitVersion, commandArgs, environment);
 };
 
-bootsrap()
+bootsrap();

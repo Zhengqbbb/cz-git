@@ -24,7 +24,7 @@ export const czg = (version: string, commandArgs: string[], environment: any = {
         throw new Error(
           `${style.yellow(">>> No files added to staging! Did you forget to run")} ${style.cyan(
             newLocal
-          )} ?\n`
+          )} ?`
         );
       }
 
