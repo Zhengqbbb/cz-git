@@ -13,4 +13,5 @@ export type CommitOptions = {
   rebackLastCommit: boolean;
   hookMode: boolean;
   environment: any;
+  configPath?: string;
 };

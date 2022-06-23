@@ -43,7 +43,8 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
           retryLastCommit: argvs.czgitArgs.flag?.retry || false,
           rebackLastCommit: argvs.czgitArgs.flag?.reback || false,
           hookMode: argvs.czgitArgs.flag?.hook || false,
-          environment: environment
+          environment: environment,
+          configPath: argvs.czgitArgs.flag?.config || undefined
         },
         (error) => {
           if (error) {

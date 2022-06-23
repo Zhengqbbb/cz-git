@@ -35,13 +35,17 @@ export const commit = (
         // TODO: reback last commit
         process.exit(0);
       } else {
-        prompter(inquirer, (commitMsg: string | Error) => {
-          if (commitMsg instanceof Error) {
-            return done(commitMsg);
-          }
-          writeCacheSync(cachePath, repoPath, { template: commitMsg, retryOptions: options });
-          gitCommit(repoPath, commitMsg, options, done);
-        });
+        prompter(
+          inquirer,
+          (commitMsg: string | Error) => {
+            if (commitMsg instanceof Error) {
+              return done(commitMsg);
+            }
+            writeCacheSync(cachePath, repoPath, { template: commitMsg, retryOptions: options });
+            gitCommit(repoPath, commitMsg, options, done);
+          },
+          options.configPath
+        );
       }
     }
   });
