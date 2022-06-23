@@ -23,7 +23,6 @@ SUBCOMMAND:
 
 OPTIONS:
     --config       Specify the configuration file to use
-    --reback|-b    Provide interactive prompt by the last message
     --retry|-r     Direct retry submit by the last message
     --help|-h      Show help
     --version      Show version

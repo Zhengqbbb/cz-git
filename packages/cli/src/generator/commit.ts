@@ -1,7 +1,8 @@
-// import path from "path";
+import path from "path";
 import cacheDir from "cachedir";
 import { ensureDir } from "fs-extra";
-import { gitCommit } from "../shared";
+import { getCacheValueSync, writeCacheSync, gitCommit } from "../shared";
+import { style } from "cz-git";
 import type { CommitizenType } from "cz-git";
 import type { CallBackFn, CzGitPrompter, CommitOptions } from "../shared";
 
@@ -10,30 +11,36 @@ import type { CallBackFn, CzGitPrompter, CommitOptions } from "../shared";
  */
 export const commit = (
   inquirer: CommitizenType,
-  rootPath: string,
+  repoPath: string,
   prompter: CzGitPrompter,
   options: CommitOptions,
   done: CallBackFn
 ) => {
   const cacheDirectory = cacheDir("cz-git");
-  // const cachePath = path.join(cacheDirectory, "commit.json");
+  const cachePath = path.join(cacheDirectory, "commit.json");
 
   ensureDir(cacheDirectory, (err: any) => {
     if (err) {
       console.error("Couldn't create commitizen cache directory: ", err);
     } else {
       if (options.retryLastCommit) {
-        console.log("Retrying last commit attempt.");
-        // TODO: get cache data
-        // TODO: retry reback last commit
+        console.log(style.green(">>> Retrying last commit attempt."));
+        const { options: retryOptions, template: retryTemplate } = getCacheValueSync(
+          cachePath,
+          repoPath
+        );
+        console.log(style.gray(retryTemplate));
+        gitCommit(repoPath, retryTemplate, { ...retryOptions, ...options }, done);
       } else if (options.rebackLastCommit) {
+        // TODO: reback last commit
+        process.exit(0);
       } else {
         prompter(inquirer, (commitMsg: string | Error) => {
           if (commitMsg instanceof Error) {
             return done(commitMsg);
           }
-          // TODO: add cache
-          gitCommit(rootPath, commitMsg, options, done);
+          writeCacheSync(cachePath, repoPath, { template: commitMsg, retryOptions: options });
+          gitCommit(repoPath, commitMsg, options, done);
         });
       }
     }

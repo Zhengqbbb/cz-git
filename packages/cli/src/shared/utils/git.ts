@@ -13,7 +13,6 @@ import type { CallBackFn, CommitOptions } from "../types";
  * @time cost 27 ms
  */
 export const isGitClean = (repoPath: string, done: CallBackFn, stageAllFiles: boolean) => {
-  // TODO: can use asynchronously concurrency resovle command
   // if there are no staged files and no changes, but fails to throw an error with no staged files in dirty state.
   exec(
     `git diff --cached --no-ext-diff --name-only ${
@@ -76,6 +75,8 @@ export const gitCommit = (
 
       done(e);
     });
+
+    child.on("close", (code) => process.exit(code || 0));
 
     child.on("exit", (code, signal) => {
       if (called) return;

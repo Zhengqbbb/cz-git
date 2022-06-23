@@ -42,11 +42,11 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
           quiet: false,
           retryLastCommit: argvs.czgitArgs.flag?.retry || false,
           rebackLastCommit: argvs.czgitArgs.flag?.reback || false,
-          hookMode: argvs.czgitArgs.flag?.hook || false
+          hookMode: argvs.czgitArgs.flag?.hook || false,
+          environment: environment
         },
         (error) => {
           if (error) {
-            console.log("environment:", environment);
             throw error;
           }
         }

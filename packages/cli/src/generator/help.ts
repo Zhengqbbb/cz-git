@@ -22,7 +22,6 @@ ${style.yellow("SUBCOMMAND:")}
     
 ${style.yellow("OPTIONS:")}
     ${style.cyan("--config")}       ${style.red("Specify the configuration file to use")}
-    ${style.cyan("--reback|-b")}    ${style.red("Provide interactive prompt by the last message")}
     ${style.cyan("--retry|-r")}     ${style.red("Direct retry submit by the last message")}
     ${style.cyan("--help|-h")}      ${style.red("Show help")}
     ${style.cyan("--version")}      ${style.red("Show version")}
