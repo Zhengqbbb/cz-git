@@ -78,6 +78,12 @@ export const generateMessage = (
     indent: "",
     width: options.breaklineNumber
   };
+
+  const { customScope, customFooterPrefixs } = answers;
+  answers.scope = (answers.scope === "___CUSTOM___" && customScope) || answers.scope;
+  answers.footerPrefix =
+    (answers.footerPrefix === "___CUSTOM___" && customFooterPrefixs) || answers.footerPrefix;
+
   const { singleScope, singeIssuePrefix } = getSingleParams(answers, options);
   const scope = Array.isArray(answers.scope)
     ? answers.scope.join(options.scopeEnumSeparator)

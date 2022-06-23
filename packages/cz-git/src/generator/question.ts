@@ -85,7 +85,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "complete-input",
-      name: "scope",
+      name: "customScope",
       message: options.messages?.customScope,
       completeValue: options.defaultScope || undefined,
       validate: (input: string | Array<string>) => {
@@ -209,7 +209,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "complete-input",
-      name: "footerPrefix",
+      name: "customFooterPrefixs",
       message: options.messages?.customFooterPrefixs,
       completeValue: options.defaultFooterPrefix || undefined,
       when: (answers: Answers) => {
