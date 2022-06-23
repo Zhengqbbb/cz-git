@@ -32,7 +32,6 @@ ${style.yellow("EXAMPLES:")}
     ${style.cyan("czg emoji")}
     ${style.cyan("czg --config=\"./config/cz.json\"")}
 
-Run 'czg SUBCOMMAND --help' for more information on a command.
 Extends 'git commit' command and options. 
 See 'git commit --help' for more information. `
   );
