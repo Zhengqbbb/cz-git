@@ -15,8 +15,12 @@ export * from "./shared/types";
 export * from "@cz-git/inquirer";
 export * from "@cz-git/loader";
 
-export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
-  configLoader().then((config) => {
+export const prompter = (
+  cz: CommitizenType,
+  commit: (message: string) => void,
+  configPath?: string
+) => {
+  configLoader({ configPath }).then((config) => {
     const options = generateOptions(config);
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("search-list", SearchList);
