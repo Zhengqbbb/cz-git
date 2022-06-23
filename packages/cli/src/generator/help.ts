@@ -19,8 +19,6 @@ ${style.yellow("SUBCOMMAND:")}
     ${style.cyan("break")}          ${style.red("Turn on BREAKING CHANGE mode, Add ! mark on header")}
     ${style.cyan("emoji")}          ${style.red("Turn on emoji mode")}
     ${style.cyan("checkbox")}       ${style.red("Turn on scope checkbox mode")}
-    ${style.cyan("init")}           ${style.red("Generate initialize commitizen configFile and guide")}
-                   ${style.gray("Default porvide interactive prompt. skip 'czg init -y'")}
     
 ${style.yellow("OPTIONS:")}
     ${style.cyan("--config")}       ${style.red("Specify the configuration file to use")}

@@ -20,8 +20,6 @@ SUBCOMMAND:
     break          Turn on BREAKING CHANGE mode, Add ! mark on header
     emoji          Turn on emoji mode
     checkbox       Turn on scope checkbox mode
-    init           Generate initialize commitizen configFile and guide
-                   Default porvide interactive prompt. skip 'czg init -y'
 
 OPTIONS:
     --config       Specify the configuration file to use
