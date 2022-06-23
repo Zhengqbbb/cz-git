@@ -22,13 +22,13 @@ process.stdin.on("data", function (key: any) {
 export const bootsrap = (environment: any = {}, argv = process.argv) => {
   const commandArgs = argv.slice(2, argv.length);
   const czgitVersion = require("../package.json").version;
+  const parsedArgs = resovleArgs(commandArgs);
 
-  if (!commandArgs[0]) {
-    czg(czgitVersion, commandArgs, environment);
+  if (!parsedArgs.czgitArgs.subCommand && !parsedArgs.czgitArgs.flag) {
+    czg(czgitVersion, parsedArgs, environment);
     return;
   }
 
-  const parsedArgs = resovleArgs(commandArgs);
   if (!parsedArgs.czgitArgs.subCommand) {
     if (parsedArgs.czgitArgs.flag?.help) {
       generateHelp(czgitVersion);
@@ -36,9 +36,13 @@ export const bootsrap = (environment: any = {}, argv = process.argv) => {
       console.log(czgitVersion);
       process.exit(0);
     }
+  } else if (parsedArgs.czgitArgs.subCommand.init) {
+    // TODO: init
+    console.log("init");
+    process.exit(0);
   }
 
-  czg(czgitVersion, commandArgs, environment);
+  czg(czgitVersion, parsedArgs, environment);
 };
 
 bootsrap();

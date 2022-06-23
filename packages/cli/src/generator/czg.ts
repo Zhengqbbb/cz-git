@@ -1,17 +1,15 @@
 import { CommitizenType, prompter, style } from "cz-git";
 import inquirer from "inquirer";
 import { commit } from "./commit";
-import { isGitClean, getGitRootPath } from "../shared";
+import { isGitClean, getGitRootPath, injectEnv } from "../shared";
+import type { CzgitParseArgs } from "../shared";
 
 /**
  * start inquirer prompts to commit message
  */
-export const czg = (version: string, commandArgs: string[], environment: any = {}) => {
-  // TODO: parse commandArgs
-  // console.log(commandArgs);
-  // console.log(environment);
-  // parse git hook and git -a
-  // isClean
+export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {}) => {
+  const shouldStageAllFiles = argvs.gitArgs.includes("-a") || argvs.gitArgs.includes("--all");
+  // TODO: parse commandArgs retry reback
   isGitClean(
     process.cwd(),
     (error, isClean) => {
@@ -27,6 +25,9 @@ export const czg = (version: string, commandArgs: string[], environment: any = {
           )} ?`
         );
       }
+      injectEnv("break", argvs.czgitArgs.subCommand?.break);
+      injectEnv("emoji", argvs.czgitArgs.subCommand?.emoji);
+      injectEnv("checkbox", argvs.czgitArgs.subCommand?.checkbox);
 
       console.log(`czg@${version}\n`);
       // commit
@@ -35,21 +36,21 @@ export const czg = (version: string, commandArgs: string[], environment: any = {
         getGitRootPath(),
         prompter,
         {
-          args: [],
+          args: argvs.gitArgs,
           disableAppendPaths: true,
           emitData: true,
           quiet: false,
-          retryLastCommit: false,
-          hookMode: false
+          retryLastCommit: argvs.czgitArgs.flag?.retry || false,
+          hookMode: argvs.czgitArgs.flag?.hook || false
         },
         (error) => {
           if (error) {
-            console.log(environment);
+            console.log("environment:", environment);
             throw error;
           }
         }
       );
     },
-    false
+    shouldStageAllFiles
   );
 };
