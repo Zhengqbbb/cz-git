@@ -50,7 +50,7 @@ export type Answers = {
    * @default: Is any BREAKING CHANGE (add "!" in header) (optional) ?
    * @use need turn on options "markBreakingChangeMode"
    */
-  markBreaking?: string;
+  markBreaking?: string | boolean;
   /**
    * @default: List any BREAKING CHANGES (optional). Use "|" to break new line:\n
    */

@@ -37,10 +37,10 @@ const addType = (type: string, colorize?: boolean) => (colorize ? style.green(ty
 const addScope = (scope?: string, colorize?: boolean) => {
   if (!scope) return "";
   scope = colorize ? style.yellow(scope) : scope;
-  return `(${scope.trim()})`;
+  return `(${scope?.trim()})`;
 };
 
-const addBreakchangeMark = (markBreaking?: string, colorize?: boolean) => {
+const addBreakchangeMark = (markBreaking?: string | boolean, colorize?: boolean) => {
   const mark = colorize ? style.red("!") : "!";
   return Boolean(markBreaking) || Boolean(process.env.break === "1") ? mark : "";
 };
