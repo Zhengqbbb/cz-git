@@ -233,7 +233,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       choices: [
         { key: "y", name: "Yes", value: "yes" },
         { key: "n", name: "Abort commit", value: "no" },
-        { key: "e", name: "Edit message", value: "edit" }
+        { key: "e", name: "Edit message(wq: save, cq: exit)", value: "edit" }
       ],
       default: 0,
       message(answers: Answers) {
