@@ -2,13 +2,17 @@ import minimist from "minimist";
 import type { ParsedArgs } from "minimist";
 import type { CzgitParseArgs, CzgitSubCommandList, CzgitFlagList } from "../types";
 
+const deleteItem = (target: string, list: string[]) =>
+  list.splice(list.indexOf(target), ~list.indexOf(target) ? 1 : 0);
+
 const resovleSubCmd = (arg: string, cmd: CzgitSubCommandList, target: CzgitParseArgs) => {
   if (arg !== cmd) return target;
   if (!target.czgitArgs.subCommand) {
     target.czgitArgs.subCommand = {};
   }
+
   target.czgitArgs.subCommand[cmd] = true;
-  target.gitArgs.splice(target.gitArgs.indexOf(cmd), 1);
+  deleteItem(cmd, target.gitArgs);
   return target;
 };
 
@@ -22,9 +26,15 @@ const resovleFlag = (
   if (!target.czgitArgs.flag) {
     target.czgitArgs.flag = {};
   }
-  target.czgitArgs.flag[aliasFlag] = typeof argv[aliasFlag] === "boolean" ? true : argv[aliasFlag];
-  target.gitArgs.splice(target.gitArgs.indexOf("-" + flag), 1);
-  target.gitArgs.splice(target.gitArgs.indexOf("--" + aliasFlag), 1);
+
+  target.czgitArgs.flag[aliasFlag] = argv[aliasFlag];
+  if (typeof argv[aliasFlag] === "boolean") {
+    deleteItem("-" + flag, target.gitArgs);
+    deleteItem("--" + aliasFlag, target.gitArgs);
+  } else {
+    const filterRex = new RegExp(`^--${aliasFlag}=(.*)$`, "gi");
+    target.gitArgs = target.gitArgs.filter((value) => !filterRex.test(value));
+  }
   return target;
 };
 
@@ -69,12 +79,13 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
   result = resovleFlag(parseArgv, "version", "version", result);
   result = resovleFlag(parseArgv, "hook", "hook", result);
   result = resovleFlag(parseArgv, "config", "config", result);
+
   return result;
 };
 
 /**
  * provide environment variable to cz-git
  */
-export const injectEnv = (key: CzgitSubCommandList, target?: boolean) => {
+export const injectEnv = (key: string, target?: boolean) => {
   if (target) process.env[key] = "1";
 };
