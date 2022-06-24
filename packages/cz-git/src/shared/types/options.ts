@@ -47,6 +47,11 @@ export type Answers = {
    */
   body?: string;
   /**
+   * @default: Is any BREAKING CHANGE (add "!" in header) (optional) ?
+   * @use need turn on options "markBreakingChangeMode"
+   */
+  markBreaking?: string | boolean;
+  /**
    * @default: List any BREAKING CHANGES (optional). Use "|" to break new line:\n
    */
   breaking?: string;
@@ -198,6 +203,13 @@ export interface CommitizenGitOptions {
   upperCaseSubject?: boolean;
 
   /**
+   * @description: Whether to add extra prompt BREAKCHANGE ask. to add an extra "!" to the header
+   * @see: https://cz-git.qbenben.com/recipes/breakingchange
+   * @default: false
+   */
+  markBreakingChangeMode?: boolean;
+
+  /**
    * @description: Allow breaking changes in the included types output box
    * @default: ['feat', 'fix']
    */
@@ -332,6 +344,7 @@ export const defaultConfig = Object.freeze({
      customScope: "Denote the SCOPE of this change:",
      subject: "Write a SHORT, IMPERATIVE tense description of the change:\n",
      body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
+     markBreaking: 'Is any BREAKING CHANGE (add "!" in header) (optional) ?',
      breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
      footerPrefixsSelect: "Select the ISSUES type of change (optional):",
      customFooterPrefixs: "Input ISSUES prefix:",
@@ -363,6 +376,7 @@ export const defaultConfig = Object.freeze({
    customScopesAlias: "custom",
    emptyScopesAlias: "empty",
    upperCaseSubject: false,
+   markBreakingChangeMode: false,
    allowBreakingChanges: ['feat', 'fix'],
    breaklineNumber: 100,
    breaklineChar: "|",

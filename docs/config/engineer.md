@@ -74,6 +74,17 @@ It will automatically detect whether the definition of the [commitlint](https://
 It will automatically detect whether the definition of the [commitlint](https://github.com/conventional-changelog/commitlint) rule `scope-empty` is strict, and it will not be displayed automatically.
 :::
 
+## markBreakingChangeMode
+
+- **description** : Add an extra BREAKINGCHANGE question asking if you need to add the =="!"== mark in the header
+- **use** : When you want to add the ! mark in the header, Highlight that the commit message belongs to BREAKINGCHANGE. you can use this option.
+- **type** : `boolean`
+- **default** : `false`
+
+:::tip
+more usage and demo [⇒ see the recipes](/recipes/breakingchange.html)
+:::
+
 ## allowBreakingChanges
 
 - **description** : a specific **type** that allows BREAKING CHANGES
