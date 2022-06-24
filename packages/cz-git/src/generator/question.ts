@@ -166,12 +166,21 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       transformer: (input: string) => useThemeCode(input, options.themeColorCode)
     },
     {
+      type: "confirm",
+      name: "markBreaking",
+      message: options.messages?.markBreaking,
+      default: false,
+      when: () => options.markBreakingChangeMode === true
+    },
+    {
       type: "complete-input",
       name: "breaking",
       message: options.messages?.breaking,
       completeValue: options.defaultBody || undefined,
       when: (answers: Answers) => {
-        if (
+        if (options.markBreakingChangeMode === true) {
+          return answers.markBreaking;
+        } else if (
           options.allowBreakingChanges &&
           answers.type &&
           options.allowBreakingChanges.includes(answers.type)

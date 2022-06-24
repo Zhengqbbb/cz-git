@@ -119,4 +119,30 @@ closed #12`
 closed #12`
     );
   });
+
+  test("turn on markBreaking shoule be output ! mark after type", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature" }]
+    };
+    const answers = {
+      type: "feat",
+      subject: "add a new feature",
+      markBreaking: "true"
+    };
+    expect(generateMessage(answers, options)).toEqual(`feat!: add a new feature`);
+  });
+
+  test("turn on markBreaking shoule be output ! mark follow scope", () => {
+    const options = {
+      types: [{ value: "feat", name: "feat:     A new feature" }],
+      scopes: ["app"]
+    };
+    const answers = {
+      type: "feat",
+      scope: "app",
+      subject: "add a new feature",
+      markBreaking: "true"
+    };
+    expect(generateMessage(answers, options)).toEqual(`feat(app)!: add a new feature`);
+  });
 });
