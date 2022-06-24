@@ -17,7 +17,7 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
         throw error;
       }
 
-      if (isClean) {
+      if (isClean && !argvs.gitArgs.includes("--allow-empty")) {
         const newLocal = "`git add`";
         throw new Error(
           `${style.yellow(">>> No files added to staging! Did you forget to run")} ${style.cyan(

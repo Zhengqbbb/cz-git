@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from "fs";
+import { style } from "cz-git";
 
 export const readCacheSync = (cachePath: string) => JSON.parse(readFileSync(cachePath, "utf8"));
 
@@ -18,5 +19,9 @@ export const getCacheValueSync = (cachePath: string, repoPath: string) => {
   try {
     const cache = readCacheSync(cachePath);
     return cache[repoPath];
-  } catch (e) {}
+  } catch (e) {
+    throw new Error(
+      `${style.red(`>>> No found commit message cache in current repo: ${repoPath}`)}`
+    );
+  }
 };
