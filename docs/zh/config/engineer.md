@@ -33,7 +33,6 @@ sitemap:
 
 ## scopeFilters
 
-- **描述** : Filter select of prompt to select module scopes by the scope.value
 - **描述** : 根据 scope.value 过滤模块范围中的选项
 - **类型** : string[]
 - **默认** : `[".DS_Store"]`
@@ -74,6 +73,17 @@ sitemap:
 
 :::tip
 会自动检测 [commitlint](https://github.com/conventional-changelog/commitlint) 规则 `scope-empty`的定义是否严格，自动不显示。
+:::
+
+## markBreakingChangeMode
+
+- **描述** : 添加额外的问题重大变更(BREAKING CHANGES)提问，询问是否需要添加 =="!"== 标识于头部
+- **使用** : 当你想添加 ! 标识于头部，表明该 commit 为重大变更时，请使用该选项
+- **类型** : `boolean`
+- **默认** : `false`
+
+:::tip
+更多用法与示例 [⇒ 查看小窍门](/zh/recipes/breakingchange.html)
 :::
 
 ## allowBreakingChanges

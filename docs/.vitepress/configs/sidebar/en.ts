@@ -50,6 +50,10 @@ export const en: DefaultTheme.Sidebar = {
           link: "/recipes/"
         },
         {
+          text: "markBreakingChange",
+          link: "/recipes/breakingchange"
+        },
+        {
           text: "defaultScope",
           link: "/recipes/defaultScope"
         },
