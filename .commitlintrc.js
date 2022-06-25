@@ -1,7 +1,7 @@
 const { execSync } = require("child_process");
 const fg = require("fast-glob");
 
-// @description: git branch name = feature/issue_33 => auto get defaultIssues = #33
+// @description: git branch name = feature/cli_33 => auto get defaultIssues = #33
 const issue = execSync("git rev-parse --abbrev-ref HEAD")
   .toString()
   .trim()
@@ -14,7 +14,7 @@ const packages = fg.sync('*', { cwd: "packages/@cz-git", onlyDirectories: true }
 module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
-    "scope-enum": [2, "always", ["cz-git", "site", ...packages]],
+    "scope-enum": [2, "always", ["cz-git", "site", "cli", ...packages]],
     "subject-min-length": [2, "always", 2],
     "subject-empty": [2, "never"]
   },

@@ -63,7 +63,9 @@ typesAppend: [
 - **默认** : `false`
 
 :::tip
-尝试运行 `emoji=1 cz` **可在当前会话直接开启输出 emoji 模式**
+尝试运行命令 **可在当前会话直接开启输出 emoji 模式**
+- 使用 Commitizen CLI: `emoji=1 cz`
+- 使用 cz-git CLI: `czg emoji`
 :::
 
 ## customScopesAlign

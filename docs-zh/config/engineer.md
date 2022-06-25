@@ -45,7 +45,9 @@ sitemap:
 - **默认** : `false`
 
 :::tip
-尝试运行 `checkbox=1 cz` **可在当前会话直接开启多选模式**     
+尝试运行命令 **可在当前会话直接开启多选模式**
+- 使用 Commitizen CLI: `checkbox=1 cz`
+- 使用 cz-git CLI: `czg checkbox`
 示例与使用方式 [⇒ 查看小窍门](/recipes/#支持多选-scopes)
 :::
 

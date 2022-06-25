@@ -48,4 +48,4 @@ Try running command:
 czg break
 ```
 Demo:
-
+![demo](https://user-images.githubusercontent.com/40693636/175755362-2fdeed9e-cf05-4f41-b317-453154a5775c.gif)

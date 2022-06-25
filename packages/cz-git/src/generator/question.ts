@@ -85,7 +85,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "complete-input",
-      name: "scope",
+      name: "customScope",
       message: options.messages?.customScope,
       completeValue: options.defaultScope || undefined,
       validate: (input: string | Array<string>) => {
@@ -218,7 +218,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     },
     {
       type: "complete-input",
-      name: "footerPrefix",
+      name: "customFooterPrefixs",
       message: options.messages?.customFooterPrefixs,
       completeValue: options.defaultFooterPrefix || undefined,
       when: (answers: Answers) => {
@@ -242,7 +242,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       choices: [
         { key: "y", name: "Yes", value: "yes" },
         { key: "n", name: "Abort commit", value: "no" },
-        { key: "e", name: "Edit message", value: "edit" }
+        { key: "e", name: "Edit message(wq: save, cq: exit)", value: "edit" }
       ],
       default: 0,
       message(answers: Answers) {

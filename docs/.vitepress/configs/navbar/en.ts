@@ -18,6 +18,11 @@ export const en: DefaultTheme.NavItem[] = [
     activeMatch: "/recipes/"
   },
   {
+    text: "CLI",
+    link: "/cli/",
+    activeMatch: "/cli/"
+  },
+  {
     text: `v${version}`,
     items: [
       {
@@ -27,6 +32,10 @@ export const en: DefaultTheme.NavItem[] = [
       {
         text: "NPM",
         link: npm
+      },
+      {
+        text: "Playground",
+        link: "https://github.com/Zhengqbbb/czgit-playground"
       },
       {
         text: "FAQ",

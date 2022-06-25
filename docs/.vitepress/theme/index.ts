@@ -7,6 +7,7 @@ import "../style/vars.css";
 import "uno.css";
 import { useMediumZoomProvider, usePageAnalytics } from "../components/composables";
 import HomePage from "../components/HomePage.vue";
+import Hero from "../components/Hero.vue";
 import CodeGroupItem from "../components/CodeGroupItem.vue";
 import { CodeGroup } from "../components/CodeGroup";
 
@@ -20,6 +21,7 @@ export default {
     });
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
+    app.component("Hero", Hero);
     app.component("CodeGroup", CodeGroup);
     app.component("CodeGroupItem", CodeGroupItem);
     useMediumZoomProvider(app, router);

@@ -3,7 +3,6 @@
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
  * @copyright: Copyright (c) 2022-present Qiubin Zheng
- * TODO: add more test to protect code
  */
 
 import { SearchList, SearchCheckbox, CompleteInput } from "@cz-git/inquirer";
@@ -13,9 +12,15 @@ import { generateOptions, generateQuestions, generateMessage } from "./generator
 import type { CommitizenType } from "./shared";
 
 export * from "./shared/types";
+export * from "@cz-git/inquirer";
+export * from "@cz-git/loader";
 
-export const prompter = (cz: CommitizenType, commit: (message: string) => void) => {
-  configLoader().then((config) => {
+export const prompter = (
+  cz: CommitizenType,
+  commit: (message: string) => void,
+  configPath?: string
+) => {
+  configLoader({ configPath }).then((config) => {
     const options = generateOptions(config);
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("search-list", SearchList);

@@ -1,6 +1,61 @@
 import type { DefaultTheme } from "vitepress";
 
 export const zh: DefaultTheme.Sidebar = {
+  "/zh/cli/": [
+    {
+      text: "指南",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "介绍",
+          link: "/zh/cli/"
+        },
+        {
+          text: "为什么选择 czg",
+          link: "/zh/cli/why"
+        },
+        {
+          text: "快速开始",
+          link: "/zh/cli/install"
+        }
+      ]
+    },
+    {
+      text: "子命令",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "break",
+          link: "/zh/cli/break"
+        },
+        {
+          text: "emoji",
+          link: "/zh/cli/emoji"
+        },
+        {
+          text: "checkbox",
+          link: "/zh/cli/checkbox"
+        }
+      ]
+    },
+    {
+      text: "参数",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "--retry",
+          link: "/zh/cli/retry"
+        },
+        {
+          text: "--config",
+          link: "/zh/cli/config"
+        }
+      ]
+    }
+  ],
   "/zh/": [
     {
       text: "指南",

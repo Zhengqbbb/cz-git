@@ -28,19 +28,19 @@ deploy_all() {
 deploy_cz() {
     local version=${1:-patch}
     pnpm lint && \
-    pnpm build && \
     pnpm bumpp "$version" \
         package.json packages/*/package.json packages/@cz-git/*/package.json \
-        --execute="pnpm run release:changelog" --commit "build: :bookmark: publish v%s" \
+        --execute="pnpm run release" \
+        --commit "build: :bookmark: publish v%s" \
         --all --tag --push && \
     pnpm -r publish --force
 }
 
 deploy_next() {
     pnpm lint && \
-    pnpm build && \
     pnpm bumpp prerelease \
         package.json packages/*/package.json packages/@cz-git/*/package.json && \
+    pnpm build && \
     pnpm -r publish --tag next --no-git-checks --force
 }
 

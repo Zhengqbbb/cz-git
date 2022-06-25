@@ -129,18 +129,36 @@ export const czLoader = async (cwd?: string) => {
   return await execute(data?.config || data || {}, true);
 };
 
+export type UserOptions = {
+  /** Debug mode path */
+  cwd?: string;
+  /** Directly specify the configuration path */
+  configPath?: string;
+};
+
 /**
  * @description: Main Func: both loader commitizen config and commitlint config
  */
-export const configLoader = async (cwd?: string) => {
-  return Promise.all([clLoader(cwd), czLoader(cwd)]).then(([clData, czData]) => {
-    const clPrompt = clData.prompt || {};
-    return {
-      ...clData,
-      prompt: {
-        ...czData,
-        ...clPrompt
+export const configLoader = async (options?: UserOptions) => {
+  // provide cli config loader
+  if (typeof options?.configPath === "string") {
+    const czData = await cosmiconfig("commitizen", {
+      ignoreEmptySearchPlaces: true,
+      cache: true
+    }).load(path.resolve(options.cwd || process.cwd(), options.configPath));
+    return { prompt: await execute(czData?.config || czData || {}, true) };
+  } else {
+    return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd)]).then(
+      ([clData, czData]) => {
+        const clPrompt = clData.prompt || {};
+        return {
+          ...clData,
+          prompt: {
+            ...czData,
+            ...clPrompt
+          }
+        };
       }
-    };
-  });
+    );
+  }
 };

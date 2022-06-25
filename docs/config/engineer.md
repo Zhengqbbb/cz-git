@@ -43,8 +43,10 @@ If you define `scopeOverrides` then define generic `scopes`
 - **default** : `false`
 
 :::tip
-Try running `checkbox=1 cz` to **enable multiple scopes mode in the current session**    
-Demo And Usage [⇒ see the recipes](/recipes/#scopes-for-project-code)
+Try running command to **enable multiple scopes mode in the current session**
+- Commitizen CLI: `checkbox=1 cz`
+- czg CLI: `czg checkbox`
+Demo And Usage [⇒ see the recipes](/recipes/#support-for-multiple-scopes)
 :::
 
 ## scopeEnumSeparator

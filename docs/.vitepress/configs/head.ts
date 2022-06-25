@@ -1,5 +1,5 @@
 import type { HeadConfig } from "vitepress";
-import { name, site, descriptionEN, keywords, ogTitle, logo } from "../meta";
+import { name, site, descriptionEN, keywords, ogTitle, ogImg } from "../meta";
 
 export const head: HeadConfig[] = [
   ["meta", { name: "keywords", content: keywords }],
@@ -9,13 +9,13 @@ export const head: HeadConfig[] = [
   ["meta", { name: "twitter:creator", content: "@zhengqbbb" }],
   ["meta", { name: "twitter:site", content: "@zhengqbbb" }],
   ["meta", { name: "twitter:card", content: "summary_large_image" }],
-  ["meta", { name: "twitter:image", content: logo }],
+  ["meta", { name: "twitter:image", content: ogImg }],
   ["meta", { name: "twitter:image:alt", content: "logo" }],
   ["meta", { name: "og:description", content: descriptionEN }],
   ["meta", { name: "og:url", content: site }],
   ["meta", { name: "og:type", content: "article" }],
   ["meta", { name: "og:locale", content: "en_US" }],
-  ["meta", { name: "og:image", content: logo }],
+  ["meta", { name: "og:image", content: ogImg }],
   ["meta", { name: "og:image:alt", content: "logo" }],
   ["meta", { name: "application-name", content: name }],
   ["meta", { name: "apple-mobile-web-app-title", content: name }],

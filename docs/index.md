@@ -22,6 +22,9 @@ hero:
     - theme: alt
       text: Why cz-git?
       link: /guide/why
+    - theme: alt
+      text: CLI
+      link: /cli/
 
 czFeatures:
   - title: Friendly First

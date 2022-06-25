@@ -18,6 +18,11 @@ export const zh: DefaultTheme.NavItem[] = [
     activeMatch: "/zh/recipes/"
   },
   {
+    text: "CLI",
+    link: "/zh/cli/",
+    activeMatch: "/zh/cli/"
+  },
+  {
     text: `v${version}`,
     items: [
       {
@@ -27,6 +32,10 @@ export const zh: DefaultTheme.NavItem[] = [
       {
         text: "NPM",
         link: npm
+      },
+      {
+        text: "项目示例",
+        link: "https://github.com/Zhengqbbb/czgit-playground"
       },
       {
         text: "常见问题",
