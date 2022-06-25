@@ -9,7 +9,7 @@ export const descriptionCN =
   "一款工程性更强，轻量级，高度自定义，输出标准格式的 commitizen 适配器和命令行工具。";
 
 /** social links */
-export const ogTitle = "cz-git - commitizen adapter";
+export const ogTitle = "cz-git - commitizen adapter and CLI";
 export const ogImg = "https://cz-git.qbenben.com/images/og.png";
 export const github = "https://github.com/Zhengqbbb/cz-git";
 export const npm = "https://www.npmjs.com/package/cz-git";
