@@ -43,5 +43,5 @@ added 1 package in 0.461s
 ```sh{3}
 $ du -sh node_modules/*
 148 MB	node_modules/git-cz
-1.7 MB	node_modules/cz-git
+1.5 MB	node_modules/cz-git
 ```
