@@ -63,7 +63,9 @@ typesAppend: [
 - **default** : `false`
 
 :::tip
-Try running `emoji=1 cz` to **enable output emoji mode in the current session**
+Try running command to **enable output emoji mode in the current session**
+- Commitizen CLI: `emoji=1 cz`
+- cz-git CLI: `czg emoji`
 :::
 
 ## customScopesAlign

@@ -17,7 +17,7 @@ ${style.yellow("SYNOPSIS:")}
 
 ${style.yellow("SUBCOMMAND:")}
     ${style.cyan("break")}          ${style.red("Turn on BREAKING CHANGE mode, Add ! mark on header")}
-    ${style.cyan("emoji")}          ${style.red("Turn on emoji mode")}
+    ${style.cyan("emoji")}          ${style.red("Turn on output message with emoji mode")}
     ${style.cyan("checkbox")}       ${style.red("Turn on scope checkbox mode")}
     
 ${style.yellow("OPTIONS:")}

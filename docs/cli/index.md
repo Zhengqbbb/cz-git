@@ -1,6 +1,13 @@
-<h1 align="center">czg</h1>
+---
+title: czg
+titleTemplate: Interactive Commitizen CLI that generate standardized commit messages
+description: Interactive Commitizen CLI that generate standardized commit messages
+---
 
-> Interactive Commitizen CLI that generate standardized commit messages
+<Hero 
+  title="czg"
+  description="Interactive Commitizen CLI that generate standardized commit messages"
+/>
 
 <p align="center">
     <a href="https://www.npmjs.com/package/cz-git">
@@ -11,18 +18,7 @@
     </a>
 </p>
 
-<p align="center">
-    <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
-    &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/cli/install.html">Installation</a>
-    &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/cli/">Website</a>
-    &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/zh/cli/">简体中文文档</a>
-</p>
-
-<br/>
-<br/>
+<br />
 
 - **Lightweight** : Zero Dependencies (1.3MB)
 - **Simpler and Faster** : No plugin, No adapter, No extra steps, You can use `npx` | `npm script` | `global install`... quick start CLI in your any project
@@ -44,13 +40,14 @@ Create a `.czrc` file in the project root directory
 }
 ```
 
-> **Note**
-> More information about configure file and options. See → [Config](https://cz-git.qbenben.com/config/)
+:::tip
+More information about configure file and options. See → [Config](/config/)
+:::
+
 
 ## Features and Help
 
-
-```sh
+```bash
 $ czg --help
 NAME:
     czg - Interactive Commitizen CLI that generate standardized commit messages
@@ -81,36 +78,3 @@ EXAMPLES:
 Extends 'git commit' command and options.
 See 'git commit --help' for more information.
 ```
-
-## Installation
-
-```
-npm install -g czg
-```
-
-[⇒ Get Started](https://cz-git.qbenben.com/cli/install.html)
-
-## Configure Template
-
-[⇒ Configure Template](https://cz-git.qbenben.com/config/)
-
-## Options
-
-[⇒ Show Related](https://cz-git.qbenben.com/config/show.html)
-
-[⇒ Engineering Related](https://cz-git.qbenben.com/config/engineer.html)
-
-## Recipes
-
-[⇒ Recipes](https://cz-git.qbenben.com/recipes/)
-
-## FAQ
-
-[⇒ FAQ](https://cz-git.qbenben.com/faq/)
-
-## LICENSE
-
-MIT
-Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
-
-> I just do my best to make thing well, Could you give a [star ⭐](https://github.com/Zhengqbbb/cz-git) to encourage me ?

@@ -1,6 +1,61 @@
 import type { DefaultTheme } from "vitepress";
 
 export const en: DefaultTheme.Sidebar = {
+  "/cli/": [
+    {
+      text: "Guide",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "Introduction",
+          link: "/cli/"
+        },
+        {
+          text: "Why czg",
+          link: "/cli/why"
+        },
+        {
+          text: "Getting Started",
+          link: "/cli/install"
+        }
+      ]
+    },
+    {
+      text: "Subcommands",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "break",
+          link: "/cli/break"
+        },
+        {
+          text: "emoji",
+          link: "/cli/emoji"
+        },
+        {
+          text: "checkbox",
+          link: "/cli/checkbox"
+        }
+      ]
+    },
+    {
+      text: "Options",
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          text: "--retry",
+          link: "/cli/retry"
+        },
+        {
+          text: "--config",
+          link: "/cli/config"
+        }
+      ]
+    }
+  ],
   "/": [
     {
       text: "Guide",

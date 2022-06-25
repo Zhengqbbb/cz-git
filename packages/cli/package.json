@@ -1,6 +1,6 @@
 {
   "name": "czg",
-  "version": "0.0.13",
+  "version": "1.3.5",
   "description": "Interactive Commitizen CLI that generate standardized commit messages",
   "keywords": [
     "commit",

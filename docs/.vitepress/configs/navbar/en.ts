@@ -18,6 +18,11 @@ export const en: DefaultTheme.NavItem[] = [
     activeMatch: "/recipes/"
   },
   {
+    text: "CLI",
+    link: "/cli/",
+    activeMatch: "/cli/"
+  },
+  {
     text: `v${version}`,
     items: [
       {
