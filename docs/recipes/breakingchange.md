@@ -18,7 +18,7 @@ BREAKING CHANGE: use JavaScript features not available in Node 6.
 ```
 
 ## Use Option: `markBreakingChangeMode`
-> Change "BREAKINGCHANGE" question that if you need to add the =="!"== mark in the header
+> Add extra "BREAKING CHANGE" question that if you need to add the =="!"== mark in the header
 
 ```js{6}
 // .commitlintrc.js
@@ -32,7 +32,7 @@ module.exports = {
 ```
 
 Demo:
-![demo](https://user-images.githubusercontent.com/40693636/174950214-b294413c-b2b4-4e5b-9b8d-38deab9e8485.gif)
+![demo](https://user-images.githubusercontent.com/40693636/175775159-710b69c6-ab55-4957-9195-6f963d95ba2e.gif)
 
 ## Use commitizen CLI + cz-git
 Try running command:
