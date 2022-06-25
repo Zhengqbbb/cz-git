@@ -23,5 +23,5 @@ $ du -sh ./node_modules/*
 ```
 
 ## 与 cz-git 相比有什么不同
-cz-git 是 **commitizen 的适配器**。而 czg 具有 cz-git 相同的行为和配置加载。如果你的团队中有人使用 commitizen cli，两者可以混用，毕竟两者都非常小并且无需下载其他依赖项。
+cz-git 是 **commitizen 的适配器**。而 czg 具有 cz-git 相同的行为和配置加载。如果你的团队中有人使用 Commitizen CLI，两者可以混用，毕竟两者都非常小并且无需下载其他依赖项。
 

@@ -23,6 +23,6 @@ $ du -sh ./node_modules/*
 ```
 
 ## What is different from cz-git
-cz-git is **commitizen adapter**. czg behaves and loads config... the same as cz-git. If someone on your team is using commitizen cli. The two can be mixed, after all, both are very small and have zero dependencies.
+cz-git is **commitizen adapter**. czg behaves and loads config... the same as cz-git. If someone on your team is using Commitizen CLI. The two can be mixed, after all, both are very small and have zero dependencies.
 
 
