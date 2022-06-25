@@ -35,6 +35,8 @@
     &nbsp; | &nbsp;
     <a href="https://cz-git.qbenben.com">Website</a>
     &nbsp; | &nbsp;
+    <a href="https://cz-git.qbenben.com/cli/">CLI</a>
+    <br/>
     <a href="https://cz-git.qbenben.com/zh/">简体中文文档</a>
 </p>
 

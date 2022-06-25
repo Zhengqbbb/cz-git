@@ -30,6 +30,7 @@ defineProps({
 }
 .description {
   font-size: 1.2rem;
+  text-align: center;
   color: var(--vp-c-text-2);
 }
 </style>

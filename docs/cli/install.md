@@ -1,7 +1,7 @@
 # Getting Started
 
 ## As global use
-> ==Recommend:== Compared with the npm or npx startup method, Node can be started more directly once, that you to use the `czg` CLI in any project at a faster speed
+> ==Recommend:== Compared with the npm or npx startup method, Node.js can be started more directly once, that you to use the `czg` CLI in any project at a faster speed
 
 ```sh
 npm install -g czg
@@ -50,4 +50,21 @@ try it `npm cz`
 
 ```bash
 npx czg
+```
+
+## As git hooks use
+
+:::warning
+This is not recommended
+- Because it will **change the original behavior of git commit**, so that will lose fast commit methods such as `git commit -m "xxx"`
+- And it will eventually open `vi` so that will lose the convenience of using the CLI
+:::
+Be that as it may czg still support, because it will constrain your team
+
+e.g: husky(.husky/prepare-commit-msg)
+```sh
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+exec < /dev/tty && npx czg --hook || true
 ```

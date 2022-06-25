@@ -34,6 +34,10 @@ export const en: DefaultTheme.NavItem[] = [
         link: npm
       },
       {
+        text: "Playground",
+        link: "https://github.com/Zhengqbbb/czgit-playground"
+      },
+      {
         text: "FAQ",
         link: "/faq/"
       }
