@@ -3,11 +3,26 @@
 ## As global use
 > ==Recommend:== Compared with the npm or npx startup method, Node.js can be started more directly once, that you to use the `czg` CLI in any project at a faster speed
 
+:::: code-group
+::: code-group-item NPM
+
 ```sh
 npm install -g czg
 # check the installation is successful
 czg --help
 ```
+
+:::
+::: code-group-item Homebrew
+
+```bash
+brew install Zhengqbbb/czg/czg
+# check the installation is successful
+czg --help
+```
+
+:::
+::::
 
 ## As a dev dependency use
 

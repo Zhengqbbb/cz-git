@@ -3,11 +3,26 @@
 ## 全局使用
 > ==推荐:== 相比 npm 脚本或者 npx 启动方式，Node.js 只需要启动一次，如此你使用 `czg` CLI 可以在任何项目以最快的速度启动
 
+:::: code-group
+::: code-group-item NPM
+
 ```sh
 npm install -g czg
 # 检查下载是否成功
 czg --help
 ```
+
+:::
+::: code-group-item Homebrew
+
+```bash
+brew install Zhengqbbb/czg/czg
+# 检查下载是否成功
+czg --help
+```
+
+:::
+::::
 
 ## 项目中使用
 
