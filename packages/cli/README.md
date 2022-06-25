@@ -3,8 +3,8 @@
 > Interactive Commitizen CLI that generate standardized commit messages
 
 <p align="center">
-    <a href="https://www.npmjs.com/package/cz-git">
-        <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/cz-git?style=flat-square&logo=npm">
+    <a href="https://www.npmjs.com/package/czg">
+        <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/czg?style=flat-square&logo=npm">
     </a>
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
       <img style="display:inline-block;margin:0.2em;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social">
