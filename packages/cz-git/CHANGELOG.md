@@ -1,3 +1,12 @@
+## [1.3.7](https://github.com/Zhengqbbb/cz-git/compare/v1.3.6...v1.3.7) (2022-06-25)
+
+
+### Bug Fixes
+
+* **cz-git:** remove `markBreakingChangeMode` restrictions on BREAKINGCHANGE footer ([a745bf2](https://github.com/Zhengqbbb/cz-git/commit/a745bf28b665a2d7810c88131db5560097870308)), closes [#38](https://github.com/Zhengqbbb/cz-git/issues/38)
+
+
+
 ## [1.3.6](https://github.com/Zhengqbbb/cz-git/compare/v1.3.5...v1.3.6) (2022-06-25)
 
 
