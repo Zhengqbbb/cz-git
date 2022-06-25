@@ -18,7 +18,7 @@ BREAKING CHANGE: use JavaScript features not available in Node 6.
 ```
 
 ## 使用配置项: `markBreakingChangeMode`
-> 改变 "BREAKINGCHANGE"的提问方式，询问是否需要添加 =="!"== 标识
+> 额外添加 "BREAKINGCHANGE"的提问，询问是否需要添加 =="!"== 标识
 
 ```js{6}
 // .commitlintrc.js
@@ -32,7 +32,7 @@ module.exports = {
 ```
 
 示例:
-![demo](https://user-images.githubusercontent.com/40693636/174950214-b294413c-b2b4-4e5b-9b8d-38deab9e8485.gif)
+![demo](https://user-images.githubusercontent.com/40693636/175775159-710b69c6-ab55-4957-9195-6f963d95ba2e.gif)
 
 ## 使用 commitizen CLI + cz-git
 可以尝试运行命令自动添加标识:

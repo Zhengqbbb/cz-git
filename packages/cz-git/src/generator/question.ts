@@ -178,16 +178,14 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.breaking,
       completeValue: options.defaultBody || undefined,
       when: (answers: Answers) => {
-        if (options.markBreakingChangeMode === true) {
-          return answers.markBreaking;
-        } else if (
+        if (
           options.allowBreakingChanges &&
           answers.type &&
           options.allowBreakingChanges.includes(answers.type)
         ) {
           return true;
         } else {
-          return false;
+          return answers.markBreaking || false;
         }
       },
       transformer: (input: string) => useThemeCode(input, options.themeColorCode)
