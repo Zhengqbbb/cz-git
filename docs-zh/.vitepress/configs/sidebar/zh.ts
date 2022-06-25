@@ -41,7 +41,7 @@ export const zh: DefaultTheme.Sidebar = {
       ]
     },
     {
-      text: "参数",
+      text: "选项",
       collapsible: true,
       collapsed: false,
       items: [

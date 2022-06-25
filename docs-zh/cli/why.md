@@ -8,7 +8,7 @@ cz-git 一直以来都是作为 commitizen CLI 的适配器，但现在我需要
 
 - 无需任何前置配置
 - 在原有基础上扩展 cz-git 的基础功能
-- 启动速度更快。内部已包含 cz-git 核心，不需要寻找适配和其他操作
+- 启动速度更快。内部已包含 cz-git 核心，不需要寻找适配器和其他操作
 
 ```bash{7,9}
 $ npm install -D commitizen
