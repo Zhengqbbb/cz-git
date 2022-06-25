@@ -10,7 +10,7 @@ description: 交互式命令行工具生成标准化的 git commit message
 />
 
 <p align="center">
-    <a href="https://www.npmjs.com/package/cz-git">
+    <a href="https://www.npmjs.com/package/czg">
         <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/cz-git?style=flat-square&logo=npm">
     </a>
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
