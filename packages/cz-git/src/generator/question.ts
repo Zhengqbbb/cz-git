@@ -185,7 +185,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         ) {
           return true;
         } else {
-          return answers.markBreaking || false;
+          return answers.markBreaking || Boolean(process.env.break === "1") || false;
         }
       },
       transformer: (input: string) => useThemeCode(input, options.themeColorCode)
