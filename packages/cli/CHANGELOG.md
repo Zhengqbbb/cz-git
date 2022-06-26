@@ -1,3 +1,12 @@
+## [1.3.8](https://github.com/Zhengqbbb/cz-git/compare/v1.3.7...v1.3.8) (2022-06-26)
+
+
+### Bug Fixes
+
+* **cli:** remove BREAKINGCHANGE question limit when `czg break` ([1bf9a72](https://github.com/Zhengqbbb/cz-git/commit/1bf9a723d0fd483e352d89afbb334bbf96e5ec10))
+
+
+
 ## [1.3.7](https://github.com/Zhengqbbb/cz-git/compare/v1.3.6...v1.3.7) (2022-06-25)
 
 
