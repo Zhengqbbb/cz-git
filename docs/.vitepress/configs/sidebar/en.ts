@@ -12,12 +12,12 @@ export const en: DefaultTheme.Sidebar = {
           link: "/cli/"
         },
         {
-          text: "Why czg",
-          link: "/cli/why"
-        },
-        {
           text: "Getting Started",
           link: "/cli/install"
+        },
+        {
+          text: "Why czg",
+          link: "/cli/why"
         }
       ]
     },
