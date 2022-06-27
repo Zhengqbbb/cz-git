@@ -2,9 +2,9 @@
 
 ## 动机
 
-cz-git 一直以来都是作为 commitizen CLI 的适配器，但现在我需要一款零依赖项，下载速度更快，启动速度更快，简单且方便的 CLI，以至于无需任何的前置条件就可以快速启动 CLI。
+cz-git 一直以来都是作为 [Commitizen CLI](https://github.com/commitizen/cz-cli) 的适配器，但现在我需要一款零依赖项，下载速度更快，启动速度更快，简单且方便的 CLI，以至于无需任何的前置条件就可以快速启动 CLI。
 
-## 与 commitizen 相比有什么不同
+## 与 Commitizen CLI 相比有什么不同
 
 - 无需任何前置配置
 - 在原有基础上扩展 cz-git 的基础功能

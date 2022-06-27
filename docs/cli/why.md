@@ -2,9 +2,9 @@
 
 ## Motivation
 
-cz-git has always used commitizen CLI as a launcher as an adapter, but recently I want a CLI which is zero dependency, faster to download, faster to start, simple and convenient, so that I can use it in any project without any additional configuration items, fast starts the CLI.
+cz-git has always used [Commitizen CLI](https://github.com/commitizen/cz-cli) as a launcher as an adapter, but recently I want a CLI which is zero dependency, faster to download, faster to start, simple and convenient, so that I can use it in any project without any additional configuration items, fast starts the CLI.
 
-## What is different from commitizen
+## What is different from Commitizen CLI
 
 - No additional configuration required
 - Expand cz-git features on its original basis
