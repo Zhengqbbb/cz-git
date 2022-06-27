@@ -21,9 +21,9 @@ body:
     id: system-info
     attributes:
       label: 📄 System Info
-      description: Output of `npx envinfo --system --binaries --npmPackages cz-git --npmPackages commitizen --npmGlobalPackages cz-git --npmGlobalPackages commitizen`
+      description: Output of `npx envinfo --system --binaries --npmPackages cz-git --npmPackages commitizen --npmPackages czg --npmGlobalPackages cz-git --npmGlobalPackages commitizen --npmGlobalPackages czg`
       render: shell
-      placeholder: System, Binaries, Terminal
+      placeholder: System, Binaries, Terminal, czg --version
     validations:
       required: true
 
