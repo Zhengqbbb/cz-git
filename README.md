@@ -31,10 +31,6 @@
     <a href="https://www.npmjs.com/package/czg">
         <img style="display:inline-block;margin:0.2em;" alt="npm-download" src="https://img.shields.io/npm/dm/czg.svg?style=flat-square&logo=npm&label=czg">
     </a>
-    <br/>
-    <a href="https://formulae.brew.sh/formula/czg">
-        <img style="display:inline-block;margin:0.2em;" alt="homebrew" src="https://img.shields.io/homebrew/v/czg?style=flat-square&logo=homebrew&label=homebrew-czg">
-    </a>
 </p>
 
 <p align="center">
