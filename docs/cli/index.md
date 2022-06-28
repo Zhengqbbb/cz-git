@@ -4,10 +4,8 @@ titleTemplate: Interactive Commitizen CLI that generate standardized commit mess
 description: Interactive Commitizen CLI that generate standardized commit messages
 ---
 
-<Hero
-  title="czg"
-  description="Interactive Commitizen CLI that generate standardized commit messages"
-/>
+<h1 class="clip">czg</h1>
+<p class="description">Interactive Commitizen CLI that generate standardized commit messages</p>
 
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">

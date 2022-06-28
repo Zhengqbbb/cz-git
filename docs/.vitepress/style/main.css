@@ -203,3 +203,22 @@ kbd {
   margin-top: calc(1.7rem + 5px);
   padding-top: 0;
 }
+
+/**
+ * Doc
+ * -------------------------------------------------------------------------- */
+.vp-doc .clip {
+  font-size: 3rem;
+  line-height: 3.8rem;
+  text-align: center;
+  background: var(--vp-home-hero-name-background);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
+}
+
+.vp-doc .description {
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--vp-c-text-2);
+}

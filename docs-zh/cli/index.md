@@ -4,10 +4,8 @@ titleTemplate: 交互式命令行工具生成标准化的 git commit message
 description: 交互式命令行工具生成标准化的 git commit message
 ---
 
-<Hero 
-  title="czg"
-  description="交互式命令行工具生成标准化的 git commit message"
-/>
+<h1 class="clip">czg</h1>
+<p class="description">交互式命令行工具生成标准化的 git commit message</p>
 
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
