@@ -11,6 +11,9 @@ description: 交互式命令行工具生成标准化的 git commit message
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
       <img style="display:inline-block;margin:0.2em;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social">
     </a>
+    <a target="_blank" href="https://github.com/agarrharr/awesome-cli-apps#git">
+      <img style="display:inline-block;margin:0.2em;" alt="awesome-cli-app" src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg">
+    </a>
     <br>
     <a href="https://www.npmjs.com/package/czg">
         <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/czg?style=flat-square&logo=npm">

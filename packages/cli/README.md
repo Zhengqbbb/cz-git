@@ -6,6 +6,9 @@
     <a target="_blank" href="https://cz-git.qbenben.com/cli/">
       <img style="display:inline-block;margin:0.2em;" alt="CLI-Link" src="https://img.shields.io/badge/Commitizen-CLI-red.svg?logo=git&style=flat">
     </a>
+    <a target="_blank" href="https://github.com/agarrharr/awesome-cli-apps#git">
+      <img style="display:inline-block;margin:0.2em;" alt="awesome-cli-app" src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg">
+    </a>
     <br/>
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
       <img style="display:inline-block;margin:0.2em;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social">
