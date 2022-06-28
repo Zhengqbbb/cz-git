@@ -16,7 +16,7 @@ czg --help
 ::: code-group-item Homebrew
 
 ```bash
-brew install Zhengqbbb/czg/czg
+brew install czg
 # check the installation is successful
 czg --help
 ```

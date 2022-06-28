@@ -25,11 +25,15 @@
     </a>
     <br>
     <a href="https://www.npmjs.com/package/cz-git">
-        <img style="display:inline-block;margin:0.2em;" alt="npm-download" src="https://img.shields.io/npm/dm/cz-git.svg?style=flat-square&logo=npm&label=cz-git">
+        <img style="display:inline-block;margin:0.2em;" alt="npm-download" src="https://img.shields.io/npm/dm/cz-git.svg?color=blue&style=flat-square&logo=npm&label=cz-git">
         <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/cz-git?style=flat-square&logo=npm">
     </a>
     <a href="https://www.npmjs.com/package/czg">
-        <img style="display:inline-block;margin:0.2em;" alt="npm-download" src="https://img.shields.io/npm/dm/czg.svg?style=flat-square&logo=npm&label=czg">
+        <img style="display:inline-block;margin:0.2em;" alt="npm-download" src="https://img.shields.io/npm/dm/czg.svg?color=blue&style=flat-square&logo=npm&label=czg">
+    </a>
+    <br/>
+    <a href="https://formulae.brew.sh/formula/czg">
+        <img style="display:inline-block;margin:0.2em;" alt="homebrew" src="https://img.shields.io/homebrew/v/czg?color=fcb040&style=flat-square&logo=homebrew&label=homebrew-czg">
     </a>
 </p>
 

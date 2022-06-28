@@ -3,11 +3,19 @@
 > Interactive Commitizen CLI that generate standardized commit messages
 
 <p align="center">
+    <a target="_blank" href="https://cz-git.qbenben.com/cli/">
+      <img style="display:inline-block;margin:0.2em;" alt="CLI-Link" src="https://img.shields.io/badge/Commitizen-CLI-red.svg?logo=git&style=flat">
+    </a>
+    <br/>
+    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
+      <img style="display:inline-block;margin:0.2em;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social">
+    </a>
+    <br>
     <a href="https://www.npmjs.com/package/czg">
         <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/czg?style=flat-square&logo=npm">
     </a>
-    <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
-      <img style="display:inline-block;margin:0.2em;" alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zhengqbbb/cz-git?style=social">
+    <a href="https://formulae.brew.sh/formula/czg">
+        <img style="display:inline-block;margin:0.2em;" alt="homebrew" src="https://img.shields.io/homebrew/v/czg?style=flat-square&logo=homebrew&label=homebrew">
     </a>
 </p>
 
@@ -90,11 +98,9 @@ npm install -g czg
 
 [⇒ Get Started](https://cz-git.qbenben.com/cli/install.html)
 
-## Configure Template
+## Configure
 
 [⇒ Configure Template](https://cz-git.qbenben.com/config/)
-
-## Options
 
 [⇒ Show Related](https://cz-git.qbenben.com/config/show.html)
 
