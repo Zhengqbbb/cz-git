@@ -33,7 +33,7 @@
     </a>
     <br/>
     <a href="https://formulae.brew.sh/formula/czg">
-        <img style="display:inline-block;margin:0.2em;" alt="homebrew" src="https://img.shields.io/homebrew/v/czg?color=fcb040&style=flat-square&logo=homebrew&label=homebrew-czg">
+        <img style="display:inline-block;margin:0.2em;" alt="homebrew" src="https://img.shields.io/homebrew/v/czg?style=flat-square&logo=homebrew&label=homebrew-czg">
     </a>
 </p>
 
