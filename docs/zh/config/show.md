@@ -23,12 +23,25 @@ sitemap:
 - **例子**: `"38;5;043"`
 
 :::tip
+---
+#### 使用 256 Color
+- **规则**: `"38;5;${color_code: 0 ~ 255}"`    
+  ⇒ `color_code` 可以通过链接查看获取 [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
+- **示例**: `"38;5;043"`
+
+#### 使用 256 RGB Color
+> 不推荐使用在团队项目中使用，兼容性较差
+- **规则**: `"38;2;${R};${G};${B}"`       
+  ⇒ 你可以查看这个链接，如果你的终端是否支持显示 256 RGB Truecolor: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
+- **示例**: `"38;2;255;100;0"`
+
+---
+
 如果你不想要采用配置记录的主题色，可以在`~/.bashrc` 或者 `~/.zshrc` 等profile文件中添加一行，其优先级会更高:
 
 ```bash
 export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 ```
-
 :::
 
 ## types
@@ -39,7 +52,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 
 :::tip
 如果要使用 Emoji 需要 ==开启== `userEmoji` 配置项。<br>
-==并且需添加 Emoji Code==，可以在: [https://gitmoji.dev/](https://gitmoji.dev/) 查找相应的字符进行补充到 `emoji`。
+==并且需添加 Emoji Code==，可以在: [https://gitmoji.dev/](https://gitmoji.dev/) 或 [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) 查找相应的字符进行补充到 `emoji`。
 :::
 
 ## typesAppend

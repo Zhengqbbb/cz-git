@@ -18,17 +18,25 @@ sitemap:
 - **description** : set prompt inquirer theme color
 - **type** : `string`
 - **default** : `""`  (⇒ cyan color)
-- **rule**: `"38;5;${color_code}"`    
+
+:::tip
+---
+#### Use 256 Color
+- **rule**: `"38;5;${color_code: 0 ~ 255}"`    
   ⇒ the `color_code` can get it by [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
 - **example**: `"38;5;043"`
 
-:::tip
+#### Use 256 RGB Color
+> Not recommended for use in projects, poor compatibility
+- **rule**: `"38;2;${R};${G};${B}"`    
+  ⇒ You can check this link to see if your terminal supports displaying 256 RGB Color Truecolor: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
+- **example**: `"38;2;255;100;0"`
+---
 If you don't want to use the theme color of the configuration record, you can add a line to the profile file such as `~/.bashrc` or `~/.zshrc`, which will have a higher priority:
 
 ```bash
 export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 ```
-
 :::
 
 ## types
@@ -39,7 +47,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 
 :::tip
 If you want to use Emoji, you need ==enable== `userEmoji` configuration item. <br>
-And need to add Emoji Code, you can find the corresponding characters in: [https://gitmoji.dev/](https://gitmoji.dev/) to supplement `emoji`.
+And need to add Emoji Code, you can find the corresponding characters in: [https://gitmoji.dev/](https://gitmoji.dev/) or [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) to supplement `emoji`.
 :::
 
 ## typesAppend
