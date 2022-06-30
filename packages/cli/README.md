@@ -80,13 +80,16 @@ SUBCOMMAND:
 
 OPTIONS:
     --config       Specify the configuration file to use
-    --retry|-r     Direct retry submit by the last message
-    --help|-h      Show help
-    --version      Show version
+    :, --alias     Directly submit the defined commit message
+    -r, --retry    Direct retry submit by the last message
+    -h, --help     Show help
+    -v, --version  Show version
 
 EXAMPLES:
     czg
     czg emoji
+    czg :ff
+    czg --alias=ff
     czg --config="./config/cz.json"
 
 Extends 'git commit' command and options.
