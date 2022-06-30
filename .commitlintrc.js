@@ -20,6 +20,12 @@ module.exports = {
   },
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options
+    /** @use "pnpm cz :cc" */
+    alias: { 
+      ff: "docs: fix typos",
+      uu: "docs: update README",
+      cc: "chore: update config",
+    },
     themeColorCode: "38;5;043",
     issuePrefixs: [
       { value: "link",   name: "link:     Work in processing to ISSUES" },
