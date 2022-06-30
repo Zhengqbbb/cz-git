@@ -8,7 +8,7 @@
 import { SearchList, SearchCheckbox, CompleteInput } from "@cz-git/inquirer";
 import { configLoader } from "@cz-git/loader";
 import { editCommit, log } from "./shared";
-import { generateOptions, generateQuestions, generateMessage } from "./generator";
+import { generateOptions, generateQuestions, generateMessage, getAliasMessage } from "./generator";
 import type { CommitizenType } from "./shared";
 
 export * from "./shared/types";
@@ -22,6 +22,12 @@ export const prompter = (
 ) => {
   configLoader({ configPath }).then((config) => {
     const options = generateOptions(config);
+
+    if ("cz_alias" in process.env) {
+      commit(getAliasMessage(options, process.env["cz_alias"]));
+      return;
+    }
+
     const questions = generateQuestions(options, cz);
     cz.registerPrompt("search-list", SearchList);
     cz.registerPrompt("search-checkbox", SearchCheckbox);

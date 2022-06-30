@@ -21,6 +21,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
   const promptConfig = config.prompt ?? {};
 
   return {
+    alias: promptConfig.alias ?? defaultConfig.alias,
     messages: promptConfig.messages ?? defaultConfig.messages,
     themeColorCode: ___X_CMD_THEME_COLOR_CODE || promptConfig.themeColorCode || defaultConfig.themeColorCode,
     types: promptConfig.types ?? defaultConfig.types,
