@@ -38,6 +38,17 @@ const resovleFlag = (
   return target;
 };
 
+const resovleAlias = (arg: string, target: CzgitParseArgs) => {
+  if (/^:/.test(arg)) {
+    if (!target.czgitArgs.flag) {
+      target.czgitArgs.flag = { alias: "" };
+    }
+    target.czgitArgs.flag.alias = arg.slice(1);
+    deleteItem(arg, target.gitArgs);
+  }
+  return target;
+};
+
 /**
  * resovle process.argv by minimist
  * @param {ParsedArgs} argv
@@ -62,13 +73,15 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
     gitArgs: argv
   };
 
-  // resolve subcmd
   if (parseArgv._.length !== 0) {
     for (let i = 0; i < parseArgv._.length; i++) {
+      // resolve subcmd
       result = resovleSubCmd(parseArgv._[i], "init", result);
       result = resovleSubCmd(parseArgv._[i], "emoji", result);
       result = resovleSubCmd(parseArgv._[i], "checkbox", result);
       result = resovleSubCmd(parseArgv._[i], "break", result);
+      // resolve alias
+      result = resovleAlias(parseArgv._[i], result);
     }
   }
   // resolve flag
@@ -79,13 +92,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
   result = resovleFlag(parseArgv, "version", "version", result);
   result = resovleFlag(parseArgv, "hook", "hook", result);
   result = resovleFlag(parseArgv, "config", "config", result);
+  result = resovleFlag(parseArgv, "alias", "alias", result);
 
   return result;
-};
-
-/**
- * provide environment variable to cz-git
- */
-export const injectEnv = (key: string, target?: boolean) => {
-  if (target) process.env[key] = "1";
 };

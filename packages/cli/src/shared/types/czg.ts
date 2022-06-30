@@ -1,4 +1,12 @@
-export type CzgitFlagList = "config" | "version" | "help" | "reback" | "retry" | "yes" | "hook";
+export type CzgitFlagList =
+  | "config"
+  | "version"
+  | "help"
+  | "reback"
+  | "retry"
+  | "yes"
+  | "hook"
+  | "alias";
 export type CzgitCommonFlag = {
   /** option: --version|-v */
   version?: boolean;
@@ -9,6 +17,8 @@ export type CzgitCommonFlag = {
 export type CzgitFlag = {
   /** option: --config="xxx" */
   config?: string;
+  /** option: --alias="xxx" */
+  alias?: string;
   /** option: --reback|-b */
   reback?: boolean;
   /** option: --retry|-r */
