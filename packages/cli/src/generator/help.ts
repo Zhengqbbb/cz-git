@@ -1,5 +1,5 @@
-/** `czg` help document */
 import { style } from "cz-git";
+/** `czg` help document */
 export const generateHelp = (version: string, code = 0) => {
   // prettier-ignore
   console.log(
@@ -22,13 +22,16 @@ ${style.yellow("SUBCOMMAND:")}
     
 ${style.yellow("OPTIONS:")}
     ${style.cyan("--config")}       ${style.red("Specify the configuration file to use")}
-    ${style.cyan("--retry|-r")}     ${style.red("Direct retry submit by the last message")}
-    ${style.cyan("--help|-h")}      ${style.red("Show help")}
-    ${style.cyan("--version")}      ${style.red("Show version")}
+    ${style.cyan(":, --alias")}     ${style.red("Directly submit the defined commit message")}
+    ${style.cyan("-r, --retry")}    ${style.red("Direct retry submit by the last message")}
+    ${style.cyan("-h, --help")}     ${style.red("Show help")}
+    ${style.cyan("-v, --version")}  ${style.red("Show version")}
 
 ${style.yellow("EXAMPLES:")}
     ${style.cyan("czg")}
     ${style.cyan("czg emoji")}
+    ${style.cyan("czg :ff")}
+    ${style.cyan("czg --alias=ff")}
     ${style.cyan("czg --config=\"./config/cz.json\"")}
 
 Extends 'git commit' command and options. 
