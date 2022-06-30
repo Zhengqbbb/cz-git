@@ -23,7 +23,7 @@ module.exports = {
     /** @use "pnpm cz :cc" */
     alias: { 
       ff: "docs: fix typos",
-      uu: "docs: update README",
+      rr: "docs: update README",
       cc: "chore: update config",
     },
     themeColorCode: "38;5;043",
