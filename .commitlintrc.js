@@ -21,10 +21,10 @@ module.exports = {
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options
     alias: { 
-      ff: "docs: fix typos",
-      rr: "docs: update README",
-      cc: "chore: update config",
-      bb: "chore: bump dependencies"
+      f: "docs: fix typos",
+      r: "docs: update README",
+      c: "chore: update config",
+      b: "chore: bump dependencies"
     },
     themeColorCode: "38;5;043",
     issuePrefixs: [
