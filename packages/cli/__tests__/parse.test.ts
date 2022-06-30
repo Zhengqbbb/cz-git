@@ -108,6 +108,28 @@ describe("resovleArgs", () => {
       gitArgs: []
     });
 
+    expect(resovleArgs(["--config=./config.js", ":ff", "-a"])).toEqual({
+      czgitArgs: {
+        flag: {
+          config: "./config.js",
+          alias: "ff"
+        },
+        subCommand: null
+      },
+      gitArgs: ["-a"]
+    });
+
+    expect(resovleArgs(["--config=./config.js", ":ff", "--alias=dd", "-a"])).toEqual({
+      czgitArgs: {
+        flag: {
+          config: "./config.js",
+          alias: "dd"
+        },
+        subCommand: null
+      },
+      gitArgs: ["-a"]
+    });
+
     expect(resovleArgs(["--config=./config.js", "break", "emoji", "-a", "--hello"])).toEqual({
       czgitArgs: {
         flag: {
