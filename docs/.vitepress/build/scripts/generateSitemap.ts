@@ -24,7 +24,7 @@ const generateSitemap = async () => {
 
 const getGitTimestamp = (file: string) => {
   const output = execSync(`git log -1 --pretty='%ci' ${file} || true`).toString().trim();
-  return new Date(output || "").toISOString();
+  return output ? new Date(output).toISOString() : new Date().toISOString();
 };
 
 const __LOCALE_REX = /^(zh\/|zh)/;

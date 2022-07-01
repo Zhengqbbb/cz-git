@@ -51,7 +51,7 @@ description: 交互式命令行工具生成标准化的 git commit message
 
 ## 特性以及帮助文档
 
-```bash
+```sh
 $ czg --help
 NAME:
     czg - Interactive Commitizen CLI that generate standardized commit messages
@@ -70,13 +70,16 @@ SUBCOMMAND:
 
 OPTIONS:
     --config       Specify the configuration file to use
-    --retry|-r     Direct retry submit by the last message
-    --help|-h      Show help
-    --version      Show version
+    :, --alias     Directly submit the defined commit message
+    -r, --retry    Directly retry submit by the last message
+    -h, --help     Show help
+    -v, --version  Show version
 
 EXAMPLES:
     czg
     czg emoji
+    czg :ff
+    czg --alias=ff
     czg --config="./config/cz.json"
 
 Extends 'git commit' command and options.

@@ -46,6 +46,10 @@ export const en: DefaultTheme.Sidebar = {
       collapsed: false,
       items: [
         {
+          text: "--alias",
+          link: "/cli/alias"
+        },
+        {
           text: "--retry",
           link: "/cli/retry"
         },
@@ -100,6 +104,10 @@ export const en: DefaultTheme.Sidebar = {
       collapsible: true,
       collapsed: false,
       items: [
+        {
+          text: "alias",
+          link: "/recipes/alias"
+        },
         {
           text: "scopes",
           link: "/recipes/"

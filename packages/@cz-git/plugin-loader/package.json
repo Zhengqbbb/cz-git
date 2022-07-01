@@ -29,7 +29,7 @@
     "clean": "rimraf *.tsbuildinfo lib dist"
   },
   "devDependencies": {
-    "@commitlint/resolve-extends": "^17.0.0",
+    "@commitlint/resolve-extends": "^17.0.3",
     "@commitlint/types": "^17.0.0",
     "@types/tmp": "^0.2.3",
     "cosmiconfig": "^7.0.1",

@@ -46,6 +46,10 @@ export const zh: DefaultTheme.Sidebar = {
       collapsed: false,
       items: [
         {
+          text: "--alias",
+          link: "/cli/alias"
+        },
+        {
           text: "--retry",
           link: "/cli/retry"
         },

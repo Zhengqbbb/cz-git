@@ -1,7 +1,7 @@
 import { CommitizenType, prompter, style } from "cz-git";
 import inquirer from "inquirer";
 import { commit } from "./commit";
-import { isGitClean, getGitRootPath, injectEnv } from "../shared";
+import { isGitClean, getGitRootPath, injectEnvFlag, injectEnvValue } from "../shared";
 import type { CzgitParseArgs } from "../shared";
 
 /**
@@ -25,9 +25,10 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
           )} ?`
         );
       }
-      injectEnv("break", argvs.czgitArgs.subCommand?.break);
-      injectEnv("emoji", argvs.czgitArgs.subCommand?.emoji);
-      injectEnv("checkbox", argvs.czgitArgs.subCommand?.checkbox);
+      injectEnvFlag("break", argvs.czgitArgs.subCommand?.break);
+      injectEnvFlag("emoji", argvs.czgitArgs.subCommand?.emoji);
+      injectEnvFlag("checkbox", argvs.czgitArgs.subCommand?.checkbox);
+      injectEnvValue("cz_alias", argvs.czgitArgs.flag?.alias);
 
       console.log(`czg@${version}\n`);
       // commit

@@ -22,6 +22,3 @@ sitemap:
 ## Terminal cannot display Emoji symbols
 - The terminal cannot Emoji symbols, the high probability is because your terminal has poor support for emoji/unicode characters, but it does not affect the submission
    Because the final output is submitted by Emoji Code, you can consider changing the terminal and [font](https://github.com/ryanoasis/nerd-fonts)
-
-## Why should the output Emoji symbols be placed in subject
-- I also know it will break the aesthetics of the final output format, but the emoji are in subject because of following [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) Specifications cannot be placed in type

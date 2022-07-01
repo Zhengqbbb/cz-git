@@ -80,13 +80,16 @@ SUBCOMMAND:
 
 OPTIONS:
     --config       Specify the configuration file to use
-    --retry|-r     Direct retry submit by the last message
-    --help|-h      Show help
-    --version      Show version
+    :, --alias     Directly submit the defined commit message
+    -r, --retry    Directly retry submit by the last message
+    -h, --help     Show help
+    -v, --version  Show version
 
 EXAMPLES:
     czg
     czg emoji
+    czg :ff
+    czg --alias=ff
     czg --config="./config/cz.json"
 
 Extends 'git commit' command and options.
@@ -95,11 +98,18 @@ See 'git commit --help' for more information.
 
 ## Installation
 
-```
+```sh
 npm install -g czg
 ```
 
-[⇒ Get Started](https://cz-git.qbenben.com/cli/install.html)
+> MacOS:
+
+```sh
+brew install czg
+```
+
+
+[⇒ Get Started (more installation and usage)](https://cz-git.qbenben.com/cli/install.html)
 
 ## Configure
 

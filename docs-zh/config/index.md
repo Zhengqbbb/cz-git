@@ -24,6 +24,7 @@ module.exports = {
     // @see: https://commitlint.js.org/#/reference-rules
   },
   prompt: {
+    alias: { fd: "docs: fix typos" },
     messages: {
       type: "Select the type of change that you're committing:",
       scope: "Denote the SCOPE of this change (optional):",
@@ -50,6 +51,7 @@ module.exports = {
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: false,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -98,6 +100,7 @@ module.exports = {
 // cz.config.js
 /** @type {import('cz-git').CommitizenGitOptions} */
 module.exports = {
+  alias: { fd: "docs: fix typos" },
   messages: {
     type: "Select the type of change that you're committing:",
     scope: "Denote the SCOPE of this change (optional):",
@@ -124,6 +127,7 @@ module.exports = {
     { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
   ],
   useEmoji: false,
+  emojiAlign: "center",
   themeColorCode: "",
   scopes: [],
   allowCustomScopes: true,
@@ -185,6 +189,7 @@ module.exports = {
     // @see: https://commitlint.js.org/#/reference-rules
   },
   prompt: {
+    alias: { fd: "docs: fix typos" },
     messages: {
       type: "选择你要提交的类型 :",
       scope: "选择一个提交范围（可选）:",
@@ -211,6 +216,7 @@ module.exports = {
       {value: 'chore',    name: 'chore:    其他修改 | Other changes that do not modify src or test files'},
     ],
     useEmoji: false,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -266,6 +272,7 @@ module.exports = {
     // @see: https://commitlint.js.org/#/reference-rules
   },
   prompt: {
+    alias: { fd: "docs: fix typos" },
     messages: {
       type: "选择你要提交的类型 :",
       scope: "选择一个提交范围（可选）:",
@@ -292,6 +299,7 @@ module.exports = {
       {value: '其他', name: '其他:     对构建过程或辅助工具和库的更改（不影响源文件、测试用例）'},
     ],
     useEmoji: false,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -342,6 +350,7 @@ module.exports = {
     // @see: https://commitlint.js.org/#/reference-rules
   },
   prompt: {
+    alias: { fd: "docs: fix typos" },
     messages: {
       type: "Select the type of change that you're committing:",
       scope: "Denote the SCOPE of this change (optional):",
@@ -368,6 +377,7 @@ module.exports = {
       { value: "revert", name: "revert:   ⏪️  Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: true,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -419,6 +429,7 @@ module.exports = {
 ```json
 // .czrc | package.json | .commitlintrc(need "prompt" key)
 {
+  "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "Select the type of change that you're committing:",
     "scope": "Denote the SCOPE of this change (optional):",
@@ -445,6 +456,7 @@ module.exports = {
     { "value": "revert", "name": "revert:   Reverts a previous commit", "emoji": ":rewind:" }
   ],
   "useEmoji": false,
+  "emojiAlign": "center",
   "themeColorCode": "",
   "scopes": [],
   "allowCustomScopes": true,

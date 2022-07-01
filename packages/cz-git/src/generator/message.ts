@@ -8,6 +8,15 @@ import { style } from "@cz-git/inquirer";
 import { getCurrentScopes, handleStandardScopes, isSingleItem, wrap } from "../shared";
 import type { Answers, CommitizenGitOptions } from "../shared";
 
+export const getAliasMessage = (config: CommitizenGitOptions, alias?: string) => {
+  if (!alias || typeof config?.alias?.[alias] !== "string") {
+    throw new Error(`${style.red(`>>> The alias "${alias}" is not defined`)}`);
+  }
+  console.log(`${style.green(`>>> Using "${alias}" commit message alias:`)}`);
+  console.log(`${style.gray(config.alias[alias])}`);
+  return config.alias[alias];
+};
+
 const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
   const singleIndex = 0;
   const mapping = {
