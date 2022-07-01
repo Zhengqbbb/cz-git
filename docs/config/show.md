@@ -66,7 +66,7 @@ typesAppend: [
 
 ## useEmoji
 
-- **description** : Whether to enable commit messages with emoji characters.
+- **description** : Whether to enable commit messages with Emoji characters.
 - **type** : `boolean`
 - **default** : `false`
 
@@ -75,6 +75,13 @@ Try running command to **enable output emoji mode in the current session**
 - Commitizen CLI: `emoji=1 cz`
 - cz-git CLI: `czg emoji`
 :::
+
+## emojiAlign
+
+- **description** : Set the **location** of Emoji in header
+- **type** : `"left" | "center" | "right"`
+- **default** : `"center"`
+- **example**: `${:=left} type(scope): ${:=center} subject ${:=right}`
 
 ## customScopesAlign
 

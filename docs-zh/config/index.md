@@ -50,6 +50,7 @@ module.exports = {
       { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: false,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -124,6 +125,7 @@ module.exports = {
     { value: "revert", name: "revert:   Reverts a previous commit", emoji: ":rewind:" }
   ],
   useEmoji: false,
+  emojiAlign: "center",
   themeColorCode: "",
   scopes: [],
   allowCustomScopes: true,
@@ -211,6 +213,7 @@ module.exports = {
       {value: 'chore',    name: 'chore:    其他修改 | Other changes that do not modify src or test files'},
     ],
     useEmoji: false,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -292,6 +295,7 @@ module.exports = {
       {value: '其他', name: '其他:     对构建过程或辅助工具和库的更改（不影响源文件、测试用例）'},
     ],
     useEmoji: false,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -368,6 +372,7 @@ module.exports = {
       { value: "revert", name: "revert:   ⏪️  Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: true,
+    emojiAlign: "center",
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -445,6 +450,7 @@ module.exports = {
     { "value": "revert", "name": "revert:   Reverts a previous commit", "emoji": ":rewind:" }
   ],
   "useEmoji": false,
+  "emojiAlign": "center",
   "themeColorCode": "",
   "scopes": [],
   "allowCustomScopes": true,
