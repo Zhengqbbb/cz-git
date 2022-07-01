@@ -5,7 +5,11 @@
 
 * **cli:** add `czg --alias` can directly submit the defined commit message ([ea7423d](https://github.com/Zhengqbbb/cz-git/commit/ea7423d3060d464bf36f11b7baede71f50e1da20)), closes [#43](https://github.com/Zhengqbbb/cz-git/issues/43)
 * **cz-git:** add `alias` option can directly submit the defined commit message ([692a582](https://github.com/Zhengqbbb/cz-git/commit/692a582c9ca2836a488248505ed29bbc0f265a47)), closes [#43](https://github.com/Zhengqbbb/cz-git/issues/43)
+
+  **See**: https://cz-git.qbenben.com/recipes/alias.html
 * **cz-git:** add `emojiAlign` custom setting emoji header location ([ab23be2](https://github.com/Zhengqbbb/cz-git/commit/ab23be25db57da98c85c25a79d701a58c6a4472f)), closes [#43](https://github.com/Zhengqbbb/cz-git/issues/43)
+
+  **See**: https://cz-git.qbenben.com/config/show.html#emojialign
 
 
 
