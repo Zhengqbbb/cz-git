@@ -44,6 +44,17 @@ deploy_next() {
     pnpm -r publish --tag next --no-git-checks --force
 }
 
+deploy_brew() {
+    param:dsl       '
+options:
+    --version    "input version"            <>:
+'
+    param:run
+    cd "$(brew --repository)"   || return 1
+    [ -n "$(command -v brew)" ] || return 1
+    brew bump-formula-pr --url "https://registry.npmjs.org/czg/-/czg-${version}.tgz" czg 
+}
+
 deploy_docs() {
     pnpm docs:build
     [ ! -d "$DIST_PATH" ]   && return 1
@@ -64,6 +75,7 @@ case "${1}" in
     cz)     shift;  deploy_cz "$@"     ;;
     docs)           deploy_docs        ;;
     next)           deploy_next        ;;
+    brew)           deploy_brew        ;;
     all)    shift;  deploy_all "$@"    ;;
     *)              deploy             ;;
 esac
