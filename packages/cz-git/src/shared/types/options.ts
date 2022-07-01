@@ -136,6 +136,12 @@ export interface CommitizenGitOptions {
   useEmoji?: boolean;
 
   /**
+   * @description: Set the location of emoji in header
+   * @default: "center"
+   */
+  emojiAlign?: "left" | "center" | "right";
+
+  /**
    * @description: Provides a select of prompt to select module scopes
    * @note it auto import value from rule "scope-enum" with `@commitlint`
    * @use want to add scopes description or when you not use commitlint
@@ -182,6 +188,7 @@ export interface CommitizenGitOptions {
   allowEmptyScopes?: boolean;
 
   /**
+   * @description: Set the location of empty option (empty) and custom option (custom) in selection range
    * @default: "bottom"
    */
   customScopesAlign?: "top" | "bottom" | "top-bottom" | "bottom-top";
@@ -367,6 +374,7 @@ export const defaultConfig = Object.freeze({
    typesAppend: [],
    themeColorCode: "",
    useEmoji: false,
+   emojiAlign: "center",
    scopes: [],
    enableMultipleScopes: false,
    scopeEnumSeparator: ",",

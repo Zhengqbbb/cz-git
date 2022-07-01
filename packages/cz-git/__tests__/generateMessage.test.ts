@@ -1,5 +1,6 @@
 import { test, expect, describe } from "vitest";
 import { generateMessage } from "../src/generator";
+import { CommitizenGitOptions } from "../src/shared";
 
 /**
  * @description: generateMessage Test
@@ -30,6 +31,33 @@ describe("generateMessage()", () => {
       useEmoji: true
     };
     expect(generateMessage(answers, options)).toEqual("feat(app): add a new feature");
+  });
+
+  test("emojiAlign use center should be before subject header", () => {
+    const options: CommitizenGitOptions = {
+      types: [{ value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" }],
+      useEmoji: true,
+      emojiAlign: "center"
+    };
+    expect(generateMessage(answers, options)).toEqual("feat(app): :sparkles: add a new feature");
+  });
+
+  test("emojiAlign use center should be before type header", () => {
+    const options: CommitizenGitOptions = {
+      types: [{ value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" }],
+      useEmoji: true,
+      emojiAlign: "left"
+    };
+    expect(generateMessage(answers, options)).toEqual(":sparkles: feat(app): add a new feature");
+  });
+
+  test("emojiAlign use right should be after subject header", () => {
+    const options: CommitizenGitOptions = {
+      types: [{ value: "feat", name: "feat:     A new feature", emoji: ":sparkles:" }],
+      useEmoji: true,
+      emojiAlign: "right"
+    };
+    expect(generateMessage(answers, options)).toEqual("feat(app): add a new feature :sparkles:");
   });
 
   test("body breaking line should be with breaklineNumber", () => {

@@ -45,14 +45,22 @@ const addBreakchangeMark = (markBreaking?: string | boolean, colorize?: boolean)
   return Boolean(markBreaking) || Boolean(process.env.break === "1") ? mark : "";
 };
 
-const addEmoji = (type: string, options: CommitizenGitOptions): string => {
-  if (options.useEmoji && type !== "") {
-    const itemSource = options.types?.concat(options.typesAppend || []) || [];
-    const item = itemSource.find((i) => i.value === type);
-    return item?.emoji ? ` ${item.emoji} ` : " ";
-  } else {
-    return " ";
+const getEmojiCode = (type: string, options: CommitizenGitOptions): string => {
+  if (!options.useEmoji || type === "") return "";
+  const itemSource = options.types?.concat(options.typesAppend || []) || [];
+  const item = itemSource.find((i) => i.value === type);
+  return item?.emoji ? item.emoji : "";
+};
+
+const addEmoji = (emojiCode: string, align: string, emojiAlign?: string) => {
+  if (!emojiCode) return "";
+  switch (emojiAlign) {
+    case "left" || "center":
+      return align === emojiAlign ? emojiCode + " " : "";
+    case "right":
+      return align === emojiAlign ? " " + emojiCode : "";
   }
+  return align === "center" ? emojiCode + " " : "";
 };
 
 const addSubject = (subject?: string, colorize?: boolean) => {
@@ -92,13 +100,16 @@ export const generateMessage = (
   const scope = Array.isArray(answers.scope)
     ? answers.scope.join(options.scopeEnumSeparator)
     : answers.scope;
+  const emoji = getEmojiCode(answers.type || "", options);
   const head =
+    addEmoji(emoji, "left", options.emojiAlign) +
     addType(answers.type ?? "", colorize) +
     addScope(singleScope || scope, colorize) +
     addBreakchangeMark(answers.markBreaking, colorize) +
-    ":" +
-    addEmoji(answers.type ?? "", options) +
-    addSubject(answers.subject, colorize);
+    ": " +
+    addEmoji(emoji, "center", options.emojiAlign) +
+    addSubject(answers.subject, colorize) +
+    addEmoji(emoji, "right", options.emojiAlign);
   const body = wrap(answers.body ?? "", wrapOptions);
   const breaking = wrap(answers.breaking ?? "", wrapOptions);
   const footer = wrap(answers.footer ?? "", wrapOptions);
