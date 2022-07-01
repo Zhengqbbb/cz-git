@@ -126,9 +126,21 @@ added 1 package in 0.461s
   </tr>
   <tr>
     <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/jdf2e/nutui">
+        <img src="https://user-images.githubusercontent.com/40693636/176893604-242bb95e-4619-43e0-b4d1-25138867db2f.png" alt="NntUI-Logo" width="40"><br>
+        <sub>NntUI</sub>
+      </a>
+    </td>
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/buqiyuan/vue3-antd-admin">
         <img src="https://user-images.githubusercontent.com/40693636/170830597-31d6f0d7-2c93-491b-a984-7bf21db8f75b.png" alt="Antd-Admin-logo" width="40"><br>
         <sub>Vue3-Antd-Admin</sub>
+      </a>
+    </td>
+    <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/HalseySpicy/Hooks-Admin">
+        <img src="https://user-images.githubusercontent.com/40693636/176892608-1602c7e2-3c12-4187-8c24-a1767f32c262.png" alt="Hooks-Admin-logo" width="40"><br>
+        <sub>Hooks-Admin</sub>
       </a>
     </td>
     <td align="center" width="200px">
@@ -137,6 +149,8 @@ added 1 package in 0.461s
         <sub>Geeker-Admin</sub>
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope">
         <img src="https://user-images.githubusercontent.com/40693636/170830621-45577c1d-6e6e-4916-bb43-15af954d994b.png" alt="vuepress-hope-logo" width="40"><br>
