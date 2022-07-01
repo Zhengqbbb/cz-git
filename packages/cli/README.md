@@ -98,11 +98,18 @@ See 'git commit --help' for more information.
 
 ## Installation
 
-```
+```sh
 npm install -g czg
 ```
 
-[⇒ Get Started](https://cz-git.qbenben.com/cli/install.html)
+> MacOS:
+
+```sh
+brew install czg
+```
+
+
+[⇒ Get Started (more installation and usage)](https://cz-git.qbenben.com/cli/install.html)
 
 ## Configure
 
