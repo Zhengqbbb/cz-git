@@ -8,6 +8,16 @@ sitemap:
 
 # 工程化规范化相关
 
+## alias
+
+- **描述** : 定义常用的 commit message 别名
+- **类型** : `{ [alias: string]: string }`
+- **默认** : `{ fd: "docs: fix typos" }`
+
+::: tip
+更多用法和示例 [⇒ 更多小窍门](/zh/recipes/alias.html)
+:::
+
 ## scopes
 
 - **描述** : 自定义选择 **模块范围** 命令行显示信息

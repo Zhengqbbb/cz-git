@@ -25,6 +25,7 @@ module.exports = {
     // @see: https://commitlint.js.org/#/reference-rules
   },
   prompt: {
+    alias: { fd: "docs: fix typos" },
     messages: {
       type: "Select the type of change that you're committing:",
       scope: "Denote the SCOPE of this change (optional):",
@@ -97,6 +98,7 @@ module.exports = {
 // cz.config.js
 /** @type {import('cz-git').CommitizenGitOptions} */
 module.exports = {
+  alias: { fd: "docs: fix typos" },
   messages: {
     type: "Select the type of change that you're committing:",
     scope: "Denote the SCOPE of this change (optional):",
@@ -185,6 +187,7 @@ module.exports = {
     // @see: https://commitlint.js.org/#/reference-rules
   },
   prompt: {
+    alias: { fd: "docs: fix typos" },
     messages: {
       type: "Select the type of change that you're committing:",
       scope: "Denote the SCOPE of this change (optional):",
@@ -263,6 +266,7 @@ It is recommended to use JavaScript for configuration files in the project. You 
 ```json
 // .czrc | package.json | .commitlintrc(need "prompt" key)
 {
+  "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "Select the type of change that you're committing:",
     "scope": "Denote the SCOPE of this change (optional):",

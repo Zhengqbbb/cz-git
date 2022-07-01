@@ -7,6 +7,16 @@ sitemap:
 ---
 # Options - Engineering Related
 
+## alias
+
+- **description** : define commonly used commit message alias
+- **type** : `{ [alias: string]: string }`
+- **default** : `{ fd: "docs: fix typos" }`
+
+::: tip
+More usage and demo [⇒ can see the recipes](/recipes/alias.html)
+:::
+
 ## scopes
 
 - **description** : custom selection **module scope** command line display information

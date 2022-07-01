@@ -101,6 +101,10 @@ export const zh: DefaultTheme.Sidebar = {
       collapsed: false,
       items: [
         {
+          text: "alias",
+          link: "/zh/recipes/alias"
+        },
+        {
           text: "scopes",
           link: "/zh/recipes/"
         },
