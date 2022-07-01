@@ -81,7 +81,7 @@ SUBCOMMAND:
 OPTIONS:
     --config       Specify the configuration file to use
     :, --alias     Directly submit the defined commit message
-    -r, --retry    Direct retry submit by the last message
+    -r, --retry    Directly retry submit by the last message
     -h, --help     Show help
     -v, --version  Show version
 
