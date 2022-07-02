@@ -105,12 +105,12 @@ export const en: DefaultTheme.Sidebar = {
       collapsed: false,
       items: [
         {
-          text: "alias",
-          link: "/recipes/alias"
-        },
-        {
           text: "scopes",
           link: "/recipes/"
+        },
+        {
+          text: "alias",
+          link: "/recipes/alias"
         },
         {
           text: "markBreakingChange",
