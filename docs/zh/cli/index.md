@@ -78,8 +78,8 @@ OPTIONS:
 EXAMPLES:
     czg
     czg emoji
-    czg :ff
-    czg --alias=ff
+    czg :fd
+    czg --alias=fd
     czg --config="./config/cz.json"
 
 Extends 'git commit' command and options.
