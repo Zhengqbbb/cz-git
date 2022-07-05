@@ -86,7 +86,7 @@ typesAppend: [
 - **描述** : 设置 **Emoji 字符** 的 **位于头部位置**
 - **类型** : `"left" | "center" | "right"`
 - **默认** : `"center"`
-- **示例** : `${:=left} type(scope): ${:=center} subject ${:=right}`
+- **示例** : `<left> type(scope): <center> subject <right>`
 
 ## customScopesAlign
 

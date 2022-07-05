@@ -81,7 +81,7 @@ Try running command to **enable output emoji mode in the current session**
 - **description** : Set the **location** of Emoji in header
 - **type** : `"left" | "center" | "right"`
 - **default** : `"center"`
-- **example**: `${:=left} type(scope): ${:=center} subject ${:=right}`
+- **example**: `<left> type(scope): <center> subject <right>`
 
 ## customScopesAlign
 
