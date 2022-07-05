@@ -10,7 +10,11 @@ import type { Answers, CommitizenGitOptions } from "../shared";
 
 export const getAliasMessage = (config: CommitizenGitOptions, alias?: string) => {
   if (!alias || typeof config?.alias?.[alias] !== "string") {
-    throw new Error(`${style.red(`>>> The alias "${alias}" is not defined`)}`);
+    throw new Error(`${style.red(`>>> The alias "${alias}" is undefined`)}
+
+${style.yellow(">>> The currently obtained alias configuration:")}
+${style.cyan(JSON.stringify(config.alias, null, 2))}
+`);
   }
   console.log(`${style.green(`>>> Using "${alias}" commit message alias:`)}`);
   console.log(`${style.gray(config.alias[alias])}`);
