@@ -13,7 +13,7 @@ ${style.yellow("WEBSITE:")}
 ${style.yellow("VERSION:")} ${version}
 
 ${style.yellow("SYNOPSIS:")}
-    czg [subcommand] [options]
+    czg [subcommand...] [options...] [git-commit-options...]
 
 ${style.yellow("SUBCOMMAND:")}
     ${style.cyan("break")}          ${style.red("Turn on BREAKING CHANGE mode, Add ! mark on header")}
@@ -30,11 +30,11 @@ ${style.yellow("OPTIONS:")}
 ${style.yellow("EXAMPLES:")}
     ${style.cyan("czg")}
     ${style.cyan("czg emoji")}
-    ${style.cyan("czg :ff")}
-    ${style.cyan("czg --alias=ff")}
+    ${style.cyan("czg :fd")}
+    ${style.cyan("czg --alias=fd")}
     ${style.cyan("czg --config=\"./config/cz.json\"")}
 
-Extends 'git commit' command and options. 
+Extends 'git commit' options. 
 See 'git commit --help' for more information. `
   );
   process.exit(code);
