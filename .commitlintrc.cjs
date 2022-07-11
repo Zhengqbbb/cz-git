@@ -25,7 +25,8 @@ module.exports = {
       r: "docs: update README",
       c: "chore: update config",
       b: "chore: bump dependencies",
-      table: "chore: update project using table data",
+      "table:data": "chore: :hammer: update project using table data",
+      "table:docs": "docs: update project using table",
     },
     themeColorCode: "38;5;043",
     issuePrefixs: [
