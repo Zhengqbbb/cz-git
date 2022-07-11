@@ -24,7 +24,8 @@ module.exports = {
       f: "docs: fix typos",
       r: "docs: update README",
       c: "chore: update config",
-      b: "chore: bump dependencies"
+      b: "chore: bump dependencies",
+      table: "chore: update project using table data",
     },
     themeColorCode: "38;5;043",
     issuePrefixs: [
