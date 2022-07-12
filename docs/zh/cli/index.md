@@ -1,7 +1,7 @@
 ---
 title: czg
-titleTemplate: 交互式命令行工具生成标准化的 git commit message
-description: 交互式命令行工具生成标准化的 git commit message
+titleTemplate: 交互式命令行工具(Commitizen CLI)生成标准化的 git commit message
+description: 交互式命令行工具(Commitizen CLI)生成标准化的 git commit message
 ---
 
 <h1 class="clip">czg</h1>
