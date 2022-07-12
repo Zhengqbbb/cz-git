@@ -50,8 +50,8 @@ options:
     --version    "input version"            <>:
 '
     param:run
-    cd "$(brew --repository)"   || return 1
     [ -n "$(command -v brew)" ] || return 1
+    cd "$(brew --repository)"   || return 1
     brew bump-formula-pr --url "https://registry.npmjs.org/czg/-/czg-${version}.tgz" czg 
 }
 
