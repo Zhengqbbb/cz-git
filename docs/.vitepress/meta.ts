@@ -13,6 +13,7 @@ export const ogTitle = "cz-git - commitizen adapter and CLI";
 export const ogImg = "https://cz-git.qbenben.com/images/og.png";
 export const github = "https://github.com/Zhengqbbb/cz-git";
 export const npm = "https://www.npmjs.com/package/cz-git";
+export const twitter = "https://twitter.com/zhengqbbb";
 
 /** package info */
 export const { version } = require("cz-git/package.json");

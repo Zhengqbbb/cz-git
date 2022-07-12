@@ -1,7 +1,7 @@
 import type { DefaultTheme } from "vitepress";
 import * as nav from "./navbar";
 import * as sidebar from "./sidebar";
-import { github, site } from "../meta";
+import { github, site, twitter } from "../meta";
 
 /**
  * Theme configs let you customize your theme.
@@ -9,7 +9,10 @@ import { github, site } from "../meta";
  */
 export const themeConfig: DefaultTheme.Config = {
   logo: "https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png",
-  socialLinks: [{ icon: "github", link: github }],
+  socialLinks: [
+    { icon: "github", link: github },
+    { icon: "twitter", link: twitter }
+  ],
   editLink: {
     pattern: `${github}/edit/main/docs-zh/:path`,
     text: "在 GitHub 上编辑此页"

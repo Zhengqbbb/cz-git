@@ -6,7 +6,7 @@ import { useCodeGroup, useCodeGroupItem } from "../components/markdown";
  * @see https://vitepress.vuejs.org/config/app-configs.html#markdown
  */
 export const markdownConfig: MarkdownOptions = {
-  /** shiki code theme */
+  // shiki code theme
   theme: {
     light: "vitesse-light",
     dark: "vitesse-dark"

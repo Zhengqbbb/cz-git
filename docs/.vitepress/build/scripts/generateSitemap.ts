@@ -1,7 +1,7 @@
-import { execSync } from "child_process";
 import fg from "fast-glob";
-import { createWriteStream } from "fs";
 import rm from "rimraf";
+import { execSync } from "child_process";
+import { createWriteStream } from "fs";
 import { SitemapStream } from "sitemap";
 import { resolve } from "pathe";
 import { site } from "../../meta";
