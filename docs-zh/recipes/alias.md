@@ -1,13 +1,14 @@
 # alias
 
-> [alias](/config/engineer.html#alias) alias是用来定义一些常用的git commit message。我们经常会遇到一些经常性输出的 commit message。像修改文档错别字 `docs: fix typos`，我们可以定义一个像下面的配置:
+> [alias](/config/engineer.html#alias) alias是用来定义一些常用的git commit message。我们常常会遇到一些频繁性输出 commit message。像修改文档错别字 `docs: fix typos`，我们可以定义一个像下面的配置:
 
 ```json
 // .czrc
 {
   "alias": {
     "fd": "docs: fix typos",
-    "ur": "docs: update README"
+    "ur": "docs: update README",
+    ":": "docs: update posts"
   }
 }
 ```

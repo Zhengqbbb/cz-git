@@ -8,7 +8,7 @@
 
 ## 描述
 
-[alias](/zh/config/engineer.html#alias) alias是用来定义一些常用的git commit message。我们经常会遇到一些经常性输出的 commit message。像修改文档错别字 `docs: fix typos`，此时我们可以将他定义别名 `fd` 进行使用
+[alias](/zh/config/engineer.html#alias) alias是用来定义一些常用的git commit message。我们常常会遇到一些频繁性输出的 commit message。像修改文档错别字 `docs: fix typos`，此时我们可以将他定义别名 `fd` 进行使用
 
 ```bash
 czg :fd
