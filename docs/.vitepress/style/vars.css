@@ -25,6 +25,7 @@
   --vp-custom-block-tip-text: #dae1dd;
   --vp-code-block-bg: rgba(0,0,0,0.3);
   --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);
+  --vp-c-bg-mute: #2d2d2d;
   --vp-c-kbd-box-outside-shadow: -1px -1px 1px #505050, 1px 1px 6px #000;
   --vp-c-kbd-box-inside-shadow: inset 1px 1px 3px #000, inset -3px -3px 6px #505050;
 }
