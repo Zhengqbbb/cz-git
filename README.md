@@ -51,7 +51,7 @@
 
 ## Introduction
 
-A more engineered, lightweight, customizable, standard output format [commitizen adapter](https://github.com/commitizen/cz-cli) and [CLI](https://cz-git.qbenben.com/cli/).
+More engineered, lightweight, customizable, standard output format [commitizen adapter](https://github.com/commitizen/cz-cli) and [CLI](https://cz-git.qbenben.com/cli/).
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif)
 
