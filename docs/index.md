@@ -3,7 +3,7 @@ layout: home
 sidebar: false
 
 title: cz-git
-titleTemplate: A more engineered, lightweight, customizable, standard output format commitizen adapter
+titleTemplate: More engineered, lightweight, customizable, standard output format commitizen adapter
 
 hero:
   name: cz-git
