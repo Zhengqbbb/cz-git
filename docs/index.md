@@ -7,8 +7,8 @@ titleTemplate: A more engineered, lightweight, customizable, standard output for
 
 hero:
   name: cz-git
-  text: ""
-  tagline: A more engineered, lightweight, customizable, standard output format commitizen adapter.
+  text: "Do the best commitizen solution !"
+  tagline: More engineered, lightweight, customizable, standard output format commitizen adapter and CLI.
   image:
     src: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png
     alt: cz-git

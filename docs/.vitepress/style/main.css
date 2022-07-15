@@ -63,17 +63,26 @@ kbd {
   .VPHomeHero .image-src {
     max-width: 240px;
   }
+  .VPHomeHero .text {
+    font-size: 22px;
+  }
 }
 
 @media (min-width: 640px) {
   .VPHomeHero .image-src {
     max-width: 390px;
   }
+  .VPHomeHero .text {
+    font-size: 32px;
+  }
 }
 
 @media (min-width: 960px) {
   .VPHomeHero .image-src {
     max-width: 420px;
+  }
+  .VPHomeHero .text {
+    font-size: 36px;
   }
 }
 

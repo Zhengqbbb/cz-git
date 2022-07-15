@@ -7,10 +7,10 @@ titleTemplate: 一款工程性更强，轻量级，高度自定义，标准输�
 
 hero:
   name: cz-git
-  text: ""
+  text: "做最好的 commitizen 解决方案 !"
   tagline: |
-    一款工程性更强，轻量级，高度自定义，
-    输出标准格式的 commitizen 适配器。
+    工程性更强，轻量级，高度自定义，
+    输出标准格式的 commitizen 适配器和 CLI
   image:
     src: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png
     alt: cz-git
