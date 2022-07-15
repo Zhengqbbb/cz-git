@@ -179,7 +179,7 @@ module.exports = {
 
 ::: details Click to expand .commitlintrc.js complete emoji template template
 
-```js{21-31,33}
+```js{22-32,34}
 // .commitlintrc.js
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
