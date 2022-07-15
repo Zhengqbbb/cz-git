@@ -21,7 +21,8 @@ export const getCacheValueSync = (cachePath: string, repoPath: string) => {
     return cache[repoPath];
   } catch (e) {
     throw new Error(
-      `${style.red(`>>> No found commit message cache in current repo: ${repoPath}`)}`
+      `${style.red(`>>> No found commit message cache in current repo: ${repoPath}`)}
+${style.yellow(`>>> Tip: Retry option requires using once "czg" command commit msg record`)}`
     );
   }
 };
