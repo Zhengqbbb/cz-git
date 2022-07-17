@@ -60,7 +60,7 @@ deploy_docs() {
     [ ! -d "$DIST_PATH" ]   && return 1
     cd "$DIST_PATH"         || exit
 
-    echo 'cz-git.qbenben.com' > CNAME
+    echo 'cz-git.qbb.sh' > CNAME
     [ -d "$DIST_PATH/.git" ] && rm -rf "$DIST_PATH/.git"
     git init \
         && git remote add origin "$GITHUB_URL" \
