@@ -19,5 +19,5 @@ export const twitter = "https://twitter.com/zhengqbbb";
 export const { version } = require("cz-git/package.json");
 
 /** site search console  */
-export const google = "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec";
-export const baidu = "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec";
+export const googleVerify = "j6cNWewUj3QcJBpdv48t67XoDxdlKPQ6dwKgXg9Nigo";
+export const baiduVerify = "code-GZMUSi21Xe";
