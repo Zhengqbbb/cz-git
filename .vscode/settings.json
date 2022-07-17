@@ -20,6 +20,5 @@
   "files.associations": {
     "**/.x-cmd/*": "shellscript",
   },
-  "picgo.picBed.github.path": "cz/",
   "unocss.root": "docs/.vitepress/build/plugins/unocss.ts"
 }
