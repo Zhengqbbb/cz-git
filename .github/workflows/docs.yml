@@ -43,7 +43,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          cname: cz-git.qbb.sh
           publish_dir: docs/.vitepress/dist
           publish_branch: gh-page
-          cname: cz-git.qbb.sh
           commit_message: "build: :books: deploy docs"
