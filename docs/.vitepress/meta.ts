@@ -17,3 +17,7 @@ export const twitter = "https://twitter.com/zhengqbbb";
 
 /** package info */
 export const { version } = require("cz-git/package.json");
+
+/** site search console  */
+export const google = "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec";
+export const baidu = "bmaXCuUg4k9-nZLe3yIz1yQb0WO4_h8wHhkhBOl3Dec";

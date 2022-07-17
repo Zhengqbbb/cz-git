@@ -1,7 +1,8 @@
 import type { HeadConfig } from "vitepress";
-import { name, site, descriptionEN, keywords, ogTitle, logo } from "../meta";
+import { name, site, descriptionEN, keywords, ogTitle, logo, google } from "../meta";
 
 export const head: HeadConfig[] = [
+  ["meta", { name: "google-site-verification", content: google }],
   ["meta", { name: "keywords", content: keywords }],
   ["meta", { name: "author", content: "Zhengqbbb" }],
   ["meta", { name: "twitter:title", content: ogTitle }],
