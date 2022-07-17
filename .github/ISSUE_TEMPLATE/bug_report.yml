@@ -14,7 +14,7 @@ body:
         - label: I am using the **latest version**
           required: true
 
-        - label: I have searched [FAQ](https://cz-git.qbenben.com/faq/)
+        - label: I have searched [FAQ](https://cz-git.qbb.sh/faq/)
           required: true
 
   - type: textarea

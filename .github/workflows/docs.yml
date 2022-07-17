@@ -45,5 +45,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vitepress/dist
           publish_branch: gh-page
-          cname: cz-git.qbenben.com
+          cname: cz-git.qbb.sh
           commit_message: "build: :books: deploy docs"
