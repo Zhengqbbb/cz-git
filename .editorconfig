@@ -10,6 +10,6 @@ insert_final_newline = true
 indent_size = 4
 tab_width = 4
 
-[.x-cmd/**/*.yaml]
+[.x-cmd/**/*.yml]
 indent_size = 2
 tab_width = 2
