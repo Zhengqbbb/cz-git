@@ -23,6 +23,6 @@ export default {
     app.component("CodeGroup", CodeGroup);
     app.component("CodeGroupItem", CodeGroupItem);
     useMediumZoomProvider(app, router);
-    usePageAnalytics("G-K6F2G4G0ZN", "da331747a43e6c97f6ebd1e68ed3dcc8");
+    usePageAnalytics("G-V5E08LL4GP", "b1d9002033c7e550e55a51a23dca4f31");
   }
 };
