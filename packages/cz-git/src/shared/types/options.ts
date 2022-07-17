@@ -220,7 +220,7 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Whether to add extra prompt BREAKCHANGE ask. to add an extra "!" to the header
-   * @see: https://cz-git.qbenben.com/recipes/breakingchange
+   * @see: https://cz-git.qbb.sh/recipes/breakingchange
    * @default: false
    */
   markBreakingChangeMode?: boolean;

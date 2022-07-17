@@ -39,11 +39,11 @@ sitemap:
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/guide/">Installation</a>
+    <a href="https://cz-git.qbb.sh/guide/">Installation</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com">Website</a>
+    <a href="https://cz-git.qbb.sh">Website</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/zh/">简体中文文档</a>
+    <a href="https://cz-git.qbb.sh/zh/">简体中文文档</a>
 </p>
 
 ## 介绍

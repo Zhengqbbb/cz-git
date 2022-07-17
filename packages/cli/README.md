@@ -3,7 +3,7 @@
 > Interactive Commitizen CLI that generate standardized commit messages
 
 <p align="center">
-    <a target="_blank" href="https://cz-git.qbenben.com/cli/">
+    <a target="_blank" href="https://cz-git.qbb.sh/cli/">
       <img style="display:inline-block;margin:0.2em;" alt="CLI-Link" src="https://img.shields.io/badge/Commitizen-CLI-red.svg?logo=git&style=flat">
     </a>
     <a target="_blank" href="https://github.com/agarrharr/awesome-cli-apps#git">
@@ -25,11 +25,11 @@
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/cli/install.html">Installation</a>
+    <a href="https://cz-git.qbb.sh/cli/install.html">Installation</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/cli/">Website</a>
+    <a href="https://cz-git.qbb.sh/cli/">Website</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/zh/cli/">简体中文文档</a>
+    <a href="https://cz-git.qbb.sh/zh/cli/">简体中文文档</a>
 </p>
 
 <br/>
@@ -56,7 +56,7 @@ Create a `.czrc` file in the project root directory
 ```
 
 > **Note**
-> More information about configure file and options. See → [Config](https://cz-git.qbenben.com/config/)
+> More information about configure file and options. See → [Config](https://cz-git.qbb.sh/config/)
 
 ## Features and Help
 
@@ -67,7 +67,7 @@ NAME:
     czg - Interactive Commitizen CLI that generate standardized commit messages
 
 WEBSITE:
-    https://cz-git.qbenben.com/cli/
+    https://cz-git.qbb.sh/cli/
     https://github.com/Zhengqbbb/cz-git
 
 SYNOPSIS:
@@ -109,23 +109,23 @@ brew install czg
 ```
 
 
-[⇒ Get Started (more installation and usage)](https://cz-git.qbenben.com/cli/install.html)
+[⇒ Get Started (more installation and usage)](https://cz-git.qbb.sh/cli/install.html)
 
 ## Configure
 
-[⇒ Configure Template](https://cz-git.qbenben.com/config/)
+[⇒ Configure Template](https://cz-git.qbb.sh/config/)
 
-[⇒ Show Related](https://cz-git.qbenben.com/config/show.html)
+[⇒ Show Related](https://cz-git.qbb.sh/config/show.html)
 
-[⇒ Engineering Related](https://cz-git.qbenben.com/config/engineer.html)
+[⇒ Engineering Related](https://cz-git.qbb.sh/config/engineer.html)
 
 ## Recipes
 
-[⇒ Recipes](https://cz-git.qbenben.com/recipes/)
+[⇒ Recipes](https://cz-git.qbb.sh/recipes/)
 
 ## FAQ
 
-[⇒ FAQ](https://cz-git.qbenben.com/faq/)
+[⇒ FAQ](https://cz-git.qbb.sh/faq/)
 
 ## Projects using czg CLI
 

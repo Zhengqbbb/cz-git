@@ -10,7 +10,7 @@
     <a target="_blank" href="https://github.com/commitizen/cz-cli#adapters">
       <img style="display:inline-block;margin:0.2em;" alt="Commitizen-Adapter" src="https://img.shields.io/badge/Commitizen-Adapter-red.svg?logo=git&style=flat">
     </a>
-    <a target="_blank" href="https://cz-git.qbenben.com/cli/">
+    <a target="_blank" href="https://cz-git.qbb.sh/cli/">
       <img style="display:inline-block;margin:0.2em;" alt="CLI-Link" src="https://img.shields.io/badge/Commitizen-CLI-red.svg?logo=git&style=flat">
     </a>
     <br/>
@@ -40,18 +40,18 @@
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/guide/">Installation</a>
+    <a href="https://cz-git.qbb.sh/guide/">Installation</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com">Website</a>
+    <a href="https://cz-git.qbb.sh">Website</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/cli/">CLI</a>
+    <a href="https://cz-git.qbb.sh/cli/">CLI</a>
     <br/>
-    <a href="https://cz-git.qbenben.com/zh/">简体中文文档</a>
+    <a href="https://cz-git.qbb.sh/zh/">简体中文文档</a>
 </p>
 
 ## Introduction
 
-More engineered, lightweight, customizable, standard output format [commitizen adapter](https://github.com/commitizen/cz-cli) and [CLI](https://cz-git.qbenben.com/cli/).
+More engineered, lightweight, customizable, standard output format [commitizen adapter](https://github.com/commitizen/cz-cli) and [CLI](https://cz-git.qbb.sh/cli/).
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif)
 
@@ -62,10 +62,10 @@ More engineered, lightweight, customizable, standard output format [commitizen a
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
 - **Lightweight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
-- [Better for monorepo engineering](https://cz-git.qbenben.com/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
-- Better linking with [issuePrefixs](https://cz-git.qbenben.com/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
+- [Better for monorepo engineering](https://cz-git.qbb.sh/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
+- Better linking with [issuePrefixs](https://cz-git.qbb.sh/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
 
-[⇒ Why cz-git](https://cz-git.qbenben.com/guide/why.html)
+[⇒ Why cz-git](https://cz-git.qbb.sh/guide/why.html)
 
 ```bash
 $ npm i -D cz-git
@@ -75,25 +75,25 @@ added 1 package in 0.461s
 
 ## Usage
 
-[⇒ Get Started](https://cz-git.qbenben.com/guide/)
+[⇒ Get Started](https://cz-git.qbb.sh/guide/)
 
 ## Configure Template
 
-[⇒ Configure Template](https://cz-git.qbenben.com/config/)
+[⇒ Configure Template](https://cz-git.qbb.sh/config/)
 
 ## Options
 
-[⇒ Show Related](https://cz-git.qbenben.com/config/show.html)
+[⇒ Show Related](https://cz-git.qbb.sh/config/show.html)
 
-[⇒ Engineering Related](https://cz-git.qbenben.com/config/engineer.html)
+[⇒ Engineering Related](https://cz-git.qbb.sh/config/engineer.html)
 
 ## Recipes
 
-[⇒ Recipes](https://cz-git.qbenben.com/recipes/)
+[⇒ Recipes](https://cz-git.qbb.sh/recipes/)
 
 ## FAQ
 
-[⇒ FAQ](https://cz-git.qbenben.com/faq/)
+[⇒ FAQ](https://cz-git.qbb.sh/faq/)
 
 ## Projects using cz-git
 

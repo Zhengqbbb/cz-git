@@ -7,7 +7,7 @@ export const generateHelp = (version: string, code = 0) => {
     ${style.green("czg")} - Interactive Commitizen CLI that generate standardized commit messages
 
 ${style.yellow("WEBSITE:")}
-    ${style.underline("https://cz-git.qbenben.com/cli/")}
+    ${style.underline("https://cz-git.qbb.sh/cli/")}
     ${style.underline("https://github.com/Zhengqbbb/cz-git")}
 
 ${style.yellow("VERSION:")} ${version}

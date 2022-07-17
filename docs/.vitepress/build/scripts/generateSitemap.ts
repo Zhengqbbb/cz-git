@@ -8,7 +8,7 @@ import { site } from "../../meta";
 
 /**
  * Generate sitemap.xml
- * @see https://cz-git.qbenben.com/sitemap.xml
+ * @see https://cz-git.qbb.sh/sitemap.xml
  */
 const generateSitemap = async () => {
   const smStream = new SitemapStream({

@@ -58,7 +58,7 @@ NAME:
     czg - Interactive Commitizen CLI that generate standardized commit messages
 
 WEBSITE:
-    https://cz-git.qbenben.com/cli/
+    https://cz-git.qbb.sh/cli/
     https://github.com/Zhengqbbb/cz-git
 
 SYNOPSIS:

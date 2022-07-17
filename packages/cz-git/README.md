@@ -31,11 +31,11 @@
 <p align="center">
     <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/guide/">Installation</a>
+    <a href="https://cz-git.qbb.sh/guide/">Installation</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com">Website</a>
+    <a href="https://cz-git.qbb.sh">Website</a>
     &nbsp; | &nbsp;
-    <a href="https://cz-git.qbenben.com/zh/">简体中文文档</a>
+    <a href="https://cz-git.qbb.sh/zh/">简体中文文档</a>
 </p>
 
 ## Introduction
@@ -51,10 +51,10 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
 - **Lightweight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
-- [Better for monorepo engineering](https://cz-git.qbenben.com/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
-- Better linking with [issuePrefixs](https://cz-git.qbenben.com/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
+- [Better for monorepo engineering](https://cz-git.qbb.sh/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
+- Better linking with [issuePrefixs](https://cz-git.qbb.sh/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
 
-[⇒ Why cz-git](https://cz-git.qbenben.com/guide/why.html)
+[⇒ Why cz-git](https://cz-git.qbb.sh/guide/why.html)
 
 ```bash
 $ npm i -D cz-git
@@ -64,25 +64,25 @@ added 1 package in 0.461s
 
 ## Usage
 
-[⇒ Get Started](https://cz-git.qbenben.com/guide/)
+[⇒ Get Started](https://cz-git.qbb.sh/guide/)
 
 ## Configure Template
 
-[⇒ Configure Template](https://cz-git.qbenben.com/config/)
+[⇒ Configure Template](https://cz-git.qbb.sh/config/)
 
 ## Options
 
-[⇒ Show Related](https://cz-git.qbenben.com/config/show.html)
+[⇒ Show Related](https://cz-git.qbb.sh/config/show.html)
 
-[⇒ Engineering Related](https://cz-git.qbenben.com/config/engineer.html)
+[⇒ Engineering Related](https://cz-git.qbb.sh/config/engineer.html)
 
 ## Recipes
 
-[⇒ Recipes](https://cz-git.qbenben.com/recipes/)
+[⇒ Recipes](https://cz-git.qbb.sh/recipes/)
 
 ## FAQ
 
-[⇒ FAQ](https://cz-git.qbenben.com/faq/)
+[⇒ FAQ](https://cz-git.qbb.sh/faq/)
 
 ## Projects using cz-git
 
