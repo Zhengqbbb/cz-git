@@ -21,10 +21,10 @@ module.exports = {
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options
     alias: { 
-      r: "docs: update README",
       b: "chore: bump dependencies",
       c: "chore: update config files",
-      ":": "docs: fix typos",
+      f: "docs: fix typos",
+      ":": "docs: update README",
       "table:data": "chore: :hammer: update project using table data",
       "table:docs": "docs: update project using table",
     },
