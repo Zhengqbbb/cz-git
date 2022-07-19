@@ -1,8 +1,8 @@
-# shellcheck shell=bash disable=SC1091,SC2034 #xsh
+# shellcheck shell=sh disable=SC1091,SC2034 #xsh
 
 # Section: Arg
 WORK_DIR="$(x wsroot)"
 
 # Section: Main
-# ZELLIJ_CONFIG_FILE="$WORK_DIR/.x-cmd/zellij" 
-# x zellij --layout "${ZELLIJ_CONFIG_FILE}/layout_file.yaml" --config-dir "$ZELLIJ_CONFIG_FILE" options --theme "one-half-dark"
+x tmux kill-serve
+x tmux

@@ -1,0 +1,24 @@
+name: "cz-git"
+
+windows:
+  - name: dev
+    before: >
+      x use node=v18
+    layout: vertical
+    panes:
+      - name: monitor
+        size: 50%
+        exec: clear; zsh
+      - name: dev
+        size: 50%
+        layout: horizontal
+        panes:
+          - name: main
+            exec: pnpm dev
+          - name: docs
+            layout: vertical
+            panes:
+              - name: docs-en
+                exec: pnpm docs:dev
+              - name: docs-zh
+                exec: pnpm docs-zh:dev
