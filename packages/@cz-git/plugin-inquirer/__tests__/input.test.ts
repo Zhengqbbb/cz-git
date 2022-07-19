@@ -1,171 +1,171 @@
-import { beforeEach, describe, test, expect } from "vitest";
-import { CompleteInput } from "@cz-git/inquirer";
-import ReadlineStub from "./helpers/readline";
+import { beforeEach, describe, expect, test } from 'vitest'
+import { CompleteInput } from '@cz-git/inquirer'
+import ReadlineStub from './helpers/readline'
 
 /**
  * @description: Test - inquirer plugin: CompleteInput
  */
 
-describe("inquirer-CompleteInput", () => {
-  let rl: any;
-  let prompt: CompleteInput;
-  let promiseForAnswer: any;
+describe('inquirer-CompleteInput', () => {
+  let rl: any
+  let prompt: CompleteInput
+  let promiseForAnswer: any
 
   beforeEach(() => {
-    rl = new ReadlineStub();
-  });
+    rl = new ReadlineStub()
+  })
 
-  describe("basic feature", () => {
-    describe("parameter", () => {
-      test("name should be require", () => {
+  describe('basic feature', () => {
+    describe('parameter', () => {
+      test('name should be require', () => {
         expect(() => {
           new CompleteInput(
             {
-              message: "test"
+              message: 'test',
             } as any,
             rl,
-            {}
-          );
-        }).toThrowError(/name/);
-      });
-    });
+            {},
+          )
+        }).toThrowError(/name/)
+      })
+    })
 
-    describe("filter", () => {
-      test("filter should be work", async () => {
+    describe('filter', () => {
+      test('filter should be work', async () => {
         prompt = new CompleteInput(
           {
-            message: "test",
-            name: "name",
-            filter: function () {
-              return "pass";
-            }
+            message: 'test',
+            name: 'name',
+            filter() {
+              return 'pass'
+            },
           } as any,
           rl,
-          {}
-        );
-        promiseForAnswer = getPromiseForAnswer();
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("pass");
-      }, 1000);
-    });
+          {},
+        )
+        promiseForAnswer = getPromiseForAnswer()
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('pass')
+      }, 1000)
+    })
 
     // validation
     // submit
     // deafult
-  });
+  })
 
-  describe("main behaviour", () => {
-    describe("default behaviour", () => {
+  describe('main behaviour', () => {
+    describe('default behaviour', () => {
       beforeEach(() => {
         prompt = new CompleteInput(
           {
-            message: "test",
-            name: "name"
+            message: 'test',
+            name: 'name',
           } as any,
           rl,
-          {}
-        );
-      });
+          {},
+        )
+      })
 
-      test("default input empty should be output empty", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("");
-      }, 1000);
+      test('default input empty should be output empty', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('')
+      }, 1000)
 
-      test("type some word should be output value", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        type("helle world...!");
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("helle world...!");
-      }, 1000);
-    });
+      test('type some word should be output value', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        type('helle world...!')
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('helle world...!')
+      }, 1000)
+    })
 
-    describe("use complete behaviour", () => {
+    describe('use complete behaviour', () => {
       beforeEach(() => {
         prompt = new CompleteInput(
           {
-            message: "test",
-            name: "name",
-            completeValue: "[botton]"
+            message: 'test',
+            name: 'name',
+            completeValue: '[botton]',
           } as any,
           rl,
-          {}
-        );
-      });
+          {},
+        )
+      })
 
-      test("just enter should be output completeValue", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("[botton]");
-      }, 1000);
+      test('just enter should be output completeValue', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('[botton]')
+      }, 1000)
 
-      test("tab and enter should be output completeValue", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        tab();
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("[botton]");
-      }, 1000);
+      test('tab and enter should be output completeValue', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        tab()
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('[botton]')
+      }, 1000)
 
-      test("right key and enter should be output completeValue", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        moveRight();
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("[botton]");
-      }, 1000);
+      test('right key and enter should be output completeValue', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        moveRight()
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('[botton]')
+      }, 1000)
 
-      test("right key and enter should be output true value", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        tab();
-        type("update ...");
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("[botton]update ...");
-      }, 1000);
+      test('right key and enter should be output true value', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        tab()
+        type('update ...')
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('[botton]update ...')
+      }, 1000)
 
-      test("use backspace key and enter should be output empty value", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        backspace();
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("");
-      }, 1000);
+      test('use backspace key and enter should be output empty value', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        backspace()
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('')
+      }, 1000)
 
-      test("use tab and backspace key should be normal delete", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        tab();
-        backspace();
-        backspace();
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("[botto");
-      }, 1000);
+      test('use tab and backspace key should be normal delete', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        tab()
+        backspace()
+        backspace()
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('[botto')
+      }, 1000)
 
-      test("just type word the completeValue should be remove", async () => {
-        promiseForAnswer = getPromiseForAnswer();
-        type("update ...");
-        enter();
-        const answer = await promiseForAnswer.then();
-        expect(answer).toEqual("update ...");
-      }, 1000);
-    });
-  });
+      test('just type word the completeValue should be remove', async () => {
+        promiseForAnswer = getPromiseForAnswer()
+        type('update ...')
+        enter()
+        const answer = await promiseForAnswer.then()
+        expect(answer).toEqual('update ...')
+      }, 1000)
+    })
+  })
 
   /**
    * @description: start prompt run
    */
   function getPromiseForAnswer() {
-    return prompt.run();
+    return prompt.run()
   }
 
   function enter() {
-    rl.emit("line");
+    rl.emit('line')
   }
 
   // function space() {
@@ -175,10 +175,10 @@ describe("inquirer-CompleteInput", () => {
   // }
 
   function backspace() {
-    rl.line = rl.line.substr(0, rl.line.length - 1);
-    rl.input.emit("keypress", "", {
-      name: "backspace"
-    });
+    rl.line = rl.line.substr(0, rl.line.length - 1)
+    rl.input.emit('keypress', '', {
+      name: 'backspace',
+    })
   }
 
   // function typeNonChar() {
@@ -188,10 +188,10 @@ describe("inquirer-CompleteInput", () => {
   // }
 
   function type(word: string) {
-    word.split("").forEach((char) => {
-      rl.line += char;
-      rl.input.emit("keypress", char);
-    });
+    word.split('').forEach((char) => {
+      rl.line += char
+      rl.input.emit('keypress', char)
+    })
   }
 
   // function moveUp() {
@@ -201,9 +201,9 @@ describe("inquirer-CompleteInput", () => {
   // }
 
   function moveRight() {
-    rl.input.emit("keypress", "", {
-      name: "right"
-    });
+    rl.input.emit('keypress', '', {
+      name: 'right',
+    })
   }
 
   // function moveDown() {
@@ -231,8 +231,8 @@ describe("inquirer-CompleteInput", () => {
   // }
 
   function tab() {
-    rl.input.emit("keypress", "", {
-      name: "tab"
-    });
+    rl.input.emit('keypress', '', {
+      name: 'tab',
+    })
   }
-});
+})

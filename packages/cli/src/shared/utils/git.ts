@@ -1,8 +1,8 @@
-import { exec, execSync, spawn, spawnSync } from "child_process";
-import dedent from "dedent";
-import { closeSync, openSync, writeSync } from "fs";
-import path from "path";
-import type { CallBackFn, CommitOptions } from "../types";
+import { exec, execSync, spawn, spawnSync } from 'child_process'
+import { closeSync, openSync, writeSync } from 'fs'
+import path from 'path'
+import dedent from 'dedent'
+import type { CallBackFn, CommitOptions } from '../types'
 
 /**
  * Use git diff command check the files are no staged files and no changes.
@@ -16,35 +16,35 @@ export const isGitClean = (repoPath: string, done: CallBackFn, stageAllFiles: bo
   // if there are no staged files and no changes, but fails to throw an error with no staged files in dirty state.
   exec(
     `git diff --cached --no-ext-diff --name-only ${
-      !!stageAllFiles ? "&& git diff --no-ext-diff --name-only" : ""
+      stageAllFiles ? '&& git diff --no-ext-diff --name-only' : ''
     }`,
     {
       maxBuffer: Infinity,
-      cwd: repoPath
+      cwd: repoPath,
     },
-    function (error, stdout) {
-      if (error) {
-        return done(error);
-      }
-      const output = stdout || "";
-      done(null, output.trim().length === 0);
-    }
-  );
-};
+    (error, stdout) => {
+      if (error)
+        return done(error)
+
+      const output = stdout || ''
+      done(null, output.trim().length === 0)
+    },
+  )
+}
 
 /**
  * Get current repo path
  * @time cost 12 ms
  */
 export const getGitRootPath = () =>
-  spawnSync("git", ["rev-parse", "--show-toplevel"], { encoding: "utf8" }).stdout.trim();
+  spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' }).stdout.trim()
 
 /**
  * Get current repo .git folder path
  * @time cost 12 ms
  */
 export const getGitDirPath = (pwd: string) =>
-  execSync("git rev-parse --absolute-git-dir", { encoding: "utf8", cwd: pwd }).trim();
+  execSync('git rev-parse --absolute-git-dir', { encoding: 'utf8', cwd: pwd }).trim()
 
 /**
  * Core
@@ -55,32 +55,34 @@ export const gitCommit = (
   repoPath: string,
   message: string,
   options: CommitOptions,
-  done: CallBackFn
+  done: CallBackFn,
 ) => {
-  let called = false;
+  let called = false
   /**
    * nomorl mode. unuse git hook
    * use `git cimmit -m "...message..."`
    */
   if (!options.hookMode) {
-    const args = ["commit", "-m", dedent(message), ...(options.args || [])];
-    const child = spawn("git", args, {
+    const args = ['commit', '-m', dedent(message), ...(options.args || [])]
+    const child = spawn('git', args, {
       cwd: repoPath,
-      stdio: options.quiet ? "ignore" : "inherit"
-    });
+      stdio: options.quiet ? 'ignore' : 'inherit',
+    })
 
-    child.on("error", (e) => {
-      if (called) return;
-      called = true;
+    child.on('error', (e) => {
+      if (called)
+        return
+      called = true
 
-      done(e);
-    });
+      done(e)
+    })
 
-    child.on("close", (code) => process.exit(code || 0));
+    child.on('close', code => process.exit(code || 0))
 
-    child.on("exit", (code, signal) => {
-      if (called) return;
-      called = true;
+    child.on('exit', (code, signal) => {
+      if (called)
+        return
+      called = true
 
       if (code) {
         if (code === 128) {
@@ -89,45 +91,53 @@ export const gitCommit = (
 
               git config --global user.email "you@example.com"
               git config --global user.name "Your Name"
-          `);
+          `)
         }
-        done(Object.assign(new Error(`git exited with error code ${code}`), { code, signal }));
-      } else {
-        // e.g: like control + c
-        done(null);
+        done(Object.assign(new Error(`git exited with error code ${code}`), { code, signal }))
       }
-    });
-  } else {
+      else {
+        // e.g: like control + c
+        done(null)
+      }
+    })
+  }
+  else {
     /**
      * use git hookMode.write the commit message into
      * the .git/COMMIT_EDITMSG file
      */
-    const commitMsgFile = path.join(getGitDirPath(repoPath), "COMMIT_EDITMSG");
+    const commitMsgFile = path.join(getGitDirPath(repoPath), 'COMMIT_EDITMSG')
     try {
-      const fd = openSync(commitMsgFile, "w");
+      const fd = openSync(commitMsgFile, 'w')
       try {
-        writeSync(fd, dedent(message));
-        done(null);
-      } catch (e: any) {
-        done(e);
-      } finally {
-        closeSync(fd);
+        writeSync(fd, dedent(message))
+        done(null)
       }
-    } catch (e) {
+      catch (e: any) {
+        done(e)
+      }
+      finally {
+        closeSync(fd)
+      }
+    }
+    catch (e) {
       // for windows user
       try {
-        const fd = openSync(commitMsgFile, "w");
+        const fd = openSync(commitMsgFile, 'w')
         try {
-          writeSync(fd, dedent(message));
-          done(null);
-        } catch (e: any) {
-          done(e);
-        } finally {
-          closeSync(fd);
+          writeSync(fd, dedent(message))
+          done(null)
         }
-      } catch (e: any) {
-        done(e);
+        catch (e: any) {
+          done(e)
+        }
+        finally {
+          closeSync(fd)
+        }
+      }
+      catch (e: any) {
+        done(e)
       }
     }
   }
-};
+}

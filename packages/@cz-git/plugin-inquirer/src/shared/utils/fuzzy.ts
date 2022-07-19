@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import type { FilterArrayItemType } from "../types";
+import type { FilterArrayItemType } from '../types'
 
 /**
  * @description: inputString match targetString return match score
@@ -16,36 +16,38 @@ import type { FilterArrayItemType } from "../types";
 export const fuzzyMatch = (
   input: string,
   target: string,
-  caseSensitive?: boolean
+  caseSensitive?: boolean,
 ): number | null => {
-  if (typeof input !== "string" || typeof target !== "string") return null;
-  const matchResult = [];
-  const len = target.length;
-  const shimTarget = (caseSensitive && target) || target.toLowerCase();
-  input = (caseSensitive && input) || input.toLowerCase();
-  let inputIndex = 0,
-    totalScore = 0,
-    currentScore = 0,
-    currentChar;
+  if (typeof input !== 'string' || typeof target !== 'string')
+    return null
+  const matchResult = []
+  const len = target.length
+  const shimTarget = (caseSensitive && target) || target.toLowerCase()
+  input = (caseSensitive && input) || input.toLowerCase()
+  let inputIndex = 0
+  let totalScore = 0
+  let currentScore = 0
+  let currentChar
   for (let idx = 0; idx < len; idx++) {
-    currentChar = input[idx];
+    currentChar = input[idx]
     if (shimTarget[idx] === input[inputIndex]) {
       // consecutive matches will score higher
-      inputIndex += 1;
-      currentScore += 1 + currentScore;
-    } else {
-      currentScore = 0;
+      inputIndex += 1
+      currentScore += 1 + currentScore
     }
-    totalScore += currentScore;
-    matchResult[matchResult.length] = currentChar;
+    else {
+      currentScore = 0
+    }
+    totalScore += currentScore
+    matchResult[matchResult.length] = currentChar
   }
   if (inputIndex === input.length) {
-    totalScore = shimTarget === input ? Infinity : totalScore;
-    return totalScore;
+    totalScore = shimTarget === input ? Infinity : totalScore
+    return totalScore
   }
 
-  return null;
-};
+  return null
+}
 
 /**
  * @description: Array fuzzy filter
@@ -56,33 +58,34 @@ export const fuzzyMatch = (
 export const fuzzyFilter = (
   input: string,
   arr: Array<FilterArrayItemType | unknown>,
-  targetKey: "name" | "value" = "name"
+  targetKey: 'name' | 'value' = 'name',
 ): Array<FilterArrayItemType> => {
-  if (!arr || !Array.isArray(arr) || arr.length === 0) {
-    return [];
-  } else if (typeof input !== "string" || input === "") {
-    return arr;
-  }
+  if (!arr || !Array.isArray(arr) || arr.length === 0)
+    return []
+
+  else if (typeof input !== 'string' || input === '')
+    return arr
 
   return arr
     .reduce((preVal: Array<FilterArrayItemType>, curItem: FilterArrayItemType, index) => {
-      if (!curItem || !curItem[targetKey]) return preVal;
-      const score = fuzzyMatch(input, curItem[targetKey]);
+      if (!curItem || !curItem[targetKey])
+        return preVal
+      const score = fuzzyMatch(input, curItem[targetKey])
       if (score !== null) {
         preVal.push({
           score,
           index,
-          ...curItem
-        });
+          ...curItem,
+        })
       }
-      return preVal;
+      return preVal
     }, [])
     .sort((a: any, b: any) => {
-      const compare = b.score - a.score;
-      if (compare) {
-        return compare;
-      } else {
-        return a.index - b.index;
-      }
-    });
-};
+      const compare = b.score - a.score
+      if (compare)
+        return compare
+
+      else
+        return a.index - b.index
+    })
+}

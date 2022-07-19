@@ -1,3 +1,4 @@
 module.exports = {
-  useEmoji: true
-};
+  useEmoji: true,
+}
+

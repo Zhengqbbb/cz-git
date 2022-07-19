@@ -1,146 +1,146 @@
-import { describe, expect, test } from "vitest";
-import { resovleArgs } from "../src/shared";
+import { describe, expect, test } from 'vitest'
+import { resovleArgs } from '../src/shared'
 
 /**
  * @description: resovleArgs Test
  */
-describe("resovleArgs", () => {
-  test("empty args should return default czargs", () => {
+describe('resovleArgs', () => {
+  test('empty args should return default czargs', () => {
     expect(resovleArgs([])).toEqual({
       czgitArgs: {
         flag: null,
-        subCommand: null
+        subCommand: null,
       },
-      gitArgs: []
-    });
-  });
+      gitArgs: [],
+    })
+  })
 
-  test("resovle subcmd shoule be right", () => {
-    expect(resovleArgs(["init"])).toEqual({
+  test('resovle subcmd shoule be right', () => {
+    expect(resovleArgs(['init'])).toEqual({
       czgitArgs: {
         flag: null,
         subCommand: {
-          init: true
-        }
+          init: true,
+        },
       },
-      gitArgs: []
-    });
+      gitArgs: [],
+    })
 
-    expect(resovleArgs(["checkbox", "emoji", "hello"])).toEqual({
+    expect(resovleArgs(['checkbox', 'emoji', 'hello'])).toEqual({
       czgitArgs: {
         flag: null,
         subCommand: {
           checkbox: true,
-          emoji: true
-        }
-      },
-      gitArgs: ["hello"]
-    });
-  });
-
-  test("resolve flag should be right", () => {
-    expect(resovleArgs(["-r"])).toEqual({
-      czgitArgs: {
-        flag: {
-          retry: true
+          emoji: true,
         },
-        subCommand: null
       },
-      gitArgs: []
-    });
+      gitArgs: ['hello'],
+    })
+  })
 
-    expect(resovleArgs(["--retry"])).toEqual({
+  test('resolve flag should be right', () => {
+    expect(resovleArgs(['-r'])).toEqual({
       czgitArgs: {
         flag: {
-          retry: true
+          retry: true,
         },
-        subCommand: null
+        subCommand: null,
       },
-      gitArgs: []
-    });
+      gitArgs: [],
+    })
 
-    expect(resovleArgs(["--retry", "--config=./config.js"])).toEqual({
+    expect(resovleArgs(['--retry'])).toEqual({
       czgitArgs: {
         flag: {
-          config: "./config.js",
-          retry: true
+          retry: true,
         },
-        subCommand: null
+        subCommand: null,
       },
-      gitArgs: []
-    });
-  });
+      gitArgs: [],
+    })
 
-  test("both resovle subcmd and flag should be right", () => {
-    expect(resovleArgs(["init", "--yes", "-y"])).toEqual({
+    expect(resovleArgs(['--retry', '--config=./config.js'])).toEqual({
       czgitArgs: {
         flag: {
-          yes: true
+          config: './config.js',
+          retry: true,
         },
-        subCommand: {
-          init: true
-        }
+        subCommand: null,
       },
-      gitArgs: []
-    });
+      gitArgs: [],
+    })
+  })
 
-    expect(resovleArgs(["emoji", "-r"])).toEqual({
+  test('both resovle subcmd and flag should be right', () => {
+    expect(resovleArgs(['init', '--yes', '-y'])).toEqual({
       czgitArgs: {
         flag: {
-          retry: true
+          yes: true,
         },
         subCommand: {
-          emoji: true
-        }
+          init: true,
+        },
       },
-      gitArgs: []
-    });
+      gitArgs: [],
+    })
 
-    expect(resovleArgs(["--config=./config.js", "break"])).toEqual({
+    expect(resovleArgs(['emoji', '-r'])).toEqual({
       czgitArgs: {
         flag: {
-          config: "./config.js"
+          retry: true,
         },
         subCommand: {
-          break: true
-        }
-      },
-      gitArgs: []
-    });
-
-    expect(resovleArgs(["--config=./config.js", ":ff", "-a"])).toEqual({
-      czgitArgs: {
-        flag: {
-          config: "./config.js",
-          alias: "ff"
+          emoji: true,
         },
-        subCommand: null
       },
-      gitArgs: ["-a"]
-    });
+      gitArgs: [],
+    })
 
-    expect(resovleArgs(["--config=./config.js", ":ff", "--alias=dd", "-a"])).toEqual({
+    expect(resovleArgs(['--config=./config.js', 'break'])).toEqual({
       czgitArgs: {
         flag: {
-          config: "./config.js",
-          alias: "dd"
-        },
-        subCommand: null
-      },
-      gitArgs: ["-a"]
-    });
-
-    expect(resovleArgs(["--config=./config.js", "break", "emoji", "-a", "--hello"])).toEqual({
-      czgitArgs: {
-        flag: {
-          config: "./config.js"
+          config: './config.js',
         },
         subCommand: {
           break: true,
-          emoji: true
-        }
+        },
       },
-      gitArgs: ["-a", "--hello"]
-    });
-  });
-});
+      gitArgs: [],
+    })
+
+    expect(resovleArgs(['--config=./config.js', ':ff', '-a'])).toEqual({
+      czgitArgs: {
+        flag: {
+          config: './config.js',
+          alias: 'ff',
+        },
+        subCommand: null,
+      },
+      gitArgs: ['-a'],
+    })
+
+    expect(resovleArgs(['--config=./config.js', ':ff', '--alias=dd', '-a'])).toEqual({
+      czgitArgs: {
+        flag: {
+          config: './config.js',
+          alias: 'dd',
+        },
+        subCommand: null,
+      },
+      gitArgs: ['-a'],
+    })
+
+    expect(resovleArgs(['--config=./config.js', 'break', 'emoji', '-a', '--hello'])).toEqual({
+      czgitArgs: {
+        flag: {
+          config: './config.js',
+        },
+        subCommand: {
+          break: true,
+          emoji: true,
+        },
+      },
+      gitArgs: ['-a', '--hello'],
+    })
+  })
+})

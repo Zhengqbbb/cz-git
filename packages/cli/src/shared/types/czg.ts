@@ -1,56 +1,56 @@
 export type CzgitFlagList =
-  | "config"
-  | "version"
-  | "help"
-  | "reback"
-  | "retry"
-  | "yes"
-  | "hook"
-  | "alias";
-export type CzgitCommonFlag = {
+  | 'config'
+  | 'version'
+  | 'help'
+  | 'reback'
+  | 'retry'
+  | 'yes'
+  | 'hook'
+  | 'alias'
+export interface CzgitCommonFlag {
   /** option: --version|-v */
-  version?: boolean;
+  version?: boolean
   /** option: --help|-h */
-  help?: boolean;
-};
+  help?: boolean
+}
 
-export type CzgitFlag = {
+export interface CzgitFlag {
   /** option: --config="xxx" */
-  config?: string;
+  config?: string
   /** option: --alias="xxx" */
-  alias?: string;
+  alias?: string
   /** option: --reback|-b */
-  reback?: boolean;
+  reback?: boolean
   /** option: --retry|-r */
-  retry?: boolean;
+  retry?: boolean
   /** option: --hook, provide husky */
-  hook?: boolean;
-};
+  hook?: boolean
+}
 
-export type InitFlag = {
+export interface InitFlag {
   /** option: --yes|-y */
-  yes?: boolean;
-};
+  yes?: boolean
+}
 
-export type CzgitSubCommandList = "init" | "emoji" | "checkbox" | "break";
-export type CzgitSubCommand = {
+export type CzgitSubCommandList = 'init' | 'emoji' | 'checkbox' | 'break'
+export interface CzgitSubCommand {
   /** option: init */
-  init?: boolean;
+  init?: boolean
   /** subcmd: emoji */
-  emoji?: boolean;
+  emoji?: boolean
   /** subcmd: checkbox */
-  checkbox?: boolean;
+  checkbox?: boolean
   /** subcmd: break */
-  break?: boolean;
-};
+  break?: boolean
+}
 
 /**
  * @description: provide czgit parsed Args
  */
-export type CzgitParseArgs = {
+export interface CzgitParseArgs {
   czgitArgs: {
-    flag: (CzgitCommonFlag & CzgitFlag & InitFlag) | null;
-    subCommand: CzgitSubCommand | null;
-  };
-  gitArgs: string[];
-};
+    flag: (CzgitCommonFlag & CzgitFlag & InitFlag) | null
+    subCommand: CzgitSubCommand | null
+  }
+  gitArgs: string[]
+}

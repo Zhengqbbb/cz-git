@@ -1,36 +1,36 @@
-import { CommitizenType, prompter, style } from "cz-git";
-import inquirer from "inquirer";
-import { commit } from "./commit";
-import { isGitClean, getGitRootPath, injectEnvFlag, injectEnvValue } from "../shared";
-import type { CzgitParseArgs } from "../shared";
+import type { CommitizenType } from 'cz-git'
+import { prompter, style } from 'cz-git'
+import inquirer from 'inquirer'
+import { getGitRootPath, injectEnvFlag, injectEnvValue, isGitClean } from '../shared'
+import type { CzgitParseArgs } from '../shared'
+import { commit } from './commit'
 
 /**
  * start inquirer prompts to commit message
  */
 export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {}) => {
-  const shouldStageAllFiles = argvs.gitArgs.includes("-a") || argvs.gitArgs.includes("--all");
+  const shouldStageAllFiles = argvs.gitArgs.includes('-a') || argvs.gitArgs.includes('--all')
 
   isGitClean(
     process.cwd(),
     (error, isClean) => {
-      if (error) {
-        throw error;
-      }
+      if (error)
+        throw error
 
-      if (isClean && !argvs.gitArgs.includes("--allow-empty")) {
-        const newLocal = "`git add`";
+      if (isClean && !argvs.gitArgs.includes('--allow-empty')) {
+        const newLocal = '`git add`'
         throw new Error(
-          `${style.yellow(">>> No files added to staging! Did you forget to run")} ${style.cyan(
-            newLocal
-          )} ?`
-        );
+          `${style.yellow('>>> No files added to staging! Did you forget to run')} ${style.cyan(
+            newLocal,
+          )} ?`,
+        )
       }
-      injectEnvFlag("break", argvs.czgitArgs.subCommand?.break);
-      injectEnvFlag("emoji", argvs.czgitArgs.subCommand?.emoji);
-      injectEnvFlag("checkbox", argvs.czgitArgs.subCommand?.checkbox);
-      injectEnvValue("cz_alias", argvs.czgitArgs.flag?.alias);
+      injectEnvFlag('break', argvs.czgitArgs.subCommand?.break)
+      injectEnvFlag('emoji', argvs.czgitArgs.subCommand?.emoji)
+      injectEnvFlag('checkbox', argvs.czgitArgs.subCommand?.checkbox)
+      injectEnvValue('cz_alias', argvs.czgitArgs.flag?.alias)
 
-      console.log(`czg@${version}\n`);
+      console.log(`czg@${version}\n`)
       // commit
       commit(
         inquirer as CommitizenType,
@@ -44,16 +44,15 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
           retryLastCommit: argvs.czgitArgs.flag?.retry || false,
           rebackLastCommit: argvs.czgitArgs.flag?.reback || false,
           hookMode: argvs.czgitArgs.flag?.hook || false,
-          environment: environment,
-          configPath: argvs.czgitArgs.flag?.config || undefined
+          environment,
+          configPath: argvs.czgitArgs.flag?.config || undefined,
         },
         (error) => {
-          if (error) {
-            throw error;
-          }
-        }
-      );
+          if (error)
+            throw error
+        },
+      )
     },
-    shouldStageAllFiles
-  );
-};
+    shouldStageAllFiles,
+  )
+}

@@ -1,17 +1,17 @@
-import { prompter } from "cz-git";
+import type { prompter } from 'cz-git'
 
-export type CallBackFn = (err: Error | null, data?: any) => void;
+export type CallBackFn = (err: Error | null, data?: any) => void
 
-export type CzGitPrompter = typeof prompter;
+export type CzGitPrompter = typeof prompter
 
-export type CommitOptions = {
-  args: string[];
-  disableAppendPaths: boolean;
-  emitData: boolean;
-  quiet: boolean;
-  retryLastCommit: boolean;
-  rebackLastCommit: boolean;
-  hookMode: boolean;
-  environment: any;
-  configPath?: string;
-};
+export interface CommitOptions {
+  args: string[]
+  disableAppendPaths: boolean
+  emitData: boolean
+  quiet: boolean
+  retryLastCommit: boolean
+  rebackLastCommit: boolean
+  hookMode: boolean
+  environment: any
+  configPath?: string
+}

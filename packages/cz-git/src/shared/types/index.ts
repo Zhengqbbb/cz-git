@@ -1,2 +1,2 @@
-export * from "./options";
-export * from "./commitlint";
+export * from './options'
+export * from './commitlint'

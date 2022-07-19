@@ -1,17 +1,16 @@
-import { EventEmitter } from "events";
-import { vitest } from "vitest";
-
+import { EventEmitter } from 'events'
+import { vitest } from 'vitest'
 export default class ReadlineStub extends EventEmitter {
-  line: string;
-  input: EventEmitter;
+  line: string
+  input: EventEmitter
   constructor() {
-    super();
-    this.line = "";
-    this.input = new EventEmitter();
+    super()
+    this.line = ''
+    this.input = new EventEmitter()
   }
 }
 
-const stub = {};
+const stub = {}
 Object.assign(stub, {
   write: vitest.fn(() => stub),
   moveCursor: vitest.fn(() => stub),
@@ -22,18 +21,18 @@ Object.assign(stub, {
   _getCursorPos: vitest.fn(() => {
     return {
       cols: 0,
-      rows: 0
-    };
+      rows: 0,
+    }
   }),
   output: {
     end: vitest.fn(),
     mute: vitest.fn(),
     unmute: vitest.fn(),
-    __raw__: "",
+    __raw__: '',
     write(str: string) {
-      this.__raw__ += str;
-    }
-  }
-});
+      this.__raw__ += str
+    },
+  },
+})
 
-Object.assign(ReadlineStub.prototype, stub);
+Object.assign(ReadlineStub.prototype, stub)

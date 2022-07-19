@@ -3,52 +3,51 @@
  */
 
 function identity(str: string) {
-  return str;
+  return str
 }
 
 interface Options {
-  breaklineChar: string;
-  width?: number;
-  indent?: string;
-  newline?: string;
-  escape?: (str: string) => string;
-  trim?: boolean;
-  cut?: boolean;
+  breaklineChar: string
+  width?: number
+  indent?: string
+  newline?: string
+  escape?: (str: string) => string
+  trim?: boolean
+  cut?: boolean
 }
 
 export const wrap = (str: string, options?: Options) => {
-  options = options || { breaklineChar: "|" };
-  if (str == null) {
-    return str;
-  }
-  str = str.split(options.breaklineChar).join("\n").valueOf();
+  options = options || { breaklineChar: '|' }
+  if (str == null)
+    return str
 
-  const width = options.width || 100;
-  const indent = typeof options.indent === "string" ? options.indent : "";
+  str = str.split(options.breaklineChar).join('\n').valueOf()
 
-  const newline = options.newline || "\n" + indent;
-  const escape = typeof options.escape === "function" ? options.escape : identity;
+  const width = options.width || 100
+  const indent = typeof options.indent === 'string' ? options.indent : ''
 
-  let regexString = ".{1," + width + "}";
-  if (options.cut !== true) {
-    regexString += "([\\s\u200B]+|$)|[^\\s\u200B]+?([\\s\u200B]+|$)";
-  }
+  const newline = options.newline || `\n${indent}`
+  const escape = typeof options.escape === 'function' ? options.escape : identity
 
-  const re = new RegExp(regexString, "g");
-  const lines = str.match(re) || [];
-  let result =
-    indent +
-    lines
-      .map(function (line) {
-        if (line.slice(-1) === "\n") {
-          line = line.slice(0, line.length - 1);
-        }
-        return escape(line);
+  let regexString = `.{1,${width}}`
+  if (options.cut !== true)
+    regexString += '([\\s\u200B]+|$)|[^\\s\u200B]+?([\\s\u200B]+|$)'
+
+  const re = new RegExp(regexString, 'g')
+  const lines = str.match(re) || []
+  let result
+    = indent
+    + lines
+      .map((line) => {
+        if (line.slice(-1) === '\n')
+          line = line.slice(0, line.length - 1)
+
+        return escape(line)
       })
-      .join(newline);
+      .join(newline)
 
-  if (options.trim === true) {
-    result = result.replace(/[ \t]*$/gm, "");
-  }
-  return result;
-};
+  if (options.trim === true)
+    result = result.replace(/[ \t]*$/gm, '')
+
+  return result
+}
