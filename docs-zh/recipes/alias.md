@@ -8,7 +8,7 @@
   "alias": {
     "fd": "docs: fix typos",
     "ur": "docs: update README",
-    ":": "docs: update posts"
+    ":": "docs(blog): update posts"
   }
 }
 ```
