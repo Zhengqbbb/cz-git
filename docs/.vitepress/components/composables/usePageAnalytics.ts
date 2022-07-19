@@ -24,7 +24,6 @@ const googleAnalytics = (id: string) => {
   window.dataLayer = window.dataLayer || []
   // the gtag function must use `arguments` object to forward parameters
   window.gtag = function () {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     // eslint-disable-next-line prefer-rest-params
     dataLayer.push(arguments)
