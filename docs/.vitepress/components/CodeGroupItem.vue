@@ -1,23 +1,23 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "CodeGroupItem"
-});
+  name: 'CodeGroupItem',
+})
 </script>
 
 <script setup lang="ts">
 defineProps({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   active: {
     type: Boolean,
     required: false,
-    default: false
-  }
-});
+    default: false,
+  },
+})
 </script>
 
 <template>

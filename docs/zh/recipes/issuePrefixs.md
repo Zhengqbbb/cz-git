@@ -10,8 +10,8 @@ module.exports = {
   prompt: {
     issuePrefixs: [
       // @see: https://gitee.com/help/articles/4141#article-header2
-      { value: "wip", name: "wip:      将任务状态更改为进行中" },
-      { value: "finish", name: "finish:   将任务状态更改为待完成" }
+      { value: 'wip', name: 'wip:      将任务状态更改为进行中' },
+      { value: 'finish', name: 'finish:   将任务状态更改为待完成' }
     ]
   }
 }

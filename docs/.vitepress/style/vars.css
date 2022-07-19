@@ -2,7 +2,7 @@
  * Colors
  * -------------------------------------------------------------------------- */
 
- :root {
+:root {
   --vp-layout-max-width: 1490px;
   --vp-c-accent: rgb(218, 180, 11);
   --vp-c-brand: #eb5c5c;
@@ -17,13 +17,14 @@
   --vp-code-block-bg: rgba(111, 111, 111, 0.1);
   --vp-c-text-dark-3: rgb(111, 111, 111);
   --vp-code-line-highlight-color: rgba(215, 215, 215, 0.5);
-  --vp-c-kbd-box-outside-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff, 0 1px 2px 1px rgba(30, 35, 90, 0.4);
+  --vp-c-kbd-box-outside-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff,
+    0 1px 2px 1px rgba(30, 35, 90, 0.4);
   --vp-c-kbd-box-inside-shadow: inset 1px 1px 2px #cdcde6, inset -1px -1px 4px #fff;
 }
 
 .dark {
   --vp-custom-block-tip-text: #dae1dd;
-  --vp-code-block-bg: rgba(0,0,0,0.3);
+  --vp-code-block-bg: rgba(0, 0, 0, 0.3);
   --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);
   --vp-c-bg-mute: #2d2d2d;
   --vp-c-kbd-box-outside-shadow: -1px -1px 1px #505050, 1px 1px 6px #000;
@@ -49,30 +50,14 @@
 
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    270deg,
-    #ef6f6f 30%,
-    #f090b0
-  );
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    #ffffff 30%,
-    #e66666
-    );
-    --vp-home-hero-image-filter: blur(30px);
-  }
-  
+  --vp-home-hero-name-background: -webkit-linear-gradient(270deg, #ef6f6f 30%, #f090b0);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #ffffff 30%, #e66666);
+  --vp-home-hero-image-filter: blur(30px);
+}
+
 .dark {
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    270deg,
-    #f25959 30%,
-    #e0cdee
-  );
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    #fff1f1 30%,
-    #f25959
-  );
+  --vp-home-hero-name-background: -webkit-linear-gradient(270deg, #f25959 30%, #e0cdee);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #fff1f1 30%, #f25959);
 }
 
 @media (min-width: 640px) {
@@ -87,7 +72,6 @@
   }
 }
 
-
 /**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
@@ -95,6 +79,6 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand) !important;
 }
-.DocSearch-Commands-Key{
+.DocSearch-Commands-Key {
   --docsearch-key-shadow: var(--vp-c-kbd-box-outside-shadow) !important;
 }

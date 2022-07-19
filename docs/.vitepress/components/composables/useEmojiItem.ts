@@ -1,19 +1,18 @@
-import { onMounted, onBeforeUnmount, ref } from "vue";
-import type { Ref } from "vue";
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import type { Ref } from 'vue'
 
-/* eslint-disable prettier/prettier */
 /* prettier-ignore */
-const emojiArr = ["🎉", "🐛", "💚", "🔍️", "💫", "👷", "🎡", "🧱", "💄", "⚡️", "♻️", "🔧", "✨", "🔨", "🏷️", "🚀", "🌐", "📝", "📚", "✅", "🔖", "📦️"];
+const emojiArr = ['🎉', '🐛', '💚', '🔍️', '💫', '👷', '🎡', '🧱', '💄', '⚡️', '♻️', '🔧', '✨', '🔨', '🏷️', '🚀', '🌐', '📝', '📚', '✅', '🔖', '📦️']
 
 export const useEmojiItem = (): Ref<string> => {
-  const emoji = ref("✨");
+  const emoji = ref('✨')
   onMounted(() => {
     const interval = setInterval(() => {
-      emoji.value = emojiArr[Math.floor(Math.random() * emojiArr.length)];
-    }, 340);
+      emoji.value = emojiArr[Math.floor(Math.random() * emojiArr.length)]
+    }, 340)
     onBeforeUnmount(() => {
-      clearInterval(interval);
-    });
+      clearInterval(interval)
+    })
   })
   return emoji
-};
+}

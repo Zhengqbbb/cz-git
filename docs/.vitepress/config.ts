@@ -1,5 +1,5 @@
-import { defineConfig } from "vitepress";
-import * as pageConfig from "./configs";
+import { defineConfig } from 'vitepress'
+import * as pageConfig from './configs'
 
 export default defineConfig({
   base: pageConfig.base,
@@ -8,5 +8,5 @@ export default defineConfig({
 
   markdown: pageConfig.markdownConfig,
   themeConfig: pageConfig.themeConfig,
-  lastUpdated: true
-});
+  lastUpdated: true,
+})

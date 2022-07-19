@@ -1,147 +1,147 @@
-import type { DefaultTheme } from "vitepress";
+import type { DefaultTheme } from 'vitepress'
 
 export const zh: DefaultTheme.Sidebar = {
-  "/cli/": [
+  '/cli/': [
     {
-      text: "指南",
+      text: '指南',
       collapsible: true,
       collapsed: false,
       items: [
         {
-          text: "介绍",
-          link: "/cli/"
+          text: '介绍',
+          link: '/cli/',
         },
         {
-          text: "快速开始",
-          link: "/cli/install"
+          text: '快速开始',
+          link: '/cli/install',
         },
         {
-          text: "为什么选择 czg",
-          link: "/cli/why"
-        }
-      ]
+          text: '为什么选择 czg',
+          link: '/cli/why',
+        },
+      ],
     },
     {
-      text: "子命令",
+      text: '子命令',
       collapsible: true,
       collapsed: false,
       items: [
         {
-          text: "break",
-          link: "/cli/break"
+          text: 'break',
+          link: '/cli/break',
         },
         {
-          text: "emoji",
-          link: "/cli/emoji"
+          text: 'emoji',
+          link: '/cli/emoji',
         },
         {
-          text: "checkbox",
-          link: "/cli/checkbox"
-        }
-      ]
+          text: 'checkbox',
+          link: '/cli/checkbox',
+        },
+      ],
     },
     {
-      text: "选项",
+      text: '选项',
       collapsible: true,
       collapsed: false,
       items: [
         {
-          text: "--alias",
-          link: "/cli/alias"
+          text: '--alias',
+          link: '/cli/alias',
         },
         {
-          text: "--retry",
-          link: "/cli/retry"
+          text: '--retry',
+          link: '/cli/retry',
         },
         {
-          text: "--config",
-          link: "/cli/config"
-        }
-      ]
-    }
+          text: '--config',
+          link: '/cli/config',
+        },
+      ],
+    },
   ],
-  "/": [
+  '/': [
     {
-      text: "指南",
+      text: '指南',
       collapsible: true,
       collapsed: false,
       items: [
         {
-          text: "简介",
-          link: "/guide/introduction"
+          text: '简介',
+          link: '/guide/introduction',
         },
         {
-          text: "动机",
-          link: "/guide/why"
+          text: '动机',
+          link: '/guide/why',
         },
         {
-          text: "快速开始",
-          link: "/guide/"
-        }
-      ]
+          text: '快速开始',
+          link: '/guide/',
+        },
+      ],
     },
     {
-      text: "配置",
+      text: '配置',
       collapsible: true,
       collapsed: false,
       items: [
         {
-          text: "配置模板",
-          link: "/config/"
+          text: '配置模板',
+          link: '/config/',
         },
         {
-          text: "显示相关",
-          link: "/config/show"
+          text: '显示相关',
+          link: '/config/show',
         },
         {
-          text: "工程化相关",
-          link: "/config/engineer"
-        }
-      ]
+          text: '工程化相关',
+          link: '/config/engineer',
+        },
+      ],
     },
     {
-      text: "窍门",
+      text: '窍门',
       collapsible: true,
       collapsed: false,
       items: [
         {
-          text: "scopes",
-          link: "/recipes/"
+          text: 'scopes',
+          link: '/recipes/',
         },
         {
-          text: "alias",
-          link: "/recipes/alias"
+          text: 'alias',
+          link: '/recipes/alias',
         },
         {
-          text: "markBreakingChange",
-          link: "/recipes/breakingchange"
+          text: 'markBreakingChange',
+          link: '/recipes/breakingchange',
         },
         {
-          text: "issuePrefixs",
-          link: "/recipes/issuePrefixs"
+          text: 'issuePrefixs',
+          link: '/recipes/issuePrefixs',
         },
         {
-          text: "defaultScope",
-          link: "/recipes/defaultScope"
+          text: 'defaultScope',
+          link: '/recipes/defaultScope',
         },
         {
-          text: "defaultSubject",
-          link: "/recipes/defaultSubject"
+          text: 'defaultSubject',
+          link: '/recipes/defaultSubject',
         },
         {
-          text: "defaultIssues",
-          link: "/recipes/defaultIssues"
-        }
-      ]
+          text: 'defaultIssues',
+          link: '/recipes/defaultIssues',
+        },
+      ],
     },
     {
-      text: "常见问题",
+      text: '常见问题',
       items: [
         {
-          text: "FAQ",
-          link: "/faq/"
-        }
-      ]
-    }
-  ]
-};
+          text: 'FAQ',
+          link: '/faq/',
+        },
+      ],
+    },
+  ],
+}

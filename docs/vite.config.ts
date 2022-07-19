@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import { unocssPlugin, unpluginComponents, pwaPlugin } from "./.vitepress/build";
+import { defineConfig } from 'vite'
+import { pwaPlugin, unocssPlugin, unpluginComponents } from './.vitepress/build'
 
 export default defineConfig({
-  plugins: [unpluginComponents, unocssPlugin, pwaPlugin]
-});
+  plugins: [unpluginComponents, unocssPlugin, pwaPlugin],
+})

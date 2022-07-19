@@ -62,11 +62,13 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **使用** : **只想额外添加少量types**，不想添加臃肿的默认配置，或改变默认配置的显示顺序时使用。
 - **默认** : `[]`
 - **例子** : <br>
-```js
-typesAppend: [ 
-  { value: "workflow", name: "workflow:  Workflow changes"},
-  { value: "*!",       name: "*!:        BREAKING CHANGES"}
-]
+```json
+{
+  "typesAppend": [
+    { "value": "workflow", "name": "workflow:  Workflow changes" },
+    { "value": "*!", "name": "*!:        BREAKING CHANGES" }
+  ]
+}
 ```
 
 ## useEmoji

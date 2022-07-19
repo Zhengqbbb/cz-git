@@ -57,11 +57,13 @@ And need to add Emoji Code, you can find the corresponding characters in: [https
 - **use** : Use when you don't want to add bloated defaults and don't want to adjust the default order in configuration. **Only want to add a small number of types**.
 - **default** : `[]`
 - **example** : <br>
-```js
-typesAppend: [ 
-  { value: "workflow", name: "workflow:  Workflow changes"},
-  { value: "*!",       name: "*!:        BREAKING CHANGES"}
-]
+```json
+{
+  "typesAppend": [
+    { "value": "workflow", "name": "workflow:  Workflow changes" },
+    { "value": "*!", "name": "*!:        BREAKING CHANGES" }
+  ]
+}
 ```
 
 ## useEmoji

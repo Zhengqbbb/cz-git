@@ -1,46 +1,46 @@
-import type { DefaultTheme } from "vitepress";
-import { version, github, npm } from "../../meta";
+import type { DefaultTheme } from 'vitepress'
+import { github, npm, version } from '../../meta'
 
 export const en: DefaultTheme.NavItem[] = [
   {
-    text: "Guide",
-    link: "/guide/",
-    activeMatch: "/guide/"
+    text: 'Guide',
+    link: '/guide/',
+    activeMatch: '/guide/',
   },
   {
-    text: "Config",
-    link: "/config/",
-    activeMatch: "/config/"
+    text: 'Config',
+    link: '/config/',
+    activeMatch: '/config/',
   },
   {
-    text: "Recipes",
-    link: "/recipes/",
-    activeMatch: "/recipes/"
+    text: 'Recipes',
+    link: '/recipes/',
+    activeMatch: '/recipes/',
   },
   {
-    text: "CLI",
-    link: "/cli/",
-    activeMatch: "/cli/"
+    text: 'CLI',
+    link: '/cli/',
+    activeMatch: '/cli/',
   },
   {
     text: `v${version}`,
     items: [
       {
-        text: "Changelog",
-        link: github + "/blob/main/CHANGELOG.md"
+        text: 'Changelog',
+        link: `${github}/blob/main/CHANGELOG.md`,
       },
       {
-        text: "NPM",
-        link: npm
+        text: 'NPM',
+        link: npm,
       },
       {
-        text: "Playground",
-        link: "https://github.com/Zhengqbbb/czgit-playground"
+        text: 'Playground',
+        link: 'https://github.com/Zhengqbbb/czgit-playground',
       },
       {
-        text: "FAQ",
-        link: "/faq/"
-      }
-    ]
-  }
-];
+        text: 'FAQ',
+        link: '/faq/',
+      },
+    ],
+  },
+]

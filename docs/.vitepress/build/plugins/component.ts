@@ -1,5 +1,5 @@
-import Components from "unplugin-vue-components/vite";
-import { resolve } from "pathe";
+import Components from 'unplugin-vue-components/vite'
+import { resolve } from 'pathe'
 
 /**
  * On-demand components auto importing for Vue.
@@ -7,6 +7,6 @@ import { resolve } from "pathe";
  */
 export const unpluginComponents = Components({
   include: [/\.vue/, /\.md/],
-  dirs: resolve(__dirname, "../../components"),
-  dts: resolve(__dirname, "../../components.d.ts")
-});
+  dirs: resolve(__dirname, '../../components'),
+  dts: resolve(__dirname, '../../components.d.ts'),
+})
