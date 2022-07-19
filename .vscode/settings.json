@@ -19,6 +19,7 @@
   },
   "files.associations": {
     "**/.x-cmd/*": "shellscript",
+    "**/.x-cmd/*.yml": "yaml",
   },
   "unocss.root": "docs/.vitepress/build/plugins/unocss.ts"
 }
