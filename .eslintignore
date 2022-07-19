@@ -5,4 +5,3 @@ lib/
 dist/
 examples/
 components.d.ts
-.commitlintrc.js

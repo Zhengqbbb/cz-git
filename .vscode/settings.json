@@ -20,6 +20,12 @@
   "files.associations": {
     "**/.x-cmd/*": "shellscript",
     "**/.x-cmd/*.yml": "yaml",
+    "*.css": "postcss"
   },
-  "unocss.root": "docs/.vitepress/build/plugins/unocss.ts"
+  "unocss.root": "docs/.vitepress/build/plugins/unocss.ts",
+  "prettier.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": false,
 }
