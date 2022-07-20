@@ -1,11 +1,11 @@
-import { defineConfig } from "vitest/config";
-import { resolve } from "path";
+import { resolve } from 'path'
+import { defineConfig } from 'vitest/config'
 
 /* prettier-ignore */
 export default defineConfig({
   test: {
     root: resolve(__dirname),
     globals: true,
-    include: ["**/__tests__/*.test.ts"]
-  }
-});
+    include: ['**/__tests__/*.test.ts'],
+  },
+})
