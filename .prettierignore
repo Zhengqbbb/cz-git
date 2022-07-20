@@ -1,8 +1,0 @@
-# Ignore
-lib
-node_modules
-/*.md
-.gitee
-.git
-.vscode
-.commitlintrc.js
