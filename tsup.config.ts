@@ -1,4 +1,4 @@
-import { Options } from "tsup";
+import type { Options } from 'tsup'
 
 /**
  * NOTE: build types for `src/index.ts` only
@@ -8,13 +8,13 @@ import { Options } from "tsup";
 
 const baseConfig: Options = {
   minify: false,
-  entry: ["./dist/index.js"],
-  outDir: "./lib",
-  tsconfig: "./tsconfig.build.json",
+  entry: ['./dist/index.js'],
+  outDir: './lib',
+  tsconfig: './tsconfig.build.json',
   sourcemap: false,
   dts: true,
-  splitting: false
-};
+  splitting: false,
+}
 
-export default baseConfig;
-export { baseConfig };
+export default baseConfig
+export { baseConfig }
