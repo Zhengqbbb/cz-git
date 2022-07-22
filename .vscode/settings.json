@@ -27,5 +27,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "picgo.picBed.github.path": "cz/",
   "editor.formatOnSave": false,
 }
