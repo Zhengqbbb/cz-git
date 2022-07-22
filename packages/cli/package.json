@@ -23,7 +23,8 @@
   "license": "MIT",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "bin": {
-    "czg": "bin/index.js"
+    "czg": "bin/index.js",
+    "git-czg": "bin/index.js"
   },
   "files": [
     "bin"
