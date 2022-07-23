@@ -10,6 +10,7 @@
 npm install -g czg
 # check the installation is successful
 czg --help
+git czg -h
 ```
 
 :::
@@ -19,6 +20,7 @@ czg --help
 brew install czg
 # check the installation is successful
 czg --help
+git czg -h
 ```
 
 :::
