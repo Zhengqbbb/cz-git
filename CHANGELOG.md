@@ -4,8 +4,12 @@
 ### Features
 
 * **cli:** add `git-czg` git enter command ([de4d7ed](https://github.com/Zhengqbbb/cz-git/commit/de4d7ed18b5329cdf2424a06bb5134dc86481f99))
+  * Can use `git czg` to start `czg` CLI
 * **cli:** optimize czg `retry` option cache error message ([#48](https://github.com/Zhengqbbb/cz-git/issues/48)) ([757517b](https://github.com/Zhengqbbb/cz-git/commit/757517bdef0a07dae07b040760d71b364e2a80d0))
+* **cz-git,cli:** optimize the prompt msg when `alias` undefined ([40bd1a2](https://github.com/Zhengqbbb/cz-git/commit/40bd1a2d4e66617034f516d448a7158b52f4abde))
 
+### Other
+* **site**: the website move to [https://cz-git.qbb.sh/](https://cz-git.qbb.sh/)
 
 
 ## [1.3.9](https://github.com/Zhengqbbb/cz-git/compare/v1.3.8...v1.3.9) (2022-07-01)
