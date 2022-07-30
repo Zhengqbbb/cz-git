@@ -21,7 +21,7 @@ npm install -g commitizen
 
 :::
 
-#### step 1: 下载依赖
+#### 步骤 1: 下载依赖
 
 :::: code-group
 ::: code-group-item NPM
@@ -47,7 +47,7 @@ pnpm install -D cz-git
 :::
 ::::
 
-#### step 2: 修改 `package.json` 添加 `config` 指定使用的适配器
+#### 步骤 2: 修改 `package.json` 添加 `config` 指定使用的适配器
 
 ```json{5-9}
 {
@@ -62,7 +62,7 @@ pnpm install -D cz-git
 }
 ```
 
-#### step 3: 添加自定义配置(可选，使用默认)
+#### 步骤 3: 添加自定义配置(可选，使用默认)
 
 > 有==两种==配置方式
 
@@ -104,19 +104,19 @@ module.exports = {
 
 只需要简单的三个步骤：
 
-#### step 1: 下载全局依赖
+#### 步骤 1: 下载全局依赖
 
 ```bash
 npm install -g cz-git commitizen
 ```
 
-#### step 2: 全局配置适配器类型
+#### 步骤 2: 全局配置适配器类型
 
 ```bash
 echo '{ "path": "cz-git" }' > ~/.czrc
 ```
 
-#### step 3: 添加自定义配置(可选，使用默认配置)
+#### 步骤 3: 添加自定义配置(可选，使用默认配置)
 >  有 ==两种== 配置方式
 <br>
 

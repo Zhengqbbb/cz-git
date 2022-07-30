@@ -21,7 +21,7 @@ npm install -g commitizen
 
 :::
 
-#### step 1: Install dependencies
+#### Step 1: Install dependencies
 
 :::: code-group
 ::: code-group-item NPM
@@ -47,7 +47,7 @@ pnpm install -D cz-git
 :::
 ::::
 
-#### step 2: Modify `package.json` to add `config` Specify the adapter used
+#### Step 2: Modify `package.json` to add `config` Specify the adapter used
 
 ```json{5-9}
 {
@@ -62,7 +62,7 @@ pnpm install -D cz-git
 }
 ```
 
-#### step 3: Add custom configuration (optional, use default)
+#### Step 3: Add custom configuration (optional, use default)
 
 > There are ==two== configuration methods
 
@@ -103,19 +103,19 @@ module.exports = {
 
 Just three simple steps:
 
-#### step 1: Install global dependencies
+#### Step 1: Install global dependencies
 
 ```bash
 npm install -g cz-git commitizen
 ```
 
-#### step 2: Global configuration adapter type
+#### Step 2: Global configuration adapter type
 
 ```bash
 echo '{ "path": "cz-git" }' > ~/.czrc
 ```
 
-#### step 3: Add custom configuration (optional, use default configuration)
+#### Step 3: Add custom configuration (optional, use default configuration)
 >  There are ==two== configuration methods
 <br>
 
