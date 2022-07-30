@@ -11,7 +11,16 @@ sitemap:
 ## messages
 
 - **description** : custom command line question information
-- **example** : <br>`messages: { type: "Select the type of change that you're committing:" }`
+- **example** : <br>
+```json
+{
+  "messages": {
+    "type": "Select the type of change that you're committing:",
+    "scope": "Denote the SCOPE of this change (optional):"
+    // ...
+  }
+}
+```
 
 ## themeColorCode
 

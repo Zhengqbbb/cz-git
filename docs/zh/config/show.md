@@ -11,7 +11,16 @@ sitemap:
 ## messages
 
 - **描述** : 自定义命令行提问信息
-- **例子** : <br>`messages: { type: "type: "选择你的提交类型:" }`
+- **例子** : <br>
+```json
+{
+  "messages": {
+    "type": "Select the type of change that you're committing:",
+    "scope": "Denote the SCOPE of this change (optional):"
+    // ...
+  }
+}
+```
 
 ## themeColorCode
 
