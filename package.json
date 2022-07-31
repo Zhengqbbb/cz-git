@@ -80,6 +80,7 @@
     "lint-staged": "^13.0.3",
     "ora": "^6.1.2",
     "pathe": "^0.3.2",
+    "pnpm": "^7.8.0",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.57.0",
     "tsup": "6.1.3",
