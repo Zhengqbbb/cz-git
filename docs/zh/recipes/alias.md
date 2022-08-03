@@ -19,8 +19,10 @@
 
 ```bash
 czg :fd
+git czg :fd
 # 或者
 czg --alias=fd
+git czg --alias=fd
 ```
 
 ![demo](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif)

@@ -19,8 +19,10 @@
 
 ```bash
 czg :fd
+git czg :fd
 # or
 czg --alias=fd
+git czg --alias=fd
 ```
 
 ![demo](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif)
@@ -29,6 +31,8 @@ czg --alias=fd
 
 ```bash
 cz_alias=fd cz
+# or
+cz_alias=fd git cz
 ```
 
 ![demo](https://user-images.githubusercontent.com/40693636/176701915-3f57721a-a54b-4e23-8de6-4d205e01ef9f.gif)
