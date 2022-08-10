@@ -1,33 +1,23 @@
 {
   "$schema": "https://raw.githubusercontent.com/iamyoki/better-scripts/main/lib/schema.json",
-  "builds": {
-    "alias": "📦️ Builds",
-    "desc": "Build something nice",
-    "scripts": {
-      "cli&cz": "pnpm build:cli && pnpm build:cz",
-      "cli": "pnpm build:dev && pnpm run --filter=\"czg\" build",
-      "cz": "pnpm run --filter=\"cz-git\" build && pnpm run --filter=\"@cz-git*\" --stream build",
-      "dev": "pnpm run -r --stream build:dev"
-    }
-  },
-  "clean": {
-    "alias": "🧹 Clean previous built",
-    "command": "pnpm run -r --stream clean"
-  },
-  "cz": {
-    "alias": "🔨 CZ",
-    "command": "czg"
-  },
   "devs": {
-    "alias": "⚡️ Devs",
+    "alias": "⚡️ Devs    ",
     "desc": "Select a dev script to run",
     "scripts": {
       "cz&tests": "concurrently \"tsc -b tsconfig.build.json --watch\" \"pnpm run test --watch\"",
       "cz": "pnpm clean && tsc -b tsconfig.build.json --watch"
     }
   },
+  "cz": {
+    "alias": "📮 Commit  ",
+    "command": "czg"
+  },
+  "clean": {
+    "alias": "🧹 Cleans  ",
+    "command": "pnpm run -r --stream clean"
+  },
   "docs": {
-    "alias": "📝 Docs",
+    "alias": "📝 Docs    ",
     "desc": "Select a docs script to run",
     "scripts": {
       "zh:build": "pnpm --filter='docs-zh' docs:build",
@@ -37,6 +27,16 @@
       "link": "rm -rf ./docs/.vitepress/dist/zh/* && mv -f ./docs-zh/.vitepress/dist/* ./docs/.vitepress/dist/zh",
       "serve": "pnpm --filter=docs docs:serve",
       "update": "esno ./scripts/projects.ts"
+    }
+  },
+  "builds": {
+    "alias": "📦️ Builds  ",
+    "desc": "Build something nice",
+    "scripts": {
+      "cli&cz": "pnpm build:cli && pnpm build:cz",
+      "cli": "pnpm build:dev && pnpm run --filter=\"czg\" build",
+      "cz": "pnpm run --filter=\"cz-git\" build && pnpm run --filter=\"@cz-git*\" --stream build",
+      "dev": "pnpm run -r --stream build:dev"
     }
   },
   "examples": {
@@ -49,7 +49,7 @@
     }
   },
   "lint": {
-    "alias": "🧐 Lint",
+    "alias": "🧐 Lint    ",
     "desc": "Lint ts source code",
     "command": "eslint --ext .ts packages docs/.vitepress"
   },
@@ -68,7 +68,7 @@
     }
   },
   "tests": {
-    "alias": "🧪 Tests",
+    "alias": "🧪 Tests   ",
     "desc": "Select a tests script to run",
     "scripts": {
       "test": [
