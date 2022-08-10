@@ -12,7 +12,7 @@ importers:
       '@types/inquirer': 8.2.1
       '@types/node': ^18.6.4
       '@types/rimraf': ^3.0.2
-      better-scripts: ^0.3.1
+      better-scripts: ^0.3.2
       bumpp: 7.2.0
       concurrently: ^7.3.0
       conventional-changelog-cli: ^2.2.2
@@ -41,7 +41,7 @@ importers:
       '@types/inquirer': 8.2.1
       '@types/node': 18.6.4
       '@types/rimraf': 3.0.2
-      better-scripts: 0.3.1
+      better-scripts: 0.3.2
       bumpp: 7.2.0
       concurrently: 7.3.0
       conventional-changelog-cli: 2.2.2
@@ -2812,8 +2812,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: true
 
-  /better-scripts/0.3.1:
-    resolution: {integrity: sha512-9e3HWoqbmXfdQGQelkTjuCkmoq93ka4YuDRk15fGSYDZjHB0iJHX11X9syZ91fHC9BrZKxkmYB9SUXVt/f7wjQ==}
+  /better-scripts/0.3.2:
+    resolution: {integrity: sha512-oSdRm+5PTT7bwlhcm03iSPmtxnnX1saH+kbfR8su0ulj8TyDE82+laUi0ITLJHWSg76iTYeMk5ZvqptibzsB2w==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -4939,7 +4939,7 @@ packages:
       source-map: 0.6.1
       wordwrap: 1.0.0
     optionalDependencies:
-      uglify-js: 3.16.1
+      uglify-js: 3.16.3
     dev: true
 
   /hard-rejection/2.1.0:
@@ -7283,8 +7283,8 @@ packages:
     resolution: {integrity: sha512-/+BmBDe8GvlB2nIflWasLLAInjYG0bC9HRnfEpNi4sw77J2AJNnEVnTDReVrehoh825+Q/evF3THXTAweyam2g==}
     dev: true
 
-  /uglify-js/3.16.1:
-    resolution: {integrity: sha512-X5BGTIDH8U6IQ1TIRP62YC36k+ULAa1d59BxlWvPUJ1NkW5L3FwcGfEzuVvGmhJFBu0YJ5Ge25tmRISqCmLiRQ==}
+  /uglify-js/3.16.3:
+    resolution: {integrity: sha512-uVbFqx9vvLhQg0iBaau9Z75AxWJ8tqM9AV890dIZCLApF4rTcyHwmAvLeEdYRs+BzYWu8Iw81F79ah0EfTXbaw==}
     engines: {node: '>=0.8.0'}
     hasBin: true
     requiresBuild: true
