@@ -17,7 +17,6 @@ describe('generateQuestions()', () => {
   const mockedCz = {
     Separator: vitest.fn(),
   }
-  // @ts-expect-error
   const getQuestion = (index: number) => generateQuestions(options, mockedCz)[index - 1]
 
   test('error config should be return false and print log', () => {
