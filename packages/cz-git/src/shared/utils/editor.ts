@@ -191,7 +191,7 @@ const editor = (file?: string, opts?: any | object, cb?: any) => {
   if (!opts)
     opts = {}
 
-  const ed = /^win/.test(process.platform) ? 'notepad' : 'vim'
+  const ed = process.platform.startsWith('win') ? 'notepad' : 'vim'
   const editor = opts.editor || process.env.VISUAL || process.env.EDITOR || ed
   const args = editor.split(/\s+/)
   const bin = args.shift()

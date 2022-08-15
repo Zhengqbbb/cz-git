@@ -40,7 +40,7 @@ const resovleFlag = (
 }
 
 const resovleAlias = (arg: string, target: CzgitParseArgs) => {
-  if (/^:/.test(arg)) {
+  if (arg.startsWith(':')) {
     if (!target.czgitArgs.flag)
       target.czgitArgs.flag = { alias: '' }
 
