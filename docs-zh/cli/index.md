@@ -86,7 +86,7 @@ Extends 'git commit' command and options.
 See 'git commit --help' for more information.
 ```
 
-## Projects using czg CLI
+## 使用 `czg` CLI 的项目
 
 <table>
   <tr>
