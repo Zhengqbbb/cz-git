@@ -45,6 +45,12 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
   return mapping
 }
 
+const getCustomValue = (originVal?: string | string [], customVal?: string) => {
+  if (Array.isArray(originVal))
+    return originVal
+  return originVal !== '___CUSTOM___' ? originVal || '' : customVal || ''
+}
+
 const addType = (type: string, colorize?: boolean) => (colorize ? style.green(type) : type)
 
 const addScope = (scope?: string, colorize?: boolean) => {
@@ -109,9 +115,8 @@ export const generateMessage = (
   }
 
   const { customScope, customFooterPrefixs } = answers
-  answers.scope = (answers.scope === '___CUSTOM___' && customScope) || answers.scope
-  answers.footerPrefix
-    = (answers.footerPrefix === '___CUSTOM___' && customFooterPrefixs) || answers.footerPrefix
+  answers.scope = getCustomValue(answers.scope, customScope)
+  answers.footerPrefix = getCustomValue(answers.footerPrefix, customFooterPrefixs) as string
 
   const { singleScope, singeIssuePrefix } = getSingleParams(answers, options)
   const scope = Array.isArray(answers.scope)

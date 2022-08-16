@@ -31,6 +31,28 @@ describe('generateMessage()', () => {
       }
       expect(generateMessage(answers, options)).toEqual('feat(app): add a new feature')
     })
+
+    test('custom value scope should be output custom value', () => {
+      const options = {}
+      const answers = {
+        type: 'feat',
+        scope: '___CUSTOM___',
+        customScope: 'app',
+        subject: 'add a new feature',
+      }
+      expect(generateMessage(answers, options)).toEqual('feat(app): add a new feature')
+    })
+
+    test('empty custom scope value scope should be output empty value', () => {
+      const options = {}
+      const answers = {
+        type: 'feat',
+        scope: '___CUSTOM___',
+        customScope: '',
+        subject: 'add a new feature',
+      }
+      expect(generateMessage(answers, options)).toEqual('feat: add a new feature')
+    })
   })
 
   describe('subject', () => {
@@ -92,10 +114,7 @@ describe('generateMessage()', () => {
         body: 'test breaklineNumber test breaklineNumber',
       }
       expect(generateMessage(answers, options)).toEqual(
-        `feat(app): add a new feature
-
-test breaklineNumber
-test breaklineNumber`,
+        'feat(app): add a new feature\n\ntest breaklineNumber\ntest breaklineNumber',
       )
     })
 
@@ -127,6 +146,30 @@ test breaklineNumber`,
   })
 
   describe('footer', () => {
+    test('custom footerPrefix should be output custom value', () => {
+      const options = {}
+      const answers = {
+        type: 'feat',
+        subject: 'add a new feature',
+        footerPrefix: '___CUSTOM___',
+        customFooterPrefixs: 'CLOSED',
+        footer: '#1',
+      }
+      expect(generateMessage(answers, options)).toEqual('feat: add a new feature\n\nCLOSED #1')
+    })
+
+    test('empty custom footerPrefix value scope should be output empty value', () => {
+      const options = {}
+      const answers = {
+        type: 'feat',
+        subject: 'add a new feature',
+        footerPrefix: '___CUSTOM___',
+        customFooterPrefixs: '',
+        footer: '#1',
+      }
+      expect(generateMessage(answers, options)).toEqual('feat: add a new feature\n\n#1')
+    })
+
     test('both hit single footerPrefix should be output right', () => {
       const options = {
         types: [{ value: 'feat', name: 'feat:     A new feature' }],
@@ -139,11 +182,7 @@ test breaklineNumber`,
         subject: 'add a new feature',
         footer: '#12',
       }
-      expect(generateMessage(answers, options)).toEqual(
-        `feat: add a new feature
-
-closed #12`,
-      )
+      expect(generateMessage(answers, options)).toEqual('feat: add a new feature\n\nclosed #12')
     })
 
     test('both hit single footerPrefix but not footer should be not output', () => {
@@ -175,11 +214,7 @@ closed #12`,
         subject: 'add a new feature',
         footer: '#12',
       }
-      expect(generateMessage(answers, options)).toEqual(
-        `feat(app): add a new feature
-
-closed #12`,
-      )
+      expect(generateMessage(answers, options)).toEqual('feat(app): add a new feature\n\nclosed #12')
     })
   })
 })
