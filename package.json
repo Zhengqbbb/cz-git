@@ -24,8 +24,8 @@
   "license": "MIT",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "scripts": {
-    "build": "pnpm build:cli && pnpm build:cz",
-    "build:cli": "pnpm build:dev && pnpm run --filter=\"czg\" build",
+    "build": "pnpm build:dev && pnpm build:cli && pnpm build:cz",
+    "build:cli": "pnpm run --filter=\"czg\" build",
     "build:cz": "pnpm run --filter=\"cz-git\" build && pnpm run --filter=\"@cz-git*\" --stream build",
     "build:dev": "pnpm run -r --stream build:dev",
     "clean": "pnpm run -r --stream clean",
