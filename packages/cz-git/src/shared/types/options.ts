@@ -139,6 +139,12 @@ export interface CommitizenGitOptions {
   typesAppend?: TypesOption[]
 
   /**
+   * @description: default types list fuzzy search types `value` options. if choose `false` will search `name` options
+   * @default: true
+   */
+  typesSearchValueKey?: boolean
+
+  /**
    * @description: Use emoji ？| it will be use typesOption.emoji code
    * @default: false
    */
@@ -380,6 +386,7 @@ export const defaultConfig = Object.freeze({
     { value: 'revert', name: 'revert:   Reverts a previous commit', emoji: ':rewind:' },
   ],
   typesAppend: [],
+  typesSearchValueKey: true,
   themeColorCode: '',
   useEmoji: false,
   emojiAlign: 'center',
