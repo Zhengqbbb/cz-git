@@ -101,6 +101,19 @@ export interface TypesOption extends Option {
   emoji?: string
 }
 
+export interface CommitMessageOptions {
+  type: string
+  scope: string
+  emoji: string
+  markBreaking: string
+  subject: string
+  defaultHeader: string
+  body: string
+  breaking: string
+  footer: string
+  defaultMessage: string
+}
+
 export interface CommitizenGitOptions {
   /**
    * @description: define commonly used commit message alias
@@ -355,6 +368,8 @@ export interface CommitizenGitOptions {
    * @example: When you want to use default, just keybord <Enter> it
    */
   defaultIssues?: string
+
+  formatMessageCB?: (messageMod: CommitMessageOptions) => string
 }
 
 export const defaultConfig = Object.freeze({
@@ -422,4 +437,5 @@ export const defaultConfig = Object.freeze({
   defaultSubject: '',
   defaultFooterPrefix: '',
   defaultIssues: '',
+  formatMessageCB: undefined,
 } as CommitizenGitOptions)

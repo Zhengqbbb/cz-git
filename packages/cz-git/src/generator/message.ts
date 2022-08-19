@@ -92,13 +92,28 @@ const addSubject = (subject?: string, colorize?: boolean) => {
   return subject.trim()
 }
 
-const addFooter = (footer: string, footerPrefix = '', colorize?: boolean) => {
+const addFooter = (footerSuffix: string, footerPrefix = '', colorize?: boolean) => {
+  if (footerSuffix === '')
+    return ''
   if (footerPrefix === '')
-    return colorize ? `\n\n${style.green(footer)}` : `\n\n${footer}`
+    return colorize ? `\n\n${style.green(footerSuffix)}` : `\n\n${footerSuffix}`
 
   return colorize
-    ? `\n\n${style.green(`${footerPrefix} ${footer}`)}`
-    : `\n\n${footerPrefix} ${footer}`
+    ? `\n\n${style.green(`${footerPrefix} ${footerSuffix}`)}`
+    : `\n\n${footerPrefix} ${footerSuffix}`
+}
+
+const formatDefaultMessage = (defaultHeader: string, body: string, breaking: string, footer: string) => {
+  let result = defaultHeader
+  if (body)
+    result += `\n\n${body}`
+
+  if (breaking)
+    result += `\n\nBREAKING CHANGE :\n${breaking}`
+
+  if (footer)
+    result += footer
+  return result
 }
 
 export const generateMessage = (
@@ -113,38 +128,50 @@ export const generateMessage = (
     indent: '',
     width: options.breaklineNumber,
   }
-
+  // resolve custom value
   const { customScope, customFooterPrefixs } = answers
   answers.scope = getCustomValue(answers.scope, customScope)
   answers.footerPrefix = getCustomValue(answers.footerPrefix, customFooterPrefixs) as string
-
+  // resolve single | multiple item
   const { singleScope, singeIssuePrefix } = getSingleParams(answers, options)
-  const scope = Array.isArray(answers.scope)
+  const scopeSource = Array.isArray(answers.scope)
     ? answers.scope.join(options.scopeEnumSeparator)
     : answers.scope
+
+  const type = addType(answers.type ?? '', colorize)
   const emoji = getEmojiCode(answers.type || '', options)
-  const head
-    = `${addEmoji(emoji, 'left', options.emojiAlign)
-    + addType(answers.type ?? '', colorize)
-    + addScope(singleScope || scope, colorize)
-    + addBreakchangeMark(answers.markBreaking, colorize)
-    }: ${
-    addEmoji(emoji, 'center', options.emojiAlign)
-    }${addSubject(answers.subject, colorize)
-    }${addEmoji(emoji, 'right', options.emojiAlign)}`
+  const scope = addScope(singleScope || scopeSource, colorize)
+  const markBreaking = addBreakchangeMark(answers.markBreaking, colorize)
+  const subject = addSubject(answers.subject, colorize)
+  const defaultHeader = `${addEmoji(emoji, 'left', options.emojiAlign)
+    + type
+    + scope
+    + markBreaking
+    }: ${addEmoji(emoji, 'center', options.emojiAlign)
+    + subject
+    + addEmoji(emoji, 'right', options.emojiAlign)
+  }`
   const body = wrap(answers.body ?? '', wrapOptions)
   const breaking = wrap(answers.breaking ?? '', wrapOptions)
-  const footer = wrap(answers.footer ?? '', wrapOptions)
+  const footerSuffix = wrap(answers.footer ?? '', wrapOptions)
+  const footer = addFooter(footerSuffix, answers.footerPrefix || singeIssuePrefix, colorize)
+  const defaultMessage = formatDefaultMessage(defaultHeader, body, breaking, footer)
 
-  let result = head
-  if (body)
-    result += `\n\n${body}`
-
-  if (breaking)
-    result += `\n\nBREAKING CHANGE :\n${breaking}`
-
-  if (footer)
-    result += addFooter(footer, answers.footerPrefix || singeIssuePrefix, colorize)
-
-  return result
+  if (typeof options.formatMessageCB === 'function') {
+    return options.formatMessageCB({
+      type,
+      emoji,
+      scope,
+      markBreaking,
+      subject,
+      defaultHeader,
+      body,
+      breaking,
+      footer,
+      defaultMessage,
+    })
+  }
+  else {
+    return defaultMessage
+  }
 }
