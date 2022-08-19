@@ -1,14 +1,22 @@
 const { execSync } = require('child_process')
 const fg = require('fast-glob')
 
-// @description: git branch name = feature/cli_33 => auto get defaultIssues = #33
+// git branch name = feature/cli_33 => auto get defaultIssues = #33
 const issue = execSync('git rev-parse --abbrev-ref HEAD')
   .toString()
   .trim()
   .split('_')[1]
 
-// @description: monorepo dynamic get name
+// monorepo dynamic get name
 const packages = fg.sync('*', { cwd: 'packages/@cz-git', onlyDirectories: true })
+
+// custom add Co-authored-by
+const coAuthoredBy
+  = `Co-authored-by: ${
+     execSync('git config user.name').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
+     } <${
+     execSync('git config user.email').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
+     }>`
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
@@ -35,5 +43,8 @@ module.exports = {
     ],
     customIssuePrefixsAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
+    formatMessageCB: ({ defaultMessage }) => {
+      return `${defaultMessage}\n\n${coAuthoredBy}`
+    },
   },
 }
