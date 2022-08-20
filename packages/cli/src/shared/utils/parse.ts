@@ -81,6 +81,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
       result = resovleSubCmd(parseArgv._[i], 'emoji', result)
       result = resovleSubCmd(parseArgv._[i], 'checkbox', result)
       result = resovleSubCmd(parseArgv._[i], 'break', result)
+      result = resovleSubCmd(parseArgv._[i], 'gpg', result)
       // resolve alias
       result = resovleAlias(parseArgv._[i], result)
     }

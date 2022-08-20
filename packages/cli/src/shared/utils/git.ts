@@ -63,7 +63,9 @@ export const gitCommit = (
    * use `git cimmit -m "...message..."`
    */
   if (!options.hookMode) {
-    const args = ['commit', '-m', dedent(message), ...(options.args || [])]
+    const args = process.env.CzCommitSignGPG !== '1'
+      ? ['commit', '-m', dedent(message), ...(options.args || [])]
+      : ['commit', '-S', '-m', dedent(message), ...(options.args || [])]
     const child = spawn('git', args, {
       cwd: repoPath,
       stdio: options.quiet ? 'ignore' : 'inherit',

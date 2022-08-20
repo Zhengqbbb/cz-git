@@ -23,6 +23,8 @@ export const prompter = (
   configLoader({ configPath }).then((config) => {
     const options = generateOptions(config)
 
+    if (options.useCommitSignGPG)
+      process.env.CzCommitSignGPG = '1'
     if ('cz_alias' in process.env) {
       commit(getAliasMessage(options, process.env.cz_alias))
       return
