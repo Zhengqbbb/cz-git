@@ -217,4 +217,31 @@ describe('generateMessage()', () => {
       expect(generateMessage(answers, options)).toEqual('feat(app): add a new feature\n\nclosed #12')
     })
   })
+
+  describe('message', () => {
+    test('custom emoji message format callback should be output right', () => {
+      const options = {
+        types: [{ value: 'feat', name: 'feat:     A new feature', emoji: ':sparkles:' }],
+        useEmoji: true,
+        formatMessageCB: ({ emoji, scope, subject }) => {
+          return scope
+            ? `${emoji}(${scope}): ${subject}`
+            : `${emoji} ${subject}`
+        },
+      }
+
+      let answers: any = {
+        type: 'feat',
+        subject: 'add a new feature',
+      }
+      expect(generateMessage(answers, options)).toEqual(':sparkles: add a new feature')
+
+      answers = {
+        type: 'feat',
+        scope: 'app',
+        subject: 'add a new feature',
+      }
+      expect(generateMessage(answers, options)).toEqual(':sparkles:(app): add a new feature')
+    })
+  })
 })

@@ -1,14 +1,23 @@
 const { execSync } = require('child_process')
 const fg = require('fast-glob')
 
-// @description: git branch name = feature/cli_33 => auto get defaultIssues = #33
+// git branch name = feature/cli_33 => auto get defaultIssues = #33
 const issue = execSync('git rev-parse --abbrev-ref HEAD')
   .toString()
   .trim()
   .split('_')[1]
 
-// @description: monorepo dynamic get name
+// monorepo dynamic get name
 const packages = fg.sync('*', { cwd: 'packages/@cz-git', onlyDirectories: true })
+
+// custom add Co-authored-by
+const coAuthoredBy
+  = '\n\n'
+  + `Co-authored-by: ${
+     execSync('git config user.name').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
+     } <${
+     execSync('git config user.email').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
+     }>`
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
@@ -21,12 +30,12 @@ module.exports = {
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options
     alias: {
-      'b': 'chore: bump dependencies',
-      'c': 'chore: update config files',
-      'f': 'docs: fix typos',
-      ':': 'docs: update README',
-      'table:data': 'chore: :hammer: update project using table data',
-      'table:docs': 'docs: update project using table',
+      'b': 'chore: bump dependencies' + coAuthoredBy,
+      'c': 'chore: update config files' + coAuthoredBy,
+      'f': 'docs: fix typos' + coAuthoredBy,
+      ':': 'docs: update README' + coAuthoredBy,
+      'table:data': 'chore: :hammer: update project using table data' + coAuthoredBy,
+      'table:docs': 'docs: update project using table' + coAuthoredBy,
     },
     themeColorCode: '38;5;043',
     issuePrefixs: [
@@ -35,5 +44,6 @@ module.exports = {
     ],
     customIssuePrefixsAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
+    formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,
   },
 }

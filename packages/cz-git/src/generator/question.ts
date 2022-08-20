@@ -39,7 +39,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.types?.concat(options.typesAppend || []) || [],
           options.defaultType,
         )
-        return fuzzyFilter(input, typeSource, 'value')
+        const searchTarget = options.typesSearchValueKey
+          ? 'value'
+          : 'name'
+        return fuzzyFilter(input, typeSource, searchTarget)
       },
     },
     {

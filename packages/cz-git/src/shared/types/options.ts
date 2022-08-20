@@ -101,6 +101,48 @@ export interface TypesOption extends Option {
   emoji?: string
 }
 
+/**
+ * provide subdivides each message part
+ */
+export interface CommitMessageOptions {
+  /**
+   * @description: choose type list value
+   * @example: 'feat'
+   */
+  type: string
+  /**
+   * @description: choose or custom scope value
+   * @example: 'app'
+   */
+  scope: string
+  /**
+   * @description: choose type list emoji code. need turn on `useEmoji` options
+   * @example: ':sparkles:'
+   */
+  emoji: string
+  /**
+   * @description: express is a breaking change message
+   * @example `!`
+   */
+  markBreaking: string
+  /**
+   * @description: input subject
+   */
+  subject: string
+  /**
+   * @description: base Angular format default header
+   * @example `feat(app): add a feature`
+   */
+  defaultHeader: string
+  body: string
+  breaking: string
+  footer: string
+  /**
+   * @description: base Angular format default all message
+   */
+  defaultMessage: string
+}
+
 export interface CommitizenGitOptions {
   /**
    * @description: define commonly used commit message alias
@@ -137,6 +179,12 @@ export interface CommitizenGitOptions {
    * @default: []
    */
   typesAppend?: TypesOption[]
+
+  /**
+   * @description: default types list fuzzy search types `value` options. if choose `false` will search `name` options
+   * @default: true
+   */
+  typesSearchValueKey?: boolean
 
   /**
    * @description: Use emoji ？| it will be use typesOption.emoji code
@@ -349,6 +397,13 @@ export interface CommitizenGitOptions {
    * @example: When you want to use default, just keybord <Enter> it
    */
   defaultIssues?: string
+
+  /**
+   * @description: provide user custom finally message, can use the callback to change format
+   * @param CommitMessageOptions: provide subdivides each message part
+   * @default: ({ defaultMessage }) => defaultMessage
+   */
+  formatMessageCB?: (messageMod: CommitMessageOptions) => string
 }
 
 export const defaultConfig = Object.freeze({
@@ -380,6 +435,7 @@ export const defaultConfig = Object.freeze({
     { value: 'revert', name: 'revert:   Reverts a previous commit', emoji: ':rewind:' },
   ],
   typesAppend: [],
+  typesSearchValueKey: true,
   themeColorCode: '',
   useEmoji: false,
   emojiAlign: 'center',
@@ -415,4 +471,5 @@ export const defaultConfig = Object.freeze({
   defaultSubject: '',
   defaultFooterPrefix: '',
   defaultIssues: '',
+  formatMessageCB: undefined,
 } as CommitizenGitOptions)

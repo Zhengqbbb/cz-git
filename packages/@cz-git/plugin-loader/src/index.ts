@@ -39,8 +39,8 @@ export const loader = async (options: LoaderOptions) => {
   return result ?? null
 }
 
-function executable<T>(config: Config<T>): config is ExectableConfig<T> {
-  return typeof config === 'function'
+function executable<T>(config: Config<T>, name: string): config is ExectableConfig<T> {
+  return typeof config === 'function' && !name.endsWith('CB')
 }
 
 async function configExecute<T>(
@@ -51,7 +51,7 @@ async function configExecute<T>(
     return null
 
   const [name, config] = configItem as [string, Config<T>]
-  const fn = executable(config) ? config : async () => config
+  const fn = executable(config, name) ? config : async () => config
   return [name, await fn()]
 }
 
