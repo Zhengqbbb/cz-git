@@ -101,16 +101,45 @@ export interface TypesOption extends Option {
   emoji?: string
 }
 
+/**
+ * provide subdivides each message part
+ */
 export interface CommitMessageOptions {
+  /**
+   * @description: choose type list value
+   * @example: 'feat'
+   */
   type: string
+  /**
+   * @description: choose or custom scope value
+   * @example: 'app'
+   */
   scope: string
+  /**
+   * @description: choose type list emoji code. need turn on `useEmoji` options
+   * @example: ':sparkles:'
+   */
   emoji: string
+  /**
+   * @description: express is a breaking change message
+   * @example `!`
+   */
   markBreaking: string
+  /**
+   * @description: input subject
+   */
   subject: string
+  /**
+   * @description: base Angular format default header
+   * @example `feat(app): add a feature`
+   */
   defaultHeader: string
   body: string
   breaking: string
   footer: string
+  /**
+   * @description: base Angular format default all message
+   */
   defaultMessage: string
 }
 
@@ -369,6 +398,11 @@ export interface CommitizenGitOptions {
    */
   defaultIssues?: string
 
+  /**
+   * @description: provide user custom finally message, can use the callback to change format
+   * @param CommitMessageOptions: provide subdivides each message part
+   * @default: ({ defaultMessage }) => defaultMessage
+   */
   formatMessageCB?: (messageMod: CommitMessageOptions) => string
 }
 
