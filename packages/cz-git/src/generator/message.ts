@@ -145,8 +145,8 @@ export const generateMessage = (
   const subject = addSubject(answers.subject, colorize)
 
   const defaultHeader
-    = `${`${addEmoji(emoji, 'left', options.emojiAlign)}${type}${scope ? `(${scope})` : ''}${markBreaking}`}: ${
-        addEmoji(emoji, 'center', options.emojiAlign)}${subject}${addEmoji(emoji, 'right', options.emojiAlign)}`
+    = `${`${addEmoji(emoji, 'left', options.emojiAlign)}${type}${scope ? `(${scope})` : ''}${markBreaking}`
+      }: ${addEmoji(emoji, 'center', options.emojiAlign)}${subject}${addEmoji(emoji, 'right', options.emojiAlign)}`
 
   const body = wrap(answers.body ?? '', wrapOptions)
   const breaking = wrap(answers.breaking ?? '', wrapOptions)
