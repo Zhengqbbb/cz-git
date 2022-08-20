@@ -399,6 +399,14 @@ export interface CommitizenGitOptions {
   defaultIssues?: string
 
   /**
+   * @description: Whether to use GPG sign commit message (git commit -S -m)
+   * @note the options only support `czg` cz-git cli and no support git hooks mode
+   * @usage_see https://github.com/Zhengqbbb/cz-git/issues/58
+   * @default: false
+   */
+  useCommitSignGPG?: boolean
+
+  /**
    * @description: provide user custom finally message, can use the callback to change format
    * @param CommitMessageOptions: provide subdivides each message part
    * @default: ({ defaultMessage }) => defaultMessage
@@ -471,5 +479,6 @@ export const defaultConfig = Object.freeze({
   defaultSubject: '',
   defaultFooterPrefix: '',
   defaultIssues: '',
+  useCommitSignGPG: false,
   formatMessageCB: undefined,
 } as CommitizenGitOptions)

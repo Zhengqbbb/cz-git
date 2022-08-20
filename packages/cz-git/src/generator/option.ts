@@ -61,6 +61,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     defaultBody: promptConfig.defaultBody ?? defaultConfig.defaultBody,
     defaultFooterPrefix: promptConfig.defaultFooterPrefix ?? defaultConfig.defaultFooterPrefix,
     defaultIssues: promptConfig.defaultIssues ?? defaultConfig.defaultIssues,
+    useCommitSignGPG: promptConfig.useCommitSignGPG ?? defaultConfig.useCommitSignGPG,
     formatMessageCB: promptConfig.formatMessageCB ?? defaultConfig.formatMessageCB,
   }
 }

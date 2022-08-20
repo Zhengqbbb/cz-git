@@ -20,6 +20,7 @@ ${style.yellow('SUBCOMMAND:')}
     ${style.cyan('break')}          ${style.red('Turn on BREAKING CHANGE mode, Add ! mark on header')}
     ${style.cyan('emoji')}          ${style.red('Turn on output message with emoji mode')}
     ${style.cyan('checkbox')}       ${style.red('Turn on scope checkbox mode')}
+    ${style.cyan('gpg')}            ${style.red('Turn on use GPG sign commit message')}
     
 ${style.yellow('OPTIONS:')}
     ${style.cyan('--config')}       ${style.red('Specify the configuration file to use')}
