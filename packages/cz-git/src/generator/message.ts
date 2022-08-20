@@ -109,7 +109,7 @@ const formatDefaultMessage = (defaultHeader: string, body: string, breaking: str
     result += `\n\n${body}`
 
   if (breaking)
-    result += `\n\nBREAKING CHANGE :\n${breaking}`
+    result += `\n\nBREAKING CHANGE: ${breaking}`
 
   if (footer)
     result += footer
