@@ -12,7 +12,8 @@ const packages = fg.sync('*', { cwd: 'packages/@cz-git', onlyDirectories: true }
 
 // custom add Co-authored-by
 const coAuthoredBy
-  = `Co-authored-by: ${
+  = '\n\n'
+  + `Co-authored-by: ${
      execSync('git config user.name').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
      } <${
      execSync('git config user.email').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
@@ -29,12 +30,12 @@ module.exports = {
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options
     alias: {
-      'b': 'chore: bump dependencies',
-      'c': 'chore: update config files',
-      'f': 'docs: fix typos',
-      ':': 'docs: update README',
-      'table:data': 'chore: :hammer: update project using table data',
-      'table:docs': 'docs: update project using table',
+      'b': 'chore: bump dependencies' + coAuthoredBy,
+      'c': 'chore: update config files' + coAuthoredBy,
+      'f': 'docs: fix typos' + coAuthoredBy,
+      ':': 'docs: update README' + coAuthoredBy,
+      'table:data': 'chore: :hammer: update project using table data' + coAuthoredBy,
+      'table:docs': 'docs: update project using table' + coAuthoredBy,
     },
     themeColorCode: '38;5;043',
     issuePrefixs: [
@@ -43,8 +44,6 @@ module.exports = {
     ],
     customIssuePrefixsAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
-    formatMessageCB: ({ defaultMessage }) => {
-      return `${defaultMessage}\n\n${coAuthoredBy}`
-    },
+    formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,
   },
 }
