@@ -57,7 +57,7 @@ const addScope = (scope?: string, colorize?: boolean) => {
   if (!scope)
     return ''
   scope = colorize ? style.yellow(scope) : scope
-  return `(${scope?.trim()})`
+  return scope?.trim()
 }
 
 const addBreakchangeMark = (markBreaking?: string | boolean, colorize?: boolean) => {
@@ -143,14 +143,11 @@ export const generateMessage = (
   const scope = addScope(singleScope || scopeSource, colorize)
   const markBreaking = addBreakchangeMark(answers.markBreaking, colorize)
   const subject = addSubject(answers.subject, colorize)
-  const defaultHeader = `${addEmoji(emoji, 'left', options.emojiAlign)
-    + type
-    + scope
-    + markBreaking
-    }: ${addEmoji(emoji, 'center', options.emojiAlign)
-    + subject
-    + addEmoji(emoji, 'right', options.emojiAlign)
-  }`
+
+  const defaultHeader
+    = `${`${addEmoji(emoji, 'left', options.emojiAlign)}${type}${scope ? `(${scope})` : ''}${markBreaking}`}: ${
+        addEmoji(emoji, 'center', options.emojiAlign)}${subject}${addEmoji(emoji, 'right', options.emojiAlign)}`
+
   const body = wrap(answers.body ?? '', wrapOptions)
   const breaking = wrap(answers.breaking ?? '', wrapOptions)
   const footerSuffix = wrap(answers.footer ?? '', wrapOptions)
