@@ -1,3 +1,20 @@
+## [1.3.11](https://github.com/Zhengqbbb/cz-git/compare/v1.3.10...v1.3.11) (2022-08-21)
+
+
+### Bug Fixes
+
+* **cz-git:** fix breaking change break line default format ([c073ec7](https://github.com/Zhengqbbb/cz-git/commit/c073ec7c6a2cbe2cfafd82c7dc85bee430a3803a))
+* **cz-git:** fix empty custom output '___CUSTOM___' value ([d1475d5](https://github.com/Zhengqbbb/cz-git/commit/d1475d5d9da852aacaff9ea60a48796b1a42e172)), closes [#55](https://github.com/Zhengqbbb/cz-git/issues/55)
+
+
+### Features
+
+* **cli:** support GPG sign commit message ([c9caa97](https://github.com/Zhengqbbb/cz-git/commit/c9caa97576e898b64bf7e674f27ea5fdf4d6300f)), closes [#58](https://github.com/Zhengqbbb/cz-git/issues/58)
+* **cz-git:** add `formatMessageCB` can custom finally commit message ([754c738](https://github.com/Zhengqbbb/cz-git/commit/754c7381aad3173236aa7103e8fc7d646138ee2a)), closes [#57](https://github.com/Zhengqbbb/cz-git/issues/57)
+* **cz-git:** support types fuzzy search `types[name]` options ([ba4ce71](https://github.com/Zhengqbbb/cz-git/commit/ba4ce718dca23a05bc97f269db5c6d47dab273bd)), closes [#57](https://github.com/Zhengqbbb/cz-git/issues/57)
+
+
+
 ## [1.3.10](https://github.com/Zhengqbbb/cz-git/compare/v1.3.9...v1.3.10) (2022-07-23)
 
 
