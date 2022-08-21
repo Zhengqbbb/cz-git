@@ -17,7 +17,7 @@ ${style.yellow('SYNOPSIS:')}
     czg [subcommand...] [options...] [git-commit-options...]
 
 ${style.yellow('SUBCOMMAND:')}
-    ${style.cyan('break')}          ${style.red('Turn on BREAKING CHANGE mode, Add ! mark on header')}
+    ${style.cyan('break')}          ${style.red('Turn on appends a ! after the type/scope')}
     ${style.cyan('emoji')}          ${style.red('Turn on output message with emoji mode')}
     ${style.cyan('checkbox')}       ${style.red('Turn on scope checkbox mode')}
     ${style.cyan('gpg')}            ${style.red('Turn on use GPG sign commit message')}

@@ -62,12 +62,13 @@ WEBSITE:
     https://github.com/Zhengqbbb/cz-git
 
 SYNOPSIS:
-    czg [subcommand] [options]
+    czg [subcommand...] [options...] [git-commit-options...]
 
 SUBCOMMAND:
-    break          Turn on BREAKING CHANGE mode, Add ! mark on header
+    break          Turn on appends a ! after the type/scope
     emoji          Turn on output message with emoji mode
     checkbox       Turn on scope checkbox mode
+    gpg            Turn on use GPG sign commit message
 
 OPTIONS:
     --config       Specify the configuration file to use
@@ -83,7 +84,7 @@ EXAMPLES:
     czg --alias=fd
     czg --config="./config/cz.json"
 
-Extends 'git commit' command and options.
+Extends 'git commit' options.
 See 'git commit --help' for more information.
 ```
 
