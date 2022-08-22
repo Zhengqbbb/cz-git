@@ -35,10 +35,11 @@ export const head: HeadConfig[] = [
   ['meta', { name: 'msapplication-TileImage', content: '/images/icons/favicon-192.png' }],
   ['meta', { name: 'theme-color', content: '#dd6954' }],
 
-  ['link', { rel: 'canonical', href: site }],
-  ['link', { rel: 'alternate', href: site, hreflang: 'x-default' }],
-  ['link', { rel: 'alternate', href: site, hreflang: 'en-us' }],
-  ['link', { rel: 'alternate', href: `${site}/zh/`, hreflang: 'zh-hans' }],
+  // NOTE: affect bing search console
+  // ['link', { rel: 'canonical', href: site }],
+  // ['link', { rel: 'alternate', href: site, hreflang: 'x-default' }],
+  // ['link', { rel: 'alternate', href: site, hreflang: 'en-us' }],
+  // ['link', { rel: 'alternate', href: `${site}/zh/`, hreflang: 'zh-hans' }],
 
   ['link', { rel: 'shortcut icon', href: '/images/favicon.ico' }],
   ['link', { rel: 'icon', type: 'image/x-icon', size: '16x16 32x32', href: '/images/favicon.ico' }],
