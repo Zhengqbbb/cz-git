@@ -24,8 +24,18 @@ export const pwaPlugin = VitePWA({
     theme_color: '#dd6954',
     icons: [
       {
+        src: '/images/icons/android-chrome-144x144.png',
+        sizes: '144x144',
+        type: 'image/png',
+      },
+      {
         src: '/images/icons/android-chrome-192x192.png',
         sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        src: '/images/icons/android-chrome-384x384.png',
+        sizes: '384x384',
         type: 'image/png',
       },
       {
