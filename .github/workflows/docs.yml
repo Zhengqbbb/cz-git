@@ -1,15 +1,15 @@
 name: Deploy Docs
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'docs/**'
-      - 'docs-zh/**'
-      - '**.md'
-    tags:
-      - 'v*'
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'docs/**'
+  #     - 'docs-zh/**'
+  #     - '**.md'
+  #   tags:
+  #     - 'v*'
   workflow_dispatch:
 
 jobs:
