@@ -8,7 +8,10 @@ import * as sidebar from './sidebar'
  * @see https://vitepress.vuejs.org/config/theme-configs.html
  */
 export const themeConfig: DefaultTheme.Config = {
-  logo: 'https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png',
+  logo: {
+    src: '/images/logo.png',
+    alt: 'cz-git-logo',
+  },
   socialLinks: [
     { icon: 'github', link: github },
     { icon: 'twitter', link: twitter },
