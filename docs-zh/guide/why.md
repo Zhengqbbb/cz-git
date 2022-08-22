@@ -31,7 +31,7 @@ $ npm install -D cz-conventional-changelog
 added 147 packages in 21s
 
 $ npm install -D cz-git
-added 1 package in 0.461s
+added 1 package in 0.482s
 ```
 
 ---
@@ -43,5 +43,5 @@ added 1 package in 0.461s
 ```sh{3}
 $ du -sh node_modules/*
 148 MB	node_modules/git-cz
-1.5 MB	node_modules/cz-git
+1.6 MB	node_modules/cz-git
 ```

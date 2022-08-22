@@ -33,8 +33,8 @@ useMediumZoom()
         $ npm install -D cz-git<br>
         + cz-git
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        (<span c-orange-5> 1.5 MB </span>) <br>added &nbsp;<span c-orange-5>1</span>&nbsp; package
-        in &nbsp;<span c-orange-5>0.461s</span>
+        (<span c-orange-5> 1.6 MB </span>) <br>added &nbsp;<span c-orange-5>1</span>&nbsp; package
+        in &nbsp;<span c-orange-5>0.482s</span>
       </p>
     </div>
     <div class="feat">
