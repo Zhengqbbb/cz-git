@@ -92,6 +92,12 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - 使用 cz-git CLI: `czg emoji`
 :::
 
+## typesSearchValueKey
+
+- **描述** : 默认 `types` 列表的模糊搜索针对 `value` 字段。设置为 `false` 后针对 `name` 字段
+- **类型** : `boolean`
+- **默认** : `true`
+
 ## emojiAlign
 
 - **描述** : 设置 **Emoji 字符** 的 **位于头部位置**

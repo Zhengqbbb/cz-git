@@ -184,3 +184,39 @@ If using commitlint will automatically read `subject-max-length` and set it to g
 :::tip
 If commitlint is used, it will automatically read `subject-min-length` and set it to give a prompt on the command line
 :::
+
+## useCommitSignGPG
+
+- **description** : use GPG sign commit message
+- **type** : `boolean`
+- **default** : `false`
+
+:::tip
+- Only take effect `czg` cz-git CLI
+- Try running command to **enable directly use GPG sign commit message in the current session**
+  - cz-git CLI: `czg gpg`
+
+About GPG sign commit message information. can see: [Zhengqbbb/cz-git#58](https://github.com/Zhengqbbb/cz-git/issues/58)
+:::
+
+## formatMessageCB
+
+- **description** : Use the callback fn can custom finally message formatter
+- **type** : `(messageMod: CommitMessageOptions) => string`
+
+```ts
+interface CommitMessageOptions {
+  type: string
+  scope: string
+  emoji: string
+  markBreaking: string
+  subject: string
+  defaultHeader: string
+  body: string
+  breaking: string
+  footer: string
+  defaultMessage: string
+}
+```
+
+- **default** : `({ defaultMessage }) => defaultMessage`

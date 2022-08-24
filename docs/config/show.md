@@ -75,6 +75,12 @@ And need to add Emoji Code, you can find the corresponding characters in: [https
 }
 ```
 
+## typesSearchValueKey
+
+- **description** : Default types list fuzzy search `value` key. Set `false` will search `name` key.
+- **type** : `boolean`
+- **default** : `true`
+
 ## useEmoji
 
 - **description** : Whether to enable commit messages with Emoji characters.

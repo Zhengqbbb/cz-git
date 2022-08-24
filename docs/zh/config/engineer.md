@@ -186,3 +186,39 @@ sitemap:
 :::tip
 如果使用 commitlint 会自动读取 `subject-min-length` 进行设置给予在命令行中的提示
 :::
+
+## useCommitSignGPG
+
+- **描述** :  使用 GPG 签名 commit message
+- **类型** : `boolean`
+- **默认** : `false`
+
+:::tip
+- 此 options 仅对 `czg` cz-git CLI 有效
+- 运行下列命令可 **可直接在当前会话中开启使用 GPG 签名 commit message模式**
+  - cz-git CLI: `czg gpg`
+
+关于 GPG 签名 commit message 的更多信息可查看: [Zhengqbbb/cz-git#58](https://github.com/Zhengqbbb/cz-git/issues/58)
+:::
+
+## formatMessageCB
+
+- **描述** : 使用此回调函数可自定义最终的 message 格式以及输出
+- **类型** : `(messageMod: CommitMessageOptions) => string`
+
+```ts
+interface CommitMessageOptions {
+  type: string
+  scope: string
+  emoji: string
+  markBreaking: string
+  subject: string
+  defaultHeader: string
+  body: string
+  breaking: string
+  footer: string
+  defaultMessage: string
+}
+```
+
+- **默认** : `({ defaultMessage }) => defaultMessage`
