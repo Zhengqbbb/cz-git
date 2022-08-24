@@ -1,5 +1,5 @@
 import type { DefaultTheme } from 'vitepress'
-import { github, site, twitter } from '../meta'
+import { github, site } from '../meta'
 import * as nav from './navbar'
 import * as sidebar from './sidebar'
 
@@ -14,7 +14,6 @@ export const themeConfig: DefaultTheme.Config = {
   },
   socialLinks: [
     { icon: 'github', link: github },
-    { icon: 'twitter', link: twitter },
   ],
   editLink: {
     pattern: `${github}/edit/main/docs/:path`,
