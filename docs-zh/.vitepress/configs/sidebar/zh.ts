@@ -38,6 +38,10 @@ export const zh: DefaultTheme.Sidebar = {
           text: 'checkbox',
           link: '/cli/checkbox',
         },
+        {
+          text: 'gpg',
+          link: '/cli/gpg',
+        },
       ],
     },
     {
