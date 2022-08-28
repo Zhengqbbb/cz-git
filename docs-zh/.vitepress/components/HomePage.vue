@@ -8,7 +8,6 @@ const frontmatter = computed(() => useData().frontmatter.value)
 const features = computed(() => frontmatter.value.czFeatures)
 const pkgFeatureTitle = computed(() => frontmatter.value.pkgFeatureTitle)
 const emojiFeature = computed(() => frontmatter.value.emojiFeature)
-const footer = computed(() => frontmatter.value.footerHtml)
 useMediumZoom()
 </script>
 
@@ -53,8 +52,4 @@ useMediumZoom()
       alt="gif-demo"
     >
   </p>
-  <footer
-    class="maauto w-100% mt-18 text-center text-3.5 c-gray:90% px-2 pt-10 border-t-1 dark:border-gray-1:10% border-gray-1"
-    v-html="footer"
-  />
 </template>

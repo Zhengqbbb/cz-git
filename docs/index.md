@@ -39,5 +39,4 @@ pkgFeatureTitle: Lightweight
 emojiFeature:
   title: Emoji Support
   details: Support emoji in commit message.
-footerHtml: I just try my best to make thing well, Could you give a <a class="c-orange-5" target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a><br>MIT Licensed | Copyright © 2022-present <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>
 ---

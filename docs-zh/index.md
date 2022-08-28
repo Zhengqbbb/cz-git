@@ -41,6 +41,5 @@ pkgFeatureTitle: 轻量级
 emojiFeature:
   title: Emoji 支持
   details: 支持在 commit 信息中携带 Emoji。
-footerHtml: I just try my best to make thing well, Could you give a <a class="c-orange-5" target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a><br>MIT Licensed | Copyright © 2022-present <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>
 ---
 

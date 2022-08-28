@@ -31,6 +31,10 @@ export const themeConfig: DefaultTheme.Config = {
       facetFilters: ['lang:zh-CN'],
     },
   },
+  footer: {
+    message: 'I just try my best to make thing well, Could you give a <a c-orange-5 target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a>',
+    copyright: 'MIT Licensed | Copyright © 2022-present <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>',
+  },
   nav: nav.zh,
   sidebar: sidebar.zh,
 }
