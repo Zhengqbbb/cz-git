@@ -3,7 +3,7 @@
  * @Use `pnpm docs:update`
  * @Author: Qbenben
  * @LastEditors: Qbenben
- * @LastEditTime: 2022-07-20 03:22:03
+ * @LastEditTime: 2022-08-29 17:51:33
  */
 
 import fs from 'fs'
@@ -70,7 +70,7 @@ const genTableByPaths = (paths: string[], data: any, key: 'czg' | 'cz-git', isBr
 const spinner = ora('\u001B[38;5;043mUpdate Project using cz-git Table...\u001B[0m 📦').start()
 try {
   const start = Date.now()
-  const data = yaml.load(fs.readFileSync(resolve(__dirname, './projects.yml'), 'utf8'))
+  const data = yaml.load(fs.readFileSync(resolve(__dirname, './docs-update-use-data.yml'), 'utf8'))
 
   genTableByPaths(CZ_GIT_READMES, data, 'cz-git', true)
   genTableByPaths(CZ_git_DOCS, data, 'cz-git', false)
