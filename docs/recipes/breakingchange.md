@@ -36,7 +36,7 @@ Demo:
 
 ## Use commitizen CLI + cz-git
 Try running command:
-```bash
+```sh
 break=1 cz
 ```
 Demo:
@@ -44,7 +44,7 @@ Demo:
 
 ## Use cz-git CLI `czg`
 Try running command:
-```bash
+```sh
 czg break
 ```
 Demo:

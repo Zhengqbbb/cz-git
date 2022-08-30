@@ -15,7 +15,7 @@ sitemap:
 ::: tip
 [global installation](#as-global-use) `commitizen`, that you can quickly use the `cz` or `git cz` command to start.
 
-```bash
+```sh
 npm install -g commitizen
 ```
 
@@ -26,21 +26,21 @@ npm install -g commitizen
 :::: code-group
 ::: code-group-item NPM
 
-```bash
+```sh
 npm install -D cz-git
 ```
 
 :::
 ::: code-group-item YARN
 
-```bash
+```sh
 yarn add -D cz-git
 ```
 
 :::
 ::: code-group-item PNPM
 
-```bash
+```sh
 pnpm install -D cz-git
 ```
 
@@ -105,13 +105,13 @@ Just three simple steps:
 
 #### Step 1: Install global dependencies
 
-```bash
+```sh
 npm install -g cz-git commitizen
 ```
 
 #### Step 2: Global configuration adapter type
 
-```bash
+```sh
 echo '{ "path": "cz-git" }' > ~/.czrc
 ```
 

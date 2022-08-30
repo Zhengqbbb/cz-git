@@ -17,7 +17,7 @@
 
 ## `czg` CLI Usage
 
-```bash
+```sh
 czg :fd
 git czg :fd
 # or
@@ -29,7 +29,7 @@ git czg --alias=fd
 
 ## `commitizen` CLI Usage
 
-```bash
+```sh
 cz_alias=fd cz
 # or
 cz_alias=fd git cz

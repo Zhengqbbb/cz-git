@@ -36,7 +36,7 @@ module.exports = {
 
 ## 使用 commitizen CLI + cz-git
 可以尝试运行命令自动添加标识:
-```bash
+```sh
 break=1 cz
 ```
 示例:
@@ -44,7 +44,7 @@ break=1 cz
 
 ## 使用 cz-git CLI `czg`
 可以尝试运行命令自动添加标识:
-```bash
+```sh
 czg break
 ```
 示例:

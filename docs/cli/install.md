@@ -16,7 +16,7 @@ git czg -h
 :::
 ::: code-group-item Homebrew
 
-```bash
+```sh
 brew install czg
 # check the installation is successful
 czg --help
@@ -31,21 +31,21 @@ git czg -h
 :::: code-group
 ::: code-group-item NPM
 
-```bash
+```sh
 npm install -D czg
 ```
 
 :::
 ::: code-group-item YARN
 
-```bash
+```sh
 yarn add -D czg
 ```
 
 :::
 ::: code-group-item PNPM
 
-```bash
+```sh
 pnpm install -D czg
 ```
 
@@ -65,7 +65,7 @@ try it `npm cz`
 ## As `npx` use
 > You can start the CLI in different environments, but the startup speed will be slower than global install
 
-```bash
+```sh
 npx czg
 ```
 

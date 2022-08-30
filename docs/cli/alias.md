@@ -10,7 +10,7 @@
 
 [alias](/config/engineer.html#alias) is used to define some common git commit messages. We may encounter commit messages that are often output, such as `docs: fix typos`. we define it as alias `fd`.
 
-```bash
+```sh
 czg :fd
 # or
 czg --alias=fd

@@ -10,7 +10,7 @@ cz-git 一直以来都是作为 [Commitizen CLI](https://github.com/commitizen/c
 - 在原有基础上扩展 cz-git 的基础功能
 - 启动速度更快。内部已包含 cz-git 核心，不需要寻找适配器和其他操作
 
-```bash{7,9}
+```sh{7,9}
 $ npm install -D commitizen
 added 148 packages, and audited 149 packages in 2 m
 $ du -sh ./node_modules

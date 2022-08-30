@@ -62,7 +62,7 @@ sitemap:
 - [更好维护 monorepo 工程化项目](/zh/recipes/#scopes) 与 **commitlint** 配合给予命令行的相关校验信息。
 - 更好的与issue链接，尤其 [gitee](/zh/recipes/issuePrefixs.html) | ✅ 支持在 commit 中添加 **emoji**。
 
-```bash
+```sh
 $ npm install -D cz-git
 + cz-git          (1.6 MB)
 added 1 package in 0.482s

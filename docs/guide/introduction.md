@@ -62,7 +62,7 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 - [Better for monorepo engineering](/recipes/) and **commitlint** project to give relevant verification information to the command line.
 - Better linking with [issue](/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
 
-```bash
+```sh
 $ npm i -D cz-git
 + cz-git          (1.6 MB)
 added 1 package in 0.482s

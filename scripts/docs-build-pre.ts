@@ -1,20 +1,44 @@
 /*
- * @Description: Enhance shell script code syntax highlight for docs `shiki`
- * provide pre script `pnpm docs:build`
+ * @Description: provide pre script `pnpm docs:build`
  * @Author: Qbenben
  * @LastEditors: Qbenben
- * @LastEditTime: 2022-08-29 18:27:13
+ * @LastEditTime: 2022-08-30 09:59:21
  */
 
 import fs from 'fs'
 import ora from 'ora'
 import { resolve } from 'pathe'
 
+/**
+ * @description: Enhance shell script code syntax highlight for docs `shiki`
+ */
 const resolveShikiEnhanceShell = async () => {
   const dataPath = resolve(__dirname, '../node_modules/shiki/languages/shellscript.tmLanguage.json')
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const data = require(dataPath)
-  data.repository.support.patterns[1].match = '(?<=^|;|&|\\s)(?:npm|npx|yarn|pnpm|brew|git|alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)'
+  data.repository.support.patterns.pop()
+  data.repository.support.patterns.push(
+    {
+      match: '(?<=^|;|&|\\s)(?:alias|bg|bind|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)',
+      name: 'keyword',
+    },
+    {
+      match: '(?<=^|;|&|\\s)(?:npm|npx|yarn|pnpm|brew|git)',
+      name: 'keyword',
+    },
+    {
+      match: '(?<=^|;|&|\\s)(?:install -g|install -D|add -D|install)',
+      name: 'string',
+    },
+    {
+      match: '(?<=^)(cz-git|czg)',
+      name: 'keyword',
+    },
+    {
+      match: '(?<=^|;|&|\\s)(?:cz-git|czg|commitizen)',
+      name: 'support.class',
+    },
+  )
   fs.writeFileSync(resolve(dataPath), JSON.stringify(data), 'utf-8')
 }
 

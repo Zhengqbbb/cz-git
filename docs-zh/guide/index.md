@@ -15,7 +15,7 @@ sitemap:
 ::: tip
 [全局安装](#全局使用) `commitizen`,如此一来可以快速使用 `cz` 或 `git cz` 命令进行启动。
 
-```bash
+```sh
 npm install -g commitizen
 ```
 
@@ -26,21 +26,21 @@ npm install -g commitizen
 :::: code-group
 ::: code-group-item NPM
 
-```bash
+```sh
 npm install -D cz-git
 ```
 
 :::
 ::: code-group-item YARN
 
-```bash
+```sh
 yarn add -D cz-git
 ```
 
 :::
 ::: code-group-item PNPM
 
-```bash
+```sh
 pnpm install -D cz-git
 ```
 
@@ -106,13 +106,13 @@ module.exports = {
 
 #### 步骤 1: 下载全局依赖
 
-```bash
+```sh
 npm install -g cz-git commitizen
 ```
 
 #### 步骤 2: 全局配置适配器类型
 
-```bash
+```sh
 echo '{ "path": "cz-git" }' > ~/.czrc
 ```
 

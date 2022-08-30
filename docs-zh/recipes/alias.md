@@ -17,7 +17,7 @@
 
 ## 使用 `czg` CLI
 
-```bash
+```sh
 czg :fd
 git czg :fd
 # 或者
@@ -29,7 +29,7 @@ git czg --alias=fd
 
 ## 使用 `commitizen` CLI
 
-```bash
+```sh
 cz_alias=fd cz
 # 或者
 cz_alias=fd git cz

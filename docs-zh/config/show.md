@@ -48,7 +48,7 @@ sitemap:
 
 如果你不想要采用配置记录的主题色，可以在`~/.bashrc` 或者 `~/.zshrc` 等profile文件中添加一行，其优先级会更高:
 
-```bash
+```sh
 export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 ```
 :::

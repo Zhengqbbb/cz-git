@@ -10,7 +10,7 @@ cz-git has always used [Commitizen CLI](https://github.com/commitizen/cz-cli) as
 - Expand cz-git features on its original basis
 - The startup faster. Since the core of cz-git is already inside, there is no need to search for adapters and other operations
 
-```bash{7,9}
+```sh{7,9}
 $ npm install -D commitizen
 added 148 packages, and audited 149 packages in 2 m
 $ du -sh ./node_modules

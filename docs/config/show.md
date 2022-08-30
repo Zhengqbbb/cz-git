@@ -43,7 +43,7 @@ sitemap:
 ---
 If you don't want to use the theme color of the configuration record, you can add a line to the profile file such as `~/.bashrc` or `~/.zshrc`, which will have a higher priority:
 
-```bash
+```sh
 export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 ```
 :::

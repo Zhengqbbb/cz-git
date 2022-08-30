@@ -16,7 +16,7 @@ git czg -h
 :::
 ::: code-group-item Homebrew
 
-```bash
+```sh
 brew install czg
 # 检查下载是否成功
 czg --help
@@ -31,21 +31,21 @@ git czg -h
 :::: code-group
 ::: code-group-item NPM
 
-```bash
+```sh
 npm install -D czg
 ```
 
 :::
 ::: code-group-item YARN
 
-```bash
+```sh
 yarn add -D czg
 ```
 
 :::
 ::: code-group-item PNPM
 
-```bash
+```sh
 pnpm install -D czg
 ```
 
@@ -66,7 +66,7 @@ pnpm install -D czg
 > 你可以在其他环境下启动，但是启动速度会比全局安装慢
 
 
-```bash
+```sh
 npx czg
 ```
 
