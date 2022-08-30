@@ -2,7 +2,7 @@
  * @Description: provide pre script `pnpm docs:build`
  * @Author: Qbenben
  * @LastEditors: Qbenben
- * @LastEditTime: 2022-08-30 09:59:21
+ * @LastEditTime: 2022-08-30 10:10:31
  */
 
 import fs from 'fs'
@@ -19,7 +19,7 @@ const resolveShikiEnhanceShell = async () => {
   data.repository.support.patterns.pop()
   data.repository.support.patterns.push(
     {
-      match: '(?<=^|;|&|\\s)(?:alias|bg|bind|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)',
+      match: '(?<=^|;|&|\\s)(?:alias|bg|bind|builtin|caller|cd|du|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)',
       name: 'keyword',
     },
     {

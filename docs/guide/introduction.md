@@ -63,7 +63,7 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 - Better linking with [issue](/recipes/defaultIssues.html) **for issue** | ✅ Support **emoji** in commit.
 
 ```sh
-$ npm i -D cz-git
+$ npm install -D cz-git
 + cz-git          (1.6 MB)
 added 1 package in 0.482s
 ```
