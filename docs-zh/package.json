@@ -11,17 +11,17 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.7",
-    "@unocss/reset": "^0.45.13",
+    "@unocss/reset": "^0.45.14",
     "@vitejs/plugin-vue": "^3.0.3",
     "markdown-it-container": "^3.0.0",
     "markdown-it-mark": "^3.0.1",
     "medium-zoom": "^1.0.6",
     "sitemap": "^7.1.1",
-    "unocss": "^0.45.13",
+    "unocss": "^0.45.14",
     "unplugin-vue-components": "^0.22.4",
     "vite": "^3.0.9",
-    "vite-plugin-pwa": "^0.12.3",
+    "vite-plugin-pwa": "^0.12.4",
     "vite-plugin-radar": "^0.5.0",
-    "vitepress": "1.0.0-alpha.12"
+    "vitepress": "1.0.0-alpha.13"
   }
 }
