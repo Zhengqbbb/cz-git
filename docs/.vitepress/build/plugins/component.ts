@@ -7,6 +7,6 @@ import { resolve } from 'pathe'
  */
 export const unpluginComponents = Components({
   include: [/\.vue/, /\.md/],
-  dirs: resolve(__dirname, '../../components'),
+  dirs: resolve(__dirname, '../../theme/components'),
   dts: resolve(__dirname, '../../components.d.ts'),
 })

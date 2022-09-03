@@ -1,5 +1,5 @@
 import type { MarkdownOptions } from 'vitepress'
-import { useCodeGroup, useCodeGroupItem } from '../components/markdown'
+import { useCodeGroup, useCodeGroupItem } from '../theme/components/markdown'
 
 /**
  * vitepress markdown config

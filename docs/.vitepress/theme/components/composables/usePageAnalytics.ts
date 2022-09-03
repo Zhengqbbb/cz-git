@@ -39,6 +39,7 @@ const googleAnalytics = (id: string) => {
 export const usePageAnalytics = (googleID: string, baiduId: string) => {
   if (import.meta.env.SSR || import.meta.env.DEV)
     return
+
   baiduAnalytics(baiduId)
   googleAnalytics(googleID)
 }

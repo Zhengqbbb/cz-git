@@ -16,13 +16,13 @@
     "types": [
       "vite/client",
       "vite-plugin-pwa/client",
-      "vitepress",
-    ],
+      "vitepress"
+    ]
   },
   "include": [
     "./.vitepress/**/*.ts",
     "./.vitepress/**/*.vue",
-    "./.vitepress/components.d.ts",
+    "./.vitepress/components.d.ts"
   ],
   "exclude": ["dist", "node_modules"]
 }
