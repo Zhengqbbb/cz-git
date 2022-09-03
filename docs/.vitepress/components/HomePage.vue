@@ -48,7 +48,7 @@ useMediumZoom()
   <p class="maauto max-w-1152px mt-10 lg:px-1 px-2">
     <img
       class="max-w-100%"
-      src="https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif"
+      src="https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif"
       alt="gif-demo"
     >
   </p>

@@ -1,6 +1,6 @@
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img@v0.0.1/cz/README-2022-09-03-10-08-37.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
+        <img src="https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png" alt="cz-git-logo" width="400" data-width="400" data-height="400">
     </a>
 </p>
 
@@ -53,7 +53,7 @@
 
 More engineered, lightweight, customizable, standard output format [commitizen adapter](https://github.com/commitizen/cz-cli) and [CLI](https://cz-git.qbb.sh/cli/).
 
-![demo-gif](https://cdn.jsdelivr.net/gh/Zhengqbbb/img@v0.0.1/cz/README-2022-09-03-10-35-28.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif)
 
 > **What is commitizen**: A Node.js-based `git commit` command-line tool that assists in generating standardized commit messages. <br><br>
 > **What is an adapter**: Replace the **interactive** plugin for the commitizen command line tool.
@@ -101,7 +101,7 @@ added 1 package in 0.482s
   <tr>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/element-plus/element-plus">
-        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/img@v0.0.1/cz/README-2022-09-03-10-36-57.png" alt="Element Plus logo" width="40"><br>
+        <img src="https://user-images.githubusercontent.com/40693636/172459748-939e3f1b-a694-4c09-b643-e1dce602105c.png" alt="Element Plus logo" width="40"><br>
         <sub>Element Plus</sub>
       </a>
     </td>
