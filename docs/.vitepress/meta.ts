@@ -22,3 +22,7 @@ export const { version } = require('cz-git/package.json')
 /** site search console  */
 export const googleVerify = 'j6cNWewUj3QcJBpdv48t67XoDxdlKPQ6dwKgXg9Nigo'
 export const baiduVerify = 'code-GZMUSi21Xe'
+
+/* PWA runtime caching urlPattern regular expressions */
+// eslint-disable-next-line prefer-regex-literals
+export const JSDelivrContentRegex = new RegExp('^https://cdn.jsdelivr.net/gh/.*', 'i')
