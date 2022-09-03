@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // import type { VitePluginPWAAPI } from "vite-plugin-pwa";
 // import { optimizePages } from "../scripts/assert";
 import type { Plugin } from 'vite'
-import { descriptionEN, name } from '../../meta'
+import { descriptionEN, githubSourceContentRegex, name } from '../../meta'
 
 /**
  * Vite Plugin PWA uses Workbox  library to build the service worker
@@ -53,7 +53,22 @@ export const pwaPlugin = VitePWA({
   },
   workbox: {
     navigateFallbackDenylist: [/^\/new$/],
-    runtimeCaching: [],
+    runtimeCaching: [
+      {
+        urlPattern: githubSourceContentRegex,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'githubcontent-images-cache',
+          expiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+          },
+          cacheableResponse: {
+            statuses: [0, 200],
+          },
+        },
+      },
+    ],
   },
 })
 

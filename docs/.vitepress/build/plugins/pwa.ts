@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 // import type { VitePluginPWAAPI } from "vite-plugin-pwa";
 // import { optimizePages } from "../scripts/assert";
 import type { Plugin } from 'vite'
-import { JSDelivrContentRegex, descriptionEN, name } from '../../meta'
+import { descriptionEN, githubSourceContentRegex, name } from '../../meta'
 
 /**
  * Vite Plugin PWA uses Workbox  library to build the service worker
@@ -56,10 +56,10 @@ export const pwaPlugin = VitePWA({
     globPatterns: ['**/*.{css,js,html,woff2}'],
     runtimeCaching: [
       {
-        urlPattern: JSDelivrContentRegex,
+        urlPattern: githubSourceContentRegex,
         handler: 'CacheFirst',
         options: {
-          cacheName: 'jsdelivrcontent-images-cache',
+          cacheName: 'githubcontent-images-cache',
           expiration: {
             maxEntries: 10,
             maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
