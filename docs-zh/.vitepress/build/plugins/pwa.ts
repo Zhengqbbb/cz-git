@@ -53,6 +53,7 @@ export const pwaPlugin = VitePWA({
   },
   workbox: {
     navigateFallbackDenylist: [/^\/new$/],
+    globPatterns: ['**/*.{css,js,html,png,svg,gif,ico,woff2}'],
     runtimeCaching: [
       {
         urlPattern: githubSourceContentRegex,

@@ -25,4 +25,4 @@ export const baiduVerify = 'code-GZMUSi21Xe'
 
 /* PWA runtime caching urlPattern regular expressions */
 // eslint-disable-next-line prefer-regex-literals
-export const githubSourceContentRegex = new RegExp('^https://((i.ibb.co)|((raw|user-images).githubusercontent.com))/.*', 'i')
+export const githubSourceContentRegex = new RegExp('^https://(((raw|user-images|camo).githubusercontent.com))/.*', 'i')
