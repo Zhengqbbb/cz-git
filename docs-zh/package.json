@@ -2,8 +2,9 @@
   "name": "docs-zh",
   "private": true,
   "scripts": {
-    "docs:build": "vitepress build --clean-cache",
-    "docs:dev": "vitepress dev --clean-cache --host --port 8080"
+    "build": "vitepress build --clean-cache",
+    "dev": "vitepress dev --clean-cache --host --port 8080",
+    "serve": "vitepress serve --clean-cache --host --port 8000"
   },
   "dependencies": {
     "@vueuse/core": "^9.1.0",

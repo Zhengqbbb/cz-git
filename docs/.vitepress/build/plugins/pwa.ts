@@ -15,7 +15,7 @@ export const pwaPlugin = VitePWA({
   outDir: '.vitepress/dist',
   registerType: 'autoUpdate',
   // include all static assets under public/
-  includeAssets: fg.sync('**/*.{png,svg,ico,txt}', { cwd: resolve(__dirname, '../../../public') }),
+  includeAssets: fg.sync('**/*.{png,svg,gif,ico,txt}', { cwd: resolve(__dirname, '../../../public') }),
   manifest: {
     id: '/',
     name,
@@ -59,7 +59,7 @@ export const pwaPlugin = VitePWA({
         urlPattern: githubSourceContentRegex,
         handler: 'CacheFirst',
         options: {
-          cacheName: 'githubcontent-images-cache',
+          cacheName: 'githubusercontent-images-cache',
           expiration: {
             maxEntries: 10,
             maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
