@@ -1,9 +1,6 @@
 import fg from 'fast-glob'
 import { resolve } from 'pathe'
 import { VitePWA } from 'vite-plugin-pwa'
-// import type { VitePluginPWAAPI } from "vite-plugin-pwa";
-// import { optimizePages } from "../scripts/assert";
-import type { Plugin } from 'vite'
 import { descriptionEN, githubSourceContentRegex, name } from '../../meta'
 
 /**
@@ -15,7 +12,7 @@ export const pwaPlugin = VitePWA({
   outDir: '.vitepress/dist',
   registerType: 'autoUpdate',
   // include all static assets under public/
-  includeAssets: fg.sync('**/*.{png,svg,ico,txt}', { cwd: resolve(__dirname, '../../../public') }),
+  includeAssets: fg.sync('**/*.{png,svg,gif,ico,txt}', { cwd: resolve(__dirname, '../../../public') }),
   manifest: {
     id: '/',
     name,
@@ -59,7 +56,7 @@ export const pwaPlugin = VitePWA({
         urlPattern: githubSourceContentRegex,
         handler: 'CacheFirst',
         options: {
-          cacheName: 'githubcontent-images-cache',
+          cacheName: 'githubusercontent-images-cache',
           expiration: {
             maxEntries: 10,
             maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
@@ -72,18 +69,3 @@ export const pwaPlugin = VitePWA({
     ],
   },
 })
-
-/**
- * custom html and pwa cache assets
- */
-export const pwaPostPlugin: Plugin = {
-  name: 'pwa:post',
-  enforce: 'post',
-  async buildEnd() {
-    // FIXME: vitepress will render page in finally, that use it can't work.
-    // const pwaAPI: VitePluginPWAAPI = pwaPlugin.find((i) => i.name === "vite-plugin-pwa")?.api;
-    // const pwa = pwaAPI && !pwaAPI.disabled;
-    // await optimizePages(pwa);
-    // if (pwa) await pwaAPI.generateSW();
-  },
-}

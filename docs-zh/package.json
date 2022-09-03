@@ -2,7 +2,8 @@
   "name": "docs-zh",
   "private": true,
   "scripts": {
-    "build": "vitepress build --clean-cache",
+    "build": "vitepress build --clean-cache && pnpm build:post",
+    "build:post": "esno .vitepress/build/scripts/postbuild.ts",
     "dev": "vitepress dev --clean-cache --host --port 8080",
     "serve": "vitepress serve --clean-cache --host --port 8000"
   },
