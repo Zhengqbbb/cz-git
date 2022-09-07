@@ -28,7 +28,7 @@
   "scripts": {
     "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
     "build:dev": "pnpm clean && tsc -b",
-    "clean": "rimraf *.tsbuildinfo lib dist"
+    "clean": "rimraf '*.tsbuildinfo' lib dist"
   },
   "devDependencies": {
     "inquirer": "8.2.4"
