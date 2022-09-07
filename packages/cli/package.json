@@ -11,7 +11,7 @@
     "cz-git",
     "cz-customizable"
   ],
-  "homepage": "https://cz-git.qbb.sh/cli",
+  "homepage": "https://cz-git.qbb.sh/cli/",
   "bugs": {
     "url": "https://github.com/Zhengqbbb/cz-git/issues"
   },
