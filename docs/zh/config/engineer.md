@@ -44,7 +44,7 @@ sitemap:
 ## scopeFilters
 
 - **描述** : 根据 scope.value 过滤模块范围中的选项
-- **类型** : string[]
+- **类型** : `string[]`
 - **默认** : `[".DS_Store"]`
 
 ## enableMultipleScopes

@@ -43,7 +43,7 @@ If you define `scopeOverrides` then define generic `scopes`
 ## scopeFilters
 
 - **description** : Filter select of prompt to select module scopes by the scope.value
-- **type** : string[]
+- **type** : `string[]`
 - **default** : `[".DS_Store"]`
 
 ## enableMultipleScopes
