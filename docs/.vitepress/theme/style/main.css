@@ -129,7 +129,7 @@ kbd {
 }
 
 .medium-zoom-overlay {
-  /* override element style set by medium-zoom script */
+  /* override style set by medium-zoom script */
   background-color: var(--vp-c-bg) !important;
   z-index: 100;
 }
