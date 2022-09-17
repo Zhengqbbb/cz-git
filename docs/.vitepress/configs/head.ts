@@ -41,7 +41,7 @@ export const head: HeadConfig[] = [
   ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
   ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   ['link', { rel: 'mask-icon', href: '/images/logo.svg', color: '#dd6954' }],
-  ['meta', { name: 'theme-color', content: '#000000' }],
+  ['meta', { name: 'theme-color', content: '#dd6954' }],
 
   ['link', { rel: 'apple-touch-icon', href: '/images/icons/apple-touch-120x120.png' }],
   ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/icons/apple-touch-180x180.png' }],

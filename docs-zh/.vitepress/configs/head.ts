@@ -30,20 +30,18 @@ export const head: HeadConfig[] = [
   ['meta', { name: 'og:image:alt', content: 'logo' }],
   ['meta', { name: 'application-name', content: name }],
   ['meta', { name: 'apple-mobile-web-app-title', content: name }],
-  ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-  ['meta', { name: 'msapplication-TileColor', content: '#dd6954' }],
-  ['meta', { name: 'msapplication-TileImage', content: '/images/icons/favicon-192.png' }],
-  ['meta', { name: 'theme-color', content: '#dd6954' }],
+  ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
 
+  // NOTE: affect bing search console
   // ['link', { rel: 'canonical', href: site }],
   // ['link', { rel: 'alternate', href: site, hreflang: 'x-default' }],
   // ['link', { rel: 'alternate', href: site, hreflang: 'en-us' }],
   // ['link', { rel: 'alternate', href: `${site}/zh/`, hreflang: 'zh-hans' }],
 
-  ['link', { rel: 'shortcut icon', href: '/images/favicon.ico' }],
-  ['link', { rel: 'icon', type: 'image/x-icon', size: '16x16 32x32', href: '/images/favicon.ico' }],
-  ['link', { rel: 'icon', sizes: '32x32', href: '/images/icons/favicon-32.png' }],
-  ['link', { rel: 'icon', sizes: '192x192', href: '/images/icons/favicon-192.png' }],
+  ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+  ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  ['link', { rel: 'mask-icon', href: '/images/logo.svg', color: '#dd6954' }],
+  ['meta', { name: 'theme-color', content: '#dd6954' }],
 
   ['link', { rel: 'apple-touch-icon', href: '/images/icons/apple-touch-120x120.png' }],
   ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/icons/apple-touch-180x180.png' }],
