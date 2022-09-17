@@ -2,11 +2,9 @@
   "name": "docs",
   "private": true,
   "scripts": {
-    "build": "pnpm build:init && vitepress build --clean-cache && pnpm build:post",
-    "build:init": "esno .vitepress/build/scripts/prebuild.ts",
-    "build:post": "esno .vitepress/build/scripts/postbuild.ts",
-    "dev": "vitepress dev --clean-cache --host --port 8080",
-    "serve": "vitepress serve --clean-cache --host --port 8000"
+    "build": "vitepress build",
+    "dev": "vitepress dev --port 8080",
+    "serve": "vitepress serve --port 8000"
   },
   "dependencies": {
     "@vueuse/core": "^9.1.1",

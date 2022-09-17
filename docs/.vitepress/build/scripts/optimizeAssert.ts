@@ -27,4 +27,5 @@ export const optimizePages = async () => {
       await fs.writeFile(page, html, 'utf8')
     }),
   )
+  console.log('\x1B[32m✓\x1B[0m optimizing pages... \x1B[90m[buildEnd]\x1B[0m')
 }

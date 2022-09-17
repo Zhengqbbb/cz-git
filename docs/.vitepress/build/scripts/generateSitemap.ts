@@ -6,12 +6,24 @@ import { SitemapStream } from 'sitemap'
 import { resolve } from 'pathe'
 import { site } from '../../meta'
 
+const __DIST_PATH = '.vitepress/dist'
+const __SITE_NAME = site
+const __LOCALE_REX = /^(zh\/|zh)/
+
+interface PagesData {
+  url?: string
+  lastmod?: string
+  priority?: number
+  lang?: string
+  pageIndex?: string
+  changefreq?: string
+  links?: { lang?: string; url?: string }[]
+}
+
 const getGitTimestamp = (file: string) => {
   const output = execSync(`git log -1 --pretty='%ci' ${file} || true`).toString().trim()
   return output ? new Date(output).toISOString() : new Date().toISOString()
 }
-
-const __LOCALE_REX = /^(zh\/|zh)/
 
 const basicRoutes = (site: string) =>
   fg
@@ -51,16 +63,6 @@ const subRoutes = (site: string) =>
       }
     })
 
-interface PagesData {
-  url?: string
-  lastmod?: string
-  priority?: number
-  lang?: string
-  pageIndex?: string
-  changefreq?: string
-  links?: { lang?: string; url?: string }[]
-}
-
 const resolveLocales = (site: string): PagesData[] => {
   const basic: PagesData[] = [
     {
@@ -91,14 +93,19 @@ const resolveLocales = (site: string): PagesData[] => {
  */
 const generateSitemap = async () => {
   const smStream = new SitemapStream({
-    hostname: site,
+    hostname: __SITE_NAME,
   })
-  const pages = resolveLocales(site)
-  rm.sync(resolve(__dirname, '../../../public', 'sitemap.xml'))
-  const writeStream = createWriteStream(resolve(__dirname, '../../../public', 'sitemap.xml'))
+  const pages = resolveLocales(__SITE_NAME)
+  rm.sync(
+    resolve(__dirname, '../../../', __DIST_PATH, 'sitemap.xml'),
+  )
+  const writeStream = createWriteStream(
+    resolve(__dirname, '../../../', __DIST_PATH, 'sitemap.xml'),
+  )
   smStream.pipe(writeStream)
   pages.forEach(mapping => smStream.write(mapping))
   smStream.end()
+  console.log('\x1B[32m✓\x1B[0m generate sitemap... \x1B[90m[buildEnd]\x1B[0m')
 }
 
 export { generateSitemap }
