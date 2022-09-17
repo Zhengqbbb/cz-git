@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import * as pageConfig from './configs'
-import { generateSitemap, optimizePages, rebuildPWA } from './build/scripts'
+import { generateSitemap, rebuildPWA } from './build/scripts'
 
 export default defineConfig({
   base: pageConfig.base,
@@ -13,7 +13,6 @@ export default defineConfig({
 
   buildEnd: async () => {
     await generateSitemap()
-    await optimizePages()
     await rebuildPWA()
   },
 })
