@@ -38,11 +38,10 @@ export const head: HeadConfig[] = [
   // ['link', { rel: 'alternate', href: site, hreflang: 'en-us' }],
   // ['link', { rel: 'alternate', href: `${site}/zh/`, hreflang: 'zh-hans' }],
 
-  ['link', { rel: 'shortcut icon', href: '/images/favicon.ico' }],
-  ['link', { rel: 'icon', type: 'image/x-icon', size: '16x16', href: '/images/favicon.ico' }],
-  ['link', { rel: 'icon', sizes: '32x32', href: '/images/icons/favicon-32.png' }],
-  ['link', { rel: 'icon', sizes: '192x192', href: '/images/icons/favicon-192.png' }],
-  ['link', { rel: 'mask-icon', href: '/images/logo.svg', color: '#000000' }],
+  ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+  ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  ['link', { rel: 'mask-icon', href: '/images/logo.svg', color: '#dd6954' }],
+  ['meta', { name: 'theme-color', content: '#000000' }],
 
   ['link', { rel: 'apple-touch-icon', href: '/images/icons/apple-touch-120x120.png' }],
   ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/icons/apple-touch-180x180.png' }],
