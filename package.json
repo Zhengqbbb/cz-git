@@ -42,16 +42,20 @@
     "example:checkbox": "node ./packages/@cz-git/plugin-inquirer/examples/checkbox.js",
     "example:input": "node ./packages/@cz-git/plugin-inquirer/examples/input.js",
     "example:list": "node ./packages/@cz-git/plugin-inquirer/examples/list.js",
+    "postinstall": "simple-git-hooks",
     "lint": "eslint --ext .ts packages docs/.vitepress",
-    "prepare": "husky install",
     "release": "pnpm release:changelog && pnpm build",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && pnpm run -r --stream release:changelog",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "pnpm commitlint --edit $1",
+    "pre-push": "pnpm vitest run"
+  },
   "lint-staged": {
-    "*.ts": "eslint --fix",
-    "package.json": "sort-package-json"
+    "*.ts": "eslint --fix"
   },
   "config": {
     "commitizen": {
@@ -67,7 +71,6 @@
     "@types/inquirer": "8.2.3",
     "@types/node": "^18.7.18",
     "@types/rimraf": "^3.0.2",
-    "better-scripts": "^0.4.3",
     "bumpp": "7.2.0",
     "concurrently": "^7.4.0",
     "conventional-changelog-cli": "^2.2.2",
@@ -75,14 +78,13 @@
     "czg": "workspace:*",
     "eslint": "^8.23.1",
     "fast-glob": "^3.2.12",
-    "husky": "^8.0.1",
     "js-yaml": "^4.1.0",
     "lint-staged": "^13.0.3",
     "ora": "^6.1.2",
     "pathe": "^0.3.7",
     "pnpm": "^7.11.0",
     "rimraf": "^3.0.2",
-    "sort-package-json": "^1.57.0",
+    "simple-git-hooks": "^2.8.0",
     "ts-node": "^10.9.1",
     "tsup": "6.2.3",
     "tsx": "^3.9.0",
