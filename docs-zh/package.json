@@ -2,10 +2,9 @@
   "name": "docs-zh",
   "private": true,
   "scripts": {
-    "build": "vitepress build --clean-cache && pnpm build:post",
-    "build:post": "esno .vitepress/build/scripts/postbuild.ts",
-    "dev": "vitepress dev --clean-cache --host --port 8080",
-    "serve": "vitepress serve --clean-cache --host --port 8000"
+    "build": "vitepress build",
+    "dev": "vitepress dev --port 8070",
+    "serve": "vitepress serve --port 8000"
   },
   "dependencies": {
     "@vueuse/core": "^9.2.0",
