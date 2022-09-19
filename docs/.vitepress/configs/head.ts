@@ -43,10 +43,6 @@ export const head: HeadConfig[] = [
   ['link', { rel: 'mask-icon', href: '/images/logo.svg', color: '#dd6954' }],
   ['meta', { name: 'theme-color', content: '#dd6954' }],
 
-  ['link', { rel: 'apple-touch-icon', href: '/images/icons/apple-touch-120x120.png' }],
-  ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/icons/apple-touch-180x180.png' }],
+  // To IPhone icon: https://developer.apple.com/design/human-interface-guidelines/foundations/app-icons/
   ['link', { rel: 'apple-touch-icon', sizes: '120x120', href: '/images/icons/apple-touch-120x120.png' }],
-  ['link', { rel: 'apple-touch-icon', sizes: '167x167', href: '/images/icons/apple-touch-167x167.png' }],
-  ['link', { rel: 'apple-touch-icon', sizes: '152x152', href: '/images/icons/apple-touch-152x152.png' }],
-  ['link', { rel: 'apple-touch-icon', sizes: '80x80', href: '/images/icons/apple-touch-80x80.png' }],
 ]

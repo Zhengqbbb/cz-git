@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import * as pageConfig from './configs'
-import { generateSitemap, rebuildPWA } from './build/scripts'
+import { generateSitemap, rebuildPWA } from './build'
 
 export default defineConfig({
   base: pageConfig.base,
