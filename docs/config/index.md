@@ -89,7 +89,6 @@ module.exports = {
 
 ==Tip:== If your project does not use commitlint,and want to use other profiles. You can use the following configuration items
 
-- `.cz.js`
 - `cz.config.js`
 
 :::details Click to expand cz.config.js complete default configuration template

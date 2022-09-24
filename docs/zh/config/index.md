@@ -89,10 +89,7 @@ module.exports = {
 
 ==提示:== 如果你的项目未使用 commitlint，并想使用其他配置文件，可以选择下列配置项
 
-- `.cz.js`
-- `cz.js`
 - `cz.config.js`
-- `cz.cjs`
 
 :::details 点击展开 cz.config.js 完整 默认 配置模板
 
