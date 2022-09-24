@@ -31,5 +31,5 @@ sitemap:
 > See more [Why czg](/cli/why.html)
 
 - If you using `cz` or `git cz` command will start `commitizen` CLI ==+== `cz-git` adapter
-- If you using `czg` command will only start `czg` CLI
+- If you using `czg` or `git czg` command will only start `czg` CLI
 

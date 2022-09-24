@@ -30,4 +30,4 @@ sitemap:
 > 可以查看更多信息 [czg 的动机](/zh/cli/why.html)
 
 - 如果你使用 `cz` 或 `git cz` 命令将会启动 `commitizen` CLI ==+== `cz-git` 适配器
-- 如果你使用 `czg` 命令只会启动 `czg` CLI
+- 如果你使用 `czg` 或 `git czg` 命令只会启动 `czg` CLI

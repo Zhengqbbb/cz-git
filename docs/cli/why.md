@@ -31,4 +31,4 @@ $ du -sh ./node_modules/*
 cz-git is **commitizen adapter**. czg behaves and loads config... the same as cz-git. If someone on your team is using Commitizen CLI. The two can be mixed, after all, both are very small and have zero dependencies.
 
 - If you using `cz` or `git cz` command will start `commitizen` CLI ==+== `cz-git` adapter
-- If you using `czg` command will only start `czg` CLI
+- If you using `czg` or `git czg` command will only start `czg` CLI
