@@ -170,7 +170,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **默认** : `""`
 - **额外** : 在 **自定义范围** 中是否使用显示默认值 
 
-==提示== [⇒ 查看小窍门](/zh/recipes/defaultScope.html) 
+==提示== [⇒ 查看小窍门](/zh/recipes/default-scope.html) 
 
 ## defaultSubject
 
@@ -179,7 +179,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **默认** : `""`
 - **使用** : **初始化补全模板**，可使用 <kbd>Tab</kbd> 或者 <kbd>→</kbd> 进行快速补全；亦可直接使用 <kbd>Enter</kbd> 输出模板。
 
-==提示== [⇒ 查看小窍门](/zh/recipes/defaultScope.html) 
+==提示== [⇒ 查看小窍门](/zh/recipes/default-subject.html)
 
 ## defaultBody
 
@@ -202,4 +202,4 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **默认** : `""`
 - **使用** : **初始化补全模板**，可使用 <kbd>Tab</kbd> 或者 <kbd>→</kbd> 进行快速补全；亦可直接使用 <kbd>Enter</kbd> 输出模板。
 
-==提示== [⇒ 查看小窍门](/zh/recipes/defaultIssues.html) 
+==提示== [⇒ 查看小窍门](/zh/recipes/default-issues.html) 

@@ -165,7 +165,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **default** : `""`
 - **other** : Initialize the complation template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
-==Tip== [⇒ see the recipes](/recipes/defaultScope.html)
+==Tip== [⇒ see the recipes](/recipes/default-scope.html)
 
 
 ## defaultSubject
@@ -175,7 +175,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **default** : `""`
 - **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
-==Tip== [⇒ see the recipes](/recipes/defaultSubject.html)
+==Tip== [⇒ see the recipes](/recipes/default-subject.html)
 
 ## defaultBody
 
@@ -198,4 +198,4 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **default** : `""`
 - **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
-==Tip== [⇒ see the recipes](/recipes/defaultIssues.html)
+==Tip== [⇒ see the recipes](/recipes/default-issues.html)

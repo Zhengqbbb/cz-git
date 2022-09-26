@@ -142,7 +142,7 @@ sitemap:
 - **默认** : `[{ value: "closed", name: "closed:   ISSUES has been processed" }]`
 
 :::tip
-国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br/> ==利用 commit message改变issue状态== [⇒ 查看小窍门](/recipes/issuePrefixs.html)
+国内用户如果使用 Gitee 作为项目管理，那么该工具可以很好<br/> ==利用 commit message改变issue状态== [⇒ 查看小窍门](/recipes/issue-prefixs.html)
 :::
 
 ## allowCustomIssuePrefixs
