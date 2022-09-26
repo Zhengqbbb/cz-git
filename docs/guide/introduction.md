@@ -60,7 +60,7 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 - Just to be a **lazy man** !!! Friendly command line tool,  Supports **search and selection** on the command line, reducing spelling errors.
 - **Lightweight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
 - [Better for monorepo engineering](/recipes/) and **commitlint** project to give relevant verification information to the command line.
-- Better linking with [issue](/recipes/defaultIssues.html) **for issue** | ✅ Support commit with **emoji**.
+- Better linking with [issue](/recipes/default-issues.html) **for issue** | ✅ Support commit with **emoji**.
 
 ```sh
 $ npm install -D cz-git

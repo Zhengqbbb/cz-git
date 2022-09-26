@@ -122,19 +122,19 @@ export const zh: DefaultTheme.Sidebar = {
         },
         {
           text: 'issuePrefixs',
-          link: '/zh/recipes/issuePrefixs',
+          link: '/zh/recipes/issue-prefixs',
         },
         {
           text: 'defaultScope',
-          link: '/zh/recipes/defaultScope',
+          link: '/zh/recipes/default-scope',
         },
         {
           text: 'defaultSubject',
-          link: '/zh/recipes/defaultSubject',
+          link: '/zh/recipes/default-subject',
         },
         {
           text: 'defaultIssues',
-          link: '/zh/recipes/defaultIssues',
+          link: '/zh/recipes/default-issues',
         },
       ],
     },
