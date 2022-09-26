@@ -7,11 +7,6 @@
   command = "npx pnpm i --store=node_modules/.pnpm-store --frozen-lockfile && npm run docs:build"
   ignore = "./scripts/docs-check.sh"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 [[headers]]
   for = "/manifest.webmanifest"
   [headers.values]
