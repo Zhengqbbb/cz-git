@@ -27,16 +27,13 @@ sitemap:
 - **描述** : set prompt inquirer theme color
 - **类型** : `string`
 - **默认** : `""`  (⇒ cyan 青色)
-- **规则**: `38;5;${color_code}`    
-  ⇒ `color_code` 可以通过链接查看获取 [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
-- **例子**: `"38;5;043"`
 
 :::tip
 ---
 #### 使用 256 Color
 - **规则**: `"38;5;${color_code: 0 ~ 255}"`    
   ⇒ `color_code` 可以通过链接查看获取 [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
-- **示例**: `"38;5;043"`
+- **示例**: `"38;5;075"`
 
 #### 使用 256 RGB Color
 > 不推荐使用在团队项目中使用，兼容性较差

@@ -33,7 +33,7 @@ sitemap:
 #### Use 256 Color
 - **rule**: `"38;5;${color_code: 0 ~ 255}"`    
   ⇒ the `color_code` can get it by [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
-- **example**: `"38;5;043"`
+- **example**: `"38;5;075"`
 
 #### Use 256 RGB Color
 > Not recommended for use in projects, poor compatibility
