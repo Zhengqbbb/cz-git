@@ -63,7 +63,7 @@ And need to add Emoji Code, you can find the corresponding characters in: [https
 
 - **description** : Add extra types to default types
 - **type** : `Array<{ name: string; value: string; emoji?: string }>`
-- **use** : Use when you don't want to add bloated defaults and don't want to adjust the default order in configuration. **Only want to add a small number of types**.
+- **use** : Use when you don't want to add bloated defaults and don't want to adjust the default order in configuration. **Only want to add a little part of types**.
 - **default** : `[]`
 - **example** : <br>
 ```json
