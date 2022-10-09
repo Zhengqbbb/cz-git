@@ -2,9 +2,9 @@
 /**
  * Origin
  * -------------------------------------------------------------------------- */
-:root {
+/* :root {
   scroll-behavior: smooth;
-}
+} */
 
 body {
   overflow: overlay;
