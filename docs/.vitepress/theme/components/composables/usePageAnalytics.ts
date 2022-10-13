@@ -1,3 +1,13 @@
+declare const dataLayer: any[]
+declare const gtag: (...args: any[]) => void
+declare global {
+  interface Window {
+    dataLayer?: typeof dataLayer
+    _hmt?: any
+    gtag?: typeof gtag
+  }
+}
+
 const baiduAnalytics = (id: string) => {
   const btagScript = document.createElement('script')
   btagScript.src = `https://hm.baidu.com/hm.js?${id}`
@@ -9,7 +19,6 @@ const baiduAnalytics = (id: string) => {
 }
 
 /** Powered by vuepress-next */
-declare const gtag: (...args: any[]) => void
 const googleAnalytics = (id: string) => {
   if (window.dataLayer && window.gtag)
     return
@@ -24,7 +33,6 @@ const googleAnalytics = (id: string) => {
   window.dataLayer = window.dataLayer || []
   // the gtag function must use `arguments` object to forward parameters
   window.gtag = function () {
-    // @ts-expect-error
     // eslint-disable-next-line prefer-rest-params
     dataLayer.push(arguments)
   }
