@@ -4,7 +4,7 @@
     { "path": "./packages/@cz-git/plugin-loader/tsconfig.json" },
     { "path": "./packages/@cz-git/plugin-inquirer/tsconfig.json" },
     { "path": "./packages/cz-git/tsconfig.json" },
-    { "path": "./packages/cli/tsconfig.json" },
+    { "path": "./packages/cli/tsconfig.json" }
   ],
   "files": []
 }
