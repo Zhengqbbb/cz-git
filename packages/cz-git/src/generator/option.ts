@@ -11,6 +11,7 @@ import {
   getEnumList,
   getMaxLength,
   getMinLength,
+  ruleIsWarning,
 } from '../shared'
 import type { CommitizenGitOptions, UserConfig } from '../shared'
 
@@ -54,6 +55,9 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     confirmColorize: promptConfig.confirmColorize ?? defaultConfig.confirmColorize,
     maxHeaderLength: promptConfig.maxHeaderLength ?? getMaxLength(config?.rules?.['header-max-length'] as any),
     maxSubjectLength: promptConfig.maxSubjectLength ?? getMaxLength(config?.rules?.['subject-max-length'] as any),
+    isIgnoreCheckMaxSubjectLength: promptConfig.isIgnoreCheckMaxSubjectLength
+      || ruleIsWarning(config?.rules?.['subject-max-length'] as any)
+      || ruleIsWarning(config?.rules?.['header-max-length'] as any),
     minSubjectLength: promptConfig.minSubjectLength ?? getMinLength(config?.rules?.['subject-min-length'] as any),
     defaultType: promptConfig.defaultType ?? defaultConfig.defaultType,
     defaultScope: promptConfig.defaultScope ?? defaultConfig.defaultScope,

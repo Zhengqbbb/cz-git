@@ -354,6 +354,14 @@ export interface CommitizenGitOptions {
   maxSubjectLength?: number
 
   /**
+   * @description: Is not strict subject rule. Just provide prompt word length warning.
+   * Effected maxHeader and maxSubject commlitlint
+   * @example [1, 'always', 80] 1: mean warning. will be true
+   * @default: false
+   */
+  isIgnoreCheckMaxSubjectLength?: boolean
+
+  /**
    * @description: Force set header width.
    * @note it auto check rule "subject-min-length" set the option with `@commitlint`.
    * @use when you not use commitlint
@@ -470,6 +478,7 @@ export const defaultConfig = Object.freeze({
   confirmColorize: true,
   maxHeaderLength: Infinity,
   maxSubjectLength: Infinity,
+  isIgnoreCheckMaxSubjectLength: false,
   minSubjectLength: 0,
   scopeOverrides: undefined,
   scopeFilters: ['.DS_Store'],

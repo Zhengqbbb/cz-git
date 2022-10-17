@@ -23,6 +23,19 @@ export function ruleIsDisabled(rule: Rule): rule is Readonly<[RuleConfigSeverity
 }
 
 /**
+ * @description: rule is Warning
+ * @example: ruleIsDisabled([0]) => false
+ * @example: ruleIsDisabled([1]) => true
+ * @example: ruleIsDisabled([2]) => false
+ */
+export function ruleIsWarning(rule?: Rule): rule is Readonly<[RuleConfigSeverity.Disabled]> {
+  if (rule && Array.isArray(rule) && rule[0] === RuleConfigSeverity.Warning)
+    return true
+
+  return false
+}
+
+/**
  * @description: rule is use
  * @example: ruleIsActive([0]) => false
  * @example: ruleIsActive([2]) => true
@@ -51,7 +64,7 @@ export function ruleIsNotApplicable(
 }
 
 /**
- * @description: rule is can ignore
+ * @description: rule is not can be ignore
  */
 export function ruleIsApplicable(
   rule: Rule,
