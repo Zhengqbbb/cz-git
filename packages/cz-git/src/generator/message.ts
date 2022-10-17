@@ -5,7 +5,7 @@
  */
 
 import { style } from '@cz-git/inquirer'
-import { getCurrentScopes, handleStandardScopes, isSingleItem, wrap } from '../shared'
+import { getCurrentScopes, isSingleItem, parseStandardScopes, wrap } from '../shared'
 import type { Answers, CommitizenGitOptions } from '../shared'
 
 export const getAliasMessage = (config: CommitizenGitOptions, alias?: string) => {
@@ -27,7 +27,7 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
     singleScope: '',
     singeIssuePrefix: '',
   }
-  const scopeList = handleStandardScopes(
+  const scopeList = parseStandardScopes(
     getCurrentScopes(options.scopes, options.scopeOverrides, answers.type),
   )
   if (isSingleItem(options.allowCustomScopes, options.allowEmptyScopes, scopeList))
