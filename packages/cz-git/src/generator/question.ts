@@ -10,11 +10,11 @@ import {
   getCurrentScopes,
   getMaxSubjectLength,
   getProcessSubject,
-  handleCustomTemplate,
-  handlePinListTop,
-  handleStandardScopes,
   isSingleItem,
   log,
+  parseStandardScopes,
+  resolveListItemPinTop,
+  resovleCustomListTemplate,
 } from '../shared'
 import { generateMessage } from './message'
 
@@ -35,7 +35,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.type,
       themeColorCode: options?.themeColorCode,
       source: (_: unknown, input: string) => {
-        const typeSource = handlePinListTop(
+        const typeSource = resolveListItemPinTop(
           options.types?.concat(options.typesAppend || []) || [],
           options.defaultType,
         )
@@ -53,10 +53,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       separator: options.scopeEnumSeparator,
       source: (answer: Answers, input: string) => {
         let scopeSource: Option[] = []
-        scopeSource = handleStandardScopes(
+        scopeSource = parseStandardScopes(
           getCurrentScopes(options.scopes, options.scopeOverrides, answer.type),
         )
-        scopeSource = handleCustomTemplate(
+        scopeSource = resovleCustomListTemplate(
           scopeSource,
           cz,
           options.customScopesAlign,
@@ -82,7 +82,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         return !isSingleItem(
           options.allowCustomScopes,
           options.allowEmptyScopes,
-          handleStandardScopes(
+          parseStandardScopes(
             getCurrentScopes(options.scopes, options.scopeOverrides, answer.type),
           ),
         )
@@ -126,34 +126,46 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           )
         }
         if (processedSubject.length > maxSubjectLength) {
-          return style.red(
+          return options.isIgnoreCheckMaxSubjectLength
+            ? true
+            : style.red(
             `[ERROR]subject length must be less than or equal to ${maxSubjectLength} characters`,
-          )
+            )
         }
         return true
       },
       transformer: (subject: string, answers: Answers) => {
-        const { minSubjectLength } = options
+        const { minSubjectLength, isIgnoreCheckMaxSubjectLength } = options
         const subjectLength = subject.length
         const maxSubjectLength = getMaxSubjectLength(answers.type, answers.scope, options)
         let tooltip
-        if (minSubjectLength !== undefined && subjectLength < minSubjectLength)
+        let isWarning = false
+        if (typeof minSubjectLength === 'number' && subjectLength < minSubjectLength) {
           tooltip = `${minSubjectLength - subjectLength} more chars needed`
-        else if (subjectLength > maxSubjectLength)
-          tooltip = `${subjectLength - maxSubjectLength} chars over the limit`
-        else tooltip = `${maxSubjectLength - subjectLength} more chars allowed`
+        }
+        else if (subjectLength > maxSubjectLength) {
+          if (isIgnoreCheckMaxSubjectLength) {
+            tooltip = `${subjectLength - maxSubjectLength} chars over the expected`
+            isWarning = true
+          }
+          else { tooltip = `${subjectLength - maxSubjectLength} chars over the limit` }
+        }
+        else {
+          tooltip = `${maxSubjectLength - subjectLength} more chars allowed`
+        }
+
         tooltip
           = minSubjectLength !== undefined
           && subjectLength >= minSubjectLength
           && subjectLength <= maxSubjectLength
             ? style.gray(`[${tooltip}]`)
-            : style.red(`[${tooltip}]`)
+            : isWarning ? style.yellow(`[${tooltip}]`) : style.red(`[${tooltip}]`)
         subject
           = minSubjectLength !== undefined
           && subjectLength >= minSubjectLength
           && subjectLength <= maxSubjectLength
             ? useThemeCode(subject, options.themeColorCode)
-            : style.red(subject)
+            : isWarning ? useThemeCode(subject, options.themeColorCode) : style.red(subject)
 
         return `${tooltip}\n` + ` ${subject}`
       },
@@ -205,7 +217,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.footerPrefixsSelect,
       themeColorCode: options?.themeColorCode,
       source: (_: Answers, input: string) => {
-        const issuePrefixSource = handleCustomTemplate(
+        const issuePrefixSource = resovleCustomListTemplate(
           options.issuePrefixs as Option[],
           cz,
           options.customIssuePrefixsAlign,

@@ -16,48 +16,18 @@ export function log(type: 'info' | 'warm' | 'err', msg: string) {
   console.info(`${colorMapping[type]}[${type}]>>>: ${msg}${colorMapping.reset}`)
 }
 
-export const getProcessSubject = (text: string) => {
-  return text.replace(/(^[\s]+|[\s\.]+$)/g, '') ?? ''
-}
-
-const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number => {
-  const item = options.types?.find((i: { value?: string }) => i.value === type)
-  // space
-  return item?.emoji ? item.emoji.length + 1 : 0
-}
-
+/**
+ * @description: count header length
+ *
+ * {2}: mean ': '
+ */
 const countLength = (target: number, typeLength: number, scope: number, emojiLength: number) =>
   target - typeLength - 2 - scope - emojiLength
 
-export const getMaxSubjectLength = (
-  type: Answers['type'],
-  scope: Answers['scope'],
-  options: CommitizenGitOptions,
-) => {
-  let optionMaxLength = Infinity
-  if (Array.isArray(scope))
-    scope = scope.join(options.scopeEnumSeparator)
-  const typeLength = type?.length ? type.length : 0
-  const scopeLength = scope ? scope.length + 2 : 0
-  const emojiLength = options.useEmoji ? getEmojiStrLength(options, type) : 0
-  const maxHeaderLength = options?.maxHeaderLength ? options?.maxHeaderLength : Infinity
-  const maxSubjectLength = options?.maxSubjectLength ? options?.maxSubjectLength : Infinity
-  if (options?.maxHeaderLength === 0 || options?.maxSubjectLength === 0) {
-    return 0
-  }
-  else if (maxHeaderLength === Infinity) {
-    return maxSubjectLength !== Infinity ? maxSubjectLength : Infinity
-  }
-  else {
-    optionMaxLength
-      = countLength(maxHeaderLength, typeLength, scopeLength, emojiLength) < maxSubjectLength
-        ? maxHeaderLength
-        : maxSubjectLength
-  }
-  return countLength(optionMaxLength, typeLength, scopeLength, emojiLength)
-}
-
-export const handlePinListTop = (
+/**
+ * @description: resolve list item pin top
+ */
+export const resolveListItemPinTop = (
   arr: {
     name: string
     value: any
@@ -72,6 +42,40 @@ export const handlePinListTop = (
   return [arr[index], ...arr.slice(0, index), ...arr.slice(index + 1)]
 }
 
+/**
+ * @description: check scope list and issuePrefix is only single item (scope, issuePrefix)
+ */
+export const isSingleItem = (allowCustom = true, allowEmpty = true, list: Array<any> = []) =>
+  !allowCustom && !allowEmpty && Array.isArray(list) && list.length === 1
+
+/**
+ * @description: parse scope configuration option to standard options
+ */
+export const parseStandardScopes = (scopes: ScopesType): Option[] => {
+  return scopes.map((scope) => {
+    return typeof scope === 'string'
+      ? { name: scope, value: scope }
+      : !scope.value
+          ? { value: scope.name, ...scope }
+          : { value: scope.value, name: scope.name }
+  })
+}
+
+export const getCurrentScopes = (
+  scopes?: any[],
+  scopeOverrides?: { [x: string]: any[] },
+  answerType?: string,
+) => {
+  let result = []
+  if (scopeOverrides && answerType && scopeOverrides[answerType])
+    result = scopeOverrides[answerType]
+
+  else if (Array.isArray(scopes))
+    result = scopes
+
+  return result
+}
+
 const filterCustomEmptyByOption = (
   target: {
     name: string
@@ -83,11 +87,13 @@ const filterCustomEmptyByOption = (
   target = allowCustom ? target : target.filter(i => i.value !== '___CUSTOM___')
   return allowEmpty ? target : target.filter(i => i.value !== false)
 }
-
 /**
- * @description: add separator custom empty
+ * @description
+ * Handle custom list template (types, scopes)
+ *
+ * Add separator custom empty
  */
-export const handleCustomTemplate = (
+export const resovleCustomListTemplate = (
   target: Array<{ name: string; value: string }>,
   cz: any,
   align = 'top',
@@ -108,7 +114,7 @@ export const handleCustomTemplate = (
   }
   else if (defaultValue !== '') {
     // pin the defaultValue to the top
-    target = handlePinListTop(target, defaultValue)
+    target = resolveListItemPinTop(target, defaultValue)
   }
   // prettier-ignore
   switch (align) {
@@ -141,37 +147,45 @@ export const handleCustomTemplate = (
 }
 
 /**
- * @description: check scope list and issuePrefix is only single item
+ * @description: get subject word
  */
-export const isSingleItem = (allowCustom = true, allowEmpty = true, list: Array<any> = []) =>
-  !allowCustom && !allowEmpty && Array.isArray(list) && list.length === 1
-
-/**
- * @description: handle scope configuration option into standard options
- * @param {ScopesType}
- * @returns {Option[]}
- */
-export const handleStandardScopes = (scopes: ScopesType): Option[] => {
-  return scopes.map((scope) => {
-    return typeof scope === 'string'
-      ? { name: scope, value: scope }
-      : !scope.value
-          ? { value: scope.name, ...scope }
-          : { value: scope.value, name: scope.name }
-  })
+export const getProcessSubject = (text: string) => {
+  return text.replace(/(^[\s]+|[\s\.]+$)/g, '') ?? ''
 }
 
-export const getCurrentScopes = (
-  scopes?: any[],
-  scopeOverrides?: { [x: string]: any[] },
-  answerType?: string,
+const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number => {
+  const item = options.types?.find((i: { value?: string }) => i.value === type)
+  // 1: space
+  return item?.emoji ? item.emoji.length + 1 : 0
+}
+
+/**
+ * @description: get max subject length
+ */
+export const getMaxSubjectLength = (
+  type: Answers['type'],
+  scope: Answers['scope'],
+  options: CommitizenGitOptions,
 ) => {
-  let result = []
-  if (scopeOverrides && answerType && scopeOverrides[answerType])
-    result = scopeOverrides[answerType]
-
-  else if (Array.isArray(scopes))
-    result = scopes
-
-  return result
+  let optionMaxLength = Infinity
+  if (Array.isArray(scope))
+    scope = scope.join(options.scopeEnumSeparator)
+  const typeLength = type?.length ? type.length : 0
+  const scopeLength = scope ? scope.length + 2 : 0
+  const emojiLength = options.useEmoji ? getEmojiStrLength(options, type) : 0
+  const maxHeaderLength = options?.maxHeaderLength ? options?.maxHeaderLength : Infinity
+  const maxSubjectLength = options?.maxSubjectLength ? options?.maxSubjectLength : Infinity
+  if (options?.maxHeaderLength === 0 || options?.maxSubjectLength === 0) {
+    return 0
+  }
+  else if (maxHeaderLength === Infinity) {
+    return maxSubjectLength !== Infinity ? maxSubjectLength : Infinity
+  }
+  else {
+    optionMaxLength
+      = countLength(maxHeaderLength, typeLength, scopeLength, emojiLength) < maxSubjectLength
+        ? maxHeaderLength
+        : maxSubjectLength
+  }
+  return countLength(optionMaxLength, typeLength, scopeLength, emojiLength)
 }
