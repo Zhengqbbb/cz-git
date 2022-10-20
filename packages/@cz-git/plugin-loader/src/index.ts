@@ -110,9 +110,8 @@ export const czLoader = async (cwd?: string) => {
     moduleName,
     searchPlaces: [
       `.${moduleName}rc`,
-      `.${moduleName}.json`,
-      `.${moduleName}.js`,
       `${moduleName}.config.js`,
+      `${moduleName}.config.cjs`,
       'package.json',
     ],
     packageProp: ['config', 'commitizen'],
