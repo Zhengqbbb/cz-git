@@ -1,3 +1,17 @@
+## [1.3.12](https://github.com/Zhengqbbb/cz-git/compare/v1.3.11...v1.3.12) (2022-10-21)
+
+
+### Bug Fixes
+
+* **cz-git,czg:** add ignore commitlint warning max length rule [#72](https://github.com/Zhengqbbb/cz-git/issues/72) (closed [#71](https://github.com/Zhengqbbb/cz-git/issues/71)) ([46346b4](https://github.com/Zhengqbbb/cz-git/commit/46346b416f2e0b6ed18d63d42db02a897d44a7c0))
+
+
+### Features
+
+* **plugin-loader:** add `cz.config.cjs` config profiles ([#73](https://github.com/Zhengqbbb/cz-git/issues/73)) ([a915085](https://github.com/Zhengqbbb/cz-git/commit/a915085ffe6f0caa5ad08e68ec33231373ccb76e))
+
+
+
 ## [1.3.11](https://github.com/Zhengqbbb/cz-git/compare/v1.3.10...v1.3.11) (2022-08-21)
 
 
