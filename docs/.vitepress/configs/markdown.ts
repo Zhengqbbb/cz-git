@@ -11,7 +11,6 @@ export const markdownConfig: MarkdownOptions = {
     light: 'vitesse-light',
     dark: 'vitesse-dark',
   },
-  // theme: "one-dark-pro",
   config: (md) => {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     md.use(require('markdown-it-mark'))

@@ -7,8 +7,9 @@ export default defineConfig({
   head: pageConfig.head,
   locales: pageConfig.locales,
 
-  markdown: pageConfig.markdownConfig,
+  appearance: 'dark',
   themeConfig: pageConfig.themeConfig,
+  markdown: pageConfig.markdownConfig,
   lastUpdated: true,
 
   buildEnd: async () => {
