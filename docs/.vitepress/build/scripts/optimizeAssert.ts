@@ -10,18 +10,9 @@ export const optimizePages = async () => {
 
       const prefetchImg = '\n\t<link rel="prefetch" href="/images/logo.svg">'
 
-      //       if (isOptimize) {
-      //         html = html.replace(
-      //           '</head>',
-      //           `<link rel="prefetch" href="/manifest.webmanifest">${prefetchImg}
-      // \t<link rel="manifest" href="/manifest.webmanifest">\n</head>`)
-      //       }
-      //       else {
-      //         html = html.replace('</head>', `${prefetchImg}\n</head>`)
-      //       }
       html = html.replace(
         '</head>',
-        `<link rel="prefetch" href="/manifest.webmanifest">${prefetchImg}
+        `  <link rel="prefetch" href="/manifest.webmanifest">${prefetchImg}
 \t<link rel="manifest" href="/manifest.webmanifest">\n</head>`)
 
       await fs.writeFile(page, html, 'utf8')

@@ -1,7 +1,14 @@
 import fg from 'fast-glob'
 import { resolve } from 'pathe'
 import { VitePWA } from 'vite-plugin-pwa'
-import { descriptionEN, githubSourceContentRegex, name } from '../../meta'
+import {
+  descriptionEN,
+  githubSourceContentRegex,
+  googleFontRegex,
+  googleStaticFontRegex,
+  jsdelivrCDNRegex,
+  name,
+} from '../../meta'
 
 /**
  * Vite Plugin PWA uses Workbox  library to build the service worker
@@ -46,7 +53,50 @@ export const pwaPlugin = VitePWA({
   workbox: {
     navigateFallbackDenylist: [/^\/new$/],
     globPatterns: ['**/*.{css,js,png,svg,gif,ico,woff2}'],
+    navigateFallback: null,
     runtimeCaching: [
+      {
+        urlPattern: googleFontRegex,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'google-font-style-cache',
+          expiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+          },
+          cacheableResponse: {
+            statuses: [0, 200],
+          },
+        },
+      },
+      {
+        urlPattern: googleStaticFontRegex,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'google-fonts-cache',
+          expiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+          },
+          cacheableResponse: {
+            statuses: [0, 200],
+          },
+        },
+      },
+      {
+        urlPattern: jsdelivrCDNRegex,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'jsdelivr-cdn-cache',
+          expiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+          },
+          cacheableResponse: {
+            statuses: [0, 200],
+          },
+        },
+      },
       {
         urlPattern: githubSourceContentRegex,
         handler: 'CacheFirst',

@@ -1,5 +1,5 @@
 import Unocss from 'unocss/vite'
-import { presetAttributify, presetIcons, presetUno } from 'unocss'
+import { presetAttributify, presetIcons, presetUno, presetWebFonts } from 'unocss'
 
 /**
  * The instant on-demand Atomic CSS engine.
@@ -26,6 +26,12 @@ export const unocssPlugin = Unocss({
     presetAttributify(),
     presetIcons({
       scale: 1.2,
+    }),
+    presetWebFonts({
+      fonts: {
+        sans: 'Inter:400,600,800',
+        mono: 'Noto Sans Mono:500,700',
+      },
     }),
   ],
 })

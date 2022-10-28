@@ -44,4 +44,9 @@ export const head: HeadConfig[] = [
   ['meta', { name: 'theme-color', content: '#dd6954' }],
 
   ['link', { rel: 'apple-touch-icon', sizes: '120x120', href: '/images/icons/apple-touch-120x120.png' }],
+  // font
+  ['link', { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' }],
+  ['link', { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' }],
+  ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.googleapis.com' }],
+  ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
 ]

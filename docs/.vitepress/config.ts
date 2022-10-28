@@ -11,6 +11,7 @@ export default defineConfig({
   themeConfig: pageConfig.themeConfig,
   markdown: pageConfig.markdownConfig,
   lastUpdated: true,
+  useWebFonts: true,
 
   buildEnd: async () => {
     await generateSitemap()

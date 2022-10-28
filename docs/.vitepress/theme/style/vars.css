@@ -3,6 +3,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
+  --vp-font-family-mono: Menlo, "Noto Sans Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --vp-layout-max-width: 1490px;
   --vp-c-accent: rgb(218, 180, 11);
   --vp-c-brand: #eb5c5c;
