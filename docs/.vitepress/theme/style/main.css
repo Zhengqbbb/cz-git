@@ -16,7 +16,6 @@ kbd {
   background: linear-gradient(-225deg, #d5dbe4, #f8f8f8);
   box-shadow: var(--vp-c-kbd-box-outside-shadow);
 }
-
 .dark kbd {
   background: linear-gradient(-225deg, #263242, #1c1e20);
 }
