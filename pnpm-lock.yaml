@@ -76,7 +76,7 @@ importers:
       vite: ^3.2.0
       vite-plugin-pwa: ^0.13.1
       vite-plugin-radar: ^0.5.0
-      vitepress: 1.0.0-alpha.22
+      vitepress: 1.0.0-alpha.26
       vue: ^3.2.40
     dependencies:
       '@vueuse/core': 9.3.0_vue@3.2.40
@@ -95,7 +95,7 @@ importers:
       vite: 3.2.0
       vite-plugin-pwa: 0.13.1_vite@3.2.0
       vite-plugin-radar: 0.5.0_vite@3.2.0
-      vitepress: 1.0.0-alpha.22
+      vitepress: 1.0.0-alpha.26
 
   docs-zh:
     specifiers:
@@ -112,7 +112,7 @@ importers:
       vite: ^3.2.0
       vite-plugin-pwa: ^0.13.1
       vite-plugin-radar: ^0.5.0
-      vitepress: 1.0.0-alpha.22
+      vitepress: 1.0.0-alpha.26
       vue: ^3.2.40
     dependencies:
       '@vueuse/core': 9.3.0_vue@3.2.40
@@ -130,7 +130,7 @@ importers:
       vite: 3.2.0
       vite-plugin-pwa: 0.13.1_vite@3.2.0
       vite-plugin-radar: 0.5.0_vite@3.2.0
-      vitepress: 1.0.0-alpha.22
+      vitepress: 1.0.0-alpha.26
 
   packages/@cz-git/plugin-inquirer:
     specifiers:
@@ -6625,6 +6625,14 @@ packages:
     resolution: {integrity: sha512-Vpfqwm4EnqGdlsBFNmHhxhElJYrdfcxPThu+ryKS5J8L/fhAwLazFZtq+S+TWZ9ANj2piSQLGj6NQg+lKPmxrw==}
     dev: true
 
+  /shiki-processor/0.1.0_shiki@0.11.1:
+    resolution: {integrity: sha512-7ty3VouP7AQMlERKeiobVeyhjUW6rPMM1b+xFcFF/XwhkN4//Fg9Ju6hPfIOvO4ztylkbLqYufbJmLJmw7SfQA==}
+    peerDependencies:
+      shiki: ^0.11.1
+    dependencies:
+      shiki: 0.11.1
+    dev: true
+
   /shiki/0.11.1:
     resolution: {integrity: sha512-EugY9VASFuDqOexOgXR18ZV+TbFrQHeCpEYaXamO+SZlsnT/2LxuLBX25GGtIrwaEVFXUAbUQ601SWE2rMwWHA==}
     dependencies:
@@ -7494,8 +7502,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.22:
-    resolution: {integrity: sha512-IWqnAxMDNaiyl6Bz+/79l40Ho6xsjrqxRp/WZw0+5BXR0BTZbmHyhGtI3XrH6oSn8MisLPjCccikaj3mcmCoWg==}
+  /vitepress/1.0.0-alpha.26:
+    resolution: {integrity: sha512-XpDpflrdmyBmUQrg06q29Mhez144NvoZ48pRvNhANy/wV7E7XJ1zenQROOSADnOsAlhV1gzcNjqiFNObCk7l8A==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0
@@ -7505,6 +7513,7 @@ packages:
       '@vueuse/core': 9.4.0_vue@3.2.41
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.11.1
+      shiki-processor: 0.1.0_shiki@0.11.1
       vite: 3.2.0
       vue: 3.2.41
     transitivePeerDependencies:

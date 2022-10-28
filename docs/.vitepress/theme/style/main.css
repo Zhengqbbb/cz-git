@@ -21,6 +21,13 @@ kbd {
   background: linear-gradient(-225deg, #263242, #1c1e20);
 }
 
+.VPNav.no-sidebar{
+  background-color: var(--vp-c-bg-nav) !important;
+}
+.VPNavBar.has-sidebar .content{
+  background-color: var(--vp-c-bg-nav) !important;
+}
+
 .vp-doc mark {
   color: inherit;
   padding: 0.1rem 0.3rem;
@@ -127,6 +134,13 @@ kbd {
 .dark .DocSearch-Button-Key {
   box-shadow: none;
 }
+.dark .DocSearch-Button {
+  background-color: #111111;
+}
+.DocSearch-Modal .cls-1, 
+.DocSearch-Modal .cls-2{
+  fill: var(--docsearch-logo-color);
+}
 
 .medium-zoom-overlay {
   /* override style set by medium-zoom script */
@@ -179,9 +193,9 @@ kbd {
   font-weight: 600;
   border-radius: 4px;
   box-shadow: var(--vp-c-kbd-box-outside-shadow);
-  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
 }
-
+.code-group .code-group__nav-tab:focus,
 .code-group .code-group__nav-tab-active {
   box-shadow: var(--vp-c-kbd-box-inside-shadow);
 }
