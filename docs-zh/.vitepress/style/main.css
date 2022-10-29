@@ -23,8 +23,13 @@ kbd {
 .VPNav.no-sidebar{
   background-color: var(--vp-c-bg-nav) !important;
 }
-.VPNavBar.has-sidebar .content{
-  background-color: var(--vp-c-bg-nav) !important;
+@media (min-width: 960px){
+  .VPNavBar.has-sidebar .content{
+    background-color: var(--vp-c-bg-nav) !important;
+  }
+  .dark .DocSearch-Button {
+    background-color: #111111;
+  }
 }
 
 .vp-doc mark {
@@ -132,9 +137,6 @@ kbd {
  * -------------------------------------------------------------------------- */
 .dark .DocSearch-Button-Key {
   box-shadow: none;
-}
-.dark .DocSearch-Button {
-  background-color: #111111;
 }
 .DocSearch-Modal .cls-1, 
 .DocSearch-Modal .cls-2{
