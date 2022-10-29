@@ -12,7 +12,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-- **plugin-loader**: remove `.cz.js` configure file default
+- **plugin-loader**: remove `.cz.js` default loaded configure file
 The configuration items. see: [Configure Template](https://cz-git.qbb.sh/config/)
 
 ## [1.3.11](https://github.com/Zhengqbbb/cz-git/compare/v1.3.10...v1.3.11) (2022-08-21)
