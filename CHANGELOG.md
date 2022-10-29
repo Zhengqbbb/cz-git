@@ -10,7 +10,10 @@
 
 * **plugin-loader:** add `cz.config.cjs` config profiles ([#73](https://github.com/Zhengqbbb/cz-git/issues/73)) ([a915085](https://github.com/Zhengqbbb/cz-git/commit/a915085ffe6f0caa5ad08e68ec33231373ccb76e))
 
+### ⚠ BREAKING CHANGES
 
+- **plugin-loader**: remove `.cz.js` configure file default
+The configuration items. see: [Configure Template](https://cz-git.qbb.sh/config/)
 
 ## [1.3.11](https://github.com/Zhengqbbb/cz-git/compare/v1.3.10...v1.3.11) (2022-08-21)
 
