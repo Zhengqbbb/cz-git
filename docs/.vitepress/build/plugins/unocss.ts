@@ -22,6 +22,7 @@ export const unocssPlugin = Unocss({
   presets: [
     presetUno({
       dark: 'class',
+      preflight: false,
     }),
     presetAttributify(),
     presetIcons({
