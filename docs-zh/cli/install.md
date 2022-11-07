@@ -8,9 +8,6 @@
 
 ```sh
 npm install -g czg
-# 检查下载是否成功
-czg --help
-git czg -h
 ```
 
 :::
@@ -18,13 +15,16 @@ git czg -h
 
 ```sh
 brew install czg
-# 检查下载是否成功
-czg --help
-git czg -h
 ```
 
 :::
 ::::
+
+```sh
+# 检查下载是否成功
+czg --help
+git czg -h
+```
 
 ## 项目中使用
 

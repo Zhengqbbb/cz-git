@@ -8,9 +8,6 @@
 
 ```sh
 npm install -g czg
-# check the installation is successful
-czg --help
-git czg -h
 ```
 
 :::
@@ -18,13 +15,16 @@ git czg -h
 
 ```sh
 brew install czg
-# check the installation is successful
-czg --help
-git czg -h
 ```
 
 :::
 ::::
+
+```sh
+# check the installation is successful
+czg --help
+git czg -h
+```
 
 ## As a dev dependency use
 
