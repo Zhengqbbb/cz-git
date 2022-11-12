@@ -46,9 +46,19 @@ kbd {
   font-weight: 600;
 }
 
-.vp-doc a:hover {
+.vp-doc a {
   color: var(--vp-c-brand);
   text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  transition: text-decoration-color .25s;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand);
+  text-decoration-color: var(--vp-c-brand);
+  -webkit-text-decoration-color: var(--vp-c-brand);
 }
 
 .VPLink.edit-link-button:hover {
