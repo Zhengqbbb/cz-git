@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.4.0",
+    "shiki": "^0.11.1",
     "vue": "^3.2.41"
   },
   "devDependencies": {

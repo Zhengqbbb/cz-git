@@ -109,6 +109,7 @@ importers:
       markdown-it-container: ^3.0.0
       markdown-it-mark: ^3.0.1
       medium-zoom: ^1.0.6
+      shiki: ^0.11.1
       sitemap: ^7.1.1
       unocss: ^0.46.3
       unplugin-vue-components: ^0.22.9
@@ -119,6 +120,7 @@ importers:
       vue: ^3.2.41
     dependencies:
       '@vueuse/core': 9.4.0_vue@3.2.41
+      shiki: 0.11.1
       vue: 3.2.41
     devDependencies:
       '@iconify-json/carbon': 1.1.9
