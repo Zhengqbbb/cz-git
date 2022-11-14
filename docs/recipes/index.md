@@ -32,7 +32,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/172984678-b187607e-e67d-43b4-93e5-3d359f5044a9.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/172984678-b187607e-e67d-43b4-93e5-3d359f5044a9.gif) <!-- size=688x248 -->
 
 ## support for multiple scopes
 
@@ -53,7 +53,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/170836009-26331ad3-8e7f-4183-a4af-15372b6420d6.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/170836009-26331ad3-8e7f-4183-a4af-15372b6420d6.gif) <!-- size=688x263 -->
 
 <br>
 <br>
@@ -91,7 +91,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/172988729-b76510d8-108b-4588-a748-86042da3d5ef.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/172988729-b76510d8-108b-4588-a748-86042da3d5ef.gif) <!-- size=688x265 -->
 
 :::tip
 If `cz-git` detects that `allowEmptyScopes` and `allowCustomScopes` have very strict rules (both set to false) and the **scopes selection list has only one item**, it will automatically skip question and output

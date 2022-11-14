@@ -1,5 +1,5 @@
 import type { MarkdownOptions } from 'vitepress'
-import { useCodeGroup, useCodeGroupItem } from '../theme/components/markdown'
+import { ImagePlugin, useCodeGroup, useCodeGroupItem } from '../theme/components/markdown'
 
 /**
  * vitepress markdown config
@@ -18,5 +18,6 @@ export const markdownConfig: MarkdownOptions = {
     md.use(useCodeGroupItem.container, useCodeGroupItem.type, {
       render: useCodeGroupItem.render,
     })
+    md.use(ImagePlugin)
   },
 }

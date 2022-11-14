@@ -25,7 +25,7 @@ czg --alias=fd
 git czg --alias=fd
 ```
 
-![demo](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif) <!-- size=688x263 -->
 
 ## 使用 `commitizen` CLI
 
@@ -33,7 +33,7 @@ git czg --alias=fd
 cz_alias=fd cz
 ```
 
-![demo](https://user-images.githubusercontent.com/40693636/176701915-3f57721a-a54b-4e23-8de6-4d205e01ef9f.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/176701915-3f57721a-a54b-4e23-8de6-4d205e01ef9f.gif) <!-- size=688x263 -->
 
 ::: warning
 已知问题：使用 Commitizen CLI 像 `cz_alias=fd cz`。commit 成功后会出现进程未退出。是因为 `cz-cli` 没有监听 Node.js `close` 事件，`cz-git` 无法处理。

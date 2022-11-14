@@ -25,7 +25,7 @@ czg --alias=fd
 git czg --alias=fd
 ```
 
-![demo](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif) <!-- size=688x263 -->
 
 ## `commitizen` CLI Usage
 
@@ -35,7 +35,7 @@ cz_alias=fd cz
 cz_alias=fd git cz
 ```
 
-![demo](https://user-images.githubusercontent.com/40693636/176701915-3f57721a-a54b-4e23-8de6-4d205e01ef9f.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/176701915-3f57721a-a54b-4e23-8de6-4d205e01ef9f.gif) <!-- size=688x263 -->
 
 ::: warning
 Use Commitizen CLI like `cz_alias=fd cz`. The proccess can't exit after commit. Because `cz-cli` not listening for Node.js `close` event, cz-git can't handle.

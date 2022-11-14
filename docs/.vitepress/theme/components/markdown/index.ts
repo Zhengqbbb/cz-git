@@ -11,3 +11,5 @@ export const useCodeGroupItem = useMarkdownContainer({
   before: (info: string) => `<CodeGroupItem title="${info}">\n`,
   after: () => '</CodeGroupItem>\n',
 })
+
+export * from './plugins/image'

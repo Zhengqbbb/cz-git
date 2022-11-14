@@ -28,7 +28,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/162552804-132aab02-4b02-4006-9e41-aeae4f825948.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/162552804-132aab02-4b02-4006-9e41-aeae4f825948.gif) <!-- size=688x265 -->
 
 <br>
 <br>

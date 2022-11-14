@@ -32,7 +32,7 @@ module.exports = {
 ```
 
 示例:
-![demo](https://user-images.githubusercontent.com/40693636/175775159-710b69c6-ab55-4957-9195-6f963d95ba2e.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/175775159-710b69c6-ab55-4957-9195-6f963d95ba2e.gif) <!-- size=688x263 -->
 
 ## 使用 commitizen CLI + cz-git
 可以尝试运行命令自动添加标识:
@@ -40,7 +40,7 @@ module.exports = {
 break=1 cz
 ```
 示例:
-![demo](https://user-images.githubusercontent.com/40693636/174949733-d5cd7f0d-ac81-40e8-8cb9-158737330d7a.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/174949733-d5cd7f0d-ac81-40e8-8cb9-158737330d7a.gif) <!-- size=688x265 -->
 
 ## 使用 cz-git CLI `czg`
 可以尝试运行命令自动添加标识:
@@ -48,4 +48,4 @@ break=1 cz
 czg break
 ```
 示例:
-
+![demo-gif](https://user-images.githubusercontent.com/40693636/175755362-2fdeed9e-cf05-4f41-b317-453154a5775c.gif) <!-- size=688x248 -->

@@ -13,6 +13,7 @@
   --vp-c-brand-darker: #b74b4b;
   --vp-c-green-light: #16a891;
   --vp-c-bg-nav: rgba(255, 255, 255, 0.7);
+  --vp-c-bg-mark: rgb(232, 232, 232);
   --vp-custom-block-tip-border: rgba(18, 181, 157, 0.5);
   --vp-custom-block-tip-bg: rgba(18, 181, 157, 0.1);
   --vp-custom-block-tip-text: #3a6552;
@@ -32,6 +33,7 @@
   --vp-c-bg: rgb(26, 26, 26);
   --vp-c-bg-alt: rgb(23, 23, 23);
   --vp-c-bg-nav: rgba(23, 23, 23, 0.7);
+  --vp-c-bg-mark: rgb(0, 0, 0);
   --vp-custom-block-tip-text: #dae1dd;
   --vp-code-block-bg: rgba(0, 0, 0, 0.3);
   --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);

@@ -17,7 +17,7 @@ module.exports = {
 }
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/172990760-f762d329-f710-4560-98fa-c8414d17c9f3.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/172990760-f762d329-f710-4560-98fa-c8414d17c9f3.gif) <!-- size=688x264 -->
 
 ::: tip
 如果 `cz-git` 检测到如果 `allowCustomIssuePrefixs` 和 `allowEmptyIssuePrefixs` 具有非常严格规则(都设置为false)并且 **issuePrefixs 选择列表仅有一项时**，会自动跳过问题并输出
