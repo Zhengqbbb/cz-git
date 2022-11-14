@@ -49,7 +49,7 @@ useMediumZoom()
     <img
       class="max-w-100%"
       src="https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif"
-      alt="gif-demo"
+      alt="demo-gif"
       width="1144"
       height="376"
       loading="lazy"
