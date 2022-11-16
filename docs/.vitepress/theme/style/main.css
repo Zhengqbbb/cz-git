@@ -51,6 +51,7 @@ kbd {
   color: var(--vp-c-brand);
   text-decoration: underline;
   text-underline-offset: 4px;
+  text-decoration-style: solid;
   text-decoration-color: transparent;
   -webkit-text-decoration-color: transparent;
   transition: text-decoration-color .25s;
@@ -63,7 +64,7 @@ kbd {
 }
 
 .VPLink.edit-link-button:hover {
-  color: var(--vp-c-brand-light);
+  color: var(--vp-c-text-3);
 }
 
 .vp-doc div[class*="language-"] {
@@ -161,6 +162,10 @@ img.error::after {
   }
 }
 
+.VPDocFooter .pager-link:hover .title {
+  color: var(--vp-c-brand);
+}
+
 /**
  * Container
  * -------------------------------------------------------------------------- */
@@ -174,6 +179,7 @@ img.error::after {
 .vp-doc .custom-block a:hover {
   color: var(--vp-c-brand);
   text-decoration: underline;
+  opacity: 1;
 }
 
 .vp-doc .custom-block div[class*="language-"] code {
