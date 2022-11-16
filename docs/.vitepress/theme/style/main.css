@@ -172,18 +172,19 @@ img.error::after {
 
 .vp-doc .custom-block a {
   color: var(--vp-c-brand);
-  text-decoration: none;
-  transition: opacity 0.1s;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-style: solid;
+  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  transition: text-decoration-color .25s;
 }
 
 .vp-doc .custom-block a:hover {
   color: var(--vp-c-brand);
-  text-decoration: underline;
+  text-decoration-color: var(--vp-c-brand);
+  -webkit-text-decoration-color: var(--vp-c-brand);
   opacity: 1;
-}
-
-.vp-doc .custom-block div[class*="language-"] code {
-  background: none;
 }
 
 /**
