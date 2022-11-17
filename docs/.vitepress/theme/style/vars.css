@@ -21,6 +21,8 @@
   --vp-c-text-dark-1: rgb(240, 238, 238);
   --vp-c-text-dark-3: rgb(111, 111, 111);
   --vp-code-line-highlight-color: rgba(229, 229, 229, 0.5);
+  --vp-code-copy-code-hover-bg: rgba(121, 121, 121, 0.1);
+  --vp-code-copy-code-active-text: var(--vp-c-text-dark-3);
   --vp-c-kbd-box-outside-shadow: inset 0 -2px 0 0 #cdcde6, inset 0 0 1px 1px #fff,
     0 1px 2px 1px rgba(30, 35, 90, 0.4);
   --vp-c-kbd-box-inside-shadow: inset 1px 1px 2px #cdcde6, inset -1px -1px 4px #fff;
@@ -38,6 +40,8 @@
   --vp-custom-block-tip-text: #dae1dd;
   --vp-code-block-bg: rgba(0, 0, 0, 0.3);
   --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);
+  --vp-code-copy-code-hover-bg: rgba(255, 255, 255, 0.05);
+  --vp-code-copy-code-active-text: var(--vp-c-text-dark-2);
   --vp-c-bg-mute: #2d2d2d;
   --vp-c-kbd-box-outside-shadow: -1px -1px 1px #505050, 1px 1px 6px #000;
   --vp-c-kbd-box-inside-shadow: inset 1px 1px 3px #000, inset -3px -3px 6px #505050;
