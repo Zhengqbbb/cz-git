@@ -23,6 +23,7 @@ kbd {
 .VPNav.no-sidebar{
   background-color: var(--vp-c-bg-nav) !important;
 }
+
 @media (min-width: 960px){
   .VPNavBar.has-sidebar .content{
     background-color: var(--vp-c-bg-nav) !important;
@@ -50,6 +51,7 @@ kbd {
   color: var(--vp-c-brand);
   text-decoration: underline;
   text-underline-offset: 4px;
+  text-decoration-style: solid;
   text-decoration-color: transparent;
   -webkit-text-decoration-color: transparent;
   transition: text-decoration-color .25s;
@@ -62,7 +64,7 @@ kbd {
 }
 
 .VPLink.edit-link-button:hover {
-  color: var(--vp-c-brand-light);
+  color: var(--vp-c-text-3);
 }
 
 .vp-doc div[class*="language-"] {
@@ -105,7 +107,6 @@ img.error::after {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 
 /**
  * Home
@@ -161,23 +162,29 @@ img.error::after {
   }
 }
 
+.VPDocFooter .pager-link:hover .title {
+  color: var(--vp-c-brand);
+}
+
 /**
  * Container
  * -------------------------------------------------------------------------- */
 
 .vp-doc .custom-block a {
   color: var(--vp-c-brand);
-  text-decoration: none;
-  transition: opacity 0.1s;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-style: solid;
+  text-decoration-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  transition: text-decoration-color .25s;
 }
 
 .vp-doc .custom-block a:hover {
   color: var(--vp-c-brand);
-  text-decoration: underline;
-}
-
-.vp-doc .custom-block div[class*="language-"] code {
-  background: none;
+  text-decoration-color: var(--vp-c-brand);
+  -webkit-text-decoration-color: var(--vp-c-brand);
+  opacity: 1;
 }
 
 /**
@@ -192,13 +199,14 @@ img.error::after {
 }
 
 .medium-zoom-overlay {
-  /* override element style set by medium-zoom script */
+  /* override style set by medium-zoom script */
   background-color: var(--vp-c-bg) !important;
   z-index: 100;
 }
 
 .medium-zoom-overlay ~ img {
   z-index: 101;
+  border-radius: 0;
 }
 
 .medium-zoom--opened .medium-zoom-overlay {

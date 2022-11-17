@@ -30,6 +30,7 @@
 
 
 .dark {
+  --vp-c-brand: #D05A6E;
   --vp-c-bg: rgb(26, 26, 26);
   --vp-c-bg-alt: rgb(23, 23, 23);
   --vp-c-bg-nav: rgba(23, 23, 23, 0.7);
@@ -48,7 +49,6 @@
 
 :root {
   --vp-button-brand-active-border: var(--vp-c-brand-light);
-  --vp-c-text-dark-1: rgba(255, 255, 255, 1);
 }
 .dark {
   --vp-button-brand-hover-bg: var(--vp-c-brand-darker);
