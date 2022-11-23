@@ -1,7 +1,6 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import type { Ref } from 'vue'
 
-/* prettier-ignore */
 const emojiArr = ['🎉', '🐛', '💚', '🔍️', '💫', '👷', '🎡', '🧱', '💄', '⚡️', '♻️', '🔧', '✨', '🔨', '🏷️', '🚀', '🌐', '📝', '📚', '✅', '🔖', '📦️']
 
 export const useEmojiItem = (): Ref<string> => {

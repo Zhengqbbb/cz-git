@@ -8,11 +8,11 @@ export const optimizePages = async () => {
     pages.map(async (page) => {
       let html = await fs.readFile(page, 'utf8')
 
-      const prefetchImg = '\n\t<link rel="prefetch" href="/images/logo.svg">'
+      // const prefetchImg = '\n\t<link rel="prefetch" href="/images/logo.svg">'
 
       html = html.replace(
         '</head>',
-        `  <link rel="prefetch" href="/manifest.webmanifest">${prefetchImg}
+        `  <link rel="prefetch" href="/manifest.webmanifest">
 \t<link rel="manifest" href="/manifest.webmanifest">\n</head>`)
 
       await fs.writeFile(page, html, 'utf8')

@@ -42,12 +42,6 @@ export const pwaPlugin = VitePWA({
         sizes: '512x512',
         type: 'image/png',
       },
-      {
-        src: '/images/logo.svg',
-        sizes: '165x165',
-        type: 'image/svg',
-        purpose: 'any maskable',
-      },
     ],
   },
   workbox: {
