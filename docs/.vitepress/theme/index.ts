@@ -1,6 +1,6 @@
-import { h } from 'vue'
+import { h, watchEffect } from 'vue'
 import Theme from 'vitepress/theme'
-import { inBrowser } from 'vitepress'
+import { inBrowser, useData } from 'vitepress'
 import type { EnhanceAppContext } from 'vitepress'
 import './style/main.css'
 import './style/vars.css'
@@ -25,5 +25,12 @@ export default {
     app.component('CodeGroupItem', CodeGroupItem)
     createMediumZoomProvider(app, router)
     usePageAnalytics('G-V5E08LL4GP', 'b1d9002033c7e550e55a51a23dca4f31')
+  },
+  setup() {
+    const { lang } = useData()
+    watchEffect(() => {
+      if (typeof document !== 'undefined')
+        document.cookie = `nf_lang=${lang.value}; expires=Sun, 1 Jan 2024 00:00:00 UTC; path=/`
+    })
   },
 }
