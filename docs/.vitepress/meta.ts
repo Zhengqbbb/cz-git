@@ -1,6 +1,7 @@
 /** basic site info */
 export const name = 'cz-git'
 export const site = 'https://cz-git.qbb.sh'
+export const siteCN = 'https://cz-git.qbb.sh/zh/'
 export const logo = 'https://cz-git.qbb.sh/images/logo.png'
 export const keywords = 'cz-git, czg, cli, commitizen, commitizen cli,commitizen adapter, git-cz'
 export const descriptionEN
@@ -11,6 +12,7 @@ export const descriptionCN
 /** social links */
 export const ogTitle = 'cz-git - commitizen adapter and CLI'
 export const ogImg = 'https://cz-git.qbb.sh/images/og.png'
+export const ogImgCN = 'https://cz-git.qbb.sh/images/og.png'
 export const github = 'https://github.com/Zhengqbbb/cz-git'
 export const npm = 'https://www.npmjs.com/package/cz-git'
 export const twitter = 'https://twitter.com/zhengqbbb'

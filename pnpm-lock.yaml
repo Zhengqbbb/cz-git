@@ -77,7 +77,7 @@ importers:
       vite: ^3.2.4
       vite-plugin-pwa: ^0.13.3
       vite-plugin-radar: ^0.5.0
-      vitepress: 1.0.0-alpha.29
+      vitepress: npm:@brc-dd/vitepress@1.0.0-dev.43fdc7c
       vue: ^3.2.45
     dependencies:
       '@vueuse/core': 9.5.0_vue@3.2.45
@@ -97,7 +97,7 @@ importers:
       vite: 3.2.4
       vite-plugin-pwa: 0.13.3_vite@3.2.4
       vite-plugin-radar: 0.5.0_vite@3.2.4
-      vitepress: 1.0.0-alpha.29
+      vitepress: /@brc-dd/vitepress/1.0.0-dev.43fdc7c
 
   docs-zh:
     specifiers:
@@ -1555,6 +1555,33 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
+
+  /@brc-dd/vitepress/1.0.0-dev.43fdc7c:
+    resolution: {integrity: sha512-98uVr0lVN9WeGjDbLrqdUJe+aT0o00qaGGpTicIgSwj0qX/svpYyvdHWlSeNF7PMWwfLre3bYcOYjRMySSWSCA==}
+    hasBin: true
+    dependencies:
+      '@docsearch/css': 3.3.0
+      '@docsearch/js': 3.3.0
+      '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
+      '@vue/devtools-api': 6.4.5
+      '@vueuse/core': 9.5.0_vue@3.2.45
+      body-scroll-lock: 4.0.0-beta.0
+      shiki: 0.11.1
+      vite: 3.2.4
+      vue: 3.2.45
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@types/node'
+      - '@types/react'
+      - '@vue/composition-api'
+      - less
+      - react
+      - react-dom
+      - sass
+      - stylus
+      - sugarss
+      - terser
+    dev: true
 
   /@commitlint/cli/17.2.0:
     resolution: {integrity: sha512-kd1zykcrjIKyDRftWW1E1TJqkgzeosEkv1BiYPCdzkb/g/3BrfgwZUHR1vg+HO3qKUb/0dN+jNXArhGGAHpmaQ==}
