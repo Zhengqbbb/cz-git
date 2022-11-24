@@ -59,6 +59,25 @@ If you want to use Emoji, you need ==enable== `userEmoji` configuration item. <b
 And need to add Emoji Code, you can find the corresponding characters in: [https://gitmoji.dev/](https://gitmoji.dev/) or [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) to supplement `emoji`.
 :::
 
+## useEmoji
+
+- **description** : Whether to enable commit messages with Emoji characters.
+- **type** : `boolean`
+- **default** : `false`
+
+:::tip
+Try running command to **enable output emoji mode in the current session**
+- Commitizen CLI: `emoji=1 cz`
+- cz-git CLI: `czg emoji`
+:::
+
+## emojiAlign
+
+- **description** : Set the **location** of Emoji in header
+- **type** : `"left" | "center" | "right"`
+- **default** : `"center"`
+- **example**: `<left> type(scope): <center> subject <right>`
+
 ## typesAppend
 
 - **description** : Add extra types to default types
@@ -80,25 +99,6 @@ And need to add Emoji Code, you can find the corresponding characters in: [https
 - **description** : Default types list fuzzy search `value` key. Set `false` will search `name` key.
 - **type** : `boolean`
 - **default** : `true`
-
-## useEmoji
-
-- **description** : Whether to enable commit messages with Emoji characters.
-- **type** : `boolean`
-- **default** : `false`
-
-:::tip
-Try running command to **enable output emoji mode in the current session**
-- Commitizen CLI: `emoji=1 cz`
-- cz-git CLI: `czg emoji`
-:::
-
-## emojiAlign
-
-- **description** : Set the **location** of Emoji in header
-- **type** : `"left" | "center" | "right"`
-- **default** : `"center"`
-- **example**: `<left> type(scope): <center> subject <right>`
 
 ## customScopesAlign
 

@@ -4,7 +4,6 @@ printf "\033[36m%s\033[1;37m%s\033[0m\n" "current commit: "  "$COMMIT_REF"
 
 git diff --quiet "$CACHED_COMMIT_REF" "$COMMIT_REF" \
     "docs/"           \
-    "docs-zh/"        \
     "package.json"    \
     "pnpm-lock.yaml"  \
     "netlify.toml"    \

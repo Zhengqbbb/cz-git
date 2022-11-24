@@ -3,7 +3,7 @@
  * @Use `pnpm docs:update`
  * @Author: Qbenben
  * @LastEditors: Qbenben
- * @LastEditTime: 2022-08-29 17:51:33
+ * @LastEditTime: 2022-11-24 10:44:21
  */
 
 import fs from 'fs'
@@ -15,10 +15,9 @@ const CZ_GIT_READMES = ['../packages/cz-git/README.md', '../README.md']
 const CZ_git_DOCS = [
   '../docs/guide/introduction.md',
   '../docs/zh/guide/introduction.md',
-  '../docs-zh/guide/introduction.md',
 ]
 const CZG_READMES = ['../packages/cli/README.md']
-const CZG_DOCS = ['../docs/cli/index.md', '../docs/zh/cli/index.md', '../docs-zh/cli/index.md']
+const CZG_DOCS = ['../docs/cli/index.md', '../docs/zh/cli/index.md']
 
 interface Source {
   name: string

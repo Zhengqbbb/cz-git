@@ -6,7 +6,6 @@ on:
   #     - main
   #   paths:
   #     - 'docs/**'
-  #     - 'docs-zh/**'
   #     - '**.md'
   #   tags:
   #     - 'v*'
