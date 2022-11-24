@@ -61,6 +61,25 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 ==并且需添加 Emoji Code==，可以在: [https://gitmoji.dev/](https://gitmoji.dev/) 或 [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) 查找相应的字符进行补充到 `emoji`。
 :::
 
+## useEmoji
+
+- **描述** : 是否开启 commit message 带有 Emoji 字符。
+- **类型** : `boolean`
+- **默认** : `false`
+
+:::tip
+尝试运行命令 **可在当前会话直接开启输出 emoji 模式**
+- 使用 Commitizen CLI: `emoji=1 cz`
+- 使用 cz-git CLI: `czg emoji`
+:::
+
+## emojiAlign
+
+- **描述** : 设置 **Emoji 字符** 的 **位于头部位置**
+- **类型** : `"left" | "center" | "right"`
+- **默认** : `"center"`
+- **示例** : `<left> type(scope): <center> subject <right>`
+
 ## typesAppend
 
 - **描述** : 在默认 types 的基础上，添加额外的 types
@@ -77,30 +96,11 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 }
 ```
 
-## useEmoji
-
-- **描述** : 是否开启 commit message 带有 Emoji 字符。
-- **类型** : `boolean`
-- **默认** : `false`
-
-:::tip
-尝试运行命令 **可在当前会话直接开启输出 emoji 模式**
-- 使用 Commitizen CLI: `emoji=1 cz`
-- 使用 cz-git CLI: `czg emoji`
-:::
-
 ## typesSearchValueKey
 
 - **描述** : 默认 `types` 列表的模糊搜索针对 `value` 字段。设置为 `false` 后针对 `name` 字段
 - **类型** : `boolean`
 - **默认** : `true`
-
-## emojiAlign
-
-- **描述** : 设置 **Emoji 字符** 的 **位于头部位置**
-- **类型** : `"left" | "center" | "right"`
-- **默认** : `"center"`
-- **示例** : `<left> type(scope): <center> subject <right>`
 
 ## customScopesAlign
 
