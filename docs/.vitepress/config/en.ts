@@ -14,14 +14,14 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       text: 'Suggest changes to this page',
     },
     // NOTE: wait for support: https://github.com/vuejs/vitepress/issues/631#issuecomment-1325241151
-    // algolia: {
-    //   appId: 'QC8EFXZNC3',
-    //   apiKey: 'bf9a47e8561e6b8ffdda0bf8595a2f5d',
-    //   indexName: 'cz-git',
-    //   searchParameters: {
-    //     facetFilters: ['lang:en-US'],
-    //   },
-    // },
+    algolia: {
+      appId: 'QC8EFXZNC3',
+      apiKey: 'bf9a47e8561e6b8ffdda0bf8595a2f5d',
+      indexName: 'cz-git',
+      searchParameters: {
+        facetFilters: ['lang:en-US'],
+      },
+    },
     footer: {
       message: 'I just try my best to make thing well, Could you give a <a c-orange-5 target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a>',
       copyright: 'MIT Licensed | Copyright © 2022-present <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>',

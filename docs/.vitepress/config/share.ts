@@ -14,14 +14,6 @@ export const shareConfig = defineConfig({
     socialLinks: [
       { icon: 'github', link: github },
     ],
-    algolia: {
-      appId: 'QC8EFXZNC3',
-      apiKey: 'bf9a47e8561e6b8ffdda0bf8595a2f5d',
-      indexName: 'cz-git',
-      searchParameters: {
-        facetFilters: ['lang:en-US'],
-      },
-    },
   },
 
   lastUpdated: true,

@@ -25,6 +25,6 @@
     "vite": "^3.2.4",
     "vite-plugin-pwa": "^0.13.3",
     "vite-plugin-radar": "^0.5.0",
-    "vitepress": "npm:@brc-dd/vitepress@1.0.0-dev.43fdc7c"
+    "vitepress": "npm:@x-qb/vitepress-fork@1.0.0-alpha.29-4"
   }
 }
