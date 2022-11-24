@@ -20,5 +20,3 @@ windows:
             panes:
               - name: docs-en
                 exec: pnpm docs:dev
-              - name: docs-zh
-                exec: pnpm docs-zh:dev
