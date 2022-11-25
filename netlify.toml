@@ -15,5 +15,5 @@
 [[redirects]]
   from = "/"
   to = "/zh/"
-  status = 302
+  status = 301
   conditions = {Language = ["zh","zh-CN"], Country = ["CN","HK","TW","MO"]}
