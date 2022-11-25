@@ -20,7 +20,9 @@
   "files.associations": {
     "**/.x-cmd/*": "shellscript",
     "**/.x-cmd/*.yml": "yaml",
-    "*.css": "postcss"
+    "*.css": "postcss",
+    "_headers": "properties",
+    "_redirects": "properties",
   },
   "unocss.root": "docs/.vitepress/build/plugins/unocss.ts",
   "prettier.enable": false,
