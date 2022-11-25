@@ -6,3 +6,14 @@
   publish = "docs/.vitepress/dist"
   command = "npx pnpm i --store=node_modules/.pnpm-store --frozen-lockfile && npm run docs:build"
   ignore = "./scripts/docs-check.sh"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+
+[[redirects]]
+  from = "/"
+  to = "/zh/"
+  status = 302
+  conditions = {Language = ["zh","zh-CN"], Country = ["CN","HK","TW","MO"]}
