@@ -11,10 +11,3 @@
   for = "/manifest.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json"
-
-[[redirects]]
-  from = "/"
-  to = "/zh/"
-  status = 301
-  force = true
-  conditions = {Language = ["zh","zh-CN"]}
