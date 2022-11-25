@@ -16,4 +16,5 @@
   from = "/"
   to = "/zh/"
   status = 301
-  conditions = {Language = ["zh","zh-CN"], Country = ["CN","HK","TW","MO"]}
+  force = true
+  conditions = {Language = ["zh","zh-CN"]}
