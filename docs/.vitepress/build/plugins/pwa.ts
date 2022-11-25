@@ -46,7 +46,8 @@ export const pwaPlugin = VitePWA({
   },
   workbox: {
     navigateFallbackDenylist: [/^\/new$/],
-    globPatterns: ['**/*.{html,css,js,png,svg,gif,ico,woff2}'],
+    globPatterns: ['**/*.{js,css,webp,png,svg,gif,ico,woff2}'],
+    navigateFallback: null,
     runtimeCaching: [
       {
         urlPattern: googleFontRegex,

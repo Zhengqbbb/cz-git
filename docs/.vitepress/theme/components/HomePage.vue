@@ -4,7 +4,7 @@ import { useData } from 'vitepress'
 import { useEmojiItem, useMediumZoom } from './composables'
 
 const emoji = useEmojiItem()
-const frontmatter = computed(() => useData().frontmatter.value)
+const { frontmatter } = useData()
 const features = computed(() => frontmatter.value.czFeatures)
 const pkgFeatureTitle = computed(() => frontmatter.value.pkgFeatureTitle)
 const emojiFeature = computed(() => frontmatter.value.emojiFeature)
