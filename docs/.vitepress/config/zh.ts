@@ -9,6 +9,15 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   themeConfig: {
     nav,
     sidebar,
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+    returnToTopLabel: '返回顶部',
+    outlineTitle: '导航栏',
+    darkModeSwitchLabel: '外观',
+    sidebarMenuLabel: '菜单',
+    lastUpdatedText: '更新于',
     editLink: {
       pattern: `${github}/edit/main/docs/zh/:path`,
       text: '在 GitHub 上编辑此页',

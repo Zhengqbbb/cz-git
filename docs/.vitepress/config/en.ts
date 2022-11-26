@@ -9,6 +9,15 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   themeConfig: {
     nav,
     sidebar,
+    docFooter: {
+      prev: 'Previous page',
+      next: 'Next page',
+    },
+    returnToTopLabel: 'Return to top',
+    outlineTitle: 'On this page',
+    darkModeSwitchLabel: 'Appearance',
+    sidebarMenuLabel: 'Menu',
+    lastUpdatedText: 'Last updated',
     editLink: {
       pattern: `${github}/edit/main/docs/:path`,
       text: 'Suggest changes to this page',

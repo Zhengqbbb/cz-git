@@ -6,8 +6,3 @@
   publish = "docs/.vitepress/dist"
   command = "npx pnpm i --store=node_modules/.pnpm-store --frozen-lockfile && npm run docs:build"
   ignore = "./scripts/docs-check.sh"
-
-[[headers]]
-  for = "/manifest.webmanifest"
-  [headers.values]
-    Content-Type = "application/manifest+json"
