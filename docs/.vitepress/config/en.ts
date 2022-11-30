@@ -40,9 +40,9 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   head: [
     ['meta', { name: 'twitter:description', content: descriptionEN }],
     ['meta', { name: 'twitter:image', content: ogImg }],
-    ['meta', { name: 'og:description', content: descriptionEN }],
-    ['meta', { name: 'og:url', content: site }],
-    ['meta', { name: 'og:locale', content: 'en_US' }],
-    ['meta', { name: 'og:image', content: ogImg }],
+    ['meta', { property: 'og:description', content: descriptionEN }],
+    ['meta', { property: 'og:url', content: site }],
+    ['meta', { property: 'og:locale', content: 'en_US' }],
+    ['meta', { property: 'og:image', content: ogImg }],
   ],
 }

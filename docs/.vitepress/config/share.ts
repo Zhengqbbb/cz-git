@@ -51,7 +51,7 @@ export const shareConfig = defineConfig({
     ['meta', { name: 'twitter:creator', content: '@zhengqbbb' }],
     ['meta', { name: 'twitter:site', content: '@zhengqbbb' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'og:type', content: 'article' }],
+    ['meta', { property: 'og:type', content: 'article' }],
     ['meta', { name: 'application-name', content: name }],
     ['meta', { name: 'apple-mobile-web-app-title', content: name }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],

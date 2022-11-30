@@ -42,9 +42,9 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   head: [
     ['meta', { name: 'twitter:description', content: descriptionCN }],
     ['meta', { name: 'twitter:image', content: ogImgCN }],
-    ['meta', { name: 'og:description', content: descriptionCN }],
-    ['meta', { name: 'og:url', content: siteCN }],
-    ['meta', { name: 'og:locale', content: 'zh_CN' }],
-    ['meta', { name: 'og:image', content: ogImgCN }],
+    ['meta', { property: 'og:description', content: descriptionCN }],
+    ['meta', { property: 'og:url', content: siteCN }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:image', content: ogImgCN }],
   ],
 }
