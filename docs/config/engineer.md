@@ -134,21 +134,21 @@ If commitlint is used, it will automatically read `body-max-line-length` and set
 - **type** : `Array<"scope" | "body" | "breaking" | "footerPrefix" | "footer">`
 - **default** : `[]`
 
-## issuePrefixs
+## issuePrefixes
 
 - **description** : custom select issue prefix
 - **type** : `Array<{ value: string, name: string }>`
 - **default** : `[{ value: "closed", name: "closed: ISSUES has been processed" }]`
 
-## allowCustomIssuePrefixs
+## allowCustomIssuePrefix
 
-- **description** : whether to display custom options when selecting ISSUES prefixs (custom)
+- **description** : whether to display custom options when selecting ISSUES prefix (custom)
 - **type** : `boolean`
 - **default** : `true`
 
-## allowEmptyIssuePrefixs
+## allowEmptyIssuePrefix
 
-- **description** : whether to display an empty option when selecting ISSUES prefixs (skip)
+- **description** : whether to display an empty option when selecting ISSUES prefix (skip)
 - **type** : `boolean`
 - **default** : `true`
 

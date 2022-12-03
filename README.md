@@ -63,7 +63,7 @@ More engineered, lightweight, customizable, standard output format [commitizen a
 - 💪 Just to be a **lazy man** !!! Friendly command line tool, Supports **search and selection** on the command line, reducing spelling errors.
 - ⚡️ **Lightweight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
 - 🔨 [Better for monorepo engineering](https://cz-git.qbb.sh/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
-- ✅ Support commit with **emoji** ｜ Better linking with [issuePrefixs](https://cz-git.qbb.sh/recipes/default-issues.html) **for issue**
+- ✅ Support commit with **emoji** ｜ Better linking with [issuePrefix](https://cz-git.qbb.sh/recipes/default-issues.html) **for issue**
 
 [⇒ Why cz-git](https://cz-git.qbb.sh/guide/why.html)
 

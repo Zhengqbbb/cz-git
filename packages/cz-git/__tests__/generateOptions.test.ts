@@ -23,4 +23,25 @@ describe('generateOptions()', () => {
   test('generate default options should be equal default config', () => {
     expect(generateOptions({})).toEqual(defaultConfig)
   })
+
+  test('v1.4.0 fix typo option. old field should be normal compatibility', () => {
+    expect(generateOptions({
+      prompt: {
+        issuePrefixs: [{ value: 'link', name: 'link' }],
+        customIssuePrefixsAlign: 'top-bottom',
+        emptyIssuePrefixsAlias: 'sk',
+        customIssuePrefixsAlias: 'cs',
+        allowCustomIssuePrefixs: false,
+        allowEmptyIssuePrefixs: false,
+      },
+    })).toEqual({
+      ...defaultConfig,
+      issuePrefixes: [{ value: 'link', name: 'link' }],
+      customIssuePrefixAlign: 'top-bottom',
+      emptyIssuePrefixAlias: 'sk',
+      customIssuePrefixAlias: 'cs',
+      allowCustomIssuePrefix: false,
+      allowEmptyIssuePrefix: false,
+    })
+  })
 })

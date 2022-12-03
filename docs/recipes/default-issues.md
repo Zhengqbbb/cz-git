@@ -8,7 +8,7 @@
   - When using, we only need to press the <kbd>Enter</kbd> key to output the `Issue Number`, so that we can easily intercept the `Issue Number` to reduce repetitive work.
 
 
-==Tip:== We can also combine the `customIssuePrefixsAlign` configuration item to dynamically change the position of the issue prefix option.
+==Tip:== We can also combine the `customIssuePrefixAlign` configuration item to dynamically change the position of the issue prefix option.
 
 ```js{5-8,13-14}
 // .commitlintrc.js 
@@ -23,7 +23,7 @@ const { execSync } = require('child_process');
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
   prompt: {
-    customIssuePrefixsAlign: !issue ? "top" : "bottom",
+    customIssuePrefixAlign: !issue ? "top" : "bottom",
     defaultIssues: !issue ? "" : `#${issue}`
   }
 };
@@ -33,7 +33,7 @@ module.exports = {
 
 
 ::: tip
-If `cz-git` detects that `allowCustomIssuePrefixs` and `allowEmptyIssuePrefixs` have very strict rules (both set to false) and the **issuePrefixs selection list has only one item**, it will automatically skip question and output
+If `cz-git` detects that `allowCustomIssuePrefix` and `allowEmptyIssuePrefix` have very strict rules (both set to false) and the **issuePrefixes selection list has only one item**, it will automatically skip question and output
 :::
 
 <br>

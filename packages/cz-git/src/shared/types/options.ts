@@ -55,15 +55,21 @@ export interface Answers {
    * @default: List any BREAKING CHANGES (optional). Use "|" to break new line:\n
    */
   breaking?: string
+
+  /** @deprecated Please use `footerPrefixesSelect` field instead. @note fix typo option field v1.4.0: Already processed for normal compatibility */
+  footerPrefixsSelect?: string
   /**
    * @default: Select the ISSUES type of change (optional):
    */
-  footerPrefixsSelect?: string
-  footerPrefix?: string
+  footerPrefixesSelect?: string
+
+  /** @deprecated Please use `customFooterPrefix` field instead. @note fix typo option field v1.4.0: Already processed for normal compatibility */
+  customFooterPrefixs?: string
   /**
    * @default: Input ISSUES prefix:
    */
-  customFooterPrefixs?: string
+  customFooterPrefix?: string
+
   /**
    * @default: List any ISSUES AFFECTED by this change. E.g.: #31, #34:
    */
@@ -72,6 +78,7 @@ export interface Answers {
    * @default: Are you sure you want to proceed with the commit above?
    */
   confirmCommit?: string
+  footerPrefix?: string
 }
 
 export type ScopesType = string[] | Array<{ name: string; value?: string }>
@@ -181,7 +188,9 @@ export interface CommitizenGitOptions {
   typesAppend?: TypesOption[]
 
   /**
-   * @description: default types list fuzzy search types `value` options. if choose `false` will search `name` options
+   * @description: default types list fuzzy search types `value` options.
+   * if choose `false` will search `name` options
+   * @use Using emoji unicode as `value` and that can't be searched
    * @default: true
    */
   typesSearchValueKey?: boolean
@@ -206,7 +215,7 @@ export interface CommitizenGitOptions {
   scopes?: ScopesType
 
   /**
-   * @description: Provides an overriding select of prompt to select module scopes under specific typs
+   * @description: Provides an overriding select of prompt to select module scopes under specific type
    * @note use this option should set `scopes` option to realize distinguish
    * @example: [test] => provide select e2eTest unitTest
    */
@@ -280,7 +289,7 @@ export interface CommitizenGitOptions {
   allowBreakingChanges?: string[]
 
   /**
-   * @description: set body and BREAKING CHANGE max length to breakline
+   * @description: set body and BREAKING CHANGE max length to break-line
    * @default: 100
    * @note it auto check rule "body-max-line-length" set the option with `@commitlint`.
    * @use when you not use commitlint
@@ -294,37 +303,67 @@ export interface CommitizenGitOptions {
   breaklineChar?: string
 
   /**
-   * @description: Provides a select issue prefix box in footer
-   * @default: issuePrefixs: [{ value: "closed", name: "ISSUES has been processed" }]
+   * @deprecated Please use `issuePrefixes` field instead.
+   * @note fix typo option field v1.3.4: Already processed for normal compatibility
    */
   issuePrefixs?: Option[]
+  /**
+   * @description: Provides a select issue prefix box in footer
+   * @default: issuePrefixes: [{ value: "closed", name: "ISSUES has been processed" }]
+   */
+  issuePrefixes?: Option[]
 
+  /**
+   * @deprecated Please use `customIssuePrefixAlign` field instead.
+   * @note fix typo option field v1.3.4: Already processed for normal compatibility
+   */
+  customIssuePrefixsAlign?: 'top' | 'bottom' | 'top-bottom' | 'bottom-top'
   /**
    * @default: "top"
    */
-  customIssuePrefixsAlign?: 'top' | 'bottom' | 'top-bottom' | 'bottom-top'
+  customIssuePrefixAlign?: 'top' | 'bottom' | 'top-bottom' | 'bottom-top'
 
+  /**
+   * @deprecated Please use `emptyIssuePrefixAlias` field instead.
+   * @note fix typo option field v1.3.4: Already processed for normal compatibility
+   */
+  emptyIssuePrefixsAlias?: string
   /**
    * @default: "skip"
    */
-  emptyIssuePrefixsAlias?: string
+  emptyIssuePrefixAlias?: string
 
+  /**
+   * @deprecated Please use `customIssuePrefixAlias` field instead.
+   * @note fix typo option field v1.3.4: Already processed for normal compatibility
+   */
+  customIssuePrefixsAlias?: string
   /**
    * @default: "custom"
    */
-  customIssuePrefixsAlias?: string
+  customIssuePrefixAlias?: string
 
   /**
-   * @description: Whether to show "custom" selecting issue prefixs
-   * @default true
+   * @deprecated Please use `allowCustomIssuePrefix` field instead.
+   * @note fix typo option field v1.3.4: Already processed for normal compatibility
    */
   allowCustomIssuePrefixs?: boolean
-
   /**
-   * @description: Whether to show "skip(empty)" when selecting issue prefixs
+   * @description: Whether to show "custom" selecting issue prefixes
    * @default true
    */
+  allowCustomIssuePrefix?: boolean
+
+  /**
+   * @deprecated Please use `allowEmptyIssuePrefix` field instead.
+   * @note fix typo option field v1.3.4: Already processed for normal compatibility
+   */
   allowEmptyIssuePrefixs?: boolean
+  /**
+   * @description: Whether to show "skip(empty)" when selecting issue prefixes
+   * @default true
+   */
+  allowEmptyIssuePrefix?: boolean
 
   /**
    * @description: Prompt final determination whether to display the color
@@ -355,7 +394,7 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Is not strict subject rule. Just provide prompt word length warning.
-   * Effected maxHeader and maxSubject commlitlint
+   * Effected maxHeader and maxSubject commitlint
    * @example [1, 'always', 80] 1: mean warning. will be true
    * @default: false
    */
@@ -376,33 +415,33 @@ export interface CommitizenGitOptions {
   /**
    * @description: Whether to use display default value in custom scope
    * @tip pin scope item the top of the scope list (match item value)
-   * @example: When you want to use default, just keybord <Enter> it
+   * @example: When you want to use default, just keyboard <Enter> it
    */
   defaultScope?: string
 
   /**
    * @description: default value show subject template prompt
-   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
-   * @example: If you want to use default, just keybord <Enter> it
+   * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
+   * @example: If you want to use default, just keyboard <Enter> it
    */
   defaultSubject?: string
 
   /**
    * @description: default value show body and BREAKINGCHANGES template prompt
-   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
-   * @example: When you want to use default, just keybord <Enter> it
+   * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
+   * @example: When you want to use default, just keyboard <Enter> it
    */
   defaultBody?: string
   /**
-   * @description: default value show issuePrefixs custom template prompt
-   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
-   * @example: When you want to use default, just keybord <Enter> it
+   * @description: default value show issuePrefixes custom template prompt
+   * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
+   * @example: When you want to use default, just keyboard <Enter> it
    */
   defaultFooterPrefix?: string
   /**
    * @description: default value show issue foot template prompt
-   * @example: If you want to use template complate. just keybord <Tab> or <Right Arrow> it
-   * @example: When you want to use default, just keybord <Enter> it
+   * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
+   * @example: When you want to use default, just keyboard <Enter> it
    */
   defaultIssues?: string
 
@@ -432,8 +471,8 @@ export const defaultConfig = Object.freeze({
     body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
     markBreaking: 'Is any BREAKING CHANGE (add "!" in header) (optional) ?',
     breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
-    footerPrefixsSelect: 'Select the ISSUES type of change (optional):',
-    customFooterPrefixs: 'Input ISSUES prefix:',
+    footerPrefixesSelect: 'Select the ISSUES type of change (optional):',
+    customFooterPrefix: 'Input ISSUES prefix:',
     footer: 'List any ISSUES AFFECTED by this change. E.g.: #31, #34:\n',
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
   },
@@ -469,12 +508,12 @@ export const defaultConfig = Object.freeze({
   breaklineNumber: 100,
   breaklineChar: '|',
   skipQuestions: [],
-  issuePrefixs: [{ value: 'closed', name: 'closed:   ISSUES has been processed' }],
-  customIssuePrefixsAlign: 'top',
-  emptyIssuePrefixsAlias: 'skip',
-  customIssuePrefixsAlias: 'custom',
-  allowCustomIssuePrefixs: true,
-  allowEmptyIssuePrefixs: true,
+  issuePrefixes: [{ value: 'closed', name: 'closed:   ISSUES has been processed' }],
+  customIssuePrefixAlign: 'top',
+  emptyIssuePrefixAlias: 'skip',
+  customIssuePrefixAlias: 'custom',
+  allowCustomIssuePrefix: true,
+  allowEmptyIssuePrefix: true,
   confirmColorize: true,
   maxHeaderLength: Infinity,
   maxSubjectLength: Infinity,

@@ -38,7 +38,7 @@ sitemap:
 #### 使用 256 RGB Color
 > 不推荐使用在团队项目中使用，兼容性较差
 - **规则**: `"38;2;${R};${G};${B}"`       
-  ⇒ 你可以查看这个链接，如果你的终端是否支持显示 256 RGB Truecolor: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
+  ⇒ 你可以查看这个链接，如果你的终端是否支持显示 256 RGB True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
 - **示例**: `"38;2;255;100;0"`
 
 ---
@@ -120,19 +120,19 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **类型** : `string`
 - **默认** : `empty`
 
-## customIssuePrefixsAlign
+## customIssuePrefixAlign
 
 - **描述** : 设置 **选择 issue 前缀** 中 跳过选项(skip) 和 自定义选项(custom) 的 **位置**
 - **类型** : `"top" | "bottom" | "top-bottom" | "bottom-top"`
 - **默认** : `"top"`
 
-## customIssuePrefixsAlias
+## customIssuePrefixAlias
 
 - **描述** : 自定义 **选择 issue 前缀** 中 自定义选项(custom) 在命令行中显示的 **名称**
 - **类型** : `string`
 - **默认** : `custom`
 
-## emptyIssuePrefixsAlias
+## emptyIssuePrefixAlias
 
 - **描述** : 自定义 **选择 issue 前缀** 中 跳过选项(skip) 在命令行中显示的 **名称**
 - **类型** : `string`
