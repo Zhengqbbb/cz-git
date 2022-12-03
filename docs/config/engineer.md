@@ -142,13 +142,13 @@ If commitlint is used, it will automatically read `body-max-line-length` and set
 
 ## allowCustomIssuePrefix
 
-- **description** : whether to display custom options when selecting ISSUES prefixs (custom)
+- **description** : whether to display custom options when selecting ISSUES prefix (custom)
 - **type** : `boolean`
 - **default** : `true`
 
 ## allowEmptyIssuePrefix
 
-- **description** : whether to display an empty option when selecting ISSUES prefixs (skip)
+- **description** : whether to display an empty option when selecting ISSUES prefix (skip)
 - **type** : `boolean`
 - **default** : `true`
 

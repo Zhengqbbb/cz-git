@@ -38,7 +38,7 @@ sitemap:
 #### 使用 256 RGB Color
 > 不推荐使用在团队项目中使用，兼容性较差
 - **规则**: `"38;2;${R};${G};${B}"`       
-  ⇒ 你可以查看这个链接，如果你的终端是否支持显示 256 RGB Truecolor: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
+  ⇒ 你可以查看这个链接，如果你的终端是否支持显示 256 RGB True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
 - **示例**: `"38;2;255;100;0"`
 
 ---
