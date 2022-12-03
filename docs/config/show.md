@@ -94,7 +94,7 @@ Try running command to **enable output emoji mode in the current session**
 }
 ```
 
-## typesSearchValueKey
+## typesSearchValue
 
 - **description** : Default types list fuzzy search `value` key. Set `false` will search `name` key.
 - **type** : `boolean`

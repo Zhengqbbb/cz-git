@@ -25,7 +25,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     themeColorCode: ___X_CMD_THEME_COLOR_CODE || promptConfig.themeColorCode || defaultConfig.themeColorCode,
     types: promptConfig.types ?? defaultConfig.types,
     typesAppend: promptConfig.typesAppend ?? defaultConfig.typesAppend,
-    typesSearchValueKey: promptConfig.typesSearchValueKey ?? defaultConfig.typesSearchValueKey,
+    typesSearchValue: promptConfig.typesSearchValueKey ?? promptConfig.typesSearchValue ?? defaultConfig.typesSearchValue,
     useEmoji: Boolean(emoji === '1') || promptConfig.useEmoji || defaultConfig.useEmoji,
     emojiAlign: promptConfig.emojiAlign || defaultConfig.emojiAlign,
     scopes: promptConfig.scopes ?? getEnumList(config?.rules?.['scope-enum'] as any),

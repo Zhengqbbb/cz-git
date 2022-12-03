@@ -193,6 +193,8 @@ export interface CommitizenGitOptions {
    * @use Using emoji unicode as `value` and that can't be searched
    * @default: true
    */
+  typesSearchValue?: boolean
+  /** @deprecated Please use `typesSearchValue` field instead. */
   typesSearchValueKey?: boolean
 
   /**
@@ -490,7 +492,7 @@ export const defaultConfig = Object.freeze({
     { value: 'revert', name: 'revert:   Reverts a previous commit', emoji: ':rewind:' },
   ],
   typesAppend: [],
-  typesSearchValueKey: true,
+  typesSearchValue: true,
   themeColorCode: '',
   useEmoji: false,
   emojiAlign: 'center',
