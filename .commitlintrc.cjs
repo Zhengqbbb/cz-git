@@ -38,11 +38,11 @@ module.exports = {
       'table:docs': 'docs: update project using table' + coAuthoredBy,
     },
     themeColorCode: '38;5;043',
-    issuePrefixs: [
+    issuePrefixes: [
       { value: 'link', name: 'link:     Work in processing to ISSUES' },
       { value: 'closed', name: 'closed:   ISSUES has been processed' },
     ],
-    customIssuePrefixAlign: !issue ? 'top' : 'bottom',
+    customIssuePrefixAlign: 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
     formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,
   },
