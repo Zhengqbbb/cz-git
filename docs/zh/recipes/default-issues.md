@@ -7,7 +7,7 @@
   - 接着我们利用 `defaultIssues`
   - 使用时我们只需要按下 <kbd>回车</kbd> 键就可以输出`Issue Number`,如此一来我们可以很方便截取到 `Issue Number` 减少重复性工作。
 
-==提示:==  我们也可以结合 `customIssuePrefixsAlign` 配置项来动态改变 issue 前缀的选择项位置
+==提示:==  我们也可以结合 `customIssuePrefixAlign` 配置项来动态改变 issue 前缀的选择项位置
 
 ```js{5-8,13-14}
 // .commitlintrc.js 
@@ -22,7 +22,7 @@ const { execSync } = require('child_process');
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
   prompt: {
-    customIssuePrefixsAlign: !issue ? "top" : "bottom",
+    customIssuePrefixAlign: !issue ? "top" : "bottom",
     defaultIssues: !issue ? "" : `#${issue}`
   }
 };

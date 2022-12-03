@@ -214,31 +214,31 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
     {
       type: 'search-list',
       name: 'footerPrefix',
-      message: options.messages?.footerPrefixsSelect,
+      message: options.messages?.footerPrefixsSelect || options.messages?.footerPrefixesSelect,
       themeColorCode: options?.themeColorCode,
       source: (_: Answers, input: string) => {
         const issuePrefixSource = resovleCustomListTemplate(
-          options.issuePrefixs as Option[],
+          options.issuePrefixes as Option[],
           cz,
-          options.customIssuePrefixsAlign,
-          options.emptyIssuePrefixsAlias,
-          options.customIssuePrefixsAlias,
-          options.allowCustomIssuePrefixs,
-          options.allowEmptyIssuePrefixs,
+          options.customIssuePrefixAlign,
+          options.emptyIssuePrefixAlias,
+          options.customIssuePrefixAlias,
+          options.allowCustomIssuePrefix,
+          options.allowEmptyIssuePrefix,
         )
         return fuzzyFilter(input, issuePrefixSource)
       },
       when: () =>
         !isSingleItem(
-          options.allowCustomIssuePrefixs,
-          options.allowEmptyIssuePrefixs,
-          options.issuePrefixs,
+          options.allowCustomIssuePrefix,
+          options.allowEmptyIssuePrefix,
+          options.issuePrefixes,
         ),
     },
     {
       type: 'complete-input',
-      name: 'customFooterPrefixs',
-      message: options.messages?.customFooterPrefixs,
+      name: 'customFooterPrefix',
+      message: options.messages?.customFooterPrefixs || options.messages?.customFooterPrefix,
       completeValue: options.defaultFooterPrefix || undefined,
       when: (answers: Answers) => {
         return answers.footerPrefix === '___CUSTOM___'
