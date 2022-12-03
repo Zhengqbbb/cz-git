@@ -67,7 +67,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.defaultScope as string,
           options.scopeFilters,
         )
-        return fuzzyFilter(input, scopeSource)
+        const searchTarget = options.scopesSearchValue
+          ? 'value'
+          : 'name'
+        return fuzzyFilter(input, scopeSource, searchTarget)
       },
       validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes)

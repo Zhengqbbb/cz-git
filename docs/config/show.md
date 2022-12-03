@@ -100,6 +100,12 @@ Try running command to **enable output emoji mode in the current session**
 - **type** : `boolean`
 - **default** : `true`
 
+## scopesSearchValue
+
+- **description** : Default `scopes` list fuzzy search `name` key. Set `true` will search `value` key.
+- **type** : `boolean`
+- **default** : `false`
+
 ## customScopesAlign
 
 - **description** : Set the **location** of empty option (empty) and custom option (custom) in **selection range**

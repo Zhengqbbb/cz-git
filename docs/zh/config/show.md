@@ -98,9 +98,15 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 
 ## typesSearchValue
 
-- **描述** : 默认 `types` 列表的模糊搜索针对 `value` 字段。设置为 `false` 后针对 `name` 字段
+- **描述** : 默认 `types` 类别列表的模糊搜索针对列表 `value` 字段。设置为 `false` 后针对列表 `name` 字段
 - **类型** : `boolean`
 - **默认** : `true`
+
+## scopesSearchValue
+
+- **描述** : 默认 `scopes` 范围列表的模糊搜索针对列表 `name` 字段。设置为 `true` 后针对列表 `value` 字段
+- **类型** : `boolean`
+- **默认** : `false`
 
 ## customScopesAlign
 
