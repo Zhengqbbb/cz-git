@@ -42,7 +42,7 @@ module.exports = {
       { value: 'link', name: 'link:     Work in processing to ISSUES' },
       { value: 'closed', name: 'closed:   ISSUES has been processed' },
     ],
-    customIssuePrefixAlign: 'bottom',
+    customIssuePrefixAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
     formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,
   },
