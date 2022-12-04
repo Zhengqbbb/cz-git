@@ -1,3 +1,56 @@
+# [1.4.0](https://github.com/Zhengqbbb/cz-git/compare/v1.3.12...v1.4.0) (2022-12-04)
+
+### Bug Fixes
+
+* fix(cz-git,czg)!: fix typo option `issuePrefixs` field [#82](https://github.com/Zhengqbbb/cz-git/issues/82) ([#84](https://github.com/Zhengqbbb/cz-git/issues/84)) ([febeba9](https://github.com/Zhengqbbb/cz-git/commit/febeba9565932776f69627f6d1062a79deb9989b))
+
+
+### Features
+
+* **cz-git,czg:** add `scopesSearchValue` boolean option field [#83](https://github.com/Zhengqbbb/cz-git/issues/83) ([#85](https://github.com/Zhengqbbb/cz-git/issues/85)) ([867eb87](https://github.com/Zhengqbbb/cz-git/commit/867eb87431c81abcf75811efefc7e44a5dd34232))
+
+
+### ⚠ BREAKING CHANGES
+
+* **cz-git,czg:** rename option `typesSearchValueKey` to `typesSearchValue`
+  * Already processed for **normal compatibility**
+* **cz-git,czg:** main fix `issuePrefixs` typo field
+  * Current version has been already processed for **normal compatibility**
+  * But I also hope that you can modify this message as soon as possible
+
+```diff
+{
+  message: {
+-   footerPrefixsSelect
++   footerPrefixesSelect
+
+-   customFooterPrefixs
++   customFooterPrefix
+ }
+
+-   issuePrefixs
++   issuePrefixes
+
+-   customIssuePrefixsAlign
++   customIssuePrefixAlign
+
+-   emptyIssuePrefixsAlias
++   emptyIssuePrefixAlias
+
+-   customIssuePrefixsAlias
++   customIssuePrefixAlias
+
+-   allowCustomIssuePrefixs
++   allowCustomIssuePrefix
+
+-   allowEmptyIssuePrefixs
++   allowEmptyIssuePrefix
+}
+```
+
+Co-authored-by: [Chris](https://github.com/chrisbbreuer)
+
+
 ## [1.3.12](https://github.com/Zhengqbbb/cz-git/compare/v1.3.11...v1.3.12) (2022-10-21)
 
 
