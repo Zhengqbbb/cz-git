@@ -39,7 +39,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.types?.concat(options.typesAppend || []) || [],
           options.defaultType,
         )
-        const searchTarget = options.typesSearchValueKey
+        const searchTarget = options.typesSearchValue
           ? 'value'
           : 'name'
         return fuzzyFilter(input, typeSource, searchTarget)
@@ -67,7 +67,10 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           options.defaultScope as string,
           options.scopeFilters,
         )
-        return fuzzyFilter(input, scopeSource)
+        const searchTarget = options.scopesSearchValue
+          ? 'value'
+          : 'name'
+        return fuzzyFilter(input, scopeSource, searchTarget)
       },
       validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes)

@@ -94,11 +94,17 @@ Try running command to **enable output emoji mode in the current session**
 }
 ```
 
-## typesSearchValueKey
+## typesSearchValue
 
 - **description** : Default types list fuzzy search `value` key. Set `false` will search `name` key.
 - **type** : `boolean`
 - **default** : `true`
+
+## scopesSearchValue
+
+- **description** : Default `scopes` list fuzzy search `name` key. Set `true` will search `value` key.
+- **type** : `boolean`
+- **default** : `false`
 
 ## customScopesAlign
 

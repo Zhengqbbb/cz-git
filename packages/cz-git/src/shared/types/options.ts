@@ -188,11 +188,13 @@ export interface CommitizenGitOptions {
   typesAppend?: TypesOption[]
 
   /**
-   * @description: default types list fuzzy search types `value` options.
-   * if choose `false` will search `name` options
+   * @description: default types list fuzzy search types `value` key of list.
+   * if choose `false` will search `name` key of list
    * @use Using emoji unicode as `value` and that can't be searched
    * @default: true
    */
+  typesSearchValue?: boolean
+  /** @deprecated Please use `typesSearchValue` field instead. */
   typesSearchValueKey?: boolean
 
   /**
@@ -213,6 +215,14 @@ export interface CommitizenGitOptions {
    * @use want to add scopes description or when you not use commitlint
    */
   scopes?: ScopesType
+
+  /**
+   * @description: default scope list fuzzy search types `name` key of list.
+   * if choose `true` will search `value` key of list.
+   * @use If have long description of scope. can use it to enhanced search.
+   * @default: false
+   */
+  scopesSearchValue?: boolean
 
   /**
    * @description: Provides an overriding select of prompt to select module scopes under specific type
@@ -490,11 +500,14 @@ export const defaultConfig = Object.freeze({
     { value: 'revert', name: 'revert:   Reverts a previous commit', emoji: ':rewind:' },
   ],
   typesAppend: [],
-  typesSearchValueKey: true,
+  typesSearchValue: true,
   themeColorCode: '',
   useEmoji: false,
   emojiAlign: 'center',
   scopes: [],
+  scopesSearchValue: false,
+  scopeOverrides: undefined,
+  scopeFilters: ['.DS_Store'],
   enableMultipleScopes: false,
   scopeEnumSeparator: ',',
   allowCustomScopes: true,
@@ -519,8 +532,6 @@ export const defaultConfig = Object.freeze({
   maxSubjectLength: Infinity,
   isIgnoreCheckMaxSubjectLength: false,
   minSubjectLength: 0,
-  scopeOverrides: undefined,
-  scopeFilters: ['.DS_Store'],
   defaultType: '',
   defaultScope: '',
   defaultBody: '',
