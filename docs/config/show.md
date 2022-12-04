@@ -38,7 +38,7 @@ sitemap:
 #### Use 256 RGB Color
 > Not recommended for use in projects, poor compatibility
 - **rule**: `"38;2;${R};${G};${B}"`    
-  ⇒ You can check this link to see if your terminal supports displaying 256 RGB Color Truecolor: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
+  ⇒ You can check this link to see if your terminal supports displaying 256 RGB Color True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
 - **example**: `"38;2;255;100;0"`
 ---
 If you don't want to use the theme color of the configuration record, you can add a line to the profile file such as `~/.bashrc` or `~/.zshrc`, which will have a higher priority:
@@ -118,19 +118,19 @@ Try running command to **enable output emoji mode in the current session**
 - **type** : `string`
 - **default** : `empty`
 
-## customIssuePrefixsAlign
+## customIssuePrefixAlign
 
 - **description** : Set the **location** of skip option (skip) and custom option (custom) in **select issue prefix**
 - **type** : `"top" | "bottom" | "top-bottom" | "bottom-top"`
 - **default** : `"top"`
 
-## customIssuePrefixsAlias
+## customIssuePrefixAlias
 
 - **description** : custom **select the issue prefix** in the custom option (custom) to display the **name** on the command line
 - **type** : `string`
 - **default** : `custom`
 
-## emptyIssuePrefixsAlias
+## emptyIssuePrefixAlias
 
 - **description** : Customize the **name** displayed on the command line in the skip option (skip) in the **select issue prefix**
 - **type** : `string`
@@ -163,7 +163,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **description** : pin scope item the top of the scope list (match item value) 
 - **type** : `string`
 - **default** : `""`
-- **other** : Initialize the complation template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+- **other** : Initialize the completion template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
 ==Tip== [⇒ see the recipes](/recipes/default-scope.html)
 
@@ -173,7 +173,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **description** : Whether to use the display default value in the **short description**
 - **type** : `string`
 - **default** : `""`
-- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+- **use** :  **Initialize the completion template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
 ==Tip== [⇒ see the recipes](/recipes/default-subject.html)
 
@@ -182,20 +182,20 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **description** : Whether to use the display default value in the **detailed description**
 - **type** : `string`
 - **default** : `""`
-- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+- **use** :  **Initialize the completion template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
 ## defaultFooterPrefix
 
 - **description** : Whether to use the display default value in the **custom ISSUE prefix**
 - **type** : `string`
 - **default** : `""`
-- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+- **use** :  **Initialize the completion template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
 ## defaultIssues
 
 - **description** : Whether to use the display default value in the **input ISSUE**
 - **type** : `string`
 - **default** : `""`
-- **use** :  **Initialize the complation template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
+- **use** :  **Initialize the completion template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
 ==Tip== [⇒ see the recipes](/recipes/default-issues.html)

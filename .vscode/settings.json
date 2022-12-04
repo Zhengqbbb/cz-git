@@ -31,4 +31,25 @@
   },
   "picgo.picBed.github.path": "cz/",
   "editor.formatOnSave": false,
+  "cSpell.files": [
+    "packages/cz-git/src/shared/types/options.ts",
+    "README.md",
+    "docs/**/*"
+  ],
+  "cSpell.words": [
+    "BREAKCHANGE",
+    "BREAKINGCHANGE",
+    "BREAKINGCHANGES",
+    "breakline",
+    "Commitlint",
+    "commitlintrc",
+    "czrc",
+    "gitbash",
+    "Gitee",
+    "Qiubin",
+    "readdir",
+    "USERPROFILE",
+    "Zheng",
+    "Zhengqbbb"
+  ],
 }

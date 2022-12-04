@@ -33,14 +33,8 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
   if (isSingleItem(options.allowCustomScopes, options.allowEmptyScopes, scopeList))
     mapping.singleScope = scopeList[singleIndex].value
 
-  if (
-    isSingleItem(
-      options.allowCustomIssuePrefixs,
-      options.allowEmptyIssuePrefixs,
-      options.issuePrefixs,
-    )
-  )
-    mapping.singeIssuePrefix = options.issuePrefixs?.[singleIndex].value || ''
+  if (isSingleItem(options.allowCustomIssuePrefix, options.allowEmptyIssuePrefix, options.issuePrefixes))
+    mapping.singeIssuePrefix = options.issuePrefixes?.[singleIndex].value || ''
 
   return mapping
 }
@@ -129,9 +123,9 @@ export const generateMessage = (
     width: options.breaklineNumber,
   }
   // resolve custom value
-  const { customScope, customFooterPrefixs } = answers
+  const { customScope, customFooterPrefix } = answers
   answers.scope = getCustomValue(answers.scope, customScope)
-  answers.footerPrefix = getCustomValue(answers.footerPrefix, customFooterPrefixs) as string
+  answers.footerPrefix = getCustomValue(answers.footerPrefix, customFooterPrefix) as string
   // resolve single | multiple item
   const { singleScope, singeIssuePrefix } = getSingleParams(answers, options)
   const scopeSource = Array.isArray(answers.scope)

@@ -121,7 +121,7 @@ export const zh: DefaultTheme.Sidebar = {
           link: '/zh/recipes/breakingchange',
         },
         {
-          text: 'issuePrefixs',
+          text: 'issuePrefixes',
           link: '/zh/recipes/issue-prefixs',
         },
         {

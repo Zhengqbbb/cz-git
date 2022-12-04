@@ -57,7 +57,7 @@ describe('config loader', () => {
       },
       prompt: {
         useEmoji: true,
-        customIssuePrefixsAlign: 'top',
+        customIssuePrefixAlign: 'top',
       },
     })
   }, 1000)
@@ -73,7 +73,7 @@ describe('config loader', () => {
       },
       prompt: {
         useEmoji: true,
-        customIssuePrefixsAlign: 'top',
+        customIssuePrefixAlign: 'top',
         themeColorCode: '38;5;043',
       },
     })

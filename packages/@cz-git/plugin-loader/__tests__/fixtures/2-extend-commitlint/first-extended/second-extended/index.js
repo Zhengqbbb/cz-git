@@ -3,6 +3,6 @@ module.exports = {
     'scope-enum': [2, 'always', ['cz-git']],
   },
   prompt: {
-    customIssuePrefixsAlign: 'top',
+    customIssuePrefixAlign: 'top',
   },
 }

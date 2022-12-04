@@ -9,5 +9,5 @@ const mockCustomIssuePrefixsAlign = () => {
 
 module.exports = {
   useEmoji: mockUseEmoji,
-  customIssuePrefixsAlign: mockCustomIssuePrefixsAlign,
+  customIssuePrefixAlign: mockCustomIssuePrefixsAlign,
 }
