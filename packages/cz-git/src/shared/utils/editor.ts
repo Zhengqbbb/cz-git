@@ -244,7 +244,9 @@ export const getPreparedCommit = (context: string) => {
       .split(/\r\n|\r|\n/)
 
     if (preparedCommit.length && preparedCommit[0]) {
-      if (context === 'subject') { [message] = preparedCommit }
+      if (context === 'subject') {
+        [message] = preparedCommit
+      }
       else if (context === 'body' && preparedCommit.length > 1) {
         preparedCommit.shift()
         message = preparedCommit.join('|')

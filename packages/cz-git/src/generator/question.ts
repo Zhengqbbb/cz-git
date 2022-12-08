@@ -280,7 +280,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   ].filter(
     i =>
       !options.skipQuestions?.includes(
-        i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix',
+        i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix' | 'confirmCommit',
       ),
   )
 }

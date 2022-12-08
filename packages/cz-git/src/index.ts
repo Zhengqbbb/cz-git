@@ -5,7 +5,7 @@
  * @copyright: Copyright (c) 2022-present Qiubin Zheng
  */
 
-import { CompleteInput, SearchCheckbox, SearchList } from '@cz-git/inquirer'
+import { CompleteInput, SearchCheckbox, SearchList, style } from '@cz-git/inquirer'
 import { configLoader } from '@cz-git/loader'
 import { editCommit, log } from './shared'
 import { generateMessage, generateOptions, generateQuestions, getAliasMessage } from './generator'
@@ -35,6 +35,14 @@ export const prompter = (
     cz.registerPrompt('search-checkbox', SearchCheckbox)
     cz.registerPrompt('complete-input', CompleteInput)
     cz.prompt(questions).then((answers) => {
+      if (options.skipQuestions?.includes('confirmCommit')) {
+        commit(generateMessage(answers, options))
+        console.info(style.gray('###--------------------------------------------------------###'))
+        console.info(style.gray(generateMessage(answers, options, false)))
+        console.info(style.gray('###--------------------------------------------------------###\n'))
+        return 0
+      }
+
       switch (answers.confirmCommit) {
         case 'edit':
           editCommit(answers, options, commit)
