@@ -38,7 +38,7 @@ export const prompter = (
       if (options.skipQuestions?.includes('confirmCommit')) {
         commit(generateMessage(answers, options))
         console.info(style.gray('###--------------------------------------------------------###'))
-        console.info(style.gray(generateMessage(answers, options, false)))
+        console.info(generateMessage(answers, options, options.confirmColorize))
         console.info(style.gray('###--------------------------------------------------------###\n'))
         return 0
       }
