@@ -24,6 +24,9 @@ hero:
     - theme: alt
       text: 为什么选择 cz-git?
       link: /zh/guide/why
+    - theme: alt
+      text: CLI
+      link: /zh/cli/
 
 czFeatures:
   - title: 交互至上
