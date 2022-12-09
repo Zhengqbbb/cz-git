@@ -5,9 +5,9 @@
  * @copyright: Copyright (c) 2022-present Qiubin Zheng
  */
 
-import { CompleteInput, SearchCheckbox, SearchList, style } from '@cz-git/inquirer'
+import { CompleteInput, SearchCheckbox, SearchList } from '@cz-git/inquirer'
 import { configLoader } from '@cz-git/loader'
-import { editCommit, log } from './shared'
+import { editCommit, log, previewMessage } from './shared'
 import { generateMessage, generateOptions, generateQuestions, getAliasMessage } from './generator'
 import type { CommitizenType } from './shared'
 
@@ -37,9 +37,10 @@ export const prompter = (
     cz.prompt(questions).then((answers) => {
       if (options.skipQuestions?.includes('confirmCommit')) {
         commit(generateMessage(answers, options))
-        console.info(style.gray('###--------------------------------------------------------###'))
-        console.info(generateMessage(answers, options, options.confirmColorize))
-        console.info(style.gray('###--------------------------------------------------------###\n'))
+        previewMessage(
+          generateMessage(answers, options, options.confirmColorize),
+          options.confirmColorize,
+        )
         return 0
       }
 
