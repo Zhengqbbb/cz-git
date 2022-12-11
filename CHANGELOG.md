@@ -1,3 +1,12 @@
+## [1.4.1](https://github.com/Zhengqbbb/cz-git/compare/v1.4.0...v1.4.1) (2022-12-11)
+
+
+### Features
+
+* **cz-git,cli:** add `confirmCommit` in `skipQuestions` [#86](https://github.com/Zhengqbbb/cz-git/issues/86) ([#88](https://github.com/Zhengqbbb/cz-git/issues/88)) ([1167109](https://github.com/Zhengqbbb/cz-git/commit/1167109ddced2bf1f51977f4ceeb3ae3fba07417))
+
+
+
 # [1.4.0](https://github.com/Zhengqbbb/cz-git/compare/v1.3.12...v1.4.0) (2022-12-04)
 
 ### Bug Fixes
