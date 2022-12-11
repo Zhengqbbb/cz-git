@@ -131,7 +131,7 @@ If commitlint is used, it will automatically read `body-max-line-length` and set
 ## skipQuestions
 
 - **description** : The question specified by the custom selection is not displayed
-- **type** : `Array<"scope" | "body" | "breaking" | "footerPrefix" | "footer">`
+- **type** : `Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>`
 - **default** : `[]`
 
 ## issuePrefixes

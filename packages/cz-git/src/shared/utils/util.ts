@@ -189,3 +189,10 @@ export const getMaxSubjectLength = (
   }
   return countLength(optionMaxLength, typeLength, scopeLength, emojiLength)
 }
+
+export const previewMessage = (msg: string, confirmColorize = false) => {
+  const SEP = confirmColorize
+    ? '\u001B[90m###--------------------------------------------------------###\u001B[0m'
+    : '###--------------------------------------------------------###'
+  console.info(`\n${SEP}\n${msg}\n${SEP}\n`)
+}

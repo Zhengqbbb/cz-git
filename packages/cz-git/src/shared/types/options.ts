@@ -386,7 +386,7 @@ export interface CommitizenGitOptions {
    * @default: []
    * @example: ['body']
    */
-  skipQuestions?: Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer'>
+  skipQuestions?: Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>
 
   /**
    * @description: Force set max header length | Equivalent setting maxSubjectLength.

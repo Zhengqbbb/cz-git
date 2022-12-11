@@ -131,7 +131,7 @@ sitemap:
 ## skipQuestions
 
 - **描述** : 自定义选择指定的问题不显示
-- **类型** : `Array<"scope" | "body" | "breaking" | "footerPrefix" | "footer">`
+- **类型** : `Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>`
 - **默认** : `[]`
 
 ## issuePrefixes

@@ -7,7 +7,7 @@
 
 import { CompleteInput, SearchCheckbox, SearchList } from '@cz-git/inquirer'
 import { configLoader } from '@cz-git/loader'
-import { editCommit, log } from './shared'
+import { editCommit, log, previewMessage } from './shared'
 import { generateMessage, generateOptions, generateQuestions, getAliasMessage } from './generator'
 import type { CommitizenType } from './shared'
 
@@ -35,6 +35,15 @@ export const prompter = (
     cz.registerPrompt('search-checkbox', SearchCheckbox)
     cz.registerPrompt('complete-input', CompleteInput)
     cz.prompt(questions).then((answers) => {
+      if (options.skipQuestions?.includes('confirmCommit')) {
+        commit(generateMessage(answers, options))
+        previewMessage(
+          generateMessage(answers, options, options.confirmColorize),
+          options.confirmColorize,
+        )
+        return 0
+      }
+
       switch (answers.confirmCommit) {
         case 'edit':
           editCommit(answers, options, commit)

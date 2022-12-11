@@ -13,6 +13,7 @@ import {
   isSingleItem,
   log,
   parseStandardScopes,
+  previewMessage,
   resolveListItemPinTop,
   resovleCustomListTemplate,
 } from '../shared'
@@ -268,11 +269,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       ],
       default: 0,
       message(answers: Answers) {
-        const SEP = options.confirmColorize
-          ? style.gray('###--------------------------------------------------------###')
-          : '###--------------------------------------------------------###'
-        console.info(
-          `\n${SEP}\n${generateMessage(answers, options, options.confirmColorize)}\n${SEP}\n`,
+        previewMessage(
+          generateMessage(answers, options, options.confirmColorize),
+          options.confirmColorize,
         )
         return options.messages?.confirmCommit
       },
@@ -280,7 +279,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   ].filter(
     i =>
       !options.skipQuestions?.includes(
-        i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix',
+        i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix' | 'confirmCommit',
       ),
   )
 }
