@@ -15,10 +15,6 @@ cz-git:
       link: https://github.com/IDuxFE/idux
       icon: https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png
 
-    - name: NntUI
-      link: https://github.com/jdf2e/nutui
-      icon: https://user-images.githubusercontent.com/40693636/176894936-88fc85da-8fd7-4a0f-b641-7268c4759eb1.png
-
     - name: Vben-Admin
       link: https://github.com/vbenjs/vue-vben-admin
       icon: https://user-images.githubusercontent.com/40693636/178189964-931a1fc2-92df-4d04-8d0d-b748fc318c0a.png
