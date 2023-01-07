@@ -8,9 +8,9 @@ sitemap:
 
 # 为什么选择 cz-git
 
-#### 为什么做了这款插件
+<br>
 
-[cz-git 友好型 commitizen 的适配器，我的开发的心路历程](https://www.qbenben.com/post/2022/02/27/cz-git/)
+为什么制作了这款插件 - 文章: [「cz-git 开发的心路历程」](https://www.qbb.sh/posts/2022-12-26-cz-git-czg-journey-zh)
 
 ---
 

@@ -2,6 +2,8 @@
 
 ## Motivation
 
+Article: [「czg development journey」](https://www.qbb.sh/posts/2022-12-26-cz-git-czg-journey#the-development-journey-of-czg)
+
 cz-git has always used [Commitizen CLI](https://github.com/commitizen/cz-cli) as an adapter (plugin)
 
 But recently I want a CLI which is zero dependency, faster to download, faster to start, simple and convenient, that I can use it in any project without any additional configuration items, fast starts the CLI.

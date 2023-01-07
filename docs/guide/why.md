@@ -8,6 +8,12 @@ sitemap:
 
 # Why cz-git
 
+<br>
+
+Why developed `cz-git` - article: [「cz-git development journey」](https://www.qbb.sh/posts/2022-12-26-cz-git-czg-journey)
+
+---
+
 - [**cz-customizable**](https://github.com/leoforfree/cz-customizable) :
   1. Adding additional configuration files are needed.
   2. Only supports the upper and lower choices.
