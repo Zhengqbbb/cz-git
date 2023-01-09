@@ -1,4 +1,8 @@
 cz-git:
+    - name: Nx
+      link: https://github.com/nrwl/nx
+      icon: https://user-images.githubusercontent.com/40693636/211251507-e45992b8-6e49-44e4-933c-100a68f5ff48.png
+
     - name: Element Plus
       link: https://github.com/element-plus/element-plus
       icon: https://user-images.githubusercontent.com/40693636/172459748-939e3f1b-a694-4c09-b643-e1dce602105c.png
@@ -36,6 +40,10 @@ cz-git:
       icon: https://user-images.githubusercontent.com/40693636/170830637-0d465b52-6204-4bbd-872f-fb6f27f1ed50.png
 
 czg:
+    - name: Nx
+      link: https://github.com/nrwl/nx
+      icon: https://user-images.githubusercontent.com/40693636/211251507-e45992b8-6e49-44e4-933c-100a68f5ff48.png
+ 
     - name: Element Plus
       link: https://github.com/element-plus/element-plus
       icon: https://user-images.githubusercontent.com/40693636/172459748-939e3f1b-a694-4c09-b643-e1dce602105c.png
@@ -47,7 +55,3 @@ czg:
     - name: Vben-Admin
       link: https://github.com/vbenjs/vue-vben-admin
       icon: https://user-images.githubusercontent.com/40693636/178189964-931a1fc2-92df-4d04-8d0d-b748fc318c0a.png
-
-    - name: Vue3-Antd-Admin
-      link: https://github.com/buqiyuan/vue3-antd-admin
-      icon: https://user-images.githubusercontent.com/40693636/170830597-31d6f0d7-2c93-491b-a984-7bf21db8f75b.png

@@ -75,6 +75,12 @@ added 1 package in 0.482s
 <table>
   <tr>
     <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/nrwl/nx">
+        <img src="https://user-images.githubusercontent.com/40693636/211251507-e45992b8-6e49-44e4-933c-100a68f5ff48.png" alt="Nx logo" width="40">
+        <sub>Nx</sub>
+      </a>
+    </td>
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/element-plus/element-plus">
         <img src="https://user-images.githubusercontent.com/40693636/172459748-939e3f1b-a694-4c09-b643-e1dce602105c.png" alt="Element Plus logo" width="40">
         <sub>Element Plus</sub>
@@ -92,14 +98,14 @@ added 1 package in 0.482s
         <sub>TDesign-Vue-Next</sub>
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/IDuxFE/idux">
         <img src="https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png" alt="iDux logo" width="40">
         <sub>iDux</sub>
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/vbenjs/vue-vben-admin">
         <img src="https://user-images.githubusercontent.com/40693636/178189964-931a1fc2-92df-4d04-8d0d-b748fc318c0a.png" alt="Vben-Admin logo" width="40">
@@ -118,14 +124,14 @@ added 1 package in 0.482s
         <sub>Geeker-Admin</sub>
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope">
         <img src="https://user-images.githubusercontent.com/40693636/170830621-45577c1d-6e6e-4916-bb43-15af954d994b.png" alt="Vuepress-Theme-Hope logo" width="40">
         <sub>Vuepress-Theme-Hope</sub>
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/Renovamen/vuepress-theme-gungnir">
         <img src="https://user-images.githubusercontent.com/40693636/170830637-0d465b52-6204-4bbd-872f-fb6f27f1ed50.png" alt="Vuepress-Theme-Gungnir logo" width="40">

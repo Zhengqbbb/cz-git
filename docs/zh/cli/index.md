@@ -92,6 +92,12 @@ See 'git commit --help' for more information.
 <table>
   <tr>
     <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/nrwl/nx">
+        <img src="https://user-images.githubusercontent.com/40693636/211251507-e45992b8-6e49-44e4-933c-100a68f5ff48.png" alt="Nx logo" width="40">
+        <sub>Nx</sub>
+      </a>
+    </td>
+    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/element-plus/element-plus">
         <img src="https://user-images.githubusercontent.com/40693636/172459748-939e3f1b-a694-4c09-b643-e1dce602105c.png" alt="Element Plus logo" width="40">
         <sub>Element Plus</sub>
@@ -107,12 +113,6 @@ See 'git commit --help' for more information.
       <a target="_blank" href="https://github.com/vbenjs/vue-vben-admin">
         <img src="https://user-images.githubusercontent.com/40693636/178189964-931a1fc2-92df-4d04-8d0d-b748fc318c0a.png" alt="Vben-Admin logo" width="40">
         <sub>Vben-Admin</sub>
-      </a>
-    </td>
-    <td align="center" width="200px">
-      <a target="_blank" href="https://github.com/buqiyuan/vue3-antd-admin">
-        <img src="https://user-images.githubusercontent.com/40693636/170830597-31d6f0d7-2c93-491b-a984-7bf21db8f75b.png" alt="Vue3-Antd-Admin logo" width="40">
-        <sub>Vue3-Antd-Admin</sub>
       </a>
     </td>
   </tr>
