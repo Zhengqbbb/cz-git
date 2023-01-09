@@ -15,10 +15,6 @@ cz-git:
       link: https://github.com/Tencent/tdesign-vue-next
       icon: https://user-images.githubusercontent.com/40693636/170830562-38e4c998-9af4-4303-9270-4f14e0942b08.png
 
-    - name: iDux
-      link: https://github.com/IDuxFE/idux
-      icon: https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png
-
     - name: Vben-Admin
       link: https://github.com/vbenjs/vue-vben-admin
       icon: https://user-images.githubusercontent.com/40693636/178189964-931a1fc2-92df-4d04-8d0d-b748fc318c0a.png
@@ -30,6 +26,10 @@ cz-git:
     - name: Geeker-Admin
       link: https://github.com/HalseySpicy/Geeker-Admin
       icon: https://user-images.githubusercontent.com/40693636/170830842-319d83ce-df67-488d-b08f-818947a5a540.png
+
+    - name: iDux
+      link: https://github.com/IDuxFE/idux
+      icon: https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png
 
     - name: Vuepress-Theme-Hope
       link: https://github.com/vuepress-theme-hope/vuepress-theme-hope

@@ -126,12 +126,6 @@ added 1 package in 0.482s
   </tr>
   <tr>
     <td align="center" width="200px">
-      <a target="_blank" href="https://github.com/IDuxFE/idux">
-        <img src="https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png" alt="iDux logo" width="40"><br>
-        <sub>iDux</sub>
-      </a>
-    </td>
-    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/vbenjs/vue-vben-admin">
         <img src="https://user-images.githubusercontent.com/40693636/178189964-931a1fc2-92df-4d04-8d0d-b748fc318c0a.png" alt="Vben-Admin logo" width="40"><br>
         <sub>Vben-Admin</sub>
@@ -147,6 +141,12 @@ added 1 package in 0.482s
       <a target="_blank" href="https://github.com/HalseySpicy/Geeker-Admin">
         <img src="https://user-images.githubusercontent.com/40693636/170830842-319d83ce-df67-488d-b08f-818947a5a540.png" alt="Geeker-Admin logo" width="40"><br>
         <sub>Geeker-Admin</sub>
+      </a>
+    </td>
+    <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/IDuxFE/idux">
+        <img src="https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png" alt="iDux logo" width="40"><br>
+        <sub>iDux</sub>
       </a>
     </td>
   </tr>
