@@ -17,7 +17,7 @@ export const shareConfig = defineConfig({
   },
 
   lastUpdated: true,
-  useWebFonts: true,
+  useWebFonts: false,
   appearance: 'dark',
   cleanUrls: 'without-subfolders',
   buildEnd: async (siteConfig) => {
