@@ -5,9 +5,8 @@ node_modules
 # Docs
 sitemap.xml
 urls.txt
-.temp
-.cache
 dist
+docs/.vitepress/cache
 
 # Mac OS
 .DS_Store
