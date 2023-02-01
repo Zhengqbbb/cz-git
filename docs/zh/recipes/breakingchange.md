@@ -4,7 +4,7 @@
 
 See: 该规则来自 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#examples)<br>
 E.g:
-```text
+```
 # Commit message 带有 ! 提示重大变更
 feat!: send an email to the customer when a product is shipped
 

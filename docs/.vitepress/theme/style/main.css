@@ -42,11 +42,6 @@ kbd {
   background-color: var(--vp-custom-block-tip-bg);
 }
 
-.vp-doc .custom-block.details summary {
-  cursor: pointer;
-  font-weight: 600;
-}
-
 .vp-doc a {
   color: var(--vp-c-brand);
   text-decoration: underline;
@@ -169,22 +164,60 @@ img.error::after {
 /**
  * Container
  * -------------------------------------------------------------------------- */
-
-.vp-doc .custom-block a {
-  color: var(--vp-c-brand);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-style: solid;
-  text-decoration-color: transparent;
-  -webkit-text-decoration-color: transparent;
-  transition: text-decoration-color .25s;
+ vp-doc .custom-block kbd {
+  color: var(--vp-c-fgDeeper);
 }
 
-.vp-doc .custom-block a:hover {
-  color: var(--vp-c-brand);
-  text-decoration-color: var(--vp-c-brand);
-  -webkit-text-decoration-color: var(--vp-c-brand);
-  opacity: 1;
+.vp-doc .custom-block code {
+  background-color: inherit;
+}
+
+.vp-doc .custom-block.info .custom-block-title,
+.vp-doc .custom-block.info :not(pre)>code,
+.vp-doc .custom-block.info strong,
+.vp-doc .custom-block.info a,
+.vp-doc .custom-block.info b {
+  color: var(--vp-custom-block-info-text-deep);
+}
+
+.vp-doc .custom-block.tip .custom-block-title,
+.vp-doc .custom-block.tip :not(pre)>code,
+.vp-doc .custom-block.tip strong,
+.vp-doc .custom-block.tip a,
+.vp-doc .custom-block.tip b {
+  color: var(--vp-custom-block-tip-text-deep);
+}
+
+.vp-doc .custom-block.warning .custom-block-title,
+.vp-doc .custom-block.warning :not(pre)>code,
+.vp-doc .custom-block.warning strong,
+.vp-doc .custom-block.warning a,
+.vp-doc .custom-block.warning b {
+  color: var(--vp-custom-block-warning-text-deep);
+}
+
+.vp-doc .custom-block.danger .custom-block-title,
+.vp-doc .custom-block.danger :not(pre)>code,
+.vp-doc .custom-block.danger strong,
+.vp-doc .custom-block.danger a,
+.vp-doc .custom-block.danger b {
+  color: var(--vp-custom-block-danger-text-deep);
+}
+
+.vp-doc .custom-block a:hover,
+.vp-doc .custom-block a:active {
+  color: inherit;
+  text-decoration-color: inherit;
+}
+
+.vp-doc .custom-block :not(pre)>code {
+  padding: 3px 0;
+}
+
+.vp-doc .custom-block :not(pre)>code::before,
+.vp-doc .custom-block :not(pre)>code::after {
+  content: "`";
+  opacity: 0.8;
 }
 
 /**

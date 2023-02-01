@@ -1,10 +1,9 @@
 import type { DefaultTheme } from 'vitepress'
 
-export const en: DefaultTheme.Sidebar = {
+export const sidebar: DefaultTheme.Sidebar = {
   '/cli/': [
     {
       text: 'Guide',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -12,18 +11,17 @@ export const en: DefaultTheme.Sidebar = {
           link: '/cli/',
         },
         {
-          text: 'Getting Started',
-          link: '/cli/install',
-        },
-        {
           text: 'Why czg',
           link: '/cli/why',
+        },
+        {
+          text: 'Getting Started',
+          link: '/cli/install',
         },
       ],
     },
     {
       text: 'Subcommands',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -46,7 +44,6 @@ export const en: DefaultTheme.Sidebar = {
     },
     {
       text: 'Options',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -67,7 +64,6 @@ export const en: DefaultTheme.Sidebar = {
   '/': [
     {
       text: 'Guide',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -86,7 +82,6 @@ export const en: DefaultTheme.Sidebar = {
     },
     {
       text: 'Config',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -105,7 +100,6 @@ export const en: DefaultTheme.Sidebar = {
     },
     {
       text: 'Recipes',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -145,3 +139,4 @@ export const en: DefaultTheme.Sidebar = {
     },
   ],
 }
+export default sidebar

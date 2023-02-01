@@ -17,9 +17,9 @@ export const shareConfig = defineConfig({
   },
 
   lastUpdated: true,
+  cleanUrls: true,
   useWebFonts: false,
   appearance: 'dark',
-  cleanUrls: 'without-subfolders',
   buildEnd: async (siteConfig) => {
     await generateSitemap(siteConfig)
     await rebuildPWA()

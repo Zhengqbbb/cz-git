@@ -15,7 +15,7 @@ sitemap:
 - `commitlint.config.js`
 - `commitlint.config.cjs`
 
-::: details Click to expand .commitlintrc.js complete default configuration template
+::: details Click to expand `.commitlintrc.js` complete default configuration template
 
 ```js
 // commitlint.config.js | .commitlintrc.js
@@ -92,7 +92,7 @@ module.exports = {
 - `cz.config.js`
 - `cz.config.cjs`
 
-:::details Click to expand cz.config.js complete default configuration template
+::: details Click to expand `cz.config.js` complete default configuration template
 
 ```js
 // cz.config.js
@@ -177,7 +177,7 @@ module.exports = {
 
 ## Emoji template
 
-::: details Click to expand .commitlintrc.js complete emoji template template
+::: details Click to expand `.commitlintrc.js` complete emoji template template
 
 ```js{22-32,34}
 // .commitlintrc.js
@@ -261,7 +261,7 @@ module.exports = {
 It is recommended to use JavaScript for configuration files in the project. You can combine `fs` and `path` to select [scopes](/recipes/#scopes) for generating dynamic modules.
 :::
 
-::: details Click to expand JSON default configuration template
+::: details Click to expand `JSON` default configuration template
 
 ```json
 // .czrc | package.json | .commitlintrc(need "prompt" key)
@@ -326,7 +326,7 @@ It is recommended to use JavaScript for configuration files in the project. You 
 ## TypeScript template
 
 :::danger
-**Since <u>v1.3.0</u>. The typescript configuration file will no longer be loaded**. e.g(commitlint.config.ts)
+**Since <u>v1.3.0</u>. The typescript configuration file will no longer be loaded**. e.g(`commitlint.config.ts`)
 
 - Using the TypeScript configuration file will **affects command line tool startup speed**.
 - Increase the package size.

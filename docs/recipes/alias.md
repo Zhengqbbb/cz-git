@@ -38,5 +38,7 @@ cz_alias=fd git cz
 ![demo-gif](https://user-images.githubusercontent.com/40693636/176701915-3f57721a-a54b-4e23-8de6-4d205e01ef9f.gif) <!-- size=688x263 -->
 
 ::: warning
-Use Commitizen CLI like `cz_alias=fd cz`. The process can't exit after commit. Because `cz-cli` not listening for Node.js `close` event, cz-git can't handle.
+Use Commitizen CLI like `cz_alias=fd cz`. The process can't exit after commit. 
+
+Because `cz-cli` not listening for Node.js `close` event, cz-git can't handle.
 :::

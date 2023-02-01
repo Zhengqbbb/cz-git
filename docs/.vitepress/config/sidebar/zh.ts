@@ -1,10 +1,9 @@
 import type { DefaultTheme } from 'vitepress'
 
-export const zh: DefaultTheme.Sidebar = {
+export const sidebar: DefaultTheme.Sidebar = {
   '/zh/cli/': [
     {
       text: '指南',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -12,18 +11,17 @@ export const zh: DefaultTheme.Sidebar = {
           link: '/zh/cli/',
         },
         {
-          text: '快速开始',
-          link: '/zh/cli/install',
-        },
-        {
           text: '为什么选择 czg',
           link: '/zh/cli/why',
+        },
+        {
+          text: '快速开始',
+          link: '/zh/cli/install',
         },
       ],
     },
     {
       text: '子命令',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -46,7 +44,6 @@ export const zh: DefaultTheme.Sidebar = {
     },
     {
       text: '选项',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -67,7 +64,6 @@ export const zh: DefaultTheme.Sidebar = {
   '/zh/': [
     {
       text: '指南',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -86,7 +82,6 @@ export const zh: DefaultTheme.Sidebar = {
     },
     {
       text: '配置',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -105,7 +100,6 @@ export const zh: DefaultTheme.Sidebar = {
     },
     {
       text: '窍门',
-      collapsible: true,
       collapsed: false,
       items: [
         {
@@ -149,3 +143,4 @@ export const zh: DefaultTheme.Sidebar = {
     },
   ],
 }
+export default sidebar

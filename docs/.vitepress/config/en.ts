@@ -1,7 +1,7 @@
 import type { DefaultTheme, LocaleSpecificConfig } from 'vitepress'
 import { descriptionEN, github, ogImg, site } from '../meta'
-import { en as nav } from './navbar'
-import { en as sidebar } from './sidebar'
+import nav from './navbar/en'
+import sidebar from './sidebar/en'
 
 export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   description: descriptionEN,
@@ -22,7 +22,6 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       pattern: `${github}/edit/main/docs/:path`,
       text: 'Suggest changes to this page',
     },
-    // NOTE: wait for support: https://github.com/vuejs/vitepress/issues/631#issuecomment-1325241151
     algolia: {
       appId: 'QC8EFXZNC3',
       apiKey: 'bf9a47e8561e6b8ffdda0bf8595a2f5d',
@@ -33,7 +32,7 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     },
     footer: {
       message: 'I just try my best to make thing well, Could you give a <a c-orange-5 target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a>',
-      copyright: 'MIT Licensed | Copyright © 2022-present <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>',
+      copyright: `MIT Licensed | Copyright © 2022-${new Date().getFullYear()} <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>`,
     },
   },
 

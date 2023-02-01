@@ -52,40 +52,40 @@ More information about configure file and options. See → [Config](/config/)
 
 ## Features and Help
 
-```sh
-$ czg --help
-NAME:
-    czg - Interactive Commitizen CLI that generate standardized commit messages
+```ansi
+[90m$[0m [32mczg[0m --help
+[33mNAME:[0m 
+    [32mczg[0m - Interactive Commitizen CLI that generate standardized commit messages
 
-WEBSITE:
-    https://cz-git.qbb.sh/cli/
-    https://github.com/Zhengqbbb/cz-git
+[33mWEBSITE:[0m
+    [4mhttps://cz-git.qbb.sh/cli/[0m
+    [4mhttps://github.com/Zhengqbbb/cz-git[0m
 
-SYNOPSIS:
+[33mSYNOPSIS:[0m
     czg [subcommand...] [options...] [git-commit-options...]
 
-SUBCOMMAND:
-    break          Turn on appends a ! after the type/scope
-    emoji          Turn on output message with emoji mode
-    checkbox       Turn on scope checkbox mode
-    gpg            Turn on use GPG sign commit message
+[33mSUBCOMMAND:[0m
+    [36mbreak[0m          [31mTurn on appends a ! after the type/scope[0m
+    [36memoji[0m          [31mTurn on output message with emoji mode[0m
+    [36mcheckbox[0m       [31mTurn on scope checkbox mode[0m
+    [36mgpg[0m            [31mTurn on use GPG sign commit message[0m
+    
+[33mOPTIONS:[0m
+    [36m--config[0m       [31mSpecify the configuration file to use[0m
+    [36m:, --alias[0m     [31mDirectly submit the defined commit message[0m
+    [36m-r, --retry[0m    [31mDirectly retry submit by the last message[0m
+    [36m-h, --help[0m     [31mShow help[0m
+    [36m-v, --version[0m  [31mShow version[0m
 
-OPTIONS:
-    --config       Specify the configuration file to use
-    :, --alias     Directly submit the defined commit message
-    -r, --retry    Directly retry submit by the last message
-    -h, --help     Show help
-    -v, --version  Show version
+[33mEXAMPLES:[0m
+    [36mczg[0m
+    [36mczg emoji[0m
+    [36mczg :fd[0m
+    [36mczg --alias=fd[0m
+    [36mczg --config="./config/cz.json"[0m
 
-EXAMPLES:
-    czg
-    czg emoji
-    czg :fd
-    czg --alias=fd
-    czg --config="./config/cz.json"
-
-Extends 'git commit' options.
-See 'git commit --help' for more information.
+Extends 'git commit' options. 
+See 'git commit --help' for more information. 
 ```
 
 ## Projects using czg CLI

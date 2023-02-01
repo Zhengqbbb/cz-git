@@ -52,7 +52,7 @@ function getPagesData(site: string, srcDir: string, pages: string[]): PagesData[
           : p.replace('.md', '')
       }`,
       lastmod: getGitTimestamp(resolve(srcDir, p)),
-      priority: p === 'index.md' || p === 'zh/index.md'
+      priority: (p === 'index.md' || p === 'zh/index.md')
         ? 1
         : p.endsWith('index.md')
           ? 0.8

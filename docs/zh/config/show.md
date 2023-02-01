@@ -30,16 +30,15 @@ sitemap:
 
 :::tip
 ---
-#### 使用 256 Color
-- **规则**: `"38;5;${color_code: 0 ~ 255}"`    
-  ⇒ `color_code` 可以通过链接查看获取 [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
-- **示例**: `"38;5;075"`
+- **使用 256 Color**
+  - **规则**: `"38;5;${color_code: 0 ~ 255}"`    
+    ⇒ `color_code` 可以通过链接查看获取 [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
+  - **示例**: `"38;5;075"`
 
-#### 使用 256 RGB Color
-> 不推荐使用在团队项目中使用，兼容性较差
-- **规则**: `"38;2;${R};${G};${B}"`       
-  ⇒ 你可以查看这个链接，如果你的终端是否支持显示 256 RGB True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
-- **示例**: `"38;2;255;100;0"`
+- **使用 256 RGB Color** <sup>(不推荐使用在团队项目中使用，**需要终端支持，兼容性较差**)</sup>
+  - **规则**: `"38;2;${R};${G};${B}"`       
+    ⇒ 你可以查看这个链接，如果你使用的终端是否支持显示 256 RGB True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
+  - **示例**: `"38;2;255;100;0"`
 
 ---
 

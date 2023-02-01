@@ -4,7 +4,7 @@
 
 See: The rule by [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#examples)<br>
 E.g:
-```text
+```
 # Commit message with ! to draw attention to breaking change
 feat!: send an email to the customer when a product is shipped
 

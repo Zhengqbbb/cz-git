@@ -1,7 +1,7 @@
 import type { DefaultTheme } from 'vitepress'
 import { github, npm, version } from '../../meta'
 
-export const zh: DefaultTheme.NavItem[] = [
+export const nav: DefaultTheme.NavItem[] = [
   {
     text: '指南',
     link: '/zh/guide/',
@@ -44,3 +44,4 @@ export const zh: DefaultTheme.NavItem[] = [
     ],
   },
 ]
+export default nav

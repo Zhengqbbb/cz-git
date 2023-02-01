@@ -14,7 +14,7 @@ sitemap:
 - `commitlint.config.js`
 - `commitlint.config.cjs`
 
-::: details 点击展开 .commitlintrc.js 完整 默认 配置模板
+::: details 点击展开 `.commitlintrc.js` 完整 默认 配置模板
 
 ```js
 // .commitlintrc.js
@@ -92,7 +92,7 @@ module.exports = {
 - `cz.config.js`
 - `cz.config.cjs`
 
-:::details 点击展开 cz.config.js 完整 默认 配置模板
+::: details 点击展开 `cz.config.js` 完整 默认 配置模板
 
 ```js
 // cz.config.js
@@ -177,7 +177,7 @@ module.exports = {
 
 ## 中英文对照模板
 
-::: details 点击展开 .commitlintrc.js 完整 中英文 配置模板
+::: details 点击展开 `.commitlintrc.js` 完整 中英文 配置模板
 
 ```js
 // .commitlintrc.js
@@ -257,10 +257,10 @@ module.exports = {
 
 ::: warning
 不推荐使用纯中文进行commit，因为终端对于中文输入的支持并不是很友好，并且在使用搜索时没有英文交互来得自然。<br>
-推荐使用中英文对照，可以很好给予团队的新人帮助。
+[推荐使用中英文对照](#中英文对照模板)，可以很好给予团队的新人帮助。
 :::
 
-::: details 点击展开 .commitlintrc.js 完整 纯汉化 配置模板
+::: details 点击展开 `.commitlintrc.js` 完整 纯汉化 配置模板
 
 ```js
 // .commitlintrc.js
@@ -338,7 +338,7 @@ module.exports = {
 
 ## Emoji 模板
 
-::: details 点击展开 .commitlintrc.js 完整 emoji 配置模板
+::: details 点击展开 `.commitlintrc.js` 完整 emoji 配置模板
 
 ```js{22-32,34}
 // .commitlintrc.js
@@ -419,10 +419,10 @@ module.exports = {
 - 在 `package.json`中添加 `commitlint` 字段
 
 ::: tip
-推荐在项目中使用JavaScript进行配置文件，你可以结合`fs`和`path` 为生成动态模块选择[范围](/zh/recipes/#scopes)
+推荐在项目中使用JavaScript进行配置文件，你可以结合 `fs` 和 `path` 为生成动态模块选择[范围](/zh/recipes/#scopes)
 :::
 
-::: details 点击展开 json 配置模板
+::: details 点击展开 `JSON` 配置模板
 
 ```json
 // .czrc | package.json | .commitlintrc(need "prompt" key)
@@ -487,12 +487,12 @@ module.exports = {
 ## TypeScript 模板
 
 :::danger
-从 <u>v1.3.0</u> 开始，将不再支持 TypeScript 配置文件。例如（commitlint.config.ts）
+从 <u>v1.3.0</u> 开始，将不再支持 TypeScript 配置文件。例如(`commitlint.config.ts`)
 
 - 使用 TypeScript 配置文件会**影响命令行工具的启动速度**
 - 增加软件包的依赖项体积
 :::
 
 :::tip
-使用 js 配置文件添加`@type` 注释可以很好提供在配置时的代码提示.
+使用 js 配置文件添加 `@type` 注释可以很好提供在配置时的代码提示.
 :::
