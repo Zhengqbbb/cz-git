@@ -42,7 +42,7 @@ const getSingleParams = (answers: Answers, options: CommitizenGitOptions) => {
 const getCustomValue = (originVal?: string | string [], customVal?: string) => {
   if (Array.isArray(originVal))
     return originVal
-  return originVal !== '___CUSTOM___' ? originVal || '' : customVal || ''
+  return originVal !== '___CUSTOM___' ? (originVal || '') : (customVal || '')
 }
 
 const addType = (type: string, colorize?: boolean) => (colorize ? style.green(type) : type)
@@ -56,7 +56,7 @@ const addScope = (scope?: string, colorize?: boolean) => {
 
 const addBreakchangeMark = (markBreaking?: string | boolean, colorize?: boolean) => {
   const mark = colorize ? style.red('!') : '!'
-  return Boolean(markBreaking) || Boolean(process.env.break === '1') ? mark : ''
+  return (Boolean(markBreaking) || Boolean(process.env.break === '1')) ? mark : ''
 }
 
 const getEmojiCode = (type: string, options: CommitizenGitOptions): string => {

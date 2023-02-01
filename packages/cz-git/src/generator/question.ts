@@ -159,15 +159,19 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
         }
 
         tooltip
-          = minSubjectLength !== undefined
-          && subjectLength >= minSubjectLength
-          && subjectLength <= maxSubjectLength
+          = (
+            minSubjectLength !== undefined
+            && subjectLength >= minSubjectLength
+            && subjectLength <= maxSubjectLength
+          )
             ? style.gray(`[${tooltip}]`)
             : isWarning ? style.yellow(`[${tooltip}]`) : style.red(`[${tooltip}]`)
         subject
-          = minSubjectLength !== undefined
-          && subjectLength >= minSubjectLength
-          && subjectLength <= maxSubjectLength
+          = (
+            minSubjectLength !== undefined
+            && subjectLength >= minSubjectLength
+            && subjectLength <= maxSubjectLength
+          )
             ? useThemeCode(subject, options.themeColorCode)
             : isWarning ? useThemeCode(subject, options.themeColorCode) : style.red(subject)
 

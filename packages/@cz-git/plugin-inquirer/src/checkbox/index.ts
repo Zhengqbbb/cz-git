@@ -330,7 +330,7 @@ const choicesRender = (
     }
     else {
       const line
-        = choice.value === false || choice.value === '___CUSTOM___'
+        = (choice.value === false || choice.value === '___CUSTOM___')
           ? `${figures.squareSmallFilled} ${choice.name}`
           // eslint-disable-next-line @typescript-eslint/no-use-before-define
           : `${getCheckbox(choice.checked || false)} ${choice.name}`

@@ -87,7 +87,7 @@ export const clLoader = async (cwd?: string): Promise<CommitlintOptions> => {
     return {}
 
   // resolve extends
-  const base = data && data.filepath ? path.dirname(data.filepath) : process.cwd()
+  const base = (data && data.filepath) ? path.dirname(data.filepath) : process.cwd()
   const extended = resolveExtends(data.config, {
     prefix: 'commitlint-config',
     cwd: base,
@@ -121,7 +121,7 @@ export const czLoader = async (cwd?: string) => {
   if (!data)
     return {}
   if (typeof data.config.czConfig === 'string') {
-    const base = data && data.filepath ? path.dirname(data.filepath) : process.cwd()
+    const base = (data && data.filepath) ? path.dirname(data.filepath) : process.cwd()
     data = await cosmiconfig('commitizen', {
       ignoreEmptySearchPlaces: true,
       cache: true,

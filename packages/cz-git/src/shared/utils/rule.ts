@@ -86,11 +86,11 @@ export function enumRuleIsActive(
 }
 
 export function getEnumList(rule: Rule | undefined): string[] {
-  return rule && Array.isArray(rule) && Array.isArray(rule[2]) ? rule[2] : []
+  return (rule && Array.isArray(rule) && Array.isArray(rule[2])) ? rule[2] : []
 }
 
 export function emptyRuleIsActive(rule: Rule | undefined): boolean {
-  return rule && Array.isArray(rule) ? ruleIsActive(rule) && ruleIsNotApplicable(rule) : false
+  return (rule && Array.isArray(rule)) ? (ruleIsActive(rule) && ruleIsNotApplicable(rule)) : false
 }
 
 /**
