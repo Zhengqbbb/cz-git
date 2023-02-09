@@ -70,7 +70,7 @@ added 1 package in 0.482s
 
 [⇒ 为什么是 cz-git](/zh/guide/why.html)
 
-[⇒ 为什么做了这款插件：cz-git 友好型 commitizen 的适配器，我的开发的心路历程](https://www.qbenben.com/post/2022/02/27/cz-git/)
+[⇒ 为什么做了这款插件：cz-git 友好型 commitizen 的适配器，我的开发的心路历程](https://www.qbb.sh/posts/2022-12-26-cz-git-czg-journey-zh)
 
 ## 使用 cz-git 的项目
 

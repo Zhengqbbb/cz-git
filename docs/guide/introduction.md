@@ -70,6 +70,8 @@ added 1 package in 0.482s
 
 [⇒ Why cz-git](/guide/why.html)
 
+[⇒ Why to develop this plugin：My development journey story](https://www.qbb.sh/posts/2022-12-26-cz-git-czg-journey-zh)
+
 ## Projects using cz-git
 
 <table>
