@@ -8,22 +8,22 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.12.0",
-    "shiki": "0.14.0",
-    "vue": "^3.2.45"
+    "shiki": "0.14.1",
+    "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.14",
+    "@iconify-json/carbon": "^1.1.15",
     "@types/markdown-it": "^12.2.3",
-    "@unocss/reset": "^0.49.1",
+    "@unocss/reset": "^0.49.4",
     "@vitejs/plugin-vue": "^4.0.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-mark": "^3.0.1",
     "medium-zoom": "^1.0.8",
     "sitemap": "^7.1.1",
-    "unocss": "^0.49.1",
+    "unocss": "^0.49.4",
     "unplugin-vue-components": "^0.23.0",
-    "vite": "^4.0.4",
-    "vite-plugin-pwa": "^0.14.1",
-    "vitepress": "npm:@qbb-sh/vitepress@1.0.0-alpha.45-1"
+    "vite": "^4.1.1",
+    "vite-plugin-pwa": "^0.14.4",
+    "vitepress": "npm:@qbbsh/vitepress@1.0.0-alpha.46-1"
   }
 }
