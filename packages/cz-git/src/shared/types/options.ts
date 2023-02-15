@@ -198,6 +198,24 @@ export interface CommitizenGitOptions {
   typesSearchValueKey?: boolean
 
   /**
+   * @description: Use OpenAI to auto generate short description for commit message
+   * @default: false
+   */
+  useAI?: boolean
+
+  /**
+   * @default: OpenAI
+   */
+  aiType?: string
+
+  /**
+   * @description: Use the callback fn can customize edit information AI question information
+   * @param CommitMessageOptions: provide subdivides each message part
+   * @default: ({ defaultMessage }) => defaultMessage
+   */
+  aiQuestionCB?: () => string
+
+  /**
    * @description: Use emoji ？| it will be use typesOption.emoji code
    * @default: false
    */
@@ -503,6 +521,9 @@ export const defaultConfig = Object.freeze({
   typesSearchValue: true,
   themeColorCode: '',
   useEmoji: false,
+  useAI: false,
+  aiType: 'OpenAI',
+  aiQuestionCB: undefined,
   emojiAlign: 'center',
   scopes: [],
   scopesSearchValue: false,

@@ -37,6 +37,7 @@
   "devDependencies": {
     "@cz-git/inquirer": "workspace:*",
     "@cz-git/loader": "workspace:*",
+    "node-fetch": "^2.6.9",
     "rimraf": "3.0.2"
   }
 }

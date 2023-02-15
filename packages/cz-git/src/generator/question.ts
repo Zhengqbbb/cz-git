@@ -17,6 +17,7 @@ import {
   resolveListItemPinTop,
   resovleCustomListTemplate,
 } from '../shared'
+import type { AIQuestionsType } from './questionAI'
 import { generateMessage } from './message'
 
 const useThemeCode = (input: string, themeColorCode?: string) =>
@@ -289,4 +290,4 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
 }
 
 type GenerateQuestionsType = typeof generateQuestions
-export type QuestionsType = ReturnType<GenerateQuestionsType>
+export type QuestionsType = ReturnType<GenerateQuestionsType & AIQuestionsType>

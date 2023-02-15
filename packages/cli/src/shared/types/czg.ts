@@ -32,10 +32,12 @@ export interface InitFlag {
   yes?: boolean
 }
 
-export type CzgitSubCommandList = 'init' | 'emoji' | 'checkbox' | 'break' | 'gpg'
+export type CzgitSubCommandList = 'init' | 'emoji' | 'ai' | 'checkbox' | 'break' | 'gpg'
 export interface CzgitSubCommand {
   /** option: init */
   init?: boolean
+  /** subcmd: emoji */
+  ai?: boolean
   /** subcmd: emoji */
   emoji?: boolean
   /** subcmd: checkbox */

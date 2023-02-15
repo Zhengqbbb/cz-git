@@ -26,6 +26,7 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
         )
       }
       injectEnvFlag('break', argvs.czgitArgs.subCommand?.break)
+      injectEnvFlag('czai', argvs.czgitArgs.subCommand?.ai)
       injectEnvFlag('emoji', argvs.czgitArgs.subCommand?.emoji)
       injectEnvFlag('checkbox', argvs.czgitArgs.subCommand?.checkbox)
       injectEnvFlag('CzCommitSignGPG', argvs.czgitArgs.subCommand?.gpg)

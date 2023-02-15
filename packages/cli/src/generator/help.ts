@@ -17,6 +17,7 @@ ${style.yellow('SYNOPSIS:')}
     czg [subcommand...] [options...] [git-commit-options...]
 
 ${style.yellow('SUBCOMMAND:')}
+    ${style.cyan('ai')}             ${style.red('Turn on OpenAI generate subject mode')}
     ${style.cyan('break')}          ${style.red('Turn on appends a ! after the type/scope')}
     ${style.cyan('emoji')}          ${style.red('Turn on output message with emoji mode')}
     ${style.cyan('checkbox')}       ${style.red('Turn on scope checkbox mode')}
