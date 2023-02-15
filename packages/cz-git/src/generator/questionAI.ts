@@ -103,7 +103,8 @@ export const generateAIQuestions = (options: CommitizenGitOptions, cz: any) => {
         const upperCaseSubject = options.upperCaseSubject || false
         const subject = await generateCommitMessage(prompt)
         aiAnswers.subject = (upperCaseSubject ? subject.charAt(0).toUpperCase() : subject.charAt(0).toLowerCase()) + subject.slice(1)
-
+        if (options.defaultScope)
+          aiAnswers.scope = options.defaultScope
         previewMessage(
           generateMessage(aiAnswers, options, options.confirmColorize),
           options.confirmColorize,
