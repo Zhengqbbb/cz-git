@@ -22,7 +22,7 @@ body:
     attributes:
       label: 📄 System Info
       description: Output of `npx envinfo --system --binaries --npmPackages cz-git --npmPackages commitizen --npmPackages czg --npmGlobalPackages cz-git --npmGlobalPackages commitizen --npmGlobalPackages czg`
-      render: shell
+      render: Shell
       placeholder: System, Binaries, Terminal, czg --version
     validations:
       required: true
