@@ -16,12 +16,10 @@ import {
   previewMessage,
   resolveListItemPinTop,
   resovleCustomListTemplate,
+  useThemeCode,
 } from '../shared'
 import type { AIQuestionsType } from './questionAI'
 import { generateMessage } from './message'
-
-const useThemeCode = (input: string, themeColorCode?: string) =>
-  themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input)
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {

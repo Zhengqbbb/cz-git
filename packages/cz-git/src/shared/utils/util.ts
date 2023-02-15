@@ -4,7 +4,11 @@
  * @license: MIT
  */
 
+import { style } from '@cz-git/inquirer'
 import type { Answers, CommitizenGitOptions, Option, ScopesType } from '..'
+
+export const useThemeCode = (input: string, themeColorCode?: string) =>
+  themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input)
 
 export function log(type: 'info' | 'warm' | 'err', msg: string) {
   const colorMapping = {

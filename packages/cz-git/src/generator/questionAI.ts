@@ -1,13 +1,13 @@
+import { execSync } from 'child_process'
+import { fuzzyFilter, style } from '@cz-git/inquirer'
 /**
  * @description: generate commitizen questions(generateQuestions)
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
  */
 
-import { execSync } from 'child_process'
 // @ts-expect-error
 import fetch from 'node-fetch'
-import { fuzzyFilter } from '@cz-git/inquirer'
 import type { Answers, CommitizenGitOptions } from '../shared'
 import {
   getMaxSubjectLength,
@@ -85,6 +85,7 @@ export const generateAIQuestions = (options: CommitizenGitOptions, cz: any) => {
       ],
       default: 0,
       async message(answers: Answers) {
+        console.log(style.green('ℹ'), style.bold('Generating your AI commit subject...'))
         // Power By: https://github.com/Nutlope/aicommits
         const aiAnswers = answers
         // TODO: Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
