@@ -45,7 +45,7 @@ const resovleFlaseFlag = (
   flag: CzgitFlagList,
   target: CzgitParseArgs,
 ) => {
-  if (argv[flag])
+  if (!argv[flag])
     return target
   if (!target.czgitArgs.flag)
     target.czgitArgs.flag = {}
