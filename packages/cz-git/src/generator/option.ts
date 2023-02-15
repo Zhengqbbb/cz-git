@@ -29,6 +29,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     useAI: Boolean(czai === '1' && no_czai !== '1') || promptConfig.useAI || defaultConfig.useAI,
     aiType: promptConfig.aiType ?? defaultConfig.aiType,
     aiQuestionCB: promptConfig.aiQuestionCB ?? defaultConfig.aiQuestionCB,
+    openAIToken: process.env.CZ_OPENAI_TOKEN || promptConfig.openAIToken || defaultConfig.openAIToken,
     useEmoji: Boolean(emoji === '1') || promptConfig.useEmoji || defaultConfig.useEmoji,
     emojiAlign: promptConfig.emojiAlign || defaultConfig.emojiAlign,
     scopes: promptConfig.scopes ?? getEnumList(config?.rules?.['scope-enum'] as any),

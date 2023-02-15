@@ -130,6 +130,23 @@ export const czLoader = async (cwd?: string) => {
   return await execute(data?.config || data || {}, true)
 }
 
+export const rootLoader = async () => {
+  const cwd = process.env.HOME || process.env.USERPROFILE
+  const options = {
+    moduleName: '.czrc',
+    searchPlaces: [
+      '.czrc',
+      '.config/.czrc',
+    ],
+    cwd,
+    stopDir: cwd,
+  }
+  const data = await loader(options)
+  return {
+    openAIToken: data?.config?.openAIToken || '',
+  }
+}
+
 export interface UserOptions {
   /** Debug mode path */
   cwd?: string
@@ -150,14 +167,15 @@ export const configLoader = async (options?: UserOptions) => {
     return { prompt: await execute(czData?.config || czData || {}, true) }
   }
   else {
-    return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd)]).then(
-      ([clData, czData]) => {
+    return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd), rootLoader()]).then(
+      ([clData, czData, rootData]) => {
         const clPrompt = clData.prompt || {}
         return {
           ...clData,
           prompt: {
             ...czData,
             ...clPrompt,
+            ...rootData,
           },
         }
       },

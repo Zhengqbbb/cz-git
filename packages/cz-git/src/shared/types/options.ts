@@ -209,6 +209,11 @@ export interface CommitizenGitOptions {
   aiType?: string
 
   /**
+   * @description: Alert!!! Save on "$HOME/.czrc" or "$HOME/.config/.czrc". Do not save on project
+   */
+  openAIToken?: string
+
+  /**
    * @description: Use the callback fn can customize edit information AI question information
    * @param CommitMessageOptions: provide subdivides each message part
    * @default: ({ defaultMessage }) => defaultMessage
@@ -524,6 +529,7 @@ export const defaultConfig = Object.freeze({
   useAI: false,
   aiType: 'OpenAI',
   aiQuestionCB: undefined,
+  openAIToken: '',
   emojiAlign: 'center',
   scopes: [],
   scopesSearchValue: false,

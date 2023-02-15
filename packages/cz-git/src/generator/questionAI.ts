@@ -18,7 +18,7 @@ import {
 } from '../shared'
 import { generateMessage } from './message'
 
-async function generateCommitMessage(prompt: string) {
+async function generateCommitMessage(prompt: string, token?: string) {
   const payload = {
     model: 'text-davinci-003',
     prompt,
@@ -33,7 +33,7 @@ async function generateCommitMessage(prompt: string) {
   const response = await fetch('https://api.openai.com/v1/completions', {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.CZ_OPENAI_TOKEN ?? ''}`,
+      'Authorization': `Bearer ${token ?? ''}`,
     },
     method: 'POST',
     body: JSON.stringify(payload),
@@ -87,7 +87,7 @@ export const generateAIQuestions = (options: CommitizenGitOptions, cz: any) => {
       default: 0,
       async message(answers: Answers) {
         console.log(style.green('ℹ'), style.bold('Generating your AI commit subject...'))
-        // Power By: https://github.com/Nutlope/aicommits
+        // Power By and Modified part of the code: https://github.com/Nutlope/aicommits
         const aiAnswers = answers
         // TODO: Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
         const diff = execSync(
@@ -102,7 +102,7 @@ export const generateAIQuestions = (options: CommitizenGitOptions, cz: any) => {
         const scopeText = options.defaultScope ? `The commit message scope is "${options.defaultScope}."` : ''
         const startCaseText = options.upperCaseSubject ? 'start with a capital letter' : 'start with a lowercase letter'
         const prompt = `I want you to write a git commit message and follow Conventional Commits, It is currently known that the type of The commit message is "${answers.type}",${scopeText} And I will input you a git diff output, your job is to give me conventional commit subject that is short description mean do not preface the commit with type and scope. Without adding any preface the commit with anything! Using present tense, return a complete sentence, don't repeat yourself. Some procedural abbreviations are allowed. Allow program abbreviations. The result must be control in ${maxSubjectLen} words! And ${startCaseText} ! Now enter part of the git diff code for you: \`\`\`diff\n${diff}\n\`\`\``
-        const subject = await generateCommitMessage(prompt)
+        const subject = await generateCommitMessage(prompt, options.openAIToken)
         aiAnswers.subject = parseAISubject(options, subject)
         if (options.defaultScope)
           aiAnswers.scope = options.defaultScope
