@@ -133,10 +133,10 @@ export const czLoader = async (cwd?: string) => {
 export const rootLoader = async () => {
   const cwd = process.env.HOME || process.env.USERPROFILE
   const options = {
-    moduleName: '.czrc',
+    moduleName: 'czrc',
     searchPlaces: [
-      '.czrc',
       '.config/.czrc',
+      '.czrc',
     ],
     cwd,
     stopDir: cwd,
