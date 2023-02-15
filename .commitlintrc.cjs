@@ -43,6 +43,7 @@ module.exports = {
       { value: 'closed', name: 'closed:   ISSUES has been processed' },
     ],
     useAI: true,
+    aiNumber: 3,
     customIssuePrefixAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
     formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,

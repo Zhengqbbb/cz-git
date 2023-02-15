@@ -7,6 +7,7 @@ export type CzgitFlagList =
   | 'yes'
   | 'hook'
   | 'alias'
+  | 'ai-num'
   | 'ai'
 
 export interface CzgitCommonFlag {
@@ -23,6 +24,8 @@ export interface CzgitFlag {
   config?: string
   /** option: --alias="xxx" */
   alias?: string
+  /** option: --ai-num="xxx" */
+  'ai-num'?: string
   /** option: --reback|-b */
   reback?: boolean
   /** option: --retry|-r */

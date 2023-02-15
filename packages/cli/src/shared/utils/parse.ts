@@ -33,8 +33,10 @@ const resovleFlag = (
     deleteItem(`--${aliasFlag}`, target.gitArgs)
   }
   else {
-    const filterRex = new RegExp(`^--${aliasFlag}=(.*)$`, 'gi')
-    target.gitArgs = target.gitArgs.filter(value => !filterRex.test(value))
+    const filterRexFlag = new RegExp(`^-${flag}=(.*)$`, 'gi')
+    const filterRexAlias = new RegExp(`^--${aliasFlag}=(.*)$`, 'gi')
+    target.gitArgs = target.gitArgs
+      .filter(value => !filterRexFlag.test(value) && !filterRexAlias.test(value))
   }
   return target
 }
@@ -45,7 +47,7 @@ const resovleFlaseFlag = (
   flag: CzgitFlagList,
   target: CzgitParseArgs,
 ) => {
-  if (!argv[flag])
+  if (argv[flag] === undefined)
     return target
   if (!target.czgitArgs.flag)
     target.czgitArgs.flag = {}
@@ -82,6 +84,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
       b: 'reback',
       r: 'retry',
       y: 'yes',
+      N: 'ai-num',
     },
   })
   let result: CzgitParseArgs = {
@@ -110,6 +113,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
   result = resovleFlag(parseArgv, 'b', 'reback', result)
   result = resovleFlag(parseArgv, 'r', 'retry', result)
   result = resovleFlag(parseArgv, 'y', 'yes', result)
+  result = resovleFlag(parseArgv, 'N', 'ai-num', result)
   result = resovleFlag(parseArgv, 'version', 'version', result)
   result = resovleFlag(parseArgv, 'hook', 'hook', result)
   result = resovleFlag(parseArgv, 'config', 'config', result)

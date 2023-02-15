@@ -24,7 +24,8 @@ ${style.yellow('SUBCOMMAND:')}
     ${style.cyan('gpg')}            ${style.red('Turn on use GPG sign commit message')}
     
 ${style.yellow('OPTIONS:')}
-    ${style.cyan('--config')}       ${style.red('Specify the configuration file to use')}
+    ${style.cyan('--config=')}      ${style.red('Specify the configuration file to use')}
+    ${style.cyan('-N=,--ai-num=')}  ${style.red('Setting AI return number subjects and Turn on choose mode')}
     ${style.cyan('--no-ai')}        ${style.red('Turn off AI prompt mode in this session')}
     ${style.cyan(':, --alias')}     ${style.red('Directly submit the defined commit message')}
     ${style.cyan('-r, --retry')}    ${style.red('Directly retry submit by the last message')}
@@ -37,6 +38,7 @@ ${style.yellow('EXAMPLES:')}
     ${style.cyan('czg :fd')}
     ${style.cyan('czg --alias=fd')}
     ${style.cyan('czg --config="./config/cz.json"')}
+    ${style.cyan('czg ai -N=3"')}
 
 Extends 'git commit' options. 
 See 'git commit --help' for more information. `,
