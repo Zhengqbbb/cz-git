@@ -12,6 +12,7 @@ import type { Answers, CommitizenGitOptions } from '../shared'
 import {
   getMaxSubjectLength,
   log,
+  parseAISubject,
   previewMessage,
   resolveListItemPinTop,
 } from '../shared'
@@ -101,9 +102,8 @@ export const generateAIQuestions = (options: CommitizenGitOptions, cz: any) => {
         const scopeText = options.defaultScope ? `The commit message scope is "${options.defaultScope}."` : ''
         const startCaseText = options.upperCaseSubject ? 'start with a capital letter' : 'start with a lowercase letter'
         const prompt = `I want you to write a git commit message and follow Conventional Commits, It is currently known that the type of The commit message is "${answers.type}",${scopeText} And I will input you a git diff output, your job is to give me conventional commit subject that is short description mean do not preface the commit with type and scope. Without adding any preface the commit with anything! Using present tense, return a complete sentence, don't repeat yourself. Some procedural abbreviations are allowed. Allow program abbreviations. The result must be control in ${maxSubjectLen} words! And ${startCaseText} ! Now enter part of the git diff code for you: \`\`\`diff\n${diff}\n\`\`\``
-        const upperCaseSubject = options.upperCaseSubject || false
         const subject = await generateCommitMessage(prompt)
-        aiAnswers.subject = (upperCaseSubject ? subject.charAt(0).toUpperCase() : subject.charAt(0).toLowerCase()) + subject.slice(1)
+        aiAnswers.subject = parseAISubject(options, subject)
         if (options.defaultScope)
           aiAnswers.scope = options.defaultScope
         previewMessage(
