@@ -1,63 +1,25 @@
-import { execSync } from 'child_process'
-import { fuzzyFilter, style } from '@cz-git/inquirer'
 /**
  * @description: generate commitizen questions(generateQuestions)
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
  */
 
-// @ts-expect-error
-import fetch from 'node-fetch'
+import { fuzzyFilter } from '@cz-git/inquirer'
 import type { Answers, CommitizenGitOptions } from '../shared'
 import {
-  getMaxSubjectLength,
   log,
-  parseAISubject,
+  parseStandardScopes,
   previewMessage,
   resolveListItemPinTop,
 } from '../shared'
 import { generateMessage } from './message'
 
-async function generateCommitMessage(prompt: string, token?: string) {
-  const payload = {
-    model: 'text-davinci-003',
-    prompt,
-    temperature: 0.7,
-    top_p: 1,
-    frequency_penalty: 0,
-    presence_penalty: 0,
-    max_tokens: 200,
-    stream: false,
-    n: 1,
-  }
-  const response = await fetch('https://api.openai.com/v1/completions', {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token ?? ''}`,
-    },
-    method: 'POST',
-    body: JSON.stringify(payload),
-  })
-  if (response.status !== 200) {
-    const errorJson: any = await response.json()
-    throw new Error(
-      `OpenAI API failed while processing the request '${errorJson?.error?.message}'`,
-    )
-  }
-
-  const json: any = await response.json()
-  const aiCommit = json.choices[0].text
-  return aiCommit.replace(/(\r\n|\n|\r)/gm, '')
-}
-
-export const generateAIQuestions = (options: CommitizenGitOptions, cz: any) => {
+export const generateAITypesQuestions = (options: CommitizenGitOptions) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
     if (!process.env.VITEST)
       log('err', 'Error [types] Option')
-    console.log(typeof cz)
     return false
   }
-
   return [
     {
       type: 'search-list',
@@ -75,51 +37,41 @@ export const generateAIQuestions = (options: CommitizenGitOptions, cz: any) => {
         return fuzzyFilter(input, typeSource, searchTarget)
       },
     },
+  ]
+}
+
+export const generateAISubjectsQuestions = (options: CommitizenGitOptions, subjects: string[]) => {
+  return [
+    {
+      type: 'search-list',
+      name: 'subject',
+      message: 'Select suitable subject by AI generated',
+      themeColorCode: options?.themeColorCode,
+      source: (_: unknown, input: string) => {
+        return fuzzyFilter(input, parseStandardScopes(subjects))
+      },
+    },
+  ]
+}
+
+export const generateAIConfirmQuestions = (options: CommitizenGitOptions, answers: Answers) => {
+  return [
     {
       type: 'expand',
       name: 'confirmCommit',
       choices: [
         { key: 'y', name: 'Yes', value: 'yes' },
-        // { key: 'e', name: 'Edit commit', value: 'edit' },
-        // { key: 'r', name: 'Retry generate', value: 'retry' },
         { key: 'n', name: 'Abort commit', value: 'no' },
+        { key: 'e', name: 'Edit message(wq: save, cq: exit)', value: 'edit' },
       ],
       default: 0,
-      async message(answers: Answers) {
-        console.log(style.green('ℹ'), style.bold('Generating your AI commit subject...'))
-        // Power By and Modified part of the code: https://github.com/Nutlope/aicommits
-        const aiAnswers = answers
-        // TODO: Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
-        const diff = execSync(
-          'git diff --cached . ":(exclude)package-lock.json" ":(exclude)yarn.lock" ":(exclude)pnpm-lock.yaml"',
-          {
-            encoding: 'utf8',
-          },
-        ).slice(0, 3900)
-        let maxSubjectLen = getMaxSubjectLength(answers.type, options.defaultScope, options)
-        if (maxSubjectLen === Infinity)
-          maxSubjectLen = 75
-        const scopeText = options.defaultScope ? `The commit message scope is "${options.defaultScope}."` : ''
-        const startCaseText = options.upperCaseSubject ? 'start with a capital letter' : 'start with a lowercase letter'
-        const prompt = `I want you to write a git commit message and follow Conventional Commits, It is currently known that the type of The commit message is "${answers.type}",${scopeText} And I will input you a git diff output, your job is to give me conventional commit subject that is short description mean do not preface the commit with type and scope. Without adding any preface the commit with anything! Using present tense, return a complete sentence, don't repeat yourself. Some procedural abbreviations are allowed. Allow program abbreviations. The result must be control in ${maxSubjectLen} words! And ${startCaseText} ! Now enter part of the git diff code for you: \`\`\`diff\n${diff}\n\`\`\``
-        const subject = await generateCommitMessage(prompt, options.openAIToken)
-        aiAnswers.subject = parseAISubject(options, subject)
-        if (options.defaultScope)
-          aiAnswers.scope = options.defaultScope
+      message() {
         previewMessage(
-          generateMessage(aiAnswers, options, options.confirmColorize),
+          generateMessage(answers, options, options.confirmColorize),
           options.confirmColorize,
         )
         return options.messages?.confirmCommit
       },
     },
-  ].filter(
-    i =>
-      !options.skipQuestions?.includes(
-        i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix' | 'confirmCommit',
-      ),
-  )
+  ]
 }
-
-type GenerateAIQuestionsType = typeof generateAIQuestions
-export type AIQuestionsType = ReturnType<GenerateAIQuestionsType>

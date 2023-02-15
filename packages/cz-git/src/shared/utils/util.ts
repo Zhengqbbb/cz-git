@@ -167,6 +167,7 @@ export const parseAISubject = (options: CommitizenGitOptions, subject?: string) 
   if (!subject)
     return ''
 
+  subject = subject.replace(/(\r\n|\n|\r)/gm, '')
   let res = subject
   if (options.upperCaseSubject)
     res = res.charAt(0).toUpperCase()

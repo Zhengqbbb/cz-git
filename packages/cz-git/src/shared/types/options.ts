@@ -150,6 +150,14 @@ export interface CommitMessageOptions {
   defaultMessage: string
 }
 
+export interface GenerateAIPromptType {
+  type?: string
+  defaultScope?: string
+  maxSubjectLength?: number
+  upperCaseSubject?: boolean
+  diff?: string
+}
+
 export interface CommitizenGitOptions {
   /**
    * @description: define commonly used commit message alias
@@ -204,6 +212,12 @@ export interface CommitizenGitOptions {
   useAI?: boolean
 
   /**
+   * @description: If >1 will turn on select mode, select generate options like returned by OpenAI
+   * @default: 1
+   */
+  aiNumber?: number
+
+  /**
    * @default: OpenAI
    */
   aiType?: string
@@ -215,10 +229,10 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Use the callback fn can customize edit information AI question information
-   * @param CommitMessageOptions: provide subdivides each message part
-   * @default: ({ defaultMessage }) => defaultMessage
+   * @param GenerateAIPromptType: provide some known parameters
+   * @default: generateSubjectDefaultPrompt
    */
-  aiQuestionCB?: () => string
+  aiQuestionCB?: (aiParam: GenerateAIPromptType) => string
 
   /**
    * @description: Use emoji ？| it will be use typesOption.emoji code
@@ -528,6 +542,7 @@ export const defaultConfig = Object.freeze({
   useEmoji: false,
   useAI: false,
   aiType: 'OpenAI',
+  aiNumber: 1,
   aiQuestionCB: undefined,
   openAIToken: '',
   emojiAlign: 'center',

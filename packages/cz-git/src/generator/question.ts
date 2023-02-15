@@ -13,13 +13,10 @@ import {
   isSingleItem,
   log,
   parseStandardScopes,
-  previewMessage,
   resolveListItemPinTop,
   resovleCustomListTemplate,
   useThemeCode,
 } from '../shared'
-import type { AIQuestionsType } from './questionAI'
-import { generateMessage } from './message'
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
@@ -262,23 +259,6 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.footer,
       transformer: (input: string) => useThemeCode(input, options.themeColorCode),
     },
-    {
-      type: 'expand',
-      name: 'confirmCommit',
-      choices: [
-        { key: 'y', name: 'Yes', value: 'yes' },
-        { key: 'n', name: 'Abort commit', value: 'no' },
-        { key: 'e', name: 'Edit message(wq: save, cq: exit)', value: 'edit' },
-      ],
-      default: 0,
-      message(answers: Answers) {
-        previewMessage(
-          generateMessage(answers, options, options.confirmColorize),
-          options.confirmColorize,
-        )
-        return options.messages?.confirmCommit
-      },
-    },
   ].filter(
     i =>
       !options.skipQuestions?.includes(
@@ -288,4 +268,4 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
 }
 
 type GenerateQuestionsType = typeof generateQuestions
-export type QuestionsType = ReturnType<GenerateQuestionsType & AIQuestionsType>
+export type QuestionsType = ReturnType<GenerateQuestionsType>
