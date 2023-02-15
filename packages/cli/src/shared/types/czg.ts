@@ -7,11 +7,15 @@ export type CzgitFlagList =
   | 'yes'
   | 'hook'
   | 'alias'
+  | 'ai'
+
 export interface CzgitCommonFlag {
   /** option: --version|-v */
   version?: boolean
   /** option: --help|-h */
   help?: boolean
+  /** option: --no-ai */
+  ai?: boolean
 }
 
 export interface CzgitFlag {

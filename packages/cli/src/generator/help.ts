@@ -25,6 +25,7 @@ ${style.yellow('SUBCOMMAND:')}
     
 ${style.yellow('OPTIONS:')}
     ${style.cyan('--config')}       ${style.red('Specify the configuration file to use')}
+    ${style.cyan('--no-ai')}        ${style.red('Turn off AI prompt mode in this session')}
     ${style.cyan(':, --alias')}     ${style.red('Directly submit the defined commit message')}
     ${style.cyan('-r, --retry')}    ${style.red('Directly retry submit by the last message')}
     ${style.cyan('-h, --help')}     ${style.red('Show help')}

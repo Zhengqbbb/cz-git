@@ -39,6 +39,24 @@ const resovleFlag = (
   return target
 }
 
+const resovleFlaseFlag = (
+  argv: ParsedArgs,
+  targetFlag: string,
+  flag: CzgitFlagList,
+  target: CzgitParseArgs,
+) => {
+  if (argv[flag])
+    return target
+  if (!target.czgitArgs.flag)
+    target.czgitArgs.flag = {}
+
+  if (typeof argv[flag] === 'boolean' && argv[flag] === false)
+    target.czgitArgs.flag[flag] = argv[flag]
+
+  deleteItem(targetFlag, target.gitArgs)
+  return target
+}
+
 const resovleAlias = (arg: string, target: CzgitParseArgs) => {
   if (arg.startsWith(':')) {
     if (!target.czgitArgs.flag)
@@ -96,6 +114,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
   result = resovleFlag(parseArgv, 'hook', 'hook', result)
   result = resovleFlag(parseArgv, 'config', 'config', result)
   result = resovleFlag(parseArgv, 'alias', 'alias', result)
+  result = resovleFlaseFlag(parseArgv, '--no-ai', 'ai', result)
 
   return result
 }
