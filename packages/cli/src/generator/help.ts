@@ -5,7 +5,7 @@ export const generateHelp = (version: string, code = 0) => {
   // prettier-ignore
   console.log(
     `${style.yellow('NAME:')} 
-    ${style.green('czg')} - Interactive Commitizen CLI that generate standardized commit messages
+    ${style.green('czg')} - Interactive Commitizen CLI that generate standardized git commit message
 
 ${style.yellow('WEBSITE:')}
     ${style.underline('https://cz-git.qbb.sh/cli/')}

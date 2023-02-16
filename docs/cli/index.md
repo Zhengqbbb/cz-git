@@ -1,11 +1,11 @@
 ---
 title: czg
-titleTemplate: Interactive Commitizen CLI that generate standardized commit messages
-description: Interactive Commitizen CLI that generate standardized commit messages
+titleTemplate: Interactive Commitizen CLI that generate standardized git commit message
+description: Interactive Commitizen CLI that generate standardized git commit messages
 ---
 
 <h1 class="clip">czg</h1>
-<p class="description">Interactive Commitizen CLI that generate standardized commit messages</p>
+<p class="description">Interactive Commitizen CLI that generate standardized git commit messages</p>
 
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
@@ -56,7 +56,7 @@ More information about configure file and options. See → [Config](/config/)
 ```ansi
 [90m$[0m [32mczg[0m --help
 [33mNAME:[0m 
-    [32mczg[0m - Interactive Commitizen CLI that generate standardized commit messages
+    [32mczg[0m - Interactive Commitizen CLI that generate standardized git commit message
 
 [33mWEBSITE:[0m
     [4mhttps://cz-git.qbb.sh/cli/[0m

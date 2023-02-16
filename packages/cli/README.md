@@ -1,6 +1,6 @@
 <h1 align="center">czg</h1>
 
-> Interactive Commitizen CLI that generate standardized commit messages
+> Interactive Commitizen CLI that generate standardized git commit message
 
 <p align="center">
     <a target="_blank" href="https://cz-git.qbb.sh/cli/">
@@ -65,7 +65,7 @@ Create a `.czrc` file in the project root directory
 ```sh
 $ czg --help
 NAME:
-    czg - Interactive Commitizen CLI that generate standardized commit messages
+    czg - Interactive Commitizen CLI that generate standardized git commit message
 
 WEBSITE:
     https://cz-git.qbb.sh/cli/

@@ -55,7 +55,7 @@ description: 交互式命令行工具(Commitizen CLI)生成标准化的 git comm
 ```ansi
 [90m$[0m [32mczg[0m --help
 [33mNAME:[0m 
-    [32mczg[0m - Interactive Commitizen CLI that generate standardized commit messages
+    [32mczg[0m - Interactive Commitizen CLI that generate standardized git commit message
 
 [33mWEBSITE:[0m
     [4mhttps://cz-git.qbb.sh/cli/[0m
