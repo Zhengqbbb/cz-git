@@ -35,8 +35,8 @@
 <br/>
 <br/>
 
-- ⚡️ **Lightweight** : Zero Dependencies (1.5MB)
 - 🤖 **OpenAI Support.** Let the AI generate your git message description.
+- ⚡️ **Lightweight** : Zero Dependencies (1.5MB)
 - 🤗 **Simpler and Faster** : No plugin, No adapter, No extra steps, You can use `npx` | `npm script` | `global install`... quick start CLI in your any project
 - 😎 **Highly Customizable** : Internally contains the core of cz-git. Extend all the features of cz-git. Same behavior, Same configuration loader... You can customize the commit CLI according to your need
 
