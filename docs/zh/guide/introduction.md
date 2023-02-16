@@ -57,15 +57,16 @@ sitemap:
 
 ## 特点
 
+- 🤖 **OpenAI 支持**, 让 AI 来自动生成你的提交信息简短描述。
 - 💪 友好型命令行工具，**“懒字优先”** ！支持在命令行搜索和选择，减少拼写错误。
-- ⚡️ **轻量级**，**高度自定义**, 但输出格式遵循标准的 [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 规范。
+- ⚡️ **轻量级**，**高度自定义**, 但输出格式遵循标准的 [Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/) 规范。
 - 🔨 [更好维护 monorepo 工程化项目](/zh/recipes/#scopes) 与 **commitlint** 配合给予命令行的相关校验信息。
 - ✅ 支持在 commit 中添加 **emoji** ｜ 更好的与issue链接，尤其 [gitee](/zh/recipes/issue-prefixs.html)
 
 ```sh
 $ npm install -D cz-git
-+ cz-git          (1.6 MB)
-added 1 package in 0.482s
++ cz-git          (1.9 MB)
+added 1 package in 0.582s
 ```
 
 [⇒ 为什么是 cz-git](/zh/guide/why.html)

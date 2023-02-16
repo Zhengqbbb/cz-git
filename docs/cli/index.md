@@ -25,7 +25,8 @@ description: Interactive Commitizen CLI that generate standardized commit messag
 
 <br />
 
-- ⚡️ **Lightweight** : Zero Dependencies (1.3MB)
+- ⚡️ **Lightweight** : Zero Dependencies (1.5MB)
+- 🤖 **OpenAI Support.** Let the AI generate your git message description.
 - 🤗 **Simpler and Faster** : No plugin, No adapter, No extra steps, You can use `npx` | `npm script` | `global install`... quick start CLI in your any project
 - 😎 **Highly Customizable** : Internally contains the core of cz-git. Extend all the features of cz-git. Same behavior, Same configuration loader... You can customize the commit CLI according to your need
 
@@ -65,6 +66,7 @@ More information about configure file and options. See → [Config](/config/)
     czg [subcommand...] [options...] [git-commit-options...]
 
 [33mSUBCOMMAND:[0m
+    [36mai[0m             [31mTurn on OpenAI generate subject mode[0m
     [36mbreak[0m          [31mTurn on appends a ! after the type/scope[0m
     [36memoji[0m          [31mTurn on output message with emoji mode[0m
     [36mcheckbox[0m       [31mTurn on scope checkbox mode[0m
@@ -72,6 +74,7 @@ More information about configure file and options. See → [Config](/config/)
     
 [33mOPTIONS:[0m
     [36m--config[0m       [31mSpecify the configuration file to use[0m
+    [36m-N=,--ai-num=[0m  [31mSetting AI return number subjects and Turn on choose mode[0m
     [36m:, --alias[0m     [31mDirectly submit the defined commit message[0m
     [36m-r, --retry[0m    [31mDirectly retry submit by the last message[0m
     [36m-h, --help[0m     [31mShow help[0m
@@ -83,6 +86,7 @@ More information about configure file and options. See → [Config](/config/)
     [36mczg :fd[0m
     [36mczg --alias=fd[0m
     [36mczg --config="./config/cz.json"[0m
+    [36mczg ai -N=3[0m
 
 Extends 'git commit' options. 
 See 'git commit --help' for more information. 

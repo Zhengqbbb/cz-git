@@ -35,7 +35,8 @@
 <br/>
 <br/>
 
-- ⚡️ **Lightweight** : Zero Dependencies (1.3MB)
+- ⚡️ **Lightweight** : Zero Dependencies (1.5MB)
+- 🤖 **OpenAI Support.** Let the AI generate your git message description.
 - 🤗 **Simpler and Faster** : No plugin, No adapter, No extra steps, You can use `npx` | `npm script` | `global install`... quick start CLI in your any project
 - 😎 **Highly Customizable** : Internally contains the core of cz-git. Extend all the features of cz-git. Same behavior, Same configuration loader... You can customize the commit CLI according to your need
 
@@ -74,6 +75,7 @@ SYNOPSIS:
     czg [subcommand...] [options...] [git-commit-options...]
 
 SUBCOMMAND:
+    ai             Turn on OpenAI generate subject mode
     break          Turn on appends a ! after the type/scope
     emoji          Turn on output message with emoji mode
     checkbox       Turn on scope checkbox mode
@@ -81,6 +83,7 @@ SUBCOMMAND:
 
 OPTIONS:
     --config       Specify the configuration file to use
+    -N=,--ai-num=  Setting AI return number subjects and Turn on choose mode
     :, --alias     Directly submit the defined commit message
     -r, --retry    Directly retry submit by the last message
     -h, --help     Show help
@@ -92,6 +95,7 @@ EXAMPLES:
     czg :fd
     czg --alias=fd
     czg --config="./config/cz.json"
+    czg ai -N=3
 
 Extends 'git commit' options.
 See 'git commit --help' for more information.

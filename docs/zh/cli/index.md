@@ -25,7 +25,8 @@ description: 交互式命令行工具(Commitizen CLI)生成标准化的 git comm
 
 <br />
 
-- ⚡️ **轻量级** : 零依赖项 (1.3MB)
+- ⚡️ **轻量级** : 零依赖项 (1.5MB)
+- 🤖 **OpenAI 支持.** 让 AI 来辅助生成你的 git commit 描述
 - 🤗 **简单且快速** : 无需前置配置，无需适配器，没有额外的步骤，你可以使用 `npx` | `npm 脚本` | `全局下载`... 在你的任何项目中快速启动
 - 😎 **高度可定制化** : 内部包含 cz-git 的核心，继承了 cz-git 的所有特性，具有相同的行为，配置加载... 你可以根据自己的需要配置的 CLI 的行为
 
@@ -64,6 +65,7 @@ description: 交互式命令行工具(Commitizen CLI)生成标准化的 git comm
     czg [subcommand...] [options...] [git-commit-options...]
 
 [33mSUBCOMMAND:[0m
+    [36mai[0m             [31mTurn on OpenAI generate subject mode[0m
     [36mbreak[0m          [31mTurn on appends a ! after the type/scope[0m
     [36memoji[0m          [31mTurn on output message with emoji mode[0m
     [36mcheckbox[0m       [31mTurn on scope checkbox mode[0m
@@ -71,6 +73,7 @@ description: 交互式命令行工具(Commitizen CLI)生成标准化的 git comm
     
 [33mOPTIONS:[0m
     [36m--config[0m       [31mSpecify the configuration file to use[0m
+    [36m-N=,--ai-num=[0m  [31mSetting AI return number subjects and Turn on choose mode[0m
     [36m:, --alias[0m     [31mDirectly submit the defined commit message[0m
     [36m-r, --retry[0m    [31mDirectly retry submit by the last message[0m
     [36m-h, --help[0m     [31mShow help[0m
@@ -82,6 +85,7 @@ description: 交互式命令行工具(Commitizen CLI)生成标准化的 git comm
     [36mczg :fd[0m
     [36mczg --alias=fd[0m
     [36mczg --config="./config/cz.json"[0m
+    [36mczg ai -N=3[0m
 
 Extends 'git commit' options. 
 See 'git commit --help' for more information. 
