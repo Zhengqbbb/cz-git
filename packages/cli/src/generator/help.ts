@@ -38,7 +38,7 @@ ${style.yellow('EXAMPLES:')}
     ${style.cyan('czg :fd')}
     ${style.cyan('czg --alias=fd')}
     ${style.cyan('czg --config="./config/cz.json"')}
-    ${style.cyan('czg ai -N=3"')}
+    ${style.cyan('czg ai -N=3')}
 
 Extends 'git commit' options. 
 See 'git commit --help' for more information. `,
