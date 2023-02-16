@@ -48,7 +48,7 @@ sitemap:
 
 ## Introduction
 
-A more engineered, lightweight, customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
+Support OpenAI, and more engineered, lightweight, customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif) <!-- size=688x226 -->
 

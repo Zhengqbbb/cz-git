@@ -3,7 +3,7 @@ layout: home
 sidebar: false
 
 title: cz-git
-titleTemplate: More engineered, lightweight, customizable, standard output format commitizen adapter
+titleTemplate: Support OpenAI, and more engineered, lightweight, customizable, standard output format commitizen adapter and git commit CLI
 
 hero:
   name: cz-git
