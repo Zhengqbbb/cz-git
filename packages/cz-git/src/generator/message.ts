@@ -3,7 +3,7 @@
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
  */
-import { execSync } from 'child_process'
+import { spawnSync } from 'child_process'
 import { style } from '@cz-git/inquirer'
 // @ts-expect-error
 import fetch from 'node-fetch'
@@ -176,12 +176,12 @@ export async function generateAISubjects(
   options: CommitizenGitOptions,
 ) {
   // TODO: Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
-  const diff = execSync(
-    'git diff --cached . ":(exclude)package-lock.json" ":(exclude)yarn.lock" ":(exclude)pnpm-lock.yaml"',
-    {
-      encoding: 'utf8',
-    },
-  ).slice(0, 7800)
+  const diffIgnore = options.aiDiffIgnore?.map(i => `:(exclude)${i}`) || []
+  const diff = spawnSync('git',
+    ['diff', '--cached', '.', ...diffIgnore],
+    { encoding: 'utf8' },
+  ).stdout.trim().slice(0, 7800)
+
   const maxSubjectLength = getMaxSubjectLength(answers.type, options.defaultScope, options)
   let prompt
   if (typeof options.aiQuestionCB === 'function') {
