@@ -13,14 +13,10 @@ import {
   isSingleItem,
   log,
   parseStandardScopes,
-  previewMessage,
   resolveListItemPinTop,
   resovleCustomListTemplate,
+  useThemeCode,
 } from '../shared'
-import { generateMessage } from './message'
-
-const useThemeCode = (input: string, themeColorCode?: string) =>
-  themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input)
 
 export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   if (!Array.isArray(options.types) || options.types.length === 0) {
@@ -262,23 +258,6 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       },
       message: options.messages?.footer,
       transformer: (input: string) => useThemeCode(input, options.themeColorCode),
-    },
-    {
-      type: 'expand',
-      name: 'confirmCommit',
-      choices: [
-        { key: 'y', name: 'Yes', value: 'yes' },
-        { key: 'n', name: 'Abort commit', value: 'no' },
-        { key: 'e', name: 'Edit message(wq: save, cq: exit)', value: 'edit' },
-      ],
-      default: 0,
-      message(answers: Answers) {
-        previewMessage(
-          generateMessage(answers, options, options.confirmColorize),
-          options.confirmColorize,
-        )
-        return options.messages?.confirmCommit
-      },
     },
   ].filter(
     i =>

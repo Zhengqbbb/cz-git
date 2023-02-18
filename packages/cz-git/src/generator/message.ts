@@ -3,10 +3,12 @@
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license: MIT
  */
-
+import { spawnSync } from 'child_process'
 import { style } from '@cz-git/inquirer'
-import { getCurrentScopes, isSingleItem, parseStandardScopes, wrap } from '../shared'
-import type { Answers, CommitizenGitOptions } from '../shared'
+// @ts-expect-error
+import fetch from 'node-fetch'
+import { getCurrentScopes, getMaxSubjectLength, isSingleItem, log, parseAISubject, parseStandardScopes, wrap } from '../shared'
+import type { Answers, CommitizenGitOptions, GenerateAIPromptType } from '../shared'
 
 export const getAliasMessage = (config: CommitizenGitOptions, alias?: string) => {
   if (!alias || typeof config?.alias?.[alias] !== 'string') {
@@ -166,3 +168,87 @@ export const generateMessage = (
     return defaultMessage
   }
 }
+
+/** Section: OpenAI */
+// Power By and Modified part of the code: https://github.com/Nutlope/aicommits
+export async function generateAISubjects(
+  answers: Answers,
+  options: CommitizenGitOptions,
+) {
+  // TODO: Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
+  const diffIgnore = options.aiDiffIgnore?.map(i => `:(exclude)${i}`) || []
+  const diffOpts = process.env.CZ_ALL_CHANGE_MODE === '1'
+    ? ['.']
+    : ['--cached', '.']
+  const diff = spawnSync('git', ['diff', ...diffOpts, ...diffIgnore],
+    { encoding: 'utf8' },
+  ).stdout.trim().slice(0, 7800)
+
+  const maxSubjectLength = getMaxSubjectLength(answers.type, options.defaultScope, options)
+  let prompt
+  if (typeof options.aiQuestionCB === 'function') {
+    prompt = options.aiQuestionCB({
+      type: answers.type,
+      defaultScope: options.defaultScope,
+      upperCaseSubject: options.upperCaseSubject,
+      maxSubjectLength,
+      diff,
+    })
+  }
+  else {
+    prompt = generateSubjectDefaultPrompt({
+      type: answers.type,
+      defaultScope: options.defaultScope,
+      upperCaseSubject: options.upperCaseSubject,
+      maxSubjectLength,
+      diff,
+    })
+  }
+  return await fetchOpenAIMessage(options, prompt)
+}
+
+async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string) {
+  const payload = {
+    model: 'text-davinci-003',
+    prompt,
+    temperature: 0.7,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    max_tokens: 200,
+    stream: false,
+    n: options.aiNumber || 1,
+  }
+  if (!options.openAIToken) {
+    log('err', `NO Found OpenAI Token, Please use setup command ${style.cyan('`npx -y czg --openai-token="sk-XXXX"`')}`)
+    throw new Error('See guide page: https://cz-git.qbb.sh/recipes/openai#setup-openai-token')
+  }
+  const response = await fetch('https://api.openai.com/v1/completions', {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${options.openAIToken}`,
+    },
+    method: 'POST',
+    body: JSON.stringify(payload),
+  })
+  if (response.status !== 200) {
+    const errorJson: any = await response.json()
+    log('err', 'Fetch OpenAI API message failed')
+    throw new Error(errorJson?.error?.message)
+  }
+
+  const json: any = await response.json()
+  return json.choices.map((r: any) => parseAISubject(options, r.text))
+}
+
+function generateSubjectDefaultPrompt(
+  { type, defaultScope, maxSubjectLength, upperCaseSubject, diff }: GenerateAIPromptType,
+) {
+  const scopeText = defaultScope ? `The commit message scope is "${defaultScope}."` : ''
+  const startCaseText = upperCaseSubject ? 'start with a capital letter' : 'start with a lowercase letter'
+  if (maxSubjectLength === Infinity)
+    maxSubjectLength = 75
+
+  return `I want you to write a git commit message and follow Conventional Commits, It is currently known that the type of The commit message is "${type}",${scopeText} And I will input you a git diff output, your job is to give me conventional commit subject that is short description mean do not preface the commit with type and scope. Without adding any preface the commit with anything! Using present tense, return a complete sentence, don't repeat yourself. Allow program abbreviations. The result must be control in ${maxSubjectLength} words! And ${startCaseText} ! Now enter part of the git diff code for you: \`\`\`diff\n${diff}\n\`\`\``
+}
+/** EndSection: */

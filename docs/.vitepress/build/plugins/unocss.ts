@@ -27,6 +27,10 @@ export const unocssPlugin = Unocss({
     presetAttributify(),
     presetIcons({
       scale: 1.2,
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'text-bottom',
+      },
     }),
     // presetWebFonts({
     //   fonts: {

@@ -25,11 +25,16 @@ export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {
           )} ?`,
         )
       }
+
+      const isNoUseAI = typeof Boolean(argvs.czgitArgs.flag?.ai) && argvs.czgitArgs.flag?.ai === false
+      injectEnvFlag('no_czai', isNoUseAI)
+      injectEnvFlag('czai', argvs.czgitArgs.subCommand?.ai)
       injectEnvFlag('break', argvs.czgitArgs.subCommand?.break)
       injectEnvFlag('emoji', argvs.czgitArgs.subCommand?.emoji)
       injectEnvFlag('checkbox', argvs.czgitArgs.subCommand?.checkbox)
       injectEnvFlag('CzCommitSignGPG', argvs.czgitArgs.subCommand?.gpg)
       injectEnvValue('cz_alias', argvs.czgitArgs.flag?.alias)
+      injectEnvValue('cz_ainum', argvs.czgitArgs.flag?.['ai-num'])
 
       console.log(`czg@${version}\n`)
       // commit

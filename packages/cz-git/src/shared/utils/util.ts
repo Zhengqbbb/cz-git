@@ -4,7 +4,11 @@
  * @license: MIT
  */
 
+import { style } from '@cz-git/inquirer'
 import type { Answers, CommitizenGitOptions, Option, ScopesType } from '..'
+
+export const useThemeCode = (input: string, themeColorCode?: string) =>
+  themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input)
 
 export function log(type: 'info' | 'warm' | 'err', msg: string) {
   const colorMapping = {
@@ -157,6 +161,21 @@ const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number
   const item = options.types?.find((i: { value?: string }) => i.value === type)
   // 1: space
   return item?.emoji ? item.emoji.length + 1 : 0
+}
+
+export const parseAISubject = (options: CommitizenGitOptions, subject?: string) => {
+  if (!subject)
+    return ''
+
+  subject = subject.replace(/(\r\n|\n|\r)/gm, '').replace(/[\.。]$/, '')
+  let res = subject
+  if (options.upperCaseSubject)
+    res = res.charAt(0).toUpperCase()
+  else
+    res = res.charAt(0).toLowerCase()
+  res = res + subject.slice(1)
+
+  return res
 }
 
 /**

@@ -78,6 +78,15 @@ export interface Answers {
    * @default: Are you sure you want to proceed with the commit above?
    */
   confirmCommit?: string
+
+  /**
+   * @default: Generating your AI commit subject...
+   */
+  generatingByAI: string
+  /**
+   * @description: Select suitable subject by AI generated:
+   */
+  generatedSelectByAI: string
   footerPrefix?: string
 }
 
@@ -150,6 +159,14 @@ export interface CommitMessageOptions {
   defaultMessage: string
 }
 
+export interface GenerateAIPromptType {
+  type?: string
+  defaultScope?: string
+  maxSubjectLength?: number
+  upperCaseSubject?: boolean
+  diff?: string
+}
+
 export interface CommitizenGitOptions {
   /**
    * @description: define commonly used commit message alias
@@ -196,6 +213,42 @@ export interface CommitizenGitOptions {
   typesSearchValue?: boolean
   /** @deprecated Please use `typesSearchValue` field instead. */
   typesSearchValueKey?: boolean
+
+  /**
+   * @description: Use OpenAI to auto generate short description for commit message
+   * @default: false
+   */
+  useAI?: boolean
+
+  /**
+   * @description: If >1 will turn on select mode, select generate options like returned by OpenAI
+   * @default: 1
+   */
+  aiNumber?: number
+
+  /**
+   * @description: To ignore selection codes when sending AI API requests
+   * @default: [ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]
+   * @example: [ "pnpm-lock.yaml", "docs/public" ]
+   */
+  aiDiffIgnore?: string[]
+
+  /**
+   * @default: OpenAI
+   */
+  aiType?: string
+
+  /**
+   * @description: Alert!!! Save on "$HOME/.czrc" or "$HOME/.config/.czrc". Do not save on project
+   */
+  openAIToken?: string
+
+  /**
+   * @description: Use the callback fn can customize edit information AI question information
+   * @param GenerateAIPromptType: provide some known parameters
+   * @default: generateSubjectDefaultPrompt
+   */
+  aiQuestionCB?: (aiParam: GenerateAIPromptType) => string
 
   /**
    * @description: Use emoji ？| it will be use typesOption.emoji code
@@ -484,6 +537,8 @@ export const defaultConfig = Object.freeze({
     footerPrefixesSelect: 'Select the ISSUES type of change (optional):',
     customFooterPrefix: 'Input ISSUES prefix:',
     footer: 'List any ISSUES AFFECTED by this change. E.g.: #31, #34:\n',
+    generatingByAI: 'Generating your AI commit subject...',
+    generatedSelectByAI: 'Select suitable subject by AI generated:',
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
   },
   types: [
@@ -503,6 +558,11 @@ export const defaultConfig = Object.freeze({
   typesSearchValue: true,
   themeColorCode: '',
   useEmoji: false,
+  useAI: false,
+  aiType: 'OpenAI',
+  aiNumber: 1,
+  aiQuestionCB: undefined,
+  openAIToken: '',
   emojiAlign: 'center',
   scopes: [],
   scopesSearchValue: false,

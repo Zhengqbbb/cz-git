@@ -1,5 +1,6 @@
 import '@commitlint/types'
 import path from 'path'
+import os from 'os'
 import resolveExtends from '@commitlint/resolve-extends'
 import { cosmiconfig } from 'cosmiconfig'
 import type { RulesConfig } from '@commitlint/types'
@@ -130,6 +131,23 @@ export const czLoader = async (cwd?: string) => {
   return await execute(data?.config || data || {}, true)
 }
 
+export const rootLoader = async () => {
+  const cwd = os.homedir()
+  const options = {
+    moduleName: 'czrc',
+    searchPlaces: [
+      '.config/.czrc',
+      '.czrc',
+    ],
+    cwd,
+    stopDir: cwd,
+  }
+  const data = await loader(options)
+  return {
+    openAIToken: data?.config?.openAIToken || '',
+  }
+}
+
 export interface UserOptions {
   /** Debug mode path */
   cwd?: string
@@ -150,14 +168,15 @@ export const configLoader = async (options?: UserOptions) => {
     return { prompt: await execute(czData?.config || czData || {}, true) }
   }
   else {
-    return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd)]).then(
-      ([clData, czData]) => {
+    return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd), rootLoader()]).then(
+      ([clData, czData, rootData]) => {
         const clPrompt = clData.prompt || {}
         return {
           ...clData,
           prompt: {
             ...czData,
             ...clPrompt,
+            ...rootData,
           },
         }
       },

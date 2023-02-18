@@ -1,6 +1,6 @@
 <h1 align="center">czg</h1>
 
-> Interactive Commitizen CLI that generate standardized commit messages
+> Interactive Commitizen CLI that generate standardized git commit message
 
 <p align="center">
     <a target="_blank" href="https://cz-git.qbb.sh/cli/">
@@ -35,7 +35,8 @@
 <br/>
 <br/>
 
-- ⚡️ **Lightweight** : Zero Dependencies (1.3MB)
+- 🤖 **OpenAI Support.** Let the AI generate your git commit message description.
+- ⚡️ **Lightweight** : Zero Dependencies (1.5MB)
 - 🤗 **Simpler and Faster** : No plugin, No adapter, No extra steps, You can use `npx` | `npm script` | `global install`... quick start CLI in your any project
 - 😎 **Highly Customizable** : Internally contains the core of cz-git. Extend all the features of cz-git. Same behavior, Same configuration loader... You can customize the commit CLI according to your need
 
@@ -64,7 +65,7 @@ Create a `.czrc` file in the project root directory
 ```sh
 $ czg --help
 NAME:
-    czg - Interactive Commitizen CLI that generate standardized commit messages
+    czg - Interactive Commitizen CLI that generate standardized git commit message
 
 WEBSITE:
     https://cz-git.qbb.sh/cli/
@@ -74,24 +75,28 @@ SYNOPSIS:
     czg [subcommand...] [options...] [git-commit-options...]
 
 SUBCOMMAND:
-    break          Turn on appends a ! after the type/scope
-    emoji          Turn on output message with emoji mode
-    checkbox       Turn on scope checkbox mode
-    gpg            Turn on use GPG sign commit message
+    ai               Turn on OpenAI generate subject mode
+    break            Turn on appends a ! after the type/scope
+    emoji            Turn on output message with emoji mode
+    checkbox         Turn on scope checkbox mode
+    gpg              Turn on use GPG sign commit message
 
 OPTIONS:
-    --config       Specify the configuration file to use
-    :, --alias     Directly submit the defined commit message
-    -r, --retry    Directly retry submit by the last message
-    -h, --help     Show help
-    -v, --version  Show version
+    --config=        Specify the configuration file to use
+    --openai-token=  Setup OpenAI API secret key to local (.config/.czrc)
+    -N=,--ai-num=    Setting AI return number subjects and Turn on choose mode
+    :, --alias       Directly submit the defined commit message
+    -r, --retry      Directly retry submit by the last message
+    -h, --help       Show help
+    -v, --version    Show version
 
 EXAMPLES:
     czg
     czg emoji
     czg :fd
-    czg --alias=fd
     czg --config="./config/cz.json"
+    czg --openai-token="sk-XXXXX"
+    czg ai -N=3
 
 Extends 'git commit' options.
 See 'git commit --help' for more information.

@@ -40,7 +40,7 @@
 
 ## Introduction
 
-A more engineered, lightweight, customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
+A support OpenAI, and more engineered, lightweight, customizable, standard output format [commitizen](https://github.com/commitizen/cz-cli) adapter.
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/165576782-a9339182-df7e-4185-aacc-212f62850f36.gif)
 
@@ -49,8 +49,9 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 ## Feature
 
+- 🤖 **OpenAI support.** Let the AI generate your git commit message description.
 - 💪 Just to be a **lazy man** !!! Friendly command line tool, Supports **search and selection** on the command line, reducing spelling errors.
-- ⚡️ **Lightweight**, **Highly Customizable**, but the output format follows the standard [Angular commit](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) specification.
+- ⚡️ **Lightweight**, **Highly Customizable**, but the output format follows the standard [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 - 🔨 [Better for monorepo engineering](https://cz-git.qbb.sh/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
 - ✅ Support commit with **emoji** ｜ Better linking with [issuePrefix](https://cz-git.qbb.sh/recipes/default-issues.html) **for issue**
 
@@ -58,8 +59,8 @@ A more engineered, lightweight, customizable, standard output format [commitizen
 
 ```bash
 $ npm i -D cz-git
-+ cz-git          (1.5 MB)
-added 1 package in 0.461s
++ cz-git          (1.9 MB)
+added 1 package in 0.582s
 ```
 
 ## Usage

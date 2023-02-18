@@ -8,14 +8,27 @@ const { frontmatter } = useData()
 const features = computed(() => frontmatter.value.czFeatures)
 const pkgFeatureTitle = computed(() => frontmatter.value.pkgFeatureTitle)
 const emojiFeature = computed(() => frontmatter.value.emojiFeature)
+const openAIFeature = computed(() => frontmatter.value.openAIFeature)
 useMediumZoom()
 </script>
 
 <template>
   <div
     flex="~ wrap grow basis-30% md:row col"
-    class="maauto max-w-1152px mt-14 lg:px-1 px-2 py-4 justify-between items-stretch"
+    class="maauto max-w-1152px mt-12 lg:px-1 px-2 py-0 justify-between items-stretch"
   >
+    <div class="feat">
+      <h2 class="featTitle">
+        {{ openAIFeature.title }}
+        <i class="i-simple-icons:openai" />
+      </h2>
+      <p class="dark:c-gray-4 c-gray-5 text-4.2">
+        {{ openAIFeature.details }}<br>
+        <a :href="openAIFeature.link" class="text-$vp-c-brand text-sm underline underline-offset-4 underline-solid underline-transparent transition-all" hover="underline-$vp-c-brand">
+          {{ openAIFeature.linkText }}
+        </a>
+      </p>
+    </div>
     <div v-for="(feat, i) in features" :key="i" class="feat" :class="{ relative: i !== 2 }">
       <h2 class="featTitle">
         {{ feat.title }}
@@ -32,8 +45,8 @@ useMediumZoom()
         $ npm install -D cz-git<br>
         + cz-git
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        (<span c-orange-5> 1.6 MB </span>) <br>added &nbsp;<span c-orange-5>1</span>&nbsp; package
-        in &nbsp;<span c-orange-5>0.482s</span>
+        (<span c-orange-5> 1.9 MB </span>) <br>added &nbsp;<span c-orange-5>1</span>&nbsp; package
+        in &nbsp;<span c-orange-5>0.582s</span>
       </p>
     </div>
     <div class="feat">
@@ -45,7 +58,7 @@ useMediumZoom()
       </p>
     </div>
   </div>
-  <p class="maauto max-w-1152px mt-10 lg:px-1 px-2">
+  <p class="maauto max-w-1152px mt-14 lg:px-1 px-2">
     <img
       class="max-w-100%"
       src="https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif"

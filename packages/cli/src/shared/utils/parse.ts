@@ -33,9 +33,29 @@ const resovleFlag = (
     deleteItem(`--${aliasFlag}`, target.gitArgs)
   }
   else {
-    const filterRex = new RegExp(`^--${aliasFlag}=(.*)$`, 'gi')
-    target.gitArgs = target.gitArgs.filter(value => !filterRex.test(value))
+    const filterRexFlag = new RegExp(`^-${flag}=(.*)$`, 'gi')
+    const filterRexAlias = new RegExp(`^--${aliasFlag}=(.*)$`, 'gi')
+    target.gitArgs = target.gitArgs
+      .filter(value => !filterRexFlag.test(value) && !filterRexAlias.test(value))
   }
+  return target
+}
+
+const resovleFlaseFlag = (
+  argv: ParsedArgs,
+  targetFlag: string,
+  flag: CzgitFlagList,
+  target: CzgitParseArgs,
+) => {
+  if (argv[flag] === undefined)
+    return target
+  if (!target.czgitArgs.flag)
+    target.czgitArgs.flag = {}
+
+  if (typeof argv[flag] === 'boolean' && argv[flag] === false)
+    target.czgitArgs.flag[flag] = argv[flag]
+
+  deleteItem(targetFlag, target.gitArgs)
   return target
 }
 
@@ -64,6 +84,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
       b: 'reback',
       r: 'retry',
       y: 'yes',
+      N: 'ai-num',
     },
   })
   let result: CzgitParseArgs = {
@@ -78,6 +99,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
     for (let i = 0; i < parseArgv._.length; i++) {
       // resolve subcmd
       result = resovleSubCmd(parseArgv._[i], 'init', result)
+      result = resovleSubCmd(parseArgv._[i], 'ai', result)
       result = resovleSubCmd(parseArgv._[i], 'emoji', result)
       result = resovleSubCmd(parseArgv._[i], 'checkbox', result)
       result = resovleSubCmd(parseArgv._[i], 'break', result)
@@ -91,10 +113,13 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
   result = resovleFlag(parseArgv, 'b', 'reback', result)
   result = resovleFlag(parseArgv, 'r', 'retry', result)
   result = resovleFlag(parseArgv, 'y', 'yes', result)
+  result = resovleFlag(parseArgv, 'N', 'ai-num', result)
+  result = resovleFlag(parseArgv, 'openai-token', 'openai-token', result)
   result = resovleFlag(parseArgv, 'version', 'version', result)
   result = resovleFlag(parseArgv, 'hook', 'hook', result)
   result = resovleFlag(parseArgv, 'config', 'config', result)
   result = resovleFlag(parseArgv, 'alias', 'alias', result)
+  result = resovleFlaseFlag(parseArgv, '--no-ai', 'ai', result)
 
   return result
 }

@@ -55,8 +55,9 @@ sitemap:
 
 :::tip
 尝试运行命令 **可在当前会话直接开启多选模式**
-- 使用 Commitizen CLI: `checkbox=1 cz`
+- 使用 Commitizen CLI + cz-git: `checkbox=1 cz`
 - 使用 cz-git CLI: `czg checkbox`
+
 示例与使用方式 [⇒ 查看小窍门](/zh/recipes/#支持多选-scopes)
 :::
 
@@ -103,6 +104,80 @@ sitemap:
 - **描述** : 允许出现 重大变更(BREAKING CHANGES)的特定 **type**
 - **类型** : `string[]`
 - **默认** : `['feat', 'fix']`
+
+## useAI
+
+- **描述** : 是否使用 [OpenAI](https://openai.com/) API 自动生成提交信息 **subject** <sup>简短描述</sup>
+- **类型** : `boolean`
+- **默认** : `false`
+
+:::tip
+
+尝试运行命令 **可在当前会话直接开启 OpenAI API 生成模式**
+- 使用 Commitizen CLI + cz-git: `czai=1 cz`
+- 使用 cz-git CLI: `czg ai`
+
+示例与使用方式 [⇒ 查看小窍门](/zh/recipes/openai)
+:::
+
+## aiNumber
+
+- **描述** : 如果大于 1 ，则会让 OpenAI 返回指定的多个选项，并开启选择模式
+- **类型** : `number`
+- **默认** : `1`
+
+:::tip
+尝试运行命令 **可在当前会话直接开启 OpenAI API 返回多个的选择模式**
+- 使用 Commitizen CLI + cz-git: `czai=1 cz_ainum=3 cz`
+- 使用 czg CLI: `czg ai -N=3`
+
+Demo And Usage [⇒ see the recipes](/recipes/openai)
+:::
+
+## aiDiffIgnore
+
+- **描述** : 设置忽略目标文件的 diff 信息数据发送 OpenAI API
+- **类型** : `string[]`
+- **默认** : `[ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]`
+- **例子** : `[ "pnpm-lock.yaml", "docs/public" ]`
+
+## aiQuestionCB
+
+- **描述** : 该回调函数可利用已知的信息自定义设置发送给 OpenAI 的请求文案
+- **类型** : `(param: GenerateAIPromptType) => string`
+
+```ts
+export interface GenerateAIPromptType {
+  type: string
+  defaultScope?: string
+  maxSubjectLength?: number
+  upperCaseSubject?: boolean
+  diff?: string
+}
+```
+
+- **例子** : 
+
+:::: code-group
+::: code-group-item 英文
+
+```js
+module.exports = {
+  aiQuestionCB: ({ maxSubjectLength, diff }) => `Write an insightful and concise Git commit message in the present tense for the following Git diff code, without any prefixes, and no longer than ${maxSubjectLength} characters.: \`\`\`diff\n${diff}\n\`\`\``,
+}
+```
+
+:::
+::: code-group-item 中文
+
+```js
+module.exports = {
+  aiQuestionCB: ({ maxSubjectLength, diff }) => `用完整句子为以下 Git diff 代码写一个有见解并简洁的 Git 中文提交消息，不加任何前缀，并且内容不能超过 ${maxSubjectLength} 个字符: \`\`\`diff\n${diff}\n\`\`\``,
+}
+```
+
+::::
+
 
 ## upperCaseSubject
 

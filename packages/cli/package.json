@@ -1,9 +1,11 @@
 {
   "name": "czg",
   "version": "1.4.1",
-  "description": "Interactive Commitizen CLI that generate standardized commit messages",
+  "description": "Interactive Commitizen CLI that generate standardized git commit message",
   "keywords": [
+    "openai",
     "commit",
+    "commit CLI",
     "commit message",
     "commitizen",
     "commitizen-cli",

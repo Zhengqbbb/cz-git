@@ -7,18 +7,28 @@ export type CzgitFlagList =
   | 'yes'
   | 'hook'
   | 'alias'
+  | 'ai-num'
+  | 'openai-token'
+  | 'ai'
+
 export interface CzgitCommonFlag {
   /** option: --version|-v */
   version?: boolean
   /** option: --help|-h */
   help?: boolean
+  /** option: --no-ai */
+  ai?: boolean
 }
 
 export interface CzgitFlag {
   /** option: --config="xxx" */
   config?: string
+  /** option: --openai-token="xxx" */
+  'openai-token'?: string
   /** option: --alias="xxx" */
   alias?: string
+  /** option: --ai-num="xxx" */
+  'ai-num'?: string
   /** option: --reback|-b */
   reback?: boolean
   /** option: --retry|-r */
@@ -32,10 +42,12 @@ export interface InitFlag {
   yes?: boolean
 }
 
-export type CzgitSubCommandList = 'init' | 'emoji' | 'checkbox' | 'break' | 'gpg'
+export type CzgitSubCommandList = 'init' | 'emoji' | 'ai' | 'checkbox' | 'break' | 'gpg'
 export interface CzgitSubCommand {
   /** option: init */
   init?: boolean
+  /** subcmd: emoji */
+  ai?: boolean
   /** subcmd: emoji */
   emoji?: boolean
   /** subcmd: checkbox */

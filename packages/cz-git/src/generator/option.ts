@@ -16,7 +16,7 @@ import {
 import type { CommitizenGitOptions, UserConfig } from '../shared'
 
 export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
-  const { emoji, checkbox, ___X_CMD_THEME_COLOR_CODE } = process.env
+  const { emoji, checkbox, czai, no_czai, cz_ainum, ___X_CMD_THEME_COLOR_CODE } = process.env
   const promptConfig = config.prompt ?? {}
 
   return {
@@ -26,6 +26,12 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     types: promptConfig.types ?? defaultConfig.types,
     typesAppend: promptConfig.typesAppend ?? defaultConfig.typesAppend,
     typesSearchValue: promptConfig.typesSearchValueKey ?? promptConfig.typesSearchValue ?? defaultConfig.typesSearchValue,
+    useAI: Boolean(czai === '1' && no_czai !== '1') || (promptConfig.useAI && no_czai !== '1') || defaultConfig.useAI,
+    aiNumber: parseInt(cz_ainum || '0', 10) || promptConfig.aiNumber || defaultConfig.aiNumber,
+    aiDiffIgnore: promptConfig.aiDiffIgnore ?? promptConfig.aiDiffIgnore,
+    aiType: promptConfig.aiType ?? defaultConfig.aiType,
+    aiQuestionCB: promptConfig.aiQuestionCB ?? defaultConfig.aiQuestionCB,
+    openAIToken: process.env.CZ_OPENAI_TOKEN || promptConfig.openAIToken || defaultConfig.openAIToken,
     useEmoji: Boolean(emoji === '1') || promptConfig.useEmoji || defaultConfig.useEmoji,
     emojiAlign: promptConfig.emojiAlign || defaultConfig.emojiAlign,
     scopes: promptConfig.scopes ?? getEnumList(config?.rules?.['scope-enum'] as any),

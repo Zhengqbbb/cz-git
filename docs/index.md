@@ -3,12 +3,12 @@ layout: home
 sidebar: false
 
 title: cz-git
-titleTemplate: More engineered, lightweight, customizable, standard output format commitizen adapter
+titleTemplate: Support OpenAI, and more engineered, lightweight, customizable, standard output format Commitizen adapter and Git commit CLI
 
 hero:
   name: cz-git
   text: ""
-  tagline: More engineered, lightweight, customizable, standard output format Commitizen adapter and CLI.
+  tagline: More engineered, lightweight, customizable, standard output format Commitizen adapter and Git commit CLI.
   image:
     src: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png
     alt: cz-git
@@ -26,9 +26,12 @@ hero:
       text: CLI
       link: /cli/
 
+openAIFeature:
+  title: OpenAI Support
+  details: Let the AI generate your git commit message. To be a lazy man.
+  link: /recipes/openai
+  linkText: See Usage →
 czFeatures:
-  - title: Friendly First
-    details: Friendly command line tool, Supports search and selection on the command line, reducing spelling errors.To be a lazy man.
   - title: Highly Customizable
     details: Enjoy the customization process to make the tool more in line with your or team habits.
   - title: Engineering Support

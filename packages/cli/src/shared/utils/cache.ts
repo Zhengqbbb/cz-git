@@ -12,7 +12,7 @@ export const writeCacheSync = (cachePath: string, key: string, value: any) => {
     originalCache = {}
   }
   const newCache = { ...originalCache, [key]: value }
-  writeFileSync(cachePath, JSON.stringify(newCache))
+  writeFileSync(cachePath, JSON.stringify(newCache), 'utf8')
   return newCache
 }
 

@@ -54,8 +54,9 @@ If you define `scopeOverrides` then define generic `scopes`
 
 :::tip
 Try running command to **enable multiple scopes mode in the current session**
-- Commitizen CLI: `checkbox=1 cz`
+- Commitizen CLI + cz-git: `checkbox=1 cz`
 - czg CLI: `czg checkbox`
+
 Demo And Usage [⇒ see the recipes](/recipes/#support-for-multiple-scopes)
 :::
 
@@ -99,9 +100,66 @@ more usage and demo [⇒ see the recipes](/recipes/breakingchange.html)
 
 ## allowBreakingChanges
 
-- **description** : a specific **type** that allows BREAKING CHANGES
+- **description** : a specific **type** that allows display BREAKING CHANGES prompt
 - **type** : `string[]`
 - **default** : `["feat", "fix"]`
+
+## useAI
+
+- **description** : Turn on use [OpenAI](https://openai.com/) API to auto generate **subject** <sup>short description</sup> for commit message mode
+- **type** : `boolean`
+- **default** : `false`
+
+:::tip
+Try running command to **use OpenAI API to auto generate **subject** in the current session**
+- Commitizen CLI + cz-git: `czai=1 cz`
+- czg CLI: `czg ai`
+
+Demo And Usage [⇒ see the recipes](/recipes/openai)
+:::
+
+## aiNumber
+
+- **description** : If >1 will **turn on select mode**, select generate options like returned by OpenAI
+- **type** : `number`
+- **default** : `1`
+
+:::tip
+Try running command to **select multiple results returned by OpenAI in the current session**
+- Commitizen CLI + cz-git: `czai=1 cz_ainum=3 cz`
+- czg CLI: `czg ai -N=3`
+
+Demo And Usage [⇒ see the recipes](/recipes/openai)
+:::
+
+## aiDiffIgnore
+
+- **description** : To ignore selection diff codes when sending AI API requests
+- **type** : `string[]`
+- **default** : `[ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]`
+- **example** : `[ "pnpm-lock.yaml", "docs/public" ]`
+
+## aiQuestionCB
+
+- **description** : Use the callback fn can customize edit AI question content
+- **type** : `(param: GenerateAIPromptType) => string`
+
+```ts
+export interface GenerateAIPromptType {
+  type: string
+  defaultScope?: string
+  maxSubjectLength?: number
+  upperCaseSubject?: boolean
+  diff?: string
+}
+```
+- **example** : 
+
+```js
+module.exports = {
+  aiQuestionCB: ({ maxSubjectLength, diff }) => `Write an insightful and concise Git commit message in the present tense for the following Git diff code, without any prefixes, and no longer than ${maxSubjectLength} characters.: \`\`\`diff\n${diff}\n\`\`\``,
+}
+```
 
 ## upperCaseSubject
 
