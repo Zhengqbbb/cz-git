@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/Zhengqbbb/cz-git/compare/v1.4.1...v1.5.0) (2023-02-18)
+
+
+### Features
+
+* **cz-git.czg:** support use OpenAI to generate commit subjects ([#93](https://github.com/Zhengqbbb/cz-git/issues/93)) ([3184e19](https://github.com/Zhengqbbb/cz-git/commit/3184e1993589b96cc8f649d9d2a4f6542bc7402d)), closes [#92](https://github.com/Zhengqbbb/cz-git/issues/92)
+
+
+
 ## [1.4.1](https://github.com/Zhengqbbb/cz-git/compare/v1.4.0...v1.4.1) (2022-12-11)
 
 
