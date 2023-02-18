@@ -5,7 +5,7 @@
 ![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif)
 
 :::info 快速体验
-你可以利用 `npx` 填入 Token ，并在你的任何项目中运行下列命令进行体验<br>
+利用 `npx` 填入 Token ，并在你的任何项目中运行下列命令进行体验<br>
 **OpenAI API Token** 获取: https://platform.openai.com/account/api-keys
 
 ```sh
