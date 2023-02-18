@@ -177,8 +177,10 @@ export async function generateAISubjects(
 ) {
   // TODO: Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
   const diffIgnore = options.aiDiffIgnore?.map(i => `:(exclude)${i}`) || []
-  const diff = spawnSync('git',
-    ['diff', '--cached', '.', ...diffIgnore],
+  const diffOpts = process.env.CZ_ALL_CHANGE_MODE === '1'
+    ? ['.']
+    : ['--cached', '.']
+  const diff = spawnSync('git', ['diff', ...diffOpts, ...diffIgnore],
     { encoding: 'utf8' },
   ).stdout.trim().slice(0, 7800)
 

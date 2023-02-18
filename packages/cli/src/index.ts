@@ -49,6 +49,9 @@ export const bootsrap = (environment: any = {}, argv = process.argv) => {
     process.exit(0)
   }
 
+  if (parsedArgs.gitArgs.includes('-a') || parsedArgs.gitArgs.includes('--all'))
+    process.env.CZ_ALL_CHANGE_MODE = '1'
+
   czg(czgitVersion, parsedArgs, environment)
 }
 
