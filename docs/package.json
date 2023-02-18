@@ -16,6 +16,7 @@
     "@iconify-json/simple-icons": "^1.1.44",
     "@types/markdown-it": "^12.2.3",
     "@unocss/reset": "^0.49.4",
+    "@vite-pwa/vitepress": "^0.0.5",
     "@vitejs/plugin-vue": "^4.0.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-mark": "^3.0.1",

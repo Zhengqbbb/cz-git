@@ -1,6 +1,6 @@
 import fg from 'fast-glob'
 import { resolve } from 'pathe'
-import { VitePWA } from 'vite-plugin-pwa'
+import type { VitePWAOptions } from 'vite-plugin-pwa'
 import {
   descriptionEN,
   githubSourceContentRegex,
@@ -15,7 +15,7 @@ import {
  * can find more information on Workbox section.
  * @see https://vite-plugin-pwa.netlify.app/
  */
-export const pwaPlugin = VitePWA({
+export const pwa: Partial<VitePWAOptions> = {
   outDir: '.vitepress/dist',
   registerType: 'autoUpdate',
   // include all static assets under public/
@@ -46,7 +46,7 @@ export const pwaPlugin = VitePWA({
   },
   workbox: {
     navigateFallbackDenylist: [/^\/new$/],
-    globPatterns: ['**/*.{css,webp,png,svg,gif,ico,woff2}'],
+    globPatterns: ['**/*.{js,css,webp,png,svg,gif,ico,woff2}'],
     navigateFallback: null,
     runtimeCaching: [
       {
@@ -107,4 +107,4 @@ export const pwaPlugin = VitePWA({
       },
     ],
   },
-})
+}
