@@ -2,7 +2,7 @@
 
 让 AI 生成你的 git commit 提交信息简短描述
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif)
+![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=686x309 -->
 
 :::info 快速体验
 利用 `npx` 填入 Token ，并在你的任何项目中运行下列命令进行体验<br>
