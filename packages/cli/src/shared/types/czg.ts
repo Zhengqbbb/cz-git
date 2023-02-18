@@ -8,6 +8,7 @@ export type CzgitFlagList =
   | 'hook'
   | 'alias'
   | 'ai-num'
+  | 'openai-token'
   | 'ai'
 
 export interface CzgitCommonFlag {
@@ -22,6 +23,8 @@ export interface CzgitCommonFlag {
 export interface CzgitFlag {
   /** option: --config="xxx" */
   config?: string
+  /** option: --openai-token="xxx" */
+  'openai-token'?: string
   /** option: --alias="xxx" */
   alias?: string
   /** option: --ai-num="xxx" */

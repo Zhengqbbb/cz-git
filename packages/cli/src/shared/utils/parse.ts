@@ -114,6 +114,7 @@ export const resovleArgs = (argv: string[]): CzgitParseArgs => {
   result = resovleFlag(parseArgv, 'r', 'retry', result)
   result = resovleFlag(parseArgv, 'y', 'yes', result)
   result = resovleFlag(parseArgv, 'N', 'ai-num', result)
+  result = resovleFlag(parseArgv, 'openai-token', 'openai-token', result)
   result = resovleFlag(parseArgv, 'version', 'version', result)
   result = resovleFlag(parseArgv, 'hook', 'hook', result)
   result = resovleFlag(parseArgv, 'config', 'config', result)

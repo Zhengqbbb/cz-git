@@ -217,10 +217,14 @@ async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string)
     stream: false,
     n: options.aiNumber || 1,
   }
+  if (!options.openAIToken) {
+    log('err', `NO Found OpenAI Token, Please use setup command ${style.cyan('`npx -y czg --openai-token="sk-XXXX"`')}`)
+    throw new Error('See guide page: https://cz-git.qbb.sh/recipes/openai#setup-openai-token')
+  }
   const response = await fetch('https://api.openai.com/v1/completions', {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${options.openAIToken ?? ''}`,
+      'Authorization': `Bearer ${options.openAIToken}`,
     },
     method: 'POST',
     body: JSON.stringify(payload),

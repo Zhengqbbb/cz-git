@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { czg, generateHelp } from './generator'
+import { czg, generateHelp, setupOpenAIToken } from './generator'
 import { resovleArgs } from './shared'
 
 process.on('uncaughtException', (err) => {
@@ -33,6 +33,10 @@ export const bootsrap = (environment: any = {}, argv = process.argv) => {
   if (!parsedArgs.czgitArgs.subCommand) {
     if (parsedArgs.czgitArgs.flag?.help) {
       generateHelp(czgitVersion)
+    }
+    else if (parsedArgs.czgitArgs.flag?.['openai-token']) {
+      setupOpenAIToken(parsedArgs.czgitArgs.flag?.['openai-token'])
+      process.exit(0)
     }
     else if (parsedArgs.czgitArgs.flag?.version) {
       console.log(czgitVersion)

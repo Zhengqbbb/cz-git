@@ -1,5 +1,6 @@
 import '@commitlint/types'
 import path from 'path'
+import os from 'os'
 import resolveExtends from '@commitlint/resolve-extends'
 import { cosmiconfig } from 'cosmiconfig'
 import type { RulesConfig } from '@commitlint/types'
@@ -131,7 +132,7 @@ export const czLoader = async (cwd?: string) => {
 }
 
 export const rootLoader = async () => {
-  const cwd = process.env.HOME || process.env.USERPROFILE
+  const cwd = os.homedir()
   const options = {
     moduleName: 'czrc',
     searchPlaces: [

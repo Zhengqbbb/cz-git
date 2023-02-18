@@ -220,7 +220,7 @@ export interface CommitizenGitOptions {
   /**
    * @description: To ignore selection codes when sending AI API requests
    * @default: [ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]
-   * @example: [ "pnpm-lock.yaml", "docs/public" ]"
+   * @example: [ "pnpm-lock.yaml", "docs/public" ]
    */
   aiDiffIgnore?: string[]
 
