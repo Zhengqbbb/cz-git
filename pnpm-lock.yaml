@@ -65,6 +65,7 @@ importers:
   docs:
     specifiers:
       '@iconify-json/carbon': ^1.1.15
+      '@iconify-json/simple-icons': ^1.1.44
       '@types/markdown-it': ^12.2.3
       '@unocss/reset': ^0.49.4
       '@vitejs/plugin-vue': ^4.0.0
@@ -86,6 +87,7 @@ importers:
       vue: 3.2.47
     devDependencies:
       '@iconify-json/carbon': 1.1.15
+      '@iconify-json/simple-icons': 1.1.44
       '@types/markdown-it': 12.2.3
       '@unocss/reset': 0.49.4
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
@@ -2258,6 +2260,12 @@ packages:
 
   /@iconify-json/carbon/1.1.15:
     resolution: {integrity: sha512-O1JtNFRIFVCJwS0YpU9XmWmZIvZzvGBi+CL7dI2ofAU7b5XV6PNH2IVnwEGKCCxEyAPaok23lR5qpgC7AWbgkQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/simple-icons/1.1.44:
+    resolution: {integrity: sha512-oPJF0DtKfHt/maZ3r+V/DN7a7Vya0yqwheMQzcdX88+XHhWL/n1yA6X4Xt3zbRk3Q06cAlWUGi82inqM8NpEFw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

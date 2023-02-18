@@ -25,6 +25,10 @@ export const sidebar: DefaultTheme.Sidebar = {
       collapsed: false,
       items: [
         {
+          text: 'ai',
+          link: '/cli/ai',
+        },
+        {
           text: 'break',
           link: '/cli/break',
         },
@@ -102,6 +106,10 @@ export const sidebar: DefaultTheme.Sidebar = {
       text: 'Recipes',
       collapsed: false,
       items: [
+        {
+          text: 'OpenAI',
+          link: '/recipes/openai',
+        },
         {
           text: 'scopes',
           link: '/recipes/',

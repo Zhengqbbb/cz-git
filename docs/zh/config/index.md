@@ -35,6 +35,8 @@ module.exports = {
       footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
       customFooterPrefix: 'Input ISSUES prefix:',
       footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
+      generatingByAI: 'Generating your AI commit subject...',
+      generatedSelectByAI: 'Select suitable subject by AI generated:',
       confirmCommit: 'Are you sure you want to proceed with the commit above?'
     },
     types: [
@@ -109,6 +111,8 @@ module.exports = {
     footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
     customFooterPrefix: 'Input ISSUES prefix:',
     footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
+    generatingByAI: 'Generating your AI commit subject...',
+    generatedSelectByAI: 'Select suitable subject by AI generated:',
     confirmCommit: 'Are you sure you want to proceed with the commit above?'
   },
   types: [
@@ -281,6 +285,8 @@ module.exports = {
       footerPrefixesSelect: '选择关联issue前缀（可选）:',
       customFooterPrefix: '输入自定义issue前缀 :',
       footer: '列举关联issue (可选) 例如: #31, #I3244 :\n',
+      generatingByAI: '正在通过 AI 生成你的提交简短描述...',
+      generatedSelectByAI: '选择一个 AI 生成的简短描述:',
       confirmCommit: '是否提交或修改commit ?'
     },
     types: [
@@ -359,6 +365,8 @@ module.exports = {
       footerPrefixesSelect: "Select the ISSUES type of changeList by this change (optional):",
       customFooterPrefix: "Input ISSUES prefix:",
       footer: "List any ISSUES by this change. E.g.: #31, #34:\n",
+      generatingByAI: 'Generating your AI commit subject...',
+      generatedSelectByAI: 'Select suitable subject by AI generated:',
       confirmCommit: "Are you sure you want to proceed with the commit above?"
     },
     types: [
@@ -438,6 +446,8 @@ module.exports = {
     "footerPrefixesSelect": "Select the ISSUES type of changeList by this change (optional):",
     "customFooterPrefix": "Input ISSUES prefix:",
     "footer": "List any ISSUES by this change. E.g.: #31, #34:\n",
+    "generatingByAI": "Generating your AI commit subject...",
+    "generatedSelectByAI": "Select suitable subject by AI generated:",
     "confirmCommit": "Are you sure you want to proceed with the commit above?"
   },
   "types": [

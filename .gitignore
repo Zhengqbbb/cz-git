@@ -6,6 +6,7 @@ node_modules
 sitemap.xml
 urls.txt
 dist
+.note
 docs/.vitepress/cache
 
 # Mac OS

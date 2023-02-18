@@ -5,7 +5,7 @@ description: Interactive Commitizen CLI that generate standardized git commit me
 ---
 
 <h1 class="clip">czg</h1>
-<p class="description">Interactive Commitizen CLI that generate standardized git commit messages</p>
+<p class="description">Interactive CLI that generate standardized git commit messages</p>
 
 <p align="center">
     <a target="_blank" href="https://github.com/Zhengqbbb/cz-git">
@@ -25,7 +25,7 @@ description: Interactive Commitizen CLI that generate standardized git commit me
 
 <br />
 
-- 🤖 **OpenAI Support.** Let the AI generate your git message description.
+- 🤖 **OpenAI Support.** Let the AI generate your git commit message.
 - ⚡️ **Lightweight** : Zero Dependencies (1.5MB)
 - 🤗 **Simpler and Faster** : No plugin, No adapter, No extra steps, You can use `npx` | `npm script` | `global install`... quick start CLI in your any project
 - 😎 **Highly Customizable** : Internally contains the core of cz-git. Extend all the features of cz-git. Same behavior, Same configuration loader... You can customize the commit CLI according to your need
@@ -66,26 +66,27 @@ More information about configure file and options. See → [Config](/config/)
     czg [subcommand...] [options...] [git-commit-options...]
 
 [33mSUBCOMMAND:[0m
-    [36mai[0m             [31mTurn on OpenAI generate subject mode[0m
-    [36mbreak[0m          [31mTurn on appends a ! after the type/scope[0m
-    [36memoji[0m          [31mTurn on output message with emoji mode[0m
-    [36mcheckbox[0m       [31mTurn on scope checkbox mode[0m
-    [36mgpg[0m            [31mTurn on use GPG sign commit message[0m
+    [36mai[0m               [31mTurn on OpenAI generate subject mode[0m
+    [36mbreak[0m            [31mTurn on appends a ! after the type/scope[0m
+    [36memoji[0m            [31mTurn on output message with emoji mode[0m
+    [36mcheckbox[0m         [31mTurn on scope checkbox mode[0m
+    [36mgpg[0m              [31mTurn on use GPG sign commit message[0m
     
 [33mOPTIONS:[0m
-    [36m--config[0m       [31mSpecify the configuration file to use[0m
-    [36m-N=,--ai-num=[0m  [31mSetting AI return number subjects and Turn on choose mode[0m
-    [36m:, --alias[0m     [31mDirectly submit the defined commit message[0m
-    [36m-r, --retry[0m    [31mDirectly retry submit by the last message[0m
-    [36m-h, --help[0m     [31mShow help[0m
-    [36m-v, --version[0m  [31mShow version[0m
+    [36m--config[0m         [31mSpecify the configuration file to use[0m
+    [36m--openai-token=[0m  [31mSetup OpenAI API secret key to local (.config/.czrc)[0m
+    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
+    [36m:, --alias[0m       [31mDirectly submit the defined commit message[0m
+    [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
+    [36m-h, --help[0m       [31mShow help[0m
+    [36m-v, --version[0m    [31mShow version[0m
 
 [33mEXAMPLES:[0m
     [36mczg[0m
     [36mczg emoji[0m
     [36mczg :fd[0m
-    [36mczg --alias=fd[0m
     [36mczg --config="./config/cz.json"[0m
+    [36mczg --openai-token="sk-XXXXX"[0m
     [36mczg ai -N=3[0m
 
 Extends 'git commit' options. 

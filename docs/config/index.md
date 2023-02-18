@@ -36,6 +36,8 @@ module.exports = {
       footerPrefixSelect: 'Select the ISSUES type of changeList by this change (optional):',
       customFooterPrefix: 'Input ISSUES prefix:',
       footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
+      generatingByAI: 'Generating your AI commit subject...',
+      generatedSelectByAI: 'Select suitable subject by AI generated:',
       confirmCommit: 'Are you sure you want to proceed with the commit above?'
     },
     types: [
@@ -53,6 +55,8 @@ module.exports = {
     ],
     useEmoji: false,
     emojiAlign: 'center',
+    useAI: false,
+    aiNumber: 1,
     themeColorCode: '',
     scopes: [],
     allowCustomScopes: true,
@@ -109,6 +113,8 @@ module.exports = {
     footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
     customFooterPrefix: 'Input ISSUES prefix:',
     footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
+    generatingByAI: 'Generating your AI commit subject...',
+    generatedSelectByAI: 'Select suitable subject by AI generated:',
     confirmCommit: 'Are you sure you want to proceed with the commit above?'
   },
   types: [
@@ -126,6 +132,8 @@ module.exports = {
   ],
   useEmoji: false,
   emojiAlign: 'center',
+  useAI: false,
+  aiNumber: 1,
   themeColorCode: '',
   scopes: [],
   allowCustomScopes: true,
@@ -198,6 +206,8 @@ module.exports = {
       footerPrefixesSelect: "Select the ISSUES type of changeList by this change (optional):",
       customFooterPrefix: "Input ISSUES prefix:",
       footer: "List any ISSUES by this change. E.g.: #31, #34:\n",
+      generatingByAI: 'Generating your AI commit subject...',
+      generatedSelectByAI: 'Select suitable subject by AI generated:',
       confirmCommit: "Are you sure you want to proceed with the commit above?"
     },
     types: [
@@ -215,6 +225,8 @@ module.exports = {
     ],
     useEmoji: true,
     emojiAlign: "center",
+    useAI: false,
+    aiNumber: 1,
     themeColorCode: "",
     scopes: [],
     allowCustomScopes: true,
@@ -277,6 +289,8 @@ It is recommended to use JavaScript for configuration files in the project. You 
     "footerPrefixesSelect": "Select the ISSUES type of changeList by this change (optional):",
     "customFooterPrefix": "Input ISSUES prefix:",
     "footer": "List any ISSUES by this change. E.g.: #31, #34:\n",
+    "generatingByAI": "Generating your AI commit subject...",
+    "generatedSelectByAI": "Select suitable subject by AI generated:",
     "confirmCommit": "Are you sure you want to proceed with the commit above?"
   },
   "types": [
@@ -294,6 +308,8 @@ It is recommended to use JavaScript for configuration files in the project. You 
   ],
   "useEmoji": false,
   "emojiAlign": "center",
+  "useAI": false,
+  "aiNumber": 1,
   "themeColorCode": "",
   "scopes": [],
   "allowCustomScopes": true,

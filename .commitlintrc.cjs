@@ -30,20 +30,20 @@ module.exports = {
   prompt: {
     // @see: https://github.com/Zhengqbbb/cz-git#options
     alias: {
-      'b': 'chore: bump dependencies' + coAuthoredBy,
-      'c': 'chore: update config files' + coAuthoredBy,
-      'f': 'docs: fix typos' + coAuthoredBy,
-      ':': 'docs: update README' + coAuthoredBy,
-      'table:data': 'chore: :hammer: update project using table data' + coAuthoredBy,
-      'table:docs': 'docs: update project using table' + coAuthoredBy,
+      'b': 'chore: bump dependencies',
+      'c': 'chore: update config files',
+      'f': 'docs: fix typos',
+      ':': 'docs: update README',
+      'table:data': 'chore: :hammer: update project using table data',
+      'table:docs': 'docs: update project using table',
     },
     themeColorCode: '38;5;043',
     issuePrefixes: [
       { value: 'link', name: 'link:     Work in processing to ISSUES' },
       { value: 'closed', name: 'closed:   ISSUES has been processed' },
     ],
-    useAI: true,
-    aiNumber: 3,
+    aiNumber: 5,
+    aiDiffIgnore: [ 'pnpm-lock.yaml', 'docs/public' ],
     customIssuePrefixAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
     formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,

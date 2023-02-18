@@ -14,14 +14,15 @@ useMediumZoom()
 <template>
   <div
     flex="~ wrap grow basis-30% md:row col"
-    class="maauto max-w-1152px mt-14 lg:px-1 px-2 py-4 justify-between items-stretch"
+    class="maauto max-w-1152px mt-12 lg:px-1 px-2 py-0 justify-between items-stretch"
   >
     <div v-for="(feat, i) in features" :key="i" class="feat" :class="{ relative: i !== 2 }">
-      <h2 class="featTitle">
-        {{ feat.title }}
-      </h2>
+      <h2 class="featTitle" v-html="feat.title" />
       <p class="dark:c-gray-4 c-gray-5 text-4.2">
-        {{ feat.details }}
+        {{ feat.details }}<br>
+        <a :href="feat.link" class="text-$vp-c-brand text-sm underline underline-offset-4 underline-solid underline-transparent transition-all" hover="underline-$vp-c-brand">
+          {{ feat.linkText }}
+        </a>
       </p>
     </div>
     <div class="feat relative">
@@ -45,7 +46,7 @@ useMediumZoom()
       </p>
     </div>
   </div>
-  <p class="maauto max-w-1152px mt-10 lg:px-1 px-2">
+  <p class="maauto max-w-1152px mt-14 lg:px-1 px-2">
     <img
       class="max-w-100%"
       src="https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif"

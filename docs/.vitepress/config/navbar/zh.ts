@@ -14,7 +14,7 @@ export const nav: DefaultTheme.NavItem[] = [
   },
   {
     text: '窍门',
-    link: '/zh/recipes/',
+    link: '/zh/recipes/openai',
     activeMatch: '/zh/recipes/',
   },
   {

@@ -14,7 +14,7 @@ export const nav: DefaultTheme.NavItem[] = [
   },
   {
     text: 'Recipes',
-    link: '/recipes/',
+    link: '/recipes/openai',
     activeMatch: '/recipes/',
   },
   {

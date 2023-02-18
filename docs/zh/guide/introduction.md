@@ -57,7 +57,7 @@ sitemap:
 
 ## 特点
 
-- 🤖 **OpenAI 支持**, 让 AI 来自动生成你的提交信息简短描述。
+- 🤖 **OpenAI 支持**, 让 AI 来辅助生成你 git commit 的描述信息。
 - 💪 友好型命令行工具，**“懒字优先”** ！支持在命令行搜索和选择，减少拼写错误。
 - ⚡️ **轻量级**，**高度自定义**, 但输出格式遵循标准的 [Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/) 规范。
 - 🔨 [更好维护 monorepo 工程化项目](/zh/recipes/#scopes) 与 **commitlint** 配合给予命令行的相关校验信息。

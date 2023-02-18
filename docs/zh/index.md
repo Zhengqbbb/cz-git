@@ -29,8 +29,10 @@ hero:
       link: /zh/cli/
 
 czFeatures:
-  - title: 交互至上
-    details: 友好型命令行工具，支持搜索和选择在命令行中，减少拼写错误，极致“懒”。
+  - title: OpenAI 支持 <i class="i-simple-icons:openai" />
+    details: 让 AI 来辅助生成你 git commit 的描述信息
+    link: /zh/recipes/openai
+    linkText: 查看使用 →
   - title: 高度自定义
     details: 享受探索自定义的过程，让工具更契合你或团队习惯。
   - title: 工程化支持
