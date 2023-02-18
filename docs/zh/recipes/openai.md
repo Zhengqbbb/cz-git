@@ -102,7 +102,7 @@ npx czg ai -N=5
 
 ## 配置
 
-- 如果你开启了配置 `useAI`，但是你不想使用 AI 模式，想切换为普通模式
+- 如果你开启了配置 `useAI`，但是本次你不想使用 AI 模式，想切换为普通模式，可以运行命令
   - czg CLI: `czg --no-ai`
   - Commitizen CLI + cz-git: `no_czai=1 cz`
 - 如果你想自定义配置发起 OpenAI 请求的描述信息，像支持本地化，可以使用配置项进行更改 [aiQuestionCB](/zh/config/engineer#aiquestioncb)，例如：
