@@ -3,6 +3,8 @@
   "version": "1.4.1",
   "description": "A better customizable and git support commitizen adapter",
   "keywords": [
+    "openai",
+    "commit",
     "commitizen-adapter",
     "cli",
     "cz-cli",
