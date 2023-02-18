@@ -20,5 +20,5 @@ czg --openai-token=sk-xxxxx
 | `--openai-token=<token>` | Setup OpenAI API secret key to local (.config/.czrc) |
 
 :::tip
-more information and usage [⇒ see the recipes](/recipes/openai.html)
+more information and usage [⇒ see the recipes](/recipes/openai)
 :::

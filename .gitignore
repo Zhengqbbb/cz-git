@@ -7,6 +7,7 @@ sitemap.xml
 urls.txt
 dist
 .note
+.temp
 docs/.vitepress/cache
 
 # Mac OS

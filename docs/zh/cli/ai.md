@@ -20,5 +20,5 @@ czg --openai-token=sk-xxxxx
 | `--openai-token=<token>` | 设置 OpenAI API 密钥于本地 (.config/.czrc) |
 
 :::tip
-更多信息和使用方式, [⇒ 查看小窍门](/zh/recipes/ai.html)
+更多信息和使用方式, [⇒ 查看小窍门](/zh/recipes/openai)
 :::
