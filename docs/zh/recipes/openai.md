@@ -102,7 +102,6 @@ npx czg ai -N=5
 
 ## 配置
 
-- If you configure `useAI` to true, and you want to **switch to normal mode** not AI prompt mode in this session
 - 如果你开启了配置 `useAI`，但是你不想使用 AI 模式，想切换为普通模式
   - czg CLI: `czg --no-ai`
   - Commitizen CLI + cz-git: `no_czai=1 cz`
