@@ -27,12 +27,12 @@ hero:
     - theme: alt
       text: CLI
       link: /zh/cli/
-
+openAIFeature:
+  title: OpenAI 支持
+  details: 让 AI 来辅助生成你 git commit 的描述信息
+  link: /zh/recipes/openai
+  linkText: 查看使用 →
 czFeatures:
-  - title: OpenAI 支持 <i class="i-simple-icons:openai" />
-    details: 让 AI 来辅助生成你 git commit 的描述信息
-    link: /zh/recipes/openai
-    linkText: 查看使用 →
   - title: 高度自定义
     details: 享受探索自定义的过程，让工具更契合你或团队习惯。
   - title: 工程化支持

@@ -26,11 +26,12 @@ hero:
       text: CLI
       link: /cli/
 
+openAIFeature:
+  title: OpenAI Support
+  details: Let the AI generate your git commit message. To be a lazy man.
+  link: /recipes/openai
+  linkText: See Usage →
 czFeatures:
-  - title: OpenAI Support <i class="i-simple-icons:openai" />
-    details: Let the AI generate your git commit message. To be a lazy man.
-    link: /recipes/openai
-    linkText: See Usage →
   - title: Highly Customizable
     details: Enjoy the customization process to make the tool more in line with your or team habits.
   - title: Engineering Support
