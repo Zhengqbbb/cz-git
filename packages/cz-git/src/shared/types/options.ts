@@ -78,6 +78,15 @@ export interface Answers {
    * @default: Are you sure you want to proceed with the commit above?
    */
   confirmCommit?: string
+
+  /**
+   * @default: Generating your AI commit subject...
+   */
+  generatingByAI: string
+  /**
+   * @description: Select suitable subject by AI generated:
+   */
+  generatedSelectByAI: string
   footerPrefix?: string
 }
 
@@ -528,6 +537,8 @@ export const defaultConfig = Object.freeze({
     footerPrefixesSelect: 'Select the ISSUES type of change (optional):',
     customFooterPrefix: 'Input ISSUES prefix:',
     footer: 'List any ISSUES AFFECTED by this change. E.g.: #31, #34:\n',
+    generatingByAI: 'Generating your AI commit subject...',
+    generatedSelectByAI: 'Select suitable subject by AI generated:',
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
   },
   types: [

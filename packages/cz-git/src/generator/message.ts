@@ -247,6 +247,6 @@ function generateSubjectDefaultPrompt(
   if (maxSubjectLength === Infinity)
     maxSubjectLength = 75
 
-  return `I want you to write a git commit message and follow Conventional Commits, It is currently known that the type of The commit message is "${type}",${scopeText} And I will input you a git diff output, your job is to give me conventional commit subject that is short description mean do not preface the commit with type and scope. Without adding any preface the commit with anything! Using present tense, return a complete sentence, don't repeat yourself. Some procedural abbreviations are allowed. Allow program abbreviations. The result must be control in ${maxSubjectLength} words! And ${startCaseText} ! Now enter part of the git diff code for you: \`\`\`diff\n${diff}\n\`\`\``
+  return `I want you to write a git commit message and follow Conventional Commits, It is currently known that the type of The commit message is "${type}",${scopeText} And I will input you a git diff output, your job is to give me conventional commit subject that is short description mean do not preface the commit with type and scope. Without adding any preface the commit with anything! Using present tense, return a complete sentence, don't repeat yourself. Allow program abbreviations. The result must be control in ${maxSubjectLength} words! And ${startCaseText} ! Now enter part of the git diff code for you: \`\`\`diff\n${diff}\n\`\`\``
 }
 /** EndSection: */

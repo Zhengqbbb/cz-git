@@ -37,7 +37,7 @@ export const prompter = (
     let answers
     if (options.useAI) {
       answers = await cz.prompt(generateAITypesQuestions(options))
-      console.log(style.green('ℹ'), style.bold('Generating your AI commit subject...'))
+      console.log(style.green('ℹ'), style.bold(options.messages!.generatingByAI))
       // Power By and Modified part of the code: https://github.com/Nutlope/aicommits
       const subjects = await generateAISubjects(answers, options)
       if (!Array.isArray(subjects))

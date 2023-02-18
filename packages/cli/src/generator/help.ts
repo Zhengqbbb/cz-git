@@ -37,7 +37,6 @@ ${style.yellow('EXAMPLES:')}
     ${style.cyan('czg')}
     ${style.cyan('czg emoji')}
     ${style.cyan('czg :fd')}
-    ${style.cyan('czg --alias=fd')}
     ${style.cyan('czg --config="./config/cz.json"')}
     ${style.cyan('czg --openai-token="sk-XXXXX"')}
     ${style.cyan('czg ai -N=3')}

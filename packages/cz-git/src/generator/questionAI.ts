@@ -45,7 +45,7 @@ export const generateAISubjectsQuestions = (options: CommitizenGitOptions, subje
     {
       type: 'search-list',
       name: 'subject',
-      message: 'Select suitable subject by AI generated',
+      message: options.messages?.generatedSelectByAI,
       themeColorCode: options?.themeColorCode,
       source: (_: unknown, input: string) => {
         return fuzzyFilter(input, parseStandardScopes(subjects))
