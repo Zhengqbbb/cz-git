@@ -24,7 +24,7 @@ export default {
     app.component('CodeGroup', CodeGroup)
     app.component('CodeGroupItem', CodeGroupItem)
     createMediumZoomProvider(app, router)
-    usePageAnalytics(process.env.GOOGLE_ANALYTICS_ID || '', process.env.BAIDU_TONGJI_ID || '')
+    usePageAnalytics('G-V5E08LL4GP', 'b1d9002033c7e550e55a51a23dca4f31')
   },
   setup() {
     const { lang } = useData()
