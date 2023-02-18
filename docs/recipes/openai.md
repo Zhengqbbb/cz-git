@@ -1,6 +1,8 @@
 # OpenAI
 
-Let the AI generate your **git commit message** subject <sup>short description</sup>
+Let the AI generate your **git commit message** subject <sup>(short description)</sup>
+
+![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=686x309 -->
 
 :::info Have A Try
 You can have a try **without setup your token to local** in any of your projects<br> Quick experience interaction. API Key: https://platform.openai.com/account/api-keys<br>
