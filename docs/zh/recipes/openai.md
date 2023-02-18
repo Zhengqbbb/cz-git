@@ -13,7 +13,7 @@ CZ_OPENAI_TOKEN="sk-xxxxx" npx czg ai
 ```
 :::
 
-## 设置 OpenAI token
+## 配置 OpenAI token
 
 1. https://platform.openai.com/account/api-keys <br>登陆并创建你的 OpenAI API 密钥，通常以 `sk-` 开头
 2. 运行命令 `npx czg --openai-token=<API secret key>` 填入 OpenAI API 密钥完成设置
