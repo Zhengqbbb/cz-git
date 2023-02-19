@@ -46,7 +46,7 @@ export const pwa: Partial<VitePWAOptions> = {
   },
   workbox: {
     navigateFallbackDenylist: [/^\/new$/],
-    globPatterns: ['**/*.{css,webp,png,svg,gif,ico,woff2}'],
+    globPatterns: ['**/*.{js,css,webp,png,svg,gif,ico,woff2}'],
     navigateFallback: null,
     runtimeCaching: [
       {

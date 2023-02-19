@@ -113,7 +113,7 @@ module.exports = {
 }
 ```
 - 关于 AI 相关的配置信息 可查看 [Options - AI Related](/zh/config/engineer#useai)
-- 关于项目或全局配置文件信息 可查看[Configure Template](/zh/config/#configure-template)
+- 关于项目或全局配置文件信息 可查看 [Configure Template](/zh/config/#configure-template)
 
 ## 如何实现
 
