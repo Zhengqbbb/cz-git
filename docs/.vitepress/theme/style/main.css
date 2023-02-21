@@ -34,6 +34,7 @@ kbd {
     background-color: var(--vp-c-bg-nav) !important;
     border-bottom: 1px solid var(--vp-c-divider);
     backdrop-filter: saturate(180%) blur(5px);
+    margin-left: 14px;
   }
   .dark .DocSearch-Button {
     background-color: #111111;
