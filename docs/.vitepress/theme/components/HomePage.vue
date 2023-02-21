@@ -33,7 +33,7 @@ useMediumZoom()
       <h2 class="featTitle">
         {{ feat.title }}
       </h2>
-      <p class="dark:c-gray-4 c-gray-5 text-4.2">
+      <p class="dark:c-gray-4 c-gray-5 text-4.2 whitespace-pre-wrap">
         {{ feat.details }}
       </p>
     </div>

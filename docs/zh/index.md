@@ -36,9 +36,13 @@ czFeatures:
   - title: 高度自定义
     details: 享受探索自定义的过程，让工具更契合你或团队习惯。
   - title: 工程化支持
-    details: 适合管理工程化项目(比如 monorepo )或业务系统。让 commit 与 issue 关联更简单，特别在 Gitee 当中。
+    details: |
+      适合管理工程化项目(比如 Monorepo )或业务系统。
+      让 Commit 与 Issue 关联更简单，特别在 Gitee 当中。
   - title: 与 Commitlint 配合
-    details: 获取 commitlint 相关配置，给予命令行提示信息。
+    details: |
+      获取 Commitlint 相关配置，给予命令行提示信息。
+      遵循 Conventional Commits 规范
 pkgFeatureTitle: 轻量级
 emojiFeature:
   title: Emoji 支持

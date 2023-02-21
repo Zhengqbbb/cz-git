@@ -33,11 +33,13 @@ openAIFeature:
   linkText: See Usage →
 czFeatures:
   - title: Highly Customizable
-    details: Enjoy the customization process to make the tool more in line with your or team habits.
+    details: Enjoy the customization process to make the tool more in line with your or team habits. 
   - title: Engineering Support
     details: Reduce repetitive typing. Better for engineering repo(e.g:monorepo) or business system. Easy link with issue.
   - title: With Commitlint
-    details: Dynamically get commitlint configuration and give command line prompts.
+    details: |
+      Dynamically get commitlint configuration and give command line prompts.
+      Follows the Conventional Commits.
 pkgFeatureTitle: Lightweight
 emojiFeature:
   title: Emoji Support

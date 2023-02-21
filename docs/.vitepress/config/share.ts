@@ -25,6 +25,7 @@ export const shareConfig = defineConfig({
   },
 
   markdown: {
+    lineNumbers: process.env.NODE_ENV === 'development',
     // shiki code theme
     theme: {
       light: 'vitesse-light',
