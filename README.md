@@ -74,28 +74,6 @@ $ npm i -D cz-git
 added 1 package in 0.582s
 ```
 
-## Usage
-
-[⇒ Get Started](https://cz-git.qbb.sh/guide/)
-
-## Configure Template
-
-[⇒ Configure Template](https://cz-git.qbb.sh/config/)
-
-## Options
-
-[⇒ Show Related](https://cz-git.qbb.sh/config/show.html)
-
-[⇒ Engineering Related](https://cz-git.qbb.sh/config/engineer.html)
-
-## Recipes
-
-[⇒ Recipes](https://cz-git.qbb.sh/recipes/)
-
-## FAQ
-
-[⇒ FAQ](https://cz-git.qbb.sh/faq/)
-
 ## Projects using cz-git
 
 <table>
@@ -166,6 +144,30 @@ added 1 package in 0.582s
     </td>
   </tr>
 </table>
+
+
+## Get Started
+
+- `cz-git` + [`Commitizen`](https://github.com/commitizen/cz-cli) [⇒ Get Started](https://cz-git.qbb.sh/guide/)
+- `czg` [⇒ Get Started](https://cz-git.qbb.sh/cli/install)
+
+## Configure Template
+
+[⇒ Configure Template](https://cz-git.qbb.sh/config/)
+
+## Options
+
+[⇒ Show Related](https://cz-git.qbb.sh/config/show.html)
+
+[⇒ Engineering Related](https://cz-git.qbb.sh/config/engineer.html)
+
+## Recipes
+
+[⇒ Recipes](https://cz-git.qbb.sh/recipes/)
+
+## FAQ
+
+[⇒ FAQ](https://cz-git.qbb.sh/faq/)
 
 ## LICENSE
 
