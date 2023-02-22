@@ -18,6 +18,7 @@ export const isColorizenSupport = (colorSupoort = true) => {
       || (tty.isatty(1) && process.env.TERM !== 'dumb')
       || 'CI' in process.env)
   )
+  || ('FORCE_COLOR' in process.env)
 }
 
 export const replaceClose = (
