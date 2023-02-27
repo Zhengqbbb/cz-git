@@ -203,12 +203,6 @@ module.exports = {
 - **类型** : `string`
 - **默认** : `"|"`
 
-## skipQuestions
-
-- **描述** : 自定义选择指定的问题不显示
-- **类型** : `Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>`
-- **默认** : `[]`
-
 ## issuePrefixes
 
 - **描述** : 自定义选择issue前缀
@@ -275,6 +269,12 @@ module.exports = {
 
 关于 GPG 签名 commit message 的更多信息可查看: [Zhengqbbb/cz-git#58](https://github.com/Zhengqbbb/cz-git/issues/58)
 :::
+
+## skipQuestions
+
+- **描述** : 自定义选择指定的问题不显示
+- **类型** : `Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>`
+- **默认** : `[]`
 
 ## formatMessageCB
 

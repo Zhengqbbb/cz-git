@@ -185,13 +185,6 @@ If commitlint is used, it will automatically read `body-max-line-length` and set
 - **type** : `string`
 - **default** : `"|"`
 
-
-## skipQuestions
-
-- **description** : The question specified by the custom selection is not displayed
-- **type** : `Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>`
-- **default** : `[]`
-
 ## issuePrefixes
 
 - **description** : custom select issue prefix
@@ -256,6 +249,12 @@ If commitlint is used, it will automatically read `subject-min-length` and set i
 
 About GPG sign commit message information. can see: [Zhengqbbb/cz-git#58](https://github.com/Zhengqbbb/cz-git/issues/58)
 :::
+
+## skipQuestions
+
+- **description** : The question specified by the custom selection is not displayed
+- **type** : `Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>`
+- **default** : `[]`
 
 ## formatMessageCB
 
