@@ -24,7 +24,7 @@ sitemap:
 
 ## themeColorCode
 
-- **描述** : set prompt inquirer theme color
+- **描述** : 设置终端交互部件的主题色
 - **类型** : `string`
 - **默认** : `""`  (⇒ cyan 青色)
 
