@@ -51,7 +51,7 @@
 
 ## Introduction
 
-Support OpenAI, and more engineered, lightweight, customizable, standard output format [Commitizen adapter](https://github.com/commitizen/cz-cli) and [Git commit CLI](https://cz-git.qbb.sh/cli/).
+Support OpenAI, and more engineered, lightweight, customizable, standard output format [Commitizen adapter](https://cz-git.qbb.sh/guide/introduction) and [Git commit CLI](https://cz-git.qbb.sh/cli/).
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif)
 
