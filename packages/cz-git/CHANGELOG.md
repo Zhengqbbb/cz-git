@@ -1,3 +1,12 @@
+## [1.5.1](https://github.com/Zhengqbbb/cz-git/compare/v1.5.0...v1.5.1) (2023-03-02)
+
+
+### Features
+
+* **cz-git,cli:** use `gpt-3.5-turbo` openai model ([#96](https://github.com/Zhengqbbb/cz-git/issues/96)) ([5018654](https://github.com/Zhengqbbb/cz-git/commit/5018654621990c5811e49e67bd4fc710ec56703e))
+
+
+
 # [1.5.0](https://github.com/Zhengqbbb/cz-git/compare/v1.4.1...v1.5.0) (2023-02-18)
 
 
