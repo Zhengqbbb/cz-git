@@ -178,7 +178,7 @@ export async function generateAISubjects(
   // TODO: Accounting for GPT-3's input req of 4k tokens (approx 8k chars)
   const diffIgnore = options.aiDiffIgnore?.map(i => `:(exclude)${i}`) || []
   const diffOpts = process.env.CZ_ALL_CHANGE_MODE === '1'
-    ? ['.']
+    ? ['HEAD']
     : ['--cached', '.']
   const diff = spawnSync('git', ['diff', ...diffOpts, ...diffIgnore],
     { encoding: 'utf8' },
@@ -209,8 +209,8 @@ export async function generateAISubjects(
 
 async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string) {
   const payload = {
-    model: 'text-davinci-003',
-    prompt,
+    model: 'gpt-3.5-turbo',
+    messages: [{ role: 'user', content: prompt }],
     temperature: 0.7,
     top_p: 1,
     frequency_penalty: 0,
@@ -223,8 +223,8 @@ async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string)
     log('err', `NO Found OpenAI Token, Please use setup command ${style.cyan('`npx -y czg --openai-token="sk-XXXX"`')}`)
     throw new Error('See guide page: https://cz-git.qbb.sh/recipes/openai#setup-openai-token')
   }
-  // https://platform.openai.com/docs/api-reference/completions/create
-  const response = await fetch('https://api.openai.com/v1/completions', {
+  // https://platform.openai.com/docs/api-reference/chat/create
+  const response = await fetch('https://api.openai.com/v1/chat/completions', {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${options.openAIToken}`,
@@ -232,24 +232,29 @@ async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string)
     method: 'POST',
     body: JSON.stringify(payload),
   })
-  if (response.status !== 200) {
+  if (
+    !response.status
+    || response.status < 200
+    || response.status > 299
+  ) {
     const errorJson: any = await response.json()
-    log('err', `Fetch OpenAI API message failed, The response HTTP Code: ${response.status}`)
+    let errorMsg = `Fetch OpenAI API message failed, The response HTTP Code: ${response.status}`
+    if (response.status === 500)
+      errorMsg += '; Check the API status: https://status.openai.com'
+    log('err', errorMsg)
     throw new Error(errorJson?.error?.message)
   }
 
   const json: any = await response.json()
-  return json.choices.map((r: any) => parseAISubject(options, r.text))
+  return json.choices.map((r: any) => parseAISubject(options, r?.message?.content))
 }
 
 function generateSubjectDefaultPrompt(
-  { type, defaultScope, maxSubjectLength, upperCaseSubject, diff }: GenerateAIPromptType,
+  { maxSubjectLength, diff }: GenerateAIPromptType,
 ) {
-  const scopeText = defaultScope ? `The commit message scope is "${defaultScope}."` : ''
-  const startCaseText = upperCaseSubject ? 'start with a capital letter' : 'start with a lowercase letter'
-  if (maxSubjectLength === Infinity)
-    maxSubjectLength = 75
+  if (!maxSubjectLength || maxSubjectLength === Infinity || maxSubjectLength > 90)
+    maxSubjectLength = 65
 
-  return `I want you to write a git commit message and follow Conventional Commits, It is currently known that the type of The commit message is "${type}",${scopeText} And I will input you a git diff output, your job is to give me conventional commit subject that is short description mean do not preface the commit with type and scope. Without adding any preface the commit with anything! Using present tense, return a complete sentence, don't repeat yourself. Allow program abbreviations. The result must be control in ${maxSubjectLength} words! And ${startCaseText} ! Now enter part of the git diff code for you: \`\`\`diff\n${diff}\n\`\`\``
+  return `Write an insightful and concise Git commit message in the present tense for the following Git diff code, without any prefixes, and no longer than ${maxSubjectLength} characters.: \n\`\`\`diff\n${diff}\n\`\`\``
 }
 /** EndSection: */
