@@ -42,7 +42,6 @@ module.exports = {
       { value: 'link', name: 'link:     Work in processing to ISSUES' },
       { value: 'closed', name: 'closed:   ISSUES has been processed' },
     ],
-    aiNumber: 5,
     aiDiffIgnore: [ 'pnpm-lock.yaml', 'docs/public' ],
     customIssuePrefixAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,

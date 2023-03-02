@@ -14,10 +14,13 @@ export const isColorizenSupport = (colorSupoort = true) => {
   return (
     colorSupoort
     && !('NO_COLOR' in process.env)
-    && (process.platform === 'win32'
+    && (
+      process.platform === 'win32'
       || (tty.isatty(1) && process.env.TERM !== 'dumb')
-      || 'CI' in process.env)
+      || 'CI' in process.env
+    )
   )
+  || (!process.env.VITEST && 'FORCE_COLOR' in process.env)
 }
 
 export const replaceClose = (

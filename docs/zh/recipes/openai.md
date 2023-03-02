@@ -1,4 +1,4 @@
-# OpenAI
+# OpenAI <Badge type="info" text="GPT 3.5 Turbo 模型" />
 
 让 AI 生成你的 git commit 提交信息简短描述
 
@@ -117,5 +117,5 @@ module.exports = {
 
 ## 如何实现
 
-- 运行 git diff 命令获取文件的差异，并结合描述信息，发送请求给 **OpenAI GPT-3 API**，来获取 AI 生成的简短描述
+- 运行 git diff 命令获取文件的差异，并结合描述信息，发送请求给 **OpenAI GPT 3.5 Turbo API**，来获取 AI 生成的简短描述
 - 💡 灵感来源 [aicommits](https://github.com/Nutlope/aicommits) 并修改了部分代码

@@ -6,6 +6,7 @@ import './style/main.css'
 import './style/vars.css'
 import 'uno.css'
 import { createMediumZoomProvider } from './components/composables'
+import Badge from './components/Badge.vue'
 import HomePage from './components/HomePage.vue'
 import CodeGroupItem from './components/CodeGroupItem.vue'
 import { CodeGroup } from './components/CodeGroup'
@@ -21,6 +22,7 @@ export default {
     })
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
+    app.component('Badge', Badge)
     app.component('CodeGroup', CodeGroup)
     app.component('CodeGroupItem', CodeGroupItem)
     createMediumZoomProvider(app, router)
