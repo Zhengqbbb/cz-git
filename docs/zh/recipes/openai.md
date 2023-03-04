@@ -20,6 +20,8 @@ CZ_OPENAI_TOKEN="sk-xxxxx" npx czg ai
 
 ```sh
 npx czg --openai-token=sk-xxxxx
+# 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
+# npx czg --openai-token=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
 ```
 
 ## 全局使用
@@ -102,7 +104,9 @@ npx czg ai -N=5
 
 ## 配置
 
-- 国内用户可进行 proxy 代理设置后进行使用
+- 国内用户如果无法访问 OpenAI API 可进行 proxy 代理设置后进行使用
+  
+  亦或是使用 [`--api-proxy`](/zh/cli/ai#%E9%80%89%E9%A1%B9) 进行代理配置
 - 如果你开启了配置 `useAI`，但是本次你不想使用 AI 模式，想切换为普通模式，可以运行命令
   - czg CLI: `czg --no-ai`
   - Commitizen CLI + cz-git: `no_czai=1 cz`

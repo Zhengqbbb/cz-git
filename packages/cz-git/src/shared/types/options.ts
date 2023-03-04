@@ -244,6 +244,13 @@ export interface CommitizenGitOptions {
   openAIToken?: string
 
   /**
+   * It is recommended to use the command to configure the local
+   * `npx czg --api-proxy=<http_proxy>`
+   * e.g: `npx czg --api-proxy="http://127.0.0.1:1080"` or `npx czg --api-proxy="socks5://127.0.0.1:1080"`
+   */
+  apiProxy?: string
+
+  /**
    * @description: Use the callback fn can customize edit information AI question information
    * @param GenerateAIPromptType: provide some known parameters
    * @default: generateSubjectDefaultPrompt
@@ -563,6 +570,7 @@ export const defaultConfig = Object.freeze({
   aiNumber: 1,
   aiQuestionCB: undefined,
   openAIToken: '',
+  apiProxy: '',
   emojiAlign: 'center',
   scopes: [],
   scopesSearchValue: false,

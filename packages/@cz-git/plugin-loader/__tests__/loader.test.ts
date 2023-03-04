@@ -14,13 +14,15 @@ describe('config loader', () => {
   const loaderSpyFn = async (opt: UserOptions) => {
     const res = await configLoader(opt)
     res.prompt.openAIToken = ''
+    delete res.prompt.openAIToken
+    delete res.prompt.apiProxy
     return res
   }
 
   test('basic packages.json config should be loaded', async () => {
     mockDir = await useBootstrap('./fixtures/1-basic')
     const config = await loaderSpyFn({ cwd: mockDir.name })
-    expect(config).toEqual({ prompt: { path: 'node_modules/cz-git', useEmoji: true, openAIToken: '' } })
+    expect(config).toEqual({ prompt: { path: 'node_modules/cz-git', useEmoji: true } })
   }, 1000)
 
   test('basic commitlint js config should be loaded', async () => {
@@ -28,7 +30,7 @@ describe('config loader', () => {
     const config = await loaderSpyFn({ cwd: mockDir.name })
     expect(config).toEqual({
       rules: { 'scope-enum': [2, 'always', ['cz-git']] },
-      prompt: { path: 'node_modules/cz-git', useEmoji: true, openAIToken: '' },
+      prompt: { path: 'node_modules/cz-git', useEmoji: true },
     })
   }, 1000)
 
@@ -37,20 +39,20 @@ describe('config loader', () => {
     const config = await loaderSpyFn({ cwd: mockDir.name })
     expect(config).toEqual({
       rules: { 'scope-enum': [2, 'always', ['cz-git']] },
-      prompt: { path: 'node_modules/cz-git', useEmoji: true, openAIToken: '' },
+      prompt: { path: 'node_modules/cz-git', useEmoji: true },
     })
   }, 1000)
 
   test('basic commitizen js config should be loaded', async () => {
     mockDir = await useBootstrap('./fixtures/1-basic-cz-js')
     const config = await loaderSpyFn({ cwd: mockDir.name })
-    expect(config).toEqual({ prompt: { useEmoji: true, openAIToken: '' } })
+    expect(config).toEqual({ prompt: { useEmoji: true } })
   }, 1000)
 
   test('basic commitizen json config should be loaded', async () => {
     mockDir = await useBootstrap('./fixtures/1-basic-cz-json')
     const config = await loaderSpyFn({ cwd: mockDir.name })
-    expect(config).toEqual({ prompt: { path: 'node_modules/cz-git', useEmoji: true, openAIToken: '' } })
+    expect(config).toEqual({ prompt: { path: 'node_modules/cz-git', useEmoji: true } })
   }, 1000)
 
   test('commitizen extends config should be loaded', async () => {
@@ -65,7 +67,6 @@ describe('config loader', () => {
       prompt: {
         useEmoji: true,
         customIssuePrefixAlign: 'top',
-        openAIToken: '',
       },
     })
   }, 1000)
@@ -83,7 +84,6 @@ describe('config loader', () => {
         useEmoji: true,
         customIssuePrefixAlign: 'top',
         themeColorCode: '38;5;043',
-        openAIToken: '',
       },
     })
   }, 1000)
@@ -94,7 +94,6 @@ describe('config loader', () => {
     expect(config).toEqual({
       prompt: {
         useEmoji: true,
-        openAIToken: '',
       },
     })
   }, 1000)
@@ -105,7 +104,6 @@ describe('config loader', () => {
     expect(config).toEqual({
       prompt: {
         useEmoji: true,
-        openAIToken: '',
       },
     })
   }, 1000)
