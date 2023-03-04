@@ -267,7 +267,7 @@ async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string)
     }
 
     if (err.type === 'request-timeout')
-      errorMsg += `. ${style.bold(style.underline('Request Timeout'))} \n${style.yellow('[tip]>>>: If your country is unable to request the OpenAI API.\nCLI support for using http proxy like \`http_proxy\`, \`all_proxy\`.\nOr setup proxy e.g')} ${style.cyan('\`npx czg --api-proxy="http://127.0.0.1:1088"\`')}`
+      errorMsg += `. ${style.bold(style.underline('Request Timeout'))} \n${style.yellow('[tip]>>>: If your country is unable to request the OpenAI API.\nCLI support for using http proxy like \`http_proxy\`, \`all_proxy\`.\nOr setup proxy e.g')} ${style.cyan('\`npx czg --api-proxy="http://127.0.0.1:1080"\`')}`
 
     log('err', errorMsg)
     throw new Error(err.message)

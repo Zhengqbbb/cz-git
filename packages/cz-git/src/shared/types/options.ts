@@ -246,7 +246,7 @@ export interface CommitizenGitOptions {
   /**
    * It is recommended to use the command to configure the local
    * `npx czg --api-proxy=<http_proxy>`
-   * e.g: `npx czg --api-proxy="http://127.0.0.1:1088"` or `npx czg --api-proxy="socks5://127.0.0.1:1088"`
+   * e.g: `npx czg --api-proxy="http://127.0.0.1:1080"` or `npx czg --api-proxy="socks5://127.0.0.1:1080"`
    */
   apiProxy?: string
 

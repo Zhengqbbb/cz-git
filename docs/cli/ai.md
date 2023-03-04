@@ -19,9 +19,11 @@ czg --openai-token=sk-xxxxx
 
 | Shorthand, Name | Description |
 | --- | --- | 
-|  `-N=<number>`,`--ai-num=<number>` | Setting AI return number subjects and Turn on choose mode |
+|  `-N=<number>`<br>`--ai-num=<number>` | Setting AI return number subjects and Turn on choose mode |
 | `--no-ai` | Turn off AI prompt mode in this session |  
 | `--openai-token=<token>` | Setup OpenAI API secret key to local (.config/.czrc) |
+| `--api-proxy=<proxy_URL>` | Setup request OpenAI API proxy to local (.config/.czrc)<br>e.g:<br> 1. `npx czg --api-proxy="socks5://127.0.0.1:1080"`<br>2. `npx czg --api-proxy="http://127.0.0.1:1080"`  |
+| `--unset-proxy` | Unset request API proxy on local configure |
 
 :::tip
 more information and usage [⇒ see the recipes](/recipes/openai)
