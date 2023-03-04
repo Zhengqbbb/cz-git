@@ -1,3 +1,12 @@
+## [1.5.2](https://github.com/Zhengqbbb/cz-git/compare/v1.5.1...v1.5.2) (2023-03-04)
+
+
+### Features
+
+* **cz-git,cli:** add HTTPS proxy support for OpenAI API requests ([#97](https://github.com/Zhengqbbb/cz-git/issues/97)) ([0de320a](https://github.com/Zhengqbbb/cz-git/commit/0de320a8042dccbac6efbcfeaee49823b9ba8710))
+
+
+
 ## [1.5.1](https://github.com/Zhengqbbb/cz-git/compare/v1.5.0...v1.5.1) (2023-03-02)
 
 
