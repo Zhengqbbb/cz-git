@@ -32,6 +32,7 @@ export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
     aiType: promptConfig.aiType ?? defaultConfig.aiType,
     aiQuestionCB: promptConfig.aiQuestionCB ?? defaultConfig.aiQuestionCB,
     openAIToken: process.env.CZ_OPENAI_TOKEN || promptConfig.openAIToken || defaultConfig.openAIToken,
+    apiProxy: promptConfig.apiProxy || defaultConfig.apiProxy,
     useEmoji: Boolean(emoji === '1') || promptConfig.useEmoji || defaultConfig.useEmoji,
     emojiAlign: promptConfig.emojiAlign || defaultConfig.emojiAlign,
     scopes: promptConfig.scopes ?? getEnumList(config?.rules?.['scope-enum'] as any),

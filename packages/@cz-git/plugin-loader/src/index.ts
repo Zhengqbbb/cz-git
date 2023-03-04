@@ -145,6 +145,7 @@ export const rootLoader = async () => {
   const data = await loader(options)
   return {
     openAIToken: data?.config?.openAIToken || '',
+    apiProxy: data?.config?.apiProxy || '',
   }
 }
 

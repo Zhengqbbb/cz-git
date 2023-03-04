@@ -227,7 +227,7 @@ async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string)
     throw new Error('See guide page: https://cz-git.qbb.sh/recipes/openai#setup-openai-token')
   }
   // https://platform.openai.com/docs/api-reference/chat/create
-  const httpProxy = process.env.https_proxy || process.env.all_proxy || process.env.ALL_PROXY || process.env.http_proxy
+  const httpProxy = options.apiProxy || process.env.https_proxy || process.env.all_proxy || process.env.ALL_PROXY || process.env.http_proxy
   let agent: any
   if (httpProxy) {
     // eslint-disable-next-line n/no-deprecated-api
@@ -267,7 +267,7 @@ async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string)
     }
 
     if (err.type === 'request-timeout')
-      errorMsg += '. Request Timeout. \n[tip]>>>: If you are in China, you can try using a proxy like http_proxy or all_proxy'
+      errorMsg += `. ${style.bold(style.underline('Request Timeout'))} \n${style.yellow('[tip]>>>: If your country is unable to request the OpenAI API.\nCLI support for using http proxy like \`http_proxy\`, \`all_proxy\`.\nOr setup proxy e.g')} ${style.cyan('\`npx czg --api-proxy="http://127.0.0.1:1088"\`')}`
 
     log('err', errorMsg)
     throw new Error(err.message)
@@ -280,6 +280,6 @@ function generateSubjectDefaultPrompt(
   if (!maxSubjectLength || maxSubjectLength === Infinity || maxSubjectLength > 90)
     maxSubjectLength = 65
 
-  return `Write an insightful and concise Git commit message in the present tense for the following Git diff code, without any prefixes, and no longer than ${maxSubjectLength} characters.: \n\`\`\`diff\n${diff}\n\`\`\``
+  return `Write an insightful and concise Git commit message in the present tense for the following Git diff code, without any prefixes. Note that this sentence should never exceed ${maxSubjectLength} characters in length.: \n\`\`\`diff\n${diff}\n\`\`\``
 }
 /** EndSection: */

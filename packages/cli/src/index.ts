@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { czg, generateHelp, setupOpenAIToken } from './generator'
+import { czg, generateHelp, setupAIConfig } from './generator'
 import { resovleArgs } from './shared'
 
 process.on('uncaughtException', (err) => {
@@ -30,23 +30,34 @@ export const bootsrap = (environment: any = {}, argv = process.argv) => {
     return
   }
 
-  if (!parsedArgs.czgitArgs.subCommand) {
-    if (parsedArgs.czgitArgs.flag?.help) {
+  if (parsedArgs.czgitArgs.flag) {
+    const {
+      help: printHelp,
+      version: printVersion,
+      'openai-token': openAIToken,
+      'api-proxy': apiProxy,
+      'unset-proxy': unsetProxy,
+    } = parsedArgs.czgitArgs?.flag
+
+    if (printHelp) {
       generateHelp(czgitVersion)
     }
-    else if (parsedArgs.czgitArgs.flag?.['openai-token']) {
-      setupOpenAIToken(parsedArgs.czgitArgs.flag?.['openai-token'])
-      process.exit(0)
-    }
-    else if (parsedArgs.czgitArgs.flag?.version) {
+    else if (printVersion) {
       console.log(czgitVersion)
       process.exit(0)
     }
+    else if (openAIToken || apiProxy || unsetProxy) {
+      setupAIConfig(openAIToken, apiProxy, unsetProxy)
+      process.exit(0)
+    }
   }
-  else if (parsedArgs.czgitArgs.subCommand.init) {
-    // TODO: init
-    console.log('init')
-    process.exit(0)
+  else if (parsedArgs.czgitArgs.subCommand) {
+    const { init: initMode } = parsedArgs.czgitArgs.subCommand
+    if (initMode) {
+      // TODO: init
+      console.log('TODO: init')
+      process.exit(0)
+    }
   }
 
   if (parsedArgs.gitArgs.includes('-a') || parsedArgs.gitArgs.includes('--all'))
