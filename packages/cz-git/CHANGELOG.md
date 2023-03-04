@@ -1,3 +1,12 @@
+## [1.5.3](https://github.com/Zhengqbbb/cz-git/compare/v1.5.2...v1.5.3) (2023-03-04)
+
+
+### Features
+
+* **cz-git,cli:** add `--api-proxy` to setup openai api http proxy (close [#98](https://github.com/Zhengqbbb/cz-git/issues/98))([#100](https://github.com/Zhengqbbb/cz-git/issues/100)) ([f673262](https://github.com/Zhengqbbb/cz-git/commit/f67326255272955462b544057b71073966d405fa))
+
+
+
 ## [1.5.2](https://github.com/Zhengqbbb/cz-git/compare/v1.5.1...v1.5.2) (2023-03-04)
 
 
