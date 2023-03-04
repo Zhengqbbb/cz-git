@@ -10,7 +10,7 @@ BRANCH_NAME=gh-page
 deploy() {
     param:dsl       '
 type:
-    Type    = all cz docs next brew
+    Type    = cz brew docs all next
     Realse  = patch minor major prepatch
 options:
     --command    "select target dev command"        <>:Type
