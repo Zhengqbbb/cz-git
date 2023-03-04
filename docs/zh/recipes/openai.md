@@ -102,6 +102,7 @@ npx czg ai -N=5
 
 ## 配置
 
+- 国内用户可进行 proxy 代理设置后进行使用
 - 如果你开启了配置 `useAI`，但是本次你不想使用 AI 模式，想切换为普通模式，可以运行命令
   - czg CLI: `czg --no-ai`
   - Commitizen CLI + cz-git: `no_czai=1 cz`
