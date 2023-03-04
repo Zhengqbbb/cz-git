@@ -4,11 +4,14 @@
  * @license: MIT
  */
 import { spawnSync } from 'child_process'
+import url from 'url'
 import { style } from '@cz-git/inquirer'
 // @ts-expect-error
 import fetch from 'node-fetch'
+import HttpsProxyAgent from 'https-proxy-agent'
 import { getCurrentScopes, getMaxSubjectLength, isSingleItem, log, parseAISubject, parseStandardScopes, wrap } from '../shared'
 import type { Answers, CommitizenGitOptions, GenerateAIPromptType } from '../shared'
+import { APIError } from './error'
 
 export const getAliasMessage = (config: CommitizenGitOptions, alias?: string) => {
   if (!alias || typeof config?.alias?.[alias] !== 'string') {
@@ -224,29 +227,51 @@ async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string)
     throw new Error('See guide page: https://cz-git.qbb.sh/recipes/openai#setup-openai-token')
   }
   // https://platform.openai.com/docs/api-reference/chat/create
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${options.openAIToken}`,
-    },
-    method: 'POST',
-    body: JSON.stringify(payload),
-  })
-  if (
-    !response.status
-    || response.status < 200
-    || response.status > 299
-  ) {
-    const errorJson: any = await response.json()
-    let errorMsg = `Fetch OpenAI API message failed, The response HTTP Code: ${response.status}`
-    if (response.status === 500)
-      errorMsg += '; Check the API status: https://status.openai.com'
-    log('err', errorMsg)
-    throw new Error(errorJson?.error?.message)
+  const httpProxy = process.env.https_proxy || process.env.all_proxy || process.env.ALL_PROXY || process.env.http_proxy
+  let agent: any
+  if (httpProxy) {
+    // eslint-disable-next-line n/no-deprecated-api
+    const proxyUrl = url.parse(httpProxy)
+    // @ts-expect-error
+    agent = new HttpsProxyAgent(proxyUrl)
+    agent.path = agent?.pathname
   }
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      agent,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${options.openAIToken}`,
+      },
+      method: 'POST',
+      body: JSON.stringify(payload),
+      timeout: 10 * 1000,
+    })
+    if (
+      !response.status
+      || response.status < 200
+      || response.status > 299
+    ) {
+      const errorJson: any = await response.json()
+      throw new APIError(errorJson?.error?.message, response.status)
+    }
+    const json: any = await response.json()
+    return json.choices.map((r: any) => parseAISubject(options, r?.message?.content))
+  }
+  catch (err: any) {
+    let errorMsg = 'Fetch OpenAI API message failure'
+    if (err instanceof APIError) {
+      errorMsg += `The response HTTP Code: ${err.code}`
+      if (err.code === 500)
+        errorMsg += '; Check the API status: https://status.openai.com'
+    }
 
-  const json: any = await response.json()
-  return json.choices.map((r: any) => parseAISubject(options, r?.message?.content))
+    if (err.type === 'request-timeout')
+      errorMsg += '. Request Timeout. \n[tip]>>>: If you are in China, you can try using a proxy like http_proxy or all_proxy'
+
+    log('err', errorMsg)
+    throw new Error(err.message)
+  }
 }
 
 function generateSubjectDefaultPrompt(
