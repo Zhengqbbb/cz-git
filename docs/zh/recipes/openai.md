@@ -31,11 +31,6 @@ npx czg --openai-token=sk-xxxxx
 
 ```sh
 npm install -g czg
-# 设置token `czg --openai-token=sk-xxxxx`
-# 设置完token后，在你的任何项目中，运行下列命令
-czg ai
-# 返回多个简短描述，并开启选择模式
-git czg ai -N=5
 ```
 
 :::
@@ -43,15 +38,18 @@ git czg ai -N=5
 
 ```sh
 brew install czg
+```
+
+:::
+::::
+
+```sh
 # 设置token `czg --openai-token=sk-xxxxx`
 # 设置完token后，在你的任何项目中，运行下列命令
 czg ai
 # 返回多个简短描述，并开启选择模式
 git czg ai -N=5
 ```
-
-:::
-::::
 
 ## 作为项目依赖使用
 

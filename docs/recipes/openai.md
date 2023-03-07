@@ -26,11 +26,6 @@ npx czg --openai-token=sk-xxxxx
 
 ```sh
 npm install -g czg
-# setup your token `czg --openai-token=sk-xxxxx`
-# Run the following command in any of your projects after setup OpenAI token
-czg ai
-# Return multiple subjects, and choose the suitable answer
-git czg ai -N=5
 ```
 
 :::
@@ -38,15 +33,18 @@ git czg ai -N=5
 
 ```sh
 brew install czg
+```
+
+:::
+::::
+
+```sh
 # setup your token `czg --openai-token=sk-xxxxx`
 # Run the following command in any of your projects after setup OpenAI token
 czg ai
 # Return multiple subjects, and choose the suitable answer
 git czg ai -N=5
 ```
-
-:::
-::::
 
 ## As a dev dependency usage
 

@@ -87,7 +87,7 @@ module.exports = {
 ```json{8}
 {
   "scripts": {
-    "commit": "git cz"
+    "commit": "git-cz"
   },
   "config": {
     "commitizen": {
