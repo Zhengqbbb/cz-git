@@ -10,9 +10,9 @@ sitemap:
 ## Javascript 模板
 
 - `.commitlintrc.js`
-- `.commitlintrc.cjs`
+- `.commitlintrc.cjs` <sup class="text-0.55rem dark:color-gray-500">「ESM 规范项目」</sup>
 - `commitlint.config.js`
-- `commitlint.config.cjs`
+- `commitlint.config.cjs` <sup class="text-0.55rem dark:color-gray-500">「ESM 规范项目」</sup>
 
 ::: details 点击展开 `.commitlintrc.js` 完整 默认 配置模板
 
@@ -94,7 +94,7 @@ module.exports = {
 ==提示:== 如果你的项目未使用 commitlint，并想使用其他配置文件，可以选择下列配置项
 
 - `cz.config.js`
-- `cz.config.cjs`
+- `cz.config.cjs` <sup class="text-0.55rem dark:color-gray-500">「ESM 规范项目」</sup>
 
 ::: details 点击展开 `cz.config.js` 完整 默认 配置模板
 

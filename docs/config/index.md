@@ -11,9 +11,9 @@ sitemap:
 ## Javascript template
 
 - `.commitlintrc.js`
-- `.commitlintrc.cjs`
+- `.commitlintrc.cjs` <sup class="text-0.55rem dark:color-gray-500">「provide ESM project」</sup>
 - `commitlint.config.js`
-- `commitlint.config.cjs`
+- `commitlint.config.cjs` <sup class="text-0.55rem dark:color-gray-500">「provide ESM project」</sup>
 
 ::: details Click to expand `.commitlintrc.js` complete default configuration template
 
@@ -94,7 +94,7 @@ module.exports = {
 ==Tip:== If your project does not use commitlint,and want to use other profiles. You can use the following configuration items
 
 - `cz.config.js`
-- `cz.config.cjs`
+- `cz.config.cjs` <sup class="text-0.55rem dark:color-gray-500">「provide ESM project」</sup>
 
 ::: details Click to expand `cz.config.js` complete default configuration template
 
