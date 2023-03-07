@@ -270,7 +270,7 @@ module.exports = {
 - `config.commitizen` field in `package.json`
 
 ::: tip
-- JSON Schema URL:
+- JSON Schema URL (No Support commitlint):
 
 ```
 https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json
@@ -284,7 +284,7 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.
 ```json
 // .czrc | package.json | .commitlintrc(need "prompt" key)
 {
-  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json",
+  // (.czrc|Specified json configuration) "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json",
   "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "Select the type of change that you're committing:",
