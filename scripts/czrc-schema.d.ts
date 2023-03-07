@@ -1,16 +1,16 @@
 // TODO: @default defaultProvide, generatingByAI, generatedSelectByAI, message, themeColorCode
 export interface CommitizenGitOptions {
-  $schema?: string
-
   /**
    * project: "node_modules/cz-git"
    * root: "cz-git"
    * @default node_modules/cz-git
    */
   path?: string
+  $schema?: string
+  prompt?: CommitizenGitOptions
   
   /**
-   * @description: define commonly used commit message alias
+   * @description: Define commonly used commit message alias
    * @default { fd: "docs: fix typos" }
    * @use commitizen CLI: "cz_alias=fd cz"
    * @use czg CLI: "czg --alias=fd" | "czg :fd"

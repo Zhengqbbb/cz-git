@@ -270,7 +270,13 @@ module.exports = {
 - `config.commitizen` field in `package.json`
 
 ::: tip
-It is recommended to use JavaScript for configuration files in the project. You can combine `fs` and `path` to select [scopes](/recipes/#scopes) for generating dynamic modules.
+- JSON Schema URL:
+
+```
+https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json
+```
+
+- It is recommended to use JavaScript for configuration files in the **project**. You can combine `fs` and `path` to select [scopes](/recipes/#scopes) for generating dynamic modules.
 :::
 
 ::: details Click to expand `JSON` default configuration template
@@ -278,6 +284,7 @@ It is recommended to use JavaScript for configuration files in the project. You 
 ```json
 // .czrc | package.json | .commitlintrc(need "prompt" key)
 {
+  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json",
   "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "Select the type of change that you're committing:",

@@ -113,7 +113,7 @@ npm install -g cz-git commitizen
 #### 步骤 2: 全局配置适配器类型
 
 ```sh
-echo '{ "path": "cz-git" }' > ~/.czrc
+echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json" }' > ~/.czrc
 ```
 
 #### 步骤 3: 添加自定义配置(可选，使用默认配置)

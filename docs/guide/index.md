@@ -112,7 +112,7 @@ npm install -g cz-git commitizen
 #### Step 2: Global configuration adapter type
 
 ```sh
-echo '{ "path": "cz-git" }' > ~/.czrc
+echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json" }' > ~/.czrc
 ```
 
 #### Step 3: Add custom configuration (optional, use default configuration)

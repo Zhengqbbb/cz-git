@@ -5,20 +5,23 @@
     "CommitizenGitOptions": {
       "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
-        },
         "path": {
           "type": "string",
           "description": "project: \"node_modules/cz-git\" root: \"cz-git\"",
           "default": "node_modules/cz-git"
+        },
+        "$schema": {
+          "type": "string"
+        },
+        "prompt": {
+          "$ref": "#/definitions/CommitizenGitOptions"
         },
         "alias": {
           "type": "object",
           "additionalProperties": {
             "type": "string"
           },
-          "description": ": define commonly used commit message alias",
+          "description": ": Define commonly used commit message alias",
           "default": {
             "fd": "docs: fix typos"
           }

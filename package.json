@@ -42,7 +42,7 @@
     "demo:list": "node ./packages/@cz-git/plugin-inquirer/examples/list.js",
     "postinstall": "simple-git-hooks",
     "lint": "eslint --ext .ts packages docs/.vitepress",
-    "release": "pnpm release:changelog && pnpm build",
+    "release": "pnpm gen:schema && pnpm release:changelog && pnpm build",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && pnpm run -r --stream release:changelog",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"

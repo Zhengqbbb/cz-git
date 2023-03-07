@@ -437,7 +437,13 @@ module.exports = {
 - 在 `package.json`中添加 `commitlint` 字段
 
 ::: tip
-推荐在项目中使用JavaScript进行配置文件，你可以结合 `fs` 和 `path` 为生成动态模块选择[范围](/zh/recipes/#scopes)
+- JSON Schema URL:
+
+```
+https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json
+```
+
+- 推荐在 **项目** 中使用JavaScript进行配置文件，你可以结合 `fs` 和 `path` 为生成动态模块选择[范围](/zh/recipes/#scopes)
 :::
 
 ::: details 点击展开 `JSON` 配置模板
@@ -445,6 +451,7 @@ module.exports = {
 ```json
 // .czrc | package.json | .commitlintrc(need "prompt" key)
 {
+  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json",
   "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "Select the type of change that you're committing:",
