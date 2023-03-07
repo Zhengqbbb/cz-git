@@ -1,0 +1,449 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/CommitizenGitOptions",
+  "definitions": {
+    "CommitizenGitOptions": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string",
+          "description": "project: \"node_modules/cz-git\" root: \"cz-git\"",
+          "default": "node_modules/cz-git"
+        },
+        "alias": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": ": define commonly used commit message alias",
+          "default": {
+            "fd": "docs: fix typos"
+          }
+        },
+        "messages": {
+          "$ref": "#/definitions/Answers",
+          "description": ": Customize prompt questions"
+        },
+        "themeColorCode": {
+          "type": "string",
+          "examples": [
+            "38;5;043"
+          ],
+          "description": ": the prompt inquirer primary color",
+          "default": ""
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TypesOption"
+          },
+          "description": ": Customize prompt type"
+        },
+        "typesAppend": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TypesOption"
+          },
+          "description": ": Add extra types to default types",
+          "default": []
+        },
+        "typesSearchValue": {
+          "type": "boolean",
+          "description": ": default types list fuzzy search types `value` key of list.\nif choose `false` will search `name` key of list",
+          "default": true
+        },
+        "useAI": {
+          "type": "boolean",
+          "description": ": Use OpenAI to auto generate short description for commit message",
+          "default": false
+        },
+        "aiNumber": {
+          "type": "number",
+          "description": ": If >1 will turn on select mode, select generate options like returned by OpenAI",
+          "default": 1
+        },
+        "aiDiffIgnore": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": ": To ignore selection codes when sending AI API requests",
+          "default": [
+            "package-lock.json",
+            "yarn.lock",
+            "pnpm-lock.yaml"
+          ]
+        },
+        "aiType": {
+          "type": "string",
+          "default": "OpenAI"
+        },
+        "openAIToken": {
+          "type": "string",
+          "description": ": Alert!!! Save on \"$HOME/.czrc\" or \"$HOME/.config/.czrc\". Do not save on project"
+        },
+        "apiProxy": {
+          "type": "string",
+          "description": "It is recommended to use the command to configure the local `npx czg --api-proxy=<http_proxy>` e.g: `npx czg --api-proxy=\"http://127.0.0.1:1080\"` or `npx czg --api-proxy=\"socks5://127.0.0.1:1080\"`"
+        },
+        "useEmoji": {
+          "type": "boolean",
+          "description": ": Use emoji ?| it will be use typesOption.emoji code",
+          "default": false
+        },
+        "emojiAlign": {
+          "type": "string",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "description": ": Set the location of emoji in header",
+          "default": "center"
+        },
+        "scopes": {
+          "$ref": "#/definitions/ScopesType",
+          "description": ": Provides a select of prompt to select module scopes"
+        },
+        "scopesSearchValue": {
+          "type": "boolean",
+          "description": ": default scope list fuzzy search types `name` key of list.\nif choose `true` will search `value` key of list.",
+          "default": false
+        },
+        "scopeOverrides": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ScopesType"
+          },
+          "description": ": Provides an overriding select of prompt to select module scopes under specific type"
+        },
+        "scopeFilters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": ": Filter select of prompt to select module scopes by the scope.value",
+          "default": [
+            ".DS_Store"
+          ]
+        },
+        "enableMultipleScopes": {
+          "type": "boolean",
+          "description": ": Whether to enable scope multiple mode",
+          "default": false
+        },
+        "scopeEnumSeparator": {
+          "type": "string",
+          "description": ": Multiple choice scope separator",
+          "default": ","
+        },
+        "allowCustomScopes": {
+          "type": "boolean",
+          "description": ": Whether to show \"custom\" when selecting scopes",
+          "default": true
+        },
+        "allowEmptyScopes": {
+          "type": "boolean",
+          "description": ": Whether to show \"empty\" when selecting scopes",
+          "default": true
+        },
+        "customScopesAlign": {
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom",
+            "top-bottom",
+            "bottom-top"
+          ],
+          "description": ": Set the location of empty option (empty) and custom option (custom) in selection range",
+          "default": "bottom"
+        },
+        "customScopesAlias": {
+          "type": "string",
+          "default": "custom"
+        },
+        "emptyScopesAlias": {
+          "type": "string",
+          "default": "empty"
+        },
+        "upperCaseSubject": {
+          "type": "boolean",
+          "description": ": Subject is need upper case first.",
+          "default": false
+        },
+        "markBreakingChangeMode": {
+          "type": "boolean",
+          "description": ": Whether to add extra prompt BREAKCHANGE ask. to add an extra \"!\" to the header",
+          "default": false
+        },
+        "allowBreakingChanges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": ": Allow breaking changes in the included types output box",
+          "default": [
+            "feat",
+            "fix"
+          ]
+        },
+        "breaklineNumber": {
+          "type": "number",
+          "description": ": set body and BREAKING CHANGE max length to break-line",
+          "default": 100
+        },
+        "breaklineChar": {
+          "type": "string",
+          "description": ": body and BREAKINGCHANGES new line char",
+          "default": "|"
+        },
+        "issuePrefixes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Option"
+          },
+          "description": ": Provides a select issue prefix box in footer",
+          "default": "issuePrefixes: [{ value: \"closed\", name: \"ISSUES has been processed\" }]"
+        },
+        "customIssuePrefixAlign": {
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom",
+            "top-bottom",
+            "bottom-top"
+          ],
+          "default": "top"
+        },
+        "emptyIssuePrefixAlias": {
+          "type": "string",
+          "default": "skip"
+        },
+        "customIssuePrefixAlias": {
+          "type": "string",
+          "default": "custom"
+        },
+        "allowCustomIssuePrefix": {
+          "type": "boolean",
+          "description": ": Whether to show \"custom\" selecting issue prefixes",
+          "default": true
+        },
+        "allowEmptyIssuePrefix": {
+          "type": "boolean",
+          "description": ": Whether to show \"skip(empty)\" when selecting issue prefixes",
+          "default": true
+        },
+        "confirmColorize": {
+          "type": "boolean",
+          "description": ": Prompt final determination whether to display the color",
+          "default": true
+        },
+        "skipQuestions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "scope",
+              "body",
+              "breaking",
+              "footerPrefix",
+              "footer",
+              "confirmCommit"
+            ]
+          },
+          "description": ": List of questions you want to skip",
+          "default": []
+        },
+        "maxHeaderLength": {
+          "type": "number",
+          "description": ": Force set max header length | Equivalent setting maxSubjectLength."
+        },
+        "maxSubjectLength": {
+          "type": "number",
+          "description": ": Force set max subject length."
+        },
+        "isIgnoreCheckMaxSubjectLength": {
+          "type": "boolean",
+          "description": ": Is not strict subject rule. Just provide prompt word length warning.\nEffected maxHeader and maxSubject commitlint",
+          "default": false
+        },
+        "minSubjectLength": {
+          "type": "number",
+          "description": ": Force set header width."
+        },
+        "defaultType": {
+          "type": "string",
+          "description": ": pin type item the top of the types list (match item value)"
+        },
+        "defaultScope": {
+          "type": "string",
+          "description": ": Whether to use display default value in custom scope"
+        },
+        "defaultSubject": {
+          "type": "string",
+          "description": ": default value show subject template prompt"
+        },
+        "defaultBody": {
+          "type": "string",
+          "description": ": default value show body and BREAKINGCHANGES template prompt"
+        },
+        "defaultFooterPrefix": {
+          "type": "string",
+          "description": ": default value show issuePrefixes custom template prompt"
+        },
+        "defaultIssues": {
+          "type": "string",
+          "description": ": default value show issue foot template prompt"
+        },
+        "useCommitSignGPG": {
+          "type": "boolean",
+          "description": ": Whether to use GPG sign commit message (git commit -S -m)",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Answers": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "default": "Select the type of change that you're committing:"
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "default": "Denote the SCOPE of this change (optional):"
+        },
+        "customScope": {
+          "type": "string",
+          "default": "Denote the SCOPE of this change:"
+        },
+        "subject": {
+          "type": "string",
+          "default": "Write a SHORT, IMPERATIVE tense description of the change:\n"
+        },
+        "body": {
+          "type": "string",
+          "default": "a LONGER description of the change (optional). Use \"|\" to break new line:\n"
+        },
+        "markBreaking": {
+          "type": [
+            "string",
+            "boolean"
+          ],
+          "default": "Is any BREAKING CHANGE (add \"!\" in header) (optional) ?"
+        },
+        "breaking": {
+          "type": "string",
+          "default": "List any BREAKING CHANGES (optional). Use \"|\" to break new line:\n"
+        },
+        "footerPrefixesSelect": {
+          "type": "string",
+          "default": "Select the ISSUES type of change (optional):"
+        },
+        "customFooterPrefix": {
+          "type": "string",
+          "default": "Input ISSUES prefix:"
+        },
+        "footer": {
+          "type": "string",
+          "default": "List any ISSUES AFFECTED by this change. E.g.: #31, #34:"
+        },
+        "confirmCommit": {
+          "type": "string",
+          "default": "Are you sure you want to proceed with the commit above?"
+        },
+        "generatingByAI": {
+          "type": "string",
+          "default": "Generating your AI commit subject..."
+        },
+        "generatedSelectByAI": {
+          "type": "string",
+          "default": "Select suitable subject by AI generated:"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TypesOption": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": ": show prompt name"
+        },
+        "value": {
+          "type": "string",
+          "description": ": output real value"
+        },
+        "emoji": {
+          "type": "string",
+          "description": ": Submit emoji commit string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ]
+    },
+    "ScopesType": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ]
+    },
+    "Option": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": ": show prompt name"
+        },
+        "value": {
+          "type": "string",
+          "description": ": output real value"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

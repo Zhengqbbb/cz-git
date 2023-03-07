@@ -34,6 +34,7 @@ module.exports = {
       'c': 'chore: update config files',
       'f': 'docs: fix typos',
       ':': 'docs: update README',
+      'schema': 'chore: update czrc configure JSON schema',
       'table:data': 'chore: :hammer: update project using table data',
       'table:docs': 'docs: update project using table',
     },
