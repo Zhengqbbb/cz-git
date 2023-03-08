@@ -70,8 +70,6 @@ export const shareConfig = defineConfig({
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
     // page analytics
-    ['script', { async: 'true', src: `https://hm.baidu.com/hm.js?${process.env.BAIDU_TONGJI_ID}` }],
-    ['script', { async: 'true', src: `https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}` }],
-    ['script', {}, `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);};gtag('js', new Date());gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');`],
+    ['script', { 'async': 'true', 'defer': 'true', 'data-website-id': `${process.env.UMAIMI_ID || ''}`, 'src': `${process.env.UMAIMI_ENDPOINT || ''}` }],
   ],
 })
