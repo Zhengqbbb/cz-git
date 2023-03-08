@@ -226,7 +226,7 @@ img.error::after {
 }
 .DocSearch-Modal .cls-1, 
 .DocSearch-Modal .cls-2{
-  fill: var(--docsearch-logo-color);
+  fill: var(--vp-c-docsearch-logo-color);
 }
 
 .medium-zoom-overlay {
