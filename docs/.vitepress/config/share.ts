@@ -70,6 +70,6 @@ export const shareConfig = defineConfig({
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
     // page analytics
-    ['script', { 'async': 'true', 'defer': 'true', 'data-website-id': `${process.env.UMAIMI_ID || ''}`, 'src': `${process.env.UMAIMI_ENDPOINT || ''}` }],
+    ['script', { 'async': '', 'defer': '', 'data-website-id': `${process.env.UMAIMI_ID || ''}`, 'src': `${process.env.UMAIMI_ENDPOINT || ''}` }],
   ],
 })
