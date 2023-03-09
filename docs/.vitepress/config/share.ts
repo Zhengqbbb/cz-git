@@ -71,5 +71,6 @@ export const shareConfig = defineConfig({
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
     // page analytics
     ['script', { 'async': '', 'defer': '', 'data-website-id': `${process.env.UMAMI_ID || ''}`, 'src': `${process.env.UMAMI_ENDPOINT || ''}` }],
+    ['script', { 'async': '', 'defer': '', 'data-nscript': 'beforeInteractive', 'src': `https://hm.baidu.com/hm.js?${process.env.BAIDU_TONGJI_ID || ''}` }],
   ],
 })
