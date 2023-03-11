@@ -1,3 +1,14 @@
+# [1.6.0](https://github.com/Zhengqbbb/cz-git/compare/v1.5.3...v1.6.0) (2023-03-11)
+
+
+### Features
+
+* **cz-git,cli:** add `aiType` option to switch openAI model ([#102](https://github.com/Zhengqbbb/cz-git/issues/102)) ([e956ca0](https://github.com/Zhengqbbb/cz-git/commit/e956ca0eb3492aaed6b6b74e64e6f975a9cb3c15)), closes [#101](https://github.com/Zhengqbbb/cz-git/issues/101)
+* **cz-git,cli:** add JSON schema provide to JSON configure e.g `.czrc` ([c113e53](https://github.com/Zhengqbbb/cz-git/commit/c113e53258eb5138efc765c84da4180e7db5fda6))
+* **cz-git,czg:** add modify message with prompt on AI confirm ([#103](https://github.com/Zhengqbbb/cz-git/issues/103)) ([59b55c7](https://github.com/Zhengqbbb/cz-git/commit/59b55c7e07893e455cd4989cd25ca3a17a5210cb))
+
+
+
 ## [1.5.3](https://github.com/Zhengqbbb/cz-git/compare/v1.5.2...v1.5.3) (2023-03-04)
 
 
