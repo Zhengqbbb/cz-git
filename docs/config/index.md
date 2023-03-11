@@ -269,11 +269,18 @@ module.exports = {
 - `commitlint` field in `package.json`
 - `config.commitizen` field in `package.json`
 
+<script setup>
+import { useData } from 'vitepress'
+
+const { site } = useData()
+const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+</script>
+
 ::: tip
 - JSON $schema URL (Only support .czrc|or specified czConfig JSON configure):
 
-```
-https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json
+```-vue
+https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json
 ```
 
 - It is recommended to use JavaScript for configuration files in the **project**. You can combine `fs` and `path` to select [scopes](/recipes/#scopes) for generating dynamic modules.
@@ -281,10 +288,10 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.
 
 ::: details Click to expand `JSON` default configuration template
 
-```json
+```json-vue
 // .czrc | package.json | .commitlintrc(need "prompt" key)
 {
-  // (.czrc|specified czConfig JSON configure) "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json",
+  // (.czrc|specified czConfig JSON configure) "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json",
   "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "Select the type of change that you're committing:",

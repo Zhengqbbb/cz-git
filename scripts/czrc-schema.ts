@@ -18,9 +18,7 @@ try {
   const start = new Date().getTime()
   console.log('\x1B[90m[build-post] \x1B[33mGenerate configure JSON schema ...\x1B[0m')
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const { version } = require('cz-git/package.json')
-  const __output = resolve(__dirname, '../docs/public/schema', `cz-git-${version}.json`)
+  const __output = resolve(__dirname, '../docs/public/schema', 'cz-git.json')
   const jsonSchema = main()
   fs.writeFileSync(__output, jsonSchema, 'utf8')
 
