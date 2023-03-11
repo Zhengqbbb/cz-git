@@ -132,6 +132,18 @@ Try running command to **select multiple results returned by OpenAI in the curre
 Demo And Usage [⇒ see the recipes](/recipes/openai)
 :::
 
+## aiType
+
+- **description** : Choose the AI model you want to use
+
+|     aiType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |     Model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | Description | 
+|     ---        |      ---         | --- |
+| openAI-Turbo   | gpt-3.5-turbo     | faster and optimized for chat at 1/10th the cost of `text-davinci-003` |
+| openAI-Davinci | text-davinci-003  |  better quality, longer output, and consistent instruction-following |
+
+- **type** : `"openAI-Turbo" | "openAI-Davinci"`
+- **default** : `openAI-Turbo`
+
 ## aiDiffIgnore
 
 - **description** : To ignore selection diff codes when sending AI API requests

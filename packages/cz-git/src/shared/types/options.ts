@@ -234,7 +234,7 @@ export interface CommitizenGitOptions {
   aiDiffIgnore?: string[]
 
   /**
-   * choose your AI model: gpt-3.5-turbo | text-davinci-003
+   * Choose the AI model you want to use: gpt-3.5-turbo | text-davinci-003
    * gpt-3.5-turbo: Lower price consumption (10x) and faster
    * text-davinci-003: Get more reliable information
    *

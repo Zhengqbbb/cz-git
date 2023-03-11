@@ -1,4 +1,4 @@
-# OpenAI <Badge type="info" text="GPT 3.5 Turbo 模型" />
+# OpenAI <Badge type="info" text="GPT 3.5 Turbo 模型 「默认」" />
 
 让 AI 生成你的 git commit 提交信息简短描述
 
