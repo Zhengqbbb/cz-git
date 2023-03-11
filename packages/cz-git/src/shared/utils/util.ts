@@ -53,6 +53,16 @@ export const isSingleItem = (allowCustom = true, allowEmpty = true, list: Array<
   !allowCustom && !allowEmpty && Array.isArray(list) && list.length === 1
 
 /**
+ * @description: resolve AI modify mode and normal answer type and default type
+ */
+export const resolveDefaultType = (options: CommitizenGitOptions, answer: Answers) => {
+  if (!answer.type && options.useAI)
+    return options.defaultType
+
+  return answer.type || options.defaultType
+}
+
+/**
  * @description: parse scope configuration option to standard options
  */
 export const parseStandardScopes = (scopes: ScopesType): Option[] => {

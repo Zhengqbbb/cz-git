@@ -92,14 +92,18 @@ async function confirmMessage(options: CommitizenGitOptions, cz: CommitizenType,
       break
 
     case 'ai-modify': {
-      const tmp = answers.type
+      options.defaultType = answers.type
       options.defaultSubject = answers.subject
-      options.useAI = false
-      const question = generateQuestions(options, cz)
-      if (question)
+      let question = generateQuestions(options, cz)
+      if (question) {
         question.shift()
+        const scopeIdx = 2
+        question = [question[scopeIdx], ...question.slice(0, scopeIdx), ...question.slice(scopeIdx + 1)]
+      }
       answers = await cz.prompt(question)
-      answers.type = tmp
+
+      options.useAI = false
+      answers.type = options.defaultType
       answers = await generateConfirmPrompt(options, cz, answers)
       confirmMessage(options, cz, answers, commit)
       break
