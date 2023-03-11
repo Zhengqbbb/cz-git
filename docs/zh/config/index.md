@@ -436,11 +436,18 @@ module.exports = {
 - 在 `package.json`中添加 `config.commitizen` 字段
 - 在 `package.json`中添加 `commitlint` 字段
 
+<script setup>
+import { useData } from 'vitepress'
+
+const { site } = useData()
+const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+</script>
+
 ::: tip
 - JSON $schema URL (只支持 .czrc|指定的 czConfig JSON 配置):
 
-```
-https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json
+```-vue
+https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json
 ```
 
 - 推荐在 **项目** 中使用JavaScript进行配置文件，你可以结合 `fs` 和 `path` 为生成动态模块选择[范围](/zh/recipes/#scopes)
@@ -448,10 +455,10 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.
 
 ::: details 点击展开 `JSON` 配置模板
 
-```json
+```json-vue
 // .czrc | package.json | .commitlintrc(need "prompt" key)
 {
-  // (.czrc|指定的 czConfig JSON 配置)  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json",
+  // (.czrc|指定的 czConfig JSON 配置)  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json",
   "alias": { "fd": "docs: fix typos" },
   "messages": {
     "type": "Select the type of change that you're committing:",
