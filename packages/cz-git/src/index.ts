@@ -5,11 +5,11 @@
  * @copyright: Copyright (c) 2022-present Qiubin Zheng
  */
 
-import { CompleteInput, SearchCheckbox, SearchList, style } from '@cz-git/inquirer'
+import { CompleteInput, SearchCheckbox, SearchList } from '@cz-git/inquirer'
 import { configLoader } from '@cz-git/loader'
 import { editCommit, log, previewMessage } from './shared'
-import { generateAIConfirmQuestions, generateAISubjects, generateAISubjectsQuestions, generateAITypesQuestions, generateMessage, generateOptions, generateQuestions, getAliasMessage } from './generator'
-import type { CommitizenType } from './shared'
+import { generateAIPrompt, generateMessage, generateOptions, generateQuestions, getAliasMessage } from './generator'
+import type { Answers, CommitizenGitOptions, CommitizenType } from './shared'
 
 export * from './shared/types'
 export * from '@cz-git/inquirer'
@@ -35,55 +35,86 @@ export const prompter = (
     cz.registerPrompt('complete-input', CompleteInput)
 
     let answers
-    if (options.useAI) {
-      answers = await cz.prompt(generateAITypesQuestions(options))
-      console.log(style.green('ℹ'), style.bold(options.messages!.generatingByAI))
-      // Power By and Modified part of the code: https://github.com/Nutlope/aicommits
-      const subjects = await generateAISubjects(answers, options)
-      if (!Array.isArray(subjects))
-        throw new Error('subjects fetch value failed')
+    if (options.useAI)
+      answers = await generateAIPrompt(options, cz)
+    else
+      answers = await cz.prompt(generateQuestions(options, cz))
 
-      if (subjects.length === 1) {
-        answers.subject = subjects[0]
-      }
-      else {
-        const { subject } = await cz.prompt(generateAISubjectsQuestions(options, subjects))
-        answers.subject = subject
-      }
+    answers = await generateConfirmPrompt(options, cz, answers)
 
-      if (options.defaultScope)
-        answers.scope = options.defaultScope
-    }
-    else {
-      const questions = generateQuestions(options, cz)
-      answers = await cz.prompt(questions)
-    }
-
-    if (options.skipQuestions?.includes('confirmCommit')) {
-      commit(generateMessage(answers, options))
-      previewMessage(
-        generateMessage(answers, options, options.confirmColorize),
-        options.confirmColorize,
-      )
-      return 0
-    }
-    else {
-      // @ts-expect-error
-      const { confirmCommit } = await cz.prompt(generateAIConfirmQuestions(options, answers))
-      answers.confirmCommit = confirmCommit
-    }
-    switch (answers.confirmCommit) {
-      case 'edit':
-        editCommit(answers, options, commit)
-        break
-
-      case 'yes':
-        commit(generateMessage(answers, options))
-        break
-
-      default:
-        log('info', 'Commit has been canceled.')
-        break
-    }
+    await confirmMessage(options, cz, answers, commit)
   })
+}
+
+async function generateConfirmPrompt(options: CommitizenGitOptions, cz: CommitizenType, answers: Answers) {
+  const result = answers
+  if (options.skipQuestions?.includes('confirmCommit')) {
+    previewMessage(
+      generateMessage(answers, options, options.confirmColorize),
+      options.confirmColorize,
+    )
+    result.confirmCommit = 'yes'
+  }
+  else {
+    const question: any = [
+      {
+        type: 'expand',
+        name: 'confirmCommit',
+        choices: [
+          { key: 'y', name: 'Yes', value: 'yes' },
+          { key: 'n', name: 'Abort commit', value: 'no' },
+          { key: 'e', name: 'Edit message(wq: save, cq: exit)', value: 'edit' },
+        ],
+        default: 0,
+        message() {
+          previewMessage(
+            generateMessage(answers, options, options.confirmColorize),
+            options.confirmColorize,
+          )
+          return options.messages?.confirmCommit
+        },
+      },
+    ]
+    if (options.useAI)
+      question[0].choices.push({ key: 'm', name: 'Modify and additional message with prompt', value: 'ai-modify' })
+
+    const { confirmCommit } = await cz.prompt(question)
+    result.confirmCommit = confirmCommit
+  }
+
+  return result
+}
+
+async function confirmMessage(options: CommitizenGitOptions, cz: CommitizenType, answers: Answers, commit: (message: string) => void) {
+  switch (answers.confirmCommit) {
+    case 'edit':
+      editCommit(answers, options, commit)
+      break
+
+    case 'ai-modify': {
+      options.defaultType = answers.type
+      options.defaultSubject = answers.subject
+      let question = generateQuestions(options, cz)
+      if (question) {
+        question.shift()
+        const scopeIdx = 2
+        question = [question[scopeIdx], ...question.slice(0, scopeIdx), ...question.slice(scopeIdx + 1)]
+      }
+      answers = await cz.prompt(question)
+
+      options.useAI = false
+      answers.type = options.defaultType
+      answers = await generateConfirmPrompt(options, cz, answers)
+      confirmMessage(options, cz, answers, commit)
+      break
+    }
+
+    case 'yes':
+      commit(generateMessage(answers, options))
+      break
+
+    default:
+      log('info', 'Commit has been canceled.')
+      break
+  }
 }

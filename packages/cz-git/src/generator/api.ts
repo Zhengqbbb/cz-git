@@ -1,3 +1,4 @@
+import url from 'url'
 import { style } from '@cz-git/inquirer'
 import HttpsProxyAgent from 'https-proxy-agent'
 // @ts-expect-error
@@ -16,7 +17,8 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
   const httpProxy = options.apiProxy || process.env.https_proxy || process.env.all_proxy || process.env.ALL_PROXY || process.env.http_proxy
   let agent: any
   if (httpProxy) {
-    // const proxyUrl = url.parse(httpProxy)
+    // eslint-disable-next-line n/no-deprecated-api
+    const proxyUrl = url.parse(httpProxy)
     // @ts-expect-error
     agent = new HttpsProxyAgent(proxyUrl)
     agent.path = agent?.pathname

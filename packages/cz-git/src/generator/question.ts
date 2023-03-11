@@ -13,6 +13,7 @@ import {
   isSingleItem,
   log,
   parseStandardScopes,
+  resolveDefaultType,
   resolveListItemPinTop,
   resovleCustomListTemplate,
   useThemeCode,
@@ -50,8 +51,9 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       separator: options.scopeEnumSeparator,
       source: (answer: Answers, input: string) => {
         let scopeSource: Option[] = []
+        const _answerType = resolveDefaultType(options, answer)
         scopeSource = parseStandardScopes(
-          getCurrentScopes(options.scopes, options.scopeOverrides, answer.type),
+          getCurrentScopes(options.scopes, options.scopeOverrides, _answerType),
         )
         scopeSource = resovleCustomListTemplate(
           scopeSource,
@@ -79,11 +81,12 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           return input.length !== 0 ? true : style.red('[ERROR] scope is required')
       },
       when: (answer: Answers) => {
+        const _answerType = resolveDefaultType(options, answer)
         return !isSingleItem(
           options.allowCustomScopes,
           options.allowEmptyScopes,
           parseStandardScopes(
-            getCurrentScopes(options.scopes, options.scopeOverrides, answer.type),
+            getCurrentScopes(options.scopes, options.scopeOverrides, _answerType),
           ),
         )
       },
@@ -119,7 +122,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           log('err', 'Error [Subject Length] Option')
           return false
         }
-        const maxSubjectLength = getMaxSubjectLength(answers.type, answers.scope, options)
+        const _answerType = resolveDefaultType(options, answers)
+        const maxSubjectLength = getMaxSubjectLength(_answerType, answers.scope, options)
         if (options.minSubjectLength && processedSubject.length < options.minSubjectLength) {
           return style.red(
             `[ERROR]subject length must be greater than or equal to ${options.minSubjectLength} characters`,
@@ -137,7 +141,8 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       transformer: (subject: string, answers: Answers) => {
         const { minSubjectLength, isIgnoreCheckMaxSubjectLength } = options
         const subjectLength = subject.length
-        const maxSubjectLength = getMaxSubjectLength(answers.type, answers.scope, options)
+        const _answerType = resolveDefaultType(options, answers)
+        const maxSubjectLength = getMaxSubjectLength(_answerType, answers.scope, options)
         let tooltip
         let isWarning = false
         if (typeof minSubjectLength === 'number' && subjectLength < minSubjectLength) {
@@ -203,10 +208,11 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
       message: options.messages?.breaking,
       completeValue: options.defaultBody || undefined,
       when: (answers: Answers) => {
+        const _answerType = resolveDefaultType(options, answers)
         if (
           options.allowBreakingChanges
-          && answers.type
-          && options.allowBreakingChanges.includes(answers.type)
+          && _answerType
+          && options.allowBreakingChanges.includes(_answerType)
         )
           return true
 
