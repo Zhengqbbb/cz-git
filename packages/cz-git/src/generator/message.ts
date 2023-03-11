@@ -212,6 +212,6 @@ function generateSubjectDefaultPrompt(
   if (!maxSubjectLength || maxSubjectLength === Infinity || maxSubjectLength > 90)
     maxSubjectLength = 65
 
-  return `Write an insightful and concise Git commit message in the present tense for the following Git diff code, without any prefixes. Note that this sentence should never exceed ${maxSubjectLength} characters in length.: \n\`\`\`diff\n${diff}\n\`\`\``
+  return `Write an insightful and concise Git commit message in the present tense for the following Git diff code, without any prefixes. Note that this sentence must never exceed ${maxSubjectLength} characters in length!! : \n\`\`\`diff\n${diff}\n\`\`\``
 }
 /** EndSection: */
