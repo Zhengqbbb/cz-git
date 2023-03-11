@@ -234,9 +234,13 @@ export interface CommitizenGitOptions {
   aiDiffIgnore?: string[]
 
   /**
-   * @default: OpenAI
+   * choose your AI model: gpt-3.5-turbo | text-davinci-003
+   * gpt-3.5-turbo: Lower price consumption (10x) and faster
+   * text-davinci-003: Get more reliable information
+   *
+   * @default: openAI-Turbo
    */
-  aiType?: string
+  aiType?: 'openAI-Turbo' | 'openAI-Davinci'
 
   /**
    * @description: Alert!!! Save on "$HOME/.czrc" or "$HOME/.config/.czrc". Do not save on project
@@ -566,7 +570,7 @@ export const defaultConfig = Object.freeze({
   themeColorCode: '',
   useEmoji: false,
   useAI: false,
-  aiType: 'OpenAI',
+  aiType: 'openAI-Turbo',
   aiNumber: 1,
   aiQuestionCB: undefined,
   openAIToken: '',
