@@ -27,64 +27,64 @@ export type Config = Omit<Partial<typeof defaultConfig>, 'scopes'> & {
 
 export interface Answers {
   /**
-   * @default: Select the type of change that you're committing:
+   * @default "Select the type of change that you're committing:"
    */
   type?: string
   /**
-   * @default: Denote the SCOPE of this change (optional):
+   * @default 'Denote the SCOPE of this change (optional):'
    */
   scope?: string | string[]
   /**
-   * @default: Denote the SCOPE of this change:
+   * @default 'Denote the SCOPE of this change:'
    */
   customScope?: string
   /**
-   * @default: Write a SHORT, IMPERATIVE tense description of the change:\n
+   * @default 'Write a SHORT, IMPERATIVE tense description of the change:\n'
    */
   subject?: string
   /**
-   * @default:Provide a LONGER description of the change (optional). Use "|" to break new line:\n
+   * @default 'a LONGER description of the change (optional). Use "|" to break new line:\n'
    */
   body?: string
   /**
-   * @default: Is any BREAKING CHANGE (add "!" in header) (optional) ?
+   * @default 'Is any BREAKING CHANGE (add "!" in header) (optional) ?'
    * @use need turn on options "markBreakingChangeMode"
    */
   markBreaking?: string | boolean
   /**
-   * @default: List any BREAKING CHANGES (optional). Use "|" to break new line:\n
+   * @default 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n'
    */
   breaking?: string
 
   /** @deprecated Please use `footerPrefixesSelect` field instead. @note fix typo option field v1.4.0: Already processed for normal compatibility */
   footerPrefixsSelect?: string
   /**
-   * @default: Select the ISSUES type of change (optional):
+   * @default 'Select the ISSUES type of change (optional):'
    */
   footerPrefixesSelect?: string
 
   /** @deprecated Please use `customFooterPrefix` field instead. @note fix typo option field v1.4.0: Already processed for normal compatibility */
   customFooterPrefixs?: string
   /**
-   * @default: Input ISSUES prefix:
+   * @default 'Input ISSUES prefix:'
    */
   customFooterPrefix?: string
 
   /**
-   * @default: List any ISSUES AFFECTED by this change. E.g.: #31, #34:
+   * @default 'List any ISSUES AFFECTED by this change. E.g.: #31, #34:'
    */
   footer?: string
   /**
-   * @default: Are you sure you want to proceed with the commit above?
+   * @default 'Are you sure you want to proceed with the commit above?'
    */
   confirmCommit?: string
 
   /**
-   * @default: Generating your AI commit subject...
+   * @default 'Generating your AI commit subject...'
    */
   generatingByAI: string
   /**
-   * @description: Select suitable subject by AI generated:
+   * @default 'Select suitable subject by AI generated:'
    */
   generatedSelectByAI: string
   footerPrefix?: string
@@ -170,7 +170,7 @@ export interface GenerateAIPromptType {
 export interface CommitizenGitOptions {
   /**
    * @description: define commonly used commit message alias
-   * @default: { fd: "docs: fix typos" }
+   * @default { fd: "docs: fix typos" }
    * @use commitizen CLI: "cz_alias=fd cz"
    * @use czg CLI: "czg --alias=fd" | "czg :fd"
    * @note use commitizen CLI will meet process not exit. cz-git can't resolve it.
@@ -187,7 +187,7 @@ export interface CommitizenGitOptions {
    * @rule `38;5;${color_code}`
    * @tip the color_code can get by https://github.com/sindresorhus/xterm-colors
    * @example "38;5;043"
-   * @default: "" = cyan color
+   * @default '' //cyan color
    */
   themeColorCode?: string
 
@@ -200,7 +200,7 @@ export interface CommitizenGitOptions {
    * @description: Add extra types to default types
    * @use Use when you don't want to add bloated defaults and don't want to adjust the default order in configuration
    * @example `typesAppend: [ { value: "workflow", name: "workflow:  Workflow changes"} ],`
-   * @default: []
+   * @default []
    */
   typesAppend?: TypesOption[]
 
@@ -208,7 +208,7 @@ export interface CommitizenGitOptions {
    * @description: default types list fuzzy search types `value` key of list.
    * if choose `false` will search `name` key of list
    * @use Using emoji unicode as `value` and that can't be searched
-   * @default: true
+   * @default true
    */
   typesSearchValue?: boolean
   /** @deprecated Please use `typesSearchValue` field instead. */
@@ -216,27 +216,31 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Use OpenAI to auto generate short description for commit message
-   * @default: false
+   * @default false
    */
   useAI?: boolean
 
   /**
    * @description: If >1 will turn on select mode, select generate options like returned by OpenAI
-   * @default: 1
+   * @default 1
    */
   aiNumber?: number
 
   /**
    * @description: To ignore selection codes when sending AI API requests
-   * @default: [ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]
+   * @default [ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]
    * @example: [ "pnpm-lock.yaml", "docs/public" ]
    */
   aiDiffIgnore?: string[]
 
   /**
-   * @default: OpenAI
+   * Choose the AI model you want to use: gpt-3.5-turbo | text-davinci-003
+   * gpt-3.5-turbo: Lower price consumption (10x) and faster
+   * text-davinci-003: Get more reliable information
+   *
+   * @default openAI-Turbo
    */
-  aiType?: string
+  aiType?: 'openAI-Turbo' | 'openAI-Davinci'
 
   /**
    * @description: Alert!!! Save on "$HOME/.czrc" or "$HOME/.config/.czrc". Do not save on project
@@ -253,19 +257,19 @@ export interface CommitizenGitOptions {
   /**
    * @description: Use the callback fn can customize edit information AI question information
    * @param GenerateAIPromptType: provide some known parameters
-   * @default: generateSubjectDefaultPrompt
+   * @default generateSubjectDefaultPrompt
    */
   aiQuestionCB?: (aiParam: GenerateAIPromptType) => string
 
   /**
    * @description: Use emoji ？| it will be use typesOption.emoji code
-   * @default: false
+   * @default false
    */
   useEmoji?: boolean
 
   /**
    * @description: Set the location of emoji in header
-   * @default: "center"
+   * @default "center"
    */
   emojiAlign?: 'left' | 'center' | 'right'
 
@@ -280,7 +284,7 @@ export interface CommitizenGitOptions {
    * @description: default scope list fuzzy search types `name` key of list.
    * if choose `true` will search `value` key of list.
    * @use If have long description of scope. can use it to enhanced search.
-   * @default: false
+   * @default false
    */
   scopesSearchValue?: boolean
 
@@ -293,19 +297,19 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Filter select of prompt to select module scopes by the scope.value
-   * @default: ['.DS_Store']
+   * @default ['.DS_Store']
    */
   scopeFilters?: string[]
 
   /**
    * @description: Whether to enable scope multiple mode
-   * @default: false
+   * @default false
    */
   enableMultipleScopes?: boolean
 
   /**
    * @description: Multiple choice scope separator
-   * @default: ","
+   * @default ","
    */
   scopeEnumSeparator?: string
 
@@ -325,17 +329,17 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Set the location of empty option (empty) and custom option (custom) in selection range
-   * @default: "bottom"
+   * @default "bottom"
    */
   customScopesAlign?: 'top' | 'bottom' | 'top-bottom' | 'bottom-top'
 
   /**
-   * @default: "custom"
+   * @default "custom"
    */
   customScopesAlias?: string
 
   /**
-   * @default: "empty"
+   * @default "empty"
    */
   emptyScopesAlias?: string
 
@@ -348,19 +352,19 @@ export interface CommitizenGitOptions {
   /**
    * @description: Whether to add extra prompt BREAKCHANGE ask. to add an extra "!" to the header
    * @see: https://cz-git.qbb.sh/recipes/breakingchange
-   * @default: false
+   * @default false
    */
   markBreakingChangeMode?: boolean
 
   /**
    * @description: Allow breaking changes in the included types output box
-   * @default: ['feat', 'fix']
+   * @default ['feat', 'fix']
    */
   allowBreakingChanges?: string[]
 
   /**
    * @description: set body and BREAKING CHANGE max length to break-line
-   * @default: 100
+   * @default 100
    * @note it auto check rule "body-max-line-length" set the option with `@commitlint`.
    * @use when you not use commitlint
    */
@@ -368,7 +372,7 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: body and BREAKINGCHANGES new line char
-   * @default: "|"
+   * @default "|"
    */
   breaklineChar?: string
 
@@ -379,7 +383,7 @@ export interface CommitizenGitOptions {
   issuePrefixs?: Option[]
   /**
    * @description: Provides a select issue prefix box in footer
-   * @default: issuePrefixes: [{ value: "closed", name: "ISSUES has been processed" }]
+   * @default issuePrefixes: [{ value: "closed", name: "ISSUES has been processed" }]
    */
   issuePrefixes?: Option[]
 
@@ -389,7 +393,7 @@ export interface CommitizenGitOptions {
    */
   customIssuePrefixsAlign?: 'top' | 'bottom' | 'top-bottom' | 'bottom-top'
   /**
-   * @default: "top"
+   * @default "top"
    */
   customIssuePrefixAlign?: 'top' | 'bottom' | 'top-bottom' | 'bottom-top'
 
@@ -399,7 +403,7 @@ export interface CommitizenGitOptions {
    */
   emptyIssuePrefixsAlias?: string
   /**
-   * @default: "skip"
+   * @default "skip"
    */
   emptyIssuePrefixAlias?: string
 
@@ -409,7 +413,7 @@ export interface CommitizenGitOptions {
    */
   customIssuePrefixsAlias?: string
   /**
-   * @default: "custom"
+   * @default "custom"
    */
   customIssuePrefixAlias?: string
 
@@ -437,13 +441,13 @@ export interface CommitizenGitOptions {
 
   /**
    * @description: Prompt final determination whether to display the color
-   * @default: true
+   * @default true
    */
   confirmColorize?: boolean
 
   /**
    * @description: List of questions you want to skip
-   * @default: []
+   * @default []
    * @example: ['body']
    */
   skipQuestions?: Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>
@@ -466,7 +470,7 @@ export interface CommitizenGitOptions {
    * @description: Is not strict subject rule. Just provide prompt word length warning.
    * Effected maxHeader and maxSubject commitlint
    * @example [1, 'always', 80] 1: mean warning. will be true
-   * @default: false
+   * @default false
    */
   isIgnoreCheckMaxSubjectLength?: boolean
 
@@ -519,14 +523,14 @@ export interface CommitizenGitOptions {
    * @description: Whether to use GPG sign commit message (git commit -S -m)
    * @note the options only support `czg` cz-git cli and no support git hooks mode
    * @usage_see https://github.com/Zhengqbbb/cz-git/issues/58
-   * @default: false
+   * @default false
    */
   useCommitSignGPG?: boolean
 
   /**
    * @description: provide user custom finally message, can use the callback to change format
    * @param CommitMessageOptions: provide subdivides each message part
-   * @default: ({ defaultMessage }) => defaultMessage
+   * @default ({ defaultMessage }) => defaultMessage
    */
   formatMessageCB?: (messageMod: CommitMessageOptions) => string
 }
@@ -566,7 +570,7 @@ export const defaultConfig = Object.freeze({
   themeColorCode: '',
   useEmoji: false,
   useAI: false,
-  aiType: 'OpenAI',
+  aiType: 'openAI-Turbo',
   aiNumber: 1,
   aiQuestionCB: undefined,
   openAIToken: '',

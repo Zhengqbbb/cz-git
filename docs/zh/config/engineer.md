@@ -134,6 +134,18 @@ sitemap:
 Demo And Usage [⇒ see the recipes](/recipes/openai)
 :::
 
+## aiType
+
+- **描述** : 设置使用的 AI 模型
+
+|      aiType      |     模型         | 描述 | 
+|     ---        |      ---         | --- |
+| openAI-Turbo   | gpt-3.5-turbo     | 更快，API 代币消耗为 `text-davinci-003` 的 10 分之一 |
+| openAI-Davinci | text-davinci-003  |  更好的质量、更准确以及丰富的内容产出 |
+
+- **类型** : `"openAI-Turbo" | "openAI-Davinci"`
+- **default** : `openAI-Turbo`
+
 ## aiDiffIgnore
 
 - **描述** : 设置忽略目标文件的 diff 信息数据发送 OpenAI API

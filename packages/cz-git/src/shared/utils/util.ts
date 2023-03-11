@@ -163,21 +163,6 @@ const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number
   return item?.emoji ? item.emoji.length + 1 : 0
 }
 
-export const parseAISubject = (options: CommitizenGitOptions, subject?: string) => {
-  if (!subject)
-    return ''
-
-  subject = subject.replace(/(\r\n|\n|\r)/gm, '').replace(/[\.。]$/, '')
-  let res = subject
-  if (options.upperCaseSubject)
-    res = res.charAt(0).toUpperCase()
-  else
-    res = res.charAt(0).toLowerCase()
-  res = res + subject.slice(1)
-
-  return res
-}
-
 /**
  * @description: get max subject length
  */
