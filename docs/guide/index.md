@@ -111,8 +111,15 @@ npm install -g cz-git commitizen
 
 #### Step 2: Global configuration adapter type
 
-```sh
-echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json" }' > ~/.czrc
+<script setup>
+import { useData } from 'vitepress'
+
+const { site } = useData()
+const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+</script>
+
+```sh-vue
+echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json" }' > ~/.czrc
 ```
 
 #### Step 3: Add custom configuration (optional, use default configuration)

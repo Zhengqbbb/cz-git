@@ -112,8 +112,15 @@ npm install -g cz-git commitizen
 
 #### 步骤 2: 全局配置适配器类型
 
-```sh
-echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@main/docs/public/schema/cz-git-1.5.3.json" }' > ~/.czrc
+<script setup>
+import { useData } from 'vitepress'
+
+const { site } = useData()
+const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+</script>
+
+```sh-vue
+echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json" }' > ~/.czrc
 ```
 
 #### 步骤 3: 添加自定义配置(可选，使用默认配置)
