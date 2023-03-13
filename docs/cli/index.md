@@ -37,8 +37,16 @@ description: Interactive Commitizen CLI that generate standardized git commit me
 2. And then, let's try to simply configure it.
 Create a `.czrc` file in the project root directory
 
-```json
+<script setup>
+import { useData } from 'vitepress'
+
+const { site } = useData()
+const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+</script>
+
+```json-vue
 {
+  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json",
   "scopes": [
     "hello",
     "world"
@@ -73,11 +81,14 @@ More information about configure file and options. See → [Config](/config/)
     [36mgpg[0m              [31mTurn on use GPG sign commit message[0m
     
 [33mOPTIONS:[0m
-    [36m--config[0m         [31mSpecify the configuration file to use[0m
-    [36m--openai-token=[0m  [31mSetup OpenAI API secret key to local (.config/.czrc)[0m
-    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
     [36m:, --alias[0m       [31mDirectly submit the defined commit message[0m
     [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
+    [36m--config=[0m        [31mSpecify the configuration file to use[0m
+    [36m--openai-token=[0m  [31mSetup OpenAI API secret key to local (.config/.czrc)[0m
+    [36m--api-proxy=[0m     [31mSetup request OpenAI API proxy to local (.config/.czrc)[0m
+    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
+    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
+    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
     [36m-h, --help[0m       [31mShow help[0m
     [36m-v, --version[0m    [31mShow version[0m
 
