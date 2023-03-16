@@ -55,6 +55,7 @@ function generateAITypesQuestions(options: CommitizenGitOptions) {
           : 'name'
         return fuzzyFilter(input, typeSource, searchTarget)
       },
+      when: (_: unknown) => !(Array.isArray(options.types) && options.types.length === 1),
     },
   ]
 }
@@ -69,6 +70,7 @@ function generateAISubjectsQuestions(options: CommitizenGitOptions, subjects: st
       source: (_: unknown, input: string) => {
         return fuzzyFilter(input, parseStandardScopes(subjects))
       },
+      when: (_: unknown) => true,
     },
   ]
 }

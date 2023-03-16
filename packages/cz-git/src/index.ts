@@ -40,10 +40,59 @@ export const prompter = (
     else
       answers = await cz.prompt(generateQuestions(options, cz))
 
+    if (options.customOptions) {
+      for (let index = 0; index < options.customOptions.length; index++) {
+        const customOption = options.customOptions[index]
+        const customPrompt = Object.assign({}, config.prompt, customOption)
+        const customConfig = Object.assign({}, config, {
+          prompt: customPrompt,
+        })
+        const option = generateOptions(customConfig)
+
+        let customAnswer
+        if (option.useAI) {
+          const aiAnswer = await retryUseAI(option, cz)
+          customAnswer = {
+            [customOption.name]: aiAnswer.subject,
+          }
+        }
+        else {
+          customAnswer = await cz.prompt(generateQuestions(option, cz))
+          if (customAnswer.scope === '___CUSTOM___') {
+            customAnswer = {
+              [customOption.name]: customAnswer.customScope,
+            }
+          }
+          else {
+            customAnswer = {
+              [customOption.name]: Object.values(customAnswer)[0],
+            }
+          }
+        }
+        answers = Object.assign(answers, customAnswer)
+      }
+    }
+
     answers = await generateConfirmPrompt(options, cz, answers)
 
     await confirmMessage(options, cz, answers, commit)
   })
+}
+
+async function retryUseAI(option: CommitizenGitOptions, cz: CommitizenType) {
+  let customAnswer: Answers
+  try {
+    customAnswer = await generateAIPrompt(option, cz)
+    return customAnswer
+  }
+  catch (error) {
+    customAnswer = await cz.prompt(generateQuestions(option, cz))
+    if (customAnswer.subject === 'retry' || customAnswer.subject === 'r' || customAnswer.subject === 'rr')
+      customAnswer = await retryUseAI(option, cz)
+    if (customAnswer.subject === 'skip' || customAnswer.subject === 's' || customAnswer.subject === 'ss')
+      customAnswer.subject = ''
+  }
+  return customAnswer
 }
 
 async function generateConfirmPrompt(options: CommitizenGitOptions, cz: CommitizenType, answers: Answers) {

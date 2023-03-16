@@ -157,6 +157,8 @@ export interface CommitMessageOptions {
    * @description: base Angular format default all message
    */
   defaultMessage: string
+
+  answers?: Record<string, any>
 }
 
 export interface GenerateAIPromptType {
@@ -165,6 +167,7 @@ export interface GenerateAIPromptType {
   maxSubjectLength?: number
   upperCaseSubject?: boolean
   diff?: string
+  answers?: Record<string, any>
 }
 
 export interface CommitizenGitOptions {
@@ -450,7 +453,7 @@ export interface CommitizenGitOptions {
    * @default []
    * @example: ['body']
    */
-  skipQuestions?: Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>
+  skipQuestions?: Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit' | 'type' | 'subject'>
 
   /**
    * @description: Force set max header length | Equivalent setting maxSubjectLength.
@@ -533,6 +536,16 @@ export interface CommitizenGitOptions {
    * @default ({ defaultMessage }) => defaultMessage
    */
   formatMessageCB?: (messageMod: CommitMessageOptions) => string
+
+  /**
+   * @description: Repeat the question to obtain an answer
+   * @default undefined
+   */
+  customOptions?: CustomOptions[]
+}
+
+export interface CustomOptions extends CommitizenGitOptions {
+  name: string
 }
 
 export const defaultConfig = Object.freeze({
@@ -612,4 +625,5 @@ export const defaultConfig = Object.freeze({
   defaultIssues: '',
   useCommitSignGPG: false,
   formatMessageCB: undefined,
+  customOptions: undefined,
 } as CommitizenGitOptions)

@@ -42,6 +42,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
           : 'name'
         return fuzzyFilter(input, typeSource, searchTarget)
       },
+      when: (_: unknown) => !(Array.isArray(options.types) && options.types.length === 1),
     },
     {
       type: options.enableMultipleScopes ? 'search-checkbox' : 'search-list',
@@ -268,7 +269,7 @@ export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
   ].filter(
     i =>
       !options.skipQuestions?.includes(
-        i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix' | 'confirmCommit',
+        i.name as 'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit' | 'type' | 'subject',
       ),
   )
 }

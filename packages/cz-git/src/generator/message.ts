@@ -161,6 +161,7 @@ export const generateMessage = (
       breaking,
       footer,
       defaultMessage,
+      answers,
     })
   }
   else {
@@ -192,6 +193,7 @@ export async function generateAISubjects(
       upperCaseSubject: options.upperCaseSubject,
       maxSubjectLength,
       diff,
+      answers,
     })
   }
   else {
