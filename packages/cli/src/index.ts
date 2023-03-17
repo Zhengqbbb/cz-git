@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { czg, generateHelp, setupAIConfig } from './generator'
 import { resovleArgs } from './shared'
 
