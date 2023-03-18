@@ -1,5 +1,5 @@
 {
-  "name": "czg",
+  "name": "czg-ex",
   "version": "1.6.0",
   "description": "Interactive Commitizen CLI that generate standardized git commit message",
   "keywords": [
@@ -15,15 +15,15 @@
   ],
   "homepage": "https://cz-git.qbb.sh/cli/",
   "bugs": {
-    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+    "url": "https://github.com/danyow/cz-git/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zhengqbbb/cz-git",
+    "url": "git+https://github.com/danyow/cz-git.git",
     "directory": "packages/cli"
   },
   "license": "MIT",
-  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
+  "author": "danyow <i.zuucol@gmail.com> (https://github.com/danyow)",
   "bin": {
     "czg": "bin/index.js",
     "git-czg": "bin/index.js"

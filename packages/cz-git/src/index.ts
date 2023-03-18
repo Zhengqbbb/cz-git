@@ -42,11 +42,18 @@ export const prompter = (
 
     if (options.customOptions) {
       for (let index = 0; index < options.customOptions.length; index++) {
-        const customOption = options.customOptions[index]
+        let customOption = options.customOptions[index]
+
+        if (typeof customOption.checkCB === 'function') {
+          const result = customOption.checkCB(answers, customOption)
+          if (result.skip)
+            continue
+          if (result.modify)
+            customOption = result.modify
+        }
+
         const customPrompt = Object.assign({}, config.prompt, customOption)
-        const customConfig = Object.assign({}, config, {
-          prompt: customPrompt,
-        })
+        const customConfig = Object.assign({}, config, { prompt: customPrompt })
         const option = generateOptions(customConfig)
 
         let customAnswer

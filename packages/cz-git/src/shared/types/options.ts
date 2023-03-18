@@ -546,6 +546,7 @@ export interface CommitizenGitOptions {
 
 export interface CustomOptions extends CommitizenGitOptions {
   name: string
+  checkCB?: (answers: Record<string, any>, customOption: CustomOptions) => { skip: boolean; modify: CustomOptions }
 }
 
 export const defaultConfig = Object.freeze({
