@@ -29,11 +29,12 @@
     "git-czg": "bin/index.js"
   },
   "files": [
-    "bin"
+    "bin",
+    "lib"
   ],
   "scripts": {
     "build": "pnpm clean && tsup",
-    "clean": "rimraf '*.tsbuildinfo' lib dist bin",
+    "clean": "rimraf '*.tsbuildinfo' lib",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {

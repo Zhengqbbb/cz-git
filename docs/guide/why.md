@@ -15,16 +15,16 @@ Why developed `cz-git` - article: [「cz-git development journey」](https://www
 ---
 
 - [**cz-customizable**](https://github.com/leoforfree/cz-customizable) :
-  1. Adding additional configuration files are needed.
+  1. Adding additional configuration files is needed.
   2. Only supports the upper and lower choices.
-  3. There are fewer supportable habitual configuration items.
+  3. There are fewer supported habitual configuration items.
 
 ---
 
 - [**cz-conventional-changelog**](https://github.com/commitizen/cz-conventional-changelog) :
-  1. Supported custom configuration items are less.
-  2. Interactive method is no friendly.
-  3. Too many repetitive input.
+  1. There are fewer supported custom configuration items.
+  2. Interactive method is not friendly.
+  3. Too much repetitive input.
 
 ```sh{4}
 $ npm install -D cz-conventional-changelog
@@ -37,8 +37,8 @@ added 1 package in 0.582s
 ---
 
 - [**git-cz**](https://github.com/streamich/git-cz) :
-  1. Supported custom configuration items are less.
-  2. Adding additional configuration files are needed.
+  1. There are fewer supported custom configuration items.
+  2. Adding additional configuration files is needed.
 
 ```sh{3}
 $ du -sh node_modules/*

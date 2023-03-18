@@ -15,7 +15,6 @@ docs/.vitepress/cache
 
 # Bundle
 lib/
-bin/
 
 # Typescript build file
 *.tsbuildinfo

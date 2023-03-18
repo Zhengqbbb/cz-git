@@ -2,11 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./bin",
+    "outDir": "./lib",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "removeComments": true,
   },
-  "exclude": ["node_modules", "./dist", "./lib"],
+  "exclude": ["node_modules", "./bin", "./lib"],
   "include": ["./src"]
 }
