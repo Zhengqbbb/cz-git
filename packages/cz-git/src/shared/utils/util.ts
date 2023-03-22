@@ -124,7 +124,7 @@ export const resovleCustomListTemplate = (
     new cz.Separator(),
   ]
   if (!Array.isArray(target) || target.length === 0) {
-    return result
+    return !allowEmpty ? result.slice(1) : result
   }
   else if (defaultValue !== '') {
     // pin the defaultValue to the top
