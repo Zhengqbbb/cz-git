@@ -107,6 +107,11 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE
 
 :::
 
+## [进阶] 缓存你的自定义范围 `custom scope`
+
+- 缓存你输入的自定义范围并在下一次范围选择中显示使用
+- Github 讨论帖与演示视频: [Zhengqbbb/cz-git#104](https://github.com/Zhengqbbb/cz-git/discussions/104)
+- 示例代码: [Zhengqbbb/czgit-playground/cache-scope](https://github.com/Zhengqbbb/czgit-playground/tree/cache-scope)
 
 <br>
 <br>

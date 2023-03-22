@@ -106,6 +106,12 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE
 
 :::
 
+## [Advanced] cache your `custom scope`
+
+- Cache your custom inputs scope and can be displayed next time and shown in the scope list
+- Discussion and demo video: [Zhengqbbb/cz-git#104](https://github.com/Zhengqbbb/cz-git/discussions/104)
+- Playground and source code: [Zhengqbbb/czgit-playground/cache-scope](https://github.com/Zhengqbbb/czgit-playground/tree/cache-scope)
+
 <br>
 <br>
 <br>
