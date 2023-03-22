@@ -1,3 +1,12 @@
+## [1.6.1](https://github.com/Zhengqbbb/cz-git/compare/v1.6.0...v1.6.1) (2023-03-22)
+
+
+### Bug Fixes
+
+* **cz-git:** `allowEmptyScopes` not work when not provide `scopes` ([ee0f045](https://github.com/Zhengqbbb/cz-git/commit/ee0f045443edda876ed052a730147dd32d4ddc5f)), closes [#109](https://github.com/Zhengqbbb/cz-git/issues/109)
+
+
+
 # [1.6.0](https://github.com/Zhengqbbb/cz-git/compare/v1.5.3...v1.6.0) (2023-03-11)
 
 
