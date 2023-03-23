@@ -95,6 +95,12 @@
     "pnpm": ">=7"
   },
   "pnpm": {
+    "overrides": {
+      "chalk": "4.1.2",
+      "color-convert": "2.0.1",
+      "resolve-from": "5.0.0",
+      "supports-color": "8.1.1"
+    },
     "peerDependencyRules": {
       "ignoreMissing": [
         "@algolia/client-search",
