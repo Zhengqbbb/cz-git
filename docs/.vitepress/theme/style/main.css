@@ -315,6 +315,10 @@ img.error::after {
   padding-top: 0;
 }
 
+.vp-doc .custom-block .code-group-item div[class*='language-'] {
+  margin: 33px 0;
+}
+
 /**
  * Doc
  * -------------------------------------------------------------------------- */

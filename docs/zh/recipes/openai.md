@@ -4,25 +4,63 @@
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=686x309 -->
 
-:::info 快速体验
+:::::info 快速体验
 利用 `npx` 填入 Token ，并在你的任何项目中运行下列命令进行体验<br>
 **OpenAI API Token** 获取: https://platform.openai.com/account/api-keys
+
+:::: code-group
+::: code-group-item NPX
 
 ```sh
 CZ_OPENAI_TOKEN="sk-xxxxx" npx czg ai
 ```
+
 :::
+::: code-group-item BUNX
+
+```sh
+CZ_OPENAI_TOKEN="sk-xxxxx" bunx czg ai
+```
+
+:::
+::::
+
+:::::
 
 ## 配置 OpenAI token
 
 1. https://platform.openai.com/account/api-keys <br>登陆并创建你的 OpenAI API 密钥，通常以 `sk-` 开头
 2. 运行命令 `npx czg --openai-token=<API secret key>` 填入 OpenAI API 密钥完成设置
 
+:::: code-group
+::: code-group-item NPX
+
 ```sh
 npx czg --openai-token=sk-xxxxx
 # 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
 # npx czg --openai-token=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
 ```
+
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg --openai-token=sk-xxxxx
+# 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
+# bunx czg --openai-token=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+```
+
+:::
+::: code-group-item 全局下载之后
+
+```sh
+czg --openai-token=sk-xxxxx
+# 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
+# czg --openai-token=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+```
+
+:::
+::::
 
 ## 全局使用
 
@@ -91,14 +129,41 @@ pnpm install -D czg
 
 - 在设置完 token 后，运行命令在你的任何项目中
 
+:::: code-group
+::: code-group-item NPX
+
 ```sh
 npx czg ai
 ```
 
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg ai
+```
+
+:::
+::::
+
 > 返回多个简短描述，并开启选择模式
+
+:::: code-group
+::: code-group-item NPX
+
 ```sh
 npx czg ai -N=5
 ```
+
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg ai -N=5
+```
+
+:::
+::::
 
 ## 配置
 

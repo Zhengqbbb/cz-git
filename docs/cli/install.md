@@ -63,11 +63,24 @@ try it `npm cz`
 ```
 
 ## As `npx` use
-> You can start the CLI in different environments, but the startup speed will be slower than global install
+> You can start the CLI in different project, but the `npx` startup speed will be slower than global install
+
+:::: code-group
+::: code-group-item NPX
 
 ```sh
 npx czg
 ```
+
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg
+```
+
+:::
+::::
 
 ## As git hooks use
 

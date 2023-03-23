@@ -63,12 +63,25 @@ pnpm install -D czg
 ```
 
 ## `npx` 使用
-> 你可以在其他环境下启动，但是启动速度会比全局安装慢
+> 你可以在任意项目下启动，但是 npx 启动速度会比全局安装慢
 
+
+:::: code-group
+::: code-group-item NPX
 
 ```sh
 npx czg
 ```
+
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg
+```
+
+:::
+::::
 
 
 ## 作为 git hooks 使用

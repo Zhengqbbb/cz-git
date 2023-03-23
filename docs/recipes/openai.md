@@ -3,21 +3,57 @@ Let the AI generate your **git commit message** subject <sup>(short description)
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=686x309 -->
 
-:::info Have A Try
+:::::info Have A Try
 You can have a try **without setup your token to local** in any of your projects<br> Quick experience interaction. API Key: https://platform.openai.com/account/api-keys<br>
+
+:::: code-group
+::: code-group-item NPX
+
 ```sh
 CZ_OPENAI_TOKEN="sk-xxxxx" npx czg ai
 ```
+
 :::
+::: code-group-item BUNX
+
+```sh
+CZ_OPENAI_TOKEN="sk-xxxxx" bunx czg ai
+```
+
+:::
+::::
+
+:::::
 
 ## Setup OpenAI token
 
 1. https://platform.openai.com/account/api-keys <br>Login and create your API secret key, which usually starts with `sk-`
 2. Run command `npx czg --openai-token=<API secret key>` and input your key to setup your token save to local
 
+:::: code-group
+::: code-group-item NPX
+
 ```sh
 npx czg --openai-token=sk-xxxxx
 ```
+
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg --openai-token=sk-xxxxx
+```
+
+:::
+::: code-group-item After-global-install
+
+```sh
+czg --openai-token=sk-xxxxx
+```
+
+:::
+::::
+
 ## As global usage
 
 :::: code-group
@@ -85,14 +121,41 @@ pnpm install -D czg
 
 - Run the following command in any of your projects after setup OpenAI token
 
+:::: code-group
+::: code-group-item NPX
+
 ```sh
 npx czg ai
 ```
 
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg ai
+```
+
+:::
+::::
+
 > Return multiple subjects, and choose the suitable answer
+
+:::: code-group
+::: code-group-item NPX
+
 ```sh
 npx czg ai -N=5
 ```
+
+:::
+::: code-group-item BUNX
+
+```sh
+bunx czg ai -N=5
+```
+
+:::
+::::
 
 ## Configure
 - If you configure `useAI` to true, and you want to **switch to normal mode** not AI prompt mode in this session
