@@ -97,7 +97,7 @@ export const sidebar: DefaultTheme.Sidebar = {
           link: '/zh/config/show',
         },
         {
-          text: '工程化相关',
+          text: '控制相关',
           link: '/zh/config/engineer',
         },
       ],

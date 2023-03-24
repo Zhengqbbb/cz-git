@@ -1,12 +1,12 @@
 ---
-title: 工程化相关
+title: 控制相关
 sidebarDepth: 1
 lastUpdated: true
 sitemap:
     priority: 0.6
 ---
 
-# 工程化规范化相关
+# 配置 - 控制相关
 
 ## alias
 

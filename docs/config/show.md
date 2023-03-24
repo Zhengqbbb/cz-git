@@ -1,12 +1,12 @@
 ---
-title: Show Related
+title: Display Related
 sidebarDepth: 1
 lastUpdated: true
 sitemap:
     priority: 0.6
 ---
 
-# Options - Show Related
+# Options - Display Related
 
 ## messages
 

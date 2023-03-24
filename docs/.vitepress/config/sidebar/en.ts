@@ -93,11 +93,11 @@ export const sidebar: DefaultTheme.Sidebar = {
           link: '/config/',
         },
         {
-          text: 'Show Related',
+          text: 'Display Related',
           link: '/config/show',
         },
         {
-          text: 'Engineering Related',
+          text: 'Control Related',
           link: '/config/engineer',
         },
       ],
