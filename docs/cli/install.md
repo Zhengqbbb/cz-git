@@ -50,6 +50,13 @@ pnpm install -D czg
 ```
 
 :::
+::: code-group-item BUN
+
+```sh
+bun add -d czg
+```
+
+:::
 ::::
 
 Add script in package.json
