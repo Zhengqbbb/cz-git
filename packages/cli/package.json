@@ -24,6 +24,18 @@
   },
   "license": "MIT",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "lib/index.d.ts"
+      ]
+    }
+  },
   "bin": {
     "czg": "bin/index.js",
     "git-czg": "bin/index.js"
@@ -33,8 +45,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "pnpm clean && tsup",
-    "clean": "rimraf '*.tsbuildinfo' lib",
+    "build": "tsup",
+    "clean": "rimraf lib",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {

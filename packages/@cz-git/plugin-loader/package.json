@@ -18,15 +18,26 @@
   },
   "license": "MIT",
   "author": "Zhengqbbb <1074059947@qq.com>",
+  "sideEffects": false,
+  "exports": {
+    ".": "./lib/index.js"
+  },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "lib/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
+    "build": "tsup",
     "build:dev": "pnpm clean && tsc -b",
-    "clean": "rimraf '*.tsbuildinfo' lib dist"
+    "clean": "rimraf lib"
   },
   "devDependencies": {
     "@commitlint/resolve-extends": "^17.4.0",

@@ -1,11 +1,12 @@
-import { defineConfig } from 'tsup'
+import { type Options, defineConfig } from 'tsup'
+import baseConfig from '../../tsup.config'
+
+const extendConfig: Options = {
+  minify: true,
+  dts: false,
+}
 
 export default defineConfig({
-  minify: true,
-  entry: ['./src/index.ts'],
-  outDir: './lib',
-  tsconfig: './tsconfig.json',
-  dts: false,
-  sourcemap: false,
-  splitting: false,
+  ...baseConfig,
+  ...extendConfig,
 })
