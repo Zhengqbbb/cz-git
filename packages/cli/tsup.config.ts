@@ -6,7 +6,6 @@ const extendConfig: Options = {
   dts: false,
 }
 
-export default defineConfig({
-  ...baseConfig,
-  ...extendConfig,
-})
+const config = Object.assign({}, baseConfig, extendConfig)
+
+export default defineConfig(config)
