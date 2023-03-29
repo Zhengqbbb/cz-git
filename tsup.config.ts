@@ -9,12 +9,12 @@ import type { Options } from 'tsup'
 const baseConfig: Options = {
   entry: ['src/index.ts'],
   outDir: './lib',
+  dts: true,
   clean: true,
-  minify: true,
   bundle: true,
+  minify: false,
   sourcemap: false,
   splitting: false,
-  dts: true,
 }
 
 export default baseConfig
