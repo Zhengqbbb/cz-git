@@ -14,7 +14,7 @@
       "@cz-git/inquirer": [
         "../@cz-git/plugin-inquirer/src/index.ts"
       ]
-    },
+    }
   },
   "include": [
     "src"

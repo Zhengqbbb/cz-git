@@ -5,7 +5,7 @@
     "rootDir": "./src",
     "outDir": "./lib",
     "declaration": true,
-    "declarationDir": "./lib",
+    "declarationDir": "./lib"
   },
   "include": [
     "src"

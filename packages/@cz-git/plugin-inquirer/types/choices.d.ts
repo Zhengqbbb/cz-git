@@ -1,1 +1,1 @@
-declare module "inquirer/lib/objects/choices";
+declare module 'inquirer/lib/objects/choices';

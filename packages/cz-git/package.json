@@ -2,6 +2,17 @@
   "name": "cz-git",
   "version": "1.6.1",
   "description": "A better customizable and git support commitizen adapter",
+  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
+  "license": "MIT",
+  "homepage": "https://cz-git.qbb.sh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zhengqbbb/cz-git",
+    "directory": "packages/cz-git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+  },
   "keywords": [
     "openai",
     "commit",
@@ -14,17 +25,6 @@
     "customizable",
     "cz-customizable"
   ],
-  "homepage": "https://cz-git.qbb.sh",
-  "bugs": {
-    "url": "https://github.com/Zhengqbbb/cz-git/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Zhengqbbb/cz-git",
-    "directory": "packages/cz-git"
-  },
-  "license": "MIT",
-  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "sideEffects": false,
   "exports": {
     ".": "./lib/index.js"
