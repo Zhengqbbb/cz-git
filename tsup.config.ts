@@ -9,6 +9,7 @@ import type { Options } from 'tsup'
 const baseConfig: Options = {
   entry: ['src/index.ts'],
   outDir: './lib',
+  format: 'cjs',
   dts: true,
   clean: true,
   bundle: true,

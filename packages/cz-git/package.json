@@ -27,7 +27,8 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": "./lib/index.js"
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -43,7 +44,6 @@
   ],
   "scripts": {
     "build": "tsup",
-    "build:dev": "pnpm clean && tsc -b",
     "clean": "rimraf lib",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
