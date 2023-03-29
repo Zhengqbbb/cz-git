@@ -160,13 +160,13 @@ Using ==default value== can produce many ways to make the tool more suitable for
 
 ## defaultType
 
-- **description** : pin type item the top of the types list (match item value)
+- **description** : pin type item the top of the types list (match `types` item value)
 - **type** : `string`
 - **default** : `""`
 
 ## defaultScope
 
-- **description** : pin scope item the top of the scope list (match item value) 
+- **description** : pin scope item the top of the scope list (match `scopes` item value) 
 - **type** : `string`
 - **default** : `""`
 - **other** : Initialize the completion template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.

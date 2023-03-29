@@ -161,13 +161,13 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 
 ## defaultType
 
-- **描述** : 如果 defaultType 与在选择范围列表项中的 value 相匹配就会进行星标置顶操作。
+- **描述** : 如果 defaultType 与 `types` 选择范围列表项中的 value 相匹配就会进行星标置顶操作。
 - **类型** : `string`
 - **默认** : `""`
 
 ## defaultScope
 
-- **描述** : 如果 defaultScope 与在选择范围列表项中的 value 相匹配就会进行星标置顶操作。
+- **描述** : 如果 defaultScope 与 `scopes` 选择范围列表项中的 value 相匹配就会进行星标置顶操作。
 - **类型** : `string`
 - **默认** : `""`
 - **额外** : 在 **自定义范围** 中是否使用显示默认值 
