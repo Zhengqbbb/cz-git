@@ -2,17 +2,6 @@
   "name": "cz-git",
   "version": "1.6.1",
   "description": "A better customizable and git support commitizen adapter",
-  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
-  "license": "MIT",
-  "homepage": "https://cz-git.qbb.sh",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Zhengqbbb/cz-git",
-    "directory": "packages/cz-git"
-  },
-  "bugs": {
-    "url": "https://github.com/Zhengqbbb/cz-git/issues"
-  },
   "keywords": [
     "openai",
     "commit",
@@ -25,26 +14,26 @@
     "customizable",
     "cz-customizable"
   ],
-  "sideEffects": false,
-  "exports": {
-    ".": "./lib/index.js",
-    "./package.json": "./package.json"
+  "homepage": "https://cz-git.qbb.sh",
+  "bugs": {
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zhengqbbb/cz-git",
+    "directory": "packages/cz-git"
+  },
+  "license": "MIT",
+  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "lib/index.d.ts"
-      ]
-    }
-  },
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "tsup",
-    "clean": "rimraf lib",
+    "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
+    "build:dev": "pnpm clean && tsc -b",
+    "clean": "rimraf '*.tsbuildinfo' lib dist",
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {

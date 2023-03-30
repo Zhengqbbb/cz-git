@@ -7,14 +7,12 @@ import type { Options } from 'tsup'
  */
 
 const baseConfig: Options = {
-  entry: ['src/index.ts'],
-  outDir: './lib',
-  format: 'cjs',
-  dts: true,
-  clean: true,
-  bundle: true,
   minify: false,
+  entry: ['./dist/index.js'],
+  outDir: './lib',
+  tsconfig: './tsconfig.build.json',
   sourcemap: false,
+  dts: true,
   splitting: false,
 }
 
