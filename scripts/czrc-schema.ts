@@ -5,7 +5,7 @@ import type { Config } from 'ts-json-schema-generator'
 
 const config: Config = {
   path: resolve(__dirname, './czrc-schema.d.ts'),
-  tsconfig: resolve(__dirname, '../tsconfig.json'),
+  tsconfig: resolve(__dirname, '../tsconfig.base.json'),
   type: 'CommitizenGitOptions',
 }
 

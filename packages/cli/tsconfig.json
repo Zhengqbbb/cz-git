@@ -1,22 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "rootDir": "./src",
     "outDir": "./lib",
-    "declaration": false,
-    "paths": {
-      "cz-git": [
-        "../cz-git/src/index.ts"
-      ],
-      "@cz-git/loader": [
-        "../@cz-git/plugin-loader/src/index.ts"
-      ],
-      "@cz-git/inquirer": [
-        "../@cz-git/plugin-inquirer/src/index.ts"
-      ]
-    }
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "removeComments": true,
   },
-  "include": [
-    "src"
-  ]
+  "exclude": ["node_modules", "./bin", "./lib"],
+  "include": ["./src"]
 }

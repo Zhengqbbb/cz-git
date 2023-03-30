@@ -1,5 +1,4 @@
 packages:
-  - 'docs'
-  - 'packages/**'
-  - '!**/__tests__/**'
-  
+  - docs
+  - packages/*
+  - packages/@cz-git/*
