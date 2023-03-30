@@ -1,9 +1,33 @@
 {
-  "extends": "./tsconfig.base.json",
-  "include": [
-    "packages/**/*",
-    "**/.vitepress/**/*",
-    "tsup.config.ts"
-  ],
-  "exclude": ["node_modules", ".temp", "lib", "dist"]
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext"
+    ],
+    "types": [
+      "node",
+      "vitest/globals"
+    ],
+    "removeComments": false,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmitOnError": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "**/node_modules/**",
+    "**/lib/**",
+    "**/bin/**"
+  ]
 }

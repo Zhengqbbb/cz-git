@@ -3,11 +3,11 @@
  * @Use `pnpm docs:update`
  * @Author: Qbenben
  * @LastEditors: Qbenben
- * @LastEditTime: 2022-11-24 10:44:21
  */
 
 import fs from 'fs'
 import ora from 'ora'
+// @ts-expect-error
 import yaml from 'js-yaml'
 import { resolve } from 'pathe'
 
