@@ -2,9 +2,9 @@
   "name": "docs",
   "private": true,
   "scripts": {
-    "build": "vitepress build",
-    "dev": "vitepress dev --port 8080",
-    "serve": "vitepress serve --port 8000"
+    "docs:build": "vitepress build",
+    "docs:dev": "vitepress dev --port 8080",
+    "docs:serve": "vitepress serve --port 8000"
   },
   "dependencies": {
     "@vueuse/core": "^9.12.0",

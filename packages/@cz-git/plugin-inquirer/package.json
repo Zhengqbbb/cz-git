@@ -2,6 +2,17 @@
   "name": "@cz-git/inquirer",
   "version": "1.6.1",
   "description": "provide cz-git inquirer plugins, include search-list, search-checkbox, complete-input",
+  "author": "Zhengqbbb <1074059947@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/%40cz-git/plugin-inquirer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhengqbbb/cz-git.git",
+    "directory": "packages/@cz-git/plugin-inquirer"
+  },
+  "bugs": {
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+  },
   "keywords": [
     "cz-git",
     "inquirer",
@@ -9,26 +20,27 @@
     "inquirer-search-list",
     "inquirer-search-checkbox"
   ],
-  "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/%40cz-git/plugin-inquirer",
-  "bugs": {
-    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+  "sideEffects": false,
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Zhengqbbb/cz-git.git",
-    "directory": "packages/@cz-git/plugin-inquirer"
-  },
-  "license": "MIT",
-  "author": "Zhengqbbb <1074059947@qq.com>",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "lib/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
+    "build": "tsup",
     "build:dev": "pnpm clean && tsc -b",
-    "clean": "rimraf '*.tsbuildinfo' lib dist"
+    "clean": "rimraf lib"
   },
   "devDependencies": {
     "inquirer": "8.2.4"
