@@ -15,7 +15,7 @@ import {
 } from '../shared'
 import type { CommitizenGitOptions, UserConfig } from '../shared'
 
-export const generateOptions = (config: UserConfig): CommitizenGitOptions => {
+export function generateOptions(config: UserConfig): CommitizenGitOptions {
   const { emoji, checkbox, czai, no_czai, cz_ainum, ___X_CMD_THEME_COLOR_CODE } = process.env
   const promptConfig = config.prompt ?? {}
 

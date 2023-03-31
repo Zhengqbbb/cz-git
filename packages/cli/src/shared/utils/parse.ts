@@ -2,10 +2,11 @@ import minimist from 'minimist'
 import type { ParsedArgs } from 'minimist'
 import type { CzgitFlagList, CzgitParseArgs, CzgitSubCommandList } from '../types'
 
-const deleteItem = (target: string, list: string[]) =>
-  list.splice(list.indexOf(target), ~list.indexOf(target) ? 1 : 0)
+function deleteItem(target: string, list: string[]) {
+  return list.splice(list.indexOf(target), ~list.indexOf(target) ? 1 : 0)
+}
 
-const resovleSubCmd = (arg: string, cmd: CzgitSubCommandList, target: CzgitParseArgs) => {
+function resovleSubCmd(arg: string, cmd: CzgitSubCommandList, target: CzgitParseArgs) {
   if (arg !== cmd)
     return target
   if (!target.czgitArgs.subCommand)
@@ -16,12 +17,10 @@ const resovleSubCmd = (arg: string, cmd: CzgitSubCommandList, target: CzgitParse
   return target
 }
 
-const resovleFlag = (
-  argv: ParsedArgs,
+function resovleFlag(argv: ParsedArgs,
   flag: string,
   aliasFlag: CzgitFlagList,
-  target: CzgitParseArgs,
-) => {
+  target: CzgitParseArgs) {
   if (!argv[flag] && !argv[aliasFlag])
     return target
   if (!target.czgitArgs.flag)
@@ -41,12 +40,10 @@ const resovleFlag = (
   return target
 }
 
-const resovleFlaseFlag = (
-  argv: ParsedArgs,
+function resovleFlaseFlag(argv: ParsedArgs,
   targetFlag: string,
   flag: CzgitFlagList,
-  target: CzgitParseArgs,
-) => {
+  target: CzgitParseArgs) {
   if (argv[flag] === undefined)
     return target
   if (!target.czgitArgs.flag)
@@ -59,7 +56,7 @@ const resovleFlaseFlag = (
   return target
 }
 
-const resovleAlias = (arg: string, target: CzgitParseArgs) => {
+function resovleAlias(arg: string, target: CzgitParseArgs) {
   if (arg.startsWith(':')) {
     if (!target.czgitArgs.flag)
       target.czgitArgs.flag = { alias: '' }
@@ -75,7 +72,7 @@ const resovleAlias = (arg: string, target: CzgitParseArgs) => {
  * @param {ParsedArgs} argv
  * @return {CzgitParseArgs} czgit parsed args
  */
-export const resovleArgs = (argv: string[]): CzgitParseArgs => {
+export function resovleArgs(argv: string[]): CzgitParseArgs {
   const parseArgv = minimist(argv, {
     boolean: true,
     alias: {

@@ -1,6 +1,6 @@
 import '@commitlint/types'
-import path from 'path'
-import os from 'os'
+import path from 'node:path'
+import os from 'node:os'
 import resolveExtends from '@commitlint/resolve-extends'
 import { cosmiconfig } from 'cosmiconfig'
 import type { RulesConfig } from '@commitlint/types'
@@ -22,7 +22,7 @@ export interface LoaderOptions {
   packageProp?: string[]
 }
 
-export const loader = async (options: LoaderOptions) => {
+export async function loader(options: LoaderOptions) {
   const cwd = options.cwd || process.cwd()
   const cosmiconfigFn = cosmiconfig(options.moduleName, {
     searchPlaces: options.searchPlaces || [],
@@ -66,7 +66,7 @@ async function execute<T>(config: Config<T>, isRule = true): Promise<T> {
   }, {})
 }
 
-export const clLoader = async (cwd?: string): Promise<CommitlintOptions> => {
+export async function clLoader(cwd?: string): Promise<CommitlintOptions> {
   const moduleName = 'commitlint'
   const options = {
     moduleName,
@@ -105,7 +105,7 @@ export const clLoader = async (cwd?: string): Promise<CommitlintOptions> => {
   })
 }
 
-export const czLoader = async (cwd?: string) => {
+export async function czLoader(cwd?: string) {
   const moduleName = 'cz'
   const options = {
     moduleName,
@@ -131,7 +131,7 @@ export const czLoader = async (cwd?: string) => {
   return await execute(data?.config || data || {}, true)
 }
 
-export const rootLoader = async () => {
+export async function rootLoader() {
   const cwd = os.homedir()
   const options = {
     moduleName: 'czrc',
@@ -159,7 +159,7 @@ export interface UserOptions {
 /**
  * @description: Main Func: both loader commitizen config and commitlint config
  */
-export const configLoader = async (options?: UserOptions) => {
+export async function configLoader(options?: UserOptions) {
   // provide cli config loader
   if (typeof options?.configPath === 'string') {
     const czData = await cosmiconfig('commitizen', {

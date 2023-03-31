@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import cacheDir from 'cachedir'
 import { ensureDir } from 'fs-extra'
 import { style } from 'cz-git'
@@ -9,13 +9,14 @@ import type { CallBackFn, CommitOptions, CzGitPrompter } from '../shared'
 /**
  * generate cz-git prompt get commit message
  */
-export const commit = (
+
+export function commit(
   inquirer: CommitizenType,
   repoPath: string,
   prompter: CzGitPrompter,
   options: CommitOptions,
   done: CallBackFn,
-) => {
+) {
   const cacheDirectory = cacheDir('cz-git')
   const cachePath = path.join(cacheDirectory, 'commit.json')
 

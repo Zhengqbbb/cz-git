@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import type { Interface as ReadlineInterface } from 'readline'
+import type { Interface as ReadlineInterface } from 'node:readline'
 import Base from 'inquirer/lib/prompts/base'
 import Choices from 'inquirer/lib/objects/choices'
 import observe from 'inquirer/lib/utils/events'
@@ -89,7 +89,6 @@ export class SearchCheckbox extends Base {
       bottomContent += `  ${style.dim('Searching...')}`
     }
     else if (this.choicesLen) {
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       const choicesStr = choicesRender(
         this.renderChoices.choices,
         this.pointer,
@@ -169,7 +168,7 @@ export class SearchCheckbox extends Base {
         return cur
       })
       this.renderChoices = new Choices(choices, this.answers)
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+
       const realChoices = choices.filter(choice => isSelectable(choice))
       this.choicesLen = realChoices.length
       if (this.firstRender)
@@ -308,11 +307,9 @@ export class SearchCheckbox extends Base {
  * @param  {Number} pointer Position of the pointer
  * @return {String}         Rendered content
  */
-const choicesRender = (
-  choices: ChoicesType['choices'],
+function choicesRender(choices: ChoicesType['choices'],
   pointer: number,
-  themeColorCode?: string,
-): string => {
+  themeColorCode?: string): string {
   let output = ''
   let separatorOffset = 0
 
@@ -332,7 +329,7 @@ const choicesRender = (
       const line
         = (choice.value === false || choice.value === '___CUSTOM___')
           ? `${figures.squareSmallFilled} ${choice.name}`
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
+
           : `${getCheckbox(choice.checked || false)} ${choice.name}`
       if (i - separatorOffset === pointer) {
         themeColorCode
@@ -357,12 +354,13 @@ const choicesRender = (
  * @param  {Boolean} checked - add a X or not to the checkbox
  * @return {String} Composited checkbox string
  */
-const getCheckbox = (checked: boolean): string => {
+function getCheckbox(checked: boolean): string {
   return checked ? style.green(figures.radioOn) : figures.radioOff
 }
 
 /**
  * @description: check choice is selectable
  */
-const isSelectable = (choice: ChoiceType<Separator['type']>) =>
-  choice.type !== 'separator' && !choice.disabled
+function isSelectable(choice: ChoiceType<Separator['type']>) {
+  return choice.type !== 'separator' && !choice.disabled
+}

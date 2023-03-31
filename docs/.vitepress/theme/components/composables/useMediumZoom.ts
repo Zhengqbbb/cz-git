@@ -12,9 +12,11 @@ declare module 'medium-zoom' {
 
 export const mediumZoomSymbol: InjectionKey<Zoom> = Symbol('mediumZoom')
 
-export const useMediumZoom = () => onMounted(() => inject(mediumZoomSymbol)?.refresh())
+export function useMediumZoom() {
+  return onMounted(() => inject(mediumZoomSymbol)?.refresh())
+}
 
-export const createMediumZoomProvider = (app: App, router: Router) => {
+export function createMediumZoomProvider(app: App, router: Router) {
   if (import.meta.env.SSR)
     return
   const zoom = mediumZoom()

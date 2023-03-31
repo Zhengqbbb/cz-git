@@ -18,7 +18,7 @@ process.stdin.on('data', (key: any) => {
  * @param environment use debug mode
  * @param {string[]} argv  Node.js process
  */
-export const bootsrap = (environment: any = {}, argv = process.argv) => {
+export function bootsrap(environment: any = {}, argv = process.argv) {
   const commandArgs = argv.slice(2, argv.length)
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const czgitVersion = require('../package.json').version

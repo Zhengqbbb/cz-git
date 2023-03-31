@@ -7,8 +7,9 @@
 import { style } from '@cz-git/inquirer'
 import type { Answers, CommitizenGitOptions, Option, ScopesType } from '..'
 
-export const useThemeCode = (input: string, themeColorCode?: string) =>
-  themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input)
+export function useThemeCode(input: string, themeColorCode?: string) {
+  return themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input)
+}
 
 export function log(type: 'info' | 'warm' | 'err', msg: string) {
   const colorMapping = {
@@ -25,19 +26,18 @@ export function log(type: 'info' | 'warm' | 'err', msg: string) {
  *
  * {2}: mean ': '
  */
-const countLength = (target: number, typeLength: number, scope: number, emojiLength: number) =>
-  target - typeLength - 2 - scope - emojiLength
+function countLength(target: number, typeLength: number, scope: number, emojiLength: number) {
+  return target - typeLength - 2 - scope - emojiLength
+}
 
 /**
  * @description: resolve list item pin top
  */
-export const resolveListItemPinTop = (
-  arr: {
-    name: string
-    value: any
-  }[],
-  defaultValue?: string,
-) => {
+export function resolveListItemPinTop(arr: {
+  name: string
+  value: any
+}[],
+defaultValue?: string) {
   if (!defaultValue || defaultValue === '')
     return arr
   const index = arr.findIndex(i => i.value === defaultValue)
@@ -49,13 +49,14 @@ export const resolveListItemPinTop = (
 /**
  * @description: check scope list and issuePrefix is only single item (scope, issuePrefix)
  */
-export const isSingleItem = (allowCustom = true, allowEmpty = true, list: Array<any> = []) =>
-  !allowCustom && !allowEmpty && Array.isArray(list) && list.length === 1
+export function isSingleItem(allowCustom = true, allowEmpty = true, list: Array<any> = []) {
+  return !allowCustom && !allowEmpty && Array.isArray(list) && list.length === 1
+}
 
 /**
  * @description: resolve AI modify mode and normal answer type and default type
  */
-export const resolveDefaultType = (options: CommitizenGitOptions, answer: Answers) => {
+export function resolveDefaultType(options: CommitizenGitOptions, answer: Answers) {
   if (!answer.type && options.useAI)
     return options.defaultType
 
@@ -65,7 +66,7 @@ export const resolveDefaultType = (options: CommitizenGitOptions, answer: Answer
 /**
  * @description: parse scope configuration option to standard options
  */
-export const parseStandardScopes = (scopes: ScopesType): Option[] => {
+export function parseStandardScopes(scopes: ScopesType): Option[] {
   return scopes.map((scope) => {
     return typeof scope === 'string'
       ? { name: scope, value: scope }
@@ -75,11 +76,9 @@ export const parseStandardScopes = (scopes: ScopesType): Option[] => {
   })
 }
 
-export const getCurrentScopes = (
-  scopes?: any[],
+export function getCurrentScopes(scopes?: any[],
   scopeOverrides?: { [x: string]: any[] },
-  answerType?: string,
-) => {
+  answerType?: string) {
   let result = []
   if (scopeOverrides && answerType && scopeOverrides[answerType])
     result = scopeOverrides[answerType]
@@ -90,14 +89,12 @@ export const getCurrentScopes = (
   return result
 }
 
-const filterCustomEmptyByOption = (
-  target: {
-    name: string
-    value: any
-  }[],
-  allowCustom = true,
-  allowEmpty = true,
-) => {
+function filterCustomEmptyByOption(target: {
+  name: string
+  value: any
+}[],
+allowCustom = true,
+allowEmpty = true) {
   target = allowCustom ? target : target.filter(i => i.value !== '___CUSTOM___')
   return allowEmpty ? target : target.filter(i => i.value !== false)
 }
@@ -107,7 +104,7 @@ const filterCustomEmptyByOption = (
  *
  * Add separator custom empty
  */
-export const resovleCustomListTemplate = (
+export function resovleCustomListTemplate(
   target: Array<{ name: string; value: string }>,
   cz: any,
   align = 'top',
@@ -117,7 +114,7 @@ export const resovleCustomListTemplate = (
   allowEmpty = true,
   defaultValue = '',
   scopeFilters = ['.DS_Store'],
-) => {
+) {
   let result: Array<{ name: string; value: any }> = [
     { name: emptyAlias, value: false },
     { name: customAlias, value: '___CUSTOM___' },
@@ -163,11 +160,11 @@ export const resovleCustomListTemplate = (
 /**
  * @description: get subject word
  */
-export const getProcessSubject = (text: string) => {
+export function getProcessSubject(text: string) {
   return text.replace(/(^[\s]+|[\s\.]+$)/g, '') ?? ''
 }
 
-const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number => {
+function getEmojiStrLength(options: CommitizenGitOptions, type?: string): number {
   const item = options.types?.find((i: { value?: string }) => i.value === type)
   // 1: space
   return item?.emoji ? item.emoji.length + 1 : 0
@@ -176,11 +173,9 @@ const getEmojiStrLength = (options: CommitizenGitOptions, type?: string): number
 /**
  * @description: get max subject length
  */
-export const getMaxSubjectLength = (
-  type: Answers['type'],
+export function getMaxSubjectLength(type: Answers['type'],
   scope: Answers['scope'],
-  options: CommitizenGitOptions,
-) => {
+  options: CommitizenGitOptions) {
   let optionMaxLength = Infinity
   if (Array.isArray(scope))
     scope = scope.join(options.scopeEnumSeparator)
@@ -204,7 +199,7 @@ export const getMaxSubjectLength = (
   return countLength(optionMaxLength, typeLength, scopeLength, emojiLength)
 }
 
-export const previewMessage = (msg: string, confirmColorize = false) => {
+export function previewMessage(msg: string, confirmColorize = false) {
   const SEP = confirmColorize
     ? '\u001B[90m###--------------------------------------------------------###\u001B[0m'
     : '###--------------------------------------------------------###'

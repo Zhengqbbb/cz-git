@@ -8,7 +8,7 @@ import { commit } from './commit'
 /**
  * start inquirer prompts to commit message
  */
-export const czg = (version: string, argvs: CzgitParseArgs, environment: any = {}) => {
+export function czg(version: string, argvs: CzgitParseArgs, environment: any = {}) {
   const shouldStageAllFiles = argvs.gitArgs.includes('-a') || argvs.gitArgs.includes('--all')
 
   isGitClean(

@@ -1,6 +1,6 @@
 import type { HeadConfig, TransformContext } from 'vitepress'
 
-export const transformHead = async ({ pageData }: TransformContext): Promise<HeadConfig[]> => {
+export async function transformHead({ pageData }: TransformContext): Promise<HeadConfig[]> {
   const head: HeadConfig[] = []
 
   const home = pageData.relativePath === 'index.md'

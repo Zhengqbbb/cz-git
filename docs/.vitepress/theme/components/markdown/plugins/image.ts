@@ -10,7 +10,7 @@ import type MarkdownIt from 'markdown-it'
  * `![Image Example](/img/a.gif) <!-- size=900x220 -->`       use lazy attrs. width 900. height 220.
  * @author Zhengqbbb
  */
-export const ImagePlugin = (md: MarkdownIt) => {
+export function ImagePlugin(md: MarkdownIt) {
   const imageRender = md.renderer.rules.image!
   md.renderer.rules.image = (...args) => {
     const [tokens, idx] = args

@@ -16,7 +16,7 @@ interface Options {
   cut?: boolean
 }
 
-export const wrap = (str: string, options?: Options) => {
+export function wrap(str: string, options?: Options) {
   options = options || { breaklineChar: '|' }
   if (str == null)
     return str

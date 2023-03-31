@@ -28,7 +28,7 @@ interface ContainerPluginOptions {
 }
 
 /** Powered by vuepress-next */
-export const useMarkdownContainer = ({ type, after, before }: ContainerPluginOptions) => {
+export function useMarkdownContainer({ type, after, before }: ContainerPluginOptions) {
   const infoStack: string[] = []
   const render = (tokens: any, index: number): string => {
     const token = tokens[index]

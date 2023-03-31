@@ -1,9 +1,9 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
-import { homedir } from 'os'
-import path from 'path'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { homedir } from 'node:os'
+import path from 'node:path'
 import { style } from 'cz-git'
 
-export const setupAIConfig = (token?: string, apiProxy?: string, unsetProxy?: Boolean) => {
+export function setupAIConfig(token?: string, apiProxy?: string, unsetProxy?: Boolean) {
   const configDir = path.join(homedir(), '.config')
   const configFile = path.join(configDir, '.czrc')
   try {

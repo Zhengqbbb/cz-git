@@ -1,7 +1,7 @@
 import { style } from 'cz-git'
 
 /** `czg` help document */
-export const generateHelp = (version: string, code = 0) => {
+export function generateHelp(version: string, code = 0) {
   // prettier-ignore
   console.log(
     `${style.yellow('NAME:')} 

@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import type { Interface as ReadlineInterface } from 'readline'
+import type { Interface as ReadlineInterface } from 'node:readline'
 import Base from 'inquirer/lib/prompts/base'
 import observe from 'inquirer/lib/utils/events'
 import { map, takeUntil } from 'rxjs/operators'

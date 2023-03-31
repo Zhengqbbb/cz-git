@@ -1,6 +1,6 @@
-import { exec, execSync, spawn, spawnSync } from 'child_process'
-import { closeSync, openSync, writeSync } from 'fs'
-import path from 'path'
+import { exec, execSync, spawn, spawnSync } from 'node:child_process'
+import { closeSync, openSync, writeSync } from 'node:fs'
+import path from 'node:path'
 import dedent from 'dedent'
 import type { CallBackFn, CommitOptions } from '../types'
 
@@ -12,7 +12,7 @@ import type { CallBackFn, CommitOptions } from '../types'
  * done callback function will return isClean
  * @time cost 27 ms
  */
-export const isGitClean = (repoPath: string, done: CallBackFn, stageAllFiles: boolean) => {
+export function isGitClean(repoPath: string, done: CallBackFn, stageAllFiles: boolean) {
   // if there are no staged files and no changes, but fails to throw an error with no staged files in dirty state.
   exec(
     `git diff --cached --no-ext-diff --name-only ${
@@ -36,27 +36,27 @@ export const isGitClean = (repoPath: string, done: CallBackFn, stageAllFiles: bo
  * Get current repo path
  * @time cost 12 ms
  */
-export const getGitRootPath = () =>
-  spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' }).stdout.trim()
+export function getGitRootPath() {
+  return spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' }).stdout.trim()
+}
 
 /**
  * Get current repo .git folder path
  * @time cost 12 ms
  */
-export const getGitDirPath = (pwd: string) =>
-  execSync('git rev-parse --absolute-git-dir', { encoding: 'utf8', cwd: pwd }).trim()
+export function getGitDirPath(pwd: string) {
+  return execSync('git rev-parse --absolute-git-dir', { encoding: 'utf8', cwd: pwd }).trim()
+}
 
 /**
  * Core
  *
  * Asynchronously git commit at a given path with a message
  */
-export const gitCommit = (
-  repoPath: string,
+export function gitCommit(repoPath: string,
   message: string,
   options: CommitOptions,
-  done: CallBackFn,
-) => {
+  done: CallBackFn) {
   let called = false
   /**
    * nomorl mode. unuse git hook

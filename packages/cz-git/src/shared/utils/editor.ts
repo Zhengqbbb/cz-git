@@ -1,9 +1,8 @@
-import fs from 'fs'
-import path from 'path'
-import os from 'os'
-// eslint-disable-next-line n/no-deprecated-api
-import cnst from 'constants'
-import { spawn } from 'child_process'
+import fs from 'node:fs'
+import path from 'node:path'
+import os from 'node:os'
+import cnst from 'node:constants'
+import { spawn } from 'node:child_process'
 import rimraf from 'rimraf'
 import type { Answers, CommitizenGitOptions } from '../types'
 import { generateMessage } from '../../generator'
@@ -162,10 +161,8 @@ function deleteFileOnExit(filePath: string) {
   filesToDelete.push(filePath)
 }
 
-const tempOpen = (
-  affixes: string | AffixOptions | undefined,
-  callback: (err: any, result: OpenFile) => void,
-) => {
+function tempOpen(affixes: string | AffixOptions | undefined,
+  callback: (err: any, result: OpenFile) => void) {
   const p = promisify(callback)
   const promise = p[0]
   callback = p[1]
@@ -183,7 +180,7 @@ const tempOpen = (
 /**
  * @description: fork by "editor" v1.0.0
  */
-const editor = (file?: string, opts?: any | object, cb?: any) => {
+function editor(file?: string, opts?: any | object, cb?: any) {
   if (typeof opts === 'function') {
     cb = opts
     opts = {}
@@ -204,11 +201,9 @@ const editor = (file?: string, opts?: any | object, cb?: any) => {
   })
 }
 
-export const editCommit = (
-  answers: Answers,
+export function editCommit(answers: Answers,
   options: CommitizenGitOptions,
-  cb: (message: string) => void,
-) => {
+  cb: (message: string) => void) {
   tempOpen(undefined, (err, info) => {
     if (!err) {
       fs.writeSync(info.fd, generateMessage(answers, options))
@@ -232,7 +227,7 @@ export const editCommit = (
   })
 }
 
-export const getPreparedCommit = (context: string) => {
+export function getPreparedCommit(context: string) {
   let message = null
   if (fs.existsSync(path.resolve(__dirname, './.git/COMMIT_EDITMSG'))) {
     const prepared = fs.readFileSync(path.resolve(__dirname, './.git/COMMIT_EDITMSG'), 'utf-8')

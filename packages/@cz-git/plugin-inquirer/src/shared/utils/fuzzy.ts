@@ -13,11 +13,11 @@ import type { FilterArrayItemType } from '../types'
  * @param {boolean} caseSensitive isCaseSensitive, default: false
  * @return {number | null} match score. if not match return null
  */
-export const fuzzyMatch = (
+export function fuzzyMatch(
   input: string,
   target: string,
   caseSensitive?: boolean,
-): number | null => {
+): number | null {
   if (typeof input !== 'string' || typeof target !== 'string')
     return null
   const matchResult = []
@@ -55,11 +55,9 @@ export const fuzzyMatch = (
  * @param {Array<FilterArrayItemType | unknown>} arr target Array
  * @return {Array<FilterArrayItemType>} filtered array
  */
-export const fuzzyFilter = (
-  input: string,
-  arr: Array<FilterArrayItemType | unknown>,
-  targetKey: 'name' | 'value' = 'name',
-): Array<FilterArrayItemType> => {
+export function fuzzyFilter(input: string,
+  arr: Array<FilterArrayItemType>,
+  targetKey: 'name' | 'value' = 'name'): Array<FilterArrayItemType> {
   if (!arr || !Array.isArray(arr) || arr.length === 0)
     return []
 

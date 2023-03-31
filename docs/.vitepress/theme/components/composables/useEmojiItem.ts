@@ -3,7 +3,7 @@ import type { Ref } from 'vue'
 
 const emojiArr = ['🎉', '🐛', '💚', '🔍️', '💫', '👷', '🎡', '🧱', '💄', '⚡️', '♻️', '🔧', '✨', '🔨', '🏷️', '🚀', '🌐', '📝', '📚', '✅', '🔖', '📦️']
 
-export const useEmojiItem = (): Ref<string> => {
+export function useEmojiItem(): Ref<string> {
   const emoji = ref('✨')
   onMounted(() => {
     const interval = setInterval(() => {

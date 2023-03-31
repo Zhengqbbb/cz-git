@@ -1,5 +1,5 @@
-import { execSync } from 'child_process'
-import { createWriteStream } from 'fs'
+import { execSync } from 'node:child_process'
+import { createWriteStream } from 'node:fs'
 import type { SiteConfig } from 'vitepress'
 import rm from 'rimraf'
 import { SitemapStream } from 'sitemap'

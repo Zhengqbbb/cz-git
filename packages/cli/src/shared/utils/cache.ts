@@ -1,9 +1,11 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { style } from 'cz-git'
 
-export const readCacheSync = (cachePath: string) => JSON.parse(readFileSync(cachePath, 'utf8'))
+export function readCacheSync(cachePath: string) {
+  return JSON.parse(readFileSync(cachePath, 'utf8'))
+}
 
-export const writeCacheSync = (cachePath: string, key: string, value: any) => {
+export function writeCacheSync(cachePath: string, key: string, value: any) {
   let originalCache
   try {
     originalCache = readCacheSync(cachePath)
@@ -16,7 +18,7 @@ export const writeCacheSync = (cachePath: string, key: string, value: any) => {
   return newCache
 }
 
-export const getCacheValueSync = (cachePath: string, repoPath: string) => {
+export function getCacheValueSync(cachePath: string, repoPath: string) {
   try {
     const cache = readCacheSync(cachePath)
     return cache[repoPath]

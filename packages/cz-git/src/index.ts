@@ -15,11 +15,11 @@ export * from './shared/types'
 export * from '@cz-git/inquirer'
 export * from '@cz-git/loader'
 
-export const prompter = (
+export function prompter(
   cz: CommitizenType,
   commit: (message: string) => void,
   configPath?: string,
-) => {
+) {
   configLoader({ configPath }).then(async (config) => {
     const options = generateOptions(config)
 

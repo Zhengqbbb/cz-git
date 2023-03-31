@@ -3,7 +3,7 @@ import process from 'node:process'
 /**
  * @description check the term is support unicode
  */
-export const isUnicodeSupport = () => {
+export function isUnicodeSupport() {
   if (process.platform !== 'win32')
     return process.env.TERM !== 'linux' // Linux console (kernel)
 

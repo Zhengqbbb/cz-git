@@ -19,7 +19,7 @@ import {
   useThemeCode,
 } from '../shared'
 
-export const generateQuestions = (options: CommitizenGitOptions, cz: any) => {
+export function generateQuestions(options: CommitizenGitOptions, cz: any) {
   if (!Array.isArray(options.types) || options.types.length === 0) {
     if (!process.env.VITEST)
       log('err', 'Error [types] Option')
