@@ -1,11 +1,9 @@
 import { defineConfig } from 'tsup'
+import baseConfig from '../../tsup.config'
 
-export default defineConfig({
-  minify: true,
-  entry: ['./src/index.ts'],
-  outDir: './lib',
-  tsconfig: './tsconfig.json',
-  dts: false,
-  sourcemap: false,
-  splitting: false,
+export default defineConfig((opts) => {
+  return Object.assign({}, baseConfig, {
+    dts: false,
+    minify: !opts.watch,
+  })
 })

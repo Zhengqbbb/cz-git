@@ -2,31 +2,43 @@
   "name": "@cz-git/loader",
   "version": "1.6.1",
   "description": "commitizen and commitlint configure loader for cz-git",
-  "keywords": [
-    "cz-git",
-    "commitizen-loader",
-    "commitlint-loader"
-  ],
+  "author": "Zhengqbbb <1074059947@qq.com>",
+  "license": "MIT",
   "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/%40cz-git/plugin-loader",
-  "bugs": {
-    "url": "https://github.com/Zhengqbbb/cz-git/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Zhengqbbb/cz-git.git",
     "directory": "packages/@cz-git/plugin-loader"
   },
-  "license": "MIT",
-  "author": "Zhengqbbb <1074059947@qq.com>",
+  "bugs": {
+    "url": "https://github.com/Zhengqbbb/cz-git/issues"
+  },
+  "keywords": [
+    "cz-git",
+    "commitizen-loader",
+    "commitlint-loader"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "lib/index.d.ts"
+      ]
+    }
+  },
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc -b tsconfig.build.json && tsup && rimraf dist",
+    "build": "tsup",
     "build:dev": "pnpm clean && tsc -b",
-    "clean": "rimraf '*.tsbuildinfo' lib dist"
+    "clean": "rimraf lib"
   },
   "devDependencies": {
     "@commitlint/resolve-extends": "^17.4.0",

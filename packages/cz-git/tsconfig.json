@@ -1,12 +1,20 @@
 {
-  "extends": "./tsconfig.base.json",
-  "include": ["./src"],
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "lib"
+    "baseUrl": ".",
+    "outDir": "./lib",
+    "declaration": true,
+    "declarationDir": "./lib",
+    "paths": {
+      "@cz-git/loader": [
+        "../@cz-git/plugin-loader/src/index.ts"
+      ],
+      "@cz-git/inquirer": [
+        "../@cz-git/plugin-inquirer/src/index.ts"
+      ]
+    }
   },
-  "references": [
-    { "path": "../@cz-git/plugin-loader/tsconfig.json" },
-    { "path": "../@cz-git/plugin-inquirer/tsconfig.json" },
+  "include": [
+    "src"
   ]
 }
