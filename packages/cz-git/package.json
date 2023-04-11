@@ -43,7 +43,7 @@
     "lib"
   ],
   "engines": {
-    "node": ">=v12.22.0"
+    "node": ">=v12.20.0"
   },
   "scripts": {
     "build": "tsup",

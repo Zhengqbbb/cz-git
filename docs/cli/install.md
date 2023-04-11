@@ -1,6 +1,6 @@
 # Getting Started
 
-> 「czg」 requires Node >=**v12.22**
+> 「czg」 requires Node >=**v12.20**
 
 ## As global use
 > ==Recommend:== Compared with the npm or npx startup method, Node.js can be started more directly once, that you to use the `czg` CLI in any project at a faster speed

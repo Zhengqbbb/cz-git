@@ -104,7 +104,7 @@ See 'git commit --help' for more information.
 
 ## Installation
 
-> 「czg」 requires Node >=**v12.22**
+> 「czg」 requires Node >=**v12.20**
 
 ```sh
 npm install -g czg
