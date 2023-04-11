@@ -37,6 +37,9 @@
     "bin",
     "lib"
   ],
+  "engines": {
+    "node": ">=v12.22.0"
+  },
   "scripts": {
     "build": "tsup",
     "clean": "rimraf lib",
