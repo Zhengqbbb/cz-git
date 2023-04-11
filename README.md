@@ -148,6 +148,8 @@ added 1 package in 0.582s
 
 ## Get Started
 
+> 「cz-git & czg」 require Node >=**v12.22**
+
 - `cz-git` + [`Commitizen`](https://github.com/commitizen/cz-cli) [⇒ Get Started](https://cz-git.qbb.sh/guide/)
 - `czg` [⇒ Get Started](https://cz-git.qbb.sh/cli/install)
 

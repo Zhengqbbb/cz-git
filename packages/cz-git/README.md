@@ -65,6 +65,8 @@ added 1 package in 0.582s
 
 ## Usage
 
+> 「cz-git」 requires Node >=**v12.22**
+
 [⇒ Get Started](https://cz-git.qbb.sh/guide/)
 
 ## Configure Template

@@ -8,6 +8,8 @@ sitemap:
 
 # Usage
 
+> 「cz-git」 requires Node >=**v12.22**
+
 ## As a dev dependency use
 
 > Just three simple steps:
