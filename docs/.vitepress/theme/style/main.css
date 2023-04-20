@@ -159,6 +159,14 @@ img.error::after {
   color: var(--vp-c-brand);
 }
 
+.VPHome .VPTeamMembersItem {
+  border: 1px solid var(--vp-button-alt-border);
+}
+.VPHome .VPTeamMembersItem .profile { 
+  background: none;
+  color: var(--vp-button-alt-text);
+}
+
 /**
  * Container
  * -------------------------------------------------------------------------- */

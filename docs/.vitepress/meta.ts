@@ -21,10 +21,6 @@ export const twitter = 'https://twitter.com/zhengqbbb'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 export const { version } = require('cz-git/package.json')
 
-/** site search console  */
-export const googleVerify = 'j6cNWewUj3QcJBpdv48t67XoDxdlKPQ6dwKgXg9Nigo'
-export const baiduVerify = 'code-GZMUSi21Xe'
-
 /* PWA runtime caching urlPattern regular expressions */
 /* eslint-disable prefer-regex-literals */
 export const githubSourceContentRegex = new RegExp('^https://(((raw|user-images|camo).githubusercontent.com))/.*', 'i')

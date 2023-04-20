@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { generateSitemap } from '../build'
-import { baiduVerify, github, googleVerify, keywords, name, ogTitle } from '../meta'
+import { github, keywords, name, ogTitle } from '../meta'
 import { ImagePlugin, useCodeGroup, useCodeGroupItem } from '../theme/components/markdown'
 
 export const shareConfig = defineConfig({
@@ -43,8 +43,6 @@ export const shareConfig = defineConfig({
   },
 
   head: [
-    ['meta', { name: 'google-site-verification', content: googleVerify }],
-    ['meta', { name: 'baidu-site-verification', content: baiduVerify }],
     ['meta', { name: 'keywords', content: keywords }],
     ['meta', { name: 'author', content: 'Zhengqbbb' }],
     ['meta', { name: 'twitter:title', content: ogTitle }],
@@ -71,6 +69,5 @@ export const shareConfig = defineConfig({
     ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
     // page analytics
     ['script', { 'async': '', 'defer': '', 'data-website-id': `${process.env.UMAMI_ID || ''}`, 'src': `${process.env.UMAMI_ENDPOINT || ''}` }],
-    ['script', { 'async': '', 'defer': '', 'data-nscript': 'beforeInteractive', 'src': `https://hm.baidu.com/hm.js?${process.env.BAIDU_TONGJI_ID || ''}` }],
   ],
 })

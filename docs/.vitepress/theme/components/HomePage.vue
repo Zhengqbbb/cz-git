@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData } from 'vitepress'
+import { VPTeamMembers } from 'vitepress/theme'
 import { useEmojiItem, useMediumZoom } from './composables'
 
 const emoji = useEmojiItem()
@@ -9,6 +10,7 @@ const features = computed(() => frontmatter.value.czFeatures)
 const pkgFeatureTitle = computed(() => frontmatter.value.pkgFeatureTitle)
 const emojiFeature = computed(() => frontmatter.value.emojiFeature)
 const openAIFeature = computed(() => frontmatter.value.openAIFeature)
+const collaborator = computed(() => frontmatter.value.collaborator)
 useMediumZoom()
 </script>
 
@@ -70,4 +72,20 @@ useMediumZoom()
       onerror="this.classList.add('error');"
     >
   </p>
+  <div class="mt-14 items-center" flex="~ col wrap">
+    <VPTeamMembers size="small" :members="collaborator.team" />
+    <h2 class="my-7 text-base color-$vp-button-alt-text font-600 text-center">
+      {{ collaborator.text }}
+    </h2>
+    <a :href="collaborator.link" target="_blank" rel="noopener">
+      <img
+        :src="collaborator.image"
+        class="image-src "
+        alt="contributors-img"
+        loading="lazy"
+        decoding="async"
+        onerror="this.classList.add('error');"
+      >
+    </a>
+  </div>
 </template>
