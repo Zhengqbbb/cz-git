@@ -16,7 +16,7 @@ sitemap:
 
 - [**cz-customizable**](https://github.com/leoforfree/cz-customizable) :
   1. 需要额外添加配置文件。
-  2. 仅支持上下选择是的交互方式。
+  2. 仅支持上下选择式的交互方式。
   3. 可支持的习惯型配置项少。
 
 ---
