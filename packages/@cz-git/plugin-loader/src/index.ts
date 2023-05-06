@@ -131,7 +131,7 @@ export async function czLoader(cwd?: string) {
   return await execute(data?.config || data || {}, true)
 }
 
-export async function rootLoader() {
+export async function aiLoader() {
   const cwd = os.homedir()
   const options = {
     moduleName: 'czrc',
@@ -169,7 +169,7 @@ export async function configLoader(options?: UserOptions) {
     return { prompt: await execute(czData?.config || czData || {}, true) }
   }
   else {
-    return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd), rootLoader()]).then(
+    return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd), aiLoader()]).then(
       ([clData, czData, rootData]) => {
         const clPrompt = clData.prompt || {}
         return {
