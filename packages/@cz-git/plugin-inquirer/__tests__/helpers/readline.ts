@@ -1,5 +1,6 @@
 import { EventEmitter } from 'node:events'
 import { vitest } from 'vitest'
+
 export default class ReadlineStub extends EventEmitter {
   line: string
   input: EventEmitter

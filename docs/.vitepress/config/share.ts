@@ -32,7 +32,7 @@ export const shareConfig = defineConfig({
       dark: 'vitesse-dark',
     },
     config: (md) => {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
       md.use(require('markdown-it-mark'))
       md.use(useCodeGroup.container, useCodeGroup.type, { render: useCodeGroup.render })
       md.use(useCodeGroupItem.container, useCodeGroupItem.type, {

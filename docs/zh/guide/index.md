@@ -126,10 +126,10 @@ echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-g
 ```
 
 #### 步骤 3: 添加自定义配置(可选，使用默认配置)
->  有 ==两种== 配置方式
+>  有 **两种** 配置方式
 <br>
 
-**方式一:** 编辑 `~/.czrc` 文件以 ==json== 形式添加配置, 例如:
+**方式一** : 编辑 `~/.czrc` 文件以 `JSON` 格式添加配置, 例如:
 
 ```json{3}
 {
@@ -138,4 +138,4 @@ echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-g
 }
 ```
 
-**方式二: 与 [commitlint](https://github.com/conventional-changelog/commitlint) 配合**，在 `$HOME` 路径下创建配置文件 <br>([↓ 配置模板](/zh/config/))
+**方式二** : 与 [commitlint](https://github.com/conventional-changelog/commitlint) 配合，在 `$HOME` 路径下创建配置文件 <br>([↓ 配置模板](/zh/config/))

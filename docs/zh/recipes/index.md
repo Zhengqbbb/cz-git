@@ -8,8 +8,9 @@
 
 ```js
 // .commitlintrc.js
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
+
 const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
 module.exports = {
   prompt: {
@@ -22,8 +23,9 @@ module.exports = {
 
 ```js
 // .commitlintrc.js
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
+
 const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
 module.exports = {
   rules: {
@@ -62,8 +64,9 @@ module.exports = {
 
 ```js
 // .commitlintrc.js
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
+
 const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
 module.exports = {
   prompt: {
@@ -72,12 +75,13 @@ module.exports = {
 }
 ```
 
-当然如果你想给模块范围自定义添加 **描述信息** 显示在命令行中可以使用 `name` 和 `value`属性来定义
+当然如果你想给自定义范围项添加 **简短描述** 显示在命令行中可以使用 `name` 和 `value`属性来定义
 
 ```js
 // .commitlintrc.js
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
+
 const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
 module.exports = {
   prompt: {

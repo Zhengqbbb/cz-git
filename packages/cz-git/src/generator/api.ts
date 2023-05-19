@@ -1,6 +1,7 @@
 import url from 'node:url'
 import { style } from '@cz-git/inquirer'
 import HttpsProxyAgent from 'https-proxy-agent'
+
 // @ts-expect-error
 import fetch from 'node-fetch'
 import { log } from '../shared'

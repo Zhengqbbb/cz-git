@@ -12,7 +12,7 @@ sitemap:
 
 - Windows users are advised not to use powershell, cmd for command line use
 - because they are not based on the POSIX SHELL specification, i.e. not a standard terminal environment
-- It is recommended not to use gitbash, because the terminal is not an interactive terminal, and the selection up and down will be effected
+- It is recommended not to use git-bash, because the terminal is not an interactive terminal, and the selection up and down will be effected
 - **It is recommended to use Windows Terminal combined with WSL, you should also do the same in daily development and use**
 
 ## Cannot find command after global install

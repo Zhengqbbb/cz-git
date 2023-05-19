@@ -12,7 +12,7 @@ hero:
     工程性更强，轻量级，高度自定义，
     输出标准格式的 Commitizen 适配器和 CLI
   image:
-    src: https://user-images.githubusercontent.com/40693636/154064210-964aeaa0-d9dc-4cea-9e52-2ffc3789611b.png
+    src: /images/logo.png
     alt: cz-git
   actions:
     - theme: brand

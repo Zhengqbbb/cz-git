@@ -145,7 +145,7 @@ describe('inquirer-SearchList', () => {
     describe('search behaviour', async () => {
       beforeEach(async () => {
         getPromiseForAnswer()
-        source.reset()
+        source.mockReset()
         source.mockReturnValue(promise)
       })
 
@@ -162,7 +162,7 @@ describe('inquirer-SearchList', () => {
       test('if same searchterm (not input added) should be does not search again', async () => {
         type('ice')
         expect(source).toBeCalledTimes(3)
-        source.reset()
+        source.mockReset()
         typeNonChar()
         expect(source).toBeCalledTimes(0)
       }, 1000)
