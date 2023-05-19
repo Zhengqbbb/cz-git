@@ -1,0 +1,2 @@
+# shellcheck shell=dash #xsh
+x npx -y taze -r -I -i

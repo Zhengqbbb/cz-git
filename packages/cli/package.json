@@ -49,7 +49,7 @@
     "cachedir": "^2.3.0",
     "cz-git": "workspace:*",
     "dedent": "^0.7.0",
-    "fs-extra": "^11.1.0",
+    "fs-extra": "^11.1.1",
     "inquirer": "8.2.4",
     "minimist": "^1.2.8",
     "rimraf": "3.0.2"
