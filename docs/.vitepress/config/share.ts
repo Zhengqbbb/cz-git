@@ -32,7 +32,7 @@ export const shareConfig = defineConfig({
       dark: 'vitesse-dark',
     },
     config: (md) => {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
       md.use(require('markdown-it-mark'))
       md.use(useCodeGroup.container, useCodeGroup.type, { render: useCodeGroup.render })
       md.use(useCodeGroupItem.container, useCodeGroupItem.type, {
@@ -43,6 +43,7 @@ export const shareConfig = defineConfig({
   },
 
   head: [
+    ['meta', { name: 'msvalidate.01', content: '365F08C27D779FB827D898B0C42683C7' }],
     ['meta', { name: 'keywords', content: keywords }],
     ['meta', { name: 'author', content: 'Zhengqbbb' }],
     ['meta', { name: 'twitter:title', content: ogTitle }],
