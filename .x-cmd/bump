@@ -1,2 +1,5 @@
-# shellcheck shell=dash #xsh
-x bun x -y taze -r -I -i
+# shellcheck shell=dash
+
+(
+    x bun x -y taze -r -I -i
+)
