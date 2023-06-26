@@ -60,7 +60,7 @@ search_bing() {
 	BING_TOKEN="$(grep 'BING_TOKEN' < "$WORK_DIR/.env")"
 	local TOKEN="${BING_TOKEN#*=}"
 	[ -z "$TOKEN" ] && [ ! -f "$WORK_DIR/urls.txt" ] && return 0
-    curl "https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=be227d0d83c444c292393d0767e262b4" \
+    curl "https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=$TOKEN" \
         -X POST \
         -H 'Content-Type: application/json;charset=utf-8' \
         -d "$(x jo "{siteUrl: 'https://${WEB_SITE}', urlList: [ $(awk '{ print "\"" $0 "\"" }' < "$WORK_DIR/urls.txt") ]}")"
