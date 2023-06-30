@@ -354,7 +354,7 @@ module.exports = {
 
 ::: details 点击展开 `.commitlintrc.js` 完整 emoji 配置模板
 
-```js{22-32,34}
+```js{24-34,36}
 // .commitlintrc.js
 /** @type {import('cz-git').UserConfig} */
 module.exports = {

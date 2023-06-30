@@ -84,13 +84,14 @@ More information about configure file and options. See → [Config](/config/)
     [36m:, --alias[0m       [31mDirectly submit the defined commit message[0m
     [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
     [36m--config=[0m        [31mSpecify the configuration file to use[0m
-    [36m--openai-token=[0m  [31mSetup OpenAI API secret key to local (.config/.czrc)[0m
-    [36m--api-proxy=[0m     [31mSetup request OpenAI API proxy to local (.config/.czrc)[0m
-    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
-    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
-    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
     [36m-h, --help[0m       [31mShow help[0m
     [36m-v, --version[0m    [31mShow version[0m
+    
+    [36m--openai-token=[0m  [31mSetup OpenAI API secret key to local (.config/.czrc)[0m
+    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
+    [36m--api-proxy=[0m     [31mSetup request OpenAI API proxy to local (.config/.czrc)[0m
+    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
+    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
 
 [33mEXAMPLES:[0m
     [36mczg[0m
