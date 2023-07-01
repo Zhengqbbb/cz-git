@@ -35,8 +35,7 @@ export async function loader(options: LoaderOptions) {
   const resultPath = options.explicitPath ? path.resolve(cwd, options.explicitPath) : undefined
   const resultFn = resultPath ? cosmiconfigFn.load : cosmiconfigFn.search
   const searchPath = resultPath || cwd
-  const result = await resultFn(searchPath)
-
+  const result = await resultFn(searchPath) ?? await resultFn(os.homedir())
   return result ?? null
 }
 
