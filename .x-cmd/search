@@ -1,4 +1,6 @@
-# shellcheck shell=bash disable=SC1091,SC2034,SC2154,SC2002 #xsh
+# shellcheck shell=dash
+
+(
 
 # Section: Arg
 WORK_DIR="$(x wsroot)"
@@ -11,10 +13,10 @@ search() {
 type:
     Type = only_console all google baidu bing docsearch
 options:
-    --command    "select target search command"        <>:Type
+    --cmd    "select target search command"        <>:Type
 '
     param:run
-    search_"${command}"
+    search_"${cmd}"
 }
 
 log() {
@@ -45,41 +47,23 @@ search_google() {
 search_baidu() {
     log "baidu search console collecting"
 	local BAIDU_TOKEN
-	BAIDU_TOKEN="$(cat "$WORK_DIR/.env" | grep 'BAIDU_TOKEN')"
+	BAIDU_TOKEN="$(grep 'BAIDU_TOKEN' < "$WORK_DIR/.env")"
 	local TOKEN="${BAIDU_TOKEN#*=}"
 	[ -z "$TOKEN" ] && return 0
 	curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=$WEB_SITE&token=$TOKEN"
 }
 
-gen_txt_to_json() {
-    local length
-    printf "%s%s%s" "{" \
-        "\"siteUrl\": \"https://$WEB_SITE$TOKEN\"," \
-        "\"urlList\": ["
-    length="$(printf "%s" "$(cat "$WORK_DIR/urls.txt")" | awk 'END{print NR}')"
-    printf "%s" "$(cat "$WORK_DIR/urls.txt")" | awk -v col_length="$length" '{
-        if (col_length == NR) {
-            printf("\""$0"\"")
-        } else {
-            printf("\""$0"\""",")
-        }
-    }'
-    printf "%s" "]}"
-}
-
 search_bing() {
     log "bing search console collecting"
-	curl -X GET "http://www.bing.com/webmaster/ping.aspx?siteMap=https://$WEB_SITE/sitemap.xml"
+	# curl -X GET "http://www.bing.com/webmaster/ping.aspx?siteMap=https://$WEB_SITE/sitemap.xml"
     local BING_TOKEN
-    local URL_JSON
-    URL_JSON="$(gen_txt_to_json)"
-	BING_TOKEN="$(cat "$WORK_DIR/.env" | grep 'BING_TOKEN')"
+	BING_TOKEN="$(grep 'BING_TOKEN' < "$WORK_DIR/.env")"
 	local TOKEN="${BING_TOKEN#*=}"
 	[ -z "$TOKEN" ] && [ ! -f "$WORK_DIR/urls.txt" ] && return 0
     curl "https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=$TOKEN" \
         -X POST \
-        -H 'Content-Type: application/json;charset=UTF-8' \
-        -d "$URL_JSON"
+        -H 'Content-Type: application/json;charset=utf-8' \
+        -d "$(x jo "{siteUrl: 'https://${WEB_SITE}', urlList: [ $(awk '{ print "\"" $0 "\"" }' < "$WORK_DIR/urls.txt") ]}")"
 }
 
 search_docsearch() {
@@ -89,7 +73,7 @@ search_docsearch() {
         echo 'APPLICATION_ID=your_algolia_application_id' >> "$env_file_path" && \
         echo 'APPLICATION_ID=your_algolia_api_key' >> "$env_file_path" && \
         return 1
-	docker run -it --env-file=.env -e "CONFIG=$(cat "${DOC_SEARCH_CONFIG_FILE}" | x jq -r tostring)" algolia/docsearch-scraper
+	docker run -it --env-file=.env -e "CONFIG=$(x jq -r tostring < "${DOC_SEARCH_CONFIG_FILE}")" algolia/docsearch-scraper
 }
 
 # Section: Main
@@ -102,3 +86,5 @@ case "${1}" in
     all)            search_all              ;;
     *)              search                  ;;
 esac
+
+)

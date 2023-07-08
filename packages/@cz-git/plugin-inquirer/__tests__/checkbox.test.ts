@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, test, vitest } from 'vitest'
 import { SearchCheckbox } from '@cz-git/inquirer'
 import inquirer from 'inquirer'
 import ReadlineStub from './helpers/readline'
+
 /**
  * @description: Test - inquirer plugin: SearchCheckbox
  */
@@ -168,7 +169,7 @@ describe('inquirer-SearchCheckbox', () => {
     describe('search behaviour', async () => {
       beforeEach(async () => {
         getPromiseForAnswer()
-        source.reset()
+        source.mockReset()
         source.mockReturnValue(promise)
       })
 
@@ -185,7 +186,7 @@ describe('inquirer-SearchCheckbox', () => {
       test('if same searchterm (not input added) should be does not search again', async () => {
         type('ice')
         expect(source).toBeCalledTimes(3)
-        source.reset()
+        source.mockReset()
         typeNonChar()
         expect(source).toBeCalledTimes(0)
       }, 1000)

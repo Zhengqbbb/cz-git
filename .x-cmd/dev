@@ -1,8 +1,0 @@
-# shellcheck shell=sh disable=SC1091,SC2034 #xsh
-
-# Section: Arg
-WORK_DIR="$(x wsroot)"
-
-# Section: Main
-x tmux kill-serve
-x tmux

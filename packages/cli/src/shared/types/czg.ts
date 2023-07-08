@@ -9,6 +9,8 @@ export type CzgitFlagList =
   | 'alias'
   | 'ai-num'
   | 'openai-token'
+  | 'api-key'
+  | 'api-endpoint'
   | 'api-proxy'
   | 'unset-proxy'
   | 'ai'
@@ -25,22 +27,26 @@ export interface CzgitCommonFlag {
 export interface CzgitFlag {
   /** option: --config="xxx" */
   config?: string
-  /** option: --openai-token="xxx" */
-  'openai-token'?: string
-  /** option: --api-proxy="xxx" */
-  'api-proxy'?: string
   /** option: --alias="xxx" */
   alias?: string
+  /** @deprecated use `api-key` */
+  'openai-token'?: string
   /** option: --ai-num="xxx" */
   'ai-num'?: string
+  /** option: --api-key="xxx" */
+  'api-key'?: string
+  /** option: --api-proxy="xxx" */
+  'api-proxy'?: string
+  /** option: --api-endpoint="xxx" */
+  'api-endpoint'?: string
+  /** option: --unset-proxy */
+  'unset-proxy'?: boolean
   /** option: --reback|-b */
   reback?: boolean
   /** option: --retry|-r */
   retry?: boolean
   /** option: --hook, provide husky */
   hook?: boolean
-  /** option: --unset-proxy */
-  'unset-proxy'?: boolean
 }
 
 export interface InitFlag {

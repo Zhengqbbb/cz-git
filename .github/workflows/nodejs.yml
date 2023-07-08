@@ -20,22 +20,23 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node: ['14', '16', '18']
+        node_version: ['16', '18', '20']
 
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 50
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
-        with:
-          version: 7
 
-      - name: Use Node.js ${{ matrix.node }}
+      - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node_version }}
           cache: pnpm
 
       - name: Install dependencies

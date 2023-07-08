@@ -255,6 +255,12 @@ export interface CommitizenGitOptions {
   apiProxy?: string
 
   /**
+   * `npx czg --api-endpoint=<url>`
+   * @default "https://api.openai.com/v1"
+   */
+  apiEndpoint?: string
+
+  /**
    * @description: Use the callback fn can customize edit information AI question information
    * @param GenerateAIPromptType: provide some known parameters
    * @default generateSubjectDefaultPrompt
@@ -575,6 +581,7 @@ export const defaultConfig = Object.freeze({
   aiQuestionCB: undefined,
   openAIToken: '',
   apiProxy: '',
+  apiEndpoint: 'https://api.openai.com/v1',
   emojiAlign: 'center',
   scopes: [],
   scopesSearchValue: false,

@@ -125,10 +125,10 @@ echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-g
 ```
 
 #### Step 3: Add custom configuration (optional, use default configuration)
->  There are ==two== configuration methods
+>  There are **two** configuration methods
 <br>
 
-**Method 1:** Edit the `~/.czrc` file to add configuration in the form of **json**, for example:
+**Method 1:** Edit the `~/.czrc` file to add configuration in the form of `JSON`, for example:
 ```json{3}
 {
   "path": "cz-git",
@@ -136,4 +136,4 @@ echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-g
 }
 ```
 
-**Method 2: Cooperate with [commitlint](https://github.com/conventional-changelog/commitlint)** to create a configuration file under the path of `$HOME` <br>([↓ Configuration Template](/config/#configure-template))
+**Method 2**: Cooperate with [commitlint](https://github.com/conventional-changelog/commitlint) to create a configuration file under the path of `$HOME` <br>([↓ Configuration Template](/config/#configure-template))

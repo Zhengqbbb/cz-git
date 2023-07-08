@@ -1,0 +1,5 @@
+# shellcheck shell=dash
+
+(
+    x bun x taze -r -I -i
+)

@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { getCurrentScopes, getMaxSubjectLength, isSingleItem } from '../src/shared'
+
 /**
  * @description: utils Test
  */

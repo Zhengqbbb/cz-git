@@ -82,11 +82,19 @@ SUBCOMMAND:
     gpg              Turn on use GPG sign commit message
 
 OPTIONS:
+    :, --alias=      Directly submit the defined commit message
     --config=        Specify the configuration file to use
-    --openai-token=  Setup OpenAI API secret key to local (.config/.czrc)
+
+  OpenAI:
     -N=,--ai-num=    Setting AI return number subjects and Turn on choose mode
-    :, --alias       Directly submit the defined commit message
+    --api-key=       Setup request OpenAI API secret key to local (.config/.czrc)
+    --api-proxy=     Setup request OpenAI API proxy      to local (.config/.czrc)
+    --api-endpoint=  Setup request OpenAI API endpoint   to local (.config/.czrc)
+
+FLAG:
     -r, --retry      Directly retry submit by the last message
+    --no-ai          Turn off AI prompt mode in this session
+    --unset-proxy    Unset request API proxy on local configure
     -h, --help       Show help
     -v, --version    Show version
 
@@ -95,7 +103,7 @@ EXAMPLES:
     czg emoji
     czg :fd
     czg --config="./config/cz.json"
-    czg --openai-token="sk-XXXXX"
+    czg --api-key="sk-XXXXX"
     czg ai -N=3
 
 Extends 'git commit' options.

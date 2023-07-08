@@ -18,7 +18,7 @@ export const npm = 'https://www.npmjs.com/package/cz-git'
 export const twitter = 'https://twitter.com/zhengqbbb'
 
 /** package info */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
 export const { version } = require('cz-git/package.json')
 
 /* PWA runtime caching urlPattern regular expressions */

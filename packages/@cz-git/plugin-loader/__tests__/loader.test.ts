@@ -15,6 +15,7 @@ describe('config loader', () => {
     const res = await configLoader(opt)
     res.prompt.openAIToken = ''
     delete res.prompt.openAIToken
+    delete res.prompt.apiEndpoint
     delete res.prompt.apiProxy
     return res
   }
@@ -65,6 +66,7 @@ describe('config loader', () => {
         'subject-min-length': [2, 'always', 2],
       },
       prompt: {
+        path: 'node_modules/cz-git',
         useEmoji: true,
         customIssuePrefixAlign: 'top',
       },
