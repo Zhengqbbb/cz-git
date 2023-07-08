@@ -20,12 +20,25 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node_version: ['16', '18', '20']
+        node_version: ['14', '16', '18', '20']
 
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+            # Assume PRs are less than 50 commits
+            fetch-depth: 50
+
+      - name: Install pnpm (node 14, pnpm 7)
+        if: matrix.node_version == 14
+        uses: pnpm/action-setup@v2.2.4
+        with:
+            version: 7
+      - name: Install pnpm
+        if: matrix.node_version != 14
+        uses: pnpm/action-setup@v2
 
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v3
