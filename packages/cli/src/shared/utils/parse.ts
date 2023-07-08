@@ -17,10 +17,12 @@ function resovleSubCmd(arg: string, cmd: CzgitSubCommandList, target: CzgitParse
   return target
 }
 
-function resovleFlag(argv: ParsedArgs,
+function resovleFlag(
+  argv: ParsedArgs,
   flag: string,
   aliasFlag: CzgitFlagList,
-  target: CzgitParseArgs) {
+  target: CzgitParseArgs,
+) {
   if (!argv[flag] && !argv[aliasFlag])
     return target
   if (!target.czgitArgs.flag)
@@ -40,7 +42,7 @@ function resovleFlag(argv: ParsedArgs,
   return target
 }
 
-function resovleFlaseFlag(argv: ParsedArgs,
+function resovleReverseFlag(argv: ParsedArgs,
   targetFlag: string,
   flag: CzgitFlagList,
   target: CzgitParseArgs) {
@@ -111,14 +113,16 @@ export function resovleArgs(argv: string[]): CzgitParseArgs {
   result = resovleFlag(parseArgv, 'r', 'retry', result)
   result = resovleFlag(parseArgv, 'y', 'yes', result)
   result = resovleFlag(parseArgv, 'N', 'ai-num', result)
-  result = resovleFlag(parseArgv, 'openai-token', 'openai-token', result)
+  result = resovleFlag(parseArgv, 'openai-token', 'openai-token', result) // @deprecated => api-key
+  result = resovleFlag(parseArgv, 'api-key', 'api-key', result)
+  result = resovleFlag(parseArgv, 'api-endpoint', 'api-endpoint', result)
   result = resovleFlag(parseArgv, 'api-proxy', 'api-proxy', result)
   result = resovleFlag(parseArgv, 'unset-proxy', 'unset-proxy', result)
   result = resovleFlag(parseArgv, 'version', 'version', result)
   result = resovleFlag(parseArgv, 'hook', 'hook', result)
   result = resovleFlag(parseArgv, 'config', 'config', result)
   result = resovleFlag(parseArgv, 'alias', 'alias', result)
-  result = resovleFlaseFlag(parseArgv, '--no-ai', 'ai', result)
+  result = resovleReverseFlag(parseArgv, '--no-ai', 'ai', result)
 
   return result
 }

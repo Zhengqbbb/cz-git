@@ -77,7 +77,7 @@ function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
           stream: false,
           n: options.aiNumber || 1,
         },
-        url: 'https://api.openai.com/v1/completions',
+        url: `${options.apiEndpoint}/completions`,
         parseFn: (res: any) => res?.text,
       }
 
@@ -94,7 +94,7 @@ function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
           stream: false,
           n: options.aiNumber || 1,
         },
-        url: 'https://api.openai.com/v1/chat/completions',
+        url: `${options.apiEndpoint}/chat/completions`,
         parseFn: (res: any) => res?.message?.content,
       }
   }

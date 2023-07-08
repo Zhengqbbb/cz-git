@@ -36,6 +36,7 @@ export async function loader(options: LoaderOptions) {
   const resultFn = resultPath ? cosmiconfigFn.load : cosmiconfigFn.search
   const searchPath = resultPath || cwd
   const result = await resultFn(searchPath) ?? await cosmiconfigFn.search(os.homedir())
+  process.env.CZ_DEBUG && console.log(options.moduleName, 'config-file:', result?.filepath)
   return result ?? null
 }
 
@@ -133,7 +134,7 @@ export async function czLoader(cwd?: string) {
 export async function aiLoader() {
   const cwd = os.homedir()
   const options = {
-    moduleName: 'czrc',
+    moduleName: 'ai',
     searchPlaces: [
       '.config/.czrc',
       '.czrc',
@@ -144,6 +145,7 @@ export async function aiLoader() {
   const data = await loader(options)
   return {
     openAIToken: data?.config?.openAIToken || '',
+    apiEndpoint: data?.config?.apiEndpoint || '',
     apiProxy: data?.config?.apiProxy || '',
   }
 }
@@ -169,14 +171,14 @@ export async function configLoader(options?: UserOptions) {
   }
   else {
     return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd), aiLoader()]).then(
-      ([clData, czData, rootData]) => {
+      ([clData, czData, aiData]) => {
         const clPrompt = clData.prompt || {}
         return {
           ...clData,
           prompt: {
             ...czData,
             ...clPrompt,
-            ...rootData,
+            ...aiData,
           },
         }
       },

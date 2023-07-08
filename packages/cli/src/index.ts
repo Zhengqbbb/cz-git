@@ -34,7 +34,9 @@ export function bootsrap(environment: any = {}, argv = process.argv) {
       help: printHelp,
       version: printVersion,
       'openai-token': openAIToken,
+      'api-key': openAIAPIKey,
       'api-proxy': apiProxy,
+      'api-endpoint': apiEndpoint,
       'unset-proxy': unsetProxy,
     } = parsedArgs.czgitArgs?.flag
 
@@ -45,8 +47,8 @@ export function bootsrap(environment: any = {}, argv = process.argv) {
       console.log(czgitVersion)
       process.exit(0)
     }
-    else if (openAIToken || apiProxy || unsetProxy) {
-      setupAIConfig(openAIToken, apiProxy, unsetProxy)
+    else if (openAIToken || apiProxy || unsetProxy || apiEndpoint) {
+      setupAIConfig(openAIAPIKey || openAIToken, apiProxy, unsetProxy, apiEndpoint)
       process.exit(0)
     }
   }

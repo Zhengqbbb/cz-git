@@ -24,12 +24,18 @@ ${style.yellow('SUBCOMMAND:')}
     ${style.cyan('gpg')}              ${style.red('Turn on use GPG sign commit message')}
     
 ${style.yellow('OPTIONS:')}
-    ${style.cyan(':, --alias')}       ${style.red('Directly submit the defined commit message')}
-    ${style.cyan('-r, --retry')}      ${style.red('Directly retry submit by the last message')}
+    ${style.cyan(':, --alias=')}      ${style.red('Directly submit the defined commit message')}
     ${style.cyan('--config=')}        ${style.red('Specify the configuration file to use')}
-    ${style.cyan('--openai-token=')}  ${style.red('Setup OpenAI API secret key to local (.config/.czrc)')}
-    ${style.cyan('--api-proxy=')}     ${style.red('Setup request OpenAI API proxy to local (.config/.czrc)')}
+    
+  ${style.gray('OpenAI:')}
     ${style.cyan('-N=,--ai-num=')}    ${style.red('Setting AI return number subjects and Turn on choose mode')}
+    ${style.cyan('--api-key=')}       ${style.red('Setup request OpenAI API secret key to local (.config/.czrc)')}
+    ${style.cyan('--api-proxy=')}     ${style.red('Setup request OpenAI API proxy      to local (.config/.czrc)')}
+    ${style.cyan('--api-endpoint=')}  ${style.red('Setup request OpenAI API endpoint   to local (.config/.czrc)')}
+                     ${style.gray('[default: "https://api.openai.com/v1"]')}
+
+${style.yellow('FLAG:')}
+    ${style.cyan('-r, --retry')}      ${style.red('Directly retry submit by the last message')}
     ${style.cyan('--no-ai')}          ${style.red('Turn off AI prompt mode in this session')}
     ${style.cyan('--unset-proxy')}    ${style.red('Unset request API proxy on local configure')}
     ${style.cyan('-h, --help')}       ${style.red('Show help')}
@@ -40,7 +46,7 @@ ${style.yellow('EXAMPLES:')}
     ${style.cyan('czg emoji')}
     ${style.cyan('czg :fd')}
     ${style.cyan('czg --config="./config/cz.json"')}
-    ${style.cyan('czg --openai-token="sk-XXXXX"')}
+    ${style.cyan('czg --api-key="sk-XXXXX"')}
     ${style.cyan('czg ai -N=3')}
 
 Extends 'git commit' options. 
