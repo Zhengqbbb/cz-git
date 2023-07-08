@@ -95,7 +95,7 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       type: 'complete-input',
       name: 'customScope',
       message: options.messages?.customScope,
-      completeValue: options.defaultScope || undefined,
+      completeValue: options.defaultScope?.replace(/^___CUSTOM___:/, '') || undefined,
       validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes)
           return true
@@ -106,7 +106,7 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
           return input.length !== 0 ? true : style.red('[ERROR] scope is required')
       },
       when: (answers: Answers) => {
-        return answers.scope === '___CUSTOM___'
+        return answers.scope === '___CUSTOM___' || options.defaultScope?.startsWith('___CUSTOM___:')
       },
       transformer: (input: string) => useThemeCode(input, options.themeColorCode),
     },

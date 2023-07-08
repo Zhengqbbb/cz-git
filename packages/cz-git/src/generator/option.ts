@@ -13,7 +13,7 @@ import {
   getMinLength,
   ruleIsWarning,
 } from '../shared'
-import type { CommitizenGitOptions, UserConfig } from '../shared'
+import type { Answers, CommitizenGitOptions, UserConfig } from '../shared'
 
 export function generateOptions(config: UserConfig): CommitizenGitOptions {
   const { emoji, checkbox, czai, no_czai, cz_ainum, ___X_CMD_THEME_COLOR_CODE } = process.env
@@ -21,7 +21,10 @@ export function generateOptions(config: UserConfig): CommitizenGitOptions {
 
   return {
     alias: promptConfig.alias ?? defaultConfig.alias,
-    messages: promptConfig.messages ?? defaultConfig.messages,
+    messages: {
+      ...defaultConfig.messages,
+      ...promptConfig.messages,
+    } as Answers,
     themeColorCode: ___X_CMD_THEME_COLOR_CODE || promptConfig.themeColorCode || defaultConfig.themeColorCode,
     types: promptConfig.types ?? defaultConfig.types,
     typesAppend: promptConfig.typesAppend ?? defaultConfig.typesAppend,
