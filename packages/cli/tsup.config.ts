@@ -3,7 +3,7 @@ import baseConfig from '../../tsup.config'
 
 export default defineConfig((opts) => {
   return Object.assign({}, baseConfig, {
-    dts: false,
+    dts: './src/shared/types/config.ts',
     minify: !opts.watch,
   })
 })
