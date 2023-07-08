@@ -23,7 +23,7 @@
     "customizable",
     "cz-customizable"
   ],
-  "packageManager": "pnpm@8.4.0",
+  "packageManager": "pnpm@8.6.6",
   "scripts": {
     "x": "czg",
     "build": "pnpm clean && pnpm -r build",
@@ -47,24 +47,24 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.6",
-    "@commitlint/cli": "^17.6.3",
-    "@commitlint/config-conventional": "^17.6.3",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@cz-git/inquirer": "workspace:*",
     "@types/fs-extra": "^11.0.1",
     "@types/inquirer": "8.2.3",
-    "@types/node": "^18.16.13",
+    "@types/node": "^18.16.19",
     "@types/rimraf": "3.0.2",
     "bumpp": "7.2.0",
     "conventional-changelog-cli": "^2.2.2",
     "cz-git": "workspace:*",
     "czg": "workspace:*",
-    "eslint": "^8.40.0",
-    "fast-glob": "^3.2.12",
+    "eslint": "^8.44.0",
+    "fast-glob": "^3.3.0",
     "js-yaml": "^4.1.0",
     "lint-staged": "13.1.2",
     "node-fetch": "2.6.9",
     "ora": "^6.3.1",
-    "pathe": "^1.1.0",
+    "pathe": "^1.1.1",
     "pnpm": "8.4.0",
     "rimraf": "3.0.2",
     "simple-git-hooks": "^2.8.1",
@@ -72,8 +72,8 @@
     "ts-node": "^10.9.1",
     "tsup": "6.7.0",
     "tsx": "^3.12.7",
-    "typescript": "^5.0.4",
-    "vitest": "^0.31.1"
+    "typescript": "^5.1.6",
+    "vitest": "^0.31.4"
   },
   "pnpm": {
     "overrides": {

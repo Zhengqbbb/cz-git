@@ -7,13 +7,13 @@
     "docs:serve": "vitepress serve --port 8000"
   },
   "dependencies": {
-    "@vueuse/core": "^10.1.2",
+    "@vueuse/core": "^10.2.1",
     "shiki": "0.14.2",
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.16",
-    "@iconify-json/simple-icons": "^1.1.53",
+    "@iconify-json/carbon": "^1.1.18",
+    "@iconify-json/simple-icons": "^1.1.59",
     "@types/markdown-it": "^12.2.3",
     "@unocss/reset": "^0.51.13",
     "@vite-pwa/vitepress": "^0.0.5",
@@ -23,8 +23,8 @@
     "sitemap": "^7.1.1",
     "unocss": "^0.51.13",
     "unplugin-vue-components": "^0.24.1",
-    "vite": "^4.3.8",
+    "vite": "^4.4.2",
     "vite-plugin-pwa": "^0.14.7",
-    "vitepress": "npm:@qbbsh/vitepress@1.0.0-alpha.76-1"
+    "vitepress": "npm:@qbbsh/vitepress@1.0.0-beta.5-1"
   }
 }
