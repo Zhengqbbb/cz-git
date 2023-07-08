@@ -43,6 +43,7 @@ export const shareConfig = defineConfig({
   },
 
   head: [
+    ['meta', { name: 'msvalidate.01', content: '365F08C27D779FB827D898B0C42683C7' }],
     ['meta', { name: 'keywords', content: keywords }],
     ['meta', { name: 'author', content: 'Zhengqbbb' }],
     ['meta', { name: 'twitter:title', content: ogTitle }],
