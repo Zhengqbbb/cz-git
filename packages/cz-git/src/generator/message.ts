@@ -5,7 +5,14 @@
  */
 import { spawnSync } from 'node:child_process'
 import { style } from '@cz-git/inquirer'
-import { getCurrentScopes, getMaxSubjectLength, isSingleItem, parseStandardScopes, wrap } from '../shared'
+import {
+  getCurrentScopes,
+  getMaxSubjectLength,
+  isSingleItem,
+  parseStandardScopes,
+  useThemeCode,
+  wrap,
+} from '../shared'
 import type { Answers, CommitizenGitOptions, GenerateAIPromptType } from '../shared'
 import { fetchOpenAIMessage } from './api'
 
@@ -82,11 +89,13 @@ function addEmoji(emojiCode: string, align: string, emojiAlign?: string) {
   return align === 'center' ? `${emojiCode} ` : ''
 }
 
-function addSubject(subject?: string, colorize?: boolean) {
+function addSubject(subject?: string, colorize?: boolean, themeColorCode?: string) {
   if (!subject)
     return ''
-  subject = colorize ? style.cyan(subject) : subject
-  return subject.trim()
+  if (!colorize)
+    return subject.trim()
+  else
+    return useThemeCode(subject, themeColorCode).trim()
 }
 
 function addFooter(footerSuffix: string, footerPrefix = '', colorize?: boolean) {
@@ -137,7 +146,7 @@ export function generateMessage(answers: Answers,
   const emoji = getEmojiCode(answers.type || '', options)
   const scope = addScope(singleScope || scopeSource, colorize)
   const markBreaking = addBreakchangeMark(answers.markBreaking, colorize)
-  const subject = addSubject(answers.subject, colorize)
+  const subject = addSubject(answers.subject, colorize, options.themeColorCode)
 
   const defaultHeader
     = `${`${addEmoji(emoji, 'left', options.emojiAlign)}${type}${scope ? `(${scope})` : ''}${markBreaking}`
