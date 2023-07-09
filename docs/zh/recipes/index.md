@@ -36,7 +36,36 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/172984678-b187607e-e67d-43b4-93e5-3d359f5044a9.gif) <!-- size=688x248 -->
 
-## 支持多选 scopes
+## 针对 项目业务 的 scopes
+
+```js
+// .commitlintrc.js
+module.exports = {
+  prompt: {
+    scopes: ['app', 'home', 'account', 'comment']
+  }
+}
+```
+
+当然如果你想给自定义范围项添加 **简短描述** 显示在命令行中可以使用 `name` 和 `value`属性来定义
+
+```js
+// .commitlintrc.js
+module.exports = {
+  prompt: {
+    scopes: [
+      { value: 'app', name: 'app:       系统业务' },
+      { value: 'home', name: 'home:      首页相关' },
+      { value: 'account', name: 'account:   账户相关' },
+      { value: 'comment', name: 'comment:   评论相关' },
+    ]
+  }
+}
+```
+
+![demo-gif](https://user-images.githubusercontent.com/40693636/172988729-b76510d8-108b-4588-a748-86042da3d5ef.gif) <!-- size=688x265 -->
+
+## 多选模式
 
 - 使用 <kbd>→</kbd> 或 <kbd>空格</kbd> 选中
 - 使用 <kbd>回车</kbd> 确定
@@ -57,45 +86,40 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/170836009-26331ad3-8e7f-4183-a4af-15372b6420d6.gif) <!-- size=688x263 -->
 
-<br>
-<br>
+## 输入模式
 
-## 针对 项目业务 的 scopes
+如果不想使用选择模式，想要使用输入模式 <sup>Input</sup>。可以使用自定义范围的输入框进行代替使用
 
 ```js
-// .commitlintrc.js
-const fs = require('node:fs')
-const path = require('node:path')
-
-const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
 module.exports = {
-  prompt: {
-    scopes: ['app', 'home', 'account', 'comment']
-  }
+  messages: { customScope: 'What is the scope of this change:' },
+  skipQuestions: ['scope'],
+  defaultScope: '___CUSTOM___:'
 }
 ```
 
-当然如果你想给自定义范围项添加 **简短描述** 显示在命令行中可以使用 `name` 和 `value`属性来定义
+:::tip
+如果想要在输入模式获得**补全**的效果，可以在补全的内容的前缀加上 `___CUSTOM___:`
 
 ```js
-// .commitlintrc.js
-const fs = require('node:fs')
-const path = require('node:path')
-
-const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
 module.exports = {
-  prompt: {
-    scopes: [
-      { value: 'app', name: 'app:       系统业务' },
-      { value: 'home', name: 'home:      首页相关' },
-      { value: 'account', name: 'account:   账户相关' },
-      { value: 'comment', name: 'comment:   评论相关' },
-    ]
-  }
+  messages: { customScope: 'What is the scope of this change:' },
+  skipQuestions: ['scope'],
+  defaultScope: '___CUSTOM___:Hello World'
 }
 ```
+:::
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/172988729-b76510d8-108b-4588-a748-86042da3d5ef.gif) <!-- size=688x265 -->
+## [进阶] 缓存你的自定义范围 `custom scope`
+
+- 缓存你输入的自定义范围并在下一次范围选择中显示使用
+- GitHub 讨论帖与演示视频: [Zhengqbbb/cz-git#104](https://github.com/Zhengqbbb/cz-git/discussions/104)
+- 示例代码: [Zhengqbbb/czgit-playground/cache-scope](https://github.com/Zhengqbbb/czgit-playground/tree/cache-scope)
+
+<br>
+<br>
+
+---
 
 ::: tip
 如果 `cz-git` 检测到如果 `allowEmptyScopes` 和 `allowCustomScopes` 具有非常严格规则(都设置为false)并且 **scopes 选择列表仅有一项时**，会自动跳过问题并输出
@@ -110,12 +134,6 @@ const USER_HOME = process.env.HOME || process.env.USERPROFILE
 ```
 
 :::
-
-## [进阶] 缓存你的自定义范围 `custom scope`
-
-- 缓存你输入的自定义范围并在下一次范围选择中显示使用
-- Github 讨论帖与演示视频: [Zhengqbbb/cz-git#104](https://github.com/Zhengqbbb/cz-git/discussions/104)
-- 示例代码: [Zhengqbbb/czgit-playground/cache-scope](https://github.com/Zhengqbbb/czgit-playground/tree/cache-scope)
 
 <br>
 <br>

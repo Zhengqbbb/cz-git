@@ -11,6 +11,7 @@ const pkgFeatureTitle = computed(() => frontmatter.value.pkgFeatureTitle)
 const emojiFeature = computed(() => frontmatter.value.emojiFeature)
 const openAIFeature = computed(() => frontmatter.value.openAIFeature)
 const collaborator = computed(() => frontmatter.value.collaborator)
+const sponsor = computed(() => frontmatter.value.sponsor)
 useMediumZoom()
 </script>
 
@@ -72,9 +73,30 @@ useMediumZoom()
       onerror="this.classList.add('error');"
     >
   </p>
-  <div class="mt-14 items-center" flex="~ col wrap">
+  <div class="mt-14" flex="~ col items-center wrap">
     <VPTeamMembers size="small" :members="collaborator.team" />
-    <h2 class="my-7 text-base color-$vp-button-alt-text font-600 text-center">
+    <h2 class="my-4 text-base font-600 text-center">
+      <i class="text-pink5 dark:text-rose3 i-ri:heart-3-line" /> {{ sponsor }}
+    </h2>
+    <div class="" flex="~ gap-4">
+      <a
+        href="https://www.paypal.com/paypalme/qbbsh"
+        target="_blank" rel="noopener"
+        class="px-5 leading-9 b b-$vp-custom-block-info-border text-$vp-custom-block-info-text-deep bg-$vp-custom-block-info-bg rd-5 text-center font-600 whitespace-nowrap hover:op-80 transition-opacity"
+        flex="~ items-center gap-1"
+      >
+        <i class="i-ri:paypal-line" /> PayPal
+      </a>
+      <a
+        href="https://afdian.net/a/qbbsh"
+        target="_blank" rel="noopener"
+        class="px-5 leading-9 b b-$vp-custom-block-warning-border text-$vp-custom-block-warning-text-deep bg-$vp-custom-block-warning-bg rd-5 text-center font-600 whitespace-nowrap hover:op-80 transition-opacity"
+        flex="~ items-center gap-1"
+      >
+        <i class="i-ri:flashlight-line" /> 爱发电
+      </a>
+    </div>
+    <h2 class="mt-8 mb-4 text-base color-$vp-button-alt-text font-600 text-center">
       {{ collaborator.text }}
     </h2>
     <a :href="collaborator.link" target="_blank" rel="noopener">

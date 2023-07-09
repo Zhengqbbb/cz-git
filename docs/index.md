@@ -45,6 +45,7 @@ emojiFeature:
   title: Emoji Support
   details: Support emoji in commit message.
 
+sponsor: Sponsor
 collaborator:
   team: 
     - avatar: https://avatars.githubusercontent.com/u/40693636?v=4

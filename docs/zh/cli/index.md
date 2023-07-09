@@ -1,7 +1,7 @@
 ---
 title: czg
-titleTemplate: 交互式命令行工具(Commitizen CLI)生成标准化的 git commit message
-description: 交互式命令行工具(Commitizen CLI)生成标准化的 git commit message
+titleTemplate: 交互式命令行工具 (Commitizen CLI) 生成标准化的 git commit message
+description: 交互式命令行工具 (Commitizen CLI) 生成标准化的 git commit message
 ---
 
 <h1 class="clip">czg</h1>
@@ -34,7 +34,7 @@ description: 交互式命令行工具(Commitizen CLI)生成标准化的 git comm
 
 ## 快速入门
 1. 你在你任何的项目中运行 `npx czg`
-2. 接下来让我们进行简单的配置，查看效果。创建 `.czrc` 在你的项目根路径中，然后运行相同的命令
+2. 接下来让我们进行简单的配置，查看效果。创建 `.czrc` 在你的项目根路径中，然后运行相同的命令 `npx czg`
 
 <script setup>
 import { useData } from 'vitepress'
@@ -54,6 +54,21 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 ```
 
 :::tip
+如果要编写 JavaScript 配置，可以添加 `@type` 到文件中作为代码提示
+
+```js
+// .commitlintrc.cjs
+/** @type {import('czg').UserConfig} */
+module.exports = {
+  rules: {
+    // @see: https://commitlint.js.org/#/reference-rules
+  },
+  prompt: {
+    scopes: ['hello', 'world'],
+  },
+}
+```
+
 关于配置文件以及配置项的更多信息，可查看 → [配置](/zh/config/)
 :::
 
@@ -62,9 +77,6 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 
 ```ansi
 [90m$[0m [32mczg[0m --help
-[33mNAME:[0m 
-    [32mczg[0m - Interactive Commitizen CLI that generate standardized git commit message
-
 [33mWEBSITE:[0m
     [4mhttps://cz-git.qbb.sh/cli/[0m
     [4mhttps://github.com/Zhengqbbb/cz-git[0m
@@ -80,24 +92,29 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
     [36mgpg[0m              [31mTurn on use GPG sign commit message[0m
     
 [33mOPTIONS:[0m
-    [36m:, --alias[0m       [31mDirectly submit the defined commit message[0m
-    [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
+    [36m:, --alias=[0m      [31mDirectly submit the defined commit message[0m
     [36m--config=[0m        [31mSpecify the configuration file to use[0m
+    
+  [90mOpenAI:[0m
+    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
+    [36m--api-key=[0m       [31mSetup request OpenAI API secret key to local (.config/.czrc)[0m
+    [36m--api-proxy=[0m     [31mSetup request OpenAI API proxy      to local (.config/.czrc)[0m
+    [36m--api-endpoint=[0m  [31mSetup request OpenAI API endpoint   to local (.config/.czrc)[0m
+                     [90m[default: "https://api.openai.com/v1"][0m
+
+[33mFLAG:[0m
+    [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
+    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
+    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
     [36m-h, --help[0m       [31mShow help[0m
     [36m-v, --version[0m    [31mShow version[0m
-    
-    [36m--openai-token=[0m  [31mSetup OpenAI API secret key to local (.config/.czrc)[0m
-    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
-    [36m--api-proxy=[0m     [31mSetup request OpenAI API proxy to local (.config/.czrc)[0m
-    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
-    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
 
 [33mEXAMPLES:[0m
     [36mczg[0m
     [36mczg emoji[0m
     [36mczg :fd[0m
     [36mczg --config="./config/cz.json"[0m
-    [36mczg --openai-token="sk-XXXXX"[0m
+    [36mczg --api-key="sk-XXXXX"[0m
     [36mczg ai -N=3[0m
 
 Extends 'git commit' options. 

@@ -9,7 +9,7 @@ import type { CommitizenGitOptions } from '../shared'
 
 export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string) {
   if (!options.openAIToken) {
-    log('err', `NO Found OpenAI Token, Please use setup command ${style.cyan('`npx -y czg --openai-token="sk-XXXX"`')}`)
+    log('err', `Not Found OpenAI API Key, Please use setup command ${style.cyan('`npx -y czg --api-key="sk-XXXX"`')}`)
     throw new Error('See guide page: https://cz-git.qbb.sh/recipes/openai#setup-openai-token')
   }
 

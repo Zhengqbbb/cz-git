@@ -24,7 +24,7 @@
     "_headers": "properties",
     "_redirects": "properties",
   },
-  "unocss.root": "docs/.vitepress/build/plugins/unocss.ts",
+  "unocss.root": "docs",
   "prettier.enable": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

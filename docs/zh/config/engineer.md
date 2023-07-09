@@ -38,7 +38,7 @@ sitemap:
 - **使用** : 针对选择 ==特定== 的 commit **类型** `type` 后选择模块范围时显示 自定义的模块范围选择
 
 :::tip
-如果定义`scopeOverrides` 就要定义通用的 `scopes`
+如果定义`scopeOverrides` 需要定义通用的 `scopes`
 :::
 
 ## scopeFilters
@@ -205,7 +205,7 @@ module.exports = {
 - **使用** : 当没有使用 commitlint 并要使用规范化时
 
 :::tip
-主要根据**单词完整性**进行换行 <br>
+会根据**单词完整性**进行换行 <br>
 如果使用 commitlint 会自动读取 `body-max-line-length` 进行设置
 :::
 

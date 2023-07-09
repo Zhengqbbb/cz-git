@@ -37,7 +37,7 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       },
     },
     footer: {
-      message: '我只是尽力将工具做得更好，如果可以的话欢迎给一个<a c-orange-5 target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a>',
+      message: '我只是尽力将工具做得更好，如果可以的话欢迎给一个 <a c-orange-5 target="_blank" href="https://github.com/Zhengqbbb/cz-git">star ⭐</a>',
       copyright: `MIT Licensed | 版权所有 © 2022-${new Date().getFullYear()} <a target="_blank" href="https://github.com/Zhengqbbb">Zhengqbbb</a>`,
     },
   },

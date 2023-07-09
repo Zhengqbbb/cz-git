@@ -114,6 +114,9 @@ importers:
       '@iconify-json/carbon':
         specifier: ^1.1.18
         version: 1.1.18
+      '@iconify-json/ri':
+        specifier: ^1.1.10
+        version: 1.1.10
       '@iconify-json/simple-icons':
         specifier: ^1.1.59
         version: 1.1.59
@@ -2354,6 +2357,12 @@ packages:
 
   /@iconify-json/carbon@1.1.18:
     resolution: {integrity: sha512-RbKET6KS9xUMeYVq1FUH3UUA7AYNcnApkHt2AccCwTWTQQs/O58ji4Of6z6PhRajGlbfvrJzT/Uqh19OKECRvA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/ri@1.1.10:
+    resolution: {integrity: sha512-fsJuXLfpdxb9pfn8LFcfM6LS82j358HaI29Y1qcH1UDnt/V439rTivV6v/YSLkd4z/dZIbh5iOR8+Cg4qtu5Rw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

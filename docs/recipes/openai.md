@@ -10,14 +10,14 @@ You can have a try **without setup your token to local** in any of your projects
 ::: code-group-item NPX
 
 ```sh
-CZ_OPENAI_TOKEN="sk-xxxxx" npx czg ai
+CZ_OPENAI_API_KEY="sk-xxxxx" npx czg ai
 ```
 
 :::
 ::: code-group-item BUNX
 
 ```sh
-CZ_OPENAI_TOKEN="sk-xxxxx" bunx czg ai
+CZ_OPENAI_API_KEY="sk-xxxxx" bunx czg ai
 ```
 
 :::
@@ -28,27 +28,27 @@ CZ_OPENAI_TOKEN="sk-xxxxx" bunx czg ai
 ## Setup OpenAI token
 
 1. https://platform.openai.com/account/api-keys <br>Login and create your API secret key, which usually starts with `sk-`
-2. Run command `npx czg --openai-token=<API secret key>` and input your key to setup your token save to local
+2. Run command `npx czg --api-key=<API secret key>` and input your key to setup your token save to local
 
 :::: code-group
 ::: code-group-item NPX
 
 ```sh
-npx czg --openai-token=sk-xxxxx
+npx czg --api-key=sk-xxxxx
 ```
 
 :::
 ::: code-group-item BUNX
 
 ```sh
-bunx czg --openai-token=sk-xxxxx
+bunx czg --api-key=sk-xxxxx
 ```
 
 :::
 ::: code-group-item After-global-install
 
 ```sh
-czg --openai-token=sk-xxxxx
+czg --api-key=sk-xxxxx
 ```
 
 :::
@@ -74,7 +74,7 @@ brew install czg
 ::::
 
 ```sh
-# setup your token `czg --openai-token=sk-xxxxx`
+# setup your token `czg --api-key=sk-xxxxx`
 # Run the following command in any of your projects after setup OpenAI token
 czg ai
 # Return multiple subjects, and choose the suitable answer

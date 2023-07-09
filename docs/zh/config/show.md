@@ -37,12 +37,12 @@ sitemap:
 
 - **使用 256 RGB Color** <sup>(不推荐使用在团队项目中使用，**需要终端支持，兼容性较差**)</sup>
   - **规则**: `"38;2;${R};${G};${B}"`       
-    ⇒ 你可以查看这个链接，如果你使用的终端是否支持显示 256 RGB True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
+    ⇒ 你可以查看这个链接，查看你使用的终端是否支持显示 256 RGB True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
   - **示例**: `"38;2;255;100;0"`
 
 ---
 
-如果你不想要采用配置记录的主题色，可以在`~/.bashrc` 或者 `~/.zshrc` 等profile文件中添加一行，其优先级会更高:
+如果你不想要采用配置记录的主题色，可以在`~/.bashrc` 或者 `~/.zshrc` 等 profile 文件中添加一行，其优先级会更高:
 
 ```sh
 export ___X_CMD_THEME_COLOR_CODE="38;5;043"
@@ -156,7 +156,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 <br/>
 
 :::tip
-使用==默认值==可以产生很多种玩法让工具更契合你或团队的习惯，可查看小窍门
+使用 ==默认值== 可以产生很多种玩法让工具更契合你或团队的习惯，可查看小窍门
 :::
 
 ## defaultType

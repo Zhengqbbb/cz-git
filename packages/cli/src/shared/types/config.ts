@@ -1,1 +1,2 @@
-export { CommitizenGitOptions as UserConfig } from 'cz-git'
+export { UserConfig } from 'cz-git'
+export { CommitizenGitOptions } from 'cz-git'

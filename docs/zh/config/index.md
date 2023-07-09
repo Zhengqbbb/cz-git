@@ -7,7 +7,7 @@ sitemap:
 ---
 
 # 配置模板
-## Javascript 模板
+## JavaScript 模板
 
 - `.commitlintrc.js`
 - `.commitlintrc.cjs` <sup class="text-0.55rem dark:color-gray-500">「ESM 规范项目」</sup>

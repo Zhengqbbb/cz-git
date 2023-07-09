@@ -8,7 +8,7 @@ sitemap:
 
 # Configure Template
 
-## Javascript template
+## JavaScript template
 
 - `.commitlintrc.js`
 - `.commitlintrc.cjs` <sup class="text-0.55rem dark:color-gray-500">「provide ESM project」</sup>

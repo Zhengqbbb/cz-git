@@ -12,14 +12,14 @@
 ::: code-group-item NPX
 
 ```sh
-CZ_OPENAI_TOKEN="sk-xxxxx" npx czg ai
+CZ_OPENAI_API_KEY="sk-xxxxx" npx czg ai
 ```
 
 :::
 ::: code-group-item BUNX
 
 ```sh
-CZ_OPENAI_TOKEN="sk-xxxxx" bunx czg ai
+CZ_OPENAI_API_KEY="sk-xxxxx" bunx czg ai
 ```
 
 :::
@@ -30,33 +30,42 @@ CZ_OPENAI_TOKEN="sk-xxxxx" bunx czg ai
 ## 配置 OpenAI token
 
 1. https://platform.openai.com/account/api-keys <br>登陆并创建你的 OpenAI API 密钥，通常以 `sk-` 开头
-2. 运行命令 `npx czg --openai-token=<API secret key>` 填入 OpenAI API 密钥完成设置
+2. 运行命令 `npx czg --api-key=<API secret key>` 填入 OpenAI API 密钥完成设置
 
 :::: code-group
 ::: code-group-item NPX
 
 ```sh
-npx czg --openai-token=sk-xxxxx
+npx czg --api-key=sk-xxxxx
+
 # 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
-# npx czg --openai-token=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# npx czg --api-key=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# 如果想要使用自定义托管的 OpenAI API 服务，可以设置 API 请求的 endpoint
+# npx czg --api-endpoint="https://xxxxx.deno.dev/v1"
 ```
 
 :::
 ::: code-group-item BUNX
 
 ```sh
-bunx czg --openai-token=sk-xxxxx
+bunx czg --api-key=sk-xxxxx
+
 # 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
-# bunx czg --openai-token=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# bunx czg --api-key=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# 如果想要使用自定义托管的 OpenAI API 服务，可以设置 API 请求的 endpoint
+# bunx czg --api-endpoint="https://xxxxx.deno.dev/v1"
 ```
 
 :::
 ::: code-group-item 全局下载之后
 
 ```sh
-czg --openai-token=sk-xxxxx
+czg --api-key=sk-xxxxx
+
 # 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
-# czg --openai-token=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# czg --api-key=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# 如果想要使用自定义托管的 OpenAI API 服务，可以设置 API 请求的 endpoint
+# czg --api-endpoint="https://xxxxx.deno.dev/v1"
 ```
 
 :::
@@ -82,7 +91,7 @@ brew install czg
 ::::
 
 ```sh
-# 设置token `czg --openai-token=sk-xxxxx`
+# 设置token `czg --api-key=sk-xxxxx`
 # 设置完token后，在你的任何项目中，运行下列命令
 czg ai
 # 返回多个简短描述，并开启选择模式
@@ -167,9 +176,8 @@ bunx czg ai -N=5
 
 ## 配置
 
-- 国内用户如果无法访问 OpenAI API 可进行 proxy 代理设置后进行使用
-  
-  亦或是使用 [`--api-proxy`](/zh/cli/ai#%E9%80%89%E9%A1%B9) 进行代理配置
+- 国内用户如果无法访问 OpenAI API <br>可进行 proxy 代理设置后进行使用<br>
+  或使用 [`--api-proxy`](/zh/cli/ai#%E9%80%89%E9%A1%B9) 进行代理配置
 - 如果你开启了配置 `useAI`，但是本次你不想使用 AI 模式，想切换为普通模式，可以运行命令
   - czg CLI: `czg --no-ai`
   - Commitizen CLI + cz-git: `no_czai=1 cz`

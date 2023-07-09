@@ -2,9 +2,12 @@
 /**
  * Origin
  * -------------------------------------------------------------------------- */
-/* :root {
-  scroll-behavior: smooth;
-} */
+ *, :before, :after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
 
 body {
   overflow: overlay;
@@ -16,6 +19,11 @@ kbd {
   background: linear-gradient(-225deg, #d5dbe4, #f8f8f8);
   box-shadow: var(--vp-c-kbd-box-outside-shadow);
 }
+
+.VPNavBar .VPNavBarTitle .title:hover {
+  opacity: .6;
+}
+
 .dark kbd {
   background: linear-gradient(-225deg, #263242, #1c1e20);
 }

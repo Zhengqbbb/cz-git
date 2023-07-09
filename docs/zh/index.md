@@ -48,6 +48,7 @@ emojiFeature:
   title: Emoji 支持
   details: 支持在 commit 信息中携带 Emoji。
 
+sponsor: 赞助打赏
 collaborator:
   team: 
     - avatar: https://avatars.githubusercontent.com/u/40693636?v=4

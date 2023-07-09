@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/Zhengqbbb/cz-git">Github</a>
+    <a href="https://github.com/Zhengqbbb/cz-git">GitHub</a>
     &nbsp; | &nbsp;
     <a href="https://cz-git.qbb.sh/cli/install.html">Installation</a>
     &nbsp; | &nbsp;
