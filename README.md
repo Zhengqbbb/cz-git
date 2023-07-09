@@ -179,7 +179,7 @@ Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.co
 > I just do my best to make thing well, Could you give a [star ⭐](https://github.com/Zhengqbbb/cz-git) to encourage me ?
 
 <a target="_blank" href="https://packagephobia.com/result?p=cz-git,czg">
-  <img src="https://user-images.githubusercontent.com/40693636/225491803-595b3fb5-5dfb-436c-a82c-ee2656df9469.png" alt="size-overview"><br>
+  <img src="https://user-images.githubusercontent.com/40693636/252157675-32634902-fc02-4a07-a12c-a07ec5ee5f1a.png" alt="size-overview"><br>
   <sub>https://packagephobia.com/result?p=cz-git,czg</sub>
 </a>
 
