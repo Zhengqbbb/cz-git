@@ -25,6 +25,16 @@ sitemap:
 - 终端无法Emoji符号，大概率是因为你的终端对于 emoji/unicode 字符支持较差，但是不影响提交
   因为最终输出提交的是 Emoji Code，可以考虑更换终端与[字体](https://github.com/ryanoasis/nerd-fonts)
 
+## 配置加载不符合预期
+可以运行命令查看配置加载的路径
+
+```sh
+# commitizen cli
+CZ_DEBUG=1 cz
+# czg cli
+CZ_DEBUG=1 czg
+```
+
 ## `cz-git` 和 `czg` 有什么不同
 
 > 可以查看更多信息 [czg 的动机](/zh/cli/why.html)

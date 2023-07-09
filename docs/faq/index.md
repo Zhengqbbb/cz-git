@@ -26,6 +26,17 @@ sitemap:
 - The terminal cannot Emoji symbols, the high probability is because your terminal has poor support for emoji/unicode characters, but it does not affect the submission
    Because the final output is submitted by Emoji Code, you can consider changing the terminal and [font](https://github.com/ryanoasis/nerd-fonts)
 
+## Configure load not as expected
+
+Run the command to check the path of the configuration load
+
+```sh
+# commitizen cli
+CZ_DEBUG=1 cz
+# czg cli
+CZ_DEBUG=1 czg
+```
+
 ## What is different between `cz-git` and `czg`
 
 > See more [Why czg](/cli/why.html)
