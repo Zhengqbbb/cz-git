@@ -1,3 +1,7 @@
+# [1.7.0](https://github.com/Zhengqbbb/cz-git/compare/v1.6.2...v1.7.0) (2023-07-09)
+
+
+
 ## [1.6.2](https://github.com/Zhengqbbb/cz-git/compare/v1.6.1...v1.6.2) (2023-07-09)
 
 

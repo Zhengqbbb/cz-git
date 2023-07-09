@@ -1,6 +1,6 @@
 {
   "name": "cz-git",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "private": true,
   "description": "A better customizable and git support commitizen adapter",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
