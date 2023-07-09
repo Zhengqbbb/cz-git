@@ -1,10 +1,5 @@
 # [1.7.0](https://github.com/Zhengqbbb/cz-git/compare/v1.6.2...v1.7.0) (2023-07-09)
 
-
-
-## [1.6.2](https://github.com/Zhengqbbb/cz-git/compare/v1.6.1...v1.6.2) (2023-07-09)
-
-
 ### Bug Fixes
 
 * **cli:** bootstrap using require to support node v10 ([2e71dd5](https://github.com/Zhengqbbb/cz-git/commit/2e71dd5fdaba714b8dbc26c7920f0ca6eaa99e35)), closes [#115](https://github.com/Zhengqbbb/cz-git/issues/115)
