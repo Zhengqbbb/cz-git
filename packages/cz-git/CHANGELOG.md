@@ -3,13 +3,12 @@
 
 ### Bug Fixes
 
-* **cli:** bootstrap using require to support node v10 ([2e71dd5](https://github.com/Zhengqbbb/cz-git/commit/2e71dd5fdaba714b8dbc26c7920f0ca6eaa99e35)), closes [#115](https://github.com/Zhengqbbb/cz-git/issues/115)
 * windows system is unable to load the global configuration ([#133](https://github.com/Zhengqbbb/cz-git/issues/133)) ([d09fee4](https://github.com/Zhengqbbb/cz-git/commit/d09fee4c985efaa93f3282b237dd3de5747f173d)), closes [#132](https://github.com/Zhengqbbb/cz-git/issues/132)
 
 
 ### Features
 
-* allow set scope as direct input to use ([#113](https://github.com/Zhengqbbb/cz-git/issues/113)) ([a2a4443](https://github.com/Zhengqbbb/cz-git/commit/a2a4443786194c582b74be769c7afd37950dd9f3))
+* **cz-git,cli:** allow set scope as direct input to use ([#113](https://github.com/Zhengqbbb/cz-git/issues/113)) ([a2a4443](https://github.com/Zhengqbbb/cz-git/commit/a2a4443786194c582b74be769c7afd37950dd9f3))
 * **cli:** add `--api-endpoint` | rename `--api-key` ([#136](https://github.com/Zhengqbbb/cz-git/issues/136)) ([4bd33f5](https://github.com/Zhengqbbb/cz-git/commit/4bd33f5edb685a880ae6e3e62cee827f519facd6))
 * **cli:** add type for js config ([#135](https://github.com/Zhengqbbb/cz-git/issues/135)) ([9ca09aa](https://github.com/Zhengqbbb/cz-git/commit/9ca09aa7f3273f293bb2c35c998141eb61ce32b7))
 * **cz-git,cli:** confirm message subject colorizen `themeColorCode` ([723dfe8](https://github.com/Zhengqbbb/cz-git/commit/723dfe8a15d2b7000548dbd87fbc9cfc1e0b3fc1))
