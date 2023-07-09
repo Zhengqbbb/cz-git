@@ -135,6 +135,8 @@ export function generateMessage(answers: Answers,
   // resolve custom value
   const { customScope, customFooterPrefix } = answers
   answers.scope = getCustomValue(answers.scope, customScope)
+    || (options.defaultScope?.startsWith('___CUSTOM___:') && customScope)
+    || ''
   answers.footerPrefix = getCustomValue(answers.footerPrefix, customFooterPrefix) as string
   // resolve single | multiple item
   const { singleScope, singeIssuePrefix } = getSingleParams(answers, options)
