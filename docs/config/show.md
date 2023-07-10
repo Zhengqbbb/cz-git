@@ -171,7 +171,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **default** : `""`
 - **other** : Initialize the completion template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
-==Tip== [⇒ see the recipes](/recipes/default-scope.html)
+[⇒ see the recipes](/recipes/default-scope.html)
 
 
 ## defaultSubject
@@ -181,7 +181,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **default** : `""`
 - **use** :  **Initialize the completion template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
-==Tip== [⇒ see the recipes](/recipes/default-subject.html)
+[⇒ see the recipes](/recipes/default-subject.html)
 
 ## defaultBody
 
@@ -204,4 +204,4 @@ Using ==default value== can produce many ways to make the tool more suitable for
 - **default** : `""`
 - **use** :  **Initialize the completion template**, you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
-==Tip== [⇒ see the recipes](/recipes/default-issues.html)
+[⇒ see the recipes](/recipes/default-issues.html)

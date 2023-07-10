@@ -76,7 +76,7 @@ useMediumZoom()
   <div class="mt-14" flex="~ col items-center wrap">
     <VPTeamMembers size="small" :members="collaborator.team" />
     <h2 class="my-4 text-base font-600 text-center">
-      <i class="text-pink5 dark:text-rose3 i-ri:heart-3-line" /> {{ sponsor }}
+      <i class="text-pink5 dark:text-rose4 i-ri:heart-3-line" /> {{ sponsor }}
     </h2>
     <div class="" flex="~ gap-4">
       <a

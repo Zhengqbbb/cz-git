@@ -40,12 +40,16 @@ kbd {
 }
 
 .vp-doc mark {
-  color: inherit;
-  padding: 0.1rem 0.3rem;
-  border-radius: 4px;
-  font-weight: 700;
-  border: 1px solid var(--vp-custom-block-tip-border);
-  background-color: var(--vp-custom-block-tip-bg);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to right, #34d399, #1da14e);
+}
+
+.dark .vp-doc mark {
+  background-image: linear-gradient(to right, #8de6bc, #4ade80);
 }
 
 .vp-doc a {
