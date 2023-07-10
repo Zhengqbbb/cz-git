@@ -28,7 +28,7 @@
     "x": "czg",
     "build": "pnpm clean && pnpm -r build",
     "dev": "pnpm clean && pnpm --filter='@cz-git/*' --stream -r build && pnpm --filter='./packages/*' -r build --watch",
-    "dev:plugin": "pnpm clean && pnpm --filter='@cz-git/*' -r build --watch",
+    "dev:plugin": "pnpm --filter='@cz-git/*' -r build --watch",
     "clean": "pnpm run -r --stream clean",
     "docs:build": "pnpm -C docs run docs:build",
     "docs:dev": "pnpm -C docs docs:dev",

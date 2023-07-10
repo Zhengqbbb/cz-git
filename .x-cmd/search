@@ -55,7 +55,7 @@ search_baidu() {
 
 search_bing() {
     log "bing search console collecting"
-	# curl -X GET "http://www.bing.com/webmaster/ping.aspx?siteMap=https://$WEB_SITE/sitemap.xml"
+	curl -X GET "http://www.bing.com/webmaster/ping.aspx?siteMap=https://$WEB_SITE/sitemap.xml"
     local BING_TOKEN
 	BING_TOKEN="$(grep 'BING_TOKEN' < "$WORK_DIR/.env")"
 	local TOKEN="${BING_TOKEN#*=}"
