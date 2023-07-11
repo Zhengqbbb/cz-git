@@ -33,6 +33,7 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 
 ```js
 // config/cz.js
+/** @type {import('czg').CommitizenGitOptions} */
 module.exports = {
   maxSubjectLength: 100
   // 配置 ...

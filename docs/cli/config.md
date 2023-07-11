@@ -33,6 +33,7 @@ e.g `czg --config="./config/cz.js"`
 
 ```js
 // config/cz.js
+/** @type {import('czg').CommitizenGitOptions} */
 module.exports = {
   maxSubjectLength: 100
   // configure ...
