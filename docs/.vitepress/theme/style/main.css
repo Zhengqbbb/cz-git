@@ -76,9 +76,20 @@ kbd {
   margin: 16px 0px;
 }
 
+@keyframes pulser {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 img[alt="demo-gif"] {
   border: 1px solid var(--vp-code-line-highlight-color);
-  background-color: var(--vp-code-block-bg);
+  background-color: var(--vp-term-block-bg);
+  animation: pulser 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 img.error {

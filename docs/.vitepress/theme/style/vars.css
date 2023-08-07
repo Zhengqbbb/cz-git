@@ -36,6 +36,7 @@
   --vp-custom-block-danger-text: rgb(196, 46, 46);
   --vp-custom-block-danger-text-deep: rgba(220, 38, 38, 1);
   --vp-code-block-bg: rgba(232, 232, 232, 0.3);
+  --vp-term-block-bg: hsl(0, 1%, 92%);
   --vp-c-text-dark-1: rgb(240, 238, 238);
   --vp-c-text-dark-3: rgb(111, 111, 111);
   --vp-c-gutter: rgba(60, 60, 60, .12);
@@ -78,6 +79,7 @@
   --vp-custom-block-danger-text: rgba(248, 113, 113, 1);
   --vp-custom-block-danger-text-deep: rgba(248, 113, 113, 1);
   --vp-code-block-bg: rgba(0, 0, 0, 0.3);
+  --vp-term-block-bg: hsl(0, 1%, 5%);
   --vp-c-gutter: rgba(84, 84, 84, .48);
   --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);
   --vp-code-copy-code-hover-bg: rgba(255, 255, 255, 0.05);

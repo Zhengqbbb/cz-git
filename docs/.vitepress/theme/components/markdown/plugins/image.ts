@@ -41,7 +41,12 @@ export function ImagePlugin(md: MarkdownIt) {
         ],
         [
           'onerror',
-          'this.classList.add(\'error\');',
+          'this.classList.add(\'error\', \'animate-none!\');',
+        ],
+        /* @unocss-include */
+        [
+          'onload',
+          'this.classList.add(\'animate-none!\');',
         ],
       )
       tokens[idx + 2].content = ''

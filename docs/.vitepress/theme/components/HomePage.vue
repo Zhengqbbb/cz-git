@@ -70,7 +70,8 @@ useMediumZoom()
       height="376"
       loading="lazy"
       decoding="async"
-      onerror="this.classList.add('error');"
+      onerror="this.classList.add('error', 'animate-none!');"
+      onload="this.classList.add('animate-none!');"
     >
   </p>
   <div class="mt-14" flex="~ col items-center wrap">
