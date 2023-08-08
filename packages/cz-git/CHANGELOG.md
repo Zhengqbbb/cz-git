@@ -1,3 +1,12 @@
+## [1.7.1](https://github.com/Zhengqbbb/cz-git/compare/v1.7.0...v1.7.1) (2023-08-08)
+
+
+### Bug Fixes
+
+* **cli:** `--api-key` not work ([0a65673](https://github.com/Zhengqbbb/cz-git/commit/0a65673b2b501d2c5bc8562652a75098a29f4ae9)), closes [#141](https://github.com/Zhengqbbb/cz-git/issues/141)
+
+
+
 # [1.7.0](https://github.com/Zhengqbbb/cz-git/compare/v1.6.2...v1.7.0) (2023-07-09)
 
 
