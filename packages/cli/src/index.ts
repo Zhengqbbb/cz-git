@@ -47,7 +47,7 @@ export function bootsrap(environment: any = {}, argv = process.argv) {
       console.log(czgitVersion)
       process.exit(0)
     }
-    else if (openAIToken || apiProxy || unsetProxy || apiEndpoint) {
+    else if (openAIAPIKey || openAIToken || apiProxy || unsetProxy || apiEndpoint) {
       setupAIConfig(openAIAPIKey || openAIToken, apiProxy, unsetProxy, apiEndpoint)
       process.exit(0)
     }
