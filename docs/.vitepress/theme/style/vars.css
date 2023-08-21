@@ -5,6 +5,7 @@
 :root {
   --vp-font-family-mono: Menlo, "Noto Sans Mono", ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --vp-layout-max-width: 1490px;
+  --vp-sidebar-width: 280px;
   --vp-c-accent: rgb(218, 180, 11);
   --vp-c-brand: #eb5c5c;
   --vp-c-brand-light: #fe7a7a;

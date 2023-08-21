@@ -46,6 +46,6 @@ module.exports = {
     aiDiffIgnore: [ 'pnpm-lock.yaml', 'docs/public' ],
     customIssuePrefixAlign: !issue ? 'top' : 'bottom',
     defaultIssues: !issue ? '' : `#${issue}`,
-    formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,
+    // formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,
   },
 }

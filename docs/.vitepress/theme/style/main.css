@@ -368,3 +368,26 @@ img.error::after {
   text-align: center;
   color: var(--vp-c-text-2);
 }
+
+.VPDoc.has-aside .content .content-container {
+  max-width: 720px;
+}
+
+@media (min-width: 960px) {
+  .VPDoc .aside+.content,
+  .VPDoc > .content {
+    padding: 0 32px 128px;
+  }
+}
+
+.VPDoc .aside-curtain {
+  background: transparent;
+}
+
+.VPDoc .aside .aside-container {
+  width: var(--vp-sidebar-width);
+}
+
+.VPDoc .aside {
+  max-width: var(--vp-sidebar-width);
+}

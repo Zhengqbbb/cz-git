@@ -19,7 +19,7 @@ export const pwa: Partial<VitePWAOptions> = {
   outDir: '.vitepress/dist',
   registerType: 'autoUpdate',
   // include all static assets under public/
-  includeAssets: fg.sync('**/*.{png,svg,gif,ico,txt}', { cwd: resolve(__dirname, '../../../public') }),
+  includeAssets: fg.sync('**/*.{png,webp,svg,gif,ico,txt}', { cwd: resolve(__dirname, '../../../public') }),
   manifest: {
     id: '/',
     name,

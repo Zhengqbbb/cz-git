@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AdsASide: typeof import('./theme/components/AdsASide.vue')['default']
     Badge: typeof import('./theme/components/Badge.vue')['default']
     CodeGroupItem: typeof import('./theme/components/CodeGroupItem.vue')['default']
     HomePage: typeof import('./theme/components/HomePage.vue')['default']
