@@ -11,13 +11,13 @@ const issue = execSync('git rev-parse --abbrev-ref HEAD')
 const packages = fg.sync('*', { cwd: 'packages/@cz-git', onlyDirectories: true })
 
 // custom add Co-authored-by
-const coAuthoredBy
-  = '\n\n'
-  + `Co-authored-by: ${
-     execSync('git config user.name').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
-     } <${
-     execSync('git config user.email').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
-     }>`
+// const coAuthoredBy
+//   = '\n\n'
+//   + `Co-authored-by: ${
+//      execSync('git config user.name').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
+//      } <${
+//      execSync('git config user.email').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
+//      }>`
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {

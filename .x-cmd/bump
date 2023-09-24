@@ -1,5 +1,14 @@
 # shellcheck shell=dash
 
 (
-    x bun x taze -r -I -i
+    x bun x taze -r -I -i \
+        -x inquirer \
+        -x @types/inquirer \
+        -x https-proxy-agent \
+        -x node-fetch \
+        -x rimraf \
+        -x @types/rimraf \
+        -x lint-staged \
+        -x pkg-dir  \
+        -x bumpp
 )
