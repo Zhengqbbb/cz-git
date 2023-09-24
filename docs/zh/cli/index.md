@@ -30,7 +30,7 @@ description: 交互式命令行工具 (Commitizen CLI) 生成标准化的 git co
 - 🤗 **简单且快速** : 无需前置配置，无需适配器，没有额外的步骤，你可以使用 `npx` | `npm 脚本` | `全局下载`... 在你的任何项目中快速启动
 - 😎 **高度可定制化** : 内部包含 cz-git 的核心，继承了 cz-git 的所有特性，具有相同的行为，配置加载... 你可以根据自己的需要配置的 CLI 的行为
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/175753060-cf4f5e48-100d-430a-93e9-31b17f42802f.gif) <!-- size=688x264 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/175753060-cf4f5e48-100d-430a-93e9-31b17f42802f.gif) <!-- size=720x264 -->
 
 ## 快速入门
 1. 你在你任何的项目中运行 `npx czg`

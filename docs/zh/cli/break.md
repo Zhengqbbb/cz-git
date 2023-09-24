@@ -1,6 +1,6 @@
 # czg break
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/175755362-2fdeed9e-cf05-4f41-b317-453154a5775c.gif) <!-- size=688x247 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/175755362-2fdeed9e-cf05-4f41-b317-453154a5775c.gif) <!-- size=720x247 -->
 
 ## 概要
 

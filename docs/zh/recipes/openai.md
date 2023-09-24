@@ -1,8 +1,12 @@
+---
+outline: [2, 3]
+---
+
 # OpenAI <Badge type="info" text="GPT 3.5 Turbo 模型 「默认」" />
 
 让 AI 生成你的 git commit 提交信息简短描述
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=686x309 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=720x309 -->
 
 :::::info 快速体验
 利用 `npx` 填入 Token ，并在你的任何项目中运行下列命令进行体验<br>
@@ -39,7 +43,7 @@ CZ_OPENAI_API_KEY="sk-xxxxx" bunx czg ai
 npx czg --api-key=sk-xxxxx
 
 # 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
-# npx czg --api-key=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# npx czg --api-proxy="http://127.0.0.1:1080"
 # 如果想要使用自定义托管的 OpenAI API 服务，可以设置 API 请求的 endpoint
 # npx czg --api-endpoint="https://xxxxx.deno.dev/v1"
 ```
@@ -51,7 +55,7 @@ npx czg --api-key=sk-xxxxx
 bunx czg --api-key=sk-xxxxx
 
 # 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
-# bunx czg --api-key=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# bunx czg --api-proxy="http://127.0.0.1:1080"
 # 如果想要使用自定义托管的 OpenAI API 服务，可以设置 API 请求的 endpoint
 # bunx czg --api-endpoint="https://xxxxx.deno.dev/v1"
 ```
@@ -63,7 +67,7 @@ bunx czg --api-key=sk-xxxxx
 czg --api-key=sk-xxxxx
 
 # 如果你在需要进行 socks5 或 http proxy 代理请求，可以添加选项 `--api-proxy` 进行代理配置
-# czg --api-key=sk-xxxxx --api-proxy="http://127.0.0.1:1080"
+# czg --api-proxy="http://127.0.0.1:1080"
 # 如果想要使用自定义托管的 OpenAI API 服务，可以设置 API 请求的 endpoint
 # czg --api-endpoint="https://xxxxx.deno.dev/v1"
 ```
@@ -97,6 +101,7 @@ czg ai
 # 返回多个简短描述，并开启选择模式
 git czg ai -N=5
 ```
+
 
 ## 作为项目依赖使用
 
@@ -173,6 +178,20 @@ bunx czg ai -N=5
 
 :::
 ::::
+
+## Commitizen CLI + cz-git 使用
+
+如果你当前使用 [Commitizen CLI](https://github.com/commitizen/cz-cli) + cz-git 适配器
+
+#### 有三种方式配置 OpenAI API Key：
+1. 运行 `czg` 进行配置: `npx czg --api-key=sk-xxxxx`
+2. 使用环境变量传入并启动：`CZ_OPENAI_API_KEY="sk-xxxxx" czai=1 cz`
+3. 配置环境变量于 rc 文件之中：添加 `export CZ_OPENAI_API_KEY="sk-xxxxx"` 于 `.zshrc` 或 `.bashrc`
+
+#### 有两种方式进行启动：
+1. 使用环境变量传入 `czai=1` 并启动: `czai=1 cz`
+2. [配置文件](/zh/config/engineer#useai)中使用开启 AI 模式： `useAI: true`
+
 
 ## 配置
 

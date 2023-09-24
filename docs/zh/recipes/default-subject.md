@@ -36,7 +36,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/173278720-d93f17ec-ef98-4706-8dec-101d5b68bf08.gif) <!-- size=688x265 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/173278720-d93f17ec-ef98-4706-8dec-101d5b68bf08.gif) <!-- size=720x265 -->
 
 
 <br>

@@ -29,7 +29,7 @@ module.exports = {
 };
 ```
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/172989830-c3e436ad-adab-42f5-973f-b97f33748939.gif) <!-- size=688x248 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/172989830-c3e436ad-adab-42f5-973f-b97f33748939.gif) <!-- size=720x248 -->
 
 <br>
 <br>

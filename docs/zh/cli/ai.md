@@ -2,7 +2,7 @@
 
 让 AI 生成你的 git commit 提交信息简短描述
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=686x309 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=720x309 -->
 
 ## 概要
 

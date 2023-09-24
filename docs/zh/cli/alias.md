@@ -1,6 +1,6 @@
 # czg --alias
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif) <!-- size=688x262 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/176847992-23cbc56c-5487-4679-a84a-b4fe38a32b34.gif) <!-- size=720x262 -->
 
 ## 概要
 

@@ -8,7 +8,6 @@ import 'uno.css'
 import { createMediumZoomProvider } from './components/composables'
 import Badge from './components/Badge.vue'
 import HomePage from './components/HomePage.vue'
-import AdsASide from './components/AdsASide.vue'
 import CodeGroupItem from './components/CodeGroupItem.vue'
 import { CodeGroup } from './components/CodeGroup'
 
@@ -20,7 +19,6 @@ export default {
   Layout() {
     return h(Theme.Layout, null, {
       'home-features-after': () => h(HomePage),
-      'aside-bottom': () => h(AdsASide),
     })
   },
   enhanceApp({ app, router }: EnhanceAppContext) {

@@ -1,6 +1,6 @@
 # czg --retry
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/175755695-89341b7b-4c72-458f-9048-e5a2fa7c8bda.gif) <!-- size=688x264 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/175755695-89341b7b-4c72-458f-9048-e5a2fa7c8bda.gif) <!-- size=720x264 -->
 
 ## 概要
 `czg --retry|-r` - 直接尝试提交上一次的 message

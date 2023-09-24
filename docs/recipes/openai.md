@@ -1,7 +1,7 @@
 # OpenAI <Badge type="info" text="GPT 3.5 Turbo Model「default」" />
 Let the AI generate your **git commit message** subject <sup>(short description)</sup>
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=686x309 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=720x309 -->
 
 :::::info Have A Try
 You can have a try **without setup your token to local** in any of your projects<br> Quick experience interaction. API Key: https://platform.openai.com/account/api-keys<br>
@@ -156,6 +156,19 @@ bunx czg ai -N=5
 
 :::
 ::::
+
+## Commitizen CLI + cz-git usage
+
+If you are currently using [Commitizen CLI](https://github.com/commitizen/cz-cli) with the cz-git adapter:
+
+#### There are three ways to configure the OpenAI API Key:
+1. Run `czg` to configure it: `npx czg --api-key=sk-xxxxx`
+2. Pass it as an environment variable and start: `CZ_OPENAI_API_KEY="sk-xxxxx" czai=1 cz`
+3. Configure it in an environment variable in your rc file: Add `export CZ_OPENAI_API_KEY="sk-xxxxx"` to `.zshrc` or `.bashrc`.
+
+#### There are two ways to turn on AI mode:
+1. Pass `czai=1` as an environment variable and start: `czai=1 cz`
+2. Enable AI mode in the [configuration file](/config/engineer#useai): `useAI: true`
 
 ## Configure
 - If you configure `useAI` to true, and you want to **switch to normal mode** not AI prompt mode in this session

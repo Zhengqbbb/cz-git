@@ -50,7 +50,7 @@ sitemap:
 
 一款工程性更强，轻量级，高度自定义，标准输出格式的 [commitizen](https://github.com/commitizen/cz-cli) 适配器
 
-![demo-gif](https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif) <!-- size=688x226 -->
+![demo-gif](https://user-images.githubusercontent.com/40693636/188255006-b9df9837-4678-4085-9395-e2905d7ec7de.gif) <!-- size=720x226 -->
 
 > 什么是commitizen：基于Node.js的 `git commit` 命令行工具，辅助生成标准化规范化的 commit message。<br><br>
 > 什么是适配器：更换 commitizen 命令行工具的 **交互方式** 插件。
