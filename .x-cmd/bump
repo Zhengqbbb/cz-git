@@ -10,5 +10,6 @@
         -x @types/rimraf \
         -x lint-staged \
         -x pkg-dir  \
+        -x cosmiconfig \
         -x bumpp
 )

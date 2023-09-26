@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.38.6",
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@cz-git/inquirer": "workspace:*",
     "@types/fs-extra": "^11.0.2",
     "@types/inquirer": "8.2.3",
