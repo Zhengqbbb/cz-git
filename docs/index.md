@@ -45,7 +45,7 @@ emojiFeature:
   title: Emoji Support
   details: Support emoji in commit message.
 
-sponsor: Sponsor
+sponsor: Buy Me a Coffee
 collaborator:
   team: 
     - avatar: https://avatars.githubusercontent.com/u/40693636?v=4

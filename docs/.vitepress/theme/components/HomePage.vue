@@ -77,16 +77,16 @@ useMediumZoom()
   <div class="mt-14" flex="~ col items-center wrap">
     <VPTeamMembers size="small" :members="collaborator.team" />
     <h2 class="my-4 text-base font-600 text-center">
-      <i class="text-pink5 dark:text-rose4 i-ri:heart-3-line" /> {{ sponsor }}
+      💖 {{ sponsor }}
     </h2>
     <div class="" flex="~ gap-4">
       <a
-        href="https://www.paypal.com/paypalme/qbbsh"
+        href="https://github.com/sponsors/Zhengqbbb"
         target="_blank" rel="noopener"
-        class="px-5 leading-9 b b-$vp-custom-block-info-border text-$vp-custom-block-info-text-deep bg-$vp-custom-block-info-bg rd-5 text-center font-600 whitespace-nowrap hover:op-80 transition-opacity"
+        class="px-5 leading-9 text-sm b b-rose4 text-rose4 bg-rose4:5 rd-5 text-center font-600 whitespace-nowrap hover:op-80 transition-opacity"
         flex="~ items-center gap-1"
       >
-        <i class="i-ri:paypal-line" /> PayPal
+        <i class="i-ri:heart-3-line" /> Sponsor
       </a>
       <a
         href="https://afdian.net/a/qbbsh"
