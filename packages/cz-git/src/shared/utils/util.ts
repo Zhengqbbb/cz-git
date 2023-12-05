@@ -21,6 +21,10 @@ export function log(type: 'info' | 'warm' | 'err', msg: string) {
   console.info(`${colorMapping[type]}[${type}]>>>: ${msg}${colorMapping.reset}`)
 }
 
+export function isString(str: any) {
+  return typeof str === 'string'
+}
+
 /**
  * @description: count header length
  *
@@ -33,17 +37,19 @@ function countLength(target: number, typeLength: number, scope: number, emojiLen
 /**
  * @description: resolve list item pin top
  */
-export function resolveListItemPinTop(arr: {
-  name: string
-  value: any
-}[],
-defaultValue?: string) {
+export function resolveListItemPinTop(
+  arr: { name: string; value: any }[],
+  defaultValue?: string | string[],
+) {
   if (!defaultValue || defaultValue === '')
     return arr
-  const index = arr.findIndex(i => i.value === defaultValue)
-  if (!~index)
-    return arr
-  return [arr[index], ...arr.slice(0, index), ...arr.slice(index + 1)]
+  const targets = Array.isArray(defaultValue) ? defaultValue : [defaultValue]
+  targets.forEach((target) => {
+    const index = arr.findIndex(i => i.value === target)
+    if (~index)
+      arr = [arr[index], ...arr.slice(0, index), ...arr.slice(index + 1)]
+  })
+  return arr
 }
 
 /**
@@ -112,7 +118,7 @@ export function resovleCustomListTemplate(
   customAlias = 'custom',
   allowCustom = true,
   allowEmpty = true,
-  defaultValue = '',
+  defaultValue: string | string[] = '',
   scopeFilters = ['.DS_Store'],
 ) {
   let result: Array<{ name: string; value: any }> = [

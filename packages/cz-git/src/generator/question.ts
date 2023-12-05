@@ -11,6 +11,7 @@ import {
   getMaxSubjectLength,
   getProcessSubject,
   isSingleItem,
+  isString,
   log,
   parseStandardScopes,
   resolveDefaultType,
@@ -47,8 +48,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       type: options.enableMultipleScopes ? 'search-checkbox' : 'search-list',
       name: 'scope',
       message: options.messages?.scope,
-      themeColorCode: options?.themeColorCode,
       separator: options.scopeEnumSeparator,
+      themeColorCode: options?.themeColorCode,
+      initialCheckedValue: options.defaultScope, // checkbox mode
       source: (answer: Answers, input: string) => {
         let scopeSource: Option[] = []
         const _answerType = resolveDefaultType(options, answer)
@@ -63,7 +65,7 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
           options.customScopesAlias,
           options.allowCustomScopes,
           options.allowEmptyScopes,
-          options.defaultScope as string,
+          options.defaultScope,
           options.scopeFilters,
         )
         const searchTarget = options.scopesSearchValue
@@ -74,9 +76,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes)
           return true
+
         if (typeof input === 'string')
           return input.length ? true : style.red('[ERROR] scope is required')
-
         else
           return input.length !== 0 ? true : style.red('[ERROR] scope is required')
       },
@@ -95,7 +97,10 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       type: 'complete-input',
       name: 'customScope',
       message: options.messages?.customScope,
-      completeValue: options.defaultScope?.replace(/^___CUSTOM___:/, '') || undefined,
+      completeValue: (
+        // input mode
+        isString(options.defaultScope) && (options.defaultScope as string).replace(/^___CUSTOM___:/, '')
+      ) || undefined,
       validate: (input: string | Array<string>) => {
         if (options.allowEmptyScopes)
           return true
@@ -106,7 +111,8 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
           return input.length !== 0 ? true : style.red('[ERROR] scope is required')
       },
       when: (answers: Answers) => {
-        return answers.scope === '___CUSTOM___' || options.defaultScope?.startsWith('___CUSTOM___:')
+        return answers.scope === '___CUSTOM___'
+          || (isString(options.defaultScope) && (options.defaultScope as string).startsWith('___CUSTOM___:'))
       },
       transformer: (input: string) => useThemeCode(input, options.themeColorCode),
     },
@@ -114,6 +120,7 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       type: 'complete-input',
       name: 'subject',
       message: options.messages?.subject,
+      completeValue: options.defaultSubject || undefined,
       validate: (subject: string, answers: Answers) => {
         const processedSubject = getProcessSubject(subject)
         if (processedSubject.length === 0)
@@ -166,7 +173,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
             && subjectLength <= maxSubjectLength
           )
             ? style.gray(`[${tooltip}]`)
-            : isWarning ? style.yellow(`[${tooltip}]`) : style.red(`[${tooltip}]`)
+            : isWarning
+              ? style.yellow(`[${tooltip}]`)
+              : style.red(`[${tooltip}]`)
         subject
           = (
             minSubjectLength !== undefined
@@ -174,7 +183,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
             && subjectLength <= maxSubjectLength
           )
             ? useThemeCode(subject, options.themeColorCode)
-            : isWarning ? useThemeCode(subject, options.themeColorCode) : style.red(subject)
+            : isWarning
+              ? useThemeCode(subject, options.themeColorCode)
+              : style.red(subject)
 
         return `${tooltip}\n` + ` ${subject}`
       },
@@ -186,7 +197,6 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
           + subject.slice(1)
         )
       },
-      completeValue: options.defaultSubject || undefined,
     },
     {
       type: 'complete-input',

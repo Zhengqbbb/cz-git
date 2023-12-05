@@ -18,7 +18,7 @@ export type Config = Omit<Partial<typeof defaultConfig>, 'scopes'> & {
   maxHeaderLength?: number
   maxSubjectLength?: number
   minSubjectLength?: number
-  defaultScope?: string
+  defaultScope?: string | string[]
   defaultSubject?: string
   defaultBody?: string
   defaultFooterPrefix?: string
@@ -161,7 +161,7 @@ export interface CommitMessageOptions {
 
 export interface GenerateAIPromptType {
   type?: string
-  defaultScope?: string
+  defaultScope?: string | string[]
   maxSubjectLength?: number
   upperCaseSubject?: boolean
   diff?: string
@@ -493,11 +493,13 @@ export interface CommitizenGitOptions {
   defaultType?: string
 
   /**
-   * @description: Whether to use display default value in custom scope
+   * @description Whether to use display default value in custom scope
    * @tip pin scope item the top of the scope list (match item value)
+   *
+   * `string[]` for checkbox mode will default-select the options whose values match those within the `scopes` range list.
    * @example: When you want to use default, just keyboard <Enter> it
    */
-  defaultScope?: string
+  defaultScope?: string | string[]
 
   /**
    * @description: default value show subject template prompt

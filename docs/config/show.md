@@ -167,7 +167,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 ## defaultScope
 
 - **description** : pin scope item the top of the scope list (match `scopes` item value) 
-- **type** : `string`
+- **type** : `string` | `string[]` <sup>For checkbox mode. items will automatic checked</sup>
 - **default** : `""`
 - **other** : Initialize the completion template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
 
