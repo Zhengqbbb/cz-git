@@ -53,6 +53,17 @@ inquirer
       type: "search-checkbox",
       name: "testTwo",
       themeColorCode: "38;5;043",
+      separator: "|",
+      message: "Select checkbox test:",
+      source: function (answers, input) {
+        return fuzzyFilter(input, testArr2);
+      }
+    },
+    {
+      type: "search-checkbox",
+      name: "testThree",
+      themeColorCode: "38;5;043",
+      initialCheckedValue: 'test5',
       message: "Select checkbox test:",
       source: function (answers, input) {
         return fuzzyFilter(input, testArr2);
@@ -63,6 +74,7 @@ inquirer
       name: "cz",
       themeColorCode: "38;5;042",
       message: "Select scope:",
+      initialCheckedValue: ['cz-git', 'docs'],
       source: function (answers, input) {
         return fuzzyFilter(input, testArr3);
       }
