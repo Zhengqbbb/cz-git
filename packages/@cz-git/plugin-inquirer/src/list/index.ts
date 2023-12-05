@@ -26,6 +26,7 @@ export class SearchList extends Base {
   private searching = false
   private haveSearched = false
   private themeColorCode?: string
+  private searchKeyword?: string
   private initialValue: any = -1
   private lastSearchInput?: string
   private paginator: Paginator = new Paginator(this.screen, { isInfinite: true })
@@ -34,14 +35,17 @@ export class SearchList extends Base {
 
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
     super(questions, readline, answers)
-    const { source, isInitDefault, themeColorCode } = this
-      .opt as unknown as SearchPromptQuestionOptions
+    const { source, isInitDefault, themeColorCode, searchKeyword } = this.opt as unknown as SearchPromptQuestionOptions
+
     if (!source)
       this.throwParamError('source')
     if (isInitDefault)
       this.initialValue = this.opt.default
     if (themeColorCode)
       this.themeColorCode = themeColorCode
+    if (searchKeyword)
+      this.searchKeyword = searchKeyword
+
     this.renderChoices = new Choices([], {})
   }
 
@@ -60,7 +64,7 @@ export class SearchList extends Base {
     events.line.pipe(takeWhile(dontHaveAnswer)).forEach(this.onSubmit.bind(this))
 
     // Init the prompt
-    this.search(undefined)
+    this.search(this.searchKeyword)
 
     return this
   }
@@ -105,7 +109,7 @@ export class SearchList extends Base {
     }
 
     if (this.firstRender)
-      content += style.dim('Use arrow keys or type to search')
+      content += this.searchKeyword || style.dim('Use arrow keys or type to search')
 
     this.firstRender = false
 

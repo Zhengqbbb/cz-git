@@ -52,6 +52,7 @@ inquirer
       type: "search-list",
       name: "testTwo",
       themeColorCode: "38;5;043",
+      searchKeyword: "9",
       message: "Select checkbox test:",
       source: function (answers, input) {
         return fuzzyFilter(input, testArr2);

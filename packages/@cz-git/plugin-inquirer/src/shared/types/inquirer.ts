@@ -43,7 +43,12 @@ export interface SearchPromptQuestionOptions<T extends Answers = Answers> extend
   themeColorCode?: string
 
   /**
-   * @description default checked item's value array on initial
+   * @description initial search keyword
+   */
+  searchKeyword?: string
+
+  /**
+   * @description default checked item's value array on initial for checkbox
    */
   initialCheckedValue?: string[] | string
 

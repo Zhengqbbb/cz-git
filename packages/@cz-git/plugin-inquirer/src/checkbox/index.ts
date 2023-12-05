@@ -37,8 +37,14 @@ export class SearchCheckbox extends Base {
 
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
     super(questions, readline, answers)
-    const { source, separator, isInitDefault, themeColorCode, initialCheckedValue } = this
-      .opt as unknown as SearchPromptQuestionOptions
+    const {
+      source,
+      separator,
+      isInitDefault,
+      themeColorCode,
+      initialCheckedValue,
+    } = this.opt as unknown as SearchPromptQuestionOptions
+
     if (!source)
       this.throwParamError('source')
     if (typeof separator === 'string')
@@ -49,6 +55,7 @@ export class SearchCheckbox extends Base {
       this.themeColorCode = themeColorCode
     if (initialCheckedValue)
       this.initialCheckedValue = initialCheckedValue
+
     this.renderChoices = new Choices([], {})
   }
 
