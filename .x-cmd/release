@@ -1,30 +1,12 @@
 # shellcheck shell=dash
 (
 
-# Section: Arg
-WORK_DIR="$(x wsroot)"
-DIST_PATH="$WORK_DIR"/docs/.vitepress/dist
-GITHUB_URL="https://${github_access_token}@github.com/Zhengqbbb/cz-git.git"
-BRANCH_NAME=gh-page
-
 # Section: Fuction
 deploy() {
-    param:dsl       '
-type:
-    Type    = cz brew docs all next
-    Realse  = patch minor major prepatch
-options:
-    --cmd        "select target dev command"        <>:Type
-    --version    "select realse version"            <>:Realse
-'
-    param:run
-    deploy_"${cmd}" "$version"
-}
-
-deploy_all() {
-    [ -z "$github_access_token" ] && printf "%s\n" "please provide token" && return 1
-    deploy_cz "$@"
-    deploy_docs "$@"
+    x tui form \
+        _version   "select realse version"   "" = patch minor major prepatch
+    [ -n "$_version" ] || return
+    deploy_cz "$_version"
 }
 
 deploy_cz() {
@@ -47,29 +29,11 @@ deploy_next() {
 }
 
 deploy_brew() {
-    param:dsl       '
-options:
-    --version    "input version (e.g 1.3.9)"            <>:
-'
-    param:run
-    [ -n "$(command -v brew)" ] || return 1
-    cd "$(brew --repository)"   || return 1
+    x tui form \
+        _version   "input version (e.g 1.3.9)"   ""
+    [ -n "$(command -v brew)" ] || return 
+    cd "$(brew --repository)"   || return 
     brew bump-formula-pr --url "https://registry.npmjs.org/czg/-/czg-${version}.tgz" czg 
-}
-
-deploy_docs() {
-    pnpm docs:build
-    [ ! -d "$DIST_PATH" ]   && return 1
-    cd "$DIST_PATH"         || exit
-
-    echo 'cz-git.qbb.sh' > CNAME
-    [ -d "$DIST_PATH/.git" ] && rm -rf "$DIST_PATH/.git"
-    git init \
-        && git remote add origin "$GITHUB_URL" \
-        && git checkout -b $BRANCH_NAME \
-        && git add -A \
-        && git commit -m 'build: :books: deploy docs' \
-        && git push -f "$GITHUB_URL" $BRANCH_NAME
 }
 
 # Section: Main
