@@ -7,6 +7,7 @@
 import { fuzzyFilter, style } from '@cz-git/inquirer'
 import type { CommitizenGitOptions, CommitizenType } from '../shared'
 import {
+  isString,
   log,
   parseStandardScopes,
   resolveListItemPinTop,
@@ -28,7 +29,7 @@ export async function generateAIPrompt(options: CommitizenGitOptions, cz: Commit
     answers.subject = subject
   }
 
-  if (options.defaultScope)
+  if (isString(options.defaultScope) && options.defaultScope)
     answers.scope = options.defaultScope
   return answers
 }

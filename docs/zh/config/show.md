@@ -168,7 +168,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 ## defaultScope
 
 - **描述** : 如果 defaultScope 与 `scopes` 选择范围列表项中的 value 相匹配就会进行星标置顶操作。
-- **类型** : `string`
+- **类型** : `string` | `string[]` <sup>[...] 在多选模式中会默认选中</sup>
 - **默认** : `""`
 - **额外** : 在 **自定义范围** 中是否使用显示默认值 
 

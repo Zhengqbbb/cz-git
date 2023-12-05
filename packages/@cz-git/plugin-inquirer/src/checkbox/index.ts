@@ -27,16 +27,17 @@ export class SearchCheckbox extends Base {
   private searching = false
   private haveSearched = false
   private themeColorCode?: string
+  private initialCheckedValue?: string[] | string
   private initialValue: any = -1
   private lastSearchInput?: string
   private paginator: Paginator = new Paginator(this.screen, { isInfinite: true })
-  private separator = ' ,'
+  private separator = ','
   private answer?: boolean
   private done: any
 
   constructor(questions: Question, readline: ReadlineInterface, answers: Answers) {
     super(questions, readline, answers)
-    const { source, separator, isInitDefault, themeColorCode } = this
+    const { source, separator, isInitDefault, themeColorCode, initialCheckedValue } = this
       .opt as unknown as SearchPromptQuestionOptions
     if (!source)
       this.throwParamError('source')
@@ -46,6 +47,8 @@ export class SearchCheckbox extends Base {
       this.initialValue = this.opt.default
     if (themeColorCode)
       this.themeColorCode = themeColorCode
+    if (initialCheckedValue)
+      this.initialCheckedValue = initialCheckedValue
     this.renderChoices = new Choices([], {})
   }
 
@@ -171,8 +174,21 @@ export class SearchCheckbox extends Base {
 
       const realChoices = choices.filter(choice => isSelectable(choice))
       this.choicesLen = realChoices.length
-      if (this.firstRender)
+
+      if (this.firstRender) {
+        if (this.initialCheckedValue) {
+          const initialCheckedValue = Array.isArray(this.initialCheckedValue)
+            ? this.initialCheckedValue
+            : [this.initialCheckedValue]
+          initialCheckedValue.forEach((value) => {
+            const idx = this.renderChoices.realChoices.findIndex(choice => choice.value === value)
+            if (~idx)
+              this.renderChoices.realChoices[idx].checked = true
+          })
+        }
+
         this.originChoices = JSON.parse(JSON.stringify(this.renderChoices.realChoices))
+      }
 
       const selectedIndex = realChoices.findIndex(
         choice => choice === this.initialValue || choice.value === this.initialValue,
@@ -326,16 +342,13 @@ function choicesRender(choices: ChoicesType['choices'],
       output += ` (${typeof choice.disabled === 'string' ? choice.disabled : 'Disabled'})`
     }
     else {
-      const line
-        = (choice.value === false || choice.value === '___CUSTOM___')
-          ? `${figures.squareSmallFilled} ${choice.name}`
+      const line = (choice.value === false || choice.value === '___CUSTOM___')
+        ? `${figures.squareSmallFilled} ${choice.name}`
+        : `${getCheckbox(choice.checked || false)} ${choice.name}`
 
-          : `${getCheckbox(choice.checked || false)} ${choice.name}`
       if (i - separatorOffset === pointer) {
         themeColorCode
-          ? (output += style.rgb(themeColorCode)(
-              ` ${figures.pointer}${style.rgb(themeColorCode)(line)}`,
-            ))
+          ? (output += style.rgb(themeColorCode)(` ${figures.pointer}${style.rgb(themeColorCode)(line)}`))
           : (output += style.cyan(` ${figures.pointer}${line}`))
       }
       else {

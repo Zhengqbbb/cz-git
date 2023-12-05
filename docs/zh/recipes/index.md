@@ -86,6 +86,10 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/170836009-26331ad3-8e7f-4183-a4af-15372b6420d6.gif) <!-- size=720x263 -->
 
+:::tip
+在多选模式中，如果 `defaultScope` 传入的的 `string[]`, 会将 `scopes` 范围列表项中的 value 相匹配的选项进行默认选中和置顶操作
+:::
+
 ## 输入模式
 
 如果不想使用选择模式，想要使用输入模式 <sup>Input</sup>。可以使用自定义范围的输入框进行代替使用

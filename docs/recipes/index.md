@@ -87,6 +87,10 @@ module.exports = {
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/170836009-26331ad3-8e7f-4183-a4af-15372b6420d6.gif) <!-- size=720x263 -->
 
+:::tip
+In checkbox mode, if `defaultScope` is passed as a `string[]`, it will default-select and pin top the options whose values match those within the `scopes` range list.
+:::
+
 ## Input mode
 
 If you don't want to use selection mode, you want to use input mode.<br>
