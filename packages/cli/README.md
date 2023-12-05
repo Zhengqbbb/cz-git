@@ -72,14 +72,20 @@ WEBSITE:
     https://github.com/Zhengqbbb/cz-git
 
 SYNOPSIS:
-    czg [subcommand...] [options...] [git-commit-options...]
+    czg [flag|options...] [git-commit-options...] [type list item search keywords]
 
-SUBCOMMAND:
-    ai               Turn on OpenAI generate subject mode
-    break            Turn on appends a ! after the type/scope
-    emoji            Turn on output message with emoji mode
-    checkbox         Turn on scope checkbox mode
-    gpg              Turn on use GPG sign commit message
+FLAG:
+    -r, --retry      Directly retry submit by the last message
+    -a, --all        Automatically stage files that have been modified and deleted (Not new files)
+    -b, --break      Turn on appends a ! after the type/scope
+    -E, --emoji      Turn on output message with emoji mode
+    -S, --gpg-sign   Turn on use GPG sign commit message
+    -cb, --checkbox  Turn on scope checkbox mode
+    -ai, --ai        Turn on OpenAI generate subject mode
+    --no-ai          Turn off OpenAI prompt mode in this session
+    --unset-proxy    Unset request API proxy on local configure
+    -h, --help       Show help
+    -v, --version    Show version
 
 OPTIONS:
     :, --alias=      Directly submit the defined commit message
@@ -90,21 +96,16 @@ OPTIONS:
     --api-key=       Setup request OpenAI API secret key to local (.config/.czrc)
     --api-proxy=     Setup request OpenAI API proxy      to local (.config/.czrc)
     --api-endpoint=  Setup request OpenAI API endpoint   to local (.config/.czrc)
-
-FLAG:
-    -r, --retry      Directly retry submit by the last message
-    --no-ai          Turn off AI prompt mode in this session
-    --unset-proxy    Unset request API proxy on local configure
-    -h, --help       Show help
-    -v, --version    Show version
+                     [default: "https://api.openai.com/v1"]
 
 EXAMPLES:
     czg
-    czg emoji
+    czg ch | czg ix
+    czg -a -E
     czg :fd
     czg --config="./config/cz.json"
     czg --api-key="sk-XXXXX"
-    czg ai -N=3
+    czg -ai -N=3
 
 Extends 'git commit' options.
 See 'git commit --help' for more information.

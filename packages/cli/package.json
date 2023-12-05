@@ -1,7 +1,7 @@
 {
   "name": "czg",
   "version": "1.7.1",
-  "description": "Interactive Commitizen CLI that generate standardized git commit message",
+  "description": "Interactive Commitizen (git commit) CLI that generate standardized git commit message",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "license": "MIT",
   "homepage": "https://cz-git.qbb.sh/cli/",
@@ -14,10 +14,11 @@
     "url": "https://github.com/Zhengqbbb/cz-git/issues"
   },
   "keywords": [
-    "openai",
+    "git commit",
     "commit",
     "commit CLI",
     "commit message",
+    "openai",
     "commitizen",
     "commitizen-cli",
     "cli",

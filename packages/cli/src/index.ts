@@ -24,7 +24,7 @@ export function bootsrap(environment: any = {}, argv = process.argv) {
   const czgitVersion = require('../package.json').version
   const parsedArgs = resovleArgs(commandArgs)
 
-  if (!parsedArgs.czgitArgs.subCommand && !parsedArgs.czgitArgs.flag) {
+  if (!parsedArgs.czgitArgs.flag) {
     czg(czgitVersion, parsedArgs, environment)
     return
   }
@@ -49,14 +49,6 @@ export function bootsrap(environment: any = {}, argv = process.argv) {
     }
     else if (openAIAPIKey || openAIToken || apiProxy || unsetProxy || apiEndpoint) {
       setupAIConfig(openAIAPIKey || openAIToken, apiProxy, unsetProxy, apiEndpoint)
-      process.exit(0)
-    }
-  }
-  else if (parsedArgs.czgitArgs.subCommand) {
-    const { init: initMode } = parsedArgs.czgitArgs.subCommand
-    if (initMode) {
-      // TODO: init
-      console.log('TODO: init')
       process.exit(0)
     }
   }

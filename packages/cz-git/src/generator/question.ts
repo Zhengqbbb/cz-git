@@ -33,6 +33,7 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       name: 'type',
       message: options.messages?.type,
       themeColorCode: options?.themeColorCode,
+      searchKeyword: process.env.cz_types_search_keyword || '',
       source: (_: unknown, input: string) => {
         const typeSource = resolveListItemPinTop(
           options.types?.concat(options.typesAppend || []) || [],

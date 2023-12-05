@@ -78,20 +78,22 @@ More information about configure file and options. See → [Config](/config/)
 
 ```ansi
 [90m$[0m [32mczg[0m --help
-[33mWEBSITE:[0m
-    [4mhttps://cz-git.qbb.sh/cli/[0m
-    [4mhttps://github.com/Zhengqbbb/cz-git[0m
-
 [33mSYNOPSIS:[0m
-    czg [subcommand...] [options...] [git-commit-options...]
+    czg [flag|options...] [git-commit-options...] [type list item search keywords]
 
-[33mSUBCOMMAND:[0m
-    [36mai[0m               [31mTurn on OpenAI generate subject mode[0m
-    [36mbreak[0m            [31mTurn on appends a ! after the type/scope[0m
-    [36memoji[0m            [31mTurn on output message with emoji mode[0m
-    [36mcheckbox[0m         [31mTurn on scope checkbox mode[0m
-    [36mgpg[0m              [31mTurn on use GPG sign commit message[0m
-    
+[33mFLAG:[0m
+    [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
+    [36m-a, --all[0m        [31mAutomatically stage files that have been modified and deleted (Not new files)[0m
+    [36m-b, --break[0m      [31mTurn on appends a ! after the type/scope[0m
+    [36m-E, --emoji[0m      [31mTurn on output message with emoji mode[0m
+    [36m-S, --gpg-sign[0m   [31mTurn on use GPG sign commit message[0m
+    [36m-cb, --checkbox[0m  [31mTurn on scope checkbox mode[0m
+    [36m-ai, --ai[0m        [31mTurn on OpenAI generate subject mode[0m
+    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
+    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
+    [36m-h, --help[0m       [31mShow help[0m
+    [36m-v, --version[0m    [31mShow version[0m
+
 [33mOPTIONS:[0m
     [36m:, --alias=[0m      [31mDirectly submit the defined commit message[0m
     [36m--config=[0m        [31mSpecify the configuration file to use[0m
@@ -103,20 +105,14 @@ More information about configure file and options. See → [Config](/config/)
     [36m--api-endpoint=[0m  [31mSetup request OpenAI API endpoint   to local (.config/.czrc)[0m
                      [90m[default: "https://api.openai.com/v1"][0m
 
-[33mFLAG:[0m
-    [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
-    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
-    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
-    [36m-h, --help[0m       [31mShow help[0m
-    [36m-v, --version[0m    [31mShow version[0m
-
 [33mEXAMPLES:[0m
     [36mczg[0m
-    [36mczg emoji[0m
+    [36mczg ch[0m | [36mczg ix[0m
+    [36mczg -a -E[0m
     [36mczg :fd[0m
     [36mczg --config="./config/cz.json"[0m
     [36mczg --api-key="sk-XXXXX"[0m
-    [36mczg ai -N=3[0m
+    [36mczg -ai -N=3[0m
 
 Extends 'git commit' options. 
 See 'git commit --help' for more information. 

@@ -9,32 +9,33 @@ describe('resovleArgs', () => {
     expect(resovleArgs([])).toEqual({
       czgitArgs: {
         flag: null,
-        subCommand: null,
+        keyword: '',
       },
       gitArgs: [],
     })
   })
 
   test('resovle subcmd shoule be right', () => {
-    expect(resovleArgs(['init'])).toEqual({
+    expect(resovleArgs(['-cb'])).toEqual({
       czgitArgs: {
-        flag: null,
-        subCommand: {
-          init: true,
+        flag: {
+          checkbox: true,
         },
+        keyword: '',
       },
       gitArgs: [],
     })
 
-    expect(resovleArgs(['checkbox', 'emoji', 'hello'])).toEqual({
+    expect(resovleArgs(['--checkbox', '-E', '-b', 'ix'])).toEqual({
       czgitArgs: {
-        flag: null,
-        subCommand: {
+        flag: {
           checkbox: true,
           emoji: true,
+          break: true,
         },
+        keyword: 'ix',
       },
-      gitArgs: ['hello'],
+      gitArgs: [],
     })
   })
 
@@ -44,7 +45,7 @@ describe('resovleArgs', () => {
         flag: {
           retry: true,
         },
-        subCommand: null,
+        keyword: '',
       },
       gitArgs: [],
     })
@@ -54,7 +55,7 @@ describe('resovleArgs', () => {
         flag: {
           retry: true,
         },
-        subCommand: null,
+        keyword: '',
       },
       gitArgs: [],
     })
@@ -65,45 +66,31 @@ describe('resovleArgs', () => {
           config: './config.js',
           retry: true,
         },
-        subCommand: null,
+        keyword: '',
       },
       gitArgs: [],
     })
   })
 
   test('both resovle subcmd and flag should be right', () => {
-    expect(resovleArgs(['init', '--yes', '-y'])).toEqual({
-      czgitArgs: {
-        flag: {
-          yes: true,
-        },
-        subCommand: {
-          init: true,
-        },
-      },
-      gitArgs: [],
-    })
-
-    expect(resovleArgs(['emoji', '-r'])).toEqual({
+    expect(resovleArgs(['--emoji', '-r'])).toEqual({
       czgitArgs: {
         flag: {
           retry: true,
-        },
-        subCommand: {
           emoji: true,
         },
+        keyword: '',
       },
       gitArgs: [],
     })
 
-    expect(resovleArgs(['--config=./config.js', 'break'])).toEqual({
+    expect(resovleArgs(['--config=./config.js', '--break'])).toEqual({
       czgitArgs: {
         flag: {
           config: './config.js',
-        },
-        subCommand: {
           break: true,
         },
+        keyword: '',
       },
       gitArgs: [],
     })
@@ -114,7 +101,7 @@ describe('resovleArgs', () => {
           config: './config.js',
           alias: 'ff',
         },
-        subCommand: null,
+        keyword: '',
       },
       gitArgs: ['-a'],
     })
@@ -125,22 +112,52 @@ describe('resovleArgs', () => {
           config: './config.js',
           alias: 'dd',
         },
-        subCommand: null,
+        keyword: '',
       },
       gitArgs: ['-a'],
     })
 
-    expect(resovleArgs(['--config=./config.js', 'break', 'emoji', '-a', '--hello'])).toEqual({
+    expect(resovleArgs(['--config=./config.js', '--break', '--emoji', '-a', '--hello'])).toEqual({
+      czgitArgs: {
+        flag: {
+          break: true,
+          config: './config.js',
+          emoji: true,
+        },
+        keyword: '',
+      },
+      gitArgs: ['-a', '--hello'],
+    })
+
+    expect(resovleArgs(['--config=./config.js', '--emoji', 'ch', '-a'])).toEqual({
       czgitArgs: {
         flag: {
           config: './config.js',
-        },
-        subCommand: {
-          break: true,
           emoji: true,
         },
+        keyword: 'ch',
       },
-      gitArgs: ['-a', '--hello'],
+      gitArgs: ['-a'],
+    })
+
+    expect(resovleArgs(['--emoji', '--template', './a.txt', 'ch'])).toEqual({
+      czgitArgs: {
+        flag: {
+          emoji: true,
+        },
+        keyword: 'ch',
+      },
+      gitArgs: ['--template', './a.txt'],
+    })
+
+    expect(resovleArgs(['-a', ':a'])).toEqual({
+      czgitArgs: {
+        flag: {
+          alias: 'a',
+        },
+        keyword: '',
+      },
+      gitArgs: ['-a'],
     })
   })
 })

@@ -25,7 +25,7 @@ export async function generateAIPrompt(options: CommitizenGitOptions, cz: Commit
     answers.subject = subjects[0]
   }
   else {
-    const { subject } = await cz.prompt(generateAISubjectsQuestions(options, subjects))
+    const { subject } = await cz.prompt(generateAISubjectsQuestions(options, subjects) as any)
     answers.subject = subject
   }
 
@@ -46,6 +46,7 @@ function generateAITypesQuestions(options: CommitizenGitOptions) {
       name: 'type',
       message: options.messages?.type,
       themeColorCode: options?.themeColorCode,
+      searchKeyword: process.env.cz_types_search_keyword || '',
       source: (_: unknown, input: string) => {
         const typeSource = resolveListItemPinTop(
           options.types?.concat(options.typesAppend || []) || [],

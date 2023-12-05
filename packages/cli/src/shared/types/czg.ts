@@ -14,14 +14,31 @@ export type CzgitFlagList =
   | 'api-proxy'
   | 'unset-proxy'
   | 'ai'
+  | 'break'
+  | 'emoji'
+  | 'checkbox'
 
 export interface CzgitCommonFlag {
   /** option: --version|-v */
   version?: boolean
   /** option: --help|-h */
   help?: boolean
-  /** option: --no-ai */
+  /** option: --ai|-ai --no-ai */
   ai?: boolean
+  /** option: -b|--break */
+  break?: boolean
+  /** option: -cb|--checkbox */
+  checkbox?: boolean
+  /** option: -E|--emoji */
+  emoji?: boolean
+  /** option: --retry|-r */
+  retry?: boolean
+  /** TODO: option: --reback */
+  reback?: boolean
+  /** option: --hook, provide husky */
+  hook?: boolean
+  /** option: --unset-proxy */
+  'unset-proxy'?: boolean
 }
 
 export interface CzgitFlag {
@@ -39,35 +56,13 @@ export interface CzgitFlag {
   'api-proxy'?: string
   /** option: --api-endpoint="xxx" */
   'api-endpoint'?: string
-  /** option: --unset-proxy */
-  'unset-proxy'?: boolean
-  /** option: --reback|-b */
-  reback?: boolean
-  /** option: --retry|-r */
-  retry?: boolean
-  /** option: --hook, provide husky */
-  hook?: boolean
 }
 
-export interface InitFlag {
+export interface InitFlag { // TODO:
   /** option: --yes|-y */
   yes?: boolean
-}
-
-export type CzgitSubCommandList = 'init' | 'emoji' | 'ai' | 'checkbox' | 'break' | 'gpg'
-export interface CzgitSubCommand {
-  /** option: init */
+  /** option: --init */
   init?: boolean
-  /** subcmd: emoji */
-  ai?: boolean
-  /** subcmd: emoji */
-  emoji?: boolean
-  /** subcmd: checkbox */
-  checkbox?: boolean
-  /** subcmd: break */
-  break?: boolean
-  /** subcmd: gpg */
-  gpg?: boolean
 }
 
 /**
@@ -76,7 +71,7 @@ export interface CzgitSubCommand {
 export interface CzgitParseArgs {
   czgitArgs: {
     flag: (CzgitCommonFlag & CzgitFlag & InitFlag) | null
-    subCommand: CzgitSubCommand | null
+    keyword: string
   }
   gitArgs: string[]
 }
