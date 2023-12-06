@@ -287,7 +287,17 @@
           "description": ": pin type item the top of the types list (match item value)"
         },
         "defaultScope": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
           "description": ": Whether to use display default value in custom scope"
         },
         "defaultSubject": {

@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/Zhengqbbb/cz-git/compare/v1.7.1...v1.8.0) (2023-12-06)
+
+
+### Features
+
+* **cz-git,cli:** `defaultScope` support `string[]` to default-select for checkbox mode ([#148](https://github.com/Zhengqbbb/cz-git/issues/148)) ([a02b7d1](https://github.com/Zhengqbbb/cz-git/commit/a02b7d1d1d0c1d48fa7044679afd7c32b8837849)), closes [#140](https://github.com/Zhengqbbb/cz-git/issues/140)
+
+
+
 ## [1.7.1](https://github.com/Zhengqbbb/cz-git/compare/v1.7.0...v1.7.1) (2023-08-08)
 
 
