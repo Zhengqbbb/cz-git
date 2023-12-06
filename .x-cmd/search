@@ -9,21 +9,16 @@ DOC_SEARCH_CONFIG_FILE=$WORK_DIR/docs/.vitepress/build/docSearchConfig.json
 
 # Section: Fuction
 search() {
-    param:dsl       '
-type:
-    Type = only_console all google baidu bing docsearch
-options:
-    --cmd    "select target search command"        <>:Type
-'
-    param:run
-    search_"${cmd}"
+    local _command=""
+    x tui form --ctrl_exit_strategy \
+        _command   "select target search command"   "only_console" = only_console all google baidu bing docsearch
+    [ -n "$_command" ] || return 1
+    search_"${_command}"
 }
 
 log() {
     printf "\n\033[1;32m%s \033[1;33m%s \033[1;32m%s\033[0m\n" \
-    "»»»" \
-    "$1" \
-    "«««"
+        "»»»" "$1" "«««"
 }
 
 search_all() {
