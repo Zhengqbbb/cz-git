@@ -89,7 +89,7 @@ export async function clLoader(cwd?: string): Promise<CommitlintOptions> {
 
   // resolve extends
   const base = (data && data.filepath) ? path.dirname(data.filepath) : process.cwd()
-  const extended = resolveExtends(data.config, {
+  const extended = await resolveExtends(data.config, {
     prefix: 'commitlint-config',
     cwd: base,
   })
