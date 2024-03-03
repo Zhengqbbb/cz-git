@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.38.6",
-    "@commitlint/cli": "^17.4.4",
-    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
     "@cz-git/inquirer": "workspace:*",
     "@types/fs-extra": "^11.0.2",
     "@types/inquirer": "8.2.3",
@@ -80,7 +80,8 @@
       "chalk": "4.1.2",
       "color-convert": "2.0.1",
       "resolve-from": "5.0.0",
-      "supports-color": "8.1.1"
+      "supports-color": "8.1.1",
+      "@commitlint/config-validator": "npm:@qbbsh/config-validator@19.0.3"
     },
     "peerDependencyRules": {
       "ignoreMissing": [

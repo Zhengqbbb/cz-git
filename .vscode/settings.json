@@ -27,7 +27,7 @@
   "unocss.root": "docs",
   "prettier.enable": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "picgo.picBed.github.path": "cz/",
   "editor.formatOnSave": false,
