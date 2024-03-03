@@ -11,15 +11,15 @@ sitemap:
 ## Error: require() of ES Module ... not supported
 
 1. If you are an ESM project (i.e., `"type": "module"` in package.json),
-    - You can try changing the [configuration name](/zh/config/) from `.js` to `.cjs`.
+    - You can try changing the [configuration name](/config/) from `.js` to `.cjs`.
 2. If you are using commitlint version (> 18),
     - For example, configuring `extends: ['@commitlint/config-conventional']`,
     - Please upgrade cz-git or czg to the latest version.
 
 ## Can I customize the message format ?
 
-1. The configuration contains most of the message format fine-tuning requirements, such as changing the emoji position with [emojiAlign](/zh/config/show#emojialign).
-2. [formatMessageCB](/zh/config/engineer#formatmessagecb): It is the final format callback function. You can configure it to achieve the message format you need.
+1. The configuration contains most of the message format fine-tuning requirements, such as changing the emoji position with [emojiAlign](/config/show#emojialign).
+2. [formatMessageCB](/config/engineer#formatmessagecb): It is the final format callback function. You can configure it to achieve the message format you need.
 
 ## Configure load not as expected
 
