@@ -24,6 +24,7 @@ brew install czg
 
 ```sh
 # https://x-cmd.com/pkg/czg
+# Adapt `x-cmd theme` colorizen & command native completion
 x env use czg
 ```
 

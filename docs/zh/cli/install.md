@@ -24,6 +24,7 @@ brew install czg
 
 ```sh
 # https://cn.x-cmd.com/pkg/czg
+# 适配 x-cmd theme 主题色 & 命令原生补全
 x env use czg
 ```
 
