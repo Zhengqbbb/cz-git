@@ -7,25 +7,21 @@ sitemap:
 ---
 # 常见问题
 
-## Windows 用户使用
+## Error: require() of ES Module ... not supported
 
-- Windows用户建议不要使用 powershell, cmd 进行命令行的使用
-- 因为他们不是基于 POSIX SHELL 规范，即不是标准终端环境
-- 建议也不要使用 git-bash，因为该终端并不是交互型终端，上下选择以及交互体验上会受到很大的使用体验
-- **建议使用 Windows Terminal 结合 WSL ，你在日常的开发和使用中也应该如此**
+1. 如果你是 ESM 项目 (即 package.json 中有 `"type": "module"`)
+    - 可以尝试更改 [配置名](/zh/config/) `.js` => `.cjs`
+2. 如果你使用了 commitlint 版本(> 18)
+    - 例如配置 `extends: ['@commitlint/config-conventional']`
+    - 请升级 cz-git 或 czg 到最新版本
 
-## 全局安装后无法找到命令
+## 可以自定义消息格式吗
 
-- 输入命令 `npm prefix -g` 查看当中npm全局下载的路径是否为根目录下
-- 大概率是因为使用 nvm 更改了 npm 的全局下载路径前缀
-- 可以打开.zshrc 或者 .bashrc 将加载 nvm 部分先注释掉，重新开启终端检查
-
-## 终端无法显示Emoji符号
-
-- 终端无法Emoji符号，大概率是因为你的终端对于 emoji/unicode 字符支持较差，但是不影响提交
-  因为最终输出提交的是 Emoji Code，可以考虑更换终端与[字体](https://github.com/ryanoasis/nerd-fonts)
+1. 配置总含有大部分消息格式的微调需求，例如 [emojiAlign](/zh/config/show#emojialign) 更换 emoji 位置
+2. [formatMessageCB](/zh/config/engineer#formatmessagecb): 是最终格式回调函数，你可以配置它来达到你需求的消息格式
 
 ## 配置加载不符合预期
+
 可以运行命令查看配置加载的路径
 
 ```sh
@@ -34,6 +30,15 @@ CZ_DEBUG=1 cz
 # czg cli
 CZ_DEBUG=1 czg
 ```
+
+## 全局安装后无法找到命令
+
+- 输入命令 `npm prefix -g` 查看当中 npm 全局下载的 bin 文件夹路径是否添加到系统环境变量 `$PATH`
+- 大概率是因为使用 nvm 更改了 npm 的全局下载路径前缀，但系统环境变量没有记录
+
+## 终端无法显示 Emoji 符号
+
+- 终端无法显示 Emoji 符号，大概率是因为你的终端对于 emoji/unicode 字符支持较差，但是不影响提交，因为最终输出提交的是 Emoji Code，可以考虑更换终端以及终端设置使用的[字体](https://github.com/ryanoasis/nerd-fonts)
 
 ## `cz-git` 和 `czg` 有什么不同
 
