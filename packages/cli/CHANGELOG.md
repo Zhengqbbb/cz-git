@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/Zhengqbbb/cz-git/compare/v1.8.0...v1.9.0) (2024-03-03)
+
+
+### Bug Fixes
+
+* **loader:** support commitlint v19 `esm` plugin extends config ([#161](https://github.com/Zhengqbbb/cz-git/issues/161)) ([e410465](https://github.com/Zhengqbbb/cz-git/commit/e41046597391df673747777cfa0c6f73a7880daf)), closes [#160](https://github.com/Zhengqbbb/cz-git/issues/160)
+
+
+
 # [1.8.0](https://github.com/Zhengqbbb/cz-git/compare/v1.7.1...v1.8.0) (2023-12-06)
 
 
