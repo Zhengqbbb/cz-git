@@ -20,6 +20,14 @@ brew install czg
 ```
 
 :::
+::: code-group-item X-CMD
+
+```sh
+# https://x-cmd.com/pkg/czg
+x env use czg
+```
+
+:::
 ::::
 
 ```sh
