@@ -8,7 +8,8 @@ cz-git 一直以来都是作为 [Commitizen CLI](https://github.com/commitizen/c
 
 但现在我更需要他是一款零依赖项，下载速度更快，启动速度更快，简单且方便的 CLI，以至于无需任何的前置条件就可以快速启动 CLI。
 
-所以我完成了 `czg` CLI。你可以理解为他是 **Commitizen CLI 的替代方案** (`commitizen` CLI + `cz-git`)
+所以我完成了 `czg` CLI。你可以理解为他是 **Commitizen CLI 的替代方案** \
+= (`Commitizen` CLI + `cz-git`)
 
 ## 与 Commitizen CLI 相比有什么不同
 
@@ -30,7 +31,7 @@ $ du -sh ./node_modules/*
 ```
 
 ## 与 cz-git 相比有什么不同
-cz-git 是 **commitizen 的适配器**。而 czg 具有 cz-git 相同的行为和配置加载。如果你的团队中有人使用 Commitizen CLI，两者可以混用，毕竟两者都非常小并且无需下载其他依赖项。
+cz-git 是 **Commitizen 的适配器**。而 czg 具有 cz-git 相同的行为和配置加载。如果你的团队中有人使用 Commitizen CLI，两者可以混用，毕竟两者都非常小并且无需下载其他依赖项。
 
-- 如果你使用 `cz` 或 `git cz` 命令将会启动 `commitizen` CLI ==+== `cz-git` 适配器
+- 如果你使用 `cz` 或 `git cz` 命令将会启动 `Commitizen` CLI ==+== `cz-git` 适配器
 - 如果你使用 `czg` 或 `git czg` 命令只会启动 `czg` CLI
