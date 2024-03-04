@@ -66,7 +66,7 @@ Support OpenAI, and more engineered, lightweight, customizable, standard output 
 - 🔨 [Better for monorepo engineering](https://cz-git.qbb.sh/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
 - ✅ Support commit with **emoji** ｜ Better linking with [issuePrefix](https://cz-git.qbb.sh/recipes/default-issues.html) **for issue**
 
-[⇒ Why cz-git](https://cz-git.qbb.sh/cli/why.html)
+[⇒ Why cz-git](https://cz-git.qbb.sh/guide/why.html)
 
 ```bash
 $ npm i -D cz-git
@@ -74,7 +74,7 @@ $ npm i -D cz-git
 added 1 package in 0.582s
 ```
 
-[⇒ Why czg](https://cz-git.qbb.sh/guide/why.html)
+[⇒ Why czg](https://cz-git.qbb.sh/cli/why.html)
 ```bash
 $ npm i -g czg
 + czg             (1.5 MB)
