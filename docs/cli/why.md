@@ -8,7 +8,7 @@ cz-git has always used [Commitizen CLI](https://github.com/commitizen/cz-cli) as
 
 But recently I want a CLI which is zero dependency, faster to download, faster to start, simple and convenient, that I can use it in any project without any additional configuration items, fast starts the CLI.
 
-So i finished `czg` CLI. You can understand it as **commitizen CLI alternative** (`commitizen` CLI + `cz-git`)
+So i finished `czg` CLI. You can understand it as **Commitizen CLI alternative** (`Commitizen` CLI + `cz-git`)
 
 ## What is different from Commitizen CLI
 

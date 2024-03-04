@@ -34,7 +34,7 @@ module.exports = {
 Demo:
 ![demo-gif](https://user-images.githubusercontent.com/40693636/175775159-710b69c6-ab55-4957-9195-6f963d95ba2e.gif) <!-- size=720x263 -->
 
-## Use commitizen CLI + cz-git
+## Use Commitizen CLI + cz-git
 Try running command:
 ```sh
 break=1 cz

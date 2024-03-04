@@ -34,7 +34,7 @@ module.exports = {
 示例:
 ![demo-gif](https://user-images.githubusercontent.com/40693636/175775159-710b69c6-ab55-4957-9195-6f963d95ba2e.gif) <!-- size=720x263 -->
 
-## 使用 commitizen CLI + cz-git
+## 使用 Commitizen CLI + cz-git
 可以尝试运行命令自动添加标识:
 ```sh
 break=1 cz

@@ -8,7 +8,7 @@ cz-git 一直以来都是作为 [Commitizen CLI](https://github.com/commitizen/c
 
 但现在我更需要他是一款零依赖项，下载速度更快，启动速度更快，简单且方便的 CLI，以至于无需任何的前置条件就可以快速启动 CLI。
 
-所以我完成了 `czg` CLI。你可以理解为他是 **commitizen CLI 的替代方案** (`commitizen` CLI + `cz-git`)
+所以我完成了 `czg` CLI。你可以理解为他是 **Commitizen CLI 的替代方案** (`commitizen` CLI + `cz-git`)
 
 ## 与 Commitizen CLI 相比有什么不同
 
