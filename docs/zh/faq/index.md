@@ -31,6 +31,24 @@ CZ_DEBUG=1 cz
 CZ_DEBUG=1 czg
 ```
 
+## githooks 模式下打开了像 `vim` 的编辑器
+
+> 在使用 `prepare-commit-msg` hook 中会在消息合并后使用 editor [=> githooks 命令手册](https://git-scm.com/docs/githooks#_prepare_commit_msg)
+
+1. 将 editor 从默认 `vi` 改为 `cat`
+    ```sh
+    git config --local core.editor cat
+    ```
+2. 添加 packages scripts 初始化脚本 `prepare` or pnpm's `postinstall`, 帮助其他贡献者进行初始化
+    ```diff
+    {
+      "scripts": {
+    -    "prepare": "husky install"
+    +    "prepare": "husky install && git config --local core.editor cat"
+      }
+    }
+    ```
+
 ## 全局安装后无法找到命令
 
 - 输入命令 `npm prefix -g` 查看当中 npm 全局下载的 bin 文件夹路径是否添加到系统环境变量 `$PATH`

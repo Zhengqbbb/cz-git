@@ -106,17 +106,21 @@ bunx czg
 
 :::warning
 不推荐这样使用
-- 因为这样会**改变 git commit 命令原有的行为**，失去快速提交的方式    
-  像 `git commit -m "chore: ..."`
-- 并且在最后会开启 `vi` 编辑器进行确定，失去使用命令行工具的便利性
-:::
 
+因为这样会**改变 git commit 命令原有的行为**，失去快速提交的方式 \
+像 `git commit -m "chore: ..."` \
 但话虽如此，czg 依然支持，因为它可以约束限制你团队的提交行为
 
+:::
+
 示例: husky(.husky/prepare-commit-msg)
+
 ```sh
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 exec < /dev/tty && npx czg --hook || true
 ```
+
+==在提交完消息后出现像 vim 的编辑器 ？== [=> 查看 FAQ 解决方案](/zh/faq/#githooks-%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%89%93%E5%BC%80%E4%BA%86%E5%83%8F-vim-%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8)
+

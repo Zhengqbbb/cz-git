@@ -103,11 +103,13 @@ bunx czg
 ## As git hooks use
 
 :::warning
-This is not recommended
-- Because it will **change the original behavior of git commit**, so that will lose fast commit methods such as `git commit -m "xxx"`
-- And it will eventually open `vi` so that will lose the convenience of using the CLI
+Not recommended usage
+
+This will **alter the original behavior of the git commit command**, losing the ability for quick commits \
+like `git commit -m "chore: ..."` \
+However, czg still supports it because **it can enforce and restrict your team's commit behavior**
 :::
-Be that as it may czg still support, because it will constrain your team
+
 
 e.g: husky(.husky/prepare-commit-msg)
 ```sh
@@ -116,3 +118,6 @@ e.g: husky(.husky/prepare-commit-msg)
 
 exec < /dev/tty && npx czg --hook || true
 ```
+
+==Opening a like vim editor after submitting the message ?== [==> See FAQ for solution](/faq/#opening-a-like-vim-editor-in-git-hooks-mode)
+

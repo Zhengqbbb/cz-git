@@ -32,6 +32,25 @@ CZ_DEBUG=1 cz
 CZ_DEBUG=1 czg
 ```
 
+## Opening a like `vim` editor in git hooks mode
+
+> The `prepare-commit-msg` githook opens an editor after the commit message has been prepared [=> githooks man](https://git-scm.com/docs/githooks#_prepare_commit_msg)
+
+1. Changing the default editor from `vi` to `cat`
+    ```sh
+    git config --local core.editor cat
+    ```
+2. Adding package scripts initialization script `prepare` or pnpm's `postinstall` to assist other contributors with initialization
+    ```diff
+    {
+      "scripts": {
+    -    "prepare": "husky install"
+    +    "prepare": "husky install && git config --local core.editor cat"
+      }
+    }
+    ```
+
+
 ## Cannot find the command after global install
 
 - Enter the command `npm prefix -g` to check whether the bin folder path of npm's global download is added to the system environment variable `$PATH`.
