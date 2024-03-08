@@ -33,6 +33,7 @@ export function generateOptions(config: UserConfig): CommitizenGitOptions {
     aiNumber: parseInt(cz_ainum || '0', 10) || promptConfig.aiNumber || defaultConfig.aiNumber,
     aiDiffIgnore: promptConfig.aiDiffIgnore ?? promptConfig.aiDiffIgnore,
     aiType: promptConfig.aiType ?? defaultConfig.aiType,
+    aiModel: promptConfig.aiModel ?? defaultConfig.aiModel,
     aiQuestionCB: promptConfig.aiQuestionCB ?? defaultConfig.aiQuestionCB,
     openAIToken: process.env.CZ_OPENAI_TOKEN || process.env.CZ_OPENAI_API_KEY || promptConfig.openAIToken || defaultConfig.openAIToken,
     apiProxy: promptConfig.apiProxy || defaultConfig.apiProxy,

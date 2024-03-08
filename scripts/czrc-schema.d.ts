@@ -72,15 +72,24 @@ export interface CommitizenGitOptions {
   aiDiffIgnore?: string[]
 
   /**
-   * choose your AI model: gpt-3.5-turbo | text-davinci-003
+   * Choose your Open AI model: gpt-3.5-turbo | text-davinci-003
    * 
    * gpt-3.5-turbo: Lower price consumption (10x) and faster
    * 
-   * text-davinci-003: Get more reliable information
+   * text-davinci-003: Gets more reliable information
    * 
    * @default "openAI-Turbo"
    */
   aiType?: 'openAI-Turbo' | 'openAI-Davinci'
+
+  /**
+   * Choose any Open AI model: gpt-4 | gpt-4-1106-preview | etc
+   * 
+   * Note that this should a Chat model, not a Completion model like `gpt-3.5-turbo-instruct`. See https://platform.openai.com/docs/models/model-endpoint-compatibility
+   * 
+   * @default "gpt-3.5-turbo"
+   */
+  aiModel?: 'gpt-3.5-turbo' | string
 
   /**
    * @description: Alert!!! Save on "$HOME/.czrc" or "$HOME/.config/.czrc". Do not save on project

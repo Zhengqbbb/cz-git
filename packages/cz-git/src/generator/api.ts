@@ -63,19 +63,22 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
 
 // https://platform.openai.com/docs/api-reference/chat/create
 function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
+  const modelOptions = {
+    temperature: 0.7,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    max_tokens: 200,
+    stream: false,
+    n: options.aiNumber ?? 1,
+  }
   switch (options.aiType) {
     case 'openAI-Davinci':
       return {
         payload: {
           model: 'text-davinci-003',
           prompt,
-          temperature: 0.7,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0,
-          max_tokens: 200,
-          stream: false,
-          n: options.aiNumber || 1,
+          ...modelOptions,
         },
         url: `${options.apiEndpoint}/completions`,
         parseFn: (res: any) => res?.text,
@@ -84,15 +87,9 @@ function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
     default:
       return {
         payload: {
-          model: 'gpt-3.5-turbo',
+          model: options.aiModel || 'gpt-3.5-turbo',
           messages: [{ role: 'user', content: prompt }],
-          temperature: 0.7,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0,
-          max_tokens: 200,
-          stream: false,
-          n: options.aiNumber || 1,
+          ...modelOptions,
         },
         url: `${options.apiEndpoint}/chat/completions`,
         parseFn: (res: any) => res?.message?.content,
