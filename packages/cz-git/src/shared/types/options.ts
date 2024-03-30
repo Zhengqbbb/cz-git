@@ -82,11 +82,11 @@ export interface Answers {
   /**
    * @default 'Generating your AI commit subject...'
    */
-  generatingByAI: string
+  generatingByAI?: string
   /**
    * @default 'Select suitable subject by AI generated:'
    */
-  generatedSelectByAI: string
+  generatedSelectByAI?: string
   footerPrefix?: string
 }
 

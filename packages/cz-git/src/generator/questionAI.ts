@@ -16,7 +16,7 @@ import { generateAISubjects } from './message'
 
 export async function generateAIPrompt(options: CommitizenGitOptions, cz: CommitizenType) {
   const answers = await cz.prompt(generateAITypesQuestions(options))
-  console.log(style.green('ℹ'), style.bold(options.messages!.generatingByAI))
+  console.log(style.green('ℹ'), style.bold(options.messages!.generatingByAI!))
   const subjects = await generateAISubjects(answers, options)
   if (!Array.isArray(subjects))
     throw new Error('subjects fetch value failed')
