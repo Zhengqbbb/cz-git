@@ -1,3 +1,12 @@
+## [1.9.1](https://github.com/Zhengqbbb/cz-git/compare/v1.9.0...v1.9.1) (2024-03-30)
+
+
+### Bug Fixes
+
+* make ai fields to be optional ([#164](https://github.com/Zhengqbbb/cz-git/issues/164)) ([5c007ce](https://github.com/Zhengqbbb/cz-git/commit/5c007ce44f277ac97c8d75330fad7e0e1edb4183))
+
+
+
 # [1.9.0](https://github.com/Zhengqbbb/cz-git/compare/v1.8.0...v1.9.0) (2024-03-03)
 
 
