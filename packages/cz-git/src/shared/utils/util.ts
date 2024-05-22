@@ -180,7 +180,7 @@ function getEmojiStrLength(options: CommitizenGitOptions, type?: string): number
  * @description: get max subject length
  */
 export function getMaxSubjectLength(type: Answers['type'],
-  scope: Answers['scope'],
+  scope: Answers['scope'] | Answers['customScope'],
   options: CommitizenGitOptions) {
   let optionMaxLength = Infinity
   if (Array.isArray(scope))

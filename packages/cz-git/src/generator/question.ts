@@ -130,7 +130,8 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
           return false
         }
         const _answerType = resolveDefaultType(options, answers)
-        const maxSubjectLength = getMaxSubjectLength(_answerType, answers.scope, options)
+        const scope = answers.scope === '___CUSTOM___' ? answers.customScope : answers.scope
+        const maxSubjectLength = getMaxSubjectLength(_answerType, scope, options)
         if (options.minSubjectLength && processedSubject.length < options.minSubjectLength) {
           return style.red(
             `[ERROR]subject length must be greater than or equal to ${options.minSubjectLength} characters`,
@@ -149,7 +150,8 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
         const { minSubjectLength, isIgnoreCheckMaxSubjectLength } = options
         const subjectLength = subject.length
         const _answerType = resolveDefaultType(options, answers)
-        const maxSubjectLength = getMaxSubjectLength(_answerType, answers.scope, options)
+        const scope = answers.scope === '___CUSTOM___' ? answers.customScope : answers.scope
+        const maxSubjectLength = getMaxSubjectLength(_answerType, scope, options)
         let tooltip
         let isWarning = false
         if (typeof minSubjectLength === 'number' && subjectLength < minSubjectLength) {
