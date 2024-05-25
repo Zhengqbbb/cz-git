@@ -7,14 +7,15 @@
 import { fuzzyFilter, style } from '@cz-git/inquirer'
 import type { Answers, CommitizenGitOptions, Option } from '../shared'
 import {
-  getCurrentScopes,
+  getAnswersScope,
+  getAnswersType,
   getMaxSubjectLength,
   getProcessSubject,
+  getScopesList,
   isSingleItem,
   isString,
   log,
   parseStandardScopes,
-  resolveDefaultType,
   resolveListItemPinTop,
   resovleCustomListTemplate,
   useThemeCode,
@@ -53,9 +54,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       initialCheckedValue: options.defaultScope, // checkbox mode
       source: (answer: Answers, input: string) => {
         let scopeSource: Option[] = []
-        const _answerType = resolveDefaultType(options, answer)
+        const answerType = getAnswersType(options, answer)
         scopeSource = parseStandardScopes(
-          getCurrentScopes(options.scopes, options.scopeOverrides, _answerType),
+          getScopesList(options.scopes, options.scopeOverrides, answerType),
         )
         scopeSource = resovleCustomListTemplate(
           scopeSource,
@@ -83,12 +84,12 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
           return input.length !== 0 ? true : style.red('[ERROR] scope is required')
       },
       when: (answer: Answers) => {
-        const _answerType = resolveDefaultType(options, answer)
+        const answerType = getAnswersType(options, answer)
         return !isSingleItem(
           options.allowCustomScopes,
           options.allowEmptyScopes,
           parseStandardScopes(
-            getCurrentScopes(options.scopes, options.scopeOverrides, _answerType),
+            getScopesList(options.scopes, options.scopeOverrides, answerType),
           ),
         )
       },
@@ -111,8 +112,8 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
           return input.length !== 0 ? true : style.red('[ERROR] scope is required')
       },
       when: (answers: Answers) => {
-        return answers.scope === '___CUSTOM___'
-          || (isString(options.defaultScope) && (options.defaultScope as string).startsWith('___CUSTOM___:'))
+        const { isCustomScope, isInputMode } = getAnswersScope(options, answers)
+        return isCustomScope || isInputMode
       },
       transformer: (input: string) => useThemeCode(input, options.themeColorCode),
     },
@@ -125,12 +126,15 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
         const processedSubject = getProcessSubject(subject)
         if (processedSubject.length === 0)
           return style.red('[ERROR] subject is required')
+
         if (!options.minSubjectLength && !options.maxSubjectLength) {
           log('err', 'Error [Subject Length] Option')
           return false
         }
-        const _answerType = resolveDefaultType(options, answers)
-        const maxSubjectLength = getMaxSubjectLength(_answerType, answers.scope, options)
+
+        const answerType = getAnswersType(options, answers)
+        const { answerScope } = getAnswersScope(options, answers)
+        const maxSubjectLength = getMaxSubjectLength(answerType, answerScope, options)
         if (options.minSubjectLength && processedSubject.length < options.minSubjectLength) {
           return style.red(
             `[ERROR]subject length must be greater than or equal to ${options.minSubjectLength} characters`,
@@ -148,8 +152,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       transformer: (subject: string, answers: Answers) => {
         const { minSubjectLength, isIgnoreCheckMaxSubjectLength } = options
         const subjectLength = subject.length
-        const _answerType = resolveDefaultType(options, answers)
-        const maxSubjectLength = getMaxSubjectLength(_answerType, answers.scope, options)
+        const answerType = getAnswersType(options, answers)
+        const { answerScope } = getAnswersScope(options, answers)
+        const maxSubjectLength = getMaxSubjectLength(answerType, answerScope, options)
         let tooltip
         let isWarning = false
         if (typeof minSubjectLength === 'number' && subjectLength < minSubjectLength) {
@@ -160,7 +165,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
             tooltip = `${subjectLength - maxSubjectLength} chars over the expected`
             isWarning = true
           }
-          else { tooltip = `${subjectLength - maxSubjectLength} chars over the limit` }
+          else {
+            tooltip = `${subjectLength - maxSubjectLength} chars over the limit`
+          }
         }
         else {
           tooltip = `${maxSubjectLength - subjectLength} more chars allowed`
@@ -218,11 +225,11 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
       message: options.messages?.breaking,
       completeValue: options.defaultBody || undefined,
       when: (answers: Answers) => {
-        const _answerType = resolveDefaultType(options, answers)
+        const answerType = getAnswersType(options, answers)
         if (
           options.allowBreakingChanges
-          && _answerType
-          && options.allowBreakingChanges.includes(_answerType)
+          && answerType
+          && options.allowBreakingChanges.includes(answerType)
         )
           return true
 

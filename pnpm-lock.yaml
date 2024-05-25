@@ -73,8 +73,8 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
       pnpm:
-        specifier: 9.0.0
-        version: 9.0.0
+        specifier: ^9.1.2
+        version: 9.1.2
       rimraf:
         specifier: 3.0.2
         version: 3.0.2
@@ -144,10 +144,10 @@ importers:
         version: 7.1.1
       unocss:
         specifier: ^0.56.1
-        version: 0.56.4(postcss@8.4.30)(rollup@3.29.3)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
+        version: 0.56.4(postcss@8.4.30)(rollup@2.79.1)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
       unplugin-vue-components:
         specifier: ^0.25.2
-        version: 0.25.2(@babel/parser@7.21.8)(rollup@3.29.3)(vue@3.3.4)
+        version: 0.25.2(@babel/parser@7.21.8)(rollup@2.79.1)(vue@3.3.4)
       vite:
         specifier: ^4.4.9
         version: 4.4.9(@types/node@20.7.0)(terser@5.16.4)
@@ -1795,6 +1795,7 @@ packages:
   acorn@8.8.0:
     resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
     engines: {node: '>=0.4.0'}
+    hasBin: true
 
   add-stream@1.0.0:
     resolution: {integrity: sha512-qQLMr+8o0WC4FZGQTcJiKBVC59JylcPSrTtk6usvmIDFUOCKegapy1VHQwRbFMOFyb/inzUVqHs+eMYKDM1YeQ==}
@@ -1971,6 +1972,7 @@ packages:
   bumpp@7.2.0:
     resolution: {integrity: sha512-vQxdpWe7VzdpV4dVjpWoGwTDrKZn4eqKVmjIYUlDgrmjesXAqJnWhu+VFxazoE4pLs1q5NwDhgzK1xAFL0K+Jg==}
     engines: {node: '>=10'}
+    hasBin: true
 
   bundle-require@4.0.1:
     resolution: {integrity: sha512-9NQkRHlNdNpDBGmLpngF3EFDcwodhMUuLz9PaWYciVcQF9SE4LFjM2DB/xV1Li5JiuDMv7ZUWuC3rGbqR0MAXQ==}
@@ -3071,6 +3073,7 @@ packages:
 
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
+    hasBin: true
 
   jsesc@0.5.0:
     resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
@@ -3569,8 +3572,8 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
-  pnpm@9.0.0:
-    resolution: {integrity: sha512-tBBnB8ciWxdIthWVlTzL6/+XtUrQXQAqo2NfYzucU81mb3zpuLxEcE8foEi5pJtVNxqy2enWZ9Hv4u8VFLzVEw==}
+  pnpm@9.1.2:
+    resolution: {integrity: sha512-En3IO56hDDK+ZdIqjvtKZfuVLo/vvf3tOb3DyX78MtMbSLAEIN8sEYes4oySHJAvDLWhNKTQMri1KVy/osaB4g==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -3731,6 +3734,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    hasBin: true
 
   rollup-plugin-terser@7.0.2:
     resolution: {integrity: sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==}
@@ -3803,6 +3807,7 @@ packages:
   semver@7.3.7:
     resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
     engines: {node: '>=10'}
+    hasBin: true
 
   semver@7.5.2:
     resolution: {integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ==}
@@ -3855,6 +3860,7 @@ packages:
   sitemap@7.1.1:
     resolution: {integrity: sha512-mK3aFtjz4VdJN0igpIJrinf3EO8U8mxOPsTBzSsy06UtjZQJ3YY3o3Xa7zSc5nMqcMrRwlChHZ18Kxg0caiPBg==}
     engines: {node: '>=12.0.0', npm: '>=5.6.0'}
+    hasBin: true
 
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
@@ -4446,6 +4452,7 @@ packages:
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
+    hasBin: true
 
   why-is-node-running@2.2.2:
     resolution: {integrity: sha512-6tSwToZxTOcotxHeA+qGCq1mVzKR3CwcJGmVcY+QE8SHy6TnpFnh8PAvPNHYr7EcuVeG0QSMxtYCuO1ta/G/oA==}
@@ -4476,6 +4483,7 @@ packages:
 
   workbox-google-analytics@7.0.0:
     resolution: {integrity: sha512-MEYM1JTn/qiC3DbpvP2BVhyIH+dV/5BjHk756u9VbwuAhu0QHyKscTnisQuz21lfRpOwiS9z4XdqeVAKol0bzg==}
+    deprecated: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
 
   workbox-navigation-preload@7.0.0:
     resolution: {integrity: sha512-juWCSrxo/fiMz3RsvDspeSLGmbgC0U9tKqcUPZBCf35s64wlaLXyn2KdHHXVQrb2cqF7I0Hc9siQalainmnXJA==}
@@ -5930,21 +5938,21 @@ snapshots:
       picomatch: 2.3.1
       rollup: 2.79.1
 
-  '@rollup/pluginutils@5.0.2(rollup@3.29.3)':
+  '@rollup/pluginutils@5.0.2(rollup@2.79.1)':
     dependencies:
       '@types/estree': 1.0.0
       estree-walker: 2.0.2
       picomatch: 2.3.1
     optionalDependencies:
-      rollup: 3.29.3
+      rollup: 2.79.1
 
-  '@rollup/pluginutils@5.0.4(rollup@3.29.3)':
+  '@rollup/pluginutils@5.0.4(rollup@2.79.1)':
     dependencies:
       '@types/estree': 1.0.0
       estree-walker: 2.0.2
       picomatch: 2.3.1
     optionalDependencies:
-      rollup: 3.29.3
+      rollup: 2.79.1
 
   '@sinclair/typebox@0.27.8': {}
 
@@ -6133,20 +6141,20 @@ snapshots:
       '@typescript-eslint/types': 5.59.6
       eslint-visitor-keys: 3.4.1
 
-  '@unocss/astro@0.56.4(rollup@3.29.3)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))':
+  '@unocss/astro@0.56.4(rollup@2.79.1)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))':
     dependencies:
       '@unocss/core': 0.56.4
       '@unocss/reset': 0.56.4
-      '@unocss/vite': 0.56.4(rollup@3.29.3)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
+      '@unocss/vite': 0.56.4(rollup@2.79.1)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
     optionalDependencies:
       vite: 4.4.9(@types/node@20.7.0)(terser@5.16.4)
     transitivePeerDependencies:
       - rollup
 
-  '@unocss/cli@0.56.4(rollup@3.29.3)':
+  '@unocss/cli@0.56.4(rollup@2.79.1)':
     dependencies:
       '@ampproject/remapping': 2.2.1
-      '@rollup/pluginutils': 5.0.4(rollup@3.29.3)
+      '@rollup/pluginutils': 5.0.4(rollup@2.79.1)
       '@unocss/config': 0.56.4
       '@unocss/core': 0.56.4
       '@unocss/preset-uno': 0.56.4
@@ -6263,10 +6271,10 @@ snapshots:
     dependencies:
       '@unocss/core': 0.56.4
 
-  '@unocss/vite@0.56.4(rollup@3.29.3)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))':
+  '@unocss/vite@0.56.4(rollup@2.79.1)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))':
     dependencies:
       '@ampproject/remapping': 2.2.1
-      '@rollup/pluginutils': 5.0.4(rollup@3.29.3)
+      '@rollup/pluginutils': 5.0.4(rollup@2.79.1)
       '@unocss/config': 0.56.4
       '@unocss/core': 0.56.4
       '@unocss/inspector': 0.56.4
@@ -8361,7 +8369,7 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  pnpm@9.0.0: {}
+  pnpm@9.1.2: {}
 
   postcss-load-config@4.0.1(postcss@8.4.30)(ts-node@10.9.1(@types/node@20.7.0)(typescript@5.2.2)):
     dependencies:
@@ -9019,10 +9027,10 @@ snapshots:
 
   universalify@2.0.0: {}
 
-  unocss@0.56.4(postcss@8.4.30)(rollup@3.29.3)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4)):
+  unocss@0.56.4(postcss@8.4.30)(rollup@2.79.1)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4)):
     dependencies:
-      '@unocss/astro': 0.56.4(rollup@3.29.3)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
-      '@unocss/cli': 0.56.4(rollup@3.29.3)
+      '@unocss/astro': 0.56.4(rollup@2.79.1)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
+      '@unocss/cli': 0.56.4(rollup@2.79.1)
       '@unocss/core': 0.56.4
       '@unocss/extractor-arbitrary-variants': 0.56.4
       '@unocss/postcss': 0.56.4(postcss@8.4.30)
@@ -9040,7 +9048,7 @@ snapshots:
       '@unocss/transformer-compile-class': 0.56.4
       '@unocss/transformer-directives': 0.56.4
       '@unocss/transformer-variant-group': 0.56.4
-      '@unocss/vite': 0.56.4(rollup@3.29.3)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
+      '@unocss/vite': 0.56.4(rollup@2.79.1)(vite@4.4.9(@types/node@20.7.0)(terser@5.16.4))
     optionalDependencies:
       vite: 4.4.9(@types/node@20.7.0)(terser@5.16.4)
     transitivePeerDependencies:
@@ -9048,10 +9056,10 @@ snapshots:
       - rollup
       - supports-color
 
-  unplugin-vue-components@0.25.2(@babel/parser@7.21.8)(rollup@3.29.3)(vue@3.3.4):
+  unplugin-vue-components@0.25.2(@babel/parser@7.21.8)(rollup@2.79.1)(vue@3.3.4):
     dependencies:
       '@antfu/utils': 0.7.6
-      '@rollup/pluginutils': 5.0.2(rollup@3.29.3)
+      '@rollup/pluginutils': 5.0.2(rollup@2.79.1)
       chokidar: 3.5.3
       debug: 4.3.4
       fast-glob: 3.3.1
