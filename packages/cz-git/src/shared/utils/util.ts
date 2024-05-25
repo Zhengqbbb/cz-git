@@ -60,9 +60,12 @@ export function isSingleItem(allowCustom = true, allowEmpty = true, list: Array<
 }
 
 /**
- * @description: resolve AI modify mode and normal answer type and default type
+ * @description make sure can get answers type
+ * 1. normal answer type
+ * 2. resolve AI direct output mode
+ * 3. output default type
  */
-export function resolveDefaultType(options: CommitizenGitOptions, answer: Answers) {
+export function getAnswersType(options: CommitizenGitOptions, answer: Answers) {
   if (!answer.type && options.useAI)
     return options.defaultType
 
@@ -81,10 +84,16 @@ export function parseStandardScopes(scopes: ScopesType): Option[] {
           : { value: scope.value, name: scope.name }
   })
 }
-
-export function getCurrentScopes(scopes?: any[],
+/**
+ * @description To get a list of scopes
+ * 1. If have overrides by answerType, return the override list
+ * 2. If have scopes is empty, return empty array
+ */
+export function getScopesList(
+  scopes?: any[],
   scopeOverrides?: { [x: string]: any[] },
-  answerType?: string) {
+  answerType?: string,
+) {
   let result = []
   if (scopeOverrides && answerType && scopeOverrides[answerType])
     result = scopeOverrides[answerType]
@@ -95,20 +104,21 @@ export function getCurrentScopes(scopes?: any[],
   return result
 }
 
-function filterCustomEmptyByOption(target: {
-  name: string
-  value: any
-}[],
-allowCustom = true,
-allowEmpty = true) {
+function filterCustomEmptyByOption(
+  target: {
+    name: string
+    value: any
+  }[],
+  allowCustom = true,
+  allowEmpty = true,
+) {
   target = allowCustom ? target : target.filter(i => i.value !== '___CUSTOM___')
   return allowEmpty ? target : target.filter(i => i.value !== false)
 }
 /**
- * @description
- * Handle custom list template (types, scopes)
- *
- * Add separator custom empty
+ * @description Handle custom list template (types, scopes)
+ * 1. Add separator, custom, empty
+ * 2. Sort target, empty and custom position
  */
 export function resovleCustomListTemplate(
   target: Array<{ name: string; value: string }>,
@@ -164,6 +174,18 @@ export function resovleCustomListTemplate(
 }
 
 /**
+ * @description To get the scope of the answer
+ * 1. If scope is custom mode, return the input custom scope
+ * 2. If scope is input mode flag, return the input scope
+ */
+export function getAnswersScope(options: CommitizenGitOptions, answers: Answers) {
+  const isCustomScope = answers.scope === '___CUSTOM___'
+  const isInputMode = isString(options.defaultScope) && (options.defaultScope as string).startsWith('___CUSTOM___:')
+  const answerScope = (isCustomScope || isInputMode) ? answers.customScope : answers.scope
+  return { isCustomScope, isInputMode, answerScope }
+}
+
+/**
  * @description: get subject word
  */
 export function getProcessSubject(text: string) {
@@ -190,6 +212,7 @@ export function getMaxSubjectLength(type: Answers['type'],
   const emojiLength = options.useEmoji ? getEmojiStrLength(options, type) : 0
   const maxHeaderLength = options?.maxHeaderLength ? options?.maxHeaderLength : Infinity
   const maxSubjectLength = options?.maxSubjectLength ? options?.maxSubjectLength : Infinity
+
   if (options?.maxHeaderLength === 0 || options?.maxSubjectLength === 0) {
     return 0
   }

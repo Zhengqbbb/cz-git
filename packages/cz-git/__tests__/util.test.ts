@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { getCurrentScopes, getMaxSubjectLength, isSingleItem } from '../src/shared'
+import { getMaxSubjectLength, getScopesList, isSingleItem } from '../src/shared'
 
 /**
  * @description: utils Test
@@ -90,17 +90,17 @@ describe('isSingleItem()', () => {
   })
 })
 
-describe('getCurrentScopes()', () => {
+describe('getScopesList()', () => {
   test('no scopes should empty', () => {
-    expect(getCurrentScopes([], {}, 'feat')).toEqual([])
-    expect(getCurrentScopes([], { test: [{ name: 'unitest' }] }, 'feat')).toEqual([])
+    expect(getScopesList([], {}, 'feat')).toEqual([])
+    expect(getScopesList([], { test: [{ name: 'unitest' }] }, 'feat')).toEqual([])
   })
   test('hit scopeOverrides should return', () => {
     const scopeOverrides = { test: [{ name: 'unitest' }] }
-    expect(getCurrentScopes(['feat'], scopeOverrides, 'test')).toEqual([{ name: 'unitest' }])
+    expect(getScopesList(['feat'], scopeOverrides, 'test')).toEqual([{ name: 'unitest' }])
   })
   test('no hit scopeOverrides should return scopes', () => {
     const scopeOverrides = { test: [{ name: 'unitest' }] }
-    expect(getCurrentScopes(['feat', 'fix'], scopeOverrides, 'feat')).toEqual(['feat', 'fix'])
+    expect(getScopesList(['feat', 'fix'], scopeOverrides, 'feat')).toEqual(['feat', 'fix'])
   })
 })

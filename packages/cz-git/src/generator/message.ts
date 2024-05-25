@@ -6,8 +6,8 @@
 import { spawnSync } from 'node:child_process'
 import { style } from '@cz-git/inquirer'
 import {
-  getCurrentScopes,
   getMaxSubjectLength,
+  getScopesList,
   isSingleItem,
   isString,
   parseStandardScopes,
@@ -37,7 +37,7 @@ function getSingleParams(answers: Answers, options: CommitizenGitOptions) {
     singeIssuePrefix: '',
   }
   const scopeList = parseStandardScopes(
-    getCurrentScopes(options.scopes, options.scopeOverrides, answers.type),
+    getScopesList(options.scopes, options.scopeOverrides, answers.type),
   )
   if (isSingleItem(options.allowCustomScopes, options.allowEmptyScopes, scopeList))
     mapping.singleScope = scopeList[singleIndex].value
