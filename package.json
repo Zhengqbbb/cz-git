@@ -23,9 +23,7 @@
     "customizable",
     "cz-customizable"
   ],
-  "engines": {
-    "pnpm": ">=9"
-  },
+  "packageManager": "pnpm@9.1.2",
   "scripts": {
     "x": "czg",
     "build": "pnpm clean && pnpm -r build",
