@@ -1,3 +1,12 @@
+## [1.9.2](https://github.com/Zhengqbbb/cz-git/compare/v1.9.1...v1.9.2) (2024-05-26)
+
+
+### Bug Fixes
+
+* **cz-git:** incorrect maxSubjectLength on custom scope ([#173](https://github.com/Zhengqbbb/cz-git/issues/173)) ([baa58ae](https://github.com/Zhengqbbb/cz-git/commit/baa58ae2d1853c8a486937d896b805e0a7e8747c))
+
+
+
 ## [1.9.1](https://github.com/Zhengqbbb/cz-git/compare/v1.9.0...v1.9.1) (2024-03-30)
 
 
