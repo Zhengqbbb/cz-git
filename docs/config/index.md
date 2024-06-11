@@ -97,7 +97,7 @@ module.exports = {
 
 ```js
 // cz.config.js
-/** @type {import('cz-git').CommitizenGitOptions} */
+/** @type {import('cz-git').UserConfig['prompt']} */
 module.exports = {
   alias: { fd: 'docs: fix typos' },
   messages: {
