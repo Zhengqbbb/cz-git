@@ -29,7 +29,7 @@
     "./package.json": "./package.json"
   },
   "main": "lib/index.js",
-  "types": "lib/config.d.ts",
+  "types": "lib/index.d.ts",
   "bin": {
     "czg": "bin/index.js",
     "git-czg": "bin/index.js"

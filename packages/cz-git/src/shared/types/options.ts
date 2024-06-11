@@ -7,7 +7,9 @@
 import type { QuestionsType } from '../../generator'
 import type { CommitlintUserConfig } from './commitlint'
 
+/** cz-git + commitlint configure */
 export interface UserConfig extends CommitlintUserConfig {
+  /** cz-git configure */
   prompt?: CommitizenGitOptions
 }
 
@@ -167,6 +169,7 @@ export interface GenerateAIPromptType {
   diff?: string
 }
 
+/** cz-git configure */
 export interface CommitizenGitOptions {
   /**
    * @description: define commonly used commit message alias
