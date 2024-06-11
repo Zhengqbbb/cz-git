@@ -1,3 +1,12 @@
+## [1.9.3](https://github.com/Zhengqbbb/cz-git/compare/v1.9.2...v1.9.3) (2024-06-11)
+
+
+### Bug Fixes
+
+* **cli:** czg export type can not be used ([#175](https://github.com/Zhengqbbb/cz-git/issues/175)) ([4fe94cf](https://github.com/Zhengqbbb/cz-git/commit/4fe94cf149b0800a37af5b1f94a6bfff1580e89f))
+
+
+
 ## [1.9.2](https://github.com/Zhengqbbb/cz-git/compare/v1.9.1...v1.9.2) (2024-05-26)
 
 
