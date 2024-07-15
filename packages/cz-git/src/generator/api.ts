@@ -1,9 +1,7 @@
 import url from 'node:url'
 import { style } from '@cz-git/inquirer'
 import HttpsProxyAgent from 'https-proxy-agent'
-
-// @ts-expect-error
-import fetch from 'node-fetch'
+import fetch from 'node-fetch-cjs'
 import { log } from '../shared'
 import type { CommitizenGitOptions } from '../shared'
 
@@ -32,7 +30,7 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
       },
       method: 'POST',
       body: JSON.stringify(aiContext.payload),
-      timeout: 10 * 1000,
+      signal: AbortSignal.timeout(10 * 1000),
     })
     if (
       !response.status
