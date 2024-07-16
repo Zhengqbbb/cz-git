@@ -1,6 +1,8 @@
 <h1 align="center">czg</h1>
 
-> Interactive Commitizen CLI that generate standardized git commit message
+<p align="center">
+Interactive Commitizen CLI that generate standardized git commit message
+</p>
 
 <p align="center">
     <a target="_blank" href="https://cz-git.qbb.sh/cli/">
@@ -15,7 +17,7 @@
     </a>
     <br>
     <a href="https://www.npmjs.com/package/czg">
-        <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/czg?style=flat-square&logo=npm">
+        <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/czg?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6IiBmaWxsPSIjY2IwMDAwIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTcgN2gyNnYyNmgtN1YxNGgtNnYxOUg3eiIvPjwvc3ZnPgo=">
     </a>
     <a href="https://formulae.brew.sh/formula/czg">
         <img style="display:inline-block;margin:0.2em;" alt="homebrew" src="https://img.shields.io/homebrew/v/czg?style=flat-square&logo=homebrew&label=homebrew">
