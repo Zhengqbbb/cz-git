@@ -1,6 +1,6 @@
 {
   "name": "@cz-git/loader",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "commitizen and commitlint configure loader for cz-git",
   "author": "Zhengqbbb <1074059947@qq.com>",
   "license": "MIT",

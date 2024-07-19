@@ -1,6 +1,6 @@
 {
   "name": "@cz-git/inquirer",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "provide cz-git inquirer plugins, include search-list, search-checkbox, complete-input",
   "author": "Zhengqbbb <1074059947@qq.com>",
   "license": "MIT",

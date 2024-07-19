@@ -1,3 +1,12 @@
+## [1.9.4](https://github.com/Zhengqbbb/cz-git/compare/v1.9.3...v1.9.4) (2024-07-19)
+
+
+### Bug Fixes
+
+* suppress node 22 deprecated error messages ([#179](https://github.com/Zhengqbbb/cz-git/issues/179)) ([9f4ff58](https://github.com/Zhengqbbb/cz-git/commit/9f4ff58fa34b1857a6b37c0642ffd55a90a4bf26))
+
+
+
 ## [1.9.3](https://github.com/Zhengqbbb/cz-git/compare/v1.9.2...v1.9.3) (2024-06-11)
 
 
