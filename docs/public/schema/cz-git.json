@@ -86,8 +86,13 @@
             "openAI-Turbo",
             "openAI-Davinci"
           ],
-          "description": "choose your AI model: gpt-3.5-turbo | text-davinci-003\n\ngpt-3.5-turbo: Lower price consumption (10x) and faster\n\ntext-davinci-003: Get more reliable information",
+          "description": "Choose your OpenAI model: gpt-3.5-turbo | text-davinci-003\n\ngpt-3.5-turbo: Lower price consumption (10x) and faster\n\ntext-davinci-003: Get more reliable information",
           "default": "openAI-Turbo"
+        },
+        "aiModel": {
+          "type": "string",
+          "description": "Choose any OpenAI model: e.g. gpt-4-1106-preview",
+          "default": "gpt-3.5-turbo"
         },
         "openAIToken": {
           "type": "string",
