@@ -178,15 +178,27 @@ added 1 package in 0.531s
 
 [⇒ FAQ](https://cz-git.qbb.sh/faq/)
 
-## LICENSE
-
-MIT
-Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
-
-> I just do my best to make thing well, Could you give a [star ⭐](https://github.com/Zhengqbbb/cz-git) to encourage me ?
-
 <a target="_blank" href="https://packagephobia.com/result?p=cz-git,czg">
   <img src="https://user-images.githubusercontent.com/40693636/252157675-32634902-fc02-4a07-a12c-a07ec5ee5f1a.png" alt="size-overview"><br>
   <sub>https://packagephobia.com/result?p=cz-git,czg</sub>
 </a>
 
+## LICENSE
+
+MIT
+Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
+
+<p align="center">
+    <table>
+        <tbody>
+        <td align="center">
+            <br>
+            I just try my best to make thing well.<br>
+            Could you give a star ⭐ to encourage me 🤗
+            <br>
+            If possible, can to be my <a href="https://github.com/sponsors/Zhengqbbb">💖 Sponsor 💖</a> to support my work
+            <img width="800" height="0" />
+        </td>
+        </tbody>
+    </table>
+</p>

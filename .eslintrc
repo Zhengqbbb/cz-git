@@ -1,9 +1,0 @@
-{
-  "extends": "@antfu",
-  "rules": {
-    "@typescript-eslint/ban-ts-comment": "off",
-    "no-new": "off",
-    "no-console": "off",
-    "import/export": "off"
-  }
-}

@@ -18,16 +18,16 @@ export type RuleOutcome = Readonly<[boolean, string?]>
 export type RuleType = 'async' | 'sync' | 'either'
 
 export type BaseRule<Value = never, Type extends RuleType = 'either'> = (
-  parsed: Commit,
-  when?: RuleConfigCondition,
-  value?: Value
+    parsed: Commit,
+    when?: RuleConfigCondition,
+    value?: Value
 ) => Type extends 'either'
-  ? RuleOutcome | Promise<RuleOutcome>
-  : Type extends 'async'
-    ? Promise<RuleOutcome>
-    : Type extends 'sync'
-      ? RuleOutcome
-      : never
+    ? RuleOutcome | Promise<RuleOutcome>
+    : Type extends 'async'
+        ? Promise<RuleOutcome>
+        : Type extends 'sync'
+            ? RuleOutcome
+            : never
 
 export type Rule<Value = never> = BaseRule<Value, 'either'>
 export type AsyncRule<Value = never> = BaseRule<Value, 'async'>
@@ -41,9 +41,9 @@ export type SyncRule<Value = never> = BaseRule<Value, 'sync'>
  * 2 - Error for violations
  */
 export enum RuleConfigSeverity {
-  Disabled = 0,
-  Warning = 1,
-  Error = 2,
+    Disabled = 0,
+    Warning = 1,
+    Error = 2,
 }
 
 /**
@@ -54,14 +54,14 @@ export enum RuleConfigSeverity {
 export type RuleConfigCondition = 'always' | 'never'
 
 export type RuleConfigTuple<T> = T extends void
-  ? Readonly<[RuleConfigSeverity.Disabled]> | Readonly<[RuleConfigSeverity, RuleConfigCondition]>
-  :
-    | Readonly<[RuleConfigSeverity.Disabled]>
-    | Readonly<[RuleConfigSeverity, RuleConfigCondition, T]>
+    ? Readonly<[RuleConfigSeverity.Disabled]> | Readonly<[RuleConfigSeverity, RuleConfigCondition]>
+    :
+        | Readonly<[RuleConfigSeverity.Disabled]>
+        | Readonly<[RuleConfigSeverity, RuleConfigCondition, T]>
 
 export enum RuleConfigQuality {
-  User,
-  Qualified,
+    User,
+    Qualified,
 }
 
 export type QualifiedRuleConfig<T> =
@@ -73,49 +73,49 @@ export type RuleConfig<V = RuleConfigQuality.Qualified, T = void>
   = V extends RuleConfigQuality.Qualified ? RuleConfigTuple<T> : QualifiedRuleConfig<T>
 
 export type CaseRuleConfig<V = RuleConfigQuality.User> = RuleConfig<
-  V,
+    V,
   TargetCaseType | TargetCaseType[]
 >
 export type LengthRuleConfig<V = RuleConfigQuality.User> = RuleConfig<V, number>
 export type EnumRuleConfig<V = RuleConfigQuality.User> = RuleConfig<V, string[]>
 
 export interface RulesConfig<V = RuleConfigQuality.User> {
-  'body-case': CaseRuleConfig<V>
-  'body-empty': RuleConfig<V>
-  'body-full-stop': RuleConfig<V, string>
-  'body-leading-blank': RuleConfig<V>
-  'body-max-length': LengthRuleConfig<V>
-  'body-max-line-length': LengthRuleConfig<V>
-  'body-min-length': LengthRuleConfig<V>
-  'footer-empty': RuleConfig<V>
-  'footer-leading-blank': RuleConfig<V>
-  'footer-max-length': LengthRuleConfig<V>
-  'footer-max-line-length': LengthRuleConfig<V>
-  'footer-min-length': LengthRuleConfig<V>
-  'header-case': CaseRuleConfig<V>
-  'header-full-stop': RuleConfig<V, string>
-  'header-max-length': LengthRuleConfig<V>
-  'header-min-length': LengthRuleConfig<V>
-  'references-empty': RuleConfig<V>
-  'scope-case': CaseRuleConfig<V>
-  'scope-empty': RuleConfig<V>
-  'scope-enum': EnumRuleConfig<V>
-  'scope-max-length': LengthRuleConfig<V>
-  'scope-min-length': LengthRuleConfig<V>
-  'signed-off-by': RuleConfig<V, string>
-  'subject-case': CaseRuleConfig<V>
-  'subject-empty': RuleConfig<V>
-  'subject-full-stop': RuleConfig<V, string>
-  'subject-max-length': LengthRuleConfig<V>
-  'subject-min-length': LengthRuleConfig<V>
-  'trailer-exists': RuleConfig<V, string>
-  'type-case': CaseRuleConfig<V>
-  'type-empty': RuleConfig<V>
-  'type-enum': EnumRuleConfig<V>
-  'type-max-length': LengthRuleConfig<V>
-  'type-min-length': LengthRuleConfig<V>
-  // Plugins may add their custom rules
-  [key: string]: AnyRuleConfig<V>
+    'body-case': CaseRuleConfig<V>
+    'body-empty': RuleConfig<V>
+    'body-full-stop': RuleConfig<V, string>
+    'body-leading-blank': RuleConfig<V>
+    'body-max-length': LengthRuleConfig<V>
+    'body-max-line-length': LengthRuleConfig<V>
+    'body-min-length': LengthRuleConfig<V>
+    'footer-empty': RuleConfig<V>
+    'footer-leading-blank': RuleConfig<V>
+    'footer-max-length': LengthRuleConfig<V>
+    'footer-max-line-length': LengthRuleConfig<V>
+    'footer-min-length': LengthRuleConfig<V>
+    'header-case': CaseRuleConfig<V>
+    'header-full-stop': RuleConfig<V, string>
+    'header-max-length': LengthRuleConfig<V>
+    'header-min-length': LengthRuleConfig<V>
+    'references-empty': RuleConfig<V>
+    'scope-case': CaseRuleConfig<V>
+    'scope-empty': RuleConfig<V>
+    'scope-enum': EnumRuleConfig<V>
+    'scope-max-length': LengthRuleConfig<V>
+    'scope-min-length': LengthRuleConfig<V>
+    'signed-off-by': RuleConfig<V, string>
+    'subject-case': CaseRuleConfig<V>
+    'subject-empty': RuleConfig<V>
+    'subject-full-stop': RuleConfig<V, string>
+    'subject-max-length': LengthRuleConfig<V>
+    'subject-min-length': LengthRuleConfig<V>
+    'trailer-exists': RuleConfig<V, string>
+    'type-case': CaseRuleConfig<V>
+    'type-empty': RuleConfig<V>
+    'type-enum': EnumRuleConfig<V>
+    'type-max-length': LengthRuleConfig<V>
+    'type-min-length': LengthRuleConfig<V>
+    // Plugins may add their custom rules
+    [key: string]: AnyRuleConfig<V>
 }
 
 export type AnyRuleConfig<V> = RuleConfig<V, unknown> | RuleConfig<V, void>
@@ -125,89 +125,89 @@ export type AnyRuleConfig<V> = RuleConfig<V, unknown> | RuleConfig<V, void>
 export type PluginRecords = Record<string, Plugin>
 
 export interface Plugin {
-  rules: {
-    [ruleName: string]: Rule | AsyncRule | SyncRule
-  }
+    rules: {
+        [ruleName: string]: Rule | AsyncRule | SyncRule
+    }
 }
 
 export interface LoadOptions {
-  cwd?: string
-  file?: string
+    cwd?: string
+    file?: string
 }
 
 export interface CommitlintUserConfig {
-  extends?: string | string[]
-  formatter?: string
-  rules?: Partial<RulesConfig>
-  parserPreset?: string | ParserPreset | Promise<ParserPreset>
-  ignores?: ((commit: string) => boolean)[]
-  defaultIgnores?: boolean
-  plugins?: (string | Plugin)[]
-  helpUrl?: string
-  [key: string]: unknown
+    extends?: string | string[]
+    formatter?: string
+    rules?: Partial<RulesConfig>
+    parserPreset?: string | ParserPreset | Promise<ParserPreset>
+    ignores?: ((commit: string) => boolean)[]
+    defaultIgnores?: boolean
+    plugins?: (string | Plugin)[]
+    helpUrl?: string
+    [key: string]: unknown
 }
 
 export type QualifiedRules = Partial<RulesConfig<RuleConfigQuality.Qualified>>
 
 export interface QualifiedConfig {
-  extends: string[]
-  formatter: string
-  rules: QualifiedRules
-  parserPreset?: ParserPreset
-  ignores?: ((commit: string) => boolean)[]
-  defaultIgnores?: boolean
-  plugins: PluginRecords
-  helpUrl: string
+    extends: string[]
+    formatter: string
+    rules: QualifiedRules
+    parserPreset?: ParserPreset
+    ignores?: ((commit: string) => boolean)[]
+    defaultIgnores?: boolean
+    plugins: PluginRecords
+    helpUrl: string
 }
 
 export interface ParserPreset {
-  name?: string
-  path?: string
-  parserOpts?: unknown
+    name?: string
+    path?: string
+    parserOpts?: unknown
 }
 
 /** ========== parse ========== */
 
 export interface Commit {
-  raw: string
-  header: string
-  type: string | null
-  scope: string | null
-  subject: string | null
-  body: string | null
-  footer: string | null
-  mentions: string[]
-  notes: CommitNote[]
-  references: CommitReference[]
-  revert: any
-  merge: any
+    raw: string
+    header: string
+    type: string | null
+    scope: string | null
+    subject: string | null
+    body: string | null
+    footer: string | null
+    mentions: string[]
+    notes: CommitNote[]
+    references: CommitReference[]
+    revert: any
+    merge: any
 }
 
 export interface CommitNote {
-  title: string
-  text: string
+    title: string
+    text: string
 }
 
 export interface CommitReference {
-  raw: string
-  prefix: string
-  action: string | null
-  owner: string | null
-  repository: string | null
-  issue: string | null
+    raw: string
+    prefix: string
+    action: string | null
+    owner: string | null
+    repository: string | null
+    issue: string | null
 }
 
 /** ========== ensure ========== */
 export type TargetCaseType =
-  | 'camel-case'
-  | 'kebab-case'
-  | 'snake-case'
-  | 'pascal-case'
-  | 'start-case'
-  | 'upper-case'
-  | 'uppercase'
-  | 'sentence-case'
-  | 'sentencecase'
-  | 'lower-case'
-  | 'lowercase'
-  | 'lowerCase'
+    | 'camel-case'
+    | 'kebab-case'
+    | 'snake-case'
+    | 'pascal-case'
+    | 'start-case'
+    | 'upper-case'
+    | 'uppercase'
+    | 'sentence-case'
+    | 'sentencecase'
+    | 'lower-case'
+    | 'lowercase'
+    | 'lowerCase'

@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ["./second-extended"],
-  rules: {
-    "subject-empty": [2, "never"]
-  }
-};
+    extends: ['./second-extended'],
+    rules: {
+        'subject-empty': [2, 'never'],
+    },
+}

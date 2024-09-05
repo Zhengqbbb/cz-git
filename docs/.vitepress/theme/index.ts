@@ -12,26 +12,26 @@ import CodeGroupItem from './components/CodeGroupItem.vue'
 import { CodeGroup } from './components/CodeGroup'
 
 if (inBrowser)
-  import('./pwa')
+    import('./pwa')
 
 export default {
-  ...Theme,
-  Layout() {
-    return h(Theme.Layout, null, {
-      'home-features-after': () => h(HomePage),
-    })
-  },
-  enhanceApp({ app, router }: EnhanceAppContext) {
-    app.component('Badge', Badge)
-    app.component('CodeGroup', CodeGroup)
-    app.component('CodeGroupItem', CodeGroupItem)
-    createMediumZoomProvider(app, router)
-  },
-  setup() {
-    const { lang } = useData()
-    watchEffect(() => {
-      if (typeof document !== 'undefined')
-        document.cookie = `nf_lang=${lang.value}; expires=Sun, 1 Jan 2024 00:00:00 UTC; path=/`
-    })
-  },
+    ...Theme,
+    Layout() {
+        return h(Theme.Layout, null, {
+            'home-features-after': () => h(HomePage),
+        })
+    },
+    enhanceApp({ app, router }: EnhanceAppContext) {
+        app.component('Badge', Badge)
+        app.component('CodeGroup', CodeGroup)
+        app.component('CodeGroupItem', CodeGroupItem)
+        createMediumZoomProvider(app, router)
+    },
+    setup() {
+        const { lang } = useData()
+        watchEffect(() => {
+            if (typeof document !== 'undefined')
+                document.cookie = `nf_lang=${lang.value}; expires=Mon, 1 Jan 2030 00:00:00 UTC; path=/`
+        })
+    },
 }

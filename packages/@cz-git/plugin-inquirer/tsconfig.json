@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "./src",
-    "outDir": "./lib",
     "declaration": true,
     "declarationDir": "./lib",
+    "outDir": "./lib",
     "allowSyntheticDefaultImports": true
   },
   "include": [

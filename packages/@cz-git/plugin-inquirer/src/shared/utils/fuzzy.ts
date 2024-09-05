@@ -14,39 +14,39 @@ import type { FilterArrayItemType } from '../types'
  * @return {number | null} match score. if not match return null
  */
 export function fuzzyMatch(
-  input: string,
-  target: string,
-  caseSensitive?: boolean,
+    input: string,
+    target: string,
+    caseSensitive?: boolean,
 ): number | null {
-  if (typeof input !== 'string' || typeof target !== 'string')
-    return null
-  const matchResult = []
-  const len = target.length
-  const shimTarget = (caseSensitive && target) || target.toLowerCase()
-  input = (caseSensitive && input) || input.toLowerCase()
-  let inputIndex = 0
-  let totalScore = 0
-  let currentScore = 0
-  let currentChar
-  for (let idx = 0; idx < len; idx++) {
-    currentChar = input[idx]
-    if (shimTarget[idx] === input[inputIndex]) {
-      // consecutive matches will score higher
-      inputIndex += 1
-      currentScore += 1 + currentScore
+    if (typeof input !== 'string' || typeof target !== 'string')
+        return null
+    const matchResult = []
+    const len = target.length
+    const shimTarget = (caseSensitive && target) || target.toLowerCase()
+    input = (caseSensitive && input) || input.toLowerCase()
+    let inputIndex = 0
+    let totalScore = 0
+    let currentScore = 0
+    let currentChar
+    for (let idx = 0; idx < len; idx++) {
+        currentChar = input[idx]
+        if (shimTarget[idx] === input[inputIndex]) {
+            // consecutive matches will score higher
+            inputIndex += 1
+            currentScore += 1 + currentScore
+        }
+        else {
+            currentScore = 0
+        }
+        totalScore += currentScore
+        matchResult[matchResult.length] = currentChar
     }
-    else {
-      currentScore = 0
+    if (inputIndex === input.length) {
+        totalScore = shimTarget === input ? Infinity : totalScore
+        return totalScore
     }
-    totalScore += currentScore
-    matchResult[matchResult.length] = currentChar
-  }
-  if (inputIndex === input.length) {
-    totalScore = shimTarget === input ? Infinity : totalScore
-    return totalScore
-  }
 
-  return null
+    return null
 }
 
 /**
@@ -55,35 +55,33 @@ export function fuzzyMatch(
  * @param {Array<FilterArrayItemType | unknown>} arr target Array
  * @return {Array<FilterArrayItemType>} filtered array
  */
-export function fuzzyFilter(input: string,
-  arr: Array<FilterArrayItemType>,
-  targetKey: 'name' | 'value' = 'name'): Array<FilterArrayItemType> {
-  if (!arr || !Array.isArray(arr) || arr.length === 0)
-    return []
+export function fuzzyFilter(input: string, arr: Array<FilterArrayItemType>, targetKey: 'name' | 'value' = 'name'): Array<FilterArrayItemType> {
+    if (!arr || !Array.isArray(arr) || arr.length === 0)
+        return []
 
-  else if (typeof input !== 'string' || input === '')
+    else if (typeof input !== 'string' || input === '')
+        return arr
+
     return arr
+        .reduce((preVal: Array<FilterArrayItemType>, curItem: FilterArrayItemType, index) => {
+            if (!curItem || !curItem[targetKey])
+                return preVal
+            const score = fuzzyMatch(input, curItem[targetKey])
+            if (score !== null) {
+                preVal.push({
+                    score,
+                    index,
+                    ...curItem,
+                })
+            }
+            return preVal
+        }, [])
+        .sort((a: any, b: any) => {
+            const compare = b.score - a.score
+            if (compare)
+                return compare
 
-  return arr
-    .reduce((preVal: Array<FilterArrayItemType>, curItem: FilterArrayItemType, index) => {
-      if (!curItem || !curItem[targetKey])
-        return preVal
-      const score = fuzzyMatch(input, curItem[targetKey])
-      if (score !== null) {
-        preVal.push({
-          score,
-          index,
-          ...curItem,
+            else
+                return a.index - b.index
         })
-      }
-      return preVal
-    }, [])
-    .sort((a: any, b: any) => {
-      const compare = b.score - a.score
-      if (compare)
-        return compare
-
-      else
-        return a.index - b.index
-    })
 }

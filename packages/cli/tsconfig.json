@@ -2,8 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./lib",
-    "declaration": false,
     "paths": {
       "cz-git": [
         "../cz-git/src/index.ts"
@@ -14,7 +12,9 @@
       "@cz-git/inquirer": [
         "../@cz-git/plugin-inquirer/src/index.ts"
       ]
-    }
+    },
+    "declaration": false,
+    "outDir": "./lib"
   },
   "include": [
     "src"

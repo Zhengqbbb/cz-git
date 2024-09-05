@@ -1,86 +1,94 @@
 /**
- * @description: term style output colorizen
+ * Terminal style output colorizen
+ * Inspired by picocolors(https://www.npmjs.com/package/picocolors)
  * @author: @Zhengqbbb (zhengqbbb@gmail.com)
  * @license MIT
  */
 
 import tty from 'node:tty'
+import process from 'node:process'
 
 /**
- * @description: check current is support color command text
- * @param colorSupoort can force color not output. [default] true
+ * Check current is support color command text
+ *
+ * @param colorSupoort can force output not colorizen
+ * @param fd Channel. Provide options to allow users to customize the judgment.
+ * e.g, logs and TUI are 2 stderr. In this case, only when the user operates on 2 does the color output need to be disabled.
+ * COMMAND 2 > runtime.log. All logs need to remove colorizen code
  */
-export function isColorizenSupport(colorSupoort = true) {
-  return (
-    colorSupoort
-    && !('NO_COLOR' in process.env)
-    && (
-      process.platform === 'win32'
-      || (tty.isatty(1) && process.env.TERM !== 'dumb')
-      || 'CI' in process.env
+export function isColorizenSupport(colorSupoort = true, fd = 1) {
+    return (
+        (colorSupoort
+        && !('NO_COLOR' in process.env)
+        && !(process.env?.NODE_ENV === 'test')
+        && (process.platform === 'win32' || (tty.isatty(fd) && process.env.TERM !== 'dumb') || 'CI' in process.env))
+        || (!process.env.VITEST && 'FORCE_COLOR' in process.env)
     )
-  )
-  || (!process.env.VITEST && 'FORCE_COLOR' in process.env)
 }
-
-export function replaceClose(string: string,
-  close: string,
-  replace: any,
-  index: number): string {
-  const start = string.substring(0, index) + replace
-  const end = string.substring(index + close.length)
-  const nextIndex = end.indexOf(close)
-  return ~nextIndex ? start + replaceClose(end, close, replace, nextIndex) : start + end
-}
-
-function formatter(open: string, close: string, replace = open) {
-  return (input: string) => {
-    const string = `${input}`
-    const index = string.indexOf(close, open.length)
-    return ~index
-      ? open + replaceClose(string, close, replace, index) + close
-      : open + string + close
-  }
-}
-
-function styleFn(enabled = isColorizenSupport()) {
-  return {
-    isColorSupported: enabled,
-    reset: enabled ? (s: string) => `\u001B[0m${s}\u001B[0m` : String,
-    bold: enabled ? formatter('\u001B[1m', '\u001B[0m', '\u001B[0m') : String,
-    dim: enabled ? formatter('\u001B[2m', '\u001B[0m', '\u001B[0m') : String,
-    italic: enabled ? formatter('\u001B[3m', '\u001B[0m', '\u001B[0m') : String,
-    underline: enabled ? formatter('\u001B[4m', '\u001B[0m') : String,
-    inverse: enabled ? formatter('\u001B[7m', '\u001B[0m') : String,
-    black: enabled ? formatter('\u001B[30m', '\u001B[0m') : String,
-    red: enabled ? formatter('\u001B[31m', '\u001B[0m') : String,
-    green: enabled ? formatter('\u001B[32m', '\u001B[0m') : String,
-    yellow: enabled ? formatter('\u001B[33m', '\u001B[0m') : String,
-    blue: enabled ? formatter('\u001B[34m', '\u001B[0m') : String,
-    magenta: enabled ? formatter('\u001B[35m', '\u001B[0m') : String,
-    cyan: enabled ? formatter('\u001B[36m', '\u001B[0m') : String,
-    white: enabled ? formatter('\u001B[37m', '\u001B[0m') : String,
-    gray: enabled ? formatter('\u001B[90m', '\u001B[0m') : String,
-    rgb: (rgbColor = '38;5;036') =>
-      enabled ? formatter(`\u001B[${rgbColor}m`, '\u001B[0m') : String,
-    bgBlack: enabled ? formatter('\u001B[40m', '\u001B[0m') : String,
-    bgRed: enabled ? formatter('\u001B[41m', '\u001B[0m') : String,
-    bgGreen: enabled ? formatter('\u001B[42m', '\u001B[0m') : String,
-    bgYellow: enabled ? formatter('\u001B[43m', '\u001B[0m') : String,
-    bgBlue: enabled ? formatter('\u001B[44m', '\u001B[0m') : String,
-    bgMagenta: enabled ? formatter('\u001B[45m', '\u001B[0m') : String,
-    bgCyan: enabled ? formatter('\u001B[46m', '\u001B[0m') : String,
-    bgWhite: enabled ? formatter('\u001B[47m', '\u001B[0m') : String,
-  }
+/**
+ * Provide to formatter. If has close tag, replace it
+ */
+function replaceClose(str: string, close: string, replace: string, index: number): string {
+    const start = str.substring(0, index) + replace
+    const end = str.substring(index + close.length)
+    const nextIndex = end.indexOf(close)
+    return ~nextIndex
+        ? start + replaceClose(end, close, replace, nextIndex)
+        : start + end
 }
 
 /**
- * @description: support control isColorizen as param's
- * style generator
- * @param {boolen} enabled
- * @return {Function} style
+ * A utils Fn provide to styleFn add ansi code
  */
-export const createStyle = styleFn
+function formatter(open: string, close: string, replace = open) {
+    return (input: string) => {
+        const string = `${input}`
+        const index = string.indexOf(close, open.length)
+        return ~index
+            ? open + replaceClose(string, close, replace, index) + close
+            : open + string + close
+    }
+}
+
+/**
+ * support control isColorizen as param
+ * styleFn generator
+ */
+export function createStyle(enabled = isColorizenSupport()) {
+    const init = enabled ? formatter : () => String
+    return {
+        isColorSupported: enabled,
+        reset: init('\x1B[0m', '\x1B[0m'),
+        bold: init('\x1B[1m', '\x1B[22m', '\x1B[22m\x1B[1m'),
+        dim: init('\x1B[2m', '\x1B[22m', '\x1B[22m\x1B[2m'),
+        italic: init('\x1B[3m', '\x1B[23m'),
+        underline: init('\x1B[4m', '\x1B[24m'),
+        inverse: init('\x1B[7m', '\x1B[27m'),
+        hidden: init('\x1B[8m', '\x1B[28m'),
+        strikethrough: init('\x1B[9m', '\x1B[29m'),
+
+        black: init('\x1B[30m', '\x1B[39m'),
+        red: init('\x1B[31m', '\x1B[39m'),
+        green: init('\x1B[32m', '\x1B[39m'),
+        yellow: init('\x1B[33m', '\x1B[39m'),
+        blue: init('\x1B[34m', '\x1B[39m'),
+        magenta: init('\x1B[35m', '\x1B[39m'),
+        cyan: init('\x1B[36m', '\x1B[39m'),
+        white: init('\x1B[37m', '\x1B[39m'),
+        gray: init('\x1B[90m', '\x1B[39m'),
+
+        bgBlack: init('\x1B[40m', '\x1B[49m'),
+        bgRed: init('\x1B[41m', '\x1B[49m'),
+        bgGreen: init('\x1B[42m', '\x1B[49m'),
+        bgYellow: init('\x1B[43m', '\x1B[49m'),
+        bgBlue: init('\x1B[44m', '\x1B[49m'),
+        bgMagenta: init('\x1B[45m', '\x1B[49m'),
+        bgCyan: init('\x1B[46m', '\x1B[49m'),
+        bgWhite: init('\x1B[47m', '\x1B[49m'),
+
+        rgb: (rgbColor = '38;5;036') => init(`\x1B[${rgbColor}m`, '\x1B[0m'),
+    }
+}
 
 /**
  * @description: commandline style output colorizen
@@ -88,4 +96,4 @@ export const createStyle = styleFn
  * Automatically determine whether output coloring is required
  * @tip the rgb color see to check your number: https://github.com/sindresorhus/xterm-colors
  */
-export const style = styleFn()
+export const style = createStyle()
