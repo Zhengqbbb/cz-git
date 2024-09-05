@@ -6,7 +6,7 @@ import { resolve } from 'pathe'
  * @see https://github.com/antfu/unplugin-vue-components#usage
  */
 export const unpluginComponents = Components({
-  include: [/\.vue/, /\.md/],
-  dirs: resolve(__dirname, '../../theme/components'),
-  dts: resolve(__dirname, '../../components.d.ts'),
+    include: [/\.vue/, /\.md/],
+    dirs: resolve(__dirname, '../../theme/components'),
+    dts: resolve(__dirname, '../../components.d.ts'),
 })

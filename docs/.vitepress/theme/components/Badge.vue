@@ -1,14 +1,14 @@
 <script setup lang="ts">
 defineProps<{
-  text?: string
-  type?: 'info' | 'tip' | 'warning' | 'danger'
+    text?: string
+    type?: 'info' | 'tip' | 'warning' | 'danger'
 }>()
 </script>
 
 <template>
-  <span class="Badge" :class="type ?? 'tip'">
-    <slot>{{ text }}</slot>
-  </span>
+    <span class="Badge" :class="type ?? 'tip'">
+        <slot>{{ text }}</slot>
+    </span>
 </template>
 
 <style scoped>

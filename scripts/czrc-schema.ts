@@ -20,7 +20,7 @@ try {
 
     const __output = resolve(__dirname, '../docs/public/schema', 'cz-git.json')
     const jsonSchema = main()
-    fs.writeFileSync(__output, jsonSchema, 'utf8')
+    fs.writeFileSync(__output, `${jsonSchema}\n`, 'utf8')
 
     console.log(`\x1B[90m${__output}\x1B[0m`)
     console.log('\x1B[32m✓\x1B[0m Generate configure JSON schema')

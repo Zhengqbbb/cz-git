@@ -3,6 +3,7 @@ import antfu from '@antfu/eslint-config'
 export default antfu(
     {
         yaml: false,
+        markdown: false,
         vue: true,
         stylistic: { indent: 4 },
         overrides: {

@@ -2,30 +2,30 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'CodeGroupItem',
+    name: 'CodeGroupItem',
 })
 </script>
 
 <script setup lang="ts">
 defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  active: {
-    type: Boolean,
-    required: false,
-    default: false,
-  },
+    title: {
+        type: String,
+        required: true,
+    },
+    active: {
+        type: Boolean,
+        required: false,
+        default: false,
+    },
 })
 </script>
 
 <template>
-  <div
-    class="code-group-item"
-    :class="{ 'code-group-item__active': active }"
-    :aria-selected="active"
-  >
-    <slot />
-  </div>
+    <div
+        class="code-group-item"
+        :class="{ 'code-group-item__active': active }"
+        :aria-selected="active"
+    >
+        <slot />
+    </div>
 </template>

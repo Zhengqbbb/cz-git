@@ -11,50 +11,50 @@ import type MarkdownIt from 'markdown-it'
  * @author Zhengqbbb
  */
 export function ImagePlugin(md: MarkdownIt) {
-  const imageRender = md.renderer.rules.image!
-  md.renderer.rules.image = (...args) => {
-    const [tokens, idx] = args
-    if (tokens[idx + 2] && /^<!--.*-->/.test(tokens[idx + 2].content)) {
-      const data = tokens[idx + 2].content
-      if (/size=/.test(data)) {
-        const size = data.match(/size=(\d+)(x\d+)?/)
-        tokens[idx].attrs?.push(
-          [
-            'width',
-            size?.[1] || '',
-          ],
-          [
-            'height',
-            size?.[2]?.substring(1) || size?.[1] || '',
-          ],
-        )
-      }
+    const imageRender = md.renderer.rules.image!
+    md.renderer.rules.image = (...args) => {
+        const [tokens, idx] = args
+        if (tokens[idx + 2] && /^<!--.*-->/.test(tokens[idx + 2].content)) {
+            const data = tokens[idx + 2].content
+            if (/size=/.test(data)) {
+                const size = data.match(/size=(\d+)(x\d+)?/)
+                tokens[idx].attrs?.push(
+                    [
+                        'width',
+                        size?.[1] || '',
+                    ],
+                    [
+                        'height',
+                        size?.[2]?.substring(1) || size?.[1] || '',
+                    ],
+                )
+            }
 
-      tokens[idx].attrs?.push(
-        [
-          'loading',
-          'lazy',
-        ],
-        [
-          'decoding',
-          'async',
-        ],
-        [
-          'onerror',
-          'this.classList.add(\'error\', \'animate-none!\');',
-        ],
-        /* @unocss-include */
-        [
-          'onload',
-          'this.classList.add(\'animate-none!\');',
-        ],
-      )
-      tokens[idx + 2].content = ''
-      return imageRender(...args)
+            tokens[idx].attrs?.push(
+                [
+                    'loading',
+                    'lazy',
+                ],
+                [
+                    'decoding',
+                    'async',
+                ],
+                [
+                    'onerror',
+                    'this.classList.add(\'error\', \'animate-none!\');',
+                ],
+                /* @unocss-include */
+                [
+                    'onload',
+                    'this.classList.add(\'animate-none!\');',
+                ],
+            )
+            tokens[idx + 2].content = ''
+            return imageRender(...args)
+        }
+
+        return imageRender(...args)
     }
-
-    return imageRender(...args)
-  }
 }
 
 export default ImagePlugin
