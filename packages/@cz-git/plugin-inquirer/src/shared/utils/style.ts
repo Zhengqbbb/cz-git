@@ -11,20 +11,27 @@ import process from 'node:process'
 /**
  * Check current is support color command text
  *
- * @param colorSupoort can force output not colorizen
+ * @param colorSupport can force output not colorizen
  * @param fd Channel. Provide options to allow users to customize the judgment.
  * e.g, logs and TUI are 2 stderr. In this case, only when the user operates on 2 does the color output need to be disabled.
  * COMMAND 2 > runtime.log. All logs need to remove colorizen code
  */
-export function isColorizenSupport(colorSupoort = true, fd = 1) {
+export function isColorizenSupport(colorSupport = true, fd = 1) {
     return (
-        (colorSupoort
-        && !('NO_COLOR' in process.env)
-        && !(process.env?.NODE_ENV === 'test')
-        && (process.platform === 'win32' || (tty.isatty(fd) && process.env.TERM !== 'dumb') || 'CI' in process.env))
-        || (!process.env.VITEST && 'FORCE_COLOR' in process.env)
+        (
+            colorSupport
+            && !('NO_COLOR' in process.env)
+            && (
+                process.platform === 'win32'
+                || (tty.isatty(fd) && process.env.TERM !== 'dumb')
+                || 'CI' in process.env
+            )
+        ) || (
+            !process.env.VITEST && 'FORCE_COLOR' in process.env
+        )
     )
 }
+
 /**
  * Provide to formatter. If has close tag, replace it
  */
