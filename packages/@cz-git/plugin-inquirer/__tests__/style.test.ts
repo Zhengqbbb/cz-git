@@ -20,16 +20,15 @@ describe('isColorizenSupport()', () => {
     it('param force false should be false', () => {
         expect(isColorizenSupport(false)).toBe(false)
     })
-    it('nO_COLOR should be false', () => {
+    it('NO_COLOR should be false', () => {
         process.env.NO_COLOR = 'true'
         expect(isColorizenSupport()).toBe(false)
     })
-    it('tERM is dumb should be false | platform is win32 should be true', () => {
+    it('TERM is dumb should be false | platform is win32 should be true', () => {
         delete process.env.CI
         process.env.TERM = 'dumb'
         if (process.platform === 'win32')
             expect(isColorizenSupport()).toBe(true)
-
         else
             expect(isColorizenSupport()).toBe(false)
     })

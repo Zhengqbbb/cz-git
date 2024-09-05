@@ -17,6 +17,9 @@ export default antfu(
             vue: {
                 'vue/no-v-text-v-html-on-component': 'off',
             },
+            test: {
+                'test/prefer-lowercase-title': 'off',
+            },
         },
         ignores: [
             '!./docs/.vitepress',

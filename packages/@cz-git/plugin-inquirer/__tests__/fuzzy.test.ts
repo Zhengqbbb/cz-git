@@ -6,7 +6,7 @@ import { fuzzyFilter, fuzzyMatch } from '../src'
  */
 describe('fuzzyMatch', () => {
     it('function should be check param fit', () => {
-    // @ts-expect-error
+        // @ts-expect-error
         expect(fuzzyMatch(null, null)).toBe(null)
         // @ts-expect-error
         expect(fuzzyMatch(undefined, null)).toBe(null)
@@ -74,25 +74,31 @@ describe('fuzzyFilter', () => {
     })
 
     it('empty input should be return origin array', () => {
+        // @ts-expect-error
         expect(fuzzyFilter('', testArr)).toBe(testArr)
     })
 
     it('normal match should be return right array', () => {
+        // @ts-expect-error
         expect(fuzzyFilter('cz-git', testArr)).toEqual([
             { name: 'cz-git', value: 'cz-git', index: 0, score: Infinity },
         ])
+        // @ts-expect-error
         expect(fuzzyFilter('ty', testArr)).toEqual([
             { name: 'empty', value: false, index: 5, score: 4 },
         ])
+        // @ts-expect-error
         expect(fuzzyFilter('inq', testArr)).toEqual([
             { name: 'plugin-inquirer', value: 'plugin-inquirer', index: 1, score: 5 },
         ])
+        // @ts-expect-error
         expect(fuzzyFilter('ii', testArr)).toEqual([
             { name: 'plugin-inquirer', value: 'plugin-inquirer', index: 1, score: 2 },
         ])
     })
 
     it('same score shoule be return sort by index', () => {
+        // @ts-expect-error
         expect(fuzzyFilter('plu', testArr)).toEqual([
             { name: 'plugin-inquirer', value: 'plugin-inquirer', index: 1, score: 11 },
             { name: 'plugin-loader', value: 'plugin-loader', index: 2, score: 11 },
