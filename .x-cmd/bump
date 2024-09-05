@@ -5,11 +5,9 @@
         -x inquirer \
         -x @types/inquirer \
         -x https-proxy-agent \
-        -x node-fetch \
         -x rimraf \
         -x @types/rimraf \
         -x lint-staged \
         -x pkg-dir  \
-        -x cosmiconfig \
-        -x bumpp
+        -x cosmiconfig
 )

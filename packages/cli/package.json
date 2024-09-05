@@ -47,10 +47,11 @@
     "release:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {
+    "@types/minimist": "^1.2.5",
     "cachedir": "^2.4.0",
     "cz-git": "workspace:*",
-    "dedent": "^1.5.1",
-    "fs-extra": "^11.1.1",
+    "dedent": "^1.5.3",
+    "fs-extra": "^11.2.0",
     "inquirer": "8.2.4",
     "minimist": "^1.2.8",
     "rimraf": "3.0.2"

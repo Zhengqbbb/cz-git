@@ -2,4 +2,3 @@ packages:
   - 'docs'
   - 'packages/**'
   - '!**/__tests__/**'
-  

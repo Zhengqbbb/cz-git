@@ -4,7 +4,7 @@
   "scripts": {
     "docs:build": "vitepress build",
     "docs:dev": "vitepress dev --port 8080",
-    "docs:serve": "vitepress serve --port 8000"
+    "docs:preview": "vitepress serve --port 8000"
   },
   "dependencies": {
     "@vueuse/core": "^10.4.1",
