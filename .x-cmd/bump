@@ -1,13 +1,15 @@
 # shellcheck shell=dash
 
 (
-    x bun x taze -r -I -i \
-        -x inquirer \
-        -x @types/inquirer \
-        -x https-proxy-agent \
-        -x rimraf \
-        -x @types/rimraf \
-        -x lint-staged \
-        -x pkg-dir  \
+    # - "inquirer"      - keep with "commitizen" same version
+    # - "rimraf"        - v4 need node >= v14
+    # - "cosmiconfig"   - will lead bundle size to 10MB +
+    x bun x taze -r -I -i       \
+        -x inquirer             \
+        -x @types/inquirer      \
+        -x https-proxy-agent    \
+        -x rimraf               \
+        -x lint-staged          \
+        -x pkg-dir              \
         -x cosmiconfig
 )

@@ -188,7 +188,7 @@ function editor(file?: string, opts?: any | object, cb?: any) {
         opts = {}
 
     const ed = process.platform.startsWith('win') ? 'notepad' : 'vim'
-    const editor = opts.editor || process.env.VISUAL || process.env.EDITOR || ed
+    const editor = opts.editor || process.env.CZ_EDITOR || process.env.VISUAL || process.env.EDITOR || ed
     const args = editor.split(/\s+/)
     const bin = args.shift()
 

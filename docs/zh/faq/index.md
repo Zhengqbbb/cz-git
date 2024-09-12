@@ -35,7 +35,7 @@ CZ_DEBUG=1 czg
 
 > 在使用 `prepare-commit-msg` hook 中会在消息合并后使用 editor [=> githooks 命令手册](https://git-scm.com/docs/githooks#_prepare_commit_msg)
 
-1. 将 editor 从默认 `vi` 改为 `cat`
+1. 将 git 配置中的 editor 从默认 `vi` 改为 `cat` 并尝试
     ```sh
     git config --local core.editor cat
     ```
@@ -48,6 +48,31 @@ CZ_DEBUG=1 czg
       }
     }
     ```
+
+## 修改在确认是否提交时 (Yneh)，选择编辑时所使用的编辑器 (EDITOR)
+
+> 这里以 VSCode 的 `code --wait` 命令为例
+
+:::: code-group
+::: code-group-item .zshrc | .bashrc
+
+```sh
+export CZ_EDITOR="code --wait"
+```
+
+:::
+::: code-group-item package.json + cross-env
+
+```json
+{
+  "scripts": {
+    "commit": "cross-env CZ_EDITOR='code --wait' cz"
+  }
+}
+```
+
+:::
+::::
 
 ## 全局安装后无法找到命令
 

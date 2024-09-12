@@ -36,7 +36,7 @@ CZ_DEBUG=1 czg
 
 > The `prepare-commit-msg` githook opens an editor after the commit message has been prepared [=> githooks man](https://git-scm.com/docs/githooks#_prepare_commit_msg)
 
-1. Changing the default editor from `vi` to `cat`
+1. Changing the default git editor from `vi` to `cat` and have a try
     ```sh
     git config --local core.editor cat
     ```
@@ -49,6 +49,31 @@ CZ_DEBUG=1 czg
       }
     }
     ```
+
+## Modifying the editor (EDITOR) used when choosing to edit during commit confirmation (Yneh)
+
+> Here's an example using VSCode `code --wait` command
+
+:::: code-group
+::: code-group-item .zshrc | .bashrc
+
+```sh
+export CZ_EDITOR="code --wait"
+```
+
+:::
+::: code-group-item package.json + cross-env
+
+```json
+{
+  "scripts": {
+    "commit": "cross-env CZ_EDITOR='code --wait' cz"
+  }
+}
+```
+
+:::
+::::
 
 
 ## Cannot find the command after global install

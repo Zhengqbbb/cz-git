@@ -89,7 +89,7 @@ useMediumZoom()
                 <i class="i-ri:heart-3-line" /> Sponsor
             </a>
             <a
-                href="https://afdian.net/a/qbbsh"
+                href="https://afdian.com/a/qbbsh"
                 target="_blank" rel="noopener"
                 class="px-5 leading-9 b b-$vp-custom-block-warning-border text-$vp-custom-block-warning-text-deep bg-$vp-custom-block-warning-bg rd-5 text-center font-600 whitespace-nowrap hover:op-80 transition-opacity"
                 flex="~ items-center gap-1"
