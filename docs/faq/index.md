@@ -52,7 +52,8 @@ CZ_DEBUG=1 czg
 
 ## Modifying the editor (EDITOR) used when choosing to edit during commit confirmation (Yneh)
 
-> Here's an example using VSCode `code --wait` command
+> Here's an example using VSCode `code --wait` command<br>
+> cz-git|czg: v >= 1.10.0 `CZ_EDITOR`, v < 1.10.0 `EDITOR` || `VISUAL`.
 
 :::: code-group
 ::: code-group-item .zshrc | .bashrc

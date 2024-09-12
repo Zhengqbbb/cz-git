@@ -51,7 +51,8 @@ CZ_DEBUG=1 czg
 
 ## 修改在确认是否提交时 (Yneh)，选择编辑时所使用的编辑器 (EDITOR)
 
-> 这里以 VSCode 的 `code --wait` 命令为例
+> 这里以 VSCode 的 `code --wait` 命令为例<br>
+> cz-git|czg: v >= 1.10.0 `CZ_EDITOR`, v < 1.10.0 `EDITOR` || `VISUAL`.
 
 :::: code-group
 ::: code-group-item .zshrc | .bashrc
