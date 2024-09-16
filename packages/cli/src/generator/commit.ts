@@ -1,10 +1,9 @@
 import path from 'node:path'
 import process from 'node:process'
 import cacheDir from 'cachedir'
-import { ensureDir } from 'fs-extra'
 import { style } from 'cz-git'
 import type { CommitizenType } from 'cz-git'
-import { getCacheValueSync, gitCommit, writeCacheSync } from '../shared'
+import { ensureDir, getCacheValueSync, gitCommit, writeCacheSync } from '../shared'
 import type { CallBackFn, CommitOptions, CzGitPrompter } from '../shared'
 
 /**
@@ -21,6 +20,7 @@ export function commit(
     const cachePath = path.join(cacheDirectory, 'commit.json')
 
     ensureDir(cacheDirectory, (err: any) => {
+        console.log(cacheDirectory)
         if (err) {
             console.error('Couldn\'t create commitizen cache directory: ', err)
         }
