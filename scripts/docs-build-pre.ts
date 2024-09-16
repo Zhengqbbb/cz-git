@@ -1,8 +1,6 @@
-/*
- * @Description: provide pre script `pnpm docs:build`
- * @Author: Qbenben
- * @LastEditors: Qbenben
- * @LastEditTime: 2024-09-02 20:56:00
+/**
+ * @description provide pre script
+ * @use `pnpm docs:build`
  */
 
 import fs from 'node:fs'
@@ -10,7 +8,7 @@ import ora from 'ora'
 import { resolve } from 'pathe'
 
 /**
- * @description: Enhance shell script code syntax highlight for docs `shiki`
+ * @description Enhance shell script code syntax highlight for docs `shiki`
  */
 async function resolveShikiEnhanceShell() {
     const dataPath = resolve(__dirname, '../node_modules/shiki/languages/shellscript.tmLanguage.json')

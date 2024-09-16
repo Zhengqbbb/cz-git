@@ -219,7 +219,7 @@ describe('generateMessage()', () => {
 
     describe('message', () => {
         it('custom emoji message format callback should be output right', () => {
-            const options = {
+            const options: any = {
                 types: [{ value: 'feat', name: 'feat:     A new feature', emoji: ':sparkles:' }],
                 useEmoji: true,
                 formatMessageCB: ({ emoji, scope, subject }) => {

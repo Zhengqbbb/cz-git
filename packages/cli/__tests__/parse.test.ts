@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { resovleArgs } from '../src/shared'
 
 /**
- * @description: resovleArgs Test
+ * @description Test - resovleArgs
  */
 describe('resovleArgs', () => {
     it('empty args should return default czargs', () => {

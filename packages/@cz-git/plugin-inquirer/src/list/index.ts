@@ -1,8 +1,8 @@
 /**
- * @description: inquirer plugin - Search List
- * Powered by `inquirer-autocomplete-prompt`
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description inquirer plugin - Search List
+ * @author @Zhengqbbb (zhengqbbb@gmail.com)
  * @license MIT
+ * Powered by `inquirer-autocomplete-prompt`
  */
 
 import type { Interface as ReadlineInterface } from 'node:readline'
@@ -46,8 +46,9 @@ export class SearchList extends Base {
     }
 
     /**
-     * @description: Start the Inquiry session
-     * @param  {Function} cb      Callback when prompt is done
+     * Start the Inquiry session
+     *
+     * @param {Function} cb Callback when prompt is done
      */
     _run(cb: any): this {
         this.done = cb
@@ -66,7 +67,7 @@ export class SearchList extends Base {
     }
 
     /**
-     * @description: render screen
+     * render screen
      */
     render(error?: string) {
     // Render question
@@ -116,7 +117,7 @@ export class SearchList extends Base {
     }
 
     /**
-     * @description: resolve source to get renderChoices
+     * resolve source to get renderChoices
      */
     search(input?: string): Promise<any> {
         this.pointer = 0
@@ -167,7 +168,7 @@ export class SearchList extends Base {
     }
 
     /**
-     * @description: resovle line Events <Enter>
+     * resovle line Events <Enter>
      */
     onSubmit() {
         const lineOrRl = this.rl.line
@@ -209,7 +210,7 @@ export class SearchList extends Base {
     }
 
     /**
-     * @description: Search <any key>
+     * keypress handler
      */
     onKeypress(e: { key: { name?: string, ctrl?: boolean }, value: string }) {
         let len
@@ -290,7 +291,7 @@ function listRender(choices: ChoicesType['choices'], pointer: number, themeColor
 }
 
 /**
- * @description: check choice is selectable
+ * check choice is selectable
  */
 function isSelectable(choice: ChoiceType<Separator['type']>) {
     return choice.type !== 'separator' && !choice.disabled

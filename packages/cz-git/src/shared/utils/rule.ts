@@ -1,5 +1,5 @@
 /**
- * @description: fork by "@commitlint/cz-commitlint/src/utils/" v16.2.1
+ * @description fork by "@commitlint/cz-commitlint/src/utils/" v16.2.1
  */
 
 import type { RuleConfigCondition } from '../types'
@@ -11,9 +11,10 @@ type Rule =
     | Readonly<[RuleConfigSeverity, RuleConfigCondition, unknown]>
 
 /**
- * @description: rule is Disabled
- * @example: ruleIsDisabled([0]) => true
- * @example: ruleIsDisabled([2]) => false
+ * rule is Disabled
+ *
+ * @example ruleIsDisabled([0]) => true
+ * @example ruleIsDisabled([2]) => false
  */
 export function ruleIsDisabled(rule: Rule): rule is Readonly<[RuleConfigSeverity.Disabled]> {
     if (rule && Array.isArray(rule) && rule[0] === RuleConfigSeverity.Disabled)
@@ -23,10 +24,11 @@ export function ruleIsDisabled(rule: Rule): rule is Readonly<[RuleConfigSeverity
 }
 
 /**
- * @description: rule is Warning
- * @example: ruleIsDisabled([0]) => false
- * @example: ruleIsDisabled([1]) => true
- * @example: ruleIsDisabled([2]) => false
+ * rule is Warning
+ *
+ * @example ruleIsDisabled([0]) => false
+ * @example ruleIsDisabled([1]) => true
+ * @example ruleIsDisabled([2]) => false
  */
 export function ruleIsWarning(rule?: Rule): rule is Readonly<[RuleConfigSeverity.Disabled]> {
     if (rule && Array.isArray(rule) && rule[0] === RuleConfigSeverity.Warning)
@@ -36,9 +38,10 @@ export function ruleIsWarning(rule?: Rule): rule is Readonly<[RuleConfigSeverity
 }
 
 /**
- * @description: rule is use
- * @example: ruleIsActive([0]) => false
- * @example: ruleIsActive([2]) => true
+ * rule is use
+ *
+ * @example ruleIsActive([0]) => false
+ * @example ruleIsActive([2]) => true
  */
 export function ruleIsActive<T extends Rule>(
     rule: T | undefined,
@@ -50,7 +53,8 @@ export function ruleIsActive<T extends Rule>(
 }
 
 /**
- * @description: rule is effect.
+ * rule is effect.
+ *
  */
 export function ruleIsNotApplicable(
     rule: Rule,
@@ -64,7 +68,8 @@ export function ruleIsNotApplicable(
 }
 
 /**
- * @description: rule is not can be ignore
+ * rule is not can be ignore
+ *
  */
 export function ruleIsApplicable(
     rule: Rule,
@@ -94,7 +99,7 @@ export function emptyRuleIsActive(rule: Rule | undefined): boolean {
 }
 
 /**
- * @example: getMaxLength(rules['max-header-length'] => 100)
+ * @example getMaxLength(rules['max-header-length'] => 100)
  */
 export function getMaxLength(rule?: Rule): number {
     if (rule && ruleIsActive(rule) && ruleIsApplicable(rule) && typeof rule[2] === 'number')
@@ -104,7 +109,7 @@ export function getMaxLength(rule?: Rule): number {
 }
 
 /**
- * @example:  getMinLength(rules['min-header-length'] => 2)
+ * @example getMinLength(rules['min-header-length'] => 2)
  */
 export function getMinLength(rule?: Rule): number {
     if (rule && ruleIsActive(rule) && ruleIsApplicable(rule) && typeof rule[2] === 'number')

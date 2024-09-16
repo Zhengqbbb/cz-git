@@ -1,5 +1,5 @@
 /**
- * @description: fork by "@commitlint/types" v16.2.1
+ * @description fork by "@commitlint/types" v16.2.1
  */
 
 /** ========== rules ========== */

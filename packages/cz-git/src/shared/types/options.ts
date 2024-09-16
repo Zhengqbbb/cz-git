@@ -1,8 +1,8 @@
 /**
- * @description: cz-git types
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
- * @license: MIT
- * @copyright: Copyright (c) 2022-present Qiubin Zheng
+ * @description cz-git types
+ * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @license MIT
+ * @copyright Copyright (c) 2022-present Qiubin Zheng
  */
 import type { QuestionsType } from '../../generator'
 import type { CommitlintUserConfig } from './commitlint'
@@ -101,20 +101,21 @@ export interface CommitizenType {
 
 export interface Option {
     /**
-     * @description: show prompt name
+     * show terminal prompt name
      */
     name: string
     /**
-     * @description: output real value
+     * output real value
      */
     value: string
 }
 
 export interface TypesOption extends Option {
     /**
-     * @description: Submit emoji commit string
-     * @see: https://gitmoji.dev/
-     * @example: ":bug:" => 🐛
+     * Submit emoji commit string
+     *
+     * @see https://gitmoji.dev/
+     * @example ":bug:" => 🐛
      */
     emoji?: string
 }
@@ -124,31 +125,36 @@ export interface TypesOption extends Option {
  */
 export interface CommitMessageOptions {
     /**
-     * @description: choose type list value
+     * choose type list value
+     *
      * @example: 'feat'
      */
     type: string
     /**
-     * @description: choose or custom scope value
+     * choose or custom scope value
+     *
      * @example: 'app'
      */
     scope: string
     /**
-     * @description: choose type list emoji code. need turn on `useEmoji` options
+     * choose type list emoji code. need turn on `useEmoji` options
+     *
      * @example: ':sparkles:'
      */
     emoji: string
     /**
-     * @description: express is a breaking change message
+     * express is a breaking change message
+     *
      * @example `!`
      */
     markBreaking: string
     /**
-     * @description: input subject
+     * input subject
      */
     subject: string
     /**
-     * @description: base Angular format default header
+     * base Angular format default header
+     *
      * @example `feat(app): add a feature`
      */
     defaultHeader: string
@@ -156,7 +162,7 @@ export interface CommitMessageOptions {
     breaking: string
     footer: string
     /**
-     * @description: base Angular format default all message
+     * base Angular format default all message
      */
     defaultMessage: string
 }
@@ -172,7 +178,8 @@ export interface GenerateAIPromptType {
 /** cz-git configure */
 export interface CommitizenGitOptions {
     /**
-     * @description: define commonly used commit message alias
+     * define commonly used commit message alias
+     *
      * @default { fd: "docs: fix typos" }
      * @use commitizen CLI: "cz_alias=fd cz"
      * @use czg CLI: "czg --alias=fd" | "czg :fd"
@@ -181,12 +188,13 @@ export interface CommitizenGitOptions {
     alias?: Record<string, string>
 
     /**
-     * @description: Customize prompt questions
+     * Customize prompt questions
      */
     messages?: Answers
 
     /**
-     * @description: the prompt inquirer primary color
+     * the prompt inquirer primary color
+     *
      * @rule `38;5;${color_code}`
      * @tip the color_code can get by https://github.com/sindresorhus/xterm-colors
      * @example "38;5;043"
@@ -195,12 +203,13 @@ export interface CommitizenGitOptions {
     themeColorCode?: string
 
     /**
-     * @description: Customize prompt type
+     * Customize prompt type
      */
     types?: TypesOption[]
 
     /**
-     * @description: Add extra types to default types
+     * Add extra types to default types
+     *
      * @use Use when you don't want to add bloated defaults and don't want to adjust the default order in configuration
      * @example `typesAppend: [ { value: "workflow", name: "workflow:  Workflow changes"} ],`
      * @default []
@@ -208,8 +217,9 @@ export interface CommitizenGitOptions {
     typesAppend?: TypesOption[]
 
     /**
-     * @description: default types list fuzzy search types `value` key of list.
-     * if choose `false` will search `name` key of list
+     * Default types list fuzzy search types `value` key of list.
+     * If choose `false` will search `name` key of list.
+     *
      * @use Using emoji unicode as `value` and that can't be searched
      * @default true
      */
@@ -218,21 +228,24 @@ export interface CommitizenGitOptions {
     typesSearchValueKey?: boolean
 
     /**
-     * @description: Use OpenAI to auto generate short description for commit message
+     * Use OpenAI to auto generate short description for commit message
+     *
      * @default false
      */
     useAI?: boolean
 
     /**
-     * @description: If >1 will turn on select mode, select generate options like returned by OpenAI
+     * If >1 will turn on select mode, select generate options like returned by OpenAI
+     *
      * @default 1
      */
     aiNumber?: number
 
     /**
-     * @description: To ignore selection codes when sending AI API requests
+     * To ignore selection codes when sending AI API requests
+     *
      * @default [ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]
-     * @example: [ "pnpm-lock.yaml", "docs/public" ]
+     * @example [ "pnpm-lock.yaml", "docs/public" ]
      */
     aiDiffIgnore?: string[]
 
@@ -246,84 +259,95 @@ export interface CommitizenGitOptions {
     aiType?: 'openAI-Turbo' | 'openAI-Davinci'
 
     /**
-     * @description: Alert!!! Save on "$HOME/.czrc" or "$HOME/.config/.czrc". Do not save on project
+     * @note Save on "$HOME/.config/.czrc" or "$HOME/.czrc". Do not save on project.
      */
     openAIToken?: string
 
     /**
      * It is recommended to use the command to configure the local
-     * `npx czg --api-proxy=<http_proxy>`
-     * e.g: `npx czg --api-proxy="http://127.0.0.1:1080"` or `npx czg --api-proxy="socks5://127.0.0.1:1080"`
+     *
+     * @run     `npx czg --api-proxy=<http_proxy>`
+     * @example `npx czg --api-proxy="http://127.0.0.1:1080"` or `npx czg --api-proxy="socks5://127.0.0.1:1080"`
      */
     apiProxy?: string
 
     /**
      * `npx czg --api-endpoint=<url>`
+     *
      * @default "https://api.openai.com/v1"
      */
     apiEndpoint?: string
 
     /**
-     * @description: Use the callback fn can customize edit information AI question information
-     * @param GenerateAIPromptType: provide some known parameters
+     * Use the callback fn can customize edit information AI question information
+     *
+     * @param aiParam provide some known parameters
      * @default generateSubjectDefaultPrompt
      */
     aiQuestionCB?: (aiParam: GenerateAIPromptType) => string
 
     /**
-     * @description: Use emoji ？| it will be use typesOption.emoji code
+     * Use emoji ？It will be use typesOption.emoji code
+     *
      * @default false
      */
     useEmoji?: boolean
 
     /**
-     * @description: Set the location of emoji in header
+     * Set the location of emoji in header
+     *
      * @default "center"
      */
     emojiAlign?: 'left' | 'center' | 'right'
 
     /**
-     * @description: Provides a select of prompt to select module scopes
-     * @note it auto import value from rule "scope-enum" with `@commitlint`
-     * @use want to add scopes description or when you not use commitlint
+     * Provides a select of prompt to select module scopes
+     *
+     * @commitlint it auto import value from rule "scope-enum"
      */
     scopes?: ScopesType
 
     /**
-     * @description: default scope list fuzzy search types `name` key of list.
-     * if choose `true` will search `value` key of list.
+     * Default scope list fuzzy search types `name` key of list.
+     * If choose `true` will search `value` key of list.
+     *
      * @use If have long description of scope. can use it to enhanced search.
      * @default false
      */
     scopesSearchValue?: boolean
 
     /**
-     * @description: Provides an overriding select of prompt to select module scopes under specific type
+     * Provides an overriding select of prompt to select module scopes under specific type
+     *
      * @note use this option should set `scopes` option to realize distinguish
-     * @example: [test] => provide select e2eTest unitTest
+     * @example { "test": ["e2eTest", "unitTest"] }
      */
     scopeOverrides?: { [type: string]: ScopesType }
 
     /**
-     * @description: Filter select of prompt to select module scopes by the scope.value
+     * Filter select of prompt to select module scopes by the scope.value
+     *
      * @default ['.DS_Store']
      */
     scopeFilters?: string[]
 
     /**
-     * @description: Whether to enable scope multiple mode
+     * Whether to enable scope multiple mode
+     *
      * @default false
      */
     enableMultipleScopes?: boolean
 
     /**
-     * @description: Multiple choice scope separator
+     * Multiple choice scope separator
+     *
      * @default ","
      */
     scopeEnumSeparator?: string
 
     /**
-     * @description: Whether to show "custom" when selecting scopes
+     * Whether to show "custom" when selecting scopes
+     *
      * @note it auto check rule "scope-enum" set the option with `@commitlint`
      * @use when you not use commitlint
      * @default true
@@ -331,13 +355,15 @@ export interface CommitizenGitOptions {
     allowCustomScopes?: boolean
 
     /**
-     * @description: Whether to show "empty" when selecting scopes
+     * Whether to show "empty" when selecting scopes
+     *
      * @default true
      */
     allowEmptyScopes?: boolean
 
     /**
-     * @description: Set the location of empty option (empty) and custom option (custom) in selection range
+     * Set the location of empty option (empty) and custom option (custom) in selection range
+     *
      * @default "bottom"
      */
     customScopesAlign?: 'top' | 'bottom' | 'top-bottom' | 'bottom-top'
@@ -353,34 +379,38 @@ export interface CommitizenGitOptions {
     emptyScopesAlias?: string
 
     /**
-     * @description: Subject is need upper case first.
+     * Subject is need upper case first.
+     *
      * @default false
      */
     upperCaseSubject?: boolean
 
     /**
-     * @description: Whether to add extra prompt BREAKCHANGE ask. to add an extra "!" to the header
+     * Whether to add extra prompt BREAKCHANGE ask. to add an extra "!" to the header
+     *
      * @see: https://cz-git.qbb.sh/recipes/breakingchange
      * @default false
      */
     markBreakingChangeMode?: boolean
 
     /**
-     * @description: Allow breaking changes in the included types output box
+     * Allow breaking changes in the included types output box
+     *
      * @default ['feat', 'fix']
      */
     allowBreakingChanges?: string[]
 
     /**
-     * @description: set body and BREAKING CHANGE max length to break-line
+     * set body and BREAKING CHANGE max length to break-line
+     *
      * @default 100
-     * @note it auto check rule "body-max-line-length" set the option with `@commitlint`.
-     * @use when you not use commitlint
+     * @commitlint it auto check rule "body-max-line-length".
      */
     breaklineNumber?: number
 
     /**
-     * @description: body and BREAKINGCHANGES new line char
+     * body and BREAKINGCHANGES new line char
+     *
      * @default "|"
      */
     breaklineChar?: string
@@ -391,7 +421,8 @@ export interface CommitizenGitOptions {
      */
     issuePrefixs?: Option[]
     /**
-     * @description: Provides a select issue prefix box in footer
+     * Provides a select issue prefix box in footer
+     *
      * @default issuePrefixes: [{ value: "closed", name: "ISSUES has been processed" }]
      */
     issuePrefixes?: Option[]
@@ -432,7 +463,8 @@ export interface CommitizenGitOptions {
      */
     allowCustomIssuePrefixs?: boolean
     /**
-     * @description: Whether to show "custom" selecting issue prefixes
+     * Whether to show "custom" selecting issue prefixes
+     *
      * @default true
      */
     allowCustomIssuePrefix?: boolean
@@ -443,104 +475,117 @@ export interface CommitizenGitOptions {
      */
     allowEmptyIssuePrefixs?: boolean
     /**
-     * @description: Whether to show "skip(empty)" when selecting issue prefixes
+     * Whether to show "skip(empty)" when selecting issue prefixes
+     *
      * @default true
      */
     allowEmptyIssuePrefix?: boolean
 
     /**
-     * @description: Prompt final determination whether to display the color
+     * Prompt final determination whether to display the color
+     *
      * @default true
      */
     confirmColorize?: boolean
 
     /**
-     * @description: List of questions you want to skip
+     * List of questions you want to skip
+     *
      * @default []
-     * @example: ['body']
+     * @example ['body']
      */
     skipQuestions?: Array<'scope' | 'body' | 'breaking' | 'footerPrefix' | 'footer' | 'confirmCommit'>
 
     /**
-     * @description: Force set max header length | Equivalent setting maxSubjectLength.
-     * @note it auto check rule "header-max-length" set the option with `@commitlint`.
+     * Force set max header length | Equivalent setting maxSubjectLength.
+     *
+     * @commitlint it auto check rule and use value from "header-max-length".
      * @use when you not use commitlint
      */
     maxHeaderLength?: number
 
     /**
-     * @description: Force set max subject length.
-     * @note it auto check rule "subject-max-length" set the option with `@commitlint`.
+     * Force set max subject length.
+     *
+     * @commitlint it auto check rule and use value from "subject-max-length".
      * @use when you not use commitlint
      */
     maxSubjectLength?: number
 
     /**
-     * @description: Is not strict subject rule. Just provide prompt word length warning.
-     * Effected maxHeader and maxSubject commitlint
+     * Is not strict subject rule. Just provide prompt word length warning.
+     * Effected maxHeader and maxSubject commitlint.
+     *
      * @example [1, 'always', 80] 1: mean warning. will be true
      * @default false
      */
     isIgnoreCheckMaxSubjectLength?: boolean
 
     /**
-     * @description: Force set header width.
-     * @note it auto check rule "subject-min-length" set the option with `@commitlint`.
+     * Force set header width.
+     *
+     * @commitlint it auto check rule and use value from "subject-min-length".
      * @use when you not use commitlint
      */
     minSubjectLength?: number
 
     /**
-     * @description: pin type item the top of the types list (match item value)
+     * pin type item the top of the types list (match item value)
      */
     defaultType?: string
 
     /**
-     * @description Whether to use display default value in custom scope
-     * @tip pin scope item the top of the scope list (match item value)
+     * Whether to use display default value in custom scope
      *
-     * `string[]` for checkbox mode will default-select the options whose values match those within the `scopes` range list.
-     * @example: When you want to use default, just keyboard <Enter> it
+     * @tip
+     * 1. pin scope item the top of the scope list (match item value)
+     * 2. `string[]` for checkbox mode will default-select the options whose values match those within the `scopes` range list.
+     * @usage When you want to use default, just keyboard `Enter` it
      */
     defaultScope?: string | string[]
 
     /**
-     * @description: default value show subject template prompt
-     * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
-     * @example: If you want to use default, just keyboard <Enter> it
+     * default value show subject template prompt
+     *
+     * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
+     * @usage If you want to use default, just keyboard `Enter` it
      */
     defaultSubject?: string
 
     /**
-     * @description: default value show body and BREAKINGCHANGES template prompt
-     * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
-     * @example: When you want to use default, just keyboard <Enter> it
+     * default value show body and BREAKINGCHANGES template prompt
+     *
+     * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
+     * @usage When you want to use default, just keyboard `Enter` it
      */
     defaultBody?: string
     /**
-     * @description: default value show issuePrefixes custom template prompt
-     * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
-     * @example: When you want to use default, just keyboard <Enter> it
+     * default value show issuePrefixes custom template prompt
+     *
+     * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
+     * @usage When you want to use default, just keyboard `Enter` it
      */
     defaultFooterPrefix?: string
     /**
-     * @description: default value show issue foot template prompt
-     * @example: If you want to use template complete. just keyboard <Tab> or <Right Arrow> it
-     * @example: When you want to use default, just keyboard <Enter> it
+     * default value show issue foot template prompt
+     *
+     * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
+     * @usage When you want to use default, just keyboard `Enter` it
      */
     defaultIssues?: string
 
     /**
-     * @description: Whether to use GPG sign commit message (git commit -S -m)
+     * Whether to use GPG sign commit message (git commit -S -m)
      * @note the options only support `czg` cz-git cli and no support git hooks mode
-     * @usage_see https://github.com/Zhengqbbb/cz-git/issues/58
+     * @see https://github.com/Zhengqbbb/cz-git/issues/58
      * @default false
      */
     useCommitSignGPG?: boolean
 
     /**
-     * @description: provide user custom finally message, can use the callback to change format
-     * @param CommitMessageOptions: provide subdivides each message part
+     * provide user custom finally message, can use the callback to change format
+     *
+     * @param messageMod provide subdivides each message part
      * @default ({ defaultMessage }) => defaultMessage
      */
     formatMessageCB?: (messageMod: CommitMessageOptions) => string

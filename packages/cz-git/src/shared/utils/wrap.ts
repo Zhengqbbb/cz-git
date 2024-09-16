@@ -1,5 +1,5 @@
 /**
- * @description: fork by "word-wrap" v1.2.3"
+ * @description fork by "word-wrap" v1.2.3"
  */
 
 function identity(str: string) {

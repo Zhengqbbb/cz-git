@@ -1,8 +1,6 @@
-/*
- * @Description: update "Project using `cz-git` `czg`"
- * @Use `pnpm docs:update`
- * @Author: Qbenben
- * @LastEditors: Qbenben
+/**
+ * @description update "Project using `cz-git` `czg`"
+ * @use `pnpm docs:update`
  */
 
 import fs from 'node:fs'

@@ -3,7 +3,7 @@ import { afterAll, beforeEach, describe, expect, it, vitest } from 'vitest'
 import { createStyle, isColorizenSupport } from '../src'
 
 /**
- * @description: utils - isColorizenSupport Test
+ * @description utils - isColorizenSupport Test
  */
 describe('isColorizenSupport()', () => {
     const env = process.env
@@ -35,7 +35,7 @@ describe('isColorizenSupport()', () => {
 })
 
 /**
- * @description: utils - style Test
+ * @description utils - style Test
  */
 describe('style()', () => {
     it('force unenable color shoule be normal', () => {

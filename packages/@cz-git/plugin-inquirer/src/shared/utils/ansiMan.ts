@@ -1,6 +1,6 @@
 const ESC = '\u001B['
 /**
- * @description: ANSI escape codes for manipulating the terminal
+ * @description ANSI escape codes for manipulating the terminal
  */
 export const ansiEscapes = {
     /** move cursor to left */

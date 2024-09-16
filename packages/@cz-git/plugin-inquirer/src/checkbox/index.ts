@@ -1,6 +1,6 @@
 /**
- * @description: inquirer plugin - Search Checkbox
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description inquirer plugin - Search Checkbox
+ * @author @Zhengqbbb (zhengqbbb@gmail.com)
  * @license MIT
  */
 
@@ -53,8 +53,9 @@ export class SearchCheckbox extends Base {
     }
 
     /**
-     * @description: Start the Inquiry session
-     * @param  {Function} cb      Callback when prompt is done
+     * Start the Inquiry session
+     *
+     * @param {Function} cb Callback when prompt is done
      */
     _run(cb: any): this {
         this.done = cb
@@ -74,7 +75,9 @@ export class SearchCheckbox extends Base {
     }
 
     /**
-     * @description: render screen
+     * render screen
+     *
+     * @param {string} error output screen footer
      */
     render(error?: string) {
     // Render question
@@ -128,7 +131,9 @@ export class SearchCheckbox extends Base {
     }
 
     /**
-     * @description: resolve source to get renderChoices
+     * resolve source to get renderChoices
+     *
+     * @param {string} input search input
      */
     search(input?: string): Promise<any> {
         this.pointer = 0
@@ -202,7 +207,7 @@ export class SearchCheckbox extends Base {
     }
 
     /**
-     * @description: resolve choice
+     * resolve choice
      */
     onChoice() {
         const item = this.renderChoices.realChoices[this.pointer]
@@ -218,14 +223,14 @@ export class SearchCheckbox extends Base {
     }
 
     /**
-     * @description: resovle line Events <Enter>
+     * resovle line <Enter> Events
      */
     onSubmit() {
         let checkedChoices: ChoiceType<string>[]
+
         // provide cz-git submit on <custom> item
         if (this.renderChoices.realChoices[this.pointer]?.value === '___CUSTOM___')
             checkedChoices = this.originChoices.filter(item => item.value === '___CUSTOM___')
-
         else
             checkedChoices = this.originChoices.filter(item => item.checked && !item.disabled)
 
@@ -263,7 +268,7 @@ export class SearchCheckbox extends Base {
     }
 
     /**
-     * @description: Search <any key>
+     * keypress handler
      */
     onKeypress(e: { key: { name?: string, ctrl?: boolean }, value: string }) {
         let len
@@ -370,7 +375,7 @@ function getCheckbox(checked: boolean): string {
 }
 
 /**
- * @description: check choice is selectable
+ * check choice is selectable
  */
 function isSelectable(choice: ChoiceType<Separator['type']>) {
     return choice.type !== 'separator' && !choice.disabled

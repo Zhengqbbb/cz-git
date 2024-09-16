@@ -160,20 +160,25 @@ export interface UserOptions {
 }
 
 /**
- * @description: Main Func: both loader commitizen config and commitlint config
+ * @description Main Func: both loader commitizen config and commitlint config
  */
 export async function configLoader(options?: UserOptions) {
     // provide cli config loader
     if (typeof options?.configPath === 'string') {
-        const czData = await cosmiconfig('commitizen', {
-            ignoreEmptySearchPlaces: true,
-            cache: true,
-        }).load(path.resolve(options.cwd || process.cwd(), options.configPath))
+        const czData = await cosmiconfig(
+            'commitizen',
+            {
+                ignoreEmptySearchPlaces: true,
+                cache: true,
+            },
+        ).load(path.resolve(options.cwd || process.cwd(), options.configPath))
+
         return { prompt: await execute(czData?.config || czData || {}, true) }
     }
     else {
-        return Promise.all([clLoader(options?.cwd), czLoader(options?.cwd), aiLoader()]).then(
-            ([clData, czData, aiData]) => {
+        return Promise
+            .all([clLoader(options?.cwd), czLoader(options?.cwd), aiLoader()])
+            .then(([clData, czData, aiData]) => {
                 const clPrompt = clData.prompt || {}
                 return {
                     ...clData,
@@ -183,7 +188,6 @@ export async function configLoader(options?: UserOptions) {
                         ...aiData,
                     },
                 }
-            },
-        )
+            })
     }
 }

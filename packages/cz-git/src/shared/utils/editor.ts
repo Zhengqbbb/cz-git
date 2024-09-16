@@ -9,7 +9,7 @@ import { generateMessage } from '../../generator'
 import { log } from './util'
 
 /**
- * @description: fork by "temp/open" v0.9.4
+ * @description fork by "temp/open" v0.9.4
  */
 interface OpenFile {
     path: string
@@ -177,7 +177,7 @@ function tempOpen(affixes: string | AffixOptions | undefined, callback: (err: an
 }
 
 /**
- * @description: fork by "editor" v1.0.0
+ * @description fork by "editor" v1.0.0
  */
 function editor(file?: string, opts?: any | object, cb?: any) {
     if (typeof opts === 'function') {

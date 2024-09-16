@@ -1,6 +1,6 @@
 /**
- * @description: inquirer plugin - Search Checkbox
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description inquirer plugin - Search Checkbox
+ * @author @Zhengqbbb (zhengqbbb@gmail.com)
  * @license MIT
  */
 
@@ -27,8 +27,9 @@ export class CompleteInput extends Base {
     }
 
     /**
-     * @description: Start the Inquiry session
-     * @param  {Function} cb      Callback when prompt is done
+     * Start the Inquiry session
+     *
+     * @param {Function} cb Callback when prompt is done
      */
     _run(cb: any): this {
         this.done = cb
@@ -50,7 +51,9 @@ export class CompleteInput extends Base {
     }
 
     /**
-     * @description: render screen
+     * render screen
+     *
+     * @param {string} error output screen footer
      */
     render(error?: string) {
         let bottomContent = ''

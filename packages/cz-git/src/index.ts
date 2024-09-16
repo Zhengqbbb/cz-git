@@ -1,8 +1,8 @@
 /**
- * @description: customizable and git support commitizen adapter
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
- * @license: MIT
- * @copyright: Copyright (c) 2022-present Qiubin Zheng
+ * @description customizable and git support commitizen adapter
+ * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @license MIT
+ * @copyright Copyright (c) 2022-present Qiubin Zheng
  */
 
 import process from 'node:process'

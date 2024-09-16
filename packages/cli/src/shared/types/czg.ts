@@ -71,7 +71,7 @@ export interface CzgitSubCommand {
 }
 
 /**
- * @description: provide czgit parsed Args
+ * @description provide czgit parsed Args
  */
 export interface CzgitParseArgs {
     czgitArgs: {

@@ -1,11 +1,11 @@
 /**
- * @description: provide until function
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
- * @license: MIT
+ * @description provide until function
+ * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @license MIT
  */
 
 import { style } from '@cz-git/inquirer'
-import type { Answers, CommitizenGitOptions, Option, ScopesType } from '..'
+import type { Answers, CommitizenGitOptions, Option, ScopesType } from '../types'
 
 export function useThemeCode(input: string, themeColorCode?: string) {
     return themeColorCode ? style.rgb(themeColorCode)(input) : style.cyan(input)
@@ -26,7 +26,7 @@ export function isString(str: any) {
 }
 
 /**
- * @description: count header length
+ * count header length
  *
  * {2}: mean ': '
  */
@@ -35,7 +35,7 @@ function countLength(target: number, typeLength: number, scope: number, emojiLen
 }
 
 /**
- * @description: resolve list item pin top
+ * resolve list item pin top
  */
 export function resolveListItemPinTop(
     arr: { name: string, value: any }[],
@@ -53,14 +53,15 @@ export function resolveListItemPinTop(
 }
 
 /**
- * @description: check scope list and issuePrefix is only single item (scope, issuePrefix)
+ * check scope list and issuePrefix is only single item (scope, issuePrefix)
  */
 export function isSingleItem(allowCustom = true, allowEmpty = true, list: Array<any> = []) {
     return !allowCustom && !allowEmpty && Array.isArray(list) && list.length === 1
 }
 
 /**
- * @description make sure can get answers type
+ * make sure can get answers type
+ *
  * 1. normal answer type
  * 2. resolve AI direct output mode
  * 3. output default type
@@ -73,7 +74,7 @@ export function getAnswersType(options: CommitizenGitOptions, answer: Answers) {
 }
 
 /**
- * @description: parse scope configuration option to standard options
+ * parse scope configuration option to standard options
  */
 export function parseStandardScopes(scopes: ScopesType): Option[] {
     return scopes.map((scope) => {
@@ -85,7 +86,8 @@ export function parseStandardScopes(scopes: ScopesType): Option[] {
     })
 }
 /**
- * @description To get a list of scopes
+ * To get a list of scopes
+ *
  * 1. If have overrides by answerType, return the override list
  * 2. If have scopes is empty, return empty array
  */
@@ -116,7 +118,8 @@ function filterCustomEmptyByOption(
     return allowEmpty ? target : target.filter(i => i.value !== false)
 }
 /**
- * @description Handle custom list template (types, scopes)
+ * Handle custom list template (types, scopes)
+ *
  * 1. Add separator, custom, empty
  * 2. Sort target, empty and custom position
  */
@@ -159,7 +162,7 @@ export function resovleCustomListTemplate(
                 .concat([new cz.Separator(), { name: customAlias, value: '___CUSTOM___' }])
             break
         case 'bottom-top':
-            result = result = [{ name: customAlias, value: '___CUSTOM___' }, new cz.Separator()]
+            result = [{ name: customAlias, value: '___CUSTOM___' }, new cz.Separator()]
                 .concat(target)
                 .concat([new cz.Separator(), { name: emptyAlias, value: false }])
             break
@@ -174,7 +177,8 @@ export function resovleCustomListTemplate(
 }
 
 /**
- * @description To get the scope of the answer
+ * To get the scope of the answer
+ *
  * 1. If scope is custom mode, return the input custom scope
  * 2. If scope is input mode flag, return the input scope
  */
@@ -186,7 +190,7 @@ export function getAnswersScope(options: CommitizenGitOptions, answers: Answers)
 }
 
 /**
- * @description: get subject word
+ * get subject word
  */
 export function getProcessSubject(text: string) {
     return text.replace(/(^\s+|[\s.]+$)/g, '') ?? ''
@@ -199,7 +203,7 @@ function getEmojiStrLength(options: CommitizenGitOptions, type?: string): number
 }
 
 /**
- * @description: get max subject length
+ * get max subject length
  */
 export function getMaxSubjectLength(type: Answers['type'], scope: Answers['scope'] | Answers['customScope'], options: CommitizenGitOptions) {
     let optionMaxLength = Infinity
@@ -215,13 +219,14 @@ export function getMaxSubjectLength(type: Answers['type'], scope: Answers['scope
         return 0
     }
     else if (maxHeaderLength === Infinity) {
-        return maxSubjectLength !== Infinity ? maxSubjectLength : Infinity
+        return maxSubjectLength !== Infinity
+            ? maxSubjectLength
+            : Infinity
     }
     else {
-        optionMaxLength
-      = countLength(maxHeaderLength, typeLength, scopeLength, emojiLength) < maxSubjectLength
-                ? maxHeaderLength
-                : maxSubjectLength
+        optionMaxLength = countLength(maxHeaderLength, typeLength, scopeLength, emojiLength) < maxSubjectLength
+            ? maxHeaderLength
+            : maxSubjectLength
     }
     return countLength(optionMaxLength, typeLength, scopeLength, emojiLength)
 }

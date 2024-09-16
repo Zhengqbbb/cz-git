@@ -4,7 +4,7 @@ import inquirer from 'inquirer'
 import ReadlineStub from './helpers/readline'
 
 /**
- * @description: Test - inquirer plugin: SearchCheckbox
+ * @description Test - inquirer plugin: SearchCheckbox
  */
 
 describe('inquirer-SearchCheckbox', () => {

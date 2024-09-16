@@ -3,7 +3,7 @@ import { CompleteInput } from '@cz-git/inquirer'
 import ReadlineStub from './helpers/readline'
 
 /**
- * @description: Test - inquirer plugin: CompleteInput
+ * @description Test - inquirer plugin: CompleteInput
  */
 
 describe('inquirer-CompleteInput', () => {
@@ -158,7 +158,7 @@ describe('inquirer-CompleteInput', () => {
     })
 
     /**
-     * @description: start prompt run
+     * @description start prompt run
      */
     function getPromiseForAnswer() {
         return prompt.run()

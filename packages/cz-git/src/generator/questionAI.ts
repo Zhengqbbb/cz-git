@@ -1,7 +1,7 @@
 /**
- * @description: generate commitizen questions(generateQuestions)
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
- * @license: MIT
+ * @description generate commitizen questions(generateQuestions)
+ * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @license MIT
  */
 
 import process from 'node:process'
