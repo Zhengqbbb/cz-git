@@ -16,7 +16,7 @@ description: Interactive Commitizen CLI that generate standardized git commit me
     </a>
     <br>
     <a href="https://www.npmjs.com/package/czg">
-        <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/czg?style=flat-square&logo=npm">
+        <img style="display:inline-block;margin:0.2em;" alt="npm" src="https://img.shields.io/npm/v/czg?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6IiBmaWxsPSIjY2IwMDAwIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTcgN2gyNnYyNmgtN1YxNGgtNnYxOUg3eiIvPjwvc3ZnPgo=">
     </a>
     <a href="https://formulae.brew.sh/formula/czg">
         <img style="display:inline-block;margin:0.2em;" alt="homebrew" src="https://img.shields.io/homebrew/v/czg?style=flat-square&logo=homebrew&label=homebrew">
@@ -91,11 +91,11 @@ More information about configure file and options. See → [Config](/config/)
     [36memoji[0m            [31mTurn on output message with emoji mode[0m
     [36mcheckbox[0m         [31mTurn on scope checkbox mode[0m
     [36mgpg[0m              [31mTurn on use GPG sign commit message[0m
-    
+
 [33mOPTIONS:[0m
     [36m:, --alias=[0m      [31mDirectly submit the defined commit message[0m
     [36m--config=[0m        [31mSpecify the configuration file to use[0m
-    
+
   [90mOpenAI:[0m
     [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
     [36m--api-key=[0m       [31mSetup request OpenAI API secret key to local (.config/.czrc)[0m
@@ -118,8 +118,8 @@ More information about configure file and options. See → [Config](/config/)
     [36mczg --api-key="sk-XXXXX"[0m
     [36mczg ai -N=3[0m
 
-Extends 'git commit' options. 
-See 'git commit --help' for more information. 
+Extends 'git commit' options.
+See 'git commit --help' for more information.
 ```
 
 ## Projects using czg CLI

@@ -185,8 +185,7 @@ added 1 package in 0.531s
 
 ## LICENSE
 
-MIT
-Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
+MIT Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
 
 <p align="center">
     <table>

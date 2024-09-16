@@ -178,7 +178,19 @@ brew install czg
 
 ## LICENSE
 
-MIT
-Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
+MIT Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)
 
-> I just do my best to make thing well, Could you give a [star ⭐](https://github.com/Zhengqbbb/cz-git) to encourage me ?
+<p align="center">
+    <table>
+        <tbody>
+        <td align="center">
+            <br>
+            I just try my best to make thing well.<br>
+            Could you give a star ⭐ to encourage me 🤗
+            <br>
+            If possible, can to be my <a href="https://github.com/sponsors/Zhengqbbb">💖 Sponsor 💖</a> to support my work
+            <img width="800" height="0" />
+        </td>
+        </tbody>
+    </table>
+</p>
