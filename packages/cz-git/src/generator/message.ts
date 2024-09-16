@@ -163,7 +163,7 @@ export function generateMessage(answers: Answers, options: CommitizenGitOptions,
 
     let defaultHeader = addEmoji(emoji, 'left', options.emojiAlign) + type
     defaultHeader += scope ? `(${scope})` : ''
-    defaultHeader += `${markBreaking}:`
+    defaultHeader += `${markBreaking}: `
     defaultHeader += addEmoji(emoji, 'center', options.emojiAlign) + subject
     defaultHeader += addEmoji(emoji, 'right', options.emojiAlign)
 
