@@ -59,8 +59,8 @@ A support OpenAI, and more engineered, lightweight, customizable, standard outpu
 
 ```bash
 $ npm i -D cz-git
-+ cz-git          (1.9 MB)
-added 1 package in 0.582s
++ cz-git          (1.75 MB)
+added 1 package in 0.552s
 ```
 
 ## Usage

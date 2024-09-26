@@ -31,7 +31,7 @@ $ npm install -D cz-conventional-changelog
 added 147 packages in 21s
 
 $ npm install -D cz-git
-added 1 package in 0.582s
+added 1 package in 0.552s
 ```
 
 ---
