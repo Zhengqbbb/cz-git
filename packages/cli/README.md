@@ -88,10 +88,15 @@ OPTIONS:
     --config=        Specify the configuration file to use
 
   OpenAI:
-    -N=,--ai-num=    Setting AI return number subjects and Turn on choose mode
+    -N=,--ai-num=    Sets AI return multiple subjects and Turn on choose mode
+    -M=,--ai-model=  Sets AI model in this session
+                     [default: "gpt-4o-mini"]
+                     [example: "gpt-3.5-turbo", "gpt-4o", "gpt-4o-mini" ...]
     --api-key=       Setup request OpenAI API secret key to local (.config/.czrc)
+    --api-model=     Setup request OpenAI API model      to local (.config/.czrc)
     --api-proxy=     Setup request OpenAI API proxy      to local (.config/.czrc)
     --api-endpoint=  Setup request OpenAI API endpoint   to local (.config/.czrc)
+                     [default: "https://api.openai.com/v1"]
 
 FLAG:
     -r, --retry      Directly retry submit by the last message
@@ -106,7 +111,7 @@ EXAMPLES:
     czg :fd
     czg --config="./config/cz.json"
     czg --api-key="sk-XXXXX"
-    czg ai -N=3
+    czg ai -N=3 -M="gpt-4o"
 
 Extends 'git commit' options.
 See 'git commit --help' for more information.

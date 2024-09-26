@@ -36,6 +36,7 @@ export function czg(version: string, argvs: CzgitParseArgs, environment: any = {
             injectEnvFlag('CzCommitSignGPG', argvs.czgitArgs.subCommand?.gpg)
             injectEnvValue('cz_alias', argvs.czgitArgs.flag?.alias)
             injectEnvValue('cz_ainum', argvs.czgitArgs.flag?.['ai-num'])
+            injectEnvValue('cz_aimodel', argvs.czgitArgs.flag?.['ai-model'])
 
             console.log(`czg@${version}\n`)
             // commit

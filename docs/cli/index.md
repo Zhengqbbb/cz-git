@@ -82,41 +82,45 @@ More information about configure file and options. See → [Config](/config/)
     [4mhttps://cz-git.qbb.sh/cli/[0m
     [4mhttps://github.com/Zhengqbbb/cz-git[0m
 
-[33mSYNOPSIS:[0m
+[33mSYNOPSIS:[39m
     czg [subcommand...] [options...] [git-commit-options...]
 
-[33mSUBCOMMAND:[0m
-    [36mai[0m               [31mTurn on OpenAI generate subject mode[0m
-    [36mbreak[0m            [31mTurn on appends a ! after the type/scope[0m
-    [36memoji[0m            [31mTurn on output message with emoji mode[0m
-    [36mcheckbox[0m         [31mTurn on scope checkbox mode[0m
-    [36mgpg[0m              [31mTurn on use GPG sign commit message[0m
+[33mSUBCOMMAND:[39m
+    [36mai[39m               [31mTurn on OpenAI generate subject mode[39m
+    [36mbreak[39m            [31mTurn on appends a ! after the type/scope[39m
+    [36memoji[39m            [31mTurn on output message with emoji mode[39m
+    [36mcheckbox[39m         [31mTurn on scope checkbox mode[39m
+    [36mgpg[39m              [31mTurn on use GPG sign commit message[39m
 
-[33mOPTIONS:[0m
-    [36m:, --alias=[0m      [31mDirectly submit the defined commit message[0m
-    [36m--config=[0m        [31mSpecify the configuration file to use[0m
+[33mOPTIONS:[39m
+    [36m:, --alias=[39m      [31mDirectly submit the defined commit message[39m
+    [36m--config=[39m        [31mSpecify the configuration file to use[39m
 
-  [90mOpenAI:[0m
-    [36m-N=,--ai-num=[0m    [31mSetting AI return number subjects and Turn on choose mode[0m
-    [36m--api-key=[0m       [31mSetup request OpenAI API secret key to local (.config/.czrc)[0m
-    [36m--api-proxy=[0m     [31mSetup request OpenAI API proxy      to local (.config/.czrc)[0m
-    [36m--api-endpoint=[0m  [31mSetup request OpenAI API endpoint   to local (.config/.czrc)[0m
-                     [90m[default: "https://api.openai.com/v1"][0m
+  [90mOpenAI:[39m
+    [36m-N=,--ai-num=[39m    [31mSets AI return multiple subjects and Turn on choose mode[39m
+    [36m-M=,--ai-model=[39m  [31mSets AI model in this session[39m
+                     [90m[default: "gpt-4o-mini"][39m
+                     [90m[example: "gpt-3.5-turbo", "gpt-4o", "gpt-4o-mini" ...][39m
+    [36m--api-key=[39m       [31mSetup request OpenAI API secret key to local (.config/.czrc)[39m
+    [36m--api-model=[39m     [31mSetup request OpenAI API model      to local (.config/.czrc)[39m
+    [36m--api-proxy=[39m     [31mSetup request OpenAI API proxy      to local (.config/.czrc)[39m
+    [36m--api-endpoint=[39m  [31mSetup request OpenAI API endpoint   to local (.config/.czrc)[39m
+                     [90m[default: "https://api.openai.com/v1"][39m
 
-[33mFLAG:[0m
-    [36m-r, --retry[0m      [31mDirectly retry submit by the last message[0m
-    [36m--no-ai[0m          [31mTurn off AI prompt mode in this session[0m
-    [36m--unset-proxy[0m    [31mUnset request API proxy on local configure[0m
-    [36m-h, --help[0m       [31mShow help[0m
-    [36m-v, --version[0m    [31mShow version[0m
+[33mFLAG:[39m
+    [36m-r, --retry[39m      [31mDirectly retry submit by the last message[39m
+    [36m--no-ai[39m          [31mTurn off AI prompt mode in this session[39m
+    [36m--unset-proxy[39m    [31mUnset request API proxy on local configure[39m
+    [36m-h, --help[39m       [31mShow help[39m
+    [36m-v, --version[39m    [31mShow version[39m
 
-[33mEXAMPLES:[0m
-    [36mczg[0m
-    [36mczg emoji[0m
-    [36mczg :fd[0m
-    [36mczg --config="./config/cz.json"[0m
-    [36mczg --api-key="sk-XXXXX"[0m
-    [36mczg ai -N=3[0m
+[33mEXAMPLES:[39m
+    [36mczg[39m
+    [36mczg emoji[39m
+    [36mczg :fd[39m
+    [36mczg --config="./config/cz.json"[39m
+    [36mczg --api-key="sk-XXXXX"[39m
+    [36mczg ai -N=3 -M="gpt-4o"[39m
 
 Extends 'git commit' options.
 See 'git commit --help' for more information.

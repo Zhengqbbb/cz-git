@@ -4,14 +4,14 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { style } from 'cz-git'
 
-export function setupAIConfig(token?: string, apiProxy?: string, unsetProxy?: boolean, apiEndpoint?: string) {
+export function setupAIConfig(token?: string, apiProxy?: string, unsetProxy?: boolean, apiEndpoint?: string, apiModel?: string) {
     const configDir = path.join(homedir(), '.config')
     const configFile = path.join(configDir, '.czrc')
     try {
         if (!existsSync(configDir))
             mkdirSync(configDir, { recursive: true })
 
-        const config = { openAIToken: token, apiProxy, apiEndpoint }
+        const config = { openAIToken: token, apiProxy, apiEndpoint, apiModel }
         if (!existsSync(configFile)) {
             writeFileSync(configFile, JSON.stringify(config), 'utf8')
         }
@@ -21,6 +21,7 @@ export function setupAIConfig(token?: string, apiProxy?: string, unsetProxy?: bo
                 openAIToken: config.openAIToken || originConfig.openAIToken,
                 apiProxy: config.apiProxy || originConfig.apiProxy,
                 apiEndpoint: config.apiEndpoint || originConfig.apiEndpoint,
+                apiModel: config.apiModel || originConfig.apiModel,
             }
             if (unsetProxy)
                 delete result?.apiProxy

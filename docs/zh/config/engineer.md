@@ -120,6 +120,32 @@ sitemap:
 示例与使用方式 [⇒ 查看小窍门](/zh/recipes/openai)
 :::
 
+## aiModel
+
+- **描述** : 选择你想使用的 AI 模型
+- **示例** : `gpt-3.5-turbo` | `gpt-4` | `gpt-4o` | `gpt-4o-mini` <br>... (并且可以使用 [/chat/completions endpoint 的兼容模型](https://platform.openai.com/docs/models/model-endpoint-compatibility)) <br>例如：[GitHub 模型](https://github.com/marketplace/models) 和本地模型 ([Ollama](https://ollama.com/library))
+- **类型** : `string`
+- **默认值** : `gpt-4o-mini`
+
+:::tip
+尝试运行命令 **在当前会话中直接切换 AI 模型**
+- Commitizen CLI + cz-git: `czai=1 cz_aimodel=gpt-3.5-turbo cz`
+- czg CLI: `czg ai -M=gpt-3.5-turbo`
+
+演示和使用方法 [⇒ 查看小窍门](/zh/recipes/openai)
+:::
+
+:::info
+如果 `aiModel` 在全局或在项目中设置，那么使用 `npx czg --api-model=<model>` 设置的值会被该值覆盖
+
+<hr>
+
+**优先级说明，从高到低：**
+1. 环境变量指定 `cz_aimodel=`，`czg` 命令的参数指定 `-M=|--ai-model=`
+2. 全局配置或项目配置: `aiModel` 字段
+3. 通过 `npx czg --api-model=<model>` 命令配置的 `~/.config/.czrc` - `apiModel` 字段
+:::
+
 ## aiNumber
 
 - **描述** : 如果大于 1 ，则会让 OpenAI 返回指定的多个选项，并开启选择模式
@@ -131,20 +157,8 @@ sitemap:
 - 使用 Commitizen CLI + cz-git: `czai=1 cz_ainum=3 cz`
 - 使用 czg CLI: `czg ai -N=3`
 
-Demo And Usage [⇒ see the recipes](/recipes/openai)
+示例与使用方式 [⇒ 查看小窍门](/zh/recipes/openai)
 :::
-
-## aiType
-
-- **描述** : 设置使用的 AI 模型
-
-|      aiType      |     模型         | 描述 | 
-|     ---        |      ---         | --- |
-| openAI-Turbo   | gpt-3.5-turbo     | 更快，API 代币消耗为 `text-davinci-003` 的 10 分之一 |
-| openAI-Davinci | text-davinci-003  |  更好的质量、更准确以及丰富的内容产出 |
-
-- **类型** : `"openAI-Turbo" | "openAI-Davinci"`
-- **default** : `openAI-Turbo`
 
 ## aiDiffIgnore
 
@@ -168,7 +182,7 @@ export interface GenerateAIPromptType {
 }
 ```
 
-- **例子** : 
+- **例子** :
 
 :::: code-group
 ::: code-group-item 英文

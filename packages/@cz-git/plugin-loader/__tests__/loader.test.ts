@@ -8,6 +8,7 @@ async function loaderSpyFn(opt: UserOptions) {
     const res = await configLoader(opt)
     res.prompt.openAIToken = ''
     delete res.prompt.openAIToken
+    delete res.prompt.apiModel
     delete res.prompt.apiEndpoint
     delete res.prompt.apiProxy
     return res

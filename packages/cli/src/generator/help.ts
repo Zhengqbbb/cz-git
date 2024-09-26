@@ -29,8 +29,12 @@ ${style.yellow('OPTIONS:')}
     ${style.cyan('--config=')}        ${style.red('Specify the configuration file to use')}
 
   ${style.gray('OpenAI:')}
-    ${style.cyan('-N=,--ai-num=')}    ${style.red('Setting AI return number subjects and Turn on choose mode')}
+    ${style.cyan('-N=,--ai-num=')}    ${style.red('Sets AI return multiple subjects and Turn on choose mode')}
+    ${style.cyan('-M=,--ai-model=')}  ${style.red('Sets AI model in this session')}
+                     ${style.gray('[default: "gpt-4o-mini"]')}
+                     ${style.gray('[example: "gpt-3.5-turbo", "gpt-4o", "gpt-4o-mini" ...]')}
     ${style.cyan('--api-key=')}       ${style.red('Setup request OpenAI API secret key to local (.config/.czrc)')}
+    ${style.cyan('--api-model=')}     ${style.red('Setup request OpenAI API model      to local (.config/.czrc)')}
     ${style.cyan('--api-proxy=')}     ${style.red('Setup request OpenAI API proxy      to local (.config/.czrc)')}
     ${style.cyan('--api-endpoint=')}  ${style.red('Setup request OpenAI API endpoint   to local (.config/.czrc)')}
                      ${style.gray('[default: "https://api.openai.com/v1"]')}
@@ -48,7 +52,7 @@ ${style.yellow('EXAMPLES:')}
     ${style.cyan('czg :fd')}
     ${style.cyan('czg --config="./config/cz.json"')}
     ${style.cyan('czg --api-key="sk-XXXXX"')}
-    ${style.cyan('czg ai -N=3')}
+    ${style.cyan('czg ai -N=3 -M="gpt-4o"')}
 
 Extends 'git commit' options.
 See 'git commit --help' for more information. `,

@@ -71,6 +71,15 @@ export interface CommitizenGitOptions {
     aiNumber?: number
 
     /**
+     * Choose the AI model you want to use
+     *
+     * @see https://platform.openai.com/docs/models/model-endpoint-compatibility => /v1/chat/completions
+     * @example "gpt-3.5-turbo" | "gpt-4" | "gpt-4o" | "gpt-4o-mini"
+     * @default "gpt-4o-mini"
+     */
+    aiModel?: string
+
+    /**
      * To ignore selection codes when sending AI API requests
      *
      * @default [ "package-lock.json", "yarn.lock", "pnpm-lock.yaml" ]

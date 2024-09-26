@@ -20,7 +20,6 @@ export function commit(
     const cachePath = path.join(cacheDirectory, 'commit.json')
 
     ensureDir(cacheDirectory, (err: any) => {
-        console.log(cacheDirectory)
         if (err) {
             console.error('Couldn\'t create commitizen cache directory: ', err)
         }
