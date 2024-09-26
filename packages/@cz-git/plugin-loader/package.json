@@ -41,8 +41,8 @@
     "clean": "rimraf lib"
   },
   "devDependencies": {
-    "@commitlint/resolve-extends": "^19.1.0",
-    "@commitlint/types": "^19.0.3",
+    "@commitlint/resolve-extends": "^19.5.0",
+    "@commitlint/types": "^19.5.0",
     "@types/tmp": "^0.2.3",
     "cosmiconfig": "8.2.0",
     "pkg-dir": "5.0.0",
