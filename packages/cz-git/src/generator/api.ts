@@ -34,6 +34,7 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
             body: JSON.stringify(aiContext.payload),
             signal: AbortSignal.timeout(10 * 1000),
         })
+
         if (
             !response.status
             || response.status < 200
@@ -43,7 +44,9 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
             throw new APIError(errorJson?.error?.message, response.status)
         }
         const json: any = await response.json()
-        return json.choices.map((r: any) => parseAISubject(options, aiContext.parseFn(r)))
+        return json
+            .choices
+            .map((r: any) => parseAISubject(options, aiContext.parseFn(r)))
     }
     catch (err: any) {
         let errorMsg = 'Fetch OpenAI API message failure'
@@ -63,40 +66,18 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
 
 // https://platform.openai.com/docs/api-reference/chat/create
 function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
-    switch (options.aiType) {
-        case 'openAI-Davinci':
-            return {
-                payload: {
-                    model: 'text-davinci-003',
-                    prompt,
-                    temperature: 0.7,
-                    top_p: 1,
-                    frequency_penalty: 0,
-                    presence_penalty: 0,
-                    max_tokens: 200,
-                    stream: false,
-                    n: options.aiNumber || 1,
-                },
-                url: `${options.apiEndpoint}/completions`,
-                parseFn: (res: any) => res?.text,
-            }
-
-        default:
-            return {
-                payload: {
-                    model: 'gpt-3.5-turbo',
-                    messages: [{ role: 'user', content: prompt }],
-                    temperature: 0.7,
-                    top_p: 1,
-                    frequency_penalty: 0,
-                    presence_penalty: 0,
-                    max_tokens: 200,
-                    stream: false,
-                    n: options.aiNumber || 1,
-                },
-                url: `${options.apiEndpoint}/chat/completions`,
-                parseFn: (res: any) => res?.message?.content,
-            }
+    return {
+        payload: {
+            model: options.aiModel,
+            messages: [{ role: 'user', content: prompt }],
+            stream: false,
+            top_p: 1,
+            temperature: 0.7,
+            max_tokens: 30,
+            n: options.aiNumber || 1,
+        },
+        url: `${options.apiEndpoint}/chat/completions`,
+        parseFn: (res: any) => res?.message?.content,
     }
 }
 
@@ -104,7 +85,11 @@ function parseAISubject(options: CommitizenGitOptions, subject?: string) {
     if (!subject)
         return ''
 
-    subject = subject.replace(/(\r\n|\n|\r)/g, '').replace(/[.。]$/, '')
+    subject = subject
+        .trim()
+        .replace(/(\r\n|\n|\r)/g, '')
+        .replace(/[.。]$/, '')
+        .replace(/^"|"$/g, '')
     let res = subject
     if (options.upperCaseSubject)
         res = res.charAt(0).toUpperCase()

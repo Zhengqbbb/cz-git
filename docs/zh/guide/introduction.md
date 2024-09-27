@@ -65,8 +65,8 @@ sitemap:
 
 ```sh
 $ npm install -D cz-git
-+ cz-git          (1.9 MB)
-added 1 package in 0.582s
++ cz-git          (1.75 MB)
+added 1 package in 0.552s
 ```
 
 [⇒ 为什么是 cz-git](/zh/guide/why.html)

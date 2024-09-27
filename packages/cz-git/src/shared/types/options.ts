@@ -235,6 +235,15 @@ export interface CommitizenGitOptions {
     useAI?: boolean
 
     /**
+     * Choose the AI model you want to use
+     *
+     * @see https://platform.openai.com/docs/models/model-endpoint-compatibility => /v1/chat/completions
+     * @example "gpt-3.5-turbo" | "gpt-4" | "gpt-4o" | "gpt-4o-mini"
+     * @default "gpt-4o-mini"
+     */
+    aiModel?: string
+
+    /**
      * If >1 will turn on select mode, select generate options like returned by OpenAI
      *
      * @default 1
@@ -250,23 +259,23 @@ export interface CommitizenGitOptions {
     aiDiffIgnore?: string[]
 
     /**
-     * Choose the AI model you want to use: gpt-3.5-turbo | text-davinci-003
-     * gpt-3.5-turbo: Lower price consumption (10x) and faster
-     * text-davinci-003: Get more reliable information
-     *
-     * @default openAI-Turbo
-     */
-    aiType?: 'openAI-Turbo' | 'openAI-Davinci'
-
-    /**
-     * @note Save on "$HOME/.config/.czrc" or "$HOME/.czrc". Do not save on project.
+     * Save on "$HOME/.config/.czrc" or "$HOME/.czrc". Do not save on project.
+     * `npx czg --api-key=sk-xxxxx`
      */
     openAIToken?: string
 
     /**
-     * It is recommended to use the command to configure the local
+     * `npx czg --api-model=<model>` - to setup the AI model in local
      *
-     * @run     `npx czg --api-proxy=<http_proxy>`
+     * @note If the global or project has an `aiModel` field, set by --api-model=<value> will be overridden.
+     * @default "gpt-4o-mini"
+     */
+    apiModel?: string
+
+    /**
+     * It is recommended to use the command to configure the local
+     * `npx czg --api-proxy=<http_proxy>`
+     *
      * @example `npx czg --api-proxy="http://127.0.0.1:1080"` or `npx czg --api-proxy="socks5://127.0.0.1:1080"`
      */
     apiProxy?: string
@@ -626,7 +635,7 @@ export const defaultConfig = Object.freeze({
     themeColorCode: '',
     useEmoji: false,
     useAI: false,
-    aiType: 'openAI-Turbo',
+    aiModel: 'gpt-4o-mini',
     aiNumber: 1,
     aiQuestionCB: undefined,
     openAIToken: '',

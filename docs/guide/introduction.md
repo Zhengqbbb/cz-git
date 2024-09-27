@@ -65,8 +65,8 @@ Support OpenAI, and more engineered, lightweight, customizable, standard output 
 
 ```sh
 $ npm install -D cz-git
-+ cz-git          (1.9 MB)
-added 1 package in 0.582s
++ cz-git          (1.75 MB)
+added 1 package in 0.552s
 ```
 
 [⇒ Why cz-git](/guide/why.html)

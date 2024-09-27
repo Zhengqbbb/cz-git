@@ -149,6 +149,7 @@ export async function aiLoader() {
         openAIToken: data?.config?.openAIToken || '',
         apiEndpoint: data?.config?.apiEndpoint || '',
         apiProxy: data?.config?.apiProxy || '',
+        apiModel: data?.config?.apiModel || '',
     }
 }
 

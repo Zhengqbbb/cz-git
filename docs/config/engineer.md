@@ -118,6 +118,33 @@ Try running command to **use OpenAI API to auto generate **subject** in the curr
 Demo And Usage [⇒ see the recipes](/recipes/openai)
 :::
 
+## aiModel
+
+- **description**: Choose the AI model you want to use
+- **examples**: `gpt-3.5-turbo` | `gpt-4` | `gpt-4o` | `gpt-4o-mini` <br>... (and models compatible with the [/chat/completions endpoint](https://platform.openai.com/docs/models/model-endpoint-compatibility)) <br>For example: [GitHub models](https://github.com/marketplace/models) and local models ([Ollama](https://ollama.com/library))
+- **type**: `string`
+- **default**: `gpt-4o-mini`
+
+:::tip
+Try running the command to **switch AI models directly in the current session**
+- Commitizen CLI + cz-git: `czai=1 cz_aimodel=gpt-3.5-turbo cz`
+- czg CLI: `czg ai -M=gpt-3.5-turbo`
+
+Demo And Usage [⇒ see the recipes](/recipes/openai)
+:::
+
+:::info
+If `aiModel` is set globally or in the project, it will override the value set using `npx czg --api-model=<model>`
+
+<hr>
+
+**Priority explanation, from high to low:**
+1. Environment variable specification `cz_aimodel=`, `czg` command parameter specification `-M=|--ai-model=`
+2. Global configuration or project configuration: `aiModel` field
+3. The `apiModel` field in `~/.config/.czrc` configured via the `npx czg --api-model=<model>` command
+:::
+
+
 ## aiNumber
 
 - **description** : If >1 will **turn on select mode**, select generate options like returned by OpenAI
@@ -131,18 +158,6 @@ Try running command to **select multiple results returned by OpenAI in the curre
 
 Demo And Usage [⇒ see the recipes](/recipes/openai)
 :::
-
-## aiType
-
-- **description** : Choose the AI model you want to use
-
-|     aiType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     |     Model&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | Description | 
-|     ---        |      ---         | --- |
-| openAI-Turbo   | gpt-3.5-turbo     | faster and optimized for chat at 1/10th the cost of `text-davinci-003` |
-| openAI-Davinci | text-davinci-003  |  better quality, longer output, and consistent instruction-following |
-
-- **type** : `"openAI-Turbo" | "openAI-Davinci"`
-- **default** : `openAI-Turbo`
 
 ## aiDiffIgnore
 
@@ -165,7 +180,7 @@ export interface GenerateAIPromptType {
   diff?: string
 }
 ```
-- **example** : 
+- **example** :
 
 ```js
 module.exports = {

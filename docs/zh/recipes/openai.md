@@ -2,7 +2,7 @@
 outline: [2, 3]
 ---
 
-# OpenAI <Badge type="info" text="GPT 3.5 Turbo 模型 「默认」" />
+# OpenAI <Badge type="info" text="`gpt-4o-mini` 模型 「默认」" />
 
 让 AI 生成你的 git commit 提交信息简短描述
 
@@ -74,6 +74,31 @@ czg --api-key=sk-xxxxx
 
 :::
 ::::
+
+:::details GitHub Models 配置方式
+1. 加入 GitHub Models [候补名单](https://github.com/marketplace/models/waitlist)
+2. 获取 GitHub [personal access tokens](https://github.com/settings/tokens)
+3. 在 [Models Marketplace](https://github.com/marketplace/models) 中选择你想要使用的模型，获取模型名称 (点击右上角 Get started 按钮，查看信息)
+4. 运行命令进行配置
+    ```sh
+    npx czg --api-key="ghp_xxxxxx" --api-endpoint="https://models.inference.ai.azure.com" --api-model="gpt-4o-mini"
+    ```
+:::
+
+:::details Ollama 配置方式
+1. 安装 [Ollama](https://ollama.com/) 并启动服务
+2. [选择](https://ollama.com/library)并拉取模型
+    ```sh
+    # 以 gemma2 模型为例
+    ollama pull gemma2
+    # 确认模型是否拉取成功
+    ollama ls
+    ```
+3. 运行命令进行配置
+    ```sh
+    npx czg --api-key=" " --api-endpoint="http://localhost:11434/v1" --api-model="gemma2"
+    ```
+:::
 
 ## 全局使用
 
@@ -212,5 +237,5 @@ module.exports = {
 
 ## 如何实现
 
-- 运行 git diff 命令获取文件的差异，并结合描述信息，发送请求给 **OpenAI GPT 3.5 Turbo API**，来获取 AI 生成的简短描述
+- 运行 git diff 命令获取文件的差异，并结合描述信息，发送请求给 **OpenAI API** - `/v1/chat/completions`，来获取 AI 生成的简短描述
 - 💡 灵感来源 [aicommits](https://github.com/Nutlope/aicommits) 并修改了部分代码

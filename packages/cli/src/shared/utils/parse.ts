@@ -81,6 +81,7 @@ export function resovleArgs(argv: string[]): CzgitParseArgs {
             r: 'retry',
             y: 'yes',
             N: 'ai-num',
+            M: 'ai-model',
         },
     })
     let result: CzgitParseArgs = {
@@ -110,8 +111,10 @@ export function resovleArgs(argv: string[]): CzgitParseArgs {
     result = resovleFlag(parseArgv, 'r', 'retry', result)
     result = resovleFlag(parseArgv, 'y', 'yes', result)
     result = resovleFlag(parseArgv, 'N', 'ai-num', result)
+    result = resovleFlag(parseArgv, 'M', 'ai-model', result)
     result = resovleFlag(parseArgv, 'openai-token', 'openai-token', result) // @deprecated => api-key
     result = resovleFlag(parseArgv, 'api-key', 'api-key', result)
+    result = resovleFlag(parseArgv, 'api-model', 'api-model', result)
     result = resovleFlag(parseArgv, 'api-endpoint', 'api-endpoint', result)
     result = resovleFlag(parseArgv, 'api-proxy', 'api-proxy', result)
     result = resovleFlag(parseArgv, 'unset-proxy', 'unset-proxy', result)

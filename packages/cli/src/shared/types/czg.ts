@@ -8,8 +8,10 @@ export type CzgitFlagList =
     | 'hook'
     | 'alias'
     | 'ai-num'
+    | 'ai-model'
     | 'openai-token'
     | 'api-key'
+    | 'api-model'
     | 'api-endpoint'
     | 'api-proxy'
     | 'unset-proxy'
@@ -33,8 +35,12 @@ export interface CzgitFlag {
     'openai-token'?: string
     /** option: --ai-num="xxx" */
     'ai-num'?: string
+    /** option: --ai-model="xxx" */
+    'ai-model'?: string
     /** option: --api-key="xxx" */
     'api-key'?: string
+    /** option: --api-model="xxx" */
+    'api-model'?: string
     /** option: --api-proxy="xxx" */
     'api-proxy'?: string
     /** option: --api-endpoint="xxx" */

@@ -17,7 +17,7 @@ import {
 import type { Answers, CommitizenGitOptions, UserConfig } from '../shared'
 
 export function generateOptions(config: UserConfig): CommitizenGitOptions {
-    const { emoji, checkbox, czai, no_czai, cz_ainum, ___X_CMD_THEME_COLOR_CODE } = process.env
+    const { emoji, checkbox, czai, no_czai, cz_ainum, cz_aimodel, ___X_CMD_THEME_COLOR_CODE } = process.env
     const promptConfig = config.prompt ?? {}
 
     return {
@@ -31,9 +31,9 @@ export function generateOptions(config: UserConfig): CommitizenGitOptions {
         typesAppend: promptConfig.typesAppend ?? defaultConfig.typesAppend,
         typesSearchValue: promptConfig.typesSearchValueKey ?? promptConfig.typesSearchValue ?? defaultConfig.typesSearchValue,
         useAI: Boolean(czai === '1' && no_czai !== '1') || (promptConfig.useAI && no_czai !== '1') || defaultConfig.useAI,
+        aiModel: cz_aimodel || promptConfig.aiModel || promptConfig.apiModel || defaultConfig.aiModel,
         aiNumber: Number.parseInt(cz_ainum || '0', 10) || promptConfig.aiNumber || defaultConfig.aiNumber,
         aiDiffIgnore: promptConfig.aiDiffIgnore ?? promptConfig.aiDiffIgnore,
-        aiType: promptConfig.aiType ?? defaultConfig.aiType,
         aiQuestionCB: promptConfig.aiQuestionCB ?? defaultConfig.aiQuestionCB,
         openAIToken: process.env.CZ_OPENAI_TOKEN || process.env.CZ_OPENAI_API_KEY || promptConfig.openAIToken || defaultConfig.openAIToken,
         apiProxy: promptConfig.apiProxy || defaultConfig.apiProxy,
