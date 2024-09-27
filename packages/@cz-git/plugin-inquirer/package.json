@@ -2,7 +2,7 @@
   "name": "@cz-git/inquirer",
   "version": "1.9.4",
   "description": "provide cz-git inquirer plugins, include search-list, search-checkbox, complete-input",
-  "author": "Zhengqbbb <1074059947@qq.com>",
+  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "license": "MIT",
   "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/%40cz-git/plugin-inquirer",
   "repository": {
@@ -43,7 +43,7 @@
     "clean": "rimraf lib"
   },
   "devDependencies": {
-    "inquirer": "8.2.4"
+    "inquirer": "catalog:inquirer"
   },
   "publishConfig": {
     "access": "public"
