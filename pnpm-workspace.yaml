@@ -1,27 +1,27 @@
 packages:
-  - 'docs'
-  - 'packages/**'
-  - '!**/__tests__/**'
+  - "docs"
+  - "packages/**"
+  - "!**/__tests__/**"
 
 catalog:
-  # > 8.2.0 will lead bundle size to 10MB +
-  'cosmiconfig': '8.2.0'
+  # cosmiconfig > 8.2.0 will lead bundle size to 10MB +
+  "cosmiconfig": "8.2.0"
 
 catalogs:
-  # keep with "commitizen" (https://github.com/commitizen/cz-cli) same version
+  # As adapter cz-git needs keep with commitizen's inquirer (https://github.com/commitizen/cz-cli) same version
   inquirer:
-    '@types/inquirer': '8.2.5'
-    'inquirer': '8.2.5'
+    "@types/inquirer": "8.2.5"
+    "inquirer": "8.2.5"
 
-  # v4 need node >= v14
+  # rimraf v4 requires node >= v14
   rimraf:
-    '@types/rimraf': '3.0.2'
-    'rimraf': '3.0.2'
+    "@types/rimraf": "3.0.2"
+    "rimraf": "3.0.2"
 
   commitlint:
-    '@commitlint/cli': '^19.5.0'
-    '@commitlint/config-conventional': '^19.5.0'
-    '@commitlint/resolve-extends': '^19.5.0'
-    '@commitlint/types': '^19.5.0'
     # @qbbsh/config-validator is a fork of @commitlint/config-validator for bundle build (https://github.com/qbbsh/config-validator)
-    '@commitlint/config-validator': 'npm:@qbbsh/config-validator@19.5.0'
+    "@commitlint/config-validator": "npm:@qbbsh/config-validator@19.5.0"
+    "@commitlint/cli": "^19.5.0"
+    "@commitlint/config-conventional": "^19.5.0"
+    "@commitlint/resolve-extends": "^19.5.0"
+    "@commitlint/types": "^19.5.0"
