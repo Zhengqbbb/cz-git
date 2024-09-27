@@ -34,6 +34,7 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
             },
             searchParameters: {
                 facetFilters: ['lang:zh-CN'],
+                attributesToHighlight: ['hierarchy.lvl0'],
             },
         },
         footer: {

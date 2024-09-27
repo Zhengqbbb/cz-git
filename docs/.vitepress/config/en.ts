@@ -28,6 +28,7 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
             indexName: 'cz-git',
             searchParameters: {
                 facetFilters: ['lang:en-US'],
+                attributesToHighlight: ['hierarchy.lvl0'],
             },
         },
         footer: {
