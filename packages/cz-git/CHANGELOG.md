@@ -1,3 +1,23 @@
+# [1.10.0](https://github.com/Zhengqbbb/cz-git/compare/v1.9.4...v1.10.0) (2024-09-28)
+
+
+### Bug Fixes
+
+* **cli:** upgrade commitlint version to resolve config extension issue ([#187](https://github.com/Zhengqbbb/cz-git/issues/187)) ([dee8b44](https://github.com/Zhengqbbb/cz-git/commit/dee8b445f6f6fe7300ce5e189b43fc99dd026804)), closes [#186](https://github.com/Zhengqbbb/cz-git/issues/186)
+
+
+### Features
+
+* **cz-git,cli:** add `aiModel` option to support multiple OpenAI models ([#185](https://github.com/Zhengqbbb/cz-git/issues/185)) ([241577b](https://github.com/Zhengqbbb/cz-git/commit/241577bdd2d452aa607e704ee232597f93e00f8b)), closes [#180](https://github.com/Zhengqbbb/cz-git/issues/180)
+* **cz-git:** add env `CZ_EDITOR` to change editor during confirm ([#174](https://github.com/Zhengqbbb/cz-git/issues/174)) ([0fad291](https://github.com/Zhengqbbb/cz-git/commit/0fad29132f9f25f2d1aade8636e8670a15c7f7cc))
+
+
+### Performance Improvements
+
+* **cli:** remove `fs-extra`. bundle size -100KB ([79a7833](https://github.com/Zhengqbbb/cz-git/commit/79a7833f0ec5c5ba3d73f60b6740b10505e4b052))
+
+
+
 ## [1.9.4](https://github.com/Zhengqbbb/cz-git/compare/v1.9.3...v1.9.4) (2024-07-19)
 
 
