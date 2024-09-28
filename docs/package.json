@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "1.9.4",
+  "version": "1.10.0",
   "private": true,
   "scripts": {
     "docs:build": "vitepress build",
