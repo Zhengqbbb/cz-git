@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-* **cli:** upgrade commitlint version to resolve config extension issue ([#187](https://github.com/Zhengqbbb/cz-git/issues/187)) ([dee8b44](https://github.com/Zhengqbbb/cz-git/commit/dee8b445f6f6fe7300ce5e189b43fc99dd026804)), closes [#180](https://github.com/Zhengqbbb/cz-git/issues/180)
+* **cli:** upgrade commitlint version to resolve config extension issue ([#187](https://github.com/Zhengqbbb/cz-git/issues/187)) ([dee8b44](https://github.com/Zhengqbbb/cz-git/commit/dee8b445f6f6fe7300ce5e189b43fc99dd026804)), closes [#186](https://github.com/Zhengqbbb/cz-git/issues/186)
 
 
 ### Features
