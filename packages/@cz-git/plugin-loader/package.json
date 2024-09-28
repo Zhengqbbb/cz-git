@@ -2,7 +2,7 @@
   "name": "@cz-git/loader",
   "version": "1.9.4",
   "description": "commitizen and commitlint configure loader for cz-git",
-  "author": "Zhengqbbb <1074059947@qq.com>",
+  "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "license": "MIT",
   "homepage": "https://github.com/Zhengqbbb/cz-git/tree/main/packages/%40cz-git/plugin-loader",
   "repository": {
@@ -41,10 +41,10 @@
     "clean": "rimraf lib"
   },
   "devDependencies": {
-    "@commitlint/resolve-extends": "^19.1.0",
-    "@commitlint/types": "^19.0.3",
+    "@commitlint/resolve-extends": "catalog:commitlint",
+    "@commitlint/types": "catalog:commitlint",
     "@types/tmp": "^0.2.3",
-    "cosmiconfig": "8.2.0",
+    "cosmiconfig": "catalog:",
     "pkg-dir": "5.0.0",
     "tmp": "^0.2.3"
   },

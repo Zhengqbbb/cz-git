@@ -1,5 +1,4 @@
 const { execSync } = require('node:child_process')
-
 const fg = require('fast-glob')
 
 // git branch name = feature/cli_33 => auto get defaultIssues = #33
@@ -8,17 +7,8 @@ const issue = execSync('git rev-parse --abbrev-ref HEAD')
     .trim()
     .split('_')[1]
 
-// monorepo dynamic get name
+// dynamic get monorepo packages name
 const packages = fg.sync('*', { cwd: 'packages/@cz-git', onlyDirectories: true })
-
-/** Add Co-authored-by Last Line */
-// const coAuthoredBy
-//   = '\n\n'
-//   + `Co-authored-by: ${
-//      execSync('git config user.name').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
-//      } <${
-//      execSync('git config user.email').toString().replace(/(\r\n\t|\n|\r\t)/g, '')
-//      }>`
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
@@ -29,7 +19,6 @@ module.exports = {
         'subject-empty': [2, 'never'],
     },
     prompt: {
-    // @see: https://github.com/Zhengqbbb/cz-git#options
         alias: {
             'b': 'chore: bump dependencies',
             'c': 'chore: update config files',
@@ -47,6 +36,5 @@ module.exports = {
         aiDiffIgnore: ['pnpm-lock.yaml', 'docs/public'],
         customIssuePrefixAlign: !issue ? 'top' : 'bottom',
         defaultIssues: !issue ? '' : `#${issue}`,
-    // formatMessageCB: ({ defaultMessage }) => defaultMessage + coAuthoredBy,
     },
 }

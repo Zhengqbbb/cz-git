@@ -8,6 +8,7 @@
         -x inquirer             \
         -x @types/inquirer      \
         -x https-proxy-agent    \
+        -x node-fetch-cjs       \
         -x rimraf               \
         -x lint-staged          \
         -x pkg-dir              \

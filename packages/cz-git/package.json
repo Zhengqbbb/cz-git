@@ -55,6 +55,6 @@
     "@cz-git/loader": "workspace:*",
     "https-proxy-agent": "5.0.1",
     "node-fetch-cjs": "3.3.2",
-    "rimraf": "3.0.2"
+    "rimraf": "catalog:rimraf"
   }
 }

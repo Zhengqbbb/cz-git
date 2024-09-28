@@ -51,7 +51,7 @@
     "cachedir": "^2.4.0",
     "cz-git": "workspace:*",
     "dedent": "^1.5.3",
-    "inquirer": "8.2.4",
+    "inquirer": "catalog:inquirer",
     "minimist": "^1.2.8",
     "mkdirp": "^3.0.1"
   }
