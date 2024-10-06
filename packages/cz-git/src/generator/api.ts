@@ -73,7 +73,7 @@ function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
             stream: false,
             top_p: 1,
             temperature: 0.7,
-            max_tokens: 30,
+            max_tokens: 200,
             n: options.aiNumber || 1,
         },
         url: `${options.apiEndpoint}/chat/completions`,
