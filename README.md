@@ -70,7 +70,7 @@ DX first and more engineered, lightweight, customizable, standard output format 
 
 ```bash
 $ npm i -D cz-git
-+ cz-git          (1.75 MB)
++ cz-git          (1.76 MB)
 added 1 package in 0.552s
 ```
 
@@ -179,7 +179,7 @@ added 1 package in 0.531s
 [⇒ FAQ](https://cz-git.qbb.sh/faq/)
 
 <a target="_blank" href="https://packagephobia.com/result?p=cz-git,czg">
-  <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.6/image/cz-git-v1.10.0.png" alt="size-overview"><br>
+  <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.7/image/cz-git-v1.10.0.png" alt="size-overview"><br>
   <sub>https://packagephobia.com/result?p=cz-git,czg</sub>
 </a>
 
