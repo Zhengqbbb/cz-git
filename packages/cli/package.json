@@ -1,6 +1,6 @@
 {
   "name": "czg",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "Interactive Commitizen CLI that generate standardized git commit message",
   "author": "Zhengqbbb <zhengqbbb@gmail.com> (https://github.com/Zhengqbbb)",
   "license": "MIT",

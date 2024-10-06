@@ -1,3 +1,12 @@
+## [1.10.1](https://github.com/Zhengqbbb/cz-git/compare/v1.10.0...v1.10.1) (2024-10-06)
+
+
+### Bug Fixes
+
+* **cz-git:** rollback max_token to avoid AI message sliced ([ea9dc0c](https://github.com/Zhengqbbb/cz-git/commit/ea9dc0cf84a6b0303f6b1f8c6dcb41d514c1d45b)), closes [#189](https://github.com/Zhengqbbb/cz-git/issues/189)
+
+
+
 # [1.10.0](https://github.com/Zhengqbbb/cz-git/compare/v1.9.4...v1.10.0) (2024-09-28)
 
 
