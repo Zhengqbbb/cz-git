@@ -350,7 +350,7 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.j
 ## TypeScript template
 
 :::danger
-**Since <u>v1.3.0</u>. The typescript configuration file will no longer be loaded**. e.g(`commitlint.config.ts`)
+**Since <u>v1.3.0</u>. The typescript configuration file will no longer be loaded**. e.g(`cz.config.ts`)
 
 - Using the TypeScript configuration file will **affects command line tool startup speed**.
 - Increase the package size.

@@ -511,10 +511,7 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.j
 ## TypeScript 模板
 
 :::danger
-从 <u>v1.3.0</u> 开始，将不再支持 TypeScript 配置文件。例如(`commitlint.config.ts`)
-
-- 使用 TypeScript 配置文件会**影响命令行工具的启动速度**
-- 增加软件包的依赖项体积
+从 <u>v1.3.0</u> 开始，将不再支持 TypeScript 配置文件。例如(`cz.config.ts`)
 :::
 
 :::tip
