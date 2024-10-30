@@ -9,9 +9,16 @@ export default defineConfig((opts) => {
             dts: false,
             minify: !opts.watch,
         },
+        // index.ts : Provide configure types and types helper fn
         {
             ...baseConfig,
+            format: ['esm', 'cjs'],
+            dts: false,
             minify: !opts.watch,
+        },
+        {
+            ...baseConfig,
+            dts: { only: true },
         },
     ]
 })

@@ -1,7 +1,4 @@
-/**
- * Provide configure types and types helper fn
- */
-
+// Provide configure types and types helper fn
 import type { defineConfig as defineConfigType, definePrompt as definePromptType } from 'cz-git'
 
 export type { UserConfig } from 'cz-git'
