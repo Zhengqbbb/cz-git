@@ -9,9 +9,10 @@ sitemap:
 # FAQ
 
 ## Error: require() of ES Module ... not supported
+> [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of xxxx is not specified and it doesn't parse as CommonJS.
 
-1. If you are an ESM project (i.e., `"type": "module"` in package.json),
-    - You can try changing the [configuration name](/config/) from `.js` to `.cjs`.
+1. If you are an ESM project (i.e., `"type": "module"` in package.json) or using `import` syntax,
+    - You can try changing the [configuration name](/config/) from `.js` to `.cjs` or `mjs`.
 2. If you are using commitlint version (> 18),
     - For example, configuring `extends: ['@commitlint/config-conventional']`,
     - Please upgrade cz-git or czg to the latest version.

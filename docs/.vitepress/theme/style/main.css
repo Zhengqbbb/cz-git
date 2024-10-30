@@ -286,12 +286,13 @@ img.error::after {
 
 .code-group .code-group__nav {
   margin-top: 0.85rem;
-  margin-bottom: calc(-1.7rem - 6px);
+  margin-bottom: calc(-1.6rem - 6px);
   padding-bottom: calc(1.7rem - 10px);
   padding-left: 10px;
   padding-top: 10px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  border-bottom: 1px solid var(--vp-code-block-border);
   background-color: var(--vp-code-block-bg);
 }
 

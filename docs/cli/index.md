@@ -54,24 +54,58 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 }
 ```
 
-:::tip
-If you want to write JavaScript configuration, can add `@type` to file
+:::::tip
+If you want to write JavaScript configuration, can import helper functions from `czg` or add `@type` to file
 
+:::: code-group
+::: code-group-item cz.config.js
 ```js
-// .commitlintrc.cjs
-/** @type {import('czg').UserConfig} */
-module.exports = {
-  rules: {
-    // @see: https://commitlint.js.org/#/reference-rules
-  },
-  prompt: {
+const { definePrompt } = require('czg')
+
+module.exports = definePrompt({
     scopes: ['hello', 'world'],
-  },
+})
+```
+:::
+::: code-group-item cz.config.js
+```js
+/** @type {import('czg').UserConfig['prompt']} */
+module.exports = {
+    scopes: ['hello', 'world'],
 }
 ```
+:::
+::: code-group-item commitlint.config.js
+```js
+const { defineConfig } = require('czg')
+
+module.exports = defineConfig({
+    rules: {
+        // @see: https://commitlint.js.org/#/reference-rules
+    },
+    prompt: {
+        scopes: ['hello', 'world'],
+    },
+})
+```
+:::
+::: code-group-item commitlint.config.js
+```js
+/** @type {import('czg').UserConfig} */
+module.exports = {
+    rules: {
+        // @see: https://commitlint.js.org/#/reference-rules
+    },
+    prompt: {
+        scopes: ['hello', 'world'],
+    },
+}
+```
+:::
+::::
 
 More information about configure file and options. See → [Config](/config/)
-:::
+:::::
 
 
 ## Features and Help

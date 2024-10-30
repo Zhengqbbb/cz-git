@@ -53,24 +53,58 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 }
 ```
 
-:::tip
-如果要编写 JavaScript 配置，可以添加 `@type` 到文件中作为代码提示
+:::::tip
+在编写 JavaScript 配置时，可以导入辅助函数或添加 `@type` 到文件中作为代码提示
 
+:::: code-group
+::: code-group-item cz.config.js
 ```js
-// .commitlintrc.cjs
-/** @type {import('czg').UserConfig} */
-module.exports = {
-  rules: {
-    // @see: https://commitlint.js.org/#/reference-rules
-  },
-  prompt: {
+const { definePrompt } = require('czg')
+
+module.exports = definePrompt({
     scopes: ['hello', 'world'],
-  },
+})
+```
+:::
+::: code-group-item cz.config.js
+```js
+/** @type {import('czg').UserConfig['prompt']} */
+module.exports = {
+    scopes: ['hello', 'world'],
 }
 ```
+:::
+::: code-group-item commitlint.config.js
+```js
+const { defineConfig } = require('czg')
+
+module.exports = defineConfig({
+    rules: {
+        // @see: https://commitlint.js.org/#/reference-rules
+    },
+    prompt: {
+        scopes: ['hello', 'world'],
+    },
+})
+```
+:::
+::: code-group-item commitlint.config.js
+```js
+/** @type {import('czg').UserConfig} */
+module.exports = {
+    rules: {
+        // @see: https://commitlint.js.org/#/reference-rules
+    },
+    prompt: {
+        scopes: ['hello', 'world'],
+    },
+}
+```
+:::
+::::
 
 关于配置文件以及配置项的更多信息，可查看 → [配置](/zh/config/)
-:::
+:::::
 
 
 ## 特性以及帮助文档
