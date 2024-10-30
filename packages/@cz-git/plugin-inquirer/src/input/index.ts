@@ -64,13 +64,11 @@ export class CompleteInput extends Base {
 
         if (isFinal)
             appendContent = this.answer || ''
-
         else
             appendContent = this.rl.line
 
         if (transformer)
             message += transformer(appendContent, this.answers, { isFinal })
-
         else
             message += isFinal ? style.cyan(appendContent) : appendContent
 
@@ -114,14 +112,18 @@ export class CompleteInput extends Base {
     }
 
     onKeypress(e: { key: { name?: string, ctrl?: boolean }, value: string }) {
-        if (!this.state && (e.key.name === 'tab' || e.key.name === 'right')) {
+        if (
+            !this.state
+            && this.completeValue
+            && (e.key.name === 'tab' || e.key.name === 'right')
+        ) {
             // NOTE: the ansi cursor not work
             this.rl.write(ansiEscapes.cursorLeft)
-            this.rl.write(ansiEscapes.cursorForward(this.completeValue?.length))
+            this.rl.write(ansiEscapes.cursorForward(this.completeValue.length))
             // @ts-expect-error
             this.rl.line = this.completeValue
             // @ts-expect-error
-            this.rl.cursor = this.completeValue?.length
+            this.rl.cursor = this.completeValue.length
         }
         this.state = 'touched'
         this.completeValue = ''
