@@ -679,3 +679,14 @@ export const defaultConfig = Object.freeze({
     useCommitSignGPG: false,
     formatMessageCB: undefined,
 } as CommitizenGitOptions)
+
+/**
+ * Used for `commitlint` configure file: `commitlint.config.*` or `.commitlintrc.*`
+ */
+export const defineConfig = (config: UserConfig) => config
+/**
+ * Used for `cz-git` configure file: `cz.config.*` or `package.json`.config.commitizen.czConfig
+ *
+ * Used for `czg --config="xxx.js"`
+ */
+export const definePrompt = (config: UserConfig['prompt']) => config

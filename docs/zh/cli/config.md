@@ -33,11 +33,12 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 
 ```js
 // config/cz.js
-/** @type {import('czg').UserConfig['prompt']} */
-module.exports = {
+const { definePrompt } = require('czg')
+
+module.exports = definePrompt({
   maxSubjectLength: 100
   // 配置 ...
-}
+})
 ```
 
 :::tip

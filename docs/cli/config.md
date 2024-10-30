@@ -33,11 +33,12 @@ e.g `czg --config="./config/cz.js"`
 
 ```js
 // config/cz.js
-/** @type {import('czg').UserConfig['prompt']} */
-module.exports = {
+const { definePrompt } = require('czg')
+
+module.exports = definePrompt({
   maxSubjectLength: 100
   // configure ...
-}
+})
 ```
 
 :::tip

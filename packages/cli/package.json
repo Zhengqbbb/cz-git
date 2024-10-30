@@ -25,7 +25,12 @@
     "cz-customizable"
   ],
   "exports": {
-    ".": "./lib/index.js",
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./main": "./lib/main.js",
     "./package.json": "./package.json"
   },
   "main": "lib/index.js",
