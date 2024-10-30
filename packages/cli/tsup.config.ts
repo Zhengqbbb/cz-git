@@ -5,13 +5,13 @@ export default defineConfig((opts) => {
     return [
         {
             ...baseConfig,
+            entry: ['./src/main.ts'],
             dts: false,
             minify: !opts.watch,
         },
         {
-            entry: { index: './src/shared/types/config.ts' },
-            outDir: './lib',
-            dts: { only: true },
+            ...baseConfig,
+            minify: !opts.watch,
         },
     ]
 })
