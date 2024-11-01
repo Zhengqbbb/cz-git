@@ -143,7 +143,7 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.j
 ## TypeScript 模板
 
 - 从 `cz-git`, `czg` 的 `v1.11.0` 版本开始
-- 且 Node.js LTS 版本 >= `v22.11.0` 的==实验性功能==, **原生加载 TypeScript 配置文件**<br>==需注入开启实验性的参数== `NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning'` 使用
+- 将使用 Node.js LTS 版本 >= `v22.11.0` 的==实验性功能==, **原生加载 TypeScript 配置文件**<br>==需注入开启实验性的参数== `NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning'` 使用
 - 详情[可查看 Node.js 文档](https://nodejs.org/api/cli.html#--experimental-transform-types) ｜ [Node.js TypeScript 支持路线图](https://github.com/nodejs/loaders/issues/217)
 
 ::::: details 点击展开 `NODE_OPTIONS` 注入方式

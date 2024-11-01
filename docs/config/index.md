@@ -122,7 +122,7 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.j
 ## TypeScript template
 
 - Added in `cz-git`, `czg` version `v1.11.0`
-- And Node.js LTS version >= `v22.11.0` ==experimental feature==, **native TypeScript configuration file loading**<br>==Need injection of experimental options== `NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning'` to use
+- Will use Node.js LTS version >= `v22.11.0` ==experimental feature==, **native TypeScript configuration file loading**<br>==Need injection of experimental options== `NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning'` to use
 - For details, [see Node.js documentation](https://nodejs.org/api/cli.html#--experimental-transform-types) | [Node.js TypeScript support roadmap](https://github.com/nodejs/loaders/issues/217)
 
 ::::: details Click to expand `NODE_OPTIONS` injection methods
