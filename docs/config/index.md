@@ -123,7 +123,8 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.j
 
 - Added in `cz-git`, `czg` version `v1.11.0`
 - Will use Node.js LTS version >= `v22.11.0` ==experimental feature==, **native TypeScript configuration file loading**<br>==Need injection of experimental options== `NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning'` to use
-- For details, [see Node.js documentation](https://nodejs.org/api/cli.html#--experimental-transform-types) | [Node.js TypeScript support roadmap](https://github.com/nodejs/loaders/issues/217)
+- For details: [see Node.js documentation](https://nodejs.org/api/cli.html#--experimental-transform-types) | [Node.js TypeScript support roadmap](https://github.com/nodejs/loaders/issues/217)
+- ==TIP==: You can first use [ESM js](#javascript-template) configuration files as a transition for future TypeScript configuration files, and switch after Node.js runs TypeScript stably
 
 ::::: details Click to expand `NODE_OPTIONS` injection methods
 :::: code-group
