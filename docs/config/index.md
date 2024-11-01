@@ -17,7 +17,7 @@ sitemap:
 - `commitlint.config.cjs`
 - `commitlint.config.mjs`
 
-::::: details Click to expand `.commitlintrc.js` complete default configuration template
+::::: details Click to expand `commitlint.config.js` complete default configuration template
 
 :::: code-group
 ::: code-group-item CommonJS
@@ -77,7 +77,7 @@ If your project does not use commitlint,and want to use other profiles. You can 
 
 ## Emoji template
 
-::: details Click to expand `.commitlintrc.js` complete emoji template template
+::: details Click to expand `commitlint.config.js` complete emoji template template
 
 <<< @/snippets/commitlint.config.emoji.js{24-34,36 js}
 
@@ -121,13 +121,79 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.j
 
 ## TypeScript template
 
-:::danger
-**Since <u>v1.3.0</u>. The typescript configuration file will no longer be loaded**. e.g(`cz.config.ts`)
+- Added in `cz-git`, `czg` version `v1.11.0`
+- And Node.js LTS version >= `v22.11.0` ==experimental feature==, **native TypeScript configuration file loading**<br>==Need injection of experimental options== `NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning'` to use
+- For details, [see Node.js documentation](https://nodejs.org/api/cli.html#--experimental-transform-types) | [Node.js TypeScript support roadmap](https://github.com/nodejs/loaders/issues/217)
 
-- Using the TypeScript configuration file will **affects command line tool startup speed**.
-- Increase the package size.
+::::: details Click to expand `NODE_OPTIONS` injection methods
+:::: code-group
+::: code-group-item package.json - with cross-env package
+```diff
+"scripts": {
+-    "cz": "czg"
++    "cz": "cross-env NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' czg"
+}
+```
 :::
+::: code-group-item Global - with alias command
+```sh
+# .zshrc | .bashrc
+alias czg="NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' \czg"
+```
+:::
+::: code-group-item Global - with export command
+```sh
+# .zshrc | .bashrc
+export NODE_OPTIONS="--experimental-transform-types --disable-warning ExperimentalWarning"
+```
+:::
+::::
+:::::
 
-:::tip
-Using the js configuration file to add the `@type` annotation can be a good way to provide code hints at configuration time.
+---
+
+- `.commitlintrc.ts`
+- `.commitlintrc.mts`
+- `.commitlintrc.cts`
+- `commitlint.config.ts`
+- `commitlint.config.mts`
+- `commitlint.config.cts`
+
+::::: details Click to expand `commitlint.config.ts` complete default configuration template
+
+:::: code-group
+::: code-group-item CommonJS
+
+<<< @/snippets/commitlint.config.cjs{ts}
+
 :::
+::: code-group-item ESM
+
+<<< @/snippets/commitlint.config.mjs{ts}
+
+:::
+::::
+
+:::::
+
+---
+
+- `cz.config.ts`
+- `cz.config.mts`
+- `cz.config.cts`
+
+::::: details Click to expand `cz.config.ts` complete default configuration template
+:::: code-group
+::: code-group-item CommonJS
+
+<<< @/snippets/cz.config.cjs{ts}
+
+:::
+::: code-group-item ESM
+
+<<< @/snippets/cz.config.mjs{ts}
+
+:::
+::::
+
+:::::
