@@ -43,6 +43,7 @@
   "devDependencies": {
     "@commitlint/resolve-extends": "catalog:commitlint",
     "@commitlint/types": "catalog:commitlint",
+    "@cz-git/inquirer": "workspace:*",
     "@types/tmp": "^0.2.3",
     "cosmiconfig": "catalog:",
     "pkg-dir": "5.0.0",
