@@ -1,17 +1,18 @@
-const { execSync } = require('node:child_process')
-const fg = require('fast-glob')
+import { execSync } from 'node:child_process'
+import { defineConfig } from 'cz-git'
+import fg from 'fast-glob'
 
-// git branch name = feature/cli_33 => auto get defaultIssues = #33
+/** Get git branch issue number. e.g feature/cli_33 => #33 */
 const issue = execSync('git rev-parse --abbrev-ref HEAD')
     .toString()
     .trim()
     .split('_')[1]
 
-// dynamic get monorepo packages name
-const packages = fg.sync('*', { cwd: 'packages/@cz-git', onlyDirectories: true })
+/** Get monorepo packages name */
+const packages = fg
+    .sync('*', { cwd: 'packages/@cz-git', onlyDirectories: true })
 
-/** @type {import('cz-git').UserConfig} */
-module.exports = {
+export default defineConfig({
     extends: ['@commitlint/config-conventional'],
     rules: {
         'scope-enum': [2, 'always', ['cz-git', 'site', 'cli', ...packages]],
@@ -37,4 +38,4 @@ module.exports = {
         customIssuePrefixAlign: !issue ? 'top' : 'bottom',
         defaultIssues: !issue ? '' : `#${issue}`,
     },
-}
+})

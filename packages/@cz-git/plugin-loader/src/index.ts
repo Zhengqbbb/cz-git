@@ -5,6 +5,7 @@ import process from 'node:process'
 import resolveExtends from '@commitlint/resolve-extends'
 import { cosmiconfig } from 'cosmiconfig'
 import type { RulesConfig } from '@commitlint/types'
+import { esmTsLoader } from './esm-ts-loader'
 
 type ExectableConfig<T> = (() => T) | (() => Promise<T>)
 type Config<T> = T | Promise<T> | ExectableConfig<T>
@@ -23,14 +24,24 @@ export interface LoaderOptions {
     packageProp?: string[]
 }
 
+const commonCosmiconfigOptions = {
+    ignoreEmptySearchPlaces: true,
+    cache: true,
+    loaders: {
+        '.ts': esmTsLoader(),
+        '.cts': esmTsLoader(),
+        '.mjs': esmTsLoader(),
+        '.mts': esmTsLoader(),
+    },
+}
+
 export async function loader(options: LoaderOptions) {
     const cwd = options.cwd || process.cwd()
     const cosmiconfigFn = cosmiconfig(options.moduleName, {
         searchPlaces: options.searchPlaces || [],
         packageProp: options.packageProp || options.moduleName,
         stopDir: options.stopDir,
-        ignoreEmptySearchPlaces: true,
-        cache: true,
+        ...commonCosmiconfigOptions,
     })
 
     const resultPath = options.explicitPath ? path.resolve(cwd, options.explicitPath) : undefined
@@ -80,8 +91,16 @@ export async function clLoader(cwd?: string): Promise<CommitlintOptions> {
             `.${moduleName}rc.yml`,
             `.${moduleName}rc.js`,
             `.${moduleName}rc.cjs`,
+            `.${moduleName}rc.mjs`,
+            `.${moduleName}rc.ts`,
+            `.${moduleName}rc.cts`,
+            `.${moduleName}rc.mts`,
             `${moduleName}.config.js`,
             `${moduleName}.config.cjs`,
+            `${moduleName}.config.mjs`,
+            `${moduleName}.config.ts`,
+            `${moduleName}.config.cts`,
+            `${moduleName}.config.mts`,
         ],
         cwd,
     }
@@ -115,6 +134,10 @@ export async function czLoader(cwd?: string) {
             `.${moduleName}rc`,
             `${moduleName}.config.js`,
             `${moduleName}.config.cjs`,
+            `${moduleName}.config.mjs`,
+            `${moduleName}.config.ts`,
+            `${moduleName}.config.cts`,
+            `${moduleName}.config.mts`,
             'package.json',
         ],
         packageProp: ['config', 'commitizen'],
@@ -125,10 +148,8 @@ export async function czLoader(cwd?: string) {
         return {}
     if (typeof data.config.czConfig === 'string') {
         const base = (data && data.filepath) ? path.dirname(data.filepath) : process.cwd()
-        data = await cosmiconfig('commitizen', {
-            ignoreEmptySearchPlaces: true,
-            cache: true,
-        }).load(path.resolve(base, data.config.czConfig))
+        data = await cosmiconfig('commitizen', commonCosmiconfigOptions)
+            .load(path.resolve(base, data.config.czConfig))
     }
     return await execute(data?.config || data || {}, true)
 }
@@ -166,13 +187,8 @@ export interface UserOptions {
 export async function configLoader(options?: UserOptions) {
     // provide cli config loader
     if (typeof options?.configPath === 'string') {
-        const czData = await cosmiconfig(
-            'commitizen',
-            {
-                ignoreEmptySearchPlaces: true,
-                cache: true,
-            },
-        ).load(path.resolve(options.cwd || process.cwd(), options.configPath))
+        const czData = await cosmiconfig('commitizen', commonCosmiconfigOptions)
+            .load(path.resolve(options.cwd || process.cwd(), options.configPath))
 
         return { prompt: await execute(czData?.config || czData || {}, true) }
     }

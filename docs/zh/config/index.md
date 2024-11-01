@@ -16,7 +16,7 @@ sitemap:
 - `commitlint.config.cjs`
 - `commitlint.config.mjs`
 
-::::: details 点击展开 `.commitlintrc.js` 完整 默认 配置模板
+::::: details 点击展开 `commitlint.config.js` 完整 默认 配置模板
 
 :::: code-group
 ::: code-group-item CommonJS
@@ -77,7 +77,7 @@ sitemap:
 
 ## 中英文对照模板
 
-::: details 点击展开 `.commitlintrc.js` 完整 中英文 配置模板
+::: details 点击展开 `commitlint.config.js` 完整 中英文 配置模板
 
 <<< @/snippets/commitlint.config.cn-en.js{js}
 
@@ -90,7 +90,7 @@ sitemap:
 [推荐使用中英文对照](#中英文对照模板)，可以很好给予团队的新人帮助。
 :::
 
-::: details 点击展开 `.commitlintrc.js` 完整 纯汉化 配置模板
+::: details 点击展开 `commitlint.config.js` 完整 纯汉化 配置模板
 
 <<< @/snippets/commitlint.config.cn.js{js}
 
@@ -98,7 +98,7 @@ sitemap:
 
 ## Emoji 模板
 
-::: details 点击展开 `.commitlintrc.js` 完整 emoji 配置模板
+::: details 点击展开 `commitlint.config.js` 完整 emoji 配置模板
 
 <<< @/snippets/commitlint.config.emoji.js{24-34,36 js}
 
@@ -142,10 +142,80 @@ https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.j
 
 ## TypeScript 模板
 
-:::danger
-从 <u>v1.3.0</u> 开始，将不再支持 TypeScript 配置文件。例如(`cz.config.ts`)
-:::
+- 从 `cz-git`, `czg` 的 `v1.11.0` 版本开始
+- 将使用 Node.js LTS 版本 >= `v22.11.0` 的==实验性功能==, **原生加载 TypeScript 配置文件**<br>==需注入开启实验性的参数== `NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning'` 使用
+- 详情: [可查看 Node.js 文档](https://nodejs.org/api/cli.html#--experimental-transform-types) ｜ [Node.js TypeScript 支持路线图](https://github.com/nodejs/loaders/issues/217)
+- ==建议==: 可先使用 [ESM js](#javascript-%E6%A8%A1%E6%9D%BF) 配置文件作为未来 TypeScript 配置文件的过渡，待 Node.js 运行 TypeScript 稳定后，再进行切换
 
-:::tip
-使用 js 配置文件添加 `@type` 注释可以很好提供在配置时的代码提示.
+::::: details 点击展开 `NODE_OPTIONS` 注入方式
+:::: code-group
+::: code-group-item 项目 package.json 脚本注入 - 配合包 cross-env
+```diff
+"scripts": {
+-    "cz": "czg"
++    "cz": "cross-env NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' czg"
+}
+```
 :::
+::: code-group-item 全局注入 - 使用 alias 命令
+```sh
+# .zshrc | .bashrc
+alias czg="NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' \czg"
+```
+:::
+::: code-group-item 全局注入 - 使用 export 命令
+```sh
+# .zshrc | .bashrc
+export NODE_OPTIONS="--experimental-transform-types --disable-warning ExperimentalWarning"
+```
+:::
+::::
+:::::
+
+---
+
+- `.commitlintrc.ts`
+- `.commitlintrc.mts`
+- `.commitlintrc.cts`
+- `commitlint.config.ts`
+- `commitlint.config.mts`
+- `commitlint.config.cts`
+
+::::: details 点击展开 `commitlint.config.ts` 完整 默认 配置模板
+
+:::: code-group
+::: code-group-item CommonJS
+
+<<< @/snippets/commitlint.config.cjs{ts}
+
+:::
+::: code-group-item ESM
+
+<<< @/snippets/commitlint.config.mjs{ts}
+
+:::
+::::
+
+:::::
+
+---
+
+- `cz.config.ts`
+- `cz.config.mts`
+- `cz.config.cts`
+
+::::: details 点击展开 `cz.config.ts` 完整 默认 配置模板
+:::: code-group
+::: code-group-item CommonJS
+
+<<< @/snippets/cz.config.cjs{ts}
+
+:::
+::: code-group-item ESM
+
+<<< @/snippets/cz.config.mjs{ts}
+
+:::
+::::
+
+:::::

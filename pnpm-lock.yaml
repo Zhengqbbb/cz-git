@@ -200,6 +200,9 @@ importers:
       '@commitlint/types':
         specifier: catalog:commitlint
         version: 19.5.0
+      '@cz-git/inquirer':
+        specifier: workspace:*
+        version: link:../plugin-inquirer
       '@types/tmp':
         specifier: ^0.2.3
         version: 0.2.3
