@@ -1,4 +1,4 @@
-# OpenAI <Badge type="info" text="`gpt-4o-mini` Model「default」" />
+# OpenAI <Badge type="info" text="`gpt-4o-mini` Model「default」" /><Badge type="tip" text="Node.js >= 16.5.0+" />
 Let the AI generate your **git commit message** subject <sup>(short description)</sup>
 
 ![demo-gif](https://user-images.githubusercontent.com/40693636/219867044-3ca9823d-9294-4e02-9a5b-624578844168.gif) <!-- size=720x309 -->

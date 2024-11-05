@@ -2,7 +2,7 @@
 outline: [2, 3]
 ---
 
-# OpenAI <Badge type="info" text="`gpt-4o-mini` 模型 「默认」" />
+# OpenAI <Badge type="info" text="`gpt-4o-mini` 模型 「默认」" /><Badge type="tip" text="Node.js >= 16.5.0+" />
 
 让 AI 生成你的 git commit 提交信息简短描述
 
