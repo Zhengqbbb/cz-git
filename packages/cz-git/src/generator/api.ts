@@ -2,8 +2,7 @@ import url from 'node:url'
 import process from 'node:process'
 import { style } from '@cz-git/inquirer'
 import HttpsProxyAgent from 'https-proxy-agent'
-import fetch from 'node-fetch-cjs'
-import { log } from '../shared'
+import { isNodeVersionInRange, log } from '../shared'
 import type { CommitizenGitOptions } from '../shared'
 
 export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string) {
@@ -23,7 +22,9 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
         agent = new HttpsProxyAgent(proxyUrl)
         agent.path = agent?.pathname
     }
+
     try {
+        const { default: fetch } = await import('node-fetch-cjs')
         const response = await fetch(aiContext.url, {
             agent,
             headers: {
@@ -32,7 +33,7 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
             },
             method: 'POST',
             body: JSON.stringify(aiContext.payload),
-            signal: AbortSignal.timeout(10 * 1000),
+            signal: isNodeVersionInRange(18) ? AbortSignal?.timeout(10 * 1000) : undefined,
         })
 
         if (
@@ -58,6 +59,9 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
 
         if (err.type === 'request-timeout')
             errorMsg += `. ${style.bold(style.underline('Request Timeout'))} \n${style.yellow('[tip]>>>: If your country is unable to request the OpenAI API.\nCLI support for using http proxy like \`http_proxy\`, \`all_proxy\`.\nOr setup proxy e.g')} ${style.cyan('\`npx czg --api-proxy="http://127.0.0.1:1080"\`')}`
+
+        if (!isNodeVersionInRange(16, 5))
+            errorMsg = 'Node.js version >= v16.5.0 is required'
 
         log('err', errorMsg)
         throw new Error(err.message)
