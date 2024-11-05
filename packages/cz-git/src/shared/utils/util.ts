@@ -4,6 +4,7 @@
  * @license MIT
  */
 
+import process from 'node:process'
 import { style } from '@cz-git/inquirer'
 import type { Answers, CommitizenGitOptions, Option, ScopesType } from '../types'
 
@@ -236,4 +237,14 @@ export function previewMessage(msg: string, confirmColorize = false) {
         ? '\u001B[90m###--------------------------------------------------------###\u001B[0m'
         : '###--------------------------------------------------------###'
     console.info(`\n${SEP}\n${msg}\n${SEP}\n`)
+}
+
+export function isNodeVersionInRange(pMajor = 12, pMinor?: number) {
+    if (!process.version.startsWith('v'))
+        return false
+    const major = process.version.split('.')[0].slice(1)
+    const minor = process.version.split('.')[1]
+    return !pMinor
+        ? Number(major) >= pMajor
+        : Number(major) >= pMajor && Number(minor) >= pMinor
 }
