@@ -1,3 +1,19 @@
+# [1.11.0](https://github.com/Zhengqbbb/cz-git/compare/v1.10.1...v1.11.0) (2024-11-08)
+
+
+### Bug Fixes
+
+* **cz-git,cli:** node v12 v14 startup error ([#200](https://github.com/Zhengqbbb/cz-git/issues/200)) ([a760f62](https://github.com/Zhengqbbb/cz-git/commit/a760f621726d9ad94f8d43209f5a20ffa276174d))
+* **plugin-inquirer:** press tab or right key exit error when input no complete value ([4cffb1a](https://github.com/Zhengqbbb/cz-git/commit/4cffb1a305235ba91fe3eef6ffa4f72b56ff7c0f))
+
+
+### Features
+
+* **cz-git:** provide config file type helper fn `defineConfig` and `definePrompt` ([#196](https://github.com/Zhengqbbb/cz-git/issues/196)) ([c6589de](https://github.com/Zhengqbbb/cz-git/commit/c6589de5a3653e7544e32dfcabcd6390fee8060a)), closes [#193](https://github.com/Zhengqbbb/cz-git/issues/193)
+* **plugin-loader:** support esm and ts(experiment) configure load ([#197](https://github.com/Zhengqbbb/cz-git/issues/197)) ([1288093](https://github.com/Zhengqbbb/cz-git/commit/1288093d4eab6b4ad5ad32f0dc661b73fda057f2))
+
+
+
 ## [1.10.1](https://github.com/Zhengqbbb/cz-git/compare/v1.10.0...v1.10.1) (2024-10-06)
 
 
