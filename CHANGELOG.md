@@ -9,7 +9,7 @@
 
 ### Features
 
-* **cz-git:** provide config file type helper fn `defineConfig` and `definePrompt` ([#196](https://github.com/Zhengqbbb/cz-git/issues/196)) ([c6589de](https://github.com/Zhengqbbb/cz-git/commit/c6589de5a3653e7544e32dfcabcd6390fee8060a)), closes [#193](https://github.com/Zhengqbbb/cz-git/issues/193)
+* **cz-git,czg:** provide config file type helper fn `defineConfig` and `definePrompt` ([#196](https://github.com/Zhengqbbb/cz-git/issues/196)) ([c6589de](https://github.com/Zhengqbbb/cz-git/commit/c6589de5a3653e7544e32dfcabcd6390fee8060a)), closes [#193](https://github.com/Zhengqbbb/cz-git/issues/193)
 * **plugin-loader:** support esm and ts(experiment) configure load ([#197](https://github.com/Zhengqbbb/cz-git/issues/197)) ([1288093](https://github.com/Zhengqbbb/cz-git/commit/1288093d4eab6b4ad5ad32f0dc661b73fda057f2))
 
 
