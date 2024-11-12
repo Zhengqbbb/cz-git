@@ -27,7 +27,7 @@ $ du -sh ./node_modules
 $ npm install -D czg
 added 1 package, and audited 2 packages in 531 ms
 $ du -sh ./node_modules/*
-1.31M ./node_modules/czg
+1.32M ./node_modules/czg
 ```
 
 ## 与 cz-git 相比有什么不同

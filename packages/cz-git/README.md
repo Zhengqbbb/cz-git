@@ -49,11 +49,11 @@ A support OpenAI, and more engineered, lightweight, customizable, standard outpu
 
 ## Feature
 
-- 🤖 **OpenAI support.** Let the AI generate your git commit message description.
 - 💪 Just to be a **lazy man** !!! Friendly command line tool, Supports **search and selection** on the command line, reducing spelling errors.
 - ⚡️ **Lightweight**, **Highly Customizable**, but the output format follows the standard [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 - 🔨 [Better for monorepo engineering](https://cz-git.qbb.sh/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
 - ✅ Support commit with **emoji** ｜ Better linking with [issuePrefix](https://cz-git.qbb.sh/recipes/default-issues.html) **for issue**
+- 🤖 **OpenAI support.** Let the AI generate your git commit message description.
 
 [⇒ Why cz-git](https://cz-git.qbb.sh/guide/why.html)
 

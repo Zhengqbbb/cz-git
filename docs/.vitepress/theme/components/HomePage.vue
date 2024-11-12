@@ -20,6 +20,14 @@ useMediumZoom()
         flex="~ wrap grow basis-30% md:row col"
         class="maauto max-w-1152px mt-12 lg:px-1 px-2 py-0 justify-between items-stretch"
     >
+        <div v-for="(feat, i) in features" :key="i" class="feat" :class="{ relative: i !== 2 }">
+            <h2 class="featTitle">
+                {{ feat.title }}
+            </h2>
+            <p class="dark:c-gray-4 c-gray-5 text-4.2 whitespace-pre-wrap">
+                {{ feat.details }}
+            </p>
+        </div>
         <div class="feat">
             <h2 class="featTitle">
                 {{ openAIFeature.title }}
@@ -30,14 +38,6 @@ useMediumZoom()
                 <a :href="openAIFeature.link" class="text-$vp-c-brand text-sm underline underline-offset-4 underline-solid underline-transparent transition-all" hover="underline-$vp-c-brand">
                     {{ openAIFeature.linkText }}
                 </a>
-            </p>
-        </div>
-        <div v-for="(feat, i) in features" :key="i" class="feat" :class="{ relative: i !== 2 }">
-            <h2 class="featTitle">
-                {{ feat.title }}
-            </h2>
-            <p class="dark:c-gray-4 c-gray-5 text-4.2 whitespace-pre-wrap">
-                {{ feat.details }}
             </p>
         </div>
         <div class="feat relative">

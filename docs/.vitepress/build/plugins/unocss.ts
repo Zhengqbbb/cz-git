@@ -17,7 +17,7 @@ export const unocssPlugin = Unocss({
     },
     shortcuts: [
         ['feat', 'md:w-30% w-100% lg:px-0 md:px-3 px-10'],
-        ['featTitle', 'dark:c-coolGray c-coolGray-6 md:text-6 text-5 font-600 pt-8 pb-6'],
+        ['featTitle', 'dark:c-coolGray-3 c-coolGray-6 md:text-6 text-5 font-600 pt-8 pb-6'],
     ],
     presets: [
         presetUno({

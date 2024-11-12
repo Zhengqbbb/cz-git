@@ -60,11 +60,11 @@ DX first and more engineered, lightweight, customizable, standard output format 
 
 ## Feature
 
-- 🤖 **OpenAI support.** Let the AI generate your git commit message.
 - 💪 Just to be a **lazy man** !!! Friendly command line tool, Supports **search and selection** on the command line, reducing spelling errors.
 - ⚡️ **Lightweight**, **Highly Customizable**, but the output format follows the standard [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 - 🔨 [Better for monorepo engineering](https://cz-git.qbb.sh/recipes/#scopes) and **commitlint** project to give relevant verification information to the command line.
 - ✅ Support commit with **emoji** ｜ Better linking with [issuePrefix](https://cz-git.qbb.sh/recipes/default-issues.html) **for issue**
+- 🤖 **OpenAI support.** Let the AI generate your git commit message.
 
 [⇒ Why cz-git](https://cz-git.qbb.sh/guide/why.html)
 
@@ -77,7 +77,7 @@ added 1 package in 0.552s
 [⇒ Why czg](https://cz-git.qbb.sh/cli/why.html)
 ```bash
 $ npm i -g czg
-+ czg             (1.31 MB)
++ czg             (1.32 MB)
 added 1 package in 0.531s
 ```
 
@@ -179,7 +179,7 @@ added 1 package in 0.531s
 [⇒ FAQ](https://cz-git.qbb.sh/faq/)
 
 <a target="_blank" href="https://packagephobia.com/result?p=cz-git,czg">
-  <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.7/image/cz-git-v1.10.0.png" alt="size-overview"><br>
+  <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.8/image/cz-git-v1.11.0.png" alt="size-overview"><br>
   <sub>https://packagephobia.com/result?p=cz-git,czg</sub>
 </a>
 
