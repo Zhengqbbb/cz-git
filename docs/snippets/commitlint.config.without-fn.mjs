@@ -1,5 +1,3 @@
-// Can using in global config
-
 /** @type { import('cz-git').UserConfig } */
 export default {
     rules: {
