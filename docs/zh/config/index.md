@@ -29,6 +29,16 @@ sitemap:
 <<< @/snippets/commitlint.config.mjs{js}
 
 :::
+::: code-group-item CommonJS - (Without TypeHelper Fn)
+
+<<< @/snippets/commitlint.config.without-fn.cjs{js}
+
+:::
+::: code-group-item ESM - (Without TypeHelper Fn)
+
+<<< @/snippets/commitlint.config.without-fn.mjs{js}
+
+:::
 ::::
 
 :::::
@@ -51,6 +61,16 @@ sitemap:
 ::: code-group-item ESM
 
 <<< @/snippets/cz.config.mjs{js}
+
+:::
+::: code-group-item CommonJS - (Without TypeHelper Fn)
+
+<<< @/snippets/cz.config.without-fn.cjs{js}
+
+:::
+::: code-group-item ESM - (Without TypeHelper Fn)
+
+<<< @/snippets/cz.config.without-fn.mjs{js}
 
 :::
 ::::

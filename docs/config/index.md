@@ -30,6 +30,16 @@ sitemap:
 <<< @/snippets/commitlint.config.mjs{js}
 
 :::
+::: code-group-item CommonJS - (Without TypeHelper Fn)
+
+<<< @/snippets/commitlint.config.without-fn.cjs{js}
+
+:::
+::: code-group-item ESM - (Without TypeHelper Fn)
+
+<<< @/snippets/commitlint.config.without-fn.mjs{js}
+
+:::
 ::::
 
 :::::
@@ -53,6 +63,16 @@ If your project does not use commitlint,and want to use other profiles. You can 
 ::: code-group-item ESM
 
 <<< @/snippets/cz.config.mjs{js}
+
+:::
+::: code-group-item CommonJS - (Without TypeHelper Fn)
+
+<<< @/snippets/cz.config.without-fn.cjs{js}
+
+:::
+::: code-group-item ESM - (Without TypeHelper Fn)
+
+<<< @/snippets/cz.config.without-fn.mjs{js}
 
 :::
 ::::

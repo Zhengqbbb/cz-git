@@ -10,7 +10,7 @@ sitemap:
 ## Error: require() of ES Module ... not supported
 > [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of xxxx is not specified and it doesn't parse as CommonJS.
 
-1. 如果你是 ESM 项目 (即 package.json 中有 `"type": "module"`) 或使用 `import` 语法
+1. 如果你是 ESM 项目 (即 package.json 中有 `"type": "module"`) 或使用 `export default` 语法
     - 可以尝试更改 [配置文件名](/zh/config/)后缀 `.js` => `.cjs` 或 `.mjs`
 2. 如果你使用了 commitlint 版本(> 18)
     - 例如配置 `extends: ['@commitlint/config-conventional']`
