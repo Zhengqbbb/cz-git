@@ -182,14 +182,17 @@ export interface UserOptions {
 }
 
 /**
- * @description Main Func: both loader commitizen config and commitlint config
+ * Entry Fn: Loading both commitizen and commitlint configurations
  */
 export async function configLoader(options?: UserOptions) {
     // provide cli config loader
     if (typeof options?.configPath === 'string') {
-        const czData = await cosmiconfig('commitizen', commonCosmiconfigOptions)
-            .load(path.resolve(options.cwd || process.cwd(), options.configPath))
+        const targetPath = path.resolve(options.cwd || process.cwd(), options.configPath)
+        if (process.env.CZ_DEBUG)
+            console.log('Specify config file:', targetPath)
 
+        const czData = await cosmiconfig('commitizen', commonCosmiconfigOptions)
+            .load(targetPath)
         return { prompt: await execute(czData?.config || czData || {}, true) }
     }
     else {
