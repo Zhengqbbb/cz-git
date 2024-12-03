@@ -1,5 +1,5 @@
 /**
- * @description generate commitizen questions(generateQuestions)
+ * @description (Main: `generateQuestions`) - Generate commitizen questions
  * @author @Zhengqbbb (zhengqbbb@gmail.com)
  * @license MIT
  */
@@ -227,6 +227,7 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
             completeValue: options.defaultBody || undefined,
             when: (answers: Answers) => {
                 const answerType = getAnswersType(options, answers)
+
                 if (
                     options.allowBreakingChanges
                     && answerType
@@ -234,7 +235,6 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
                 ) {
                     return true
                 }
-
                 else {
                     return answers.markBreaking || Boolean(process.env.break === '1') || false
                 }
@@ -286,10 +286,9 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
             transformer: (input: string) => useThemeCode(input, options.themeColorCode),
         },
     ].filter(
-        i =>
-            !options.skipQuestions?.includes(
-                i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix' | 'confirmCommit',
-            ),
+        i => !options.skipQuestions?.includes(
+            i.name as 'scope' | 'body' | 'breaking' | 'footer' | 'footerPrefix' | 'confirmCommit',
+        ),
     )
 }
 

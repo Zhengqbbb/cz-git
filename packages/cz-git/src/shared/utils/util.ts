@@ -1,6 +1,6 @@
 /**
- * @description provide until function
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description Provide until function
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  */
 

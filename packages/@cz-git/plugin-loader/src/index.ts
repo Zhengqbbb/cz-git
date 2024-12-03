@@ -1,3 +1,9 @@
+/**
+ * @description Commitizen and Commitlint config loader (Main: `configLoader`)
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
+ * @license MIT
+ */
+
 import '@commitlint/types'
 import path from 'node:path'
 import os from 'node:os'

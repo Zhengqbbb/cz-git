@@ -1,6 +1,6 @@
 /**
- * @description generate commit message `generateMessage`
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description (Main: `generateMessage`) - Generate commit message
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  */
 

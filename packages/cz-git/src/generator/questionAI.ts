@@ -1,6 +1,6 @@
 /**
- * @description generate commitizen questions(generateQuestions)
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description (Main: `generateAIPrompt`) - Generate AI returns a single or multiple messages in the Terminal display
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  */
 

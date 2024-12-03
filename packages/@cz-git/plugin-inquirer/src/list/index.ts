@@ -1,6 +1,6 @@
 /**
  * @description inquirer plugin - Search List
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  * Powered by `inquirer-autocomplete-prompt`
  */

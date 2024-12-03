@@ -1,7 +1,7 @@
 /**
  * Terminal style output colorizen
- * Inspired by picocolors(https://www.npmjs.com/package/picocolors)
- * @author: @Zhengqbbb (zhengqbbb@gmail.com)
+ * Inspired by `picocolors` (https://www.npmjs.com/package/picocolors)
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  */
 

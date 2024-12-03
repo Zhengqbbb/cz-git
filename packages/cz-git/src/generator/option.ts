@@ -1,6 +1,6 @@
 /**
- * @description generate commitizen config option(generateOptions)
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description (Main: `generateOptions`) - Generate commitizen config option
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  */
 

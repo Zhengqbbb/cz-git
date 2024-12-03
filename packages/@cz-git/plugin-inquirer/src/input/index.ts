@@ -1,6 +1,6 @@
 /**
- * @description inquirer plugin - Search Checkbox
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description inquirer plugin - Support completion of input
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  */
 

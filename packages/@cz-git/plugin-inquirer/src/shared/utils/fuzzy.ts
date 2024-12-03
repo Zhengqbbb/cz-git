@@ -1,13 +1,14 @@
 /**
- * @description provide list and checkBox fuzzy search
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @description Provide list and checkBox fuzzy search
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
  */
 
 import type { FilterArrayItemType } from '../types'
 
 /**
- * @description inputString match targetString return match score
+ * input string match target string return match score
+ *
  * @param {string} input input string
  * @param {string} target target string
  * @param {boolean} caseSensitive isCaseSensitive, default: false
@@ -50,7 +51,8 @@ export function fuzzyMatch(
 }
 
 /**
- * @description Array fuzzy filter
+ * Array fuzzy filter
+ *
  * @param {string} input input string
  * @param {Array<FilterArrayItemType | unknown>} arr target Array
  * @return {Array<FilterArrayItemType>} filtered array

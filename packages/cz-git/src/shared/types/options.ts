@@ -1,9 +1,9 @@
 /**
  * @description cz-git types
- * @author @Zhengqbbb (zhengqbbb@gmail.com)
+ * @author Zhengqbbb <zhengqbbb@gmail.com>
  * @license MIT
- * @copyright Copyright (c) 2022-present Qiubin Zheng
  */
+
 import type { QuestionsType } from '../../generator'
 import type { CommitlintUserConfig } from './commitlint'
 
