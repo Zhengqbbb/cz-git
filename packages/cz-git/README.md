@@ -124,9 +124,9 @@ added 1 package in 0.552s
       </a>
     </td>
     <td align="center" width="200px">
-      <a target="_blank" href="https://github.com/buqiyuan/vue3-antd-admin">
-        <img src="https://user-images.githubusercontent.com/40693636/170830597-31d6f0d7-2c93-491b-a984-7bf21db8f75b.png" alt="Vue3-Antd-Admin logo" width="40"><br>
-        <sub>Vue3-Antd-Admin</sub>
+      <a target="_blank" href="https://github.com/instructure/instructure-ui">
+        <img src="https://avatars.githubusercontent.com/u/515326?s=200&v=4" alt="instructure-ui logo" width="40"><br>
+        <sub>instructure-ui</sub>
       </a>
     </td>
     <td align="center" width="200px">
@@ -176,3 +176,4 @@ MIT Copyright (c) 2022-present Qiubin Zheng <zhengqbbb@gmail.com> (https://githu
         </tbody>
     </table>
 </p>
+

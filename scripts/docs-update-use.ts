@@ -28,26 +28,25 @@ interface Data {
     'cz-git': Source[]
 }
 
-function genProjectUseCzGite(data: Data, key: 'czg' | 'cz-git', isBreak: boolean) {
-    const source = data[key]
-    let result = '<table>\n  <tr>'
-    source.forEach((item, index) => {
-        if ((index !== 0 && (index + 1) % 4 === 0) || index === source.length - 1) {
-            result += `\n    <td align="center" width="200px">
-      <a target="_blank" href="${item.link}">
-        <img src="${item.icon}" alt="${item.name} logo" width="40">${isBreak ? '<br>' : ''}
-        <sub>${item.name}</sub>
-      </a>
-    </td>
-  </tr>${index === source.length - 1 ? '' : '\n  <tr>'}`
-        }
-        else {
-            result += `\n    <td align="center" width="200px">
+function genTdItem(item: Source, isBreak: boolean) {
+    return `\n    <td align="center" width="200px">
       <a target="_blank" href="${item.link}">
         <img src="${item.icon}" alt="${item.name} logo" width="40">${isBreak ? '<br>' : ''}
         <sub>${item.name}</sub>
       </a>
     </td>`
+}
+
+function genProjectUseCzGite(data: Data, key: 'czg' | 'cz-git', isBreak: boolean) {
+    const source = data[key]
+    let result = '<table>\n  <tr>'
+    source.forEach((item, index) => {
+        const isTrEnd = (index !== 0 && (index + 1) % 4 === 0) || index === source.length - 1
+        if (isTrEnd) {
+            result += `${genTdItem(item, isBreak)}\n  </tr>${index === source.length - 1 ? '' : '\n  <tr>'}`
+        }
+        else {
+            result += genTdItem(item, isBreak)
         }
     })
     return (result += '\n</table>')
@@ -57,7 +56,7 @@ function genTableByPaths(paths: string[], data: any, key: 'czg' | 'cz-git', isBr
     paths.forEach((p) => {
         let readme = fs.readFileSync(resolve(__dirname, p), 'utf8')
         if (readme)
-            readme = readme.replace(/<table>(.|\n)*?<\/table>/g, genProjectUseCzGite(data, key, isBreak))
+            readme = readme.replace(/<table>(.|\n)*?<\/table>/, genProjectUseCzGite(data, key, isBreak))
 
         fs.writeFileSync(resolve(__dirname, p), readme)
     })
