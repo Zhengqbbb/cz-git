@@ -124,15 +124,15 @@ added 1 package in 0.552s
       </a>
     </td>
     <td align="center" width="200px">
-      <a target="_blank" href="https://github.com/instructure/instructure-ui">
-        <img src="https://avatars.githubusercontent.com/u/515326?s=200&v=4" alt="instructure-ui logo" width="40"><br>
-        <sub>instructure-ui</sub>
-      </a>
-    </td>
-    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/HalseySpicy/Geeker-Admin">
         <img src="https://user-images.githubusercontent.com/40693636/170830842-319d83ce-df67-488d-b08f-818947a5a540.png" alt="Geeker-Admin logo" width="40"><br>
         <sub>Geeker-Admin</sub>
+      </a>
+    </td>
+    <td align="center" width="200px">
+      <a target="_blank" href="https://github.com/instructure/instructure-ui">
+        <img src="https://avatars.githubusercontent.com/u/515326?s=200&v=4" alt="instructure-ui logo" width="40"><br>
+        <sub>instructure-ui</sub>
       </a>
     </td>
     <td align="center" width="200px">
