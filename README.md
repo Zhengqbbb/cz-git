@@ -119,7 +119,7 @@ added 1 package in 0.531s
     </td>
     <td align="center" width="200px">
       <a target="_blank" href="https://github.com/HalseySpicy/Geeker-Admin">
-        <img src="https://user-images.githubusercontent.com/40693636/170830842-319d83ce-df67-488d-b08f-818947a5a540.png" alt="Geeker-Admin logo" width="40"><br>
+        <img src="https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.9/image/geeker-avatar.png" alt="Geeker-Admin logo" width="40"><br>
         <sub>Geeker-Admin</sub>
       </a>
     </td>

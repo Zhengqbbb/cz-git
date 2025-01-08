@@ -21,7 +21,7 @@ cz-git:
 
   - name: Geeker-Admin
     link: https://github.com/HalseySpicy/Geeker-Admin
-    icon: https://user-images.githubusercontent.com/40693636/170830842-319d83ce-df67-488d-b08f-818947a5a540.png
+    icon: https://cdn.jsdelivr.net/gh/Zhengqbbb/Zhengqbbb@v1.1.9/image/geeker-avatar.png
 
   - name: instructure-ui
     link: https://github.com/instructure/instructure-ui
