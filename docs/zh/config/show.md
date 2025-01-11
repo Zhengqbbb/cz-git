@@ -31,12 +31,12 @@ sitemap:
 :::tip
 ---
 - **使用 256 Color**
-  - **规则**: `"38;5;${color_code: 0 ~ 255}"`    
+  - **规则**: `"38;5;${color_code: 0 ~ 255}"`
     ⇒ `color_code` 可以通过链接查看获取 [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
   - **示例**: `"38;5;075"`
 
 - **使用 256 RGB Color** <sup>(不推荐使用在团队项目中使用，**需要终端支持，兼容性较差**)</sup>
-  - **规则**: `"38;2;${R};${G};${B}"`       
+  - **规则**: `"38;2;${R};${G};${B}"`
     ⇒ 你可以查看这个链接，查看你使用的终端是否支持显示 256 RGB True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
   - **示例**: `"38;2;255;100;0"`
 
@@ -56,7 +56,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **例子** : <br>`types: [{value: 'feat',     name: 'feat:     新增功能 | A new feature', emoji: ':sparkles:'}]`
 
 :::tip
-如果要使用 Emoji 需要 ==开启== `userEmoji` 配置项。<br>
+如果要使用 Emoji 需要 ==开启== `useEmoji` 配置项。<br>
 ==并且需添加 Emoji Code==，可以在: [https://gitmoji.dev/](https://gitmoji.dev/) 或 [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) 查找相应的字符进行补充到 `emoji`。
 :::
 
@@ -170,9 +170,9 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **描述** : 如果 defaultScope 与 `scopes` 选择范围列表项中的 value 相匹配就会进行星标置顶操作。
 - **类型** : `string` | `string[]` <sup>[...] 在多选模式中会默认选中</sup>
 - **默认** : `""`
-- **额外** : 在 **自定义范围** 中是否使用显示默认值 
+- **额外** : 在 **自定义范围** 中是否使用显示默认值
 
-[⇒ 查看小窍门](/zh/recipes/default-scope.html) 
+[⇒ 查看小窍门](/zh/recipes/default-scope.html)
 
 ## defaultSubject
 
@@ -204,4 +204,4 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **默认** : `""`
 - **使用** : **初始化补全模板**，可使用 <kbd>Tab</kbd> 或者 <kbd>→</kbd> 进行快速补全；亦可直接使用 <kbd>Enter</kbd> 输出模板。
 
-[⇒ 查看小窍门](/zh/recipes/default-issues.html) 
+[⇒ 查看小窍门](/zh/recipes/default-issues.html)
