@@ -31,13 +31,13 @@ sitemap:
 :::tip
 ---
 - **Use 256 Color**
-  - **rule**: `"38;5;${color_code: 0 ~ 255}"`    
+  - **rule**: `"38;5;${color_code: 0 ~ 255}"`
       ⇒ the `color_code` can get it by [https://github.com/sindresorhus/xterm-colors](https://github.com/sindresorhus/xterm-colors)
   - **example**: `"38;5;075"`
 
 
 - **Use 256 RGB Color** <sup>(Not recommended for use in projects, **poor compatibility**)</sup>
-  - **rule**: `"38;2;${R};${G};${B}"`    
+  - **rule**: `"38;2;${R};${G};${B}"`
     ⇒ You can check this link to see if your terminal supports displaying 256 RGB Color True-Color: [https://github.com/termstandard/colors](https://github.com/termstandard/colors#truecolor-support-in-output-devices)
   - **example**: `"38;2;255;100;0"`
 ---
@@ -55,7 +55,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 - **example** : <br>`types: [{value: 'feat', name: 'feat: A new feature', emoji: ':sparkles:'}]`
 
 :::tip
-If you want to use Emoji, you need ==enable== `userEmoji` configuration item. <br>
+If you want to use Emoji, you need ==enable== `useEmoji` configuration item. <br>
 And need to add Emoji Code, you can find the corresponding characters in: [https://gitmoji.dev/](https://gitmoji.dev/) or [emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) to supplement `emoji`.
 :::
 
@@ -166,7 +166,7 @@ Using ==default value== can produce many ways to make the tool more suitable for
 
 ## defaultScope
 
-- **description** : pin scope item the top of the scope list (match `scopes` item value) 
+- **description** : pin scope item the top of the scope list (match `scopes` item value)
 - **type** : `string` | `string[]` <sup>For checkbox mode. items will automatic checked</sup>
 - **default** : `""`
 - **other** : Initialize the completion template in **custom scope**. you can use <kbd>Tab</kbd> or <kbd>→</kbd> to quickly complete; you can also use the <kbd> Enter</kbd> output template directly.
