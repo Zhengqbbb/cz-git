@@ -64,6 +64,14 @@ czg --api-key=sk-xxxxx
     ```
 :::
 
+:::details Setup DeepSeek
+1. Get DeepSeek [API Key](https://platform.deepseek.com/api_keys)
+2. Run the command to configure
+    ```sh
+    npx czg --api-key="sk-xxxxxx" --api-endpoint="https://api.deepseek.com" --api-model="deepseek-chat"
+    ```
+:::
+
 :::details Setup Ollama
 1. Install [Ollama](https://ollama.com/) and start the service
 2. [Choose](https://ollama.com/library) and pull the model
@@ -202,6 +210,12 @@ If you are currently using [Commitizen CLI](https://github.com/commitizen/cz-cli
 - If you want to **customize the prompt words** sent to OpenAI (like support **i18n**), you can use [aiQuestionCB](/config/engineer#aiquestioncb) option
 - The AI **configure options** information see : [Options - AI Related](/config/engineer#useai)
 - About project or global support **configure file** information see: [Configure Template](/config/#configure-template)
+
+## How to modify message After AI Generation
+
+When the generation is complete and the confirmation message appears, press <kbd>m</kbd> <sup>(Modify)</sup> to re-enter the interactive prompt. <br>And the generated subject message will turn into a completion template, allowing you to adjust the message or add additional information.
+
+![ai-modify-demo](https://static.qbb.sh/cz-git/ai-modify.webp) <!-- size=2384 × 2534 -->
 
 ## How it works
 

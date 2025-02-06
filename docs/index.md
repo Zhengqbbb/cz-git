@@ -33,7 +33,7 @@ openAIFeature:
   linkText: See Usage →
 czFeatures:
   - title: Highly Customizable
-    details: Enjoy the customization process to make the tool more in line with your or team habits. 
+    details: Enjoy the customization process to make the tool more in line with your or team habits.
   - title: Engineering Support
     details: Reduce repetitive typing. Better for engineering repo(e.g:monorepo) or business system. Easy link with issue.
   - title: With Commitlint
@@ -47,7 +47,7 @@ emojiFeature:
 
 sponsor: Buy Me a Coffee
 collaborator:
-  team: 
+  team:
     - avatar: https://avatars.githubusercontent.com/u/40693636?v=4
       name: Q.Ben Zheng (QB)
       title: Author / Main Maintainer
@@ -57,7 +57,7 @@ collaborator:
         - link: https://twitter.com/zhengqbbb
           icon: twitter
         - link: https://www.qbb.sh/
-          icon: 
+          icon:
             svg: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" d="M17 17H3V3h5V1H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5h-2z"/><path fill="currentColor" d="m11 1l3.29 3.29l-5.73 5.73l1.42 1.42l5.73-5.73L19 9V1z"/></svg>
   text: 💕 Thanks to all the contributors!
   link: https://github.com/Zhengqbbb/cz-git/graphs/contributors

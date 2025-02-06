@@ -75,6 +75,14 @@ czg --api-key=sk-xxxxx
 :::
 ::::
 
+:::details DeepSeek 配置方式
+1. 获取 DeepSeek [API Key](https://platform.deepseek.com/api_keys)
+2. 运行命令进行配置
+    ```sh
+    npx czg --api-key="sk-xxxxxx" --api-endpoint="https://api.deepseek.com" --api-model="deepseek-chat"
+    ```
+:::
+
 :::details GitHub Models 配置方式
 1. 加入 GitHub Models [候补名单](https://github.com/marketplace/models/waitlist)
 2. 获取 GitHub [personal access tokens](https://github.com/settings/tokens)
@@ -234,6 +242,12 @@ module.exports = {
 ```
 - 关于 AI 相关的配置信息 可查看 [Options - AI Related](/zh/config/engineer#useai)
 - 关于项目或全局配置文件信息 可查看 [Configure Template](/zh/config/#configure-template)
+
+## AI 生成后如何进行再编辑
+
+在生成完成确认 message 时，按下 <kbd>m</kbd> <sup>(Modify)</sup>，会再次进入交互提示，此时生成的简短描述会变成补全模版，可自行调节文案或添加额外信息。
+
+![ai-modify-demo](https://static.qbb.sh/cz-git/ai-modify.webp) <!-- size=2384 × 2534 -->
 
 ## 如何实现
 
