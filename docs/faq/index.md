@@ -8,7 +8,7 @@ sitemap:
 
 # FAQ
 
-## Error: require() of ES Module ... not supported
+## Error: Cannot require() ES Module ... not supported
 > [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of xxxx is not specified and it doesn't parse as CommonJS.
 
 1. If you are an ESM project (i.e., `"type": "module"` in package.json) or using `export default` syntax,
