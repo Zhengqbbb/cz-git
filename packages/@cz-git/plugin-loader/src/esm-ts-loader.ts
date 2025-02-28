@@ -1,5 +1,6 @@
 import process from 'node:process'
 import { pathToFileURL } from 'node:url'
+import { resolve } from 'node:path'
 import { style } from '@cz-git/inquirer'
 import type { Loader } from 'cosmiconfig'
 
@@ -11,7 +12,9 @@ type LoaderError = Error & {
 export function esmTsLoader(): Loader {
     return async (cfgPath: string, _: string) => {
         try {
-            const fileUrl = pathToFileURL(cfgPath).href
+            console.log(111, cfgPath)
+            const fileUrl = pathToFileURL(resolve(cfgPath)).href
+            console.log(222, fileUrl)
             const result = await import(fileUrl)
             return result.default || result
         }
