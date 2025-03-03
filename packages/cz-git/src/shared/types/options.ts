@@ -541,7 +541,7 @@ export interface CommitizenGitOptions {
     /**
      * pin type item the top of the types list (match item value)
      */
-    defaultType?: string
+    defaultType?: string | undefined
 
     /**
      * Whether to use display default value in custom scope
@@ -551,7 +551,7 @@ export interface CommitizenGitOptions {
      * 2. `string[]` for checkbox mode will default-select the options whose values match those within the `scopes` range list.
      * @usage When you want to use default, just keyboard `Enter` it
      */
-    defaultScope?: string | string[]
+    defaultScope?: string | string[] | undefined
 
     /**
      * default value show subject template prompt
@@ -559,7 +559,7 @@ export interface CommitizenGitOptions {
      * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
      * @usage If you want to use default, just keyboard `Enter` it
      */
-    defaultSubject?: string
+    defaultSubject?: string | undefined
 
     /**
      * default value show body and BREAKINGCHANGES template prompt
@@ -567,21 +567,21 @@ export interface CommitizenGitOptions {
      * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
      * @usage When you want to use default, just keyboard `Enter` it
      */
-    defaultBody?: string
+    defaultBody?: string | undefined
     /**
      * default value show issuePrefixes custom template prompt
      *
      * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
      * @usage When you want to use default, just keyboard `Enter` it
      */
-    defaultFooterPrefix?: string
+    defaultFooterPrefix?: string | undefined
     /**
      * default value show issue foot template prompt
      *
      * @usage If you want to use template complete. just keyboard `Tab` or `Right Arrow` it
      * @usage When you want to use default, just keyboard `Enter` it
      */
-    defaultIssues?: string
+    defaultIssues?: string | undefined
 
     /**
      * Whether to use GPG sign commit message (git commit -S -m)
