@@ -7,7 +7,7 @@ sitemap:
 ---
 # 常见问题
 
-## Error: require() of ES Module ... not supported
+## Error: Cannot require() ES Module ... not supported
 > [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of xxxx is not specified and it doesn't parse as CommonJS.
 
 1. 如果你是 ESM 项目 (即 package.json 中有 `"type": "module"`) 或使用 `export default` 语法

@@ -110,4 +110,13 @@ describe('config loader', () => {
             },
         })
     }, 1000)
+
+    it('default env load esm config', async () => {
+        mockDir = await useBootstrap('./fixtures/6-esm-config')
+        const config = await loaderSpyFn({ cwd: mockDir.name })
+        expect(config).toEqual({
+            rules: { 'scope-enum': [2, 'always', ['cz-git']] },
+            prompt: { path: 'node_modules/cz-git', useEmoji: true },
+        })
+    }, 1000)
 })
