@@ -1,3 +1,15 @@
+## [1.11.1](https://github.com/Zhengqbbb/cz-git/compare/v1.11.0...v1.11.1) (2025-03-03)
+
+
+### Bug Fixes
+
+* **cz-git:** default option types add undefined keyword ([c7a2d5d](https://github.com/Zhengqbbb/cz-git/commit/c7a2d5dce67926192a4676be7a41a271ae6f2a57)), closes [#206](https://github.com/Zhengqbbb/cz-git/issues/206)
+* **docs:** Fixed typo 'userEmoji -> useEmoji ([#212](https://github.com/Zhengqbbb/cz-git/issues/212)) ([f0231ae](https://github.com/Zhengqbbb/cz-git/commit/f0231aeb84a0532707ec861abdf5b3bc841bf715))
+* **plugin-loader:** loading ESM configure using URL format ([#219](https://github.com/Zhengqbbb/cz-git/issues/219)) ([50d7675](https://github.com/Zhengqbbb/cz-git/commit/50d7675ed8b5cafaf8217bf8ad4bdeebc218738f)), closes [#216](https://github.com/Zhengqbbb/cz-git/issues/216) [#217](https://github.com/Zhengqbbb/cz-git/issues/217)
+* **plugin-loader:** when `CZ_DEBUG=1` --config specify config file not show ([8557221](https://github.com/Zhengqbbb/cz-git/commit/85572210db705123414ce37e424571158b5e72f2)), closes [#207](https://github.com/Zhengqbbb/cz-git/issues/207)
+
+
+
 # [1.11.0](https://github.com/Zhengqbbb/cz-git/compare/v1.10.1...v1.11.0) (2024-11-08)
 
 
