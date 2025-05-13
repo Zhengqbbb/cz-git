@@ -138,12 +138,6 @@ added 1 package in 0.531s
   </tr>
   <tr>
     <td align="center" width="200px">
-      <a target="_blank" href="https://github.com/vuepress-theme-hope/vuepress-theme-hope">
-        <img src="https://user-images.githubusercontent.com/40693636/170830621-45577c1d-6e6e-4916-bb43-15af954d994b.png" alt="Vuepress-Theme-Hope logo" width="40"><br>
-        <sub>Vuepress-Theme-Hope</sub>
-      </a>
-    </td>
-    <td align="center" width="200px">
       <a target="_blank" href="https://github.com/Renovamen/vuepress-theme-gungnir">
         <img src="https://user-images.githubusercontent.com/40693636/170830637-0d465b52-6204-4bbd-872f-fb6f27f1ed50.png" alt="Vuepress-Theme-Gungnir logo" width="40"><br>
         <sub>Vuepress-Theme-Gungnir</sub>

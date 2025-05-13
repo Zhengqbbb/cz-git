@@ -31,10 +31,6 @@ cz-git:
     link: https://github.com/IDuxFE/idux
     icon: https://user-images.githubusercontent.com/40693636/171067486-56f50e23-a40b-4353-9c99-6fef702c9b4b.png
 
-  - name: Vuepress-Theme-Hope
-    link: https://github.com/vuepress-theme-hope/vuepress-theme-hope
-    icon: https://user-images.githubusercontent.com/40693636/170830621-45577c1d-6e6e-4916-bb43-15af954d994b.png
-
   - name: Vuepress-Theme-Gungnir
     link: https://github.com/Renovamen/vuepress-theme-gungnir
     icon: https://user-images.githubusercontent.com/40693636/170830637-0d465b52-6204-4bbd-872f-fb6f27f1ed50.png
