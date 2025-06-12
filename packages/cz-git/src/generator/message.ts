@@ -88,16 +88,16 @@ function getEmojiCode(type: string, options: CommitizenGitOptions): string {
 }
 
 /** @add if emojiCode add emoji and use emoji align */
-function addEmoji(emojiCode: string, align: string, emojiAlign?: string) {
+function addEmoji(emojiCode: string, tempAlign: string, emojiAlign?: string) {
     if (!emojiCode)
         return ''
-    switch (emojiAlign) {
-        case 'left' || 'center':
-            return align === emojiAlign ? `${emojiCode} ` : ''
-        case 'right':
-            return align === emojiAlign ? ` ${emojiCode}` : ''
-    }
-    return align === 'center' ? `${emojiCode} ` : ''
+
+    if (emojiAlign === 'left' || emojiAlign === 'center')
+        return tempAlign === emojiAlign ? `${emojiCode} ` : ''
+    else if (emojiAlign === 'right')
+        return tempAlign === emojiAlign ? ` ${emojiCode}` : ''
+    else
+        return tempAlign === 'center' ? `${emojiCode} ` : ''
 }
 
 /** @add if subject or colorize return trimed subject */

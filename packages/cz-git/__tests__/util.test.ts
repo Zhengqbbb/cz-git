@@ -27,7 +27,7 @@ describe('getMaxSubjectLength', () => {
                 maxHeaderLength: 120,
                 maxSubjectLength: 100,
             }),
-        ).toEqual(86)
+        ).toEqual(100)
         expect(
             getMaxSubjectLength(answer.type, answer.scope, {
                 maxHeaderLength: 100,
@@ -76,6 +76,20 @@ describe('getMaxSubjectLength', () => {
                 maxSubjectLength: 100,
             }),
         ).toEqual(86)
+    })
+
+    it('when use both maxsubject rule and maxheader rule without scope', () => {
+        const answer = {
+            type: 'feat',
+            scope: '',
+        }
+
+        expect(
+            getMaxSubjectLength(answer.type, answer.scope, {
+                maxHeaderLength: 72,
+                maxSubjectLength: 50,
+            }),
+        ).toEqual(50)
     })
 })
 

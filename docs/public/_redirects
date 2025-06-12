@@ -1,13 +1,13 @@
-/                  /zh/                   301!       Language=zh,zh-CN
-
-/guide              /guide/               301
-/config             /config/              301
-/recipes            /recipes/             301
-/cli                /cli/                 301
-/faq                /faq/                 301
-
-/zh/guide           /zh/guide/            301
-/zh/config          /zh/config/           301
-/zh/recipes         /zh/recipes/          301
-/zh/cli             /zh/cli/              301
-/zh/faq             /zh/faq/              301
+/                  /zh/                                             301!       Language=zh,zh-CN
+/guide              /guide/                                         301
+/config             /config/                                        301
+/recipes            /recipes/                                       301
+/cli                /cli/                                           301
+/faq                /faq/                                           301
+/zh/guide           /zh/guide/                                      301
+/zh/config          /zh/config/                                     301
+/zh/recipes         /zh/recipes/                                    301
+/zh/cli             /zh/cli/                                        301
+/zh/faq             /zh/faq/                                        301
+/gh                 https://github.com/Zhengqbbb/cz-git             301
+/repo               https://github.com/Zhengqbbb/cz-git             301

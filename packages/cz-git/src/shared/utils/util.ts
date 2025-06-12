@@ -31,8 +31,8 @@ export function isString(str: any) {
  *
  * {2}: mean ': '
  */
-function countLength(target: number, typeLength: number, scope: number, emojiLength: number) {
-    return target - typeLength - 2 - scope - emojiLength
+function countLength(target: number, typeLength: number, scopeLength: number, emojiLength: number) {
+    return target - typeLength - 2 - scopeLength - emojiLength
 }
 
 /**
@@ -207,7 +207,6 @@ function getEmojiStrLength(options: CommitizenGitOptions, type?: string): number
  * get max subject length
  */
 export function getMaxSubjectLength(type: Answers['type'], scope: Answers['scope'] | Answers['customScope'], options: CommitizenGitOptions) {
-    let optionMaxLength = Infinity
     if (Array.isArray(scope))
         scope = scope.join(options.scopeEnumSeparator)
     const typeLength = type?.length ? type.length : 0
@@ -225,11 +224,11 @@ export function getMaxSubjectLength(type: Answers['type'], scope: Answers['scope
             : Infinity
     }
     else {
-        optionMaxLength = countLength(maxHeaderLength, typeLength, scopeLength, emojiLength) < maxSubjectLength
-            ? maxHeaderLength
+        const isSubjectLengthMax = countLength(maxHeaderLength, typeLength, scopeLength, emojiLength) < maxSubjectLength
+        return isSubjectLengthMax
+            ? countLength(maxHeaderLength, typeLength, scopeLength, emojiLength)
             : maxSubjectLength
     }
-    return countLength(optionMaxLength, typeLength, scopeLength, emojiLength)
 }
 
 export function previewMessage(msg: string, confirmColorize = false) {
