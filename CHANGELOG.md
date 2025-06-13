@@ -1,3 +1,12 @@
+## [1.11.2](https://github.com/Zhengqbbb/cz-git/compare/v1.11.1...v1.11.2) (2025-06-13)
+
+
+### Bug Fixes
+
+* **cz-git:** without scope calc `maxSubjectLength` error ([#230](https://github.com/Zhengqbbb/cz-git/issues/230)) ([1a9b61c](https://github.com/Zhengqbbb/cz-git/commit/1a9b61c6cf5fa787310893ce35da5efaa6a13c65))
+
+
+
 ## [1.11.1](https://github.com/Zhengqbbb/cz-git/compare/v1.11.0...v1.11.1) (2025-03-03)
 
 
