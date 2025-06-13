@@ -10,6 +10,9 @@ declare module 'vue' {
     AdsASide: typeof import('./theme/components/AdsASide.vue')['default']
     Badge: typeof import('./theme/components/Badge.vue')['default']
     CodeGroupItem: typeof import('./theme/components/CodeGroupItem.vue')['default']
+    copy: typeof import('./theme/components/StepFlow copy.vue')['default']
     HomePage: typeof import('./theme/components/HomePage.vue')['default']
+    StepFlow: typeof import('./theme/components/StepFlow.vue')['default']
+    StepFlowItem: typeof import('./theme/components/StepFlowItem.vue')['default']
   }
 }

@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import { VPTeamMembers } from 'vitepress/theme'
-import { useEmojiItem, useMediumZoom } from './composables'
+import { useEmojiItem, useMediumZoom } from '../composables'
 
 const emoji = useEmojiItem()
 const { frontmatter } = useData()

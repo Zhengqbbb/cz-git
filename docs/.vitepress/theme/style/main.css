@@ -20,6 +20,10 @@ kbd {
   box-shadow: var(--vp-c-kbd-box-outside-shadow);
 }
 
+u {
+    text-underline-offset: 6px;
+}
+
 .VPNavBar .VPNavBarTitle .title:hover {
   opacity: .6;
 }
@@ -396,4 +400,79 @@ img.error::after {
 
 .VPDoc .aside {
   max-width: var(--vp-sidebar-width);
+}
+
+/**
+ * Step Flow
+ * -------------------------------------------------------------------------- */
+.vp-doc ul.step-flow,
+.vp-doc ol.step-flow {
+    list-style: none;
+    padding-left: 0;
+}
+
+.vp-doc .step-flow .step-flow-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.6em;
+    color: var(--vp-c-text-1);
+}
+
+.vp-doc .step-flow .step-flow-item {
+    position: relative;
+    padding-left: 40px;
+}
+
+.vp-doc ul.step-flow .step-flow-item::before {
+  content: "";
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  border: 1px solid var(--vp-c-border);
+  width: 0.75rem;
+  height: 1.5rem;
+  margin-left: 0.125rem;
+  --at-apply: i-carbon:circle-solid;
+}
+
+.vp-doc ul.step-flow .step-flow-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.5rem;
+  bottom: -0.5rem;
+  z-index: 1;
+  width: 2px;
+  background-color: var(--vp-c-border);
+  transform: translateX(0.42rem);
+}
+
+.vp-doc ol.step-flow .step-flow-item::before {
+  content: attr(data-step);
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 9999px;
+  width: clamp(1.8rem, 5vw, 1.8rem);
+  height: clamp(1.8rem, 5vw, 1.8rem);
+}
+
+.vp-doc ol.step-flow .step-flow-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2.25rem;
+  bottom: 0.25rem;
+  z-index: 1;
+  width: 2px;
+  background-color: var(--vp-c-border);
+  transform: translateX(0.86rem);
 }
