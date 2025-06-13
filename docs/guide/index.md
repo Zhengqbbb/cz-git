@@ -20,11 +20,10 @@ sitemap:
 ```sh
 npm install -g commitizen
 ```
-
 :::
 
-#### Step 1: Install dependencies
-
+::::::ol
+:::::li Install dependencies
 :::: code-group
 ::: code-group-item NPM
 
@@ -48,9 +47,9 @@ pnpm install -D cz-git
 
 :::
 ::::
+:::::
 
-#### Step 2: Modify `package.json` to add `config` Specify the adapter used
-
+:::::li Modify `package.json` to add `config` Specify the adapter used
 ```json{5-9}
 {
   "scripts": {
@@ -63,12 +62,11 @@ pnpm install -D cz-git
   }
 }
 ```
+:::::
 
-#### Step 3: Add custom configuration (optional, use default)
-
-> There are ==two== configuration methods
-
-**Method 1: (recommended) cz-git is linked with [commitlint](https://github.com/conventional-changelog/commitlint) to provide verification information**, so it can be written in [commitlint](https://github.com/conventional-changelog/commitlint#config) configuration file. <br> E.g: ([⇒ Configuration Template](/config/#configure-template))
+:::::li (Optional, use default) Add custom configuration
+> 👇 There are ==two== configuration methods
+1. (Recommend) cz-git is linked with [commitlint](https://github.com/conventional-changelog/commitlint) to provide verification information, so it can be written in [commitlint](https://github.com/conventional-changelog/commitlint#config) configuration file. <br> E.g: ([⇒ Configuration Template](/config/#configure-template))
 
 ```js{2,7,8,9,10}
 // .commitlintrc.js
@@ -84,7 +82,7 @@ module.exports = {
 }
 ```
 
-**Method 2:** Add custom configuration under config.commitizen under **package.json**, **but** excessive configuration items will lead to bloated package.json, which is suitable for simple customization. E.g:
+2. Add custom configuration under config.commitizen under `package.json`, but excessive configuration items will lead to bloated package.json, which is suitable for simple customization. E.g:
 
 ```json{8}
 {
@@ -99,20 +97,23 @@ module.exports = {
   }
 }
 ```
+:::::
+
+::::::
 
 ## As global use
 > The advantage of global installation is that you can use `cz` or `git cz` command to start command line tools under any project to generate standardized commit messages
 
 Just three simple steps:
 
-#### Step 1: Install global dependencies
-
+::::ol
+:::li Install global dependencies
 ```sh
 npm install -g cz-git commitizen
 ```
+:::
 
-#### Step 2: Global configuration adapter type
-
+:::li Global configuration adapter type
 <script setup>
 import { useData } from 'vitepress'
 
@@ -121,19 +122,19 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 </script>
 
 ```sh-vue
-echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json" }' > ~/.czrc
+echo '{ "path": "cz-git", "$schema": "https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/{{ v }}/docs/public/schema/cz-git.json" }' > ~/.czrc
 ```
+:::
 
-#### Step 3: Add custom configuration (optional, use default configuration)
->  There are **two** configuration methods
-<br>
-
-**Method 1:** Edit the `~/.czrc` file to add configuration in the form of `JSON`, for example:
+:::li (Optional, use default) Add custom configuration
+> 👇 There are ==two== configuration methods
+1. Edit the `~/.czrc` file to add configuration in the form of `JSON`, for example:
 ```json{3}
 {
   "path": "cz-git",
   "useEmoji": true
 }
 ```
-
-**Method 2**: Cooperate with [commitlint](https://github.com/conventional-changelog/commitlint) to create a configuration file under the path of `$HOME` <br>([↓ Configuration Template](/config/#configure-template))
+2. Cooperate with [commitlint](https://github.com/conventional-changelog/commitlint) to create a configuration file under the path of `$HOME` <br>([↓ Configuration Template](/config/#configure-template))
+:::
+::::

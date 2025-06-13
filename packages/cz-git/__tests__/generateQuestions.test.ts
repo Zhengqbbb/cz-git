@@ -16,7 +16,7 @@ describe('generateQuestions()', () => {
     const mockedCz = {
         Separator: vitest.fn(),
     }
-    const getQuestion = (index: number) => generateQuestions(options, mockedCz)[index - 1]
+    const getQuestion = (index: number) => (generateQuestions(options, mockedCz) as any)[index - 1]
 
     it('error config should be return false and print log', () => {
         expect(generateQuestions({}, undefined)).toBe(false)

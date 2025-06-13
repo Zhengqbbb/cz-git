@@ -25,17 +25,18 @@ sitemap:
 - **默认** : `[]`
 
 ::: tip
-如果你使用 [commitlint](https://github.com/conventional-changelog/commitlint) 规则定义了 `scope-enum`，会自动引入。<br>
-[⇒ 更多小窍门](/zh/recipes/#scopes)
+1. 如果你使用 [commitlint](https://github.com/conventional-changelog/commitlint) 规则定义了 `scope-enum`，会自动引入。
+2. 开启<ruby>多选<rt>Checkbox</rt></ruby>模式 [⇒ 查看小窍门](/zh/recipes/#%E5%A4%9A%E9%80%89%E6%A8%A1%E5%BC%8F)
+3. 开启<ruby>输入<rt>Input</rt></ruby>模式 [⇒ 查看小窍门](/zh/recipes/#%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F)
 :::
 
 ## scopeOverrides
 
-- **描述** : 自定义选择了特定**类型**后 **覆盖模块范围** 命令行显示信息
+- **描述** : 自定义选择了<u>特定<ruby>类型<rt>type</rt></ruby></u>后，覆盖的<ruby>范围<rt>scope</rt></ruby>选项
 - **类型** : <br>`{ [type: string]: string[] | Array<{ name: string, value?: string }> } | undefined`
 - **默认** : `undefined`
-- **例子** : `scopeOverrides: { "test": ["e2eTest", "unitTest"] }`
 - **使用** : 针对选择 ==特定== 的 commit **类型** `type` 后选择模块范围时显示 自定义的模块范围选择
+- **例子** : `scopeOverrides: { "test": ["e2eTest", "unitTest"] }`
 
 :::tip
 如果定义`scopeOverrides` 需要定义通用的 `scopes`
@@ -90,7 +91,7 @@ sitemap:
 
 ## markBreakingChangeMode
 
-- **描述** : 添加额外的问题重大变更(BREAKING CHANGES)提问，询问是否需要添加 =="!"== 标识于头部
+- **描述** : 添加额外的问题对 <ruby>重大变更<rt>BREAKING CHANGES</rt></ruby> 进行询问是否需要添加 =="!"== 标识于头部
 - **使用** : 当你想添加 ! 标识于头部，表明该 commit 为重大变更时，请使用该选项
 - **类型** : `boolean`
 - **默认** : `false`
@@ -101,13 +102,13 @@ sitemap:
 
 ## allowBreakingChanges
 
-- **描述** : 允许出现 重大变更(BREAKING CHANGES)的特定 **type**
+- **描述** : 选择指定的<ruby>类型<rt>type</rt></ruby>时才出现 <ruby>重大变更<rt>BREAKING CHANGES</rt></ruby> 的填写
 - **类型** : `string[]`
 - **默认** : `['feat', 'fix']`
 
 ## useAI
 
-- **描述** : 是否使用 [OpenAI](https://openai.com/) API 自动生成提交信息 **subject** <sup>简短描述</sup>
+- **描述** : 是否使用 [OpenAI](https://openai.com/) API 自动生成提交信息<ruby>简短描述<rt>subject</rt></ruby>
 - **类型** : `boolean`
 - **默认** : `false`
 
@@ -207,13 +208,13 @@ module.exports = {
 
 ## upperCaseSubject
 
-- **描述** : 是否自动将简短描述(subject)第一个字符进行大写处理
+- **描述** : 是否自动将 <ruby>简短描述<rt>subject</rt></ruby> 第一个字符进行大写处理
 - **类型** : `boolean`
 - **默认** : `false`
 
 ## breaklineNumber
 
-- **描述** : 详细描述(body)和重大变更(BREAKING CHANGES)中根据字符超过该数值自动换行
+- **描述** : <ruby>详细描述<rt>body</rt></ruby> 和 <ruby>重大变更<rt>BREAKING CHANGES</rt></ruby> 中根据字符超过该数值自动换行
 - **类型** : `number`
 - **默认** : `100`
 - **使用** : 当没有使用 commitlint 并要使用规范化时
@@ -225,13 +226,13 @@ module.exports = {
 
 ## breaklineChar
 
-- **描述** : 详细描述(body)和重大变更(BREAKING CHANGES)中换行字符
+- **描述** : <ruby>详细描述<rt>body</rt></ruby> 和 <ruby>重大变更<rt>BREAKING CHANGES</rt></ruby> 中的换行字符
 - **类型** : `string`
 - **默认** : `"|"`
 
 ## issuePrefixes
 
-- **描述** : 自定义选择issue前缀
+- **描述** : 自定义选择 ISSUE 前缀
 - **类型** : `Array<{ value: string, name: string }>`
 - **默认** : `[{ value: "closed", name: "closed:   ISSUES has been processed" }]`
 
@@ -241,19 +242,19 @@ module.exports = {
 
 ## allowCustomIssuePrefix
 
-- **描述** : 是否在选择 **ISSUE 前缀** 显示自定义选项(custom)
+- **描述** : 是否在 **ISSUE 前缀** 的选项中包含<ruby>自定义<rt>custom</rt></ruby>选项(custom)
 - **类型** : `boolean`
 - **默认** : `true`
 
 ## allowEmptyIssuePrefix
 
-- **描述** : 是否在选择 **ISSUE 前缀** 显示为跳过选项(skip)
+- **描述** : 是否在选择 **ISSUE 前缀** 的选项中包含<ruby>跳过<rt>skip</rt></ruby>选项
 - **类型** : `boolean`
 - **默认** : `true`
 
 ## maxHeaderLength
 
-- **描述** : 定义commit message中的 header 长度, 给予在命令行中的校验信息
+- **描述** : 定义 commit message 中的<ruby>整体头部<rt>header</rt></ruby>信息长度, 给予在命令行中的校验信息
 - **类型** : `number`
 - **默认** : `Infinity`
 - **使用** : 当没有使用 commitlint 并要使用规范化时
@@ -264,7 +265,7 @@ module.exports = {
 
 ## maxSubjectLength
 
-- **描述** : 定义commit message中的 subject 长度, 给予在命令行中的校验信息
+- **描述** : 定义 commit message 中的 <ruby>简短描述<rt>subject</rt></ruby> 长度, 给予在命令行中的校验信息
 - **类型** : `number`
 - **默认** : `Infinity`
 - **使用** : 当没有使用 commitlint，并要使用规范化时
@@ -274,7 +275,7 @@ module.exports = {
 
 ## minSubjectLength
 
-- **描述** : 定义commit message中的 subject 长度, 给予在命令行中的校验信息
+- **描述** : 定义 commit message 中的 <ruby>简短描述<rt>subject</rt></ruby> 长度, 给予在命令行中的校验信息
 - **类型** : `number`
 - **默认** : `0`
 - **使用** : 当没有使用 commitlint，并要使用规范化时

@@ -74,7 +74,7 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 
 ## emojiAlign
 
-- **描述** : 设置 **Emoji 字符** 的 **位于头部位置**
+- **描述** : 设置 **Emoji 字符** 的位于<ruby>头部<rt>header</rt></ruby>的显示位置
 - **类型** : `"left" | "center" | "right"`
 - **默认** : `"center"`
 - **示例** : `<left> type(scope): <center> subject <right>`
@@ -109,37 +109,37 @@ export ___X_CMD_THEME_COLOR_CODE="38;5;043"
 
 ## customScopesAlign
 
-- **描述** : 设置 **选择范围** 中 为空选项(empty) 和 自定义选项(custom) 的 **位置**
+- **描述** : 设置 **选择范围** 中 <ruby>为空选项<rt>empty</rt></ruby> 和 <ruby>自定义选项<rt>custom</rt></ruby> 的 **位置**
 - **类型** : `"top" | "bottom" | "top-bottom" | "bottom-top"`
 - **默认** : `"bottom"`
 
 ## customScopesAlias
 
-- **描述** : 自定义 **选择范围** 中 自定义选项(custom) 在命令行中显示的 **名称**
+- **描述** : 自定义 **选择范围** 中 <ruby>自定义选项<rt>custom</rt></ruby> 在命令行中显示的 **名称**
 - **类型** : `string`
 - **默认** : `custom`
 
 ## emptyScopesAlias
 
-- **描述** : 自定义 **选择范围** 中 为空选项(empty) 在命令行中显示的 **名称**
+- **描述** : 自定义 **选择范围** 中 <ruby>为空选项<rt>empty</rt></ruby> 在命令行中显示的 **名称**
 - **类型** : `string`
 - **默认** : `empty`
 
 ## customIssuePrefixAlign
 
-- **描述** : 设置 **选择 issue 前缀** 中 跳过选项(skip) 和 自定义选项(custom) 的 **位置**
+- **描述** : 设置 **选择 issue 前缀** 中 <ruby>跳过选项<rt>skip</rt></ruby> 和 <ruby>自定义选项<rt>custom</rt></ruby> 的 **位置**
 - **类型** : `"top" | "bottom" | "top-bottom" | "bottom-top"`
 - **默认** : `"top"`
 
 ## customIssuePrefixAlias
 
-- **描述** : 自定义 **选择 issue 前缀** 中 自定义选项(custom) 在命令行中显示的 **名称**
+- **描述** : 自定义 **选择 issue 前缀** 中 <ruby>自定义选项<rt>custom</rt></ruby> 在命令行中显示的 **名称**
 - **类型** : `string`
 - **默认** : `custom`
 
 ## emptyIssuePrefixAlias
 
-- **描述** : 自定义 **选择 issue 前缀** 中 跳过选项(skip) 在命令行中显示的 **名称**
+- **描述** : 自定义 **选择 issue 前缀** 中 <ruby>跳过选项<rt>skip</rt></ruby> 在命令行中显示的 **名称**
 - **类型** : `string`
 - **默认** : `skip`
 

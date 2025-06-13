@@ -64,7 +64,7 @@ describe('generateMessage()', () => {
             expect(generateMessage(answers, options)).toEqual('feat(app): :sparkles: add a new feature')
         })
 
-        it('subject with emoji options and lost type should be standard separator', () => {
+        it('subject with emoji options and types item not have emoji should be standard separator', () => {
             const options = {
                 types: [{ value: 'feat', name: 'feat:     A new feature' }],
                 useEmoji: true,
@@ -222,7 +222,7 @@ describe('generateMessage()', () => {
             const options: any = {
                 types: [{ value: 'feat', name: 'feat:     A new feature', emoji: ':sparkles:' }],
                 useEmoji: true,
-                formatMessageCB: ({ emoji, scope, subject }) => {
+                formatMessageCB: ({ emoji, scope, subject }: any) => {
                     return scope
                         ? `${emoji}(${scope}): ${subject}`
                         : `${emoji} ${subject}`

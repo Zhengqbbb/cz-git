@@ -85,7 +85,7 @@
   --vp-term-block-bg: hsl(0, 1%, 5%);
   --vp-c-gutter: rgba(84, 84, 84, .48);
   --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);
-  --vp-code-copy-code-hover-bg: rgba(255, 255, 255, 0.05);
+  --vp-code-copy-code-hover-bg: rgba(0, 0, 0);
   --vp-code-copy-code-active-text: var(--vp-c-text-dark-2);
   --vp-c-bg-mute: #2d2d2d;
   --vp-c-kbd-box-outside-shadow: -1px -1px 1px #505050, 1px 1px 6px #000;

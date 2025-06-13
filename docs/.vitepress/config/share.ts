@@ -2,7 +2,7 @@ import process from 'node:process'
 import { defineConfig } from 'vitepress'
 import { generateSitemap } from '../build'
 import { github, keywords, name, ogTitle } from '../meta'
-import { ImagePlugin, useCodeGroup, useCodeGroupItem } from '../theme/components/markdown'
+import { ImagePlugin, containerPlugin } from './markdown'
 
 export const shareConfig = defineConfig({
     title: name,
@@ -35,10 +35,7 @@ export const shareConfig = defineConfig({
         config: (md) => {
             // eslint-disable-next-line ts/no-require-imports
             md.use(require('markdown-it-mark'))
-            md.use(useCodeGroup.container, useCodeGroup.type, { render: useCodeGroup.render })
-            md.use(useCodeGroupItem.container, useCodeGroupItem.type, {
-                render: useCodeGroupItem.render,
-            })
+            md.use(containerPlugin)
             md.use(ImagePlugin)
         },
     },

@@ -24,8 +24,9 @@ More usage and demo [⇒ can see the recipes](/recipes/alias.html)
 - **default** : `[]`
 
 ::: tip
-If you define a `scope-enum` using the [commitlint](https://github.com/conventional-changelog/commitlint) rule, it will be imported automatically.<br>
-[⇒ can see the recipes](/recipes/#scopes)
+1. If you define a `scope-enum` using the [commitlint](https://github.com/conventional-changelog/commitlint) rule, it will be imported automatically.
+2. Multiple Selection Mode [⇒ see the recipes](/recipes/#checkbox-mode)
+3. Input Mode [⇒ see the recipes](/recipes/#input-mode)
 :::
 
 ## scopeOverrides
@@ -35,10 +36,6 @@ If you define a `scope-enum` using the [commitlint](https://github.com/conventio
 - **default** : `undefined`
 - **example** : `scopeOverrides: { "test": ["e2eTest", "unitTest"] }`
 - **use** : Displays custom module scope selection when selecting module scope after selecting ==specific== commit **type** : `type`
-
-:::tip
-If you define `scopeOverrides` then define generic `scopes`
-:::
 
 ## scopeFilters
 
