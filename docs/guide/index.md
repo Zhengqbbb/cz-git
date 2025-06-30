@@ -122,7 +122,7 @@ const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
 </script>
 
 ```sh-vue
-echo '{ "path": "cz-git", "$schema": "https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/{{ v }}/docs/public/schema/cz-git.json" }' > ~/.czrc
+echo '{ "path": "cz-git", "$schema": "https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/v{{ v }}/docs/public/schema/cz-git.json" }' > ~/.czrc
 ```
 :::
 
