@@ -17,13 +17,13 @@ czg 会 ==自动== 寻找当前项目根目录以及 `$HOME` 目录下的配置�
 import { useData } from 'vitepress'
 
 const { site } = useData()
-const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+const v = site.value.themeConfig.nav?.[4]?.text
 </script>
 
 ```json-vue
 // config/cz.json
 {
-  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json",
+  "$schema": "https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/{{ v }}/docs/public/schema/cz-git.json",
   "maxSubjectLength": 100
   // 配置 ...
 }

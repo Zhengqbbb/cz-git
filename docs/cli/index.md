@@ -41,12 +41,12 @@ Create a `.czrc` file in the project root directory
 import { useData } from 'vitepress'
 
 const { site } = useData()
-const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+const v = site.value.themeConfig.nav?.[4]?.text
 </script>
 
 ```json-vue
 {
-  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json",
+  "$schema": "https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/{{ v }}/docs/public/schema/cz-git.json",
   "scopes": [
     "hello",
     "world"
