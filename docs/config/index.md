@@ -115,14 +115,14 @@ If your project does not use commitlint,and want to use other profiles. You can 
 import { useData } from 'vitepress'
 
 const { site } = useData()
-const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+const v = site.value.themeConfig.nav?.[4]?.text
 </script>
 
 ::: tip
 - JSON $schema URL (Only support .czrc|or specified czConfig JSON configure):
 
 ```-vue
-https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json
+https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/{{ v }}/docs/public/schema/cz-git.json
 ```
 
 - It is recommended to use JavaScript for configuration files in the **project**. You can combine `fs` and `path` to select [scopes](/recipes/#scopes) for generating dynamic modules.

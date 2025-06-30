@@ -118,7 +118,7 @@ npm install -g cz-git commitizen
 import { useData } from 'vitepress'
 
 const { site } = useData()
-const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+const v = site.value.themeConfig.nav?.[4]?.text
 </script>
 
 ```sh-vue

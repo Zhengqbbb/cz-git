@@ -136,14 +136,14 @@ sitemap:
 import { useData } from 'vitepress'
 
 const { site } = useData()
-const v = site.value.themeConfig.nav?.[4]?.text.slice(1)
+const v = site.value.themeConfig.nav?.[4]?.text
 </script>
 
 ::: tip
 - JSON $schema URL (只支持 .czrc|指定的 czConfig JSON 配置):
 
 ```-vue
-https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@{{ v }}/docs/public/schema/cz-git.json
+https://raw.githubusercontent.com/Zhengqbbb/cz-git/refs/tags/{{ v }}/docs/public/schema/cz-git.json
 ```
 
 - 推荐在 **项目** 中使用JavaScript进行配置文件，你可以结合 `fs` 和 `path` 为生成动态模块选择[范围](/zh/recipes/#scopes)
