@@ -19,6 +19,7 @@ import {
     parseStandardScopes,
     resolveListItemPinTop,
     resovleCustomListTemplate,
+    transformSubjectCase,
     useThemeCode,
 } from '../shared'
 
@@ -174,37 +175,28 @@ export function generateQuestions(options: CommitizenGitOptions, cz: any) {
                     tooltip = `${maxSubjectLength - subjectLength} more chars allowed`
                 }
 
-                tooltip
-          = (
-                        minSubjectLength !== undefined
-                        && subjectLength >= minSubjectLength
-                        && subjectLength <= maxSubjectLength
-                    )
-                        ? style.gray(`[${tooltip}]`)
-                        : isWarning
-                            ? style.yellow(`[${tooltip}]`)
-                            : style.red(`[${tooltip}]`)
-                subject
-          = (
-                        minSubjectLength !== undefined
-                        && subjectLength >= minSubjectLength
-                        && subjectLength <= maxSubjectLength
-                    )
+                tooltip = (
+                    minSubjectLength !== undefined
+                    && subjectLength >= minSubjectLength
+                    && subjectLength <= maxSubjectLength
+                )
+                    ? style.gray(`[${tooltip}]`)
+                    : isWarning
+                        ? style.yellow(`[${tooltip}]`)
+                        : style.red(`[${tooltip}]`)
+                subject = (
+                    minSubjectLength !== undefined
+                    && subjectLength >= minSubjectLength
+                    && subjectLength <= maxSubjectLength
+                )
+                    ? useThemeCode(subject, options.themeColorCode)
+                    : isWarning
                         ? useThemeCode(subject, options.themeColorCode)
-                        : isWarning
-                            ? useThemeCode(subject, options.themeColorCode)
-                            : style.red(subject)
+                        : style.red(subject)
 
                 return `${tooltip}\n` + ` ${subject}`
             },
-            filter: (subject: string) => {
-                const upperCaseSubject = options.upperCaseSubject || false
-
-                return (
-                    (upperCaseSubject ? subject.charAt(0).toUpperCase() : subject.charAt(0).toLowerCase())
-                    + subject.slice(1)
-                )
-            },
+            filter: (subject: string) => transformSubjectCase(options, subject),
         },
         {
             type: 'complete-input',

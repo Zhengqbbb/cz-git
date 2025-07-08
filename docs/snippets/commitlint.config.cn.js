@@ -44,7 +44,7 @@ module.exports = defineConfig({
         customScopesAlign: 'bottom',
         customScopesAlias: '以上都不是？我要自定义',
         emptyScopesAlias: '跳过',
-        upperCaseSubject: false,
+        upperCaseSubject: null,
         markBreakingChangeMode: false,
         allowBreakingChanges: ['feat', 'fix'],
         breaklineNumber: 100,

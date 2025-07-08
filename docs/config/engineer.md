@@ -173,7 +173,7 @@ export interface GenerateAIPromptType {
   type: string
   defaultScope?: string
   maxSubjectLength?: number
-  upperCaseSubject?: boolean
+  upperCaseSubject?: boolean | null
   diff?: string
 }
 ```
@@ -188,8 +188,11 @@ module.exports = {
 ## upperCaseSubject
 
 - **description** : Whether to automatically capitalize the first character of the short description (subject)
-- **type** : `boolean`
-- **default** : `false`
+- **type** : `boolean` | `null`
+    - `null`: Do not process
+    - `true`: Automatically capitalize the first letter
+    - `false`: Automatically lowercase the first letter
+- **default** : `null`
 
 ## breaklineNumber
 

@@ -2,7 +2,7 @@ import url from 'node:url'
 import process from 'node:process'
 import { style } from '@cz-git/inquirer'
 import HttpsProxyAgent from 'https-proxy-agent'
-import { isNodeVersionInRange, log } from '../shared'
+import { isNodeVersionInRange, log, transformSubjectCase } from '../shared'
 import type { CommitizenGitOptions } from '../shared'
 
 export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string) {
@@ -88,20 +88,14 @@ function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
 function parseAISubject(options: CommitizenGitOptions, subject?: string) {
     if (!subject)
         return ''
-
-    subject = subject
-        .trim()
-        .replace(/(\r\n|\n|\r)/g, '')
-        .replace(/[.。]$/, '')
-        .replace(/^"|"$/g, '')
-    let res = subject
-    if (options.upperCaseSubject)
-        res = res.charAt(0).toUpperCase()
-    else
-        res = res.charAt(0).toLowerCase()
-    res = res + subject.slice(1)
-
-    return res
+    return transformSubjectCase(
+        options,
+        subject
+            .trim()
+            .replace(/(\r\n|\n|\r)/g, '')
+            .replace(/[.。]$/, '')
+            .replace(/^"|"$/g, ''),
+    )
 }
 
 class APIError extends Error {

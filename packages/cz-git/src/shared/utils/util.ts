@@ -86,6 +86,7 @@ export function parseStandardScopes(scopes: ScopesType): Option[] {
                     : { value: scope.value, name: scope.name }
     })
 }
+
 /**
  * To get a list of scopes
  *
@@ -195,6 +196,18 @@ export function getAnswersScope(options: CommitizenGitOptions, answers: Answers)
  */
 export function getProcessSubject(text: string) {
     return text.replace(/(^\s+|[\s.]+$)/g, '') ?? ''
+}
+
+export function transformSubjectCase(options: CommitizenGitOptions, subject: string) {
+    if (!subject || options.upperCaseSubject === null)
+        return subject
+
+    const firstChar = subject[0]
+    const rest = subject.slice(1)
+
+    return options.upperCaseSubject
+        ? firstChar.toUpperCase() + rest
+        : firstChar.toLowerCase() + rest
 }
 
 function getEmojiStrLength(options: CommitizenGitOptions, type?: string): number {

@@ -180,9 +180,12 @@
           "default": "empty"
         },
         "upperCaseSubject": {
-          "type": "boolean",
-          "description": "Subject is need upper case first.",
-          "default": false
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Subject is need upper case first.\n\n- `null`: Do not enforce capitalization of the first letter\n- `true`: Enforce capitalization of the first letter\n- `false`: Enforce lowercase for the first letter",
+          "default": null
         },
         "markBreakingChangeMode": {
           "type": "boolean",
