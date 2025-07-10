@@ -1,3 +1,12 @@
+# [1.12.0](https://github.com/Zhengqbbb/cz-git/compare/v1.11.2...v1.12.0) (2025-07-10)
+
+
+### Features
+
+* **cz-git:** default upperCaseSubject cancel auto-capitalize ([#237](https://github.com/Zhengqbbb/cz-git/issues/237)) ([8eb7292](https://github.com/Zhengqbbb/cz-git/commit/8eb7292b94867bf72e5b07a72d7b8e257c6ddf09)), closes [#236](https://github.com/Zhengqbbb/cz-git/issues/236) [#158](https://github.com/Zhengqbbb/cz-git/issues/158)
+
+
+
 ## [1.11.2](https://github.com/Zhengqbbb/cz-git/compare/v1.11.1...v1.11.2) (2025-06-13)
 
 
