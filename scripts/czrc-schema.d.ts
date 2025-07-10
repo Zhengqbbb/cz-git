@@ -182,9 +182,12 @@ export interface CommitizenGitOptions {
     /**
      * Subject is need upper case first.
      *
-     * @default false
+     * - `null`: Do not process
+     * - `true`: Automatically capitalize the first letter
+     * - `false`: Automatically lowercase the first letter
+     * @default null
      */
-    upperCaseSubject?: boolean
+    upperCaseSubject?: boolean | null
 
     /**
      * Whether to add extra prompt BREAKCHANGE ask. to add an extra "!" to the header

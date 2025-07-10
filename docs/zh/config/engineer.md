@@ -178,7 +178,7 @@ export interface GenerateAIPromptType {
   type: string
   defaultScope?: string
   maxSubjectLength?: number
-  upperCaseSubject?: boolean
+  upperCaseSubject?: boolean | null
   diff?: string
 }
 ```
@@ -209,8 +209,11 @@ module.exports = {
 ## upperCaseSubject
 
 - **描述** : 是否自动将 <ruby>简短描述<rt>subject</rt></ruby> 第一个字符进行大写处理
-- **类型** : `boolean`
-- **默认** : `false`
+- **类型** : `boolean` | `null`
+    - `null`: 不进行处理
+    - `true`: 首字母自动大写
+    - `false`: 首字母自动小写
+- **默认** : `null`
 
 ## breaklineNumber
 

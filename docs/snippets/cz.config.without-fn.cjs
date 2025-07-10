@@ -39,7 +39,7 @@ module.exports = {
     customScopesAlign: 'bottom',
     customScopesAlias: 'custom',
     emptyScopesAlias: 'empty',
-    upperCaseSubject: false,
+    upperCaseSubject: null,
     markBreakingChangeMode: false,
     allowBreakingChanges: ['feat', 'fix'],
     breaklineNumber: 100,
