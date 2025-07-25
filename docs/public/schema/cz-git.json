@@ -330,6 +330,22 @@
           "type": "boolean",
           "description": "Whether to use GPG sign commit message (git commit -S -m)",
           "default": false
+        },
+        "openAIToken": {
+          "type": "string",
+          "description": ": Alert!!! Save on \"$HOME/.czrc\" or \"$HOME/.config/.czrc\". Do not save on project"
+        },
+        "apiEndpoint": {
+          "type": "string",
+          "description": "Choose the API endpoint you want to use",
+        },
+        "apiModel": {
+          "type": "string",
+          "description": "Choose the API model you want to use",
+        },
+        "apiProxy": {
+          "type": "string",
+          "description": "Choose the API proxy you want to use"
         }
       },
       "additionalProperties": false
