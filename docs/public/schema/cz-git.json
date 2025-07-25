@@ -337,11 +337,11 @@
         },
         "apiEndpoint": {
           "type": "string",
-          "description": "Choose the API endpoint you want to use",
+          "description": "Choose the API endpoint you want to use"
         },
         "apiModel": {
           "type": "string",
-          "description": "Choose the API model you want to use",
+          "description": "Choose the API model you want to use"
         },
         "apiProxy": {
           "type": "string",
