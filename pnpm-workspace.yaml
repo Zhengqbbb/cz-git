@@ -1,3 +1,6 @@
+shellEmulator: true
+shamefullyHoist: true
+
 packages:
   - "docs"
   - "packages/**"
