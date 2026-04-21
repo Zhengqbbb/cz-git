@@ -4,6 +4,13 @@ import { style } from '@cz-git/inquirer'
 import HttpsProxyAgent from 'https-proxy-agent'
 import { isNodeVersionInRange, log, transformSubjectCase } from '../shared'
 import type { CommitizenGitOptions } from '../shared'
+import { bodyToNodeReadable, readChatCompletionStreamToSubjects } from '../shared/utils/stream'
+
+/** Enough headroom for reasoning + short subject (legacy default was 200). */
+const AI_MAX_COMPLETION_TOKENS = 4096
+
+/** Streaming first byte and full generation can exceed the old 10s window. */
+const AI_FETCH_TIMEOUT_MS = 60 * 1000
 
 export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: string) {
     if (!options.openAIToken) {
@@ -33,7 +40,7 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
             },
             method: 'POST',
             body: JSON.stringify(aiContext.payload),
-            signal: isNodeVersionInRange(18) ? AbortSignal?.timeout(10 * 1000) : undefined,
+            signal: isNodeVersionInRange(18) ? AbortSignal?.timeout(AI_FETCH_TIMEOUT_MS) : undefined,
         })
 
         if (
@@ -44,10 +51,11 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
             const errorJson: any = await response.json()
             throw new APIError(errorJson?.error?.message, response.status)
         }
-        const json: any = await response.json()
-        return json
-            .choices
-            .map((r: any) => parseAISubject(options, aiContext.parseFn(r)))
+
+        const choiceCount = options.aiNumber || 1
+        const readable = bodyToNodeReadable(response.body)
+        const rawSubjects = await readChatCompletionStreamToSubjects(readable, choiceCount)
+        return rawSubjects.map(s => parseAISubject(options, s))
     }
     catch (err: any) {
         let errorMsg = 'Fetch OpenAI API message failure.'
@@ -74,14 +82,13 @@ function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
         payload: {
             model: options.aiModel,
             messages: [{ role: 'user', content: prompt }],
-            stream: false,
+            stream: true,
             top_p: 1,
             temperature: 0.7,
-            max_tokens: 200,
+            max_tokens: AI_MAX_COMPLETION_TOKENS,
             n: options.aiNumber || 1,
         },
         url: `${options.apiEndpoint}/chat/completions`,
-        parseFn: (res: any) => res?.message?.content,
     }
 }
 
