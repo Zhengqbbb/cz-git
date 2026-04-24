@@ -1,10 +1,26 @@
-shellEmulator: true
-shamefullyHoist: true
-
 packages:
   - "docs"
   - "packages/**"
   - "!**/__tests__/**"
+shellEmulator: true
+shamefullyHoist: true
+overrides:
+  '@commitlint/config-validator': "catalog:commitlint"
+  'chalk': "4.1.2"
+  'color-convert': "2.0.1"
+  'import-meta-resolve': "4.1.0"
+  'resolve-from': "5.0.0"
+  'supports-color': "8.1.1"
+peerDependencyRules:
+  ignoreMissing:
+    - "@algolia/client-search"
+    - "@types/react"
+    - "eslint-plugin-import"
+    - "eslint-plugin-n"
+    - "eslint-plugin-promise"
+    - "react"
+    - "react-dom"
+    - "webpack"
 
 catalog:
   # cosmiconfig > 8.2.0 will lead bundle size to 10MB +
