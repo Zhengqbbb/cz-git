@@ -79,7 +79,7 @@ czg --api-key=sk-xxxxx
 1. 获取 DeepSeek [API Key](https://platform.deepseek.com/api_keys)
 2. 运行命令进行配置
     ```sh
-    npx czg --api-key="sk-xxxxxx" --api-endpoint="https://api.deepseek.com" --api-model="deepseek-chat"
+    npx czg --api-key="sk-xxxxxx" --api-endpoint="https://api.deepseek.com" --api-model="deepseek-v4-flash"
     ```
 :::
 

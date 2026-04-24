@@ -48,8 +48,10 @@ export function appendVisibleDelta(acc: string, delta: { content?: unknown } | u
 interface StreamChoiceChunk { index?: number, delta?: { content?: unknown } }
 
 /**
- * Read an SSE stream and return one finished string per completion choice (`n` in the request).
- * Buckets by `choices[].index`. Ignores malformed lines; rethrows stream `error` payloads.
+ * Read an SSE stream and return one finished string per completion choice.
+ * Buckets by `choices[].index` up to `choiceCount` (requested `n`).
+ * Returned length matches how many indices actually appeared in the stream (capped by `choiceCount`),
+ * mirroring non-stream `json.choices.length` when the provider returns fewer parallel completions.
  */
 export async function readChatCompletionStreamToSubjects(
     input: NodeJS.ReadableStream,
@@ -59,6 +61,7 @@ export async function readChatCompletionStreamToSubjects(
         throw new Error('choiceCount must be at least 1')
 
     const buffers = Array.from({ length: choiceCount }, () => '')
+    let maxIndexSeen = -1
     const rl = readline.createInterface({ input, crlfDelay: Infinity })
 
     for await (const line of rl) {
@@ -78,8 +81,10 @@ export async function readChatCompletionStreamToSubjects(
 
             for (const ch of json.choices ?? []) {
                 const idx = typeof ch.index === 'number' ? ch.index : 0
-                if (idx >= 0 && idx < choiceCount)
+                if (idx >= 0 && idx < choiceCount) {
                     buffers[idx] = appendVisibleDelta(buffers[idx], ch.delta)
+                    maxIndexSeen = Math.max(maxIndexSeen, idx)
+                }
             }
         }
         catch (e) {
@@ -89,5 +94,6 @@ export async function readChatCompletionStreamToSubjects(
         }
     }
 
-    return buffers
+    const effectiveLen = maxIndexSeen < 0 ? 1 : maxIndexSeen + 1
+    return buffers.slice(0, effectiveLen)
 }
