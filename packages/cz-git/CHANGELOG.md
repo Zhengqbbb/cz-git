@@ -1,3 +1,12 @@
+# [1.13.0](https://github.com/Zhengqbbb/cz-git/compare/v1.12.0...v1.13.0) (2026-04-27)
+
+
+### Features
+
+* **cz-git,czg:** ai api using SSE to support thinking model ([#252](https://github.com/Zhengqbbb/cz-git/issues/252)) ([894657e](https://github.com/Zhengqbbb/cz-git/commit/894657e795abd92b1f75226771ea3e2c7fc488a8)), closes [#250](https://github.com/Zhengqbbb/cz-git/issues/250) [#248](https://github.com/Zhengqbbb/cz-git/issues/248)
+
+
+
 # [1.12.0](https://github.com/Zhengqbbb/cz-git/compare/v1.11.2...v1.12.0) (2025-07-10)
 
 
