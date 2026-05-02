@@ -2,6 +2,17 @@ import { describe, expect, it } from 'vitest'
 import { generateMessage } from '../src/generator'
 import type { CommitizenGitOptions } from '../src/shared'
 
+function stripAnsi(value: string) {
+    const ansiCodes = [
+        '\u001B[32m',
+        '\u001B[33m',
+        '\u001B[36m',
+        '\u001B[39m',
+        '\u001B[0m',
+    ]
+    return ansiCodes.reduce((result, code) => result.split(code).join(''), value)
+}
+
 /**
  * @description generateMessage Test
  */
@@ -53,6 +64,17 @@ describe('generateMessage()', () => {
             }
             expect(generateMessage(answers, options)).toEqual('feat: add a new feature')
         })
+
+        it('colorized custom scope should trim spaces before output', () => {
+            const options = {}
+            const answers = {
+                type: 'feat',
+                scope: '___CUSTOM___',
+                customScope: 'app  ',
+                subject: 'add a new feature',
+            }
+            expect(stripAnsi(generateMessage(answers, options, true))).toEqual('feat(app): add a new feature')
+        })
     })
 
     describe('subject', () => {
@@ -97,6 +119,16 @@ describe('generateMessage()', () => {
                 emojiAlign: 'right',
             }
             expect(generateMessage(answers, options)).toEqual('feat(app): add a new feature :sparkles:')
+        })
+
+        it('colorized subject should trim spaces before output', () => {
+            const options = {}
+            const answers = {
+                type: 'feat',
+                scope: 'app',
+                subject: 'add a new feature  ',
+            }
+            expect(stripAnsi(generateMessage(answers, options, true))).toEqual('feat(app): add a new feature')
         })
     })
 
