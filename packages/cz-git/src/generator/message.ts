@@ -68,8 +68,10 @@ function addType(type: string, colorize?: boolean) {
 function addScope(scope?: string, colorize?: boolean) {
     if (!scope)
         return ''
-    scope = colorize ? style.yellow(scope) : scope
-    return scope?.trim()
+    const trimmedScope = scope.trim()
+    if (!trimmedScope)
+        return ''
+    return colorize ? style.yellow(trimmedScope) : trimmedScope
 }
 
 /** @add if markBreaking or flag add mark "!" */
@@ -104,10 +106,13 @@ function addEmoji(emojiCode: string, tempAlign: string, emojiAlign?: string) {
 function addSubject(subject?: string, colorize?: boolean, themeColorCode?: string) {
     if (!subject)
         return ''
+    const trimmedSubject = subject.trim()
+    if (!trimmedSubject)
+        return ''
     if (!colorize)
-        return subject.trim()
+        return trimmedSubject
     else
-        return useThemeCode(subject, themeColorCode).trim()
+        return useThemeCode(trimmedSubject, themeColorCode)
 }
 
 /** @add if footer or colorize return trimed footer */
