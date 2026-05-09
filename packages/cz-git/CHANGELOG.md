@@ -1,3 +1,12 @@
+## [1.13.1](https://github.com/Zhengqbbb/cz-git/compare/v1.13.0...v1.13.1) (2026-05-09)
+
+
+### Bug Fixes
+
+* **cz-git:** trim colorized scope and subject ([#253](https://github.com/Zhengqbbb/cz-git/issues/253)) ([242e887](https://github.com/Zhengqbbb/cz-git/commit/242e887cd55e461a9ebf68d262b51dde0bc6b03f))
+
+
+
 # [1.13.0](https://github.com/Zhengqbbb/cz-git/compare/v1.12.0...v1.13.0) (2026-04-27)
 
 
