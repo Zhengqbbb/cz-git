@@ -9,6 +9,21 @@ import { Readable } from 'node:stream'
 import type { ReadableStream as WebReadableStream } from 'node:stream/web'
 
 /**
+ * HTTP OK but no user-visible completion text (e.g. thinking-only stream).
+ */
+export class EmptyAICompletionError extends Error {
+    constructor(message: string) {
+        super(message)
+        this.name = 'EmptyAICompletionError'
+    }
+}
+
+interface CompletionParseMeta {
+    sawReasoning: boolean
+    finishReasons: string[]
+}
+
+/**
  * Normalize `fetch` response body to a Node.js readable stream.
  */
 export function bodyToNodeReadable(body: unknown): NodeJS.ReadableStream {
@@ -45,9 +60,29 @@ export function appendVisibleDelta(acc: string, delta: { content?: unknown } | u
     return acc
 }
 
-interface StreamChoiceChunk { index?: number, delta?: { content?: unknown } }
+function hasReasoningText(value: unknown): boolean {
+    if (typeof value === 'string')
+        return value.length > 0
+    return false
+}
 
-interface NonStreamChoice { index?: number, message?: { content?: unknown } }
+function deltaHasReasoning(delta: { reasoning_content?: unknown, reasoning?: unknown } | undefined): boolean {
+    if (!delta)
+        return false
+    return hasReasoningText(delta.reasoning_content) || hasReasoningText(delta.reasoning)
+}
+
+interface StreamChoiceChunk {
+    index?: number
+    finish_reason?: string | null
+    delta?: { content?: unknown, reasoning_content?: unknown, reasoning?: unknown }
+}
+
+interface NonStreamChoice {
+    index?: number
+    finish_reason?: string | null
+    message?: { content?: unknown, reasoning_content?: unknown, reasoning?: unknown }
+}
 
 async function readableToUtf8String(stream: NodeJS.ReadableStream): Promise<string> {
     const chunks: Buffer[] = []
@@ -62,14 +97,47 @@ async function readableToUtf8String(stream: NodeJS.ReadableStream): Promise<stri
     return Buffer.concat(chunks as readonly Uint8Array[]).toString('utf8')
 }
 
+function buildEmptyCompletionMessage(meta: CompletionParseMeta): string {
+    const finish = meta.finishReasons.find(Boolean)
+    const tips = ['AI returned an empty completion.']
+
+    if (meta.sawReasoning) {
+        tips.push(
+            'Only reasoning was received; no final content.',
+            'Retry or try a non-thinking model.',
+        )
+    }
+    else {
+        tips.push(
+            'Retry or try another model.',
+        )
+    }
+
+    if (finish) {
+        tips.push(`finish_reason=${finish}.`)
+    }
+
+    return tips.join(' ')
+}
+
+/**
+ * Drop blank subjects; throw when none remain so CLI never confirms an empty message.
+ */
+export function ensureVisibleSubjects(subjects: string[], meta: CompletionParseMeta = { sawReasoning: false, finishReasons: [] }): string[] {
+    const visible = subjects.filter(s => s.trim().length > 0)
+    if (visible.length > 0)
+        return visible
+    throw new EmptyAICompletionError(buildEmptyCompletionMessage(meta))
+}
+
 /**
  * Parse a non-streaming `chat/completions` JSON body when `stream: true` was ignored.
- * @returns subjects slice, or `undefined` if the body is not a usable completion object.
+ * @returns subjects + meta, or `undefined` if the body is not a usable completion object.
  */
 function trySubjectsFromNonStreamCompletionJson(
     body: string,
     choiceCount: number,
-): string[] | undefined {
+): { buffers: string[], meta: CompletionParseMeta } | undefined {
     const t = body.trim()
     if (!t.startsWith('{'))
         return undefined
@@ -89,24 +157,30 @@ function trySubjectsFromNonStreamCompletionJson(
         return undefined
 
     const buffers = Array.from({ length: choiceCount }, () => '')
+    const meta: CompletionParseMeta = { sawReasoning: false, finishReasons: [] }
     let maxIndexSeen = -1
     for (const ch of o.choices) {
         const idx = typeof ch.index === 'number' ? ch.index : 0
         if (idx >= 0 && idx < choiceCount) {
             buffers[idx] = appendVisibleDelta('', { content: ch.message?.content })
+            if (deltaHasReasoning(ch.message))
+                meta.sawReasoning = true
+            if (typeof ch.finish_reason === 'string' && ch.finish_reason)
+                meta.finishReasons.push(ch.finish_reason)
             maxIndexSeen = Math.max(maxIndexSeen, idx)
         }
     }
     if (maxIndexSeen < 0)
         return undefined
-    return buffers.slice(0, maxIndexSeen + 1)
+    return { buffers: buffers.slice(0, maxIndexSeen + 1), meta }
 }
 
 function collectSubjectsFromSseLines(
     body: string,
     choiceCount: number,
-): { buffers: string[], maxIndexSeen: number } {
+): { buffers: string[], maxIndexSeen: number, meta: CompletionParseMeta } {
     const buffers = Array.from({ length: choiceCount }, () => '')
+    const meta: CompletionParseMeta = { sawReasoning: false, finishReasons: [] }
     let maxIndexSeen = -1
     for (const line of body.split(/\r?\n/)) {
         const trimmed = line.trim()
@@ -126,7 +200,11 @@ function collectSubjectsFromSseLines(
             for (const ch of json.choices ?? []) {
                 const idx = typeof ch.index === 'number' ? ch.index : 0
                 if (idx >= 0 && idx < choiceCount) {
+                    if (deltaHasReasoning(ch.delta))
+                        meta.sawReasoning = true
                     buffers[idx] = appendVisibleDelta(buffers[idx], ch.delta)
+                    if (typeof ch.finish_reason === 'string' && ch.finish_reason)
+                        meta.finishReasons.push(ch.finish_reason)
                     maxIndexSeen = Math.max(maxIndexSeen, idx)
                 }
             }
@@ -137,7 +215,7 @@ function collectSubjectsFromSseLines(
             throw e
         }
     }
-    return { buffers, maxIndexSeen }
+    return { buffers, maxIndexSeen, meta }
 }
 
 /**
@@ -147,6 +225,9 @@ function collectSubjectsFromSseLines(
  * mirroring non-stream `choices.length` when fewer parallel completions appear.
  * Fallback: if no choice index ever appears (e.g. provider ignores `stream: true` and returns one JSON object),
  * the full body is parsed as a non-streaming completion using `choices[].message.content`.
+ *
+ * Throws {@link EmptyAICompletionError} when the response is parseable but every choice has blank
+ * visible content (common with thinking models that only emit `reasoning_content`).
  */
 export async function readChatCompletionStreamToSubjects(
     input: NodeJS.ReadableStream,
@@ -156,14 +237,14 @@ export async function readChatCompletionStreamToSubjects(
         throw new Error('choiceCount must be at least 1')
 
     const body = await readableToUtf8String(input)
-    const { buffers, maxIndexSeen } = collectSubjectsFromSseLines(body, choiceCount)
+    const { buffers, maxIndexSeen, meta } = collectSubjectsFromSseLines(body, choiceCount)
 
     if (maxIndexSeen >= 0)
-        return buffers.slice(0, maxIndexSeen + 1)
+        return ensureVisibleSubjects(buffers.slice(0, maxIndexSeen + 1), meta)
 
     const fromJson = trySubjectsFromNonStreamCompletionJson(body, choiceCount)
     if (fromJson !== undefined)
-        return fromJson
+        return ensureVisibleSubjects(fromJson.buffers, fromJson.meta)
 
     throw new Error(
         'Chat completions response had no streamed choice deltas and is not a parseable non-streaming JSON body with choices (or choices were empty).',

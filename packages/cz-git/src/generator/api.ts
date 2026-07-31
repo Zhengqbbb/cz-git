@@ -4,7 +4,12 @@ import { style } from '@cz-git/inquirer'
 import HttpsProxyAgent from 'https-proxy-agent'
 import { isNodeVersionInRange, log, transformSubjectCase } from '../shared'
 import type { CommitizenGitOptions } from '../shared'
-import { bodyToNodeReadable, readChatCompletionStreamToSubjects } from '../shared/utils/stream'
+import {
+    EmptyAICompletionError,
+    bodyToNodeReadable,
+    ensureVisibleSubjects,
+    readChatCompletionStreamToSubjects,
+} from '../shared/utils/stream'
 
 /** Enough headroom for reasoning + short subject (legacy default was 200). */
 const AI_MAX_COMPLETION_TOKENS = 4096
@@ -55,9 +60,15 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
         const choiceCount = options.aiNumber || 1
         const readable = bodyToNodeReadable(response.body)
         const rawSubjects = await readChatCompletionStreamToSubjects(readable, choiceCount)
-        return rawSubjects.map(s => parseAISubject(options, s))
+        // Re-check after normalize/trim so blank-after-parse never reaches confirm.
+        return ensureVisibleSubjects(rawSubjects.map(s => parseAISubject(options, s)))
     }
     catch (err: any) {
+        if (err instanceof EmptyAICompletionError) {
+            log('err', err.message)
+            throw err
+        }
+
         let errorMsg = 'Fetch OpenAI API message failure.'
         if (err instanceof APIError) {
             errorMsg += ` The response HTTP Code: ${err.code}`
