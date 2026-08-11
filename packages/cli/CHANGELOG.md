@@ -1,3 +1,12 @@
+## [1.13.2](https://github.com/Zhengqbbb/cz-git/compare/v1.13.1...v1.13.2) (2026-08-11)
+
+
+### Bug Fixes
+
+* **cz-git:** throw an error when AI `reasoning_content` is empty ([#260](https://github.com/Zhengqbbb/cz-git/issues/260)) ([0e78718](https://github.com/Zhengqbbb/cz-git/commit/0e787187529f06519397c0d8c728d7b5bc3fa17b))
+
+
+
 ## [1.13.1](https://github.com/Zhengqbbb/cz-git/compare/v1.13.0...v1.13.1) (2026-05-09)
 
 
