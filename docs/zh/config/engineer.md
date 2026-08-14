@@ -205,6 +205,33 @@ module.exports = {
 
 ::::
 
+## apiExtraBody
+
+- **描述** : 合并进 `/chat/completions` AI 请求体的额外字段
+- **类型** : `Record<string, unknown>`
+- **默认值** : `undefined`
+
+:::warning
+将字段设置为 `null` 可以将其从请求体中**移除**。
+
+有些模型会直接拒绝某个字段，此时仅覆盖它的值是不够的。例如需要 `max_completion_tokens`
+的模型，无论 `max_tokens` 取何值都会被拒绝，并且 `temperature` 只接受默认值。
+:::
+
+- **例子** : 使用需要 `max_completion_tokens` 的模型
+
+```json
+// ~/.config/.czrc
+{
+  "apiModel": "gpt-5.6-luna",
+  "apiExtraBody": {
+    "max_tokens": null,
+    "temperature": null,
+    "max_completion_tokens": 4096
+  }
+}
+```
+
 
 ## upperCaseSubject
 

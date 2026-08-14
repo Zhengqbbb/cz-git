@@ -88,17 +88,28 @@ export async function fetchOpenAIMessage(options: CommitizenGitOptions, prompt: 
 }
 
 // https://platform.openai.com/docs/api-reference/chat/create
-function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
+export function useModelStrategy(options: CommitizenGitOptions, prompt: string) {
+    const payload: Record<string, unknown> = {
+        model: options.aiModel,
+        messages: [{ role: 'user', content: prompt }],
+        stream: true,
+        top_p: 1,
+        temperature: 0.7,
+        max_tokens: AI_MAX_COMPLETION_TOKENS,
+        n: options.aiNumber || 1,
+    }
+
+    // `null` deletes instead of overriding: some models reject a field at any
+    // value, e.g. `max_tokens` on models that require `max_completion_tokens`.
+    for (const [key, value] of Object.entries(options.apiExtraBody ?? {})) {
+        if (value === null)
+            delete payload[key]
+        else
+            payload[key] = value
+    }
+
     return {
-        payload: {
-            model: options.aiModel,
-            messages: [{ role: 'user', content: prompt }],
-            stream: true,
-            top_p: 1,
-            temperature: 0.7,
-            max_tokens: AI_MAX_COMPLETION_TOKENS,
-            n: options.aiNumber || 1,
-        },
+        payload,
         url: `${options.apiEndpoint}/chat/completions`,
     }
 }

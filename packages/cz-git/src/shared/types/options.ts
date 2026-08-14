@@ -288,6 +288,17 @@ export interface CommitizenGitOptions {
     apiEndpoint?: string
 
     /**
+     * Extra fields merged into the AI request body of `/chat/completions`
+     *
+     * @note Set a field to `null` to **remove** it from the request body.
+     * Some models reject a field outright, where overriding its value is not enough.
+     * e.g. models requiring `max_completion_tokens` reject `max_tokens` at any value.
+     * @example { "max_completion_tokens": 4096, "max_tokens": null, "temperature": null }
+     * @default undefined
+     */
+    apiExtraBody?: Record<string, unknown>
+
+    /**
      * Use the callback fn can customize edit information AI question information
      *
      * @param aiParam provide some known parameters
@@ -644,6 +655,7 @@ export const defaultConfig = Object.freeze({
     openAIToken: '',
     apiProxy: '',
     apiEndpoint: 'https://api.openai.com/v1',
+    apiExtraBody: undefined,
     emojiAlign: 'center',
     scopes: [],
     scopesSearchValue: false,

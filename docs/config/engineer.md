@@ -185,6 +185,34 @@ module.exports = {
 }
 ```
 
+## apiExtraBody
+
+- **description** : Extra fields merged into the AI request body of `/chat/completions`
+- **type** : `Record<string, unknown>`
+- **default** : `undefined`
+
+:::warning
+Set a field to `null` to **remove** it from the request body.
+
+Some models reject a field outright, where overriding its value is not enough. For example
+models which require `max_completion_tokens` reject `max_tokens` at any value, and accept
+only the default `temperature`.
+:::
+
+- **example** : use a model which requires `max_completion_tokens`
+
+```json
+// ~/.config/.czrc
+{
+  "apiModel": "gpt-5.6-luna",
+  "apiExtraBody": {
+    "max_tokens": null,
+    "temperature": null,
+    "max_completion_tokens": 4096
+  }
+}
+```
+
 ## upperCaseSubject
 
 - **description** : Whether to automatically capitalize the first character of the short description (subject)
