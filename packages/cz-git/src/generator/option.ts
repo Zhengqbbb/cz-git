@@ -38,6 +38,7 @@ export function generateOptions(config: UserConfig): CommitizenGitOptions {
         openAIToken: process.env.CZ_OPENAI_TOKEN || process.env.CZ_OPENAI_API_KEY || promptConfig.openAIToken || defaultConfig.openAIToken,
         apiProxy: promptConfig.apiProxy || defaultConfig.apiProxy,
         apiEndpoint: promptConfig.apiEndpoint || defaultConfig.apiEndpoint,
+        apiExtraBody: promptConfig.apiExtraBody ?? defaultConfig.apiExtraBody,
         useEmoji: Boolean(emoji === '1') || promptConfig.useEmoji || defaultConfig.useEmoji,
         emojiAlign: promptConfig.emojiAlign || defaultConfig.emojiAlign,
         scopes: promptConfig.scopes ?? getEnumList(config?.rules?.['scope-enum'] as any),

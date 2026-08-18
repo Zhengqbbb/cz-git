@@ -177,6 +177,8 @@ export async function aiLoader() {
         apiEndpoint: data?.config?.apiEndpoint || '',
         apiProxy: data?.config?.apiProxy || '',
         apiModel: data?.config?.apiModel || '',
+        // Only spread the key when set, so it cannot clobber a project-level value
+        ...(data?.config?.apiExtraBody ? { apiExtraBody: data.config.apiExtraBody } : {}),
     }
 }
 

@@ -208,6 +208,7 @@ If you are currently using [Commitizen CLI](https://github.com/commitizen/cz-cli
   - czg CLI: `czg --no-ai`
   - Commitizen CLI + cz-git: `no_czai=1 cz`
 - If you want to **customize the prompt words** sent to OpenAI (like support **i18n**), you can use [aiQuestionCB](/config/engineer#aiquestioncb) option
+- If the model you use **rejects some of the default request fields**, you can adjust the request body with the [apiExtraBody](/config/engineer#apiextrabody) option
 - The AI **configure options** information see : [Options - AI Related](/config/engineer#useai)
 - About project or global support **configure file** information see: [Configure Template](/config/#configure-template)
 

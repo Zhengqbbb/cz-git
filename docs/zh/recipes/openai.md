@@ -240,6 +240,7 @@ module.exports = {
   aiQuestionCB: ({ maxSubjectLength, diff }) => `用完整句子为以下 Git diff 代码写一个有见解并简洁的 Git 中文提交消息，不加任何前缀，并且内容不能超过 ${maxSubjectLength} 个字符: \`\`\`diff\n${diff}\n\`\`\``,
 }
 ```
+- 如果你使用的模型**拒绝默认请求体中的某些字段**，可以使用配置项 [apiExtraBody](/zh/config/engineer#apiextrabody) 调整请求体
 - 关于 AI 相关的配置信息 可查看 [Options - AI Related](/zh/config/engineer#useai)
 - 关于项目或全局配置文件信息 可查看 [Configure Template](/zh/config/#configure-template)
 
