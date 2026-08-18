@@ -207,7 +207,7 @@ module.exports = {
 
 ## apiExtraBody
 
-- **描述** : 合并进 `/chat/completions` AI 请求体的额外字段
+- **描述** : 设置 API `/chat/completions` 请求体的额外字段
 - **类型** : `Record<string, unknown>`
 - **默认值** : `undefined`
 
@@ -218,7 +218,7 @@ module.exports = {
 的模型，无论 `max_tokens` 取何值都会被拒绝，并且 `temperature` 只接受默认值。
 :::
 
-- **例子** : 使用需要 `max_completion_tokens` 的模型
+- **场景** : 使用需要 `max_completion_tokens` 的模型时，需要设置该字段
 
 ```json
 // ~/.config/.czrc
@@ -231,7 +231,6 @@ module.exports = {
   }
 }
 ```
-
 
 ## upperCaseSubject
 
