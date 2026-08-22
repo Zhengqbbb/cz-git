@@ -1,3 +1,12 @@
+# [1.14.0](https://github.com/Zhengqbbb/cz-git/compare/v1.13.2...v1.14.0) (2026-08-22)
+
+
+### Features
+
+* **cz-git,plugin-loader:** add `apiExtraBody` option ([#262](https://github.com/Zhengqbbb/cz-git/issues/262)) ([a22115c](https://github.com/Zhengqbbb/cz-git/commit/a22115c7454a1888b2a789bb7667a00f07215b84)), closes [#261](https://github.com/Zhengqbbb/cz-git/issues/261)
+
+
+
 ## [1.13.2](https://github.com/Zhengqbbb/cz-git/compare/v1.13.1...v1.13.2) (2026-08-11)
 
 
